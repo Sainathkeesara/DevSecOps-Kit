@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-04-27
+
+### Added
+- lin-069: docs/how-to/linux-dns-management-coredns-systemd-resolved.md — Complete DNS management with CoreDNS and systemd-resolved
+- lin-069: scripts/bash/linux/linux-dns-coredns.sh — Automated DNS entry management for CoreDNS
+- lin-069: scripts/bash/linux/linux-dns-test.sh — DNS setup verification and testing
+- lin-069: scripts/bash/linux/linux-dns-monitor.sh — DNS health monitoring with auto-restart
+- 00_index/quick-links.md — Added DNS management entries
+
 ## 2026-04-24
 
 ### Added
