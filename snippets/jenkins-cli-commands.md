@@ -215,6 +215,157 @@ java -jar jenkins-cli.jar -s http://jenkins:8080 connect-node agent1
 curl -u user:token http://jenkins:8080/computer/agent1/api/json
 ```
 
+### Security and Permissions
+```bash
+# List all users
+java -jar jenkins-cli.jar -s http://jenkins:8080 list-users
+
+# Get user permissions
+java -jar jenkins-cli.jar -s http://jenkins:8080 get-credentials "mycreds" -scope SYSTEM
+
+# Reload security realm
+java -jar jenkins-cli.jar -s http://jenkins:8080 reload-securityrealm
+
+# Export global credentials
+curl -u user:token http://jenkins:8080/credentials/store/systemDomain/credentialIds
+
+# Check user security permissions
+curl -u user:token http://jenkins:8080/securityRealm/api/json | jq '.users'
+```
+
+### Queue Management
+```bash
+# Clear build queue
+java -jar jenkins-cli.jar -s http://jenkins:8080 clear-queue
+
+# Get queue item details
+curl -u user:token http://jenkins:8080/queue/item/42/api/json
+
+# Cancel all builds in queue
+curl -X POST http://jenkins:8080/queue/cancelAllBuilds -u user:token
+
+# View queue breakdown
+curl -u user:token http://jenkins:8080/queue/api/json | jq '.items[] | {id, task_name, inQueueSince}'
+```
+
+### Label Management
+```bash
+# Create agent label
+java -jar jenkins-cli.jar -s http://jenkins:8080 set-labels agent1 "docker,linux"
+
+# List nodes by label
+curl -u user:token http://jenkins:8080/label/docker/api/json
+
+# Get label statistics
+curl -u user:token http://jenkins:8080/label/api/json
+```
+
+### Build Parameters
+```bash
+# Get job parameters
+curl -u user:token http://jenkins:8080/job/myjob/parameters/api/json
+
+# Trigger parameterized build
+curl -X POST http://jenkins:8080/job/myjob/buildWithParameters \
+  -u user:token -d "PARAM1=value1&PARAM2=value2"
+
+# Get last build parameters
+curl -u user:token http://jenkins:8080/job/myjob/lastBuild/parameterDefinitions
+```
+
+### Folder Operations
+```bash
+# Create a folder
+java -jar jenkins-cli.jar -s http://jenkins:8080 create-folder myfolder
+
+# Delete a folder
+java -jar jenkins-cli.jar -s http://jenkins:8080 delete-folder myfolder
+
+# List folder jobs
+curl -u user:token http://jenkins:8080/job/myfolder/api/json | jq('.jobs[]')
+
+# Navigate into folder
+java -jar jenkins-cli.jar -s http://jenkins:8080 list-jobs myfolder
+
+# Copy job to folder
+java -jar jenkins-cli.jar -s http://jenkins:8080 copy-job sourcefolder/source-job targetfolder/target-job
+```
+
+### Logs and Diagnostics
+```bash
+# Get Jenkins logs
+curl -u user:token http://jenkins:8080/log/size/estimate
+
+# Download all logs
+curl -u user:token http://jenkins:8080/log/rss
+
+# Get agent logs
+curl -u user:token http://jenkins:8080/computer/agent1/log
+
+# Get build timestep
+curl -u user:token http://jenkins:8080/job/myjob/42/timesteps
+
+# Get build causality
+curl -u user:token http://jenkins:8080/job/myjob/42/causes
+```
+
+### Statistics and Metrics
+```bash
+# Get build statistics
+curl -u user:token http://jenkins:8080/job/myjob/api/json | jq('.lastBuild.number, .lastBuild.duration, .lastBuild.result')
+
+# Get overall load statistics
+curl -u user:token http://jenkins:8080/overallLoad/api/json
+
+# Get CPU usage
+curl -u user:token http://jenkins:8080/monitoring/api/json
+
+# Get thread dump
+java -jar jenkins-cli.jar -s http://jenkins:8080 thread-dump
+
+# Get executor information
+curl -u user:token http://jenkins:8080/computer/api/json | jq('.computer[].executors[]')
+```
+
+### Cloud and Ephemeral Agents
+```bash
+# Configure cloud
+java -jar jenkins-cli.jar -s http://jenkins:8080 configure-cloud
+
+#Provision ephemeral agent
+java -jar jenkins-cli.jar -s http://jenkins:8080 online-nodes
+
+# Get cloud status
+curl -u user:token http://jenkins:8080/cloud/api/json
+
+# Terminate cloud agent
+java -jar jenkins-cli.jar -s http://jenkins:8080 terminate-cloud agent1
+
+# Check docker cloud capacity
+curl -u user:token http://jenkins:8080/cloud/docker/api/json
+```
+
+### Backup and Migration
+```bash
+# Export job configuration
+java -jar jenkins-cli.jar -s http://jenkins:8080 get-job myjob > myjob.xml
+
+# Export all configurations
+java -jar jenkins-cli.jar -s http://jenkins:8080 get-all-credentials > all-creds.xml
+
+# Backup user configurations
+java -jar jenkins-cli.jar -s http://jenkins:8080 export-users
+
+# Get all nodes config
+java -jar jenkins-cli.jar -s http://jenkins:8080 get-nodes > nodes.xml
+
+# Export global config
+java -jar jenkins-cli.jar -s http://jenkins:8080 export-config
+
+# Import job configuration
+java -jar jenkins-cli.jar -s http://jenkins:8080 create-job myjob < myjob.xml
+```
+
 ## Verify
 Test each command in a non-production Jenkins instance first:
 ```bash
