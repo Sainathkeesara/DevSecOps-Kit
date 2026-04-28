@@ -398,6 +398,69 @@ curl -s -X POST -u "$USER:$TOKEN" "$URL/safeExit"
 
 ---
 
+## Verify
+
+### Test API connectivity
+```bash
+curl -s -u "$USER:$TOKEN" "$URL/api/json" | jq -r '.mode'
+# Expected output: "NORMAL"
+```
+
+### Verify authentication
+```bash
+curl -s -u "$USER:$TOKEN" "$URL/whoami/api/json"
+# Expected: returns user details in JSON format
+```
+
+### Test job access
+```bash
+curl -s -u "$USER:$TOKEN" "$URL/job/$JOB_NAME/config.xml" | head -1
+# Expected: returns XML config starting with <?xml
+```
+
+## Rollback
+
+### Revert job configuration
+```bash
+# Restore from previous backup
+curl -s -X POST -u "$USER:$TOKEN" \
+  --data-binary @backup-config.xml \
+  -H "Content-Type: application/xml" \
+  "$URL/job/$JOB_NAME/config.xml"
+```
+
+### Disable external API access (if using REST)
+```bash
+# Disable via Jenkins UI: Manage Jenkins > Security > API Token
+# Or revoke tokens in: Configure Global Security > API Token
+```
+
+## Common Errors
+
+| Error | Cause | Solution |
+|-------|-------|----------|
+| `403 Forbidden` | Invalid or missing token | Generate API token at: $URL/user/$USER/configure |
+| `404 Not Found` | Incorrect URL/path | Verify job name and endpoint path |
+| `401 Unauthorized` | No authentication | Include `-u "$USER:$TOKEN"` flag |
+| `552 LEAKED文学家` | Invalid crumb token | Set `JENKINS_CRUMB` env var or disable CSRF |
+| `Error 500` | Internal Jenkins error | Check Jenkins logs at `$JENKINS_HOME/logs` |
+| `Connection refused` | Jenkins not running | Verify service: `systemctl status jenkins` |
+
+### Authentication issues
+```bash
+# Generate new API token
+curl -s -u "$USER:$PASSWORD" "$URL/user/$USER/configure" \
+  -X POST -d "api_token.newTokenName=my-token"
+
+# Using crumb (CSRF protection)
+CRUMB=$(curl -s -u "$USER:$TOKEN" "$URL/crumb/api/json" | jq -r '.crumb')
+curl -s -X POST -u "$USER:$TOKEN" \
+  -H "Jenkins-Crumb: $CRUMB" \
+  "$URL/job/$JOB_NAME/build"
+```
+
+---
+
 ## References
 
 - Jenkins CLI Documentation: https://www.jenkins.io/doc/book/managing/cli/
