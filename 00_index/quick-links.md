@@ -286,6 +286,8 @@
 - [CVE-2026-24049 Hardening](../scripts/bash/ansible_toolkit/security/aap-cve-2026-24049-check.sh) - Wheel package privilege escalation vulnerability scanner with --host, --token, --dry-run, and --output flags
 - [Vault Password Rotation](../scripts/bash/ansible_toolkit/security/vault-password-rotation.sh) - Rotate vault passwords across encrypted files with --dry-run and --execute flags
 - [CVE-2026-0598 Hardening](../scripts/bash/ansible_toolkit/security/aap-cve-2026-0598-check.sh) - AAP Lightspeed auth bypass vulnerability scanner with --dry-run, --host, --token, and --output flags
+- [CVE-2026-33228 Audit](../scripts/bash/ansible_toolkit/security/cve-2026-33228-audit.sh) - Flatted prototype pollution audit with --path, --dry-run, --json-output flags
+- [CVE-2026-33228 Runbook](../docs/runbooks/cve-2026-33228-ansible-flatted.md) - Flatted prototype pollution remediation guide
 
 ## Vault
 - [Vault Secure Deployment Guide](docs/how-to/vault-secure-deployment.md) - Comprehensive security hardening for Vault production deployments
