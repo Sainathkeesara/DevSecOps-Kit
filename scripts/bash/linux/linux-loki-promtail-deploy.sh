@@ -2,10 +2,11 @@
 set -euo pipefail
 
 readonly SCRIPT_NAME="linux-loki-promtail-deploy"
-readonly SCRIPT_VERSION="1.0.0"
+readonly SCRIPT_VERSION="2.0.0"
 
 # Requirements: curl, sudo, systemd (for systemd-based Linux)
 # Safety: DRY_RUN=true by default. Use --apply to execute.
+# Security: Creates dedicated system users loki and promtail (package vs binary install handled)
 
 usage() {
     cat <<EOF
@@ -16,6 +17,7 @@ Usage: ${SCRIPT_NAME} [OPTIONS]
 Description:
   Deploys Loki log aggregator and Promtail log shipper on Linux servers.
   Supports single-node deployment and scales to multi-server setups.
+  Security-hardened: proper system users, least-privilege service accounts.
 
 Options:
   --apply         Apply changes (default is dry-run)
@@ -105,25 +107,54 @@ check_dependencies() {
     log_info "All dependencies satisfied"
 }
 
+ensure_loki_user() {
+    if ! id loki &>/dev/null; then
+        if [[ "$DRY_RUN" == true ]]; then
+            log_warn "[dry-run] Would create system user: loki"
+        else
+            useradd -r -s /bin/false -M -d /nonexistent loki
+            log_success "Created system user: loki"
+        fi
+    else
+        log_info "User loki already exists"
+    fi
+}
+
+ensure_promtail_user() {
+    if ! id promtail &>/dev/null; then
+        if [[ "$DRY_RUN" == true ]]; then
+            log_warn "[dry-run] Would create system user: promtail"
+        else
+            useradd -r -s /bin/false -M -d /nonexistent promtail
+            log_success "Created system user: promtail"
+        fi
+    else
+        log_info "User promtail already exists"
+    fi
+}
+
 install_loki() {
     log_info "Installing Loki..."
     
     if [[ "$DRY_RUN" == true ]]; then
-        log_warn "[dry-run] Would download and install Loki"
+        log_warn "[dry-run] Would download and install Loki (binary)"
+        log_warn "[dry-run] Would ensure loki system user exists"
         return 0
     fi
     
+    ensure_loki_user
+    
     local loki_version="3.2.0"
     
-    if command -v apt-get >/dev/null 2>&1; then
-        curl -s -L "https://github.com/grafana/loki/releases/download/v${loki_version}/loki_amd64.deb" -o /tmp/loki.deb
-        dpkg -i /tmp/loki.deb || apt-get -f install -y
-    elif command -v yum >/dev/null 2>&1; then
-        curl -s -L "https://github.com/grafana/loki/releases/download/v${loki_version}/loki-3.2.0.x86_64.rpm" -o /tmp/loki.rpm
-        yum localinstall -y /tmp/loki.rpm
+    if ! command -v loki &>/dev/null; then
+        log_info "Downloading Loki ${loki_version} binary..."
+        curl -s -L "https://github.com/grafana/loki/releases/download/v${loki_version}/loki-linux-amd64.zip" -o /tmp/loki-linux-amd64.zip
+        command -v unzip &>/dev/null || { log_error "unzip not found. Installing..."; apt-get update && apt-get install -y unzip; }
+        unzip -o /tmp/loki-linux-amd64.zip -d /tmp/
+        install -o loki -g loki -m 0755 /tmp/loki-linux-amd64 /usr/local/bin/loki
+        rm -f /tmp/loki-linux-amd64.zip /tmp/loki-linux-amd64 /tmp/LICENSE /tmp/NOTICE
     else
-        log_error "Unsupported package manager"
-        return 1
+        log_info "Loki binary already installed"
     fi
     
     log_success "Loki installed"
@@ -137,8 +168,12 @@ configure_loki() {
         return 0
     fi
     
+    ensure_loki_user
+    
     mkdir -p "$STORAGE_PATH" /var/log/loki /etc/loki
-    chown -R root:root "$STORAGE_PATH" /var/log/loki
+    chown -R loki:loki "$STORAGE_PATH"
+    chown -R loki:loki /var/log/loki
+    chown -R loki:loki /etc/loki
     
     cat > /etc/loki/local-config.yaml <<EOF
 auth_enabled: false
@@ -181,6 +216,8 @@ table_manager:
   retention_deletes_enabled: true
   retention_period: ${RETENTION_HOURS}h
 EOF
+    chmod 0644 /etc/loki/local-config.yaml
+    chown loki:loki /etc/loki/local-config.yaml
     
     log_success "Loki configured"
 }
@@ -189,16 +226,36 @@ start_loki_service() {
     log_info "Starting Loki service..."
     
     if [[ "$DRY_RUN" == true ]]; then
-        log_warn "[dry-run] Would start Loki service"
+        log_warn "[dry-run] Would start Loki service (loki user, systemd)"
         return 0
     fi
+    
+    cat > /etc/systemd/system/loki.service <<'SVCEOF'
+[Unit]
+Description=Loki Log Aggregator
+After=network.target
+
+[Service]
+Type=simple
+User=loki
+Group=loki
+ExecStart=/usr/local/bin/loki -config.file=/etc/loki/local-config.yaml
+Restart=on-failure
+RestartSec=10
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/loki /var/log/loki /etc/loki
+
+[Install]
+WantedBy=multi-user.target
+SVCEOF
     
     systemctl daemon-reload
     systemctl enable loki
     systemctl start loki
     
     if systemctl is-active --quiet loki; then
-        log_success "Loki service started"
+        log_success "Loki service started (running as loki:loki)"
     else
         log_error "Loki service failed to start"
         systemctl status loki
@@ -206,106 +263,8 @@ start_loki_service() {
     fi
 }
 
-install_promtail() {
-    log_info "Installing Promtail..."
-    
-    if [[ "$DRY_RUN" == true ]]; then
-        log_warn "[dry-run] Would install and configure Promtail"
-        return 0
-    fi
-    
-    local promtail_version="3.2.0"
-    
-    if command -v apt-get >/dev/null 2>&1; then
-        curl -s -L "https://github.com/grafana/loki/releases/download/v${promtail_version}/promtail_amd64.deb" -o /tmp/promtail.deb
-        dpkg -i /tmp/promtail.deb || apt-get -f install -y
-    elif command -v yum >/dev/null 2>&1; then
-        curl -s -L "https://github.com/grafana/loki/releases/download/v${promtail_version}/promtail-3.2.0.x86_64.rpm" -o /tmp/promtail.rpm
-        yum localinstall -y /tmp/promtail.rpm
-    else
-        log_error "Unsupported package manager"
-        return 1
-    fi
-    
-    log_success "Promtail installed"
-}
 
-configure_promtail() {
-    log_info "Configuring Promtail..."
-    
-    if [[ "$DRY_RUN" == true ]]; then
-        log_warn "[dry-run] Would configure Promtail to send to $LOKI_HOST:$LOKI_PORT"
-        return 0
-    fi
-    
-    mkdir -p /var/lib/promtail /var/log/promtail /etc/promtail
-    chown -R root:root /var/lib/promtail /var/log/promtail
-    
-    cat > /etc/promtail/promtail-config.yaml <<EOF
-server:
-  http_listen_port: 9080
-  grpc_listen_port: 9081
-clients:
-  - endpoint: http://${LOKI_HOST}:${LOKI_PORT}/loki/api/v1/push
-    retry_interval: 5s
-    batch_timeout: 10s
-    external_labels:
-      environment: production
-      datacenter: dc1
-scrape_configs:
-  - job_name: system
-    static_configs:
-      - targets:
-          - localhost
-        labels:
-          job: system_logs
-          host: $(hostname)
-          __path__: /var/log/*.log
-  - job_name: auth_logs
-    static_configs:
-      - targets:
-          - localhost
-        labels:
-          job: auth
-          host: $(hostname)
-          __path__: /var/log/auth.log
-  - job_name: syslog
-    syslog:
-      listen_address: 0.0.0.0:514
-      labels:
-        job: syslog
-        host: $(hostname)
-  - job_name: journal
-    journal:
-      path: /var/log/journal
-      labels:
-        job: systemd
-        host: $(hostname)
-EOF
-    
-    log_success "Promtail configured"
-}
 
-start_promtail_service() {
-    log_info "Starting Promtail service..."
-    
-    if [[ "$DRY_RUN" == true ]]; then
-        log_warn "[dry-run] Would start Promtail service"
-        return 0
-    fi
-    
-    systemctl daemon-reload
-    systemctl enable promtail
-    systemctl start promtail
-    
-    if systemctl is-active --quiet promtail; then
-        log_success "Promtail service started"
-    else
-        log_error "Promtail service failed to start"
-        systemctl status promtail
-        return 1
-    fi
-}
 
 verify_deployment() {
     log_info "Verifying deployment..."

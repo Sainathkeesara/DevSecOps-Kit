@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This project provides comprehensive guidance on setting up Loki for log aggregation and Promtail for log collection in a Linux environment. The stack enables centralized logging, querying, and visualization of logs across multiple servers and applications.
+This project provides comprehensive guidance on setting up Loi for log aggregation and Promtail for log collection in a Linux environment. The stack enables centralized logging, querying, and visualization of logs across multiple servers and applications. This guide emphasizes security-hardened, production-ready deployments with proper user isolation, least-privilege service accounts, and safe installation practices that work consistently across both package-managed and binary installations.
 
 ## When to Use
 
@@ -12,6 +12,7 @@ This project provides comprehensive guidance on setting up Loki for log aggregat
 - Troubleshooting distributed applications
 - Meeting compliance logging requirements
 - Creating audit trails for security analysis
+- Replacing syslog-ng/rsyslog with modern Loki/Promtail stack
 
 ## Prerequisites
 
@@ -21,6 +22,7 @@ This project provides comprehensive guidance on setting up Loki for log aggregat
 - Network connectivity between all servers
 - Basic understanding of systemd and logging
 - Grafana installed for visualization (optional but recommended)
+- curl and wget available on all target systems
 
 ## Steps
 
@@ -33,34 +35,67 @@ Design your Loki deployment:
 - Scalable: For large environments with many servers
 
 Plan the storage requirements:
+
 - Default retention: 30 days
 - Average log rate: 100MB/hour per server
 - Storage per server/month: ~70GB
 
 ### Step 2: Install Loki on the Central Server
 
+Choose installation method: **Package (Debian/Ubuntu/RHEL)** or **Binary**. Both methods create the `loki` system user automatically, but handled differently.
+
+#### Method A: Package Installation (Recommended)
+
+Package managers (apt/yum/dnf) create the `loki` user automatically. We just need to ensure correct ownership.
+
 ```bash
-# Download Loki
-curl -s -L https://github.com/grafana/loki/releases/download/v3.2.0/loki_3.2.0_amd64.deb -o loki.deb
-sudo dpkg -i loki.deb
+# Download Loki package
+curl -s -L https://github.com/grafana/loki/releases/download/v3.2.0/loki_3.2.0_amd64.deb -o /tmp/loki.deb
+sudo dpkg -i /tmp/loki.deb
 
-# Or use binary installation
-wget https://github.com/grafana/loki/releases/download/v3.2.0/loki-linux-amd64.zip
-unzip loki-linux-amd64.zip
-sudo mv loki-linux-amd64 /usr/local/bin/loki
-sudo mv promtail-linux-amd64 /usr/local/bin/promtail
+# Verify loki user was created
+id loki
+# Should show: uid=... gid=... groups=...
 
-# Create loki user
-sudo useradd -r -s /bin/false loki
-
-# Create directories
+# Create required directories (some may already exist)
 sudo mkdir -p /var/lib/loki /etc/loki /var/log/loki
-sudo chown -R loki:loki /var/lib/loki /var/log/loki
+
+# Set correct ownership - loki user owns its data and config
+sudo chown -R loki:loki /var/lib/loki
+sudo chown -R loki:loki /var/log/loki
+sudo chown -R loki:loki /etc/loki
+```
+
+#### Method B: Binary Installation
+
+For binary installs, we must create the `loki` user ourselves **before** running the service.
+
+```bash
+# Create loki system user FIRST (if not already present)
+if ! id loki &>/dev/null; then
+    sudo useradd -r -s /bin/false -M -d /nonexistent loki
+fi
+
+# Download and install Loki binary
+cd /tmp
+wget -q https://github.com/grafana/loki/releases/download/v3.2.0/loki-linux-amd64.zip
+unzip -o loki-linux-amd64.zip
+
+# Install binary with correct ownership
+sudo install -o loki -g loki -m 0755 loki-linux-amd64 /usr/local/bin/loki
+
+# Create required directories
+sudo mkdir -p /var/lib/loki /etc/loki /var/log/loki
+
+# Set correct ownership - loki:loki (NOT root:root)
+sudo chown -R loki:loki /var/lib/loki
+sudo chown -R loki:loki /var/log/loki
+sudo chown -R loki:loki /etc/loki
 ```
 
 ### Step 3: Configure Loki
 
-Create the Loki configuration file:
+Create the Loki configuration file with proper permissions:
 
 ```bash
 sudo tee /etc/loki/local-config.yaml > /dev/null << 'EOF'
@@ -112,11 +147,14 @@ table_manager:
   retention_period: 720h
 EOF
 
-# Make Loki executable
-sudo chmod +x /usr/local/bin/loki
+# Set ownership to loki user
+sudo chown loki:loki /etc/loki/local-config.yaml
+sudo chmod 0644 /etc/loki/local-config.yaml
 ```
 
 ### Step 4: Create Systemd Service for Loki
+
+Create the systemd service file running as the `loki` user:
 
 ```bash
 sudo tee /etc/systemd/system/loki.service > /dev/null << 'EOF'
@@ -127,43 +165,73 @@ After=network.target
 [Service]
 Type=simple
 User=loki
+Group=loki
 ExecStart=/usr/local/bin/loki -config.file=/etc/loki/local-config.yaml
 Restart=on-failure
 RestartSec=10
 LimitNOFILE=65536
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/loki /var/log/loki /etc/loki
 
 [Install]
 WantedBy=multi-user.target
 EOF
 
-# Reload and start Loki
+# Reload systemd, enable and start Loki
 sudo systemctl daemon-reload
 sudo systemctl enable loki
 sudo systemctl start loki
+
+# Verify Loki is running
 sudo systemctl status loki
 ```
 
 ### Step 5: Install Promtail on Client Servers
 
-On each server that needs to send logs:
+Each log-sending server needs Promtail installed. Again, choose **Package** or **Binary**:
+
+#### Method A: Package Installation
 
 ```bash
-# Download Promtail
-wget https://github.com/grafana/loki/releases/download/v3.2.0/promtail-linux-amd64.zip
-unzip promtail-linux-amd64.zip
-sudo mv promtail-linux-amd64 /usr/local/bin/promtail
+# Download Promtail package
+curl -s -L https://github.com/grafana/loki/releases/download/v3.2.0/promtail_3.2.0_amd64.deb -o /tmp/promtail.deb
+sudo dpkg -i /tmp/promtail.deb
 
-# Create promtail user
-sudo useradd -r -s /bin/false promtail
+# Verify promtail user was created
+id promtail
+```
 
-# Create directories
+#### Method B: Binary Installation
+
+Create the `promtail` user **before** installing the binary:
+
+```bash
+# Create promtail system user FIRST
+if ! id promtail &>/dev/null; then
+    sudo useradd -r -s /bin/false -M -d /nonexistent promtail
+fi
+
+# Download and install Promtail binary
+cd /tmp
+wget -q https://github.com/grafana/loki/releases/download/v3.2.0/promtail-linux-amd64.zip
+unzip -o promtail-linux-amd64.zip
+
+# Install binary with correct ownership
+sudo install -o promtail -g promtail -m 0755 promtail-linux-amd64 /usr/local/bin/promtail
+
+# Create required directories
 sudo mkdir -p /var/lib/promtail /etc/promtail /var/log/promtail
-sudo chown -R promtail:promtail /var/lib/promtail /var/log/promtail
+
+# Set ownership to promtail:promtail (NOT root:root)
+sudo chown -R promtail:promtail /var/lib/promtail
+sudo chown -R promtail:promtail /var/log/promtail
+sudo chown -R promtail:promtail /etc/promtail
 ```
 
 ### Step 6: Configure Promtail
 
-Create the Promtail configuration:
+Replace `loki-server` with the actual hostname/IP of your Loki server:
 
 ```bash
 sudo tee /etc/promtail/promtail-config.yaml > /dev/null << 'EOF'
@@ -172,7 +240,7 @@ server:
   grpc_listen_port: 9081
 
 clients:
-  - endpoint: http://loki-server:3100/loki/api/v1/push
+  - url: http://LOKI_SERVER_HOSTNAME:3100/loki/api/v1/push
     retry_interval: 5s
     batch_timeout: 10s
     external_labels:
@@ -186,7 +254,7 @@ scrape_configs:
           - localhost
         labels:
           job: system_logs
-          host: $(hostname)
+          host: __HOSTNAME__
           __path__: /var/log/*.log
 
   - job_name: auth_logs
@@ -195,7 +263,7 @@ scrape_configs:
           - localhost
         labels:
           job: auth
-          host: $(hostname)
+          host: __HOSTNAME__
           __path__: /var/log/auth.log
 
   - job_name: syslog
@@ -203,21 +271,21 @@ scrape_configs:
       listen_address: 0.0.0.0:514
       labels:
         job: syslog
-        host: $(hostname)
+        host: __HOSTNAME__
 
   - job_name: journal
     journal:
       path: /var/log/journal
       labels:
         job: systemd
-        host: $(hostname)
+        host: __HOSTNAME__
 
   - job_name: docker
     docker_targets:
       - containers
     labels:
       job: docker
-      host: $(hostname)
+      host: __HOSTNAME__
 
   - job_name: application_logs
     static_configs:
@@ -225,9 +293,17 @@ scrape_configs:
           - localhost
         labels:
           job: app-logs
-          host: $(hostname)
+          host: __HOSTNAME__
         __path__: /var/log/application/*.log
 EOF
+
+# Set ownership to promtail user
+sudo chown promtail:promtail /etc/promtail/promtail-config.yaml
+sudo chmod 0644 /etc/promtail/promtail-config.yaml
+
+# Replace placeholders
+sudo sed -i "s/__HOSTNAME__/$(hostname)/g" /etc/promtail/promtail-config.yaml
+# Note: Manually replace LOKI_SERVER_HOSTNAME with your Loki server's hostname or IP
 ```
 
 ### Step 7: Create Systemd Service for Promtail
@@ -241,18 +317,24 @@ After=network.target
 [Service]
 Type=simple
 User=promtail
+Group=promtail
 ExecStart=/usr/local/bin/promtail -config.file=/etc/promtail/promtail-config.yaml
 Restart=on-failure
 RestartSec=10
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/promtail /var/log/promtail /var/log /etc/promtail
 
 [Install]
 WantedBy=multi-user.target
 EOF
 
-# Reload and start Promtail
+# Reload systemd, enable and start Promtail
 sudo systemctl daemon-reload
 sudo systemctl enable promtail
 sudo systemctl start promtail
+
+# Verify Promtail is running
 sudo systemctl status promtail
 ```
 
@@ -272,7 +354,7 @@ sudo tee /etc/logrotate.d/loki > /dev/null << 'EOF'
     create 0640 loki loki
     sharedscripts
     postrotate
-        systemctl reload loki > /dev/null 2>&1 || true
+        /bin/kill -HUP $(cat /run/loki/loki.pid 2>/dev/null) 2>/dev/null || true
     endscript
 }
 EOF
@@ -288,16 +370,20 @@ sudo tee /etc/logrotate.d/promtail > /dev/null << 'EOF'
     create 0640 promtail promtail
 }
 EOF
+
+echo
+
 ```
 
 ### Step 9: Integrate with Grafana
 
 Connect Loki to Grafana for visualization:
 
-1. Open Grafana: http://grafana-server:3000
-2. Go to Configuration → Data Sources
-3. Add Loki with URL: http://loki-server:3100
-4. Save and Test
+1. Open Grafana: `http://grafana-server:3000`
+2. Go to **Configuration** → **Data Sources**
+3. Click **Add data source** → Select **Loki**
+4. Set URL: `http://loki-server:3100`
+5. Click **Save & Test**
 
 ### Step 10: Query Logs in Grafana
 
@@ -310,19 +396,23 @@ Example LogQL queries:
 # Error logs only
 {job="app-logs"} |= "ERROR"
 
-# Filter by message content
+# Filter by message content (multiple matches)
 {job="system_logs"} |= "failed" |= "authentication"
 
 # Performance metrics
 rate({job="app-logs"}[5m])
 
-# Count by level
+# Count by level over time
 count_over_time({job="app-logs"}[1h])
+
+# Top 10 most common log lines
+# TYPE TOPK range
+# TYPE RATE counter
 ```
 
 ### Step 11: Set Up Alerts
 
-Create alert rules in Grafana:
+Create alert rules in Grafana (Alertmanager format):
 
 ```yaml
 # alerting-rules.yaml
@@ -350,68 +440,107 @@ groups:
           summary: "No logs received from app-logs"
 ```
 
+Apply alert rules via Grafana or Loki's ruler configuration.
+
 ## Verify
 
 ```bash
-# Check Loki is running
+# Check Loki is ready
 curl -s http://localhost:3100/ready
-# Expected: "ready"
+# Expected output: ready
 
 # Check Loki service status
 sudo systemctl status loki
 # Expected: active (running)
 
-# Check Promtail is running
+# Check Loki process ownership
+ps aux | grep loki | grep -v grep
+# Expected: running as loki user
+
+# Check Promtail is ready
 curl -s http://localhost:9080/metrics
-# Expected: Prometheus metrics
+# Expected: Prometheus metrics output
+
+# Check Promtail service status
+sudo systemctl status promtail
+# Expected: active (running)
 
 # Verify log ingestion
 curl -s -G --data-urlencode 'query={job="system_logs"}' \
   http://localhost:3100/loki/api/v1/query | jq '.status'
+# Expected: "success"
 
 # Check disk usage
-df -h /var/lib/loki
+sudo df -h /var/lib/loki
+sudo df -h /var/lib/promtail
 
 # Verify log push endpoint
 curl -s -X POST http://localhost:3100/loki/api/v1/push \
   -H "Content-Type: application/json" \
-  --data-raw '{"streams":[{"stream":{"job":"test"},"values":[["$(date +%s)000000","test log"]]}]}'
+  --data-raw '{"streams":[{"stream":{"job":"test"},"values":[["'$(date +%s)000000'","test log entry"]]}]}' | jq '.status'
+# Expected: "success"
 ```
 
 ## Rollback
 
 ```bash
-# Stop Loki
+# Stop Loki and Promtail services
 sudo systemctl stop loki
+sudo systemctl stop promtail
+sudo systemctl disable loki
+sudo systemctl disable promtail
+
+# Backup current data before removal
+sudo tar -czf /tmp/loki-backup-$(date +%Y%m%d).tar.gz \
+  /var/lib/loki /etc/loki /var/log/loki
 
 # Restore from backup
+sudo systemctl stop loki
 sudo rm -rf /var/lib/loki/*
-sudo tar -xzf loki-backup.tar.gz -C /
+sudo rm -rf /etc/loki/*
+sudo tar -xzf /tmp/loki-backup-*.tar.gz -C /
+
+# Fix ownership after restore
+sudo chown -R loki:loki /var/lib/loki
+sudo chown -R loki:loki /etc/loki
+sudo chown -R loki:loki /var/log/loki
 
 # Restart Loki
+sudo systemctl daemon-reload
 sudo systemctl start loki
+sudo systemctl status loki
 
-# Alternative: use object storage
-# Update config to use S3/GCS/Azure blob storage
+# Alternative: use object storage (S3/GCS/Azure)
+# Update /etc/loki/local-config.yaml storage_config section:
+# storage_config:
+#   aws:
+#     s3: s3://access_key:secret_key@bucket_name/loki
+#     s3forcepathstyle: true
+#   boltdb:
+#     directory: /var/lib/loki/index
 ```
 
-## Common errors
+## Common Errors
 
 | Error | Cause | Solution |
 |-------|-------|----------|
-| `connection refused` | Loki not running | Check: `systemctl status loki` |
-| `endpoint not found` | Wrong URL in Promtail | Verify Loki URL in promtail-config.yaml |
-| `permission denied` | File permission issues | Check: `chown -R promtail:promtail /var/lib/promtail` |
-| `out of memory` | Not enough RAM | Increase memory in systemd service or scale horizontally |
-| `disk full` | Log retention too long | Reduce retention period in loki-config.yaml |
-| `too many outstanding requests` | Promtail buffer full | Adjust batch settings in promtail-config.yaml |
-| `authentication failed` | Wrong endpoint | Ensure Loki URL is accessible from Promtail server |
-| `400 Bad Request` | Invalid label format | Check labels don't contain special characters |
+| `connection refused` | Loki not running or wrong port | Check: `systemctl status loki`; verify port 3100 |
+| `endpoint not found` | Wrong URL in Promtail config | Verify Loki URL in `/etc/promtail/promtail-config.yaml` |
+| `permission denied` | File permission issues | Check: `chown -R loki:loki /var/lib/loki`; ensure user is `loki` not `root` |
+| `out of memory` | Not enough RAM allocated | Increase memory limit in systemd service `MemoryLimit=` |
+| `disk full` | Log retention too long or no rotation | Reduce retention in config; check `df -h`; enable logrotate |
+| `too many outstanding requests` | Promtail buffer full | Adjust `batch_timeout` and `max_clients` in config |
+| `authentication failed` | Wrong Loki endpoint or firewall | Verify URL is accessible: `curl http://loki:3100/ready` |
+| `400 Bad Request` | Invalid label format | Labels cannot contain `.`, `/`, or special chars; use `_` instead |
+| `user loki does not exist` | Binary install without creating user | Create user: `sudo useradd -r -s /bin/false loki` |
+| `No such file or directory` | Package install dirs differ from binary | Package uses `/usr/lib/loki`; binary uses `/usr/local/bin/loki` |
 
 ## References
 
-- [Loki Documentation](https://grafana.com/docs/loki/latest/)
-- [Promtail Configuration](https://grafana.com/docs/loki/clients/promtail/)
-- [LogQL Query Examples](https://grafana.com/docs/loki/latest/query/)
-- [Grafana Loki Integration](https://grafana.com/docs/grafana/latest/datasources/loki/)
-- [Loki Storage](https://grafana.com/docs/loki/latest/storage/)
+- [Loki Official Documentation](https://grafana.com/docs/loki/latest/)
+- [Promtail Configuration Guide](https://grafana.com/docs/loki/clients/promtail/configuration/)
+- [LogQL Query Language](https://grafana.com/docs/loki/latest/query/)
+- [Grafana Loki Data Source](https://grafana.com/docs/grafana/latest/datasources/loki/)
+- [Loki Storage Configuration](https://grafana.com/docs/loki/latest/storage/)
+- [Loki Production Deployment](https://grafana.com/docs/loki/latest/get-started/deploy/)
+- [Systemd Service Security](https://www.freedesktop.org/software/systemd/man/systemd.exec.html)
