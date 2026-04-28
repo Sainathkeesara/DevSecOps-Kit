@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - ansi-009: `scripts/bash/ansible_toolkit/security/cve-2026-33228-audit.sh` — CVE-2026-33228 flatted prototype pollution audit script
 - ansi-009: `docs/runbooks/cve-2026-33228-ansible-flatted.md` — CVE-2026-33228 remediation runbook
+- ansi-009: `scripts/security/ansible/harden-ansible-cve-2026-33228.sh` — CVE-2026-33228 hardening script with --check/--fix/--dry-run flags
+- ansi-009: `docs/security/ansible/CVE-2026-33228.md` — CVE-2026-33228 flatted prototype pollution security guide
 - 00_index/quick-links.md — Added CVE-2026-33228 entries
 
 ## 2026-04-27
