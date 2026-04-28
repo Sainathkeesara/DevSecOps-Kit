@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - jen-014: `snippets/jenkins-cli-commands.md` — Jenkins CLI commands reference with 150+ commands for sysadmins
 - 00_index/quick-links.md — Updated Jenkins CLI commands entry to 150+ commands
+- jen-014: `docs/reference/jenkins-commands.md` — Jenkins commands reference with 50+ commands, added Verify, Rollback, Common errors sections
 
 ## 2026-04-27
 
