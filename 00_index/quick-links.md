@@ -280,6 +280,8 @@
 ## Ansible
 - [ansible_toolkit Usage](docs/how-to/ansible_toolkit.md)
 - [ansible_commands_reference](../snippets/ansible-commands.md) - Ansible ad-hoc commands for system administration, file operations, package management
+- [CVE-2026-33228 Hardening](scripts/security/ansible/harden-ansible-cve-2026-33228.sh) - Flatted prototype pollution vulnerability scanner with --check, --fix, --dry-run flags
+- [CVE-2026-33228 Guide](docs/security/ansible/CVE-2026-33228.md) - Flatted prototype pollution remediation guide for CVE-2026-33228
 - [CVE-2026-0598 Guide](docs/how-to/ansible-lightspeed-cve-2026-0598.md)
 - [CVE-2025-14010 Audit](../scripts/bash/ansible_toolkit/security/cve-2025-14010-audit.sh) - Sensitive variable exposure audit with --path, --dry-run, --json-output flags
 - [CVE-2026-0598 Audit](../scripts/bash/ansible_toolkit/security/cve-2026-0598-audit.sh) - Lightspeed auth bypass vulnerability scanner with --host, --token, --dry-run, --json-output flags
