@@ -173,11 +173,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added (2026-04-28)
+- lin-068: Log aggregation with Loki and Promtail — hardened production deployment guide
+  - Doc: docs/how-to/linux-log-aggregation-loki-promtail.md
+  - Security: Proper system user creation (loki:loki, promtail:promtail), least-privilege systemd services, binary vs package install differentiation, complete ownership fixes
+
 ### Added (2026-03-25)
 - ter-011: AWS VPC with public/private subnets
 - lin-017: Samba file sharing server setup
   - Script: scripts/bash/terraform_toolkit/networking/vpc-setup.sh
-  - Terraform: scripts/bash/terraform_toolkit/networking/terraform/
+  - Terraform: scripts/bash/terraform_toolkit/networks/terraform/
   - Doc: docs/how-to/terraform-aws-vpc.md
 - lin-016: DNS server with BIND9
   - Script: scripts/bash/linux_toolkit/dns/bind9-server-setup.sh
