@@ -20,7 +20,7 @@
 - [k8s_ingress_nginx_cve_2026_4342](docs/how-to/k8s-ingress-nginx-cve-2026-4342.md) - CVE-2026-4342 ingress-nginx RCE vulnerability remediation guide
 
 ## Jenkins
-- [jenkins_cli_commands_reference](snippets/jenkins-cli-commands.md) - Jenkins CLI commands reference with 80+ commands for sysadmins
+- [jenkins_cli_commands_reference](snippets/jenkins-cli-commands.md) - Jenkins CLI commands reference with 150+ commands for sysadmins
 - [jenkins_scripted_pipeline_groovy](snippets/jenkins-scripted-pipeline-groovy.md) - Jenkins Scripted Pipeline Groovy examples and patterns
 
 ## Ansible
