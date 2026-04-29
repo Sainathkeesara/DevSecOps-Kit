@@ -4,6 +4,14 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-04-29
+
+### Added
+- git-001: `docs/concepts/git-001-version-control-fundamentals.md` — Introduction to version control fundamentals (L1 concept)
+- git-002: `docs/concepts/git-002-basic-commands-setup.md` — Basic Git commands and repository setup (L1 concept)
+- git-005: `docs/concepts/git-005-configuration-aliases.md` — Git configuration, aliases, and best practices (L1 concept)
+- 00_index/quick-links.md — Added Git concept documentation entries
+
 ## 2026-04-28
 
 ### Added
