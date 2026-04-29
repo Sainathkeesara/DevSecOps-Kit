@@ -7,10 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-04-29
 
 ### Added
-- ansi-009: `scripts/security/ansible/harden-ansible-cve-2026-33228.sh` — CVE-2026-33228 Ansible flatted prototype pollution hardening script
-- ansi-009: `docs/security/ansible/CVE-2026-33228.md` — Ansible CVE-2026-33228 security documentation
-- ansi-009: `docs/how-to/ansible-cve-2026-33228-flatted.md` — Ansible CVE-2026-33228 hardening how-to guide
-- ansi-009: `docs/runbooks/cve-2026-33228-ansible-flatted.md` — Ansible CVE-2026-33228 remediation runbook
+- git-001: `docs/concepts/git-001-version-control-fundamentals.md` — Introduction to version control fundamentals (L1 concept)
+- git-002: `docs/concepts/git-002-basic-commands-setup.md` — Basic Git commands and repository setup (L1 concept)
+- git-005: `docs/concepts/git-005-configuration-aliases.md` — Git configuration, aliases, and best practices (L1 concept)
+- 00_index/quick-links.md — Added Git concept documentation entries
 
 ## 2026-04-28
 

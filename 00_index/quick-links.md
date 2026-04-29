@@ -31,13 +31,16 @@
 - [terraform_ecs_service_discovery_deploy](scripts/bash/terraform/terraform-ecs-service-discovery-deploy.sh) - Deployment script for ECS with service discovery
 
 ## Git
+- [git_commands_reference](snippets/git-commands.md) - Git CLI commands reference with 80+ commands for developers
+- [git_version_control_fundamentals](docs/concepts/git-001-version-control-fundamentals.md) - Introduction to version control fundamentals (L1 concept)
+- [git_basic_commands_setup](docs/concepts/git-002-basic-commands-setup.md) - Basic Git commands and repository setup (L1 concept)
+- [git_configuration_aliases](docs/concepts/git-005-configuration-aliases.md) - Git configuration, aliases, and best practices (L1 concept)
 - [git_installation](docs/how-to/git-installation.md) - Automated Git installation script for Linux (idempotent, supports Ubuntu/Debian, AlmaLinux/RHEL, Fedora)
 - [git_install_script](scripts/bash/git/git-install.sh) - Automation script with version control, dry-run, source build support
 - [git_installation_macos](docs/how-to/git-installation-macos.md) - Git installation on macOS via Homebrew with verification
 - [git_install_macos_script](scripts/bash/git/git-install-macos.sh) - Automated Git installation script for macOS with dry-run support
 - [git_installation_wsl](docs/how-to/git-installation-wsl.md) - Git installation on Windows Subsystem for Linux (WSL) with PPA and configuration
 - [git_install_wsl_script](scripts/bash/git/git-install-wsl.sh) - Automated Git installation script for WSL with dry-run support
-- [git_commands_reference](snippets/git-commands.md) - Git CLI commands reference with 80+ commands for developers
 
 ## Linux
 - [linux_commands_reference](snippets/linux-commands.md) - Linux commands reference with 30+ bash one-liners for sysadmins

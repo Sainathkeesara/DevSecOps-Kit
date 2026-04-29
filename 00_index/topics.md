@@ -140,6 +140,11 @@
 - [script] scripts/bash/docker_toolkit/security/cve-2026-28400.sh — Model Runner privilege escalation scanner
 - [doc] docs/how-to/docker-security-best-practices.md — Docker security hardening guide
 
+## Git
+- [doc] docs/concepts/git-001-version-control-fundamentals.md — Introduction to version control fundamentals (L1)
+- [doc] docs/concepts/git-002-basic-commands-setup.md — Basic Git commands and repository setup (L1)
+- [doc] docs/concepts/git-005-configuration-aliases.md — Git configuration, aliases, and best practices (L1)
+
 ## Helm
 - [script] scripts/bash/helm_toolkit/security/cve-2025-53547.sh — Chart.yaml code injection scanner
 - [script] scripts/bash/helm_toolkit/security/cve-2025-53547-harden.sh — Helm Chart security hardening
