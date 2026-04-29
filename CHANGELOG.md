@@ -4,6 +4,14 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-04-29
+
+### Added
+- ansi-009: `scripts/security/ansible/harden-ansible-cve-2026-33228.sh` — CVE-2026-33228 Ansible flatted prototype pollution hardening script
+- ansi-009: `docs/security/ansible/CVE-2026-33228.md` — Ansible CVE-2026-33228 security documentation
+- ansi-009: `docs/how-to/ansible-cve-2026-33228-flatted.md` — Ansible CVE-2026-33228 hardening how-to guide
+- ansi-009: `docs/runbooks/cve-2026-33228-ansible-flatted.md` — Ansible CVE-2026-33228 remediation runbook
+
 ## 2026-04-28
 
 ### Added
