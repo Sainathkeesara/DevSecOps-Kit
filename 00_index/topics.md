@@ -2,7 +2,7 @@
 
 ## Kubernetes
 - [script] scripts/bash/k8s_toolkit/node/drain-node.sh — Safely drain a node before maintenance
-- [script] scripts/bash/k8s_toolkit/node/rollout-status.sh — Monitor deployment rollout status
+- [script] scripts/bash/k8s_toolkit/rollout-status.sh — Monitor deployment rollout status
 - [script] scripts/bash/k8s_toolkit/pod/restart-pod.sh — Restart pods with graceful termination
 - [script] scripts/bash/k8s_toolkit/pod/pod-logs.sh — Stream and tail pod logs
 - [script] scripts/bash/k8s_toolkit/pod/exec-pod.sh — Execute commands in running pods
