@@ -41,6 +41,10 @@
 - [git_install_macos_script](scripts/bash/git/git-install-macos.sh) - Automated Git installation script for macOS with dry-run support
 - [git_installation_wsl](docs/how-to/git-installation-wsl.md) - Git installation on Windows Subsystem for Linux (WSL) with PPA and configuration
 - [git_install_wsl_script](scripts/bash/git/git-install-wsl.sh) - Automated Git installation script for WSL with dry-run support
+- [git_github_actions_runner_setup](docs/setup-guides/git-github-actions-runner.md) - GitHub Actions self-hosted runner installation and configuration guide
+- [git_runner_install_script](scripts/bash/git/github-runner-install.sh) - GitHub Actions runner installation script with systemd/Docker support
+- [git_credential_helper_ci_cd](docs/setup-guides/git-credential-helper-ci-cd.md) - Git credential helper setup for CI/CD pipelines
+- [git_credential_helper_script](scripts/bash/git/credential-helper-ci.sh) - Git credential helper configuration for CI/CD
 
 ## Linux
 - [linux_commands_reference](snippets/linux-commands.md) - Linux commands reference with 30+ bash one-liners for sysadmins

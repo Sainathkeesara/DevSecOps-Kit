@@ -4,6 +4,17 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-04-30
+
+### Added
+- git-001: `docs/setup-guides/git-github-actions-runner.md` — GitHub Actions self-hosted runner installation and configuration guide (L2)
+- git-001: `scripts/bash/git/github-runner-install.sh` - GitHub Actions runner installation script with systemd/Docker support
+- git-002: `docs/setup-guides/git-credential-helper-ci-cd.md` — Git credential helper setup for CI/CD pipelines (L2)
+- git-002: `scripts/bash/git/credential-helper-ci.sh` - Git credential helper configuration for CI/CD
+- lin-071: `docs/how-to/linux/linux-system-automation-template.md` - Linux system automation template for DevOps workflows (L7)
+- lin-071: `scripts/bash/linux/system-automation-template.sh` - Linux automation template deployment script
+- 00_index/quick-links.md — Added Git runner and credential helper entries
+
 ## 2026-04-29
 
 ### Added
