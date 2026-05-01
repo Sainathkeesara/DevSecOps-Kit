@@ -45,6 +45,9 @@
 - [git_runner_install_script](scripts/bash/git/github-runner-install.sh) - GitHub Actions runner installation script with systemd/Docker support
 - [git_credential_helper_ci_cd](docs/setup-guides/git-credential-helper-ci-cd.md) - Git credential helper setup for CI/CD pipelines
 - [git_credential_helper_script](scripts/bash/git/credential-helper-ci.sh) - Git credential helper configuration for CI/CD
+- [git_commands_reference](docs/reference/git-commands.md) - Git command patterns for automated version control (L4)
+- [git_workflow_optimization](docs/concepts/git-003-workflow.md) - Git workflow optimization for DevOps pipelines (L3)
+- [git_automation_script](scripts/bash/git/git-automation.sh) - Git automation scripts for CI/CD integration (L6)
 
 ## Linux
 - [linux_commands_reference](snippets/linux-commands.md) - Linux commands reference with 30+ bash one-liners for sysadmins
