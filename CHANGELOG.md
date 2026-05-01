@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - git-004: `docs/reference/git-commands.md` — Git command patterns for automated version control (L4)
+- git-004: `docs/reference/git-advanced-commands.md` — Git advanced command patterns for automation (L4)
+- git-005: `docs/how-to/git-cicd-automation.md` — Git automation for CI/CD integration (L6)
+- 00_index/quick-links.md — Added Git advanced commands and CI/CD automation entries
 - git-003: `docs/concepts/git-003-workflow.md` — Git workflow optimization for DevOps pipelines (L3)
 - git-005: `scripts/bash/git/git-automation.sh` - Git automation scripts for CI/CD integration (L6)
 - 00_index/quick-links.md — Added Git commands, workflow, and automation entries
