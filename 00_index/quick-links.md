@@ -5,18 +5,18 @@
 - [CHANGELOG](../CHANGELOG.md) - Version history and updates
 
 ## Docker
-- [docker_kaniko_cve_2026_28406_hardening](scripts/bash/docker/docker-kaniko-cve-2026-28406-hardening.sh) - CVE-2026-28406 kaniko path traversal hardening script
+- [docker_kaniko_cve_2026_28406_hardening](../scripts/bash/docker_toolkit/docker-kaniko-cve-2026-28406-hardening.sh) - CVE-2026-28406 kaniko path traversal hardening script
 - [docker_kaniko_cve_2026_28406](docs/how-to/docker-kaniko-cve-2026-28406.md) - CVE-2026-28406 kaniko path traversal remediation guide
 - [docker_security_best_practices](docs/how-to/docker-security-best-practices.md) - Docker security best practices
 
 ## Kubernetes
-- [aks_privilege_escalation_hardening](scripts/bash/kubernetes/aks-privilege-escalation-hardening.sh) - CVE-2026-33105 AKS privilege escalation hardening script
+- [aks_privilege_escalation_hardening](../scripts/bash/k8s_toolkit/aks-privilege-escalation-hardening.sh) - CVE-2026-33105 AKS privilege escalation hardening script
 - [k8s_aks_cve_2026_33105](docs/how-to/k8s-aks-cve-2026-33105.md) - CVE-2026-33105 AKS privilege escalation remediation guide
-- [mcp_server_kubernetes_hardening](scripts/bash/kubernetes/mcp-server-kubernetes-hardening.sh) - CVE-2026-39884 hardening script for mcp-server-kubernetes
+- [mcp_server_kubernetes_hardening](../scripts/bash/k8s_toolkit/mcp-server-kubernetes-hardening.sh) - CVE-2026-39884 hardening script for mcp-server-kubernetes
 - [kubernetes_mcp_cve_troubleshooting](docs/troubleshooting/kubernetes-mcp-server-cve-2026-39884.md) - CVE-2026-39884 remediation guide
-- [k8s_eso_cve_2026_34984_hardening](scripts/bash/kubernetes/k8s-eso-cve-2026-34984-hardening.sh) - CVE-2026-34984 hardening script for External Secrets Operator DNS exfiltration
+- [k8s_eso_cve_2026_34984_hardening](../scripts/bash/k8s_toolkit/k8s-eso-cve-2026-34984-hardening.sh) - CVE-2026-34984 hardening script for External Secrets Operator DNS exfiltration
 - [k8s_external_secrets_cve_2026_34984](docs/how-to/k8s-external-secrets-cve-2026-34984.md) - CVE-2026-34984 ESO vulnerability remediation guide
-- [k8s_ingress_nginx_cve_2026_4342_hardening](scripts/bash/kubernetes/k8s-ingress-nginx-cve-2026-4342-hardening.sh) - CVE-2026-4342 ingress-nginx comment-based config injection hardening script
+- [k8s_ingress_nginx_cve_2026_4342_hardening](../scripts/bash/k8s_toolkit/k8s-ingress-nginx-cve-2026-4342-hardening.sh) - CVE-2026-4342 ingress-nginx comment-based config injection hardening script
 - [k8s_ingress_nginx_cve_2026_4342](docs/how-to/k8s-ingress-nginx-cve-2026-4342.md) - CVE-2026-4342 ingress-nginx RCE vulnerability remediation guide
 
 ## Jenkins
@@ -28,7 +28,7 @@
 
 ## Terraform
 - [terraform_ecs_service_discovery](docs/how-to/terraform-ecs-service-discovery.md) - ECS Fargate with Route 53 private DNS service discovery
-- [terraform_ecs_service_discovery_deploy](scripts/bash/terraform/terraform-ecs-service-discovery-deploy.sh) - Deployment script for ECS with service discovery
+- [terraform_ecs_service_discovery_deploy](../scripts/bash/terraform_toolkit/terraform-ecs-service-discovery-deploy.sh) - Deployment script for ECS with service discovery
 
 ## Git
 - [git_commands_reference](snippets/git-commands.md) - Git CLI commands reference with 80+ commands for developers
@@ -55,23 +55,23 @@
 ## Linux
 - [linux_commands_reference](snippets/linux-commands.md) - Linux commands reference with 30+ bash one-liners for sysadmins
 - [linux_container_security_scanning](docs/how-to/linux-container-security-scanning.md) - Container security scanning with Trivy and Falco for vulnerability detection and runtime monitoring
-- [container_security_scan_script](scripts/bash/linux/linux-container-security-scan.sh) - Automated container security scanning script with Trivy integration
+- [container_security_scan_script](../scripts/bash/linux_toolkit/linux-container-security-scan.sh) - Automated container security scanning script with Trivy integration
 - [linux_dns_management](docs/how-to/linux-dns-management-coredns-systemd-resolved.md) - Complete DNS management with CoreDNS and systemd-resolved: caching, forwarding, internal zones
-- [dns_management_script](scripts/bash/linux/linux-dns-coredns.sh) - Automated DNS entry management for CoreDNS with serial number handling
-- [dns_test_script](scripts/bash/linux/linux-dns-test.sh) - Comprehensive DNS setup verification and testing
-- [dns_monitor_script](scripts/bash/linux/linux-dns-monitor.sh) - DNS health monitoring with automatic CoreDNS restart
+- [dns_management_script](../scripts/bash/linux_toolkit/linux-dns-coredns.sh) - Automated DNS entry management for CoreDNS with serial number handling
+- [dns_test_script](../scripts/bash/linux_toolkit/linux-dns-test.sh) - Comprehensive DNS setup verification and testing
+- [dns_monitor_script](../scripts/bash/linux_toolkit/linux-dns-monitor.sh) - DNS health monitoring with automatic CoreDNS restart
 - [linux_freeipa_identity](docs/how-to/linux-freeipa-identity.md) - FreeIPA identity management: server deployment, client enrollment, user/group/sudo management
-- [freeipa_setup_script](scripts/bash/linux/identity/freeipa-setup.sh) - Automated FreeIPA server deployment and client enrollment script
+- [freeipa_setup_script](../scripts/bash/linux_toolkit/identity/freeipa-setup.sh) - Automated FreeIPA server deployment and client enrollment script
 - [linux_aide_configuration](docs/how-to/linux-aide-configuration-management.md) - AIDE file integrity monitoring: installation, configuration, baseline management
-- [aide_deploy_script](scripts/bash/linux/aide-deploy.sh) - Automated AIDE deployment and management script with dry-run support
+- [aide_deploy_script](../scripts/bash/linux_toolkit/aide-deploy.sh) - Automated AIDE deployment and management script with dry-run support
 - [linux_wazuh_siem](docs/how-to/linux/linux-wazuh-siem.md) - Wazuh SIEM deployment: server, agent, alerting, integration
-- [wazuh_deploy_script](scripts/bash/linux/wazuh-deploy.sh) - Automated Wazuh SIEM deployment script with dry-run support
+- [wazuh_deploy_script](../scripts/bash/linux_toolkit/wazuh-deploy.sh) - Automated Wazuh SIEM deployment script with dry-run support
 - [linux_log_aggregation_loki_promtail](docs/how-to/linux-log-aggregation-loki-promtail.md) - Log aggregation with Loki and Promtail: centralized logging, querying, and visualization
-- [loki_promtail_deploy_script](scripts/bash/linux/linux-loki-promtail-deploy.sh) - Automated Loki and Promtail deployment script with dry-run support
+- [loki_promtail_deploy_script](../scripts/bash/linux_toolkit/linux-loki-promtail-deploy.sh) - Automated Loki and Promtail deployment script with dry-run support
 
 ## Terraform
 - [terraform_eventbridge_lambda](docs/how-to/terraform-eventbridge-lambda.md) - EventBridge with Lambda triggers for real-time event processing
-- [eventbridge_lambda_deploy_script](scripts/bash/terraform/ter-019-deploy.sh) - Automated EventBridge Lambda deployment script with plan/apply/destroy
+- [eventbridge_lambda_deploy_script](../scripts/bash/terraform_toolkit/ter-019-deploy.sh) - Automated EventBridge Lambda deployment script with plan/apply/destroy
 - [terraform_production_module_template](../templates/terraform/production-module-template.md) - Production Terraform module template with security guardrails
 - [terraform_aws_vpc](docs/how-to/terraform-aws-vpc.md) - AWS VPC setup with public/private subnets, NAT Gateway, and routing
 - [terraform_eks_cluster](docs/how-to/terraform-eks-cluster.md) - EKS cluster with managed node groups, autoscaling, and VPC networking
@@ -85,7 +85,7 @@
 - [terraform_secrets_manager](docs/how-to/terraform-secrets-manager.md) - AWS Secrets Manager integration with Terraform for secure secrets management
 - [terraform_secrets_deploy_script](scripts/bash/terraform_toolkit/secrets/terraform-secrets-deploy.sh) - Deployment script for Secrets Manager with Terraform
 - [lambda_deploy_script](scripts/bash/terraform_toolkit/terraform-lambda-deploy.sh) - Automated Lambda/API Gateway deployment script with dry-run
-- [iam_roles_deploy_script](scripts/bash/terraform/terraform-iam-roles-deploy.sh) - Automated IAM roles and policy deployment script with dry-run
+- [iam_roles_deploy_script](../scripts/bash/terraform_toolkit/terraform-iam-roles-deploy.sh) - Automated IAM roles and policy deployment script with dry-run
 - [multi_env_setup_script](scripts/bash/terraform_toolkit/multi-env/multi-env-setup.sh) - Automated multi-environment Terraform setup with backend initialization
 - [multi_env_vpc_module](templates/terraform/multi-env/vpc-module.tf) - Reusable VPC module for multi-environment deployments
 - [eks_deploy_script](scripts/bash/terraform_toolkit/eks/eks-deploy.sh) - Automated EKS cluster deployment script
@@ -104,22 +104,22 @@
 - [docker_toolkit](docs/how-to/docker-security-best-practices.md) - Docker security hardening guide (image scanning, runtime security, secrets management)
 - [CVE-2026-2664](scripts/bash/docker_toolkit/security/cve-2026-2664.sh) - Docker Desktop grpcfuse kernel module privilege escalation scanner
 - [CVE-2026-28400](scripts/bash/docker_toolkit/security/cve-2026-28400.sh) - Docker Model Runner privilege escalation scanner
-- [CVE-2026-34040](scripts/bash/docker/security/docker-cve-2026-34040.sh) - Docker authorization plugin bypass scanner
+- [CVE-2026-34040](../scripts/bash/docker_toolkit/security/docker-cve-2026-34040.sh) - Docker authorization plugin bypass scanner
 
 ## Vault
-- [vault_audit_log_analysis](scripts/bash/vault/vault-audit-log-analysis.sh) - Vault audit log analysis for security events and anomalies
+- [vault_audit_log_analysis](../scripts/bash/vault_toolkit/vault-audit-log-analysis.sh) - Vault audit log analysis for security events and anomalies
 - [vault_commands_reference](../snippets/vault-commands.md) - Vault CLI commands for authentication, secrets, policies
 
 ## Helm
 - [helm_commands_reference](docs/how-to/helm-commands-reference.md) - Helm CLI commands reference with 80+ examples
-- [CVE-2026-4740](scripts/bash/k8s/security/k8s-acm-cve-2026-4740.sh) - Kubernetes ACM privilege escalation scanner
+- [CVE-2026-4740](../scripts/bash/k8s_toolkit/security/k8s-acm-cve-2026-4740.sh) - Kubernetes ACM privilege escalation scanner
 - [oci_registry_toolkit](docs/how-to/oci_registry_toolkit.md) - OCI registry helpers (list repos/tags, find old tags, keepalive plans, auth diagnostics)
 - [ci_cd_toolkit](docs/how-to/ci_cd_toolkit.md) - CI/CD pipeline helpers (workflow linting, health checks, action updates, workflow generation)
 - [observability_toolkit](docs/how-to/observability_toolkit.md) - Prometheus, Grafana, Loki, Jaeger, OTel query and health scripts
 - [linux_toolkit](docs/how-to/linux_toolkit.md) - Linux system administration scripts (health check, disk usage, service management, network diagnostics)
 - [linux_backup_solution](docs/how-to/linux-backup-rsync-retention.md) - Automated backup solution with rsync and retention policy
 - [linux_aide_configuration](docs/how-to/linux-aide-configuration.md) - AIDE file integrity monitoring and configuration management
-- [aide_config_script](scripts/bash/linux/aide-config.sh) - Automated AIDE installation and configuration script
+- [aide_config_script](../scripts/bash/linux_toolkit/aide-config.sh) - Automated AIDE installation and configuration script
 - [linux_container_host](docs/how-to/linux-container-host-security.md) - Container host setup with Docker and security hardening
 - [container_host_hardening](scripts/bash/linux_toolkit/security/container-host-hardening.sh) - Security hardening script for Docker container hosts
 - [backup_script](scripts/bash/linux_toolkit/backup/backup-rsync-retention.sh) - Backup script with dry-run, encryption, and retention support
@@ -140,7 +140,7 @@
 - [terraform_toolkit](scripts/bash/terraform_toolkit/terraform-workflow.sh) - Terraform workflow scripts (init/plan/apply/destroy with sensitive value handling)
 - [vault_toolkit](docs/how-to/vault_toolkit.md) - Vault security hardening scripts (CVE detection and remediation)
 - [CVE-2025-6037](scripts/bash/vault_toolkit/security/cve-2025-6037.sh) - TLS certificate auth validation bypass detection
-- [CVE-2026-4660](scripts/bash/vault/security/vault-go-getter-hardening.sh) - go-getter arbitrary file read vulnerability detection
+- [CVE-2026-4660](../scripts/bash/vault_toolkit/security/vault-go-getter-hardening.sh) - go-getter arbitrary file read vulnerability detection
 - [Helm + Terraform Full-Stack](docs/how-to/helm-terraform-fullstack/README.md) - Complete infrastructure-as-code workflow combining Terraform for EKS provisioning and Helm for application deployment
 - [Helm + Terraform Deploy Script](scripts/bash/helm_toolkit/helm-terraform/deploy-helm-terraform.sh) - Automated deployment script for Helm + Terraform workflow
 
@@ -267,7 +267,7 @@
 - [LDAP Server Setup](docs/how-to/linux-ldap-server.md) - LDAP authentication server setup with OpenLDAP
 - [LDAP Setup Script](../scripts/bash/linux_toolkit/authentication/ldap-server-setup.sh) - Automated LDAP server installation with --dry-run, --domain, and user/group management options
 - [linux_samba_file_server](docs/how-to/linux-samba.md) - Samba file server setup for Linux/Windows/macOS file sharing
-- [samba_setup_script](scripts/bash/linux/samba-setup.sh) - Automated Samba file server deployment script
+- [samba_setup_script](../scripts/bash/linux_toolkit/samba-setup.sh) - Automated Samba file server deployment script
 - [samba_enterprise_file_sharing](lab/mini-projects/samba-enterprise-file-sharing/README.md) - L7 production walkthrough: departmental shares, ACLs, AD integration, backups, monitoring, security hardening
 - [linux_haproxy_load_balancer](docs/how-to/linux-haproxy-load-balancer.md) - HAProxy Layer 4/7 load balancer with SSL termination, health checks, and Prometheus metrics
 - [haproxy_setup_script](../scripts/bash/linux_toolkit/loadbalancer/haproxy-setup.sh) - Automated HAProxy deployment with --dry-run, --backends, --domain, and --self-signed flags
@@ -293,7 +293,7 @@
 ## Ansible
 - [ansible_toolkit Usage](docs/how-to/ansible_toolkit.md)
 - [ansible_commands_reference](../snippets/ansible-commands.md) - Ansible ad-hoc commands for system administration, file operations, package management
-- [ansi-009: CVE-2026-33228 Hardening](scripts/security/ansible/harden-ansible-cve-2026-33228.sh) - Flatted prototype pollution vulnerability scanner with --check, --fix, --dry-run flags
+- [ansi-009: CVE-2026-33228 Hardening](../scripts/bash/ansible_toolkit/security/harden-ansible-cve-2026-33228.sh) - Flatted prototype pollution vulnerability scanner with --check, --fix, --dry-run flags
 - [ansi-009: CVE-2026-33228 Guide](docs/security/ansible/CVE-2026-33228.md) - Flatted prototype pollution remediation guide for CVE-2026-33228
 - [ansi-009: CVE-2026-33228 How-To](docs/how-to/ansible-cve-2026-33228-flatted.md) - Step-by-step Ansible CVE-2026-33228 hardening
 - [ansi-009: CVE-2026-33228 Runbook](docs/runbooks/cve-2026-33228-ansible-flatted.md) - Comprehensive remediation runbook
@@ -333,6 +333,7 @@
 - [Kubernetes Templates](../templates/k8s/)
 - [Docker Templates](../templates/docker/)
 - [Terraform Templates](../templates/terraform/)
+- [Linux Automation Template](../templates/linux-automation/) - Linux system automation template for DevOps workflows (L7)
 - [Project Starters](../templates/project-starters/)
 
 ## Reference
@@ -343,5 +344,5 @@
 - [Kubernetes cluster-autoscaler CVE-2026-33186 hardening](../docs/troubleshooting/k8s-cluster-autoscaler-cve-2026-33186.md)
 ## Network Monitoring
 - [Linux Network Traffic Analysis Project](../docs/how-to/linux-network-traffic-analysis.md)
-- [Linux Network Monitor Script](../scripts/bash/linux/linux-network-monitor.sh)
+- [Linux Network Monitor Script](../scripts/bash/linux_toolkit/linux-network-monitor.sh)
 - [Terraform + AWS Secrets Manager](../docs/how-to/terraform-aws-secrets-manager.md) - Integrate Terraform with AWS Secrets Manager

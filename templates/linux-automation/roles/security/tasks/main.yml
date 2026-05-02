@@ -1,0 +1,46 @@
+---
+# Security Hardening Tasks
+
+- name: Apply kernel security parameters
+  sysctl:
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+    state: present
+    reload: yes
+  loop: "{{ kernel_parameters }}"
+  ignore_errors: yes
+  when: kernel_parameters is defined
+
+- name: Install fail2ban (Debian/Ubuntu)
+  apt:
+    name: fail2ban
+    state: present
+  ignore_errors: yes
+  when: ansible_os_family == "Debian" and enable_fail2ban | default(false)
+
+- name: Install fail2ban (RHEL/CentOS)
+  yum:
+    name: fail2ban
+    state: present
+  ignore_errors: yes
+  when: ansible_os_family == "RedHat" and enable_fail2ban | default(false)
+
+- name: Configure UFW firewall (Debian/Ubuntu)
+  ufw:
+    rule: "{{ item.rule }}"
+    port: "{{ item.port }}"
+    proto: "{{ item.proto | default('tcp') }}"
+    state: enabled
+  loop: "{{ firewall_rules }}"
+  ignore_errors: yes
+  when: ansible_os_family == "Debian" and firewall_rules is defined
+
+- name: Configure firewalld (RHEL/CentOS)
+  firewalld:
+    port: "{{ item.port }}/{{ item.proto | default('tcp') }}"
+    permanent: yes
+    state: enabled
+    immediate: yes
+  loop: "{{ firewall_rules }}"
+  ignore_errors: yes
+  when: ansible_os_family == "RedHat" and firewall_rules is defined

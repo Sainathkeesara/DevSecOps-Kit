@@ -1,0 +1,39 @@
+[Unit]
+Description={{ service_description | default('Application Service') }}
+After=network.target
+{% if service_dependencies is defined %}
+{% for dep in service_dependencies %}
+Requires={{ dep }}
+After={{ dep }}
+{% endfor %}
+{% endif %}
+
+[Service]
+Type={{ service_type | default('simple') }}
+User={{ service_user | default(app_user) }}
+Group={{ service_group | default(app_group) }}
+WorkingDirectory={{ service_workdir | default(app_base_dir) }}
+ExecStart={{ service_exec_start }}
+{% if service_exec_reload is defined %}
+ExecReload={{ service_exec_reload }}
+{% endif %}
+{% if service_exec_stop is defined %}
+ExecStop={{ service_exec_stop }}
+{% endif %}
+Restart={{ service_restart | default('on-failure') }}
+RestartSec={{ service_restart_sec | default(5) }}
+{% if service_environment is defined %}
+{% for key, value in service_environment.items() %}
+Environment={{ key }}={{ value }}
+{% endfor %}
+{% endif %}
+
+# Security hardening
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem={{ protect_system | default('strict') }}
+ProtectHome={{ protect_home | default('yes') }}
+ReadWritePaths={{ service_rw_paths | default('/tmp') }}
+
+[Install]
+WantedBy={{ service_wanted_by | default('multi-user.target') }}

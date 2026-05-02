@@ -1,0 +1,32 @@
+---
+# Monitoring Configuration Tasks
+
+- name: Install Prometheus Node Exporter (Debian/Ubuntu)
+  apt:
+    name: prometheus-node-exporter
+    state: present
+    update_cache: yes
+  ignore_errors: yes
+  when: ansible_os_family == "Debian" and enable_monitoring | default(true)
+
+- name: Install node_exporter (RHEL/CentOS)
+  yum:
+    name: node_exporter
+    state: present
+  ignore_errors: yes
+  when: ansible_os_family == "RedHat" and enable_monitoring | default(true)
+
+- name: Enable Node Exporter service
+  systemd:
+    name: prometheus-node-exporter
+    enabled: yes
+    state: started
+  ignore_errors: yes
+  when: enable_monitoring | default(true)
+
+- name: Verify Node Exporter is running
+  uri:
+    url: http://localhost:9100/metrics
+    status_code: 200
+  ignore_errors: yes
+  when: enable_monitoring | default(true)
