@@ -49,6 +49,7 @@
 - [git_workflow_optimization](docs/concepts/git-003-workflow.md) - Git workflow optimization for DevOps pipelines (L3)
 - [git_automation_script](scripts/bash/git/git-automation.sh) - Git automation scripts for CI/CD integration (L6)
 - [git_cicd_automation](docs/how-to/git-cicd-automation.md) - Git automation for CI/CD integration (L6)
+- [git_workflow_optimization](docs/how-to/git-workflow-optimization.md) - Git workflow optimization for DevOps pipelines (L3)
 - [git_advanced_commands](docs/reference/git-advanced-commands.md) - Git advanced command patterns for automation (L4)
 
 ## Linux
