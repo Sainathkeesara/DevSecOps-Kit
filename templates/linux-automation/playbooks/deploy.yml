@@ -1,0 +1,44 @@
+---
+# Linux System Automation - Main Playbook
+- name: Configure Linux systems for DevOps automation
+  hosts: all
+  become: yes
+  gather_facts: yes
+
+  vars_files:
+    - ../group_vars.yml
+
+  pre_tasks:
+    - name: Display playbook start message
+      debug:
+        msg: "Starting automation for {{ inventory_hostname }}"
+
+  roles:
+    - role: base
+      tags: [base, always]
+
+    - role: security
+      tags: [security]
+
+    - role: monitoring
+      tags: [monitoring]
+      when: enable_monitoring | default(true)
+
+    - role: orchestrator
+      tags: [orchestrator]
+      when: enable_services | default(true)
+
+  post_tasks:
+    - name: Display playbook completion message
+      debug:
+        msg: "Completed automation for {{ inventory_hostname }}"
+
+  handlers:
+    - name: reload systemd
+      systemd:
+        daemon_reload: yes
+
+    - name: restart prometheus-node-exporter
+      systemd:
+        name: prometheus-node-exporter
+        state: restarted

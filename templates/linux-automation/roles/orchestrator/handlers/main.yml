@@ -1,0 +1,11 @@
+---
+# Orchestrator Handlers
+
+- name: reload systemd
+  systemd:
+    daemon_reload: yes
+
+- name: restart myservice
+  systemd:
+    name: myservice
+    state: restarted

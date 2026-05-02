@@ -1,0 +1,36 @@
+---
+# System configuration
+system_timezone: UTC
+configure_hostname: true
+
+# Application settings
+app_user: appuser
+app_group: appgroup
+app_base_dir: /opt/application
+
+# Services to deploy
+services:
+  - myapp.service
+
+# Monitoring
+enable_monitoring: true
+node_exporter_version: "1.6.1"
+
+# Containers
+enable_containers: false
+docker_networks:
+  - name: app_network
+    subnet: 172.20.0.0/24
+
+# Firewall rules
+firewall_rules:
+  - { rule: allow, port: 22, proto: tcp }
+  - { rule: allow, port: 80, proto: tcp }
+  - { rule: allow, port: 443, proto: tcp }
+
+# Security
+enable_fail2ban: true
+kernel_parameters:
+  - { key: net.ipv4.ip_forward, value: 0 }
+  - { key: net.ipv4.conf.all.send_redirects, value: 0 }
+  - { key: net.ipv6.conf.all.disable_ipv6, value: 1 }

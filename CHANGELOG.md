@@ -4,16 +4,21 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## 2026-05-01
+# Changelog
+
+All notable changes to the DevOps-Kit repository will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+
+## 2026-05-02
 
 ### Added
-- git-004: `docs/reference/git-commands.md` — Git command patterns for automated version control (L4)
-- git-004: `docs/reference/git-advanced-commands.md` — Git advanced command patterns for automation (L4)
-- git-005: `docs/how-to/git-cicd-automation.md` — Git automation for CI/CD integration (L6)
-- 00_index/quick-links.md — Added Git advanced commands and CI/CD automation entries
-- git-003: `docs/concepts/git-003-workflow.md` — Git workflow optimization for DevOps pipelines (L3)
-- git-005: `scripts/bash/git/git-automation.sh` - Git automation scripts for CI/CD integration (L6)
-- 00_index/quick-links.md — Added Git commands, workflow, and automation entries
+- lin-071: `templates/linux-automation/` — Linux system automation template for DevOps workflows (L7)
+  - Complete Ansible-based automation template with roles for base, security, monitoring, and orchestrator
+  - Deploy script with dry-run support, inventory configuration, and systemd service templates
+  - Project structure: playbooks, roles, group_vars, templates for production-ready deployments
+
+## 2026-05-01
 
 ## 2026-04-30
 
@@ -23,7 +28,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - git-002: `docs/setup-guides/git-credential-helper-ci-cd.md` — Git credential helper setup for CI/CD pipelines (L2)
 - git-002: `scripts/bash/git/credential-helper-ci.sh` - Git credential helper configuration for CI/CD
 - lin-071: `docs/how-to/linux/linux-system-automation-template.md` - Linux system automation template for DevOps workflows (L7)
-- lin-071: `scripts/bash/linux/system-automation-template.sh` - Linux automation template deployment script
+- lin-071: `scripts/bash/linux_toolkit/system-automation-template.sh` - Linux automation template deployment script
 - 00_index/quick-links.md — Added Git runner and credential helper entries
 
 ## 2026-04-29
@@ -45,36 +50,36 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - lin-069: docs/how-to/linux-dns-management-coredns-systemd-resolved.md — Complete DNS management with CoreDNS and systemd-resolved
-- lin-069: scripts/bash/linux/linux-dns-coredns.sh — Automated DNS entry management for CoreDNS
-- lin-069: scripts/bash/linux/linux-dns-test.sh — DNS setup verification and testing
-- lin-069: scripts/bash/linux/linux-dns-monitor.sh — DNS health monitoring with auto-restart
+- lin-069: scripts/bash/linux_toolkit/linux-dns-coredns.sh — Automated DNS entry management for CoreDNS
+- lin-069: scripts/bash/linux_toolkit/linux-dns-test.sh — DNS setup verification and testing
+- lin-069: scripts/bash/linux_toolkit/linux-dns-monitor.sh — DNS health monitoring with auto-restart
 - 00_index/quick-links.md — Added DNS management entries
 
 ## 2026-04-24
 
 ### Added
 
-- k8s-015: `scripts/bash/kubernetes/k8s-eso-cve-2026-34984-hardening.sh` — CVE-2026-34984 hardening script for External Secrets Operator
+- k8s-015: `scripts/bash/k8s_toolkit/k8s-eso-cve-2026-34984-hardening.sh` — CVE-2026-34984 hardening script for External Secrets Operator
 - k8s-015: `docs/how-to/k8s-external-secrets-cve-2026-34984.md` — CVE-2026-34984 ESO vulnerability remediation guide
-- k8s-016: `scripts/bash/kubernetes/k8s-ingress-nginx-cve-2026-4342-hardening.sh` — CVE-2026-4342 ingress-nginx comment-based config injection hardening script
+- k8s-016: `scripts/bash/k8s_toolkit/k8s-ingress-nginx-cve-2026-4342-hardening.sh` — CVE-2026-4342 ingress-nginx comment-based config injection hardening script
 - k8s-016: `docs/how-to/k8s-ingress-nginx-cve-2026-4342.md` — CVE-2026-4342 ingress-nginx RCE vulnerability remediation guide
 
 ## 2026-04-23
 
 ### Added
-- k8s-014: `scripts/bash/kubernetes/aks-privilege-escalation-hardening.sh` — CVE-2026-33105 AKS privilege escalation hardening script
+- k8s-014: `scripts/bash/k8s_toolkit/aks-privilege-escalation-hardening.sh` — CVE-2026-33105 AKS privilege escalation hardening script
 - k8s-014: `docs/how-to/k8s-aks-cve-2026-33105.md` — CVE-2026-33105 AKS privilege escalation remediation guide
 
 ## 2026-04-22
 
 ### Added
 - lin-067: `docs/how-to/linux-container-security-scanning.md` — Container security scanning project with Trivy and Falco
-- lin-067: `scripts/bash/linux/linux-container-security-scan.sh` — Automated container security scanning script
+- lin-067: `scripts/bash/linux_toolkit/linux-container-security-scan.sh` — Automated container security scanning script
 
 ## 2026-04-21
 
 ### Added
-- k8s-021: `scripts/bash/kubernetes/mcp-server-kubernetes-hardening.sh` — CVE-2026-39884 hardening script (mcp-server-kubernetes RCE)
+- k8s-021: `scripts/bash/k8s_toolkit/mcp-server-kubernetes-hardening.sh` — CVE-2026-39884 hardening script (mcp-server-kubernetes RCE)
 - k8s-021: `docs/troubleshooting/kubernetes-mcp-server-cve-2026-39884.md` — CVE-2026-39884 remediation guide
 - ter-018: `docs/how-to/terraform-secrets-manager.md` — AWS Secrets Manager integration with Terraform walkthrough
 - ter-018: `scripts/bash/terraform_toolkit/secrets/terraform-secrets-deploy.sh` — Deployment script for Secrets Manager with dry-run
@@ -100,7 +105,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-04-17
 
 ### Added
-- vault-009: `scripts/bash/vault/security/vault-go-getter-hardening.sh` — Hardening script for CVE-2026-4660 (go-getter arbitrary file read vulnerability)
+- vault-009: `scripts/bash/vault_toolkit/security/vault-go-getter-hardening.sh` — Hardening script for CVE-2026-4660 (go-getter arbitrary file read vulnerability)
 
 ### Added
 - ter-003: `docs/how-to/terraform-state-management.md` — Terraform state management best practices
@@ -116,37 +121,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - git-003: `scripts/bash/git/git-install-wsl.sh` — Automated Git installation script for WSL
 - git-003: `snippets/git-commands-reference.md` — Git CLI commands reference with 80+ commands
 - ter-017: `docs/how-to/terraform-iam-roles.md` — IAM roles with policy modules how-to guide
-- ter-017: `scripts/bash/terraform/terraform-iam-roles-deploy.sh` — Automated IAM roles deployment script
+- ter-017: `scripts/bash/terraform_toolkit/terraform-iam-roles-deploy.sh` — Automated IAM roles deployment script
 
 ## 2026-04-13
 
 ### Added
 - lin-030: `docs/how-to/linux/linux-wazuh-siem.md` — Wazuh SIEM deployment how-to guide
-- lin-030: `scripts/bash/linux/wazuh-deploy.sh` — Automated Wazuh deployment script
+- lin-030: `scripts/bash/linux_toolkit/wazuh-deploy.sh` — Automated Wazuh deployment script
 
 ## 2026-04-12
 
 ### Added
 - lin-028: `docs/how-to/linux-aide-configuration-management.md` — AIDE file integrity monitoring how-to guide
-- lin-028: `scripts/bash/linux/aide-deploy.sh` — Automated AIDE deployment and management script
+- lin-028: `scripts/bash/linux_toolkit/aide-deploy.sh` — Automated AIDE deployment and management script
 
 ## 2026-04-11
 
 ### Added
-- lin-028: `scripts/bash/linux/aide-config.sh` — AIDE configuration management script for file integrity monitoring
+- lin-028: `scripts/bash/linux_toolkit/aide-config.sh` — AIDE configuration management script for file integrity monitoring
 - lin-028: `docs/how-to/linux-aide-configuration.md` — AIDE setup and usage guide for Linux configuration management
 
 ## 2026-04-09
 
 ### Added
-- vault-005: `scripts/bash/vault/vault-audit-log-analysis.sh` — Vault audit log analysis script for security events and anomalies
+- vault-005: `scripts/bash/vault_toolkit/vault-audit-log-analysis.sh` — Vault audit log analysis script for security events and anomalies
 - helm-003: `docs/how-to/helm-commands-reference.md` — Helm CLI commands reference with 80+ examples
 
 ## 2026-04-08
 
 ### Added
-- dok-007: `scripts/bash/docker/security/docker-cve-2026-34040.sh` — Docker authorization plugin bypass detection script for CVE-2026-34040
-- k8s-013: `scripts/bash/k8s/security/k8s-acm-cve-2026-4740.sh` — Kubernetes ACM privilege escalation detection script for CVE-2026-4740
+- dok-007: `scripts/bash/docker_toolkit/security/docker-cve-2026-34040.sh` — Docker authorization plugin bypass detection script for CVE-2026-34040
+- k8s-013: `scripts/bash/k8s_toolkit/security/k8s-acm-cve-2026-4740.sh` — Kubernetes ACM privilege escalation detection script for CVE-2026-4740
 
 ## 2026-04-03
 

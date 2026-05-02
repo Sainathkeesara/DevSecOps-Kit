@@ -1,0 +1,35 @@
+---
+# Service Orchestration Tasks
+
+- name: Create application directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ app_user }}"
+    group: "{{ app_group }}"
+    mode: '0755'
+  loop:
+    - "{{ app_base_dir }}/config"
+    - "{{ app_base_dir }}/logs"
+    - "{{ app_base_dir }}/data"
+  ignore_errors: yes
+
+- name: Deploy systemd service files
+  template:
+    src: myservice.j2
+    dest: /etc/systemd/system/myservice.service
+    owner: root
+    group: root
+    mode: '0644'
+  notify: reload systemd
+  ignore_errors: yes
+  when: services is defined
+
+- name: Enable and start application services
+  systemd:
+    name: myservice
+    enabled: yes
+    state: started
+    daemon_reload: yes
+  ignore_errors: yes
+  when: enable_services | default(true)

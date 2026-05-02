@@ -1,0 +1,49 @@
+---
+# Base System Configuration Tasks
+
+- name: Update package cache (Debian/Ubuntu)
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  ignore_errors: yes
+  when: ansible_os_family == "Debian"
+
+- name: Update package cache (RHEL/CentOS)
+  yum:
+    update_cache: yes
+  ignore_errors: yes
+  when: ansible_os_family == "RedHat"
+
+- name: Install base packages
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - curl
+    - wget
+    - vim
+    - htop
+    - net-tools
+    - git
+    - python3-pip
+  ignore_errors: yes
+
+- name: Configure timezone
+  timezone:
+    name: "{{ system_timezone }}"
+  when: system_timezone is defined
+  ignore_errors: yes
+
+- name: Set hostname
+  hostname:
+    name: "{{ inventory_hostname }}"
+  when: configure_hostname | default(true)
+  ignore_errors: yes
+
+- name: Ensure automation user exists
+  user:
+    name: "{{ app_user }}"
+    system: yes
+    shell: /bin/bash
+    create_home: yes
+  ignore_errors: yes
