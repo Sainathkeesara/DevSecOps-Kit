@@ -4,13 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-# Changelog
-
-All notable changes to the DevOps-Kit repository will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
-
 ## 2026-05-02
+
+### Added
+- git-003: `docs/how-to/git-workflow-optimization.md` — Git workflow optimization for DevOps pipelines (L3)
+- 00_index/quick-links.md — Added Git workflow optimization entry
+
+## 2026-05-01
 
 ### Added
 - lin-071: `templates/linux-automation/` — Linux system automation template for DevOps workflows (L7)
