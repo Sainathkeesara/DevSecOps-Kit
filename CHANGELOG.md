@@ -7,6 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-02
 
 ### Added
+- lin-072: `scripts/bash/linux_toolkit/lib/iac-operations.sh` — Shell script library for infrastructure-as-code operations (L7)
+  - Reusable functions for Terraform and Ansible operations
+  - Service management, network utilities, backup/restore functions
+  - Dry-run mode support and binary existence checks
+- lin-072: `docs/how-to/linux/linux-shell-script-library-iac.md` — Documentation for IaC shell script library (L7)
+- 00_index/quick-links.md — Added Linux IaC shell script library entry
 - git-003: `docs/how-to/git-workflow-optimization.md` — Git workflow optimization for DevOps pipelines (L3)
 - 00_index/quick-links.md — Added Git workflow optimization entry
 
