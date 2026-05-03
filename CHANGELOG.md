@@ -7,6 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-03
 
 ### Added
+- lin-077: `docs/how-to/linux/linux-container-orchestration-systemd-cgroups.md` — Container orchestration automation with systemd and cgroups (L7)
+  - Comprehensive guide covering systemd service units, cgroup slices, resource limits (CPU/memory/I/O/PID)
+  - Container deployment patterns, health checks, auto-restart, networking with systemd
+  - Monitoring scripts for cgroup resource usage, rollback procedures, common error solutions
+- lin-077: `scripts/bash/linux_toolkit/container-orchestration-systemd-cgroups.sh` — Container orchestration script
+  - Automated deployment with systemd and cgroup integration, dry-run mode
+  - Cgroup slice management (create/delete), service deployment, rollback
+  - Resource verification, multi-container support, idempotent operations
+  - shellcheck passed with warnings only
+- 00_index/quick-links.md — Added lin-077 container orchestration entries
 - lin-073: `docs/how-to/linux/linux-iac-pipeline-workflows.md` — Infrastructure-as-Code automation workflows for DevOps pipelines (L7)
   - Comprehensive guide covering pipeline architecture, Terraform/Ansible integration, CI/CD workflows
   - GitHub Actions and Jenkins pipeline examples, environment promotion, testing gates, rollback procedures

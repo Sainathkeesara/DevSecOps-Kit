@@ -72,6 +72,8 @@
 - [loki_promtail_deploy_script](../scripts/bash/linux_toolkit/linux-loki-promtail-deploy.sh) - Automated Loki and Promtail deployment script with dry-run support
 - [linux_system_automation_template](docs/how-to/linux/linux-system-automation-template.md) - Linux system automation template for DevOps workflows (L7)
 - [system_automation_script](../scripts/bash/linux_toolkit/system-automation-template.sh) - Linux automation template deployment script with Ansible
+- [lin-077: Container Orchestration Systemd Cgroups](docs/how-to/linux/linux-container-orchestration-systemd-cgroups.md) - Container orchestration automation with systemd and cgroups: service units, slices, resource limits, health checks (L7)
+- [container_orchestration_script](../scripts/bash/linux_toolkit/container-orchestration-systemd-cgroups.sh) - Automated container orchestration script with systemd integration, dry-run, cgroup management, rollback
 - [linux_automation_template](templates/linux-automation/) - Complete Ansible-based automation template with roles, playbooks, and variables
 
 ## Terraform
