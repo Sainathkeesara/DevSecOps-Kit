@@ -5,6 +5,8 @@
 - [CHANGELOG](../CHANGELOG.md) - Version history and updates
 
 ## Docker
+- [docker_cve_2026_34040_hardening](../scripts/bash/docker_toolkit/security/docker-cve-2026-34040.sh) - CVE-2026-34040 Docker authorization plugin bypass scanner
+- [docker_cve_2026_34040](docs/security/docker/CVE-2026-34040.md) - CVE-2026-34040 Docker authorization plugin bypass remediation guide
 - [docker_kaniko_cve_2026_28406_hardening](../scripts/bash/docker_toolkit/docker-kaniko-cve-2026-28406-hardening.sh) - CVE-2026-28406 kaniko path traversal hardening script
 - [docker_kaniko_cve_2026_28406](docs/how-to/docker-kaniko-cve-2026-28406.md) - CVE-2026-28406 kaniko path traversal remediation guide
 - [docker_security_best_practices](docs/how-to/docker-security-best-practices.md) - Docker security best practices

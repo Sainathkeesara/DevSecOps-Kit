@@ -42,8 +42,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - System monitoring: get_cpu_usage, get_memory_usage, get_disk_usage, get_load_average
   - Dry-run mode support, binary checks, verbose logging
 - git-002: `docs/how-to/git/git-credential-helper-cicd-setup.md` — Git credential helper setup for CI/CD pipelines (L2)
-  - Configuration for GitHub Actions, GitLab CI, Jenkins
-  - Credential storage, rollback procedures
+   - Configuration for GitHub Actions, GitLab CI, Jenkins
+   - Credential storage, rollback procedures
+- dok-001: `docs/security/docker/CVE-2026-34040.md` — CVE-2026-34040 Docker authorization plugin bypass remediation guide (L8)
+   - Complete hardening guide for Docker authorization plugin bypass vulnerability
+   - Docker version checking, plugin status, daemon configuration verification
+   - Remediation steps for upgrading Docker and securing configuration
+- dok-001: `scripts/bash/docker_toolkit/security/docker-cve-2026-34040.sh` — CVE-2026-34040 hardening script (L8)
+   - Docker authorization plugin bypass detection and remediation
+   - Checks Docker version, authorization plugins, API exposure
+   - Supports --dry-run, --remediate, --json-output flags
 - 00_index/quick-links.md — Added lin-074 and git-002 entries
 
 ### Changed
