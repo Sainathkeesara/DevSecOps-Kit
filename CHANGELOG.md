@@ -7,16 +7,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-03
 
 ### Added
-- lin-073: `docs/how-to/linux/linux-iac-pipeline-workflows.md` — Infrastructure-as-Code automation workflows for DevOps pipelines (L7)
-  - Comprehensive guide covering pipeline architecture, Terraform/Ansible integration, CI/CD workflows
-  - GitHub Actions and Jenkins pipeline examples, environment promotion, testing gates, rollback procedures
-  - Integration with existing iac-operations.sh library and system-automation-template
-- lin-073: `scripts/bash/linux_toolkit/pipeline/iac-pipeline-workflow.sh` — IaC pipeline workflow script
-  - Multi-environment support (dev, staging, prod), dry-run mode, approval gates
-  - Actions: init, validate, plan, apply, destroy, rollback
-  - Binary checks, pre-flight validation, state backup support
-  - shellcheck passed with warnings only
-- 00_index/quick-links.md — Added lin-073 IaC pipeline entries
+- lin-074: `docs/how-to/linux/linux-shell-commands-automation.md` — Shell command patterns for automated system administration (L7)
+  - Documentation covering service management, file operations, network utilities, system monitoring
+  - Prerequisites for common Linux utilities, verification steps, rollback procedures
+  - Common errors and solutions
+- lin-074: `scripts/bash/linux/linux-system-commands-library.sh` — Shell command library
+  - Functions: service_is_active, service_start/stop/restart, file backup/diff, port checks, connectivity tests
+  - System monitoring: get_cpu_usage, get_memory_usage, get_disk_usage, get_load_average
+  - Dry-run mode support, binary checks, verbose logging
+- git-002: `docs/how-to/git/git-credential-helper-cicd-setup.md` — Git credential helper setup for CI/CD pipelines (L2)
+  - Configuration for GitHub Actions, GitLab CI, Jenkins
+  - Credential storage, rollback procedures
+- 00_index/quick-links.md — Added lin-074 and git-002 entries
+
+### Changed
+- lin-073: Infrastructure-as-Code automation workflows for DevOps pipelines (L7)
+  - Final score: 9/10
 
 ## 2026-05-02
 

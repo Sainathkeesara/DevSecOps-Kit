@@ -45,6 +45,8 @@
 - [git_runner_install_script](scripts/bash/git/github-runner-install.sh) - GitHub Actions runner installation script with systemd/Docker support
 - [git_credential_helper_ci_cd](docs/setup-guides/git-credential-helper-ci-cd.md) - Git credential helper setup for CI/CD pipelines
 - [git_credential_helper_script](scripts/bash/git/credential-helper-ci.sh) - Git credential helper configuration for CI/CD
+- [git_credential_helper_cicd](docs/how-to/git/git-credential-helper-cicd-setup.md) - Git credential helper setup for CI/CD pipelines
+- [git_credential_helper_script](scripts/bash/git/credential-helper-ci.sh) - Git credential helper configuration for CI/CD
 - [git_commands_reference](docs/reference/git-commands.md) - Git command patterns for automated version control (L4)
 - [git_workflow_optimization](docs/concepts/git-003-workflow.md) - Git workflow optimization for DevOps pipelines (L3)
 - [git_automation_script](scripts/bash/git/git-automation.sh) - Git automation scripts for CI/CD integration (L6)
@@ -54,6 +56,8 @@
 
 ## Linux
 - [linux_commands_reference](snippets/linux-commands.md) - Linux commands reference with 30+ bash one-liners for sysadmins
+- [lin-074: Shell Command Patterns](docs/how-to/linux/linux-shell-commands-automation.md) - Shell command patterns for automated system administration (L7)
+- [lin-074: system-commands-library.sh](../scripts/bash/linux/linux-system-commands-library.sh) - Shell command library with service, file, network, monitoring functions
 - [lin-073: IaC Pipeline Workflows](docs/how-to/linux/linux-iac-pipeline-workflows.md) - Infrastructure-as-Code automation workflows for DevOps pipelines (L7)
 - [lin-073: iac-pipeline-workflow.sh](../scripts/bash/linux_toolkit/pipeline/iac-pipeline-workflow.sh) - Pipeline workflow script with multi-environment support, dry-run, approval gates, rollback
 - [linux_container_security_scanning](docs/how-to/linux-container-security-scanning.md) - Container security scanning with Trivy and Falco for vulnerability detection and runtime monitoring
