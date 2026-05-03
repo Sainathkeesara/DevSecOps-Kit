@@ -1,0 +1,550 @@
+---
+# Linux System Hardening Role
+# This role applies security hardening configurations to Linux systems
+# specifically optimized for containerized environments
+
+- name: Display hardening information
+  debug:
+    msg: "Applying system hardening to {{ inventory_hostname }}"
+
+# =============================================================================
+# PRE-HARDENING CHECKS
+# =============================================================================
+
+- name: Check if running in container
+  shell: |
+    if [ -f /.dockerenv ] || grep -q docker /proc/1/cgroup 2>/dev/null; then
+      echo "container"
+    else
+      echo "host"
+    fi
+  register: system_type
+  changed_when: false
+
+- name: Set hardening scope fact
+  set_fact:
+    is_container: "{{ system_type.stdout == 'container' }}"
+    hardening_backup_dir: "{{ hardening_backup_dir | default('/var/backups/hardening') }}"
+
+# =============================================================================
+# KERNEL HARDENING
+# =============================================================================
+
+- name: Apply kernel sysctl hardening
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: present
+    reload: yes
+  loop:
+    - { name: "kernel.kptr_restrict", value: "2" }
+    - { name: "kernel.dmesg_restrict", value: "1" }
+    - { name: "kernel.yama.ptrace_scope", value: "1" }
+    - { name: "kernel.randomize_va_space", value: "2" }
+    - { name: "net.ipv4.tcp_syncookies", value: "1" }
+    - { name: "net.ipv4.tcp_timestamps", value: "0" }
+    - { name: "net.ipv4.ip_forward", value: "0" }
+    - { name: "net.ipv6.conf.all.forwarding", value: "0" }
+    - { name: "net.ipv4.icmp_echo_ignore_broadcasts", value: "1" }
+    - { name: "net.ipv4.conf.all.log_martians", value: "1" }
+    - { name: "net.ipv4.conf.default.log_martians", value: "1" }
+    - { name: "net.ipv4.conf.all.rp_filter", value: "1" }
+    - { name: "net.ipv4.conf.default.rp_filter", value: "1" }
+    - { name: "net.ipv4.conf.all.accept_source_route", value: "0" }
+    - { name: "net.ipv4.conf.default.accept_source_route", value: "0" }
+    - { name: "vm.overcommit_memory", value: "2" }
+    - { name: "vm.overcommit_ratio", value: "80" }
+    - { name: "vm.swappiness", value: "10" }
+    - { name: "fs.file-max", value: "2097152" }
+    - { name: "net.core.somaxconn", value: "4096" }
+    - { name: "net.core.netdev_max_backlog", value: "8192" }
+    - { name: "net.ipv4.tcp_max_syn_backlog", value: "4096" }
+  when: enable_kernel_hardening | default(true) and not is_container
+  tags: [kernel, hardening]
+
+- name: Persist sysctl configuration
+  copy:
+    content: |
+      # Kernel Security Hardening
+      kernel.kptr_restrict = 2
+      kernel.dmesg_restrict = 1
+      kernel.yama.ptrace_scope = 1
+      kernel.randomize_va_space = 2
+      net.ipv4.tcp_syncookies = 1
+      net.ipv4.tcp_timestamps = 0
+      net.ipv4.ip_forward = 0
+      net.ipv6.conf.all.forwarding = 0
+      net.ipv4.icmp_echo_ignore_broadcasts = 1
+      net.ipv4.conf.all.log_martians = 1
+      net.ipv4.conf.default.log_martians = 1
+      net.ipv4.conf.all.rp_filter = 1
+      net.ipv4.conf.default.rp_filter = 1
+      net.ipv4.conf.all.accept_source_route = 0
+      net.ipv4.conf.default.accept_source_route = 0
+      vm.overcommit_memory = 2
+      vm.overcommit_ratio = 80
+      vm.swappiness = 10
+      fs.file-max = 2097152
+      net.core.somaxconn = 4096
+      net.core.netdev_max_backlog = 8192
+      net.ipv4.tcp_max_syn_backlog = 4096
+    dest: /etc/sysctl.d/99-security-hardening.conf
+    owner: root
+    group: root
+    mode: '0644'
+  when: enable_kernel_hardening | default(true) and not is_container
+  tags: [kernel, hardening]
+
+- name: Disable unnecessary kernel modules
+  lineinfile:
+    path: "/etc/modprobe.d/{{ item }}.conf"
+    line: "install {{ item }} /bin/true"
+    create: yes
+    mode: '0644'
+  loop:
+    - cramfs
+    - freevxfs
+    - jffs2
+    - hfs
+    - hfsplus
+    - squashfs
+    - udf
+    - usb-storage
+  when: enable_kernel_hardening | default(true) and not is_container
+  tags: [kernel, hardening]
+
+# =============================================================================
+# FILESYSTEM HARDENING
+# =============================================================================
+
+- name: Mount tmp with noexec,nosuid
+  mount:
+    path: /tmp
+    src: tmpfs
+    fstype: tmpfs
+    opts: defaults,noexec,nosuid,nodev,noatime,nodiratime,size=2G
+    state: mounted
+  when: enable_filesystem_hardening | default(true) and ansible_facts['mounts'] | selectattr('mount', 'equalto', '/tmp') | list | length == 0
+  tags: [filesystem, hardening]
+
+- name: Set immutable attributes on critical files
+  file:
+    path: "{{ item }}"
+    attributes: i
+  loop:
+    - /etc/passwd
+    - /etc/shadow
+    - /etc/group
+    - /etc/gshadow
+    - /etc/hosts
+    - /etc/hostname
+    - /etc/resolv.conf
+  ignore_errors: yes
+  when: enable_filesystem_hardening | default(true) and not is_container
+  tags: [filesystem, hardening]
+
+- name: Configure /etc/security/limits.conf
+  blockinfile:
+    path: /etc/security/limits.conf
+    block: |
+      # Security hardening limits
+      * soft core 0
+      * hard core 0
+      * soft nofile 65535
+      * hard nofile 65535
+      * soft nproc 4096
+      * hard nproc 4096
+      root soft core 0
+      root hard core 0
+    marker: "# {mark} ANSIBLE SECURITY LIMITS"
+  when: enable_filesystem_hardening | default(true)
+  tags: [filesystem, hardening]
+
+# =============================================================================
+# SSH HARDENING
+# =============================================================================
+
+- name: Backup SSH configuration
+  copy:
+    src: /etc/ssh/sshd_config
+    dest: "/etc/ssh/sshd_config.backup.{{ ansible_date_time.date }}"
+    remote_src: yes
+  when: enable_ssh_hardening | default(true)
+  tags: [ssh, hardening]
+
+- name: Harden SSH configuration
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^{{ item.key }}"
+    line: "{{ item.key }} {{ item.value }}"
+    state: present
+  loop:
+    - { key: "Protocol", value: "2" }
+    - { key: "PermitRootLogin", value: "no" }
+    - { key: "MaxAuthTries", value: "3" }
+    - { key: "MaxSessions", value: "2" }
+    - { key: "ClientAliveInterval", value: "300" }
+    - { key: "ClientAliveCountMax", value: "2" }
+    - { key: "LoginGraceTime", value: "60" }
+    - { key: "X11Forwarding", value: "no" }
+    - { key: "PermitTunnel", value: "no" }
+    - { key: "AllowAgentForwarding", value: "no" }
+    - { key: "AllowTcpForwarding", value: "no" }
+    - { key: "GatewayPorts", value: "no" }
+    - { key: "PermitEmptyPasswords", value: "no" }
+    - { key: "PasswordAuthentication", value: "no" }
+    - { key: "PubkeyAuthentication", value: "yes" }
+    - { key: "IgnoreRhosts", value: "yes" }
+    - { key: "HostbasedAuthentication", value: "no" }
+  when: enable_ssh_hardening | default(true)
+  tags: [ssh, hardening]
+
+- name: Create SSH login banner
+  copy:
+    content: |
+      #############################################################
+      #                                                           #
+      #  WARNING: Unauthorized access to this system is prohibited #
+      #  and will be prosecuted to the fullest extent of the law.  #
+      #                                                           #
+      #  All activities are logged and monitored.                  #
+      #                                                           #
+      #############################################################
+    dest: /etc/issue.net
+    owner: root
+    group: root
+    mode: '0644'
+  when: enable_ssh_hardening | default(true)
+  tags: [ssh, hardening]
+
+- name: Apply SSH banner to configuration
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^Banner"
+    line: "Banner /etc/issue.net"
+    state: present
+  when: enable_ssh_hardening | default(true)
+  tags: [ssh, hardening]
+
+- name: Restart SSH service
+  systemd:
+    name: sshd
+    state: restarted
+    enabled: yes
+  when: enable_ssh_hardening | default(true)
+  tags: [ssh, hardening]
+
+# =============================================================================
+# USER ACCOUNT HARDENING
+# =============================================================================
+
+- name: Lock dangerous system accounts
+  user:
+    name: "{{ item }}"
+    state: locked
+    shell: /usr/sbin/nologin
+  loop:
+    - games
+    - operator
+    - gopher
+    - ftp
+  when: enable_user_hardening | default(true)
+  ignore_errors: yes
+  tags: [user, hardening]
+
+- name: Configure password aging
+  lineinfile:
+    path: /etc/login.defs
+    regexp: "^{{ item.key }}"
+    line: "{{ item.key }} {{ item.value }}"
+  loop:
+    - { key: "PASS_MAX_DAYS", value: "90" }
+    - { key: "PASS_MIN_DAYS", value: "7" }
+    - { key: "PASS_MIN_LEN", value: "14" }
+    - { key: "PASS_WARN_AGE", value: "14" }
+    - { key: "UID_MIN", value: "1000" }
+    - { key: "UID_MAX", value: "60000" }
+    - { key: "GID_MIN", value: "1000" }
+    - { key: "GID_MAX", value: "60000" }
+  when: enable_user_hardening | default(true)
+  tags: [user, hardening]
+
+- name: Remove password from root account
+  shell: passwd -d root && chage -d 0 root
+  when: enable_user_hardening | default(true)
+  tags: [user, hardening]
+
+# =============================================================================
+# FIREWALL CONFIGURATION
+# =============================================================================
+
+- name: Configure UFW firewall (Ubuntu/Debian)
+  ufw:
+    state: enabled
+    policy: deny
+    direction: incoming
+  when: 
+    - enable_firewall | default(true)
+    - ansible_os_family == "Debian"
+  tags: [firewall, hardening]
+
+- name: Allow SSH through UFW
+  ufw:
+    rule: allow
+    port: "22"
+    proto: tcp
+  when: 
+    - enable_firewall | default(true)
+    - ansible_os_family == "Debian"
+  tags: [firewall, hardening]
+
+- name: Allow Docker ports through UFW
+  ufw:
+    rule: allow
+    port: "{{ item }}"
+    proto: tcp
+  loop:
+    - 2376
+    - 2377
+    - 7946
+  when: 
+    - enable_firewall | default(true)
+    - ansible_os_family == "Debian"
+  tags: [firewall, hardening]
+
+- name: Configure firewalld (RHEL/CentOS)
+  firewalld:
+    service: ssh
+    permanent: yes
+    state: enabled
+    immediate: yes
+  when:
+    - enable_firewall | default(true)
+    - ansible_os_family == "RedHat"
+  tags: [firewall, hardening]
+
+- name: Set firewalld default zone to drop
+  firewalld:
+    zone: drop
+    state: enabled
+    permanent: yes
+  when:
+    - enable_firewall | default(true)
+    - ansible_os_family == "RedHat"
+  tags: [firewall, hardening]
+
+# =============================================================================
+# AUDIT DAEMON
+# =============================================================================
+
+- name: Install auditd
+  package:
+    name: auditd
+    state: present
+  when: enable_auditd | default(true)
+  tags: [audit, hardening]
+
+- name: Configure audit rules
+  copy:
+    content: |
+      ## Security Hardening Audit Rules
+      -w /etc/passwd -p wa -k identity
+      -w /etc/group -p wa -k identity
+      -w /etc/shadow -p wa -k identity
+      -w /etc/sudoers -p wa -k scope
+      -w /var/log/audit/ -p wa -k log_files
+      -w /usr/bin/docker -p x -k docker
+      -w /etc/docker/ -p wa -k docker
+      -a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change
+      -a always,exit -F arch=b64 -S clock_settime -k time-change
+      -a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale
+      -a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts
+      -a always,exit -F arch=b64 -S chmod -F auid>=1000 -F auid!=4294967295 -k perm_mod
+      -a always,exit -F arch=b64 -S chown -F auid>=1000 -F auid!=4294967295 -k perm_mod
+    dest: /etc/audit/rules.d/hardening.rules
+    owner: root
+    group: root
+    mode: '0640'
+  when: enable_auditd | default(true)
+  tags: [audit, hardening]
+
+- name: Start and enable auditd
+  systemd:
+    name: auditd
+    state: started
+    enabled: yes
+  when: enable_auditd | default(true)
+  tags: [audit, hardening]
+
+# =============================================================================
+# DOCKER HARDENING
+# =============================================================================
+
+- name: Backup Docker configuration
+  copy:
+    src: /etc/docker/daemon.json
+    dest: "/etc/docker/daemon.json.backup.{{ ansible_date_time.date }}"
+    remote_src: yes
+  when: 
+    - enable_docker_hardening | default(true)
+    - docker_config_exists | default(false)
+  tags: [docker, hardening]
+
+- name: Check Docker configuration existence
+  stat:
+    path: /etc/docker/daemon.json
+  register: docker_config_exists
+  when: enable_docker_hardening | default(true)
+  tags: [docker, hardening]
+
+- name: Create hardened Docker daemon configuration
+  copy:
+    content: |
+      {
+        "authorization-plugins": [],
+        "data-root": "/var/lib/docker",
+        "exec-opts": ["native.cgroupdriver=systemd"],
+        "experimental": false,
+        "icc": false,
+        "iptables": true,
+        "live-restore": true,
+        "log-driver": "json-file",
+        "log-opts": {
+          "max-size": "10m",
+          "max-file": "3"
+        },
+        "no-new-privileges": true,
+        "raw-logs": false,
+        "registry-mirrors": [],
+        "seccomp-profile": "builtin",
+        "selinux-enabled": true,
+        "storage-driver": "overlay2",
+        "tls": true,
+        "tlsverify": true,
+        "userland-proxy": false,
+        "userns-remap": "default"
+      }
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+    mode: '0644'
+  when: enable_docker_hardening | default(true)
+  tags: [docker, hardening]
+
+- name: Restart Docker to apply hardening
+  systemd:
+    name: docker
+    state: restarted
+    enabled: yes
+  when: enable_docker_hardening | default(true)
+  tags: [docker, hardening]
+
+# =============================================================================
+# APPMARMOR
+# =============================================================================
+
+- name: Ensure AppArmor is installed
+  package:
+    name:
+      - apparmor
+      - apparmor-utils
+    state: present
+  when: enable_apparmor | default(true)
+  tags: [apparmor, hardening]
+
+- name: Enable AppArmor
+  systemd:
+    name: apparmor
+    state: started
+    enabled: yes
+  when: enable_apparmor | default(true)
+  tags: [apparmor, hardening]
+
+# =============================================================================
+# SECURITY UPDATES
+# =============================================================================
+
+- name: Apply security updates
+  package:
+    name: "*"
+    state: latest
+  when: apply_security_updates | default(false)
+  tags: [updates, hardening]
+
+# =============================================================================
+# POST-HARDENING VERIFICATION
+# =============================================================================
+
+- name: Verify hardening configuration
+  shell: |
+    echo "=== Hardening Verification Report ==="
+    echo "Date: $(date)"
+    echo "Host: $(hostname)"
+    echo ""
+    echo "--- Kernel Parameters ---"
+    sysctl net.ipv4.tcp_syncookies net.ipv4.ip_forward vm.swappiness
+    echo ""
+    echo "--- SSH Configuration ---"
+    sshd -T 2>/dev/null | grep -E "(permitrootlogin|passwordauthentication|pubkeyauthentication)" || echo "SSH config not verified"
+    echo ""
+    echo "--- Docker Configuration ---"
+    if command -v docker &>/dev/null; then
+      docker info 2>/dev/null | grep -E "(Security|Live Restore|User namespaces)" || echo "Docker info not available"
+    else
+      echo "Docker not installed"
+    fi
+    echo ""
+    echo "--- Firewall Status ---"
+    if command -v ufw &>/dev/null; then
+      ufw status
+    elif command -v firewall-cmd &>/dev/null; then
+      firewall-cmd --state
+    else
+      echo "No firewall detected"
+    fi
+  register: verification_output
+  when: enable_verification | default(true)
+  tags: [verification, hardening]
+
+- name: Display verification results
+  debug:
+    var: verification_output.stdout_lines
+  when: enable_verification | default(true)
+  tags: [verification, hardening]
+
+- name: Create hardening report
+  copy:
+    content: |
+      ================================================================================
+      LINUX SYSTEM HARDENING REPORT
+      ================================================================================
+      Host: {{ inventory_hostname }}
+      Date: {{ ansible_date_time.iso8601 }}
+      OS: {{ ansible_distribution }} {{ ansible_distribution_version }}
+      Kernel: {{ ansible_kernel }}
+      
+      HARDENING APPLIED:
+      - Kernel hardening: {{ enable_kernel_hardening | default(true) }}
+      - Firewall: {{ enable_firewall | default(true) }}
+      - SSH hardening: {{ enable_ssh_hardening | default(true) }}
+      - Docker hardening: {{ enable_docker_hardening | default(true) }}
+      - User hardening: {{ enable_user_hardening | default(true) }}
+      - Audit daemon: {{ enable_auditd | default(true) }}
+      - AppArmor: {{ enable_apparmor | default(true) }}
+      
+      BACKUP LOCATION:
+      {{ hardening_backup_dir }}
+      
+      ================================================================================
+    dest: "{{ hardening_backup_dir }}/hardening-report-{{ ansible_date_time.date }}.txt"
+    mode: '0644'
+  tags: [report, hardening]
+
+- name: Display summary
+  debug:
+    msg:
+      - "=== Hardening Complete ==="
+      - "Host: {{ inventory_hostname }}"
+      - "Backup: {{ hardening_backup_dir }}"
+      - ""
+  tags: [summary, hardening]

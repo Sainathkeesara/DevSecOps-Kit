@@ -16,17 +16,40 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Cgroup slice management (create/delete), service deployment, rollback
   - Resource verification, multi-container support, idempotent operations
   - shellcheck passed with warnings only
-- 00_index/quick-links.md — Added lin-077 container orchestration entries
-- lin-073: `docs/how-to/linux/linux-iac-pipeline-workflows.md` — Infrastructure-as-Code automation workflows for DevOps pipelines (L7)
-  - Comprehensive guide covering pipeline architecture, Terraform/Ansible integration, CI/CD workflows
-  - GitHub Actions and Jenkins pipeline examples, environment promotion, testing gates, rollback procedures
-  - Integration with existing iac-operations.sh library and system-automation-template
-- lin-073: `scripts/bash/linux_toolkit/pipeline/iac-pipeline-workflow.sh` — IaC pipeline workflow script
-  - Multi-environment support (dev, staging, prod), dry-run mode, approval gates
-  - Actions: init, validate, plan, apply, destroy, rollback
-  - Binary checks, pre-flight validation, state backup support
-  - shellcheck passed with warnings only
-- 00_index/quick-links.md — Added lin-073 IaC pipeline entries
+- lin-075: `docs/how-to/linux/linux-system-hardening-containerized.md` — Linux system hardening automation for containerized environments (L7)
+  - Comprehensive framework for automated security hardening following CIS benchmarks and NIST guidelines
+  - Kernel sysctl hardening, SSH configuration, Docker daemon hardening, firewall rules
+  - User account hardening, auditd configuration, AppArmor profiles
+  - Automated remediation, compliance checks, and audit capabilities
+- lin-075: `scripts/bash/linux/linux-system-hardening.sh` — Linux system hardening automation script
+  - Idempotent hardening with kernel parameters, firewall, SSH, Docker, user accounts
+  - Dry-run mode, comprehensive logging, backup and rollback support
+  - Modular design with configurable options per hardening component
+- lin-075: `templates/linux-automation/roles/hardening/tasks/main.yml` — Ansible role for Linux system hardening
+  - Standardized Ansible role for automated hardening deployment
+  - CIS benchmark compliance with verification tasks
+  - Fleet management support for containerized environments
+- lin-075: `templates/linux-automation/playbooks/hardening.yml` — Ansible playbook for system hardening
+  - Production-ready playbook with pre-flight checks and post-hardening verification
+  - Role-based execution with tags for selective hardening components
+- 00_index/quick-links.md — Added lin-077, lin-075 container orchestration and hardening entries
+- lin-074: `docs/how-to/linux/linux-shell-commands-automation.md` — Shell command patterns for automated system administration (L7)
+  - Documentation covering service management, file operations, network utilities, system monitoring
+  - Prerequisites for common Linux utilities, verification steps, rollback procedures
+  - Common errors and solutions
+- lin-074: `scripts/bash/linux/linux-system-commands-library.sh` — Shell command library
+  - Functions: service_is_active, service_start/stop/restart, file backup/diff, port checks, connectivity tests
+  - System monitoring: get_cpu_usage, get_memory_usage, get_disk_usage, get_load_average
+  - Dry-run mode support, binary checks, verbose logging
+- git-002: `docs/how-to/git/git-credential-helper-cicd-setup.md` — Git credential helper setup for CI/CD pipelines (L2)
+  - Configuration for GitHub Actions, GitLab CI, Jenkins
+  - Credential storage, rollback procedures
+- 00_index/quick-links.md — Added lin-074 and git-002 entries
+
+### Changed
+- lin-073: Infrastructure-as-Code automation workflows for DevOps pipelines (L7)
+  - Final score: 9/10
+>>>>>>> origin/master
 
 ## 2026-05-02
 
