@@ -7,6 +7,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-03
 
 ### Added
+- git-004: `docs/security/git-security-access-control-authentication.md` — Git repository access control and authentication hardening for CI/CD pipelines (L2)
+  - Comprehensive guide covering credential security, repository access control, secure Git operations in pipelines
+  - Prerequisites, verification steps, rollback procedures, common errors
+  - References to GitHub, GitLab, Bitbucket security documentation and industry standards
+
+### Modified
+- git-006: `docs/reference/git-commands.md` — Added Rollback section to Git commands reference (L2)
+  - Added repository state rollback instructions (reset, revert, restore)
+  - Added remote repository rollback procedures
+  - Added stash recovery methods
+  - Enhanced documentation with practical examples and use cases
+
+- 00_index/quick-links.md — Updated Git section to include new security documentation
+  - Added link to git-security-access-control-authentication.md
+  - Maintained alphabetical organization of Git resources
+
+### Added
 - lin-076: `docs/runbooks/linux-system-administration.md` — Linux system administration documentation and runbook automation (L7)
   - Comprehensive documentation covering user management, service management, disk/filesystem management
   - Network configuration, process monitoring, log management, backup/restore procedures

@@ -389,6 +389,82 @@ fatal: refusing to merge unrelated histories
 git pull origin main --allow-unrelated-histories
 ```
 
+## Rollback
+
+### 1. Repository State Rollback
+
+#### Reset to Previous Commit
+```bash
+# Soft reset (keep changes staged)
+git reset --soft HEAD~1
+
+# Mixed reset (default - keep changes unstaged)
+git reset HEAD~1
+git reset --mixed HEAD~1
+
+# Hard reset (discard changes)
+git reset --hard HEAD~1
+
+# Reset to specific commit
+git reset --hard <commit-hash>
+```
+
+#### Revert Commit (Create New Commit That Undoes Changes)
+```bash
+# Revert last commit
+git revert HEAD
+
+# Revert specific commit
+git revert <commit-hash>
+
+# Revert multiple commits
+git revert <commit-hash>..HEAD
+```
+
+#### Restore Deleted Files
+```bash
+# Restore file to last committed version
+git checkout HEAD -- path/to/file
+git restore path/to/file
+
+# Restore file from specific commit
+git checkout <commit-hash> -- path/to/file
+```
+
+### 2. Remote Repository Rollback
+
+#### Revert Push to Remote
+```bash
+# Force push previous state (use with caution)
+git push origin +HEAD~1:main
+
+# Revert merge commit
+git revert -m 1 <merge-commit-hash>
+git push origin main
+```
+
+#### Recover Deleted Branch
+```bash
+# Find deleted branch commit
+git reflog
+# Or
+git fsck --lost-found
+
+# Recover branch
+git checkout -b recovered-branch <commit-hash>
+```
+
+### 3. Stash Recovery
+
+#### Recover Dropped Stash
+```bash
+# Find dropped stash in reflog
+git fsck --no-reflogs | awk '/dangling commit/ {print $3}'
+
+# Apply dropped stash
+git stash apply <dropped-stash-hash>
+```
+
 ## References
 
 - Git Documentation: https://git-scm.com/docs
