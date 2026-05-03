@@ -7,6 +7,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-03
 
 ### Added
+- lin-076: `docs/runbooks/linux-system-administration.md` — Linux system administration documentation and runbook automation (L7)
+  - Comprehensive documentation covering user management, service management, disk/filesystem management
+  - Network configuration, process monitoring, log management, backup/restore procedures
+  - Security hardening runbook, automation execution framework
+  - Prerequisites, verification steps, rollback procedures, common errors
+- lin-076: `scripts/bash/linux_toolkit/sysadmin/` — System administration automation scripts (L7)
+  - `user-create.sh`: Create system users with audit trail, dry-run mode
+  - `user-modify.sh`: Modify users and group membership (add_group, remove_group, lock, unlock)
+  - `disk-usage.sh`: Analyze disk usage with alerts, configurable thresholds
+  - `process-monitor.sh`: Monitor running processes, watch specific processes
+  - `service-health.sh`: Service health check with automatic restart
+  - `system-backup.sh`: Automated system backup with verification
+  - `network-iface.sh`: Manage network interfaces, show connections
+  - `security-audit.sh`: Security audit checks (world-writable files, orphaned files, UID 0)
+- lin-076: `00_index/quick-links.md` — Added lin-076 system administration runbook and sysadmin scripts
+
 - lin-077: `docs/how-to/linux/linux-container-orchestration-systemd-cgroups.md` — Container orchestration automation with systemd and cgroups (L7)
   - Comprehensive guide covering systemd service units, cgroup slices, resource limits (CPU/memory/I/O/PID)
   - Container deployment patterns, health checks, auto-restart, networking with systemd
