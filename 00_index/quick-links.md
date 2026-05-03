@@ -80,9 +80,8 @@
 - [container_orchestration_script](../scripts/bash/linux_toolkit/container-orchestration-systemd-cgroups.sh) - Automated container orchestration script with systemd integration, dry-run, cgroup management, rollback
 - [lin-075: System Hardening for Containerized Environments](docs/how-to/linux/linux-system-hardening-containerized.md) - Comprehensive Linux system hardening automation for containerized environments with CIS compliance, automated remediation, CIS benchmarks (L7)
 - [system-hardening-script](../scripts/bash/linux/linux-system-hardening.sh) - Automated hardening script with kernel sysctl, SSH, Docker, firewall, auditd, AppArmor configuration, dry-run support (L7)
-- [Hardening Ansible Role](templates/linux-automation/roles/hardening/tasks/main.yml) - Ansible role for systematic Linux hardening with CIS compliance
-- [Hardening Playbook](templates/linux-automation/playbooks/hardening.yml) - Ansible playbook for automated system hardening deployment
-- [linux_automation_template](templates/linux-automation/) - Complete Ansible-based automation template with roles, playbooks, and variables
+- [lin-076: System Administration Runbook](docs/runbooks/linux-system-administration.md) - Linux system administration documentation and runbook automation for sysadmin tasks: user management, service management, disk/filesystem, network, process monitoring, backup, security (L7)
+- [sysadmin-scripts](scripts/bash/linux_toolkit/sysadmin/) - System administration automation scripts: user-create, user-modify, disk-usage, process-monitor, service-health, system-backup, network-iface, security-audit
 
 ## Terraform
 - [terraform_eventbridge_lambda](docs/how-to/terraform-eventbridge-lambda.md) - EventBridge with Lambda triggers for real-time event processing
