@@ -54,6 +54,8 @@
 
 ## Linux
 - [linux_commands_reference](snippets/linux-commands.md) - Linux commands reference with 30+ bash one-liners for sysadmins
+- [lin-073: IaC Pipeline Workflows](docs/how-to/linux/linux-iac-pipeline-workflows.md) - Infrastructure-as-Code automation workflows for DevOps pipelines (L7)
+- [lin-073: iac-pipeline-workflow.sh](../scripts/bash/linux_toolkit/pipeline/iac-pipeline-workflow.sh) - Pipeline workflow script with multi-environment support, dry-run, approval gates, rollback
 - [linux_container_security_scanning](docs/how-to/linux-container-security-scanning.md) - Container security scanning with Trivy and Falco for vulnerability detection and runtime monitoring
 - [container_security_scan_script](../scripts/bash/linux_toolkit/linux-container-security-scan.sh) - Automated container security scanning script with Trivy integration
 - [linux_dns_management](docs/how-to/linux-dns-management-coredns-systemd-resolved.md) - Complete DNS management with CoreDNS and systemd-resolved: caching, forwarding, internal zones
