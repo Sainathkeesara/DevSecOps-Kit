@@ -4,6 +4,20 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-03
+
+### Added
+- lin-073: `docs/how-to/linux/linux-iac-pipeline-workflows.md` — Infrastructure-as-Code automation workflows for DevOps pipelines (L7)
+  - Comprehensive guide covering pipeline architecture, Terraform/Ansible integration, CI/CD workflows
+  - GitHub Actions and Jenkins pipeline examples, environment promotion, testing gates, rollback procedures
+  - Integration with existing iac-operations.sh library and system-automation-template
+- lin-073: `scripts/bash/linux_toolkit/pipeline/iac-pipeline-workflow.sh` — IaC pipeline workflow script
+  - Multi-environment support (dev, staging, prod), dry-run mode, approval gates
+  - Actions: init, validate, plan, apply, destroy, rollback
+  - Binary checks, pre-flight validation, state backup support
+  - shellcheck passed with warnings only
+- 00_index/quick-links.md — Added lin-073 IaC pipeline entries
+
 ## 2026-05-02
 
 ### Added
