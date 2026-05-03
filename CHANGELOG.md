@@ -7,6 +7,32 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-03
 
 ### Added
+- lin-077: `docs/how-to/linux/linux-container-orchestration-systemd-cgroups.md` — Container orchestration automation with systemd and cgroups (L7)
+  - Comprehensive guide covering systemd service units, cgroup slices, resource limits (CPU/memory/I/O/PID)
+  - Container deployment patterns, health checks, auto-restart, networking with systemd
+  - Monitoring scripts for cgroup resource usage, rollback procedures, common error solutions
+- lin-077: `scripts/bash/linux_toolkit/container-orchestration-systemd-cgroups.sh` — Container orchestration script
+  - Automated deployment with systemd and cgroup integration, dry-run mode
+  - Cgroup slice management (create/delete), service deployment, rollback
+  - Resource verification, multi-container support, idempotent operations
+  - shellcheck passed with warnings only
+- lin-075: `docs/how-to/linux/linux-system-hardening-containerized.md` — Linux system hardening automation for containerized environments (L7)
+  - Comprehensive framework for automated security hardening following CIS benchmarks and NIST guidelines
+  - Kernel sysctl hardening, SSH configuration, Docker daemon hardening, firewall rules
+  - User account hardening, auditd configuration, AppArmor profiles
+  - Automated remediation, compliance checks, and audit capabilities
+- lin-075: `scripts/bash/linux/linux-system-hardening.sh` — Linux system hardening automation script
+  - Idempotent hardening with kernel parameters, firewall, SSH, Docker, user accounts
+  - Dry-run mode, comprehensive logging, backup and rollback support
+  - Modular design with configurable options per hardening component
+- lin-075: `templates/linux-automation/roles/hardening/tasks/main.yml` — Ansible role for Linux system hardening
+  - Standardized Ansible role for automated hardening deployment
+  - CIS benchmark compliance with verification tasks
+  - Fleet management support for containerized environments
+- lin-075: `templates/linux-automation/playbooks/hardening.yml` — Ansible playbook for system hardening
+  - Production-ready playbook with pre-flight checks and post-hardening verification
+  - Role-based execution with tags for selective hardening components
+- 00_index/quick-links.md — Added lin-077, lin-075 container orchestration and hardening entries
 - lin-074: `docs/how-to/linux/linux-shell-commands-automation.md` — Shell command patterns for automated system administration (L7)
   - Documentation covering service management, file operations, network utilities, system monitoring
   - Prerequisites for common Linux utilities, verification steps, rollback procedures
@@ -23,6 +49,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - lin-073: Infrastructure-as-Code automation workflows for DevOps pipelines (L7)
   - Final score: 9/10
+>>>>>>> origin/master
 
 ## 2026-05-02
 

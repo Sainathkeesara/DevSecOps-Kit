@@ -76,6 +76,12 @@
 - [loki_promtail_deploy_script](../scripts/bash/linux_toolkit/linux-loki-promtail-deploy.sh) - Automated Loki and Promtail deployment script with dry-run support
 - [linux_system_automation_template](docs/how-to/linux/linux-system-automation-template.md) - Linux system automation template for DevOps workflows (L7)
 - [system_automation_script](../scripts/bash/linux_toolkit/system-automation-template.sh) - Linux automation template deployment script with Ansible
+- [lin-077: Container Orchestration Systemd Cgroups](docs/how-to/linux/linux-container-orchestration-systemd-cgroups.md) - Container orchestration automation with systemd and cgroups: service units, slices, resource limits, health checks (L7)
+- [container_orchestration_script](../scripts/bash/linux_toolkit/container-orchestration-systemd-cgroups.sh) - Automated container orchestration script with systemd integration, dry-run, cgroup management, rollback
+- [lin-075: System Hardening for Containerized Environments](docs/how-to/linux/linux-system-hardening-containerized.md) - Comprehensive Linux system hardening automation for containerized environments with CIS compliance, automated remediation, CIS benchmarks (L7)
+- [system-hardening-script](../scripts/bash/linux/linux-system-hardening.sh) - Automated hardening script with kernel sysctl, SSH, Docker, firewall, auditd, AppArmor configuration, dry-run support (L7)
+- [Hardening Ansible Role](templates/linux-automation/roles/hardening/tasks/main.yml) - Ansible role for systematic Linux hardening with CIS compliance
+- [Hardening Playbook](templates/linux-automation/playbooks/hardening.yml) - Ansible playbook for automated system hardening deployment
 - [linux_automation_template](templates/linux-automation/) - Complete Ansible-based automation template with roles, playbooks, and variables
 
 ## Terraform

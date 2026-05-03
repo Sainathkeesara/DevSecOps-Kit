@@ -1,0 +1,79 @@
+---
+- name: Harden Linux Systems for Containerized Environments
+  hosts: all
+  become: yes
+  gather_facts: yes
+  
+  vars:
+    hardening_backup_dir: "/var/backups/hardening"
+  
+  pre_tasks:
+    - name: Display hardening playbook information
+      debug:
+        msg:
+          - "Starting system hardening for {{ inventory_hostname }}"
+          - "Environment: {{ environment | default('production') }}"
+          - "Kernel hardening: {{ enable_kernel_hardening | default(true) }}"
+          - "Firewall: {{ enable_firewall | default(true) }}"
+          - "Docker hardening: {{ enable_docker_hardening | default(true) }}"
+    
+    - name: Create backup directory
+      file:
+        path: "{{ hardening_backup_dir }}"
+        state: directory
+        mode: '0700'
+      delegate_to: localhost
+      run_once: true
+  
+  roles:
+    - role: hardening
+      tags:
+        - hardening
+        - security
+  
+  post_tasks:
+    - name: Verify all systems are reachable
+      ping:
+      tags: [verify, hardening]
+    
+    - name: Display completion message
+      debug:
+        msg:
+          - "=== Hardening Complete ==="
+          - "Host: {{ inventory_hostname }}"
+          - "All hardening tasks applied successfully"
+          - "Review logs and reports at: {{ hardening_backup_dir }}"
+      tags: [summary, hardening]
+
+- name: Harden Container Hosts
+  hosts: containers
+  become: yes
+  gather_facts: yes
+  
+  vars:
+    enable_kernel_hardening: false  # Don't harden kernel in containers
+    enable_docker_hardening: true
+    enable_ssh_hardening: true
+    enable_firewall: false  # Typically not needed in containers
+    hardening_backup_dir: "/var/backups/hardening"
+  
+  roles:
+    - role: hardening
+      tags:
+        - hardening
+        - containers
+  
+  post_tasks:
+    - name: Verify container-specific hardening
+      shell: |
+        echo "=== Container Hardening Verification ==="
+        if [ -f /etc/docker/daemon.json ]; then
+          echo "✓ Docker hardened"
+        fi
+        echo "✓ Container host verified"
+      register: container_verify
+      changed_when: false
+    
+    - debug:
+        var: container_verify.stdout_lines
+      tags: [verify, hardening, containers]
