@@ -49,6 +49,7 @@
 - [git_credential_helper_script](scripts/bash/git/credential-helper-ci.sh) - Git credential helper configuration for CI/CD
 - [git_credential_helper_cicd](docs/how-to/git/git-credential-helper-cicd-setup.md) - Git credential helper setup for CI/CD pipelines
 - [git_credential_helper_script](scripts/bash/git/credential-helper-ci.sh) - Git credential helper configuration for CI/CD
+- [git_security_access_control](docs/security/git-security-access-control-authentication.md) - Git repository access control and authentication hardening for CI/CD pipelines
 - [git_commands_reference](docs/reference/git-commands.md) - Git command patterns for automated version control (L4)
 - [git_workflow_optimization](docs/concepts/git-003-workflow.md) - Git workflow optimization for DevOps pipelines (L3)
 - [git_automation_script](scripts/bash/git/git-automation.sh) - Git automation scripts for CI/CD integration (L6)
