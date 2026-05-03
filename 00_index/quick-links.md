@@ -68,6 +68,9 @@
 - [wazuh_deploy_script](../scripts/bash/linux_toolkit/wazuh-deploy.sh) - Automated Wazuh SIEM deployment script with dry-run support
 - [linux_log_aggregation_loki_promtail](docs/how-to/linux-log-aggregation-loki-promtail.md) - Log aggregation with Loki and Promtail: centralized logging, querying, and visualization
 - [loki_promtail_deploy_script](../scripts/bash/linux_toolkit/linux-loki-promtail-deploy.sh) - Automated Loki and Promtail deployment script with dry-run support
+- [linux_system_automation_template](docs/how-to/linux/linux-system-automation-template.md) - Linux system automation template for DevOps workflows (L7)
+- [system_automation_script](../scripts/bash/linux_toolkit/system-automation-template.sh) - Linux automation template deployment script with Ansible
+- [linux_automation_template](templates/linux-automation/) - Complete Ansible-based automation template with roles, playbooks, and variables
 
 ## Terraform
 - [terraform_eventbridge_lambda](docs/how-to/terraform-eventbridge-lambda.md) - EventBridge with Lambda triggers for real-time event processing
