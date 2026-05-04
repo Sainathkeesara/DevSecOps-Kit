@@ -18,6 +18,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Scripts for scheduler detection, configuration, persistence
   - Ansible playbook for fleet deployment, verification, rollback procedures
 
+
+- dok-006: `docs/how-to/docker-swarm-cluster-installation.md` — Docker Swarm cluster installation and high-availability configuration (L2)
+  - Complete guide for setting up production-ready Docker Swarm cluster
+  - Covers multi-manager HA setup, worker node integration, overlay networking
+  - Includes rolling updates, secrets management, and monitoring setup
+  - Prerequisites, verification steps, rollback procedures, common errors
+- dok-006: `scripts/bash/docker_toolkit/docker-swarm-cluster-setup.sh` — Docker Swarm cluster setup script with dry-run support (L2)
+  - Automated setup of Docker Swarm cluster with high availability
+  - Supports dry-run mode for safe testing
+  - Idempotent operations with rollback capability
+  - Comprehensive logging and JSON output
+- 00_index/quick-links.md — Updated Docker section with Docker Swarm entries
+  - Added docker_swarm_cluster_setup script reference
+  - Added docker_swarm_cluster_installation documentation reference
 ## 2026-05-03
 
 ### Added
