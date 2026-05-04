@@ -10,6 +10,8 @@
 - [docker_kaniko_cve_2026_28406_hardening](../scripts/bash/docker_toolkit/docker-kaniko-cve-2026-28406-hardening.sh) - CVE-2026-28406 kaniko path traversal hardening script
 - [docker_kaniko_cve_2026_28406](docs/how-to/docker-kaniko-cve-2026-28406.md) - CVE-2026-28406 kaniko path traversal remediation guide
 - [docker_security_best_practices](docs/how-to/docker-security-best-practices.md) - Docker security best practices
+- [docker_authz_plugin_hardening](docs/security/docker/AUTHZ-PLUGIN-HARDENING.md) - Docker AuthZ plugin security hardening for privileged containers
+- [docker_authz_plugin_script](../scripts/bash/docker_toolkit/security/docker-authz-plugin-hardening.sh) - Docker AuthZ plugin hardening script
 
 ## Kubernetes
 - [aks_privilege_escalation_hardening](../scripts/bash/k8s_toolkit/aks-privilege-escalation-hardening.sh) - CVE-2026-33105 AKS privilege escalation hardening script
