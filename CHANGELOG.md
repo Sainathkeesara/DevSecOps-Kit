@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-04
 
 ### Added
+- dok-002: `docs/security/docker/AUTHZ-PLUGIN-HARDENING.md` — Docker AuthZ plugin security hardening for privileged containers (L8)
+  - Comprehensive guide for preventing privileged container operations
+  - Authorization plugin configuration and monitoring
+  - Security check script at `scripts/bash/docker_toolkit/security/docker-authz-plugin-hardening.sh`
+  - Verification steps, rollback procedures
 - lin-081: `docs/how-to/linux/linux-disk-io-scheduler-optimization.md` — Linux disk I/O scheduler optimization for database workloads (L7)
   - Comprehensive guide covering scheduler selection (none, mq-deadline, bfq, kyber)
   - Database-specific tuning for PostgreSQL, MySQL, MariaDB
