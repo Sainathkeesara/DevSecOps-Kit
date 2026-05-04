@@ -263,6 +263,7 @@
 
 ## Linux Administration
 - [linux_toolkit Usage](docs/how-to/linux_toolkit.md)
+- [lin-081: Disk I/O Scheduler Optimization](docs/how-to/linux/linux-disk-io-scheduler-optimization.md) - Linux disk I/O scheduler optimization for database workloads (L7)
 - [lin-072: IaC Shell Script Library](docs/how-to/linux/linux-shell-script-library-iac.md) - Shell script library for infrastructure-as-code operations (L7)
 - [lin-072: iac-operations.sh](../scripts/bash/linux_toolkit/lib/iac-operations.sh) - Shell script library with Terraform/Ansible functions, service management, backup utilities
 - [AIDE File Integrity](docs/how-to/linux-aide-configuration.md) - AIDE file integrity monitoring deployment, configuration, and management

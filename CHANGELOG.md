@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-04
+
+### Added
+- lin-081: `docs/how-to/linux/linux-disk-io-scheduler-optimization.md` — Linux disk I/O scheduler optimization for database workloads (L7)
+  - Comprehensive guide covering scheduler selection (none, mq-deadline, bfq, kyber)
+  - Database-specific tuning for PostgreSQL, MySQL, MariaDB
+  - Scripts for scheduler detection, configuration, persistence
+  - Ansible playbook for fleet deployment, verification, rollback procedures
+
 ## 2026-05-03
 
 ### Added
