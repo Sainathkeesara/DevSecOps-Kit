@@ -4,6 +4,17 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-05
+
+### Added
+- git-008: `docs/how-to/git-pre-commit-security-scanning.md` — Pre-commit security scanning and validation for CI/CD pipelines (L2)
+  - Comprehensive guide for Git hook automation
+  - Covers secrets detection, vulnerability scanning, code quality checks
+  - Prerequisites, verification steps, rollback procedures, common errors
+- git-008: `scripts/bash/git/git-pre-commit-hooks.sh` — Pre-commit hook automation script with secrets, vulnerabilities, and code quality scanning (L6)
+  - Supports TruffleHog, git-secrets, Trivy, npm audit, tfsec, ShellCheck integration
+  - Dry-run mode, idempotent operations, configurable scanning
+
 ## 2026-05-04
 
 ### Added
