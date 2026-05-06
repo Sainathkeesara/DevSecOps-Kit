@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2026-05-05
 
+### Changed
+- gen-005: Consolidated Ansible automation scripts into `scripts/bash/ansible_toolkit/` for cross-tool consistency
+  - Moved `scripts/security/ansible/harden-ansible-cve-2026-33228.sh` to `scripts/bash/ansible_toolkit/security/`
+  - Removed orphaned `scripts/security/ansible/` directory
+  - Updated documentation references in `docs/security/ansible/CVE-2026-33228.md`, `docs/how-to/ansible-cve-2026-33228-flatted.md`, `docs/runbooks/cve-2026-33228-ansible-flatted.md`
+
 ### Added
 - git-008: `docs/how-to/git-pre-commit-security-scanning.md` — Pre-commit security scanning and validation for CI/CD pipelines (L2)
   - Comprehensive guide for Git hook automation
