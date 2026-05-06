@@ -28,6 +28,8 @@
 ## Jenkins
 - [jenkins_cli_commands_reference](snippets/jenkins-cli-commands.md) - Jenkins CLI commands reference with 150+ commands for sysadmins
 - [jenkins_scripted_pipeline_groovy](snippets/jenkins-scripted-pipeline-groovy.md) - Jenkins Scripted Pipeline Groovy examples and patterns
+- [jenkins_credential_rotation](docs/reference/jenkins-credential-rotation.md) - Jenkins CLI commands for automated credential rotation and security updates (L4)
+- [jenkins_parallel_multi_branch](docs/how-to/jenkins-parallel-multi-branch.md) - Jenkins pipeline Groovy snippet for parallel multi-branch builds (L4)
 
 ## Ansible
 - [ansible_playbook_best_practices](docs/how-to/ansible-playbook-best-practices.md) - Ansible playbook best practices guide for production
@@ -200,6 +202,8 @@
 ## Jenkins
 - [jenkins_troubleshooting](docs/troubleshooting/jenkins-troubleshooting.md) - Jenkins troubleshooting guide for startup failures, plugin issues, build failures, and agent connectivity
 - [jenkinsfile_maven_gradle_template](../templates/jenkins/Jenkinsfile-maven-gradle-template.md) - Reusable Jenkinsfile template for Maven/Gradle builds with CI/CD pipeline
+- [jenkins_credential_rotation](docs/reference/jenkins-credential-rotation.md) - Jenkins credential rotation and security updates (L4)
+- [jenkins_parallel_multi_branch](docs/how-to/jenkins-parallel-multi-branch.md) - Jenkins parallel multi-branch pipeline (L4)
 
 ## Kubernetes
 - [k8s_toolkit Usage](docs/how-to/k8s_toolkit.md)
@@ -229,6 +233,8 @@
 - [Jenkins Cheatsheet](../snippets/jenkins-cheatsheet.md)
 - [Jenkins Commands Reference](../snippets/jenkins-commands-reference.md) - 100+ CLI commands for job management, builds, nodes, plugins, credentials, and pipelines
 - [Jenkins Scripted Pipeline Groovy Snippets](../snippets/jenkins-scripted-pipeline-groovy.md) - 50+ Groovy code snippets for scripted pipelines
+- [jenkins_credential_rotation](docs/reference/jenkins-credential-rotation.md) - Automated credential rotation and security updates (L4)
+- [jenkins_parallel_multi_branch](docs/how-to/jenkins-parallel-multi-branch.md) - Parallel multi-branch pipeline patterns (L4)
 - [Install Jenkins](../scripts/bash/jenkins_toolkit/install-jenkins.sh) - Automated install on Ubuntu 22.04 with --dry-run and --port options
 - [GitHub Webhook Setup](docs/how-to/github-webhook-jenkins.md) - Configure GitHub webhooks to trigger Jenkins builds
 - [CVE-2026-27099 Hardening](../scripts/bash/jenkins_toolkit/security/cve-2026-27099.sh) - Jenkins XSS and DoS vulnerability scanner
