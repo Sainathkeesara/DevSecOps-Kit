@@ -4,6 +4,30 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-07
+
+### Added
+- jen-002: `docs/reference/jenkins-agent-connection-tuning.md` — Jenkins agent connection tuning commands for high-concurrency workloads (L4)
+  - Comprehensive reference covering agent registration, connection pooling, labeling strategies, executor management
+  - JNLP and SSH agent configuration, tunnel/proxy settings, cloud agent (Kubernetes/Docker) provisioning
+  - Prerequisites, verification steps, rollback procedures, common errors
+- jen-002: `scripts/bash/jenkins_toolkit/agents/jenkins-agent-connection-tuning.sh` — Agent connection tuning script (L4)
+  - Supports --tune-channels, --tune-executors, --tune-labels, --tune-tunnel, --bulk-labels, --bulk-executors
+  - Supports --list, --info, --idle, --queue, --logs, --offline, --online operations
+  - Dry-run mode, JSON output, verbose logging, idempotent Groovy execution
+  - shellcheck passed (warnings only)
+- jen-004: `docs/reference/jenkins-job-config-xml-snippets.md` — Jenkins job configuration XML snippets for GitHub webhook integration (L4)
+  - FreeStyle and parameterized webhook job XML templates
+  - GitHub webhook secret token configuration via Groovy and REST API
+  - Multi-branch pipeline and generic webhook trigger configurations
+  - SCM polling, GitHub App auth, Bitbucket webhook integration
+  - Verification steps, rollback procedures, common errors
+- jen-006: `docs/reference/jenkins-pipeline-retry-strategy.md` — Jenkins pipeline retry strategy for transient failure handling (L4)
+  - Declarative and scripted pipeline retry patterns
+  - Exponential backoff with jitter, error categorization for selective retry
+  - Retry budgets, circuit breaker pattern, Kubernetes agent retry
+  - GitHub Actions integration examples, verification and rollback
+
 ## 2026-05-06
 
 ### Added

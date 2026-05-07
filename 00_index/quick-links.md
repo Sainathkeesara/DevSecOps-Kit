@@ -30,6 +30,10 @@
 - [jenkins_scripted_pipeline_groovy](snippets/jenkins-scripted-pipeline-groovy.md) - Jenkins Scripted Pipeline Groovy examples and patterns
 - [jenkins_credential_rotation](docs/reference/jenkins-credential-rotation.md) - Jenkins CLI commands for automated credential rotation and security updates (L4)
 - [jenkins_parallel_multi_branch](docs/how-to/jenkins-parallel-multi-branch.md) - Jenkins pipeline Groovy snippet for parallel multi-branch builds (L4)
+- [jen-002: jenkins_agent_connection_tuning](docs/reference/jenkins-agent-connection-tuning.md) - Jenkins agent connection tuning commands for high-concurrency workloads (L4)
+- [jen-002: jenkins_agent_connection_tuning_script](../scripts/bash/jenkins_toolkit/agents/jenkins-agent-connection-tuning.sh) - Agent connection tuning script with --dry-run, --tune-channels, --tune-executors, --tune-labels, --tune-tunnel, --bulk-labels, --bulk-executors
+- [jen-004: jenkins_job_config_xml_snippets](docs/reference/jenkins-job-config-xml-snippets.md) - Jenkins job configuration XML snippets for GitHub webhook integration (L4)
+- [jen-006: jenkins_pipeline_retry_strategy](docs/reference/jenkins-pipeline-retry-strategy.md) - Jenkins pipeline retry strategy configuration for transient failure handling (L4)
 
 ## Ansible
 - [ansible_playbook_best_practices](docs/how-to/ansible-playbook-best-practices.md) - Ansible playbook best practices guide for production
@@ -205,6 +209,9 @@
 - [jenkinsfile_maven_gradle_template](../templates/jenkins/Jenkinsfile-maven-gradle-template.md) - Reusable Jenkinsfile template for Maven/Gradle builds with CI/CD pipeline
 - [jenkins_credential_rotation](docs/reference/jenkins-credential-rotation.md) - Jenkins credential rotation and security updates (L4)
 - [jenkins_parallel_multi_branch](docs/how-to/jenkins-parallel-multi-branch.md) - Jenkins parallel multi-branch pipeline (L4)
+- [jenkins_agent_connection_tuning](docs/reference/jenkins-agent-connection-tuning.md) - Jenkins agent connection tuning for high-concurrency (L4)
+- [jenkins_job_config_xml_snippets](docs/reference/jenkins-job-config-xml-snippets.md) - Jenkins job config XML snippets for GitHub webhooks (L4)
+- [jenkins_pipeline_retry_strategy](docs/reference/jenkins-pipeline-retry-strategy.md) - Jenkins pipeline retry strategy for transient failures (L4)
 
 ## Kubernetes
 - [k8s_toolkit Usage](docs/how-to/k8s_toolkit.md)
@@ -236,6 +243,9 @@
 - [Jenkins Scripted Pipeline Groovy Snippets](../snippets/jenkins-scripted-pipeline-groovy.md) - 50+ Groovy code snippets for scripted pipelines
 - [jenkins_credential_rotation](docs/reference/jenkins-credential-rotation.md) - Automated credential rotation and security updates (L4)
 - [jenkins_parallel_multi_branch](docs/how-to/jenkins-parallel-multi-branch.md) - Parallel multi-branch pipeline patterns (L4)
+- [jenkins_agent_connection_tuning](../scripts/bash/jenkins_toolkit/agents/jenkins-agent-connection-tuning.sh) - Agent connection tuning for high-concurrency (L4)
+- [jenkins_job_config_xml_snippets](docs/reference/jenkins-job-config-xml-snippets.md) - Job config XML snippets for GitHub webhooks (L4)
+- [jenkins_pipeline_retry_strategy](docs/reference/jenkins-pipeline-retry-strategy.md) - Pipeline retry strategy for transient failures (L4)
 - [Install Jenkins](../scripts/bash/jenkins_toolkit/install-jenkins.sh) - Automated install on Ubuntu 22.04 with --dry-run and --port options
 - [GitHub Webhook Setup](docs/how-to/github-webhook-jenkins.md) - Configure GitHub webhooks to trigger Jenkins builds
 - [CVE-2026-27099 Hardening](../scripts/bash/jenkins_toolkit/security/cve-2026-27099.sh) - Jenkins XSS and DoS vulnerability scanner
