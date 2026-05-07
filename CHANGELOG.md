@@ -7,6 +7,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-06
 
 ### Added
+- jen-003: `docs/reference/jenkins-credential-rotation.md` — Jenkins CLI commands for automated credential rotation and security updates (L4)
+  - Comprehensive reference for credential management, API token rotation, bulk credential operations
+  - Covers security configuration updates, audit logging, plugin security checks
+  - Prerequisites, verification steps, rollback procedures, common errors
+- jen-001: `docs/how-to/jenkins-parallel-multi-branch.md` — Jenkins pipeline Groovy snippet for parallel multi-branch builds (L4)
+  - Declarative and scripted pipeline patterns for concurrent branch execution
+  - Matrix builds, Docker-based parallel execution, shared library integration
+  - Error handling, throttling, agent allocation strategies
 - gen-004: `docs/security/trivy/CVE-2026-33634.md` — Trivy CVE-2026-33634 supply chain vulnerability remediation guide (L8)
   - Comprehensive guide for Trivy ecosystem supply chain attack mitigation
   - Affected components: trivy-action < v0.35.0, setup-trivy < v0.2.6, malicious trivy images
