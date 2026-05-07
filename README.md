@@ -33,25 +33,25 @@ DevOps-Kit/
 | Tool | Scripts | Docs | Snippets | Templates |
 |------|---------|------|----------|-----------|
 | Kubernetes | 18 | 12 | 1 | 3 |
-| Linux | 36 | 31 | 2 | 0 |
+| Linux | 51 | 37 | 2 | 14 |
 | Kafka | 17 | 3 | 2 | 0 |
-| Terraform | 13 | 17 | 1 | 14 |
-| Ansible | 8 | 4 | 1 | 0 |
+| Terraform | 13 | 16 | 1 | 12 |
+| Ansible | 8 | 6 | 1 | 0 |
 | Vault | 7 | 4 | 1 | 0 |
 | Observability | 8 | 1 | 1 | 0 |
-| Docker | 5 | 3 | 1 | 0 |
-| Helm | 3 | 2 | 0 | 0 |
+| Docker | 8 | 6 | 1 | 0 |
+| Helm | 3 | 3 | 0 | 0 |
 | Jenkins | 2 | 6 | 4 | 1 |
-| OCI/Registry | 5 | 1 | 1 | 0 |
-| CI/CD | 5 | 1 | 1 | 0 |
+| OCI/Registry | 5 | 2 | 1 | 0 |
+| CI/CD | 6 | 2 | 1 | 0 |
 
 ## Quick links
 
-- [Git version control fundamentals](docs/concepts/git-001-version-control-fundamentals.md) — Git concepts (L1) (2026-04-29)
-- [Git basic commands and setup](docs/concepts/git-002-basic-commands-setup.md) — Git commands (L1) (2026-04-29)
-- [Jenkins CLI commands reference](snippets/jenkins-cli-commands.md) — Jenkins CLI with 150+ commands (2026-04-28)
-- [CoreDNS and systemd-resolved DNS management](docs/how-to/linux-dns-management-coredns-systemd-resolved.md) — Complete DNS management guide (2026-04-27)
-- [AKS privilege escalation hardening](scripts/bash/kubernetes/aks-privilege-escalation-hardening.sh) — CVE-2026-33105 hardening script (2026-04-23)
+- [Trivy CVE-2026-33634 hardening](docs/security/trivy/CVE-2026-33634.md) — Trivy supply chain compromise scanner and remediation guide (2026-05-06)
+- [Trivy supply chain scanner](scripts/bash/ci_cd_toolkit/github/trivy-cve-2026-33634.sh) — CVE-2026-33634 detection with --check, --fix, --dry-run flags (2026-05-06)
+- [Ansible CVE-2026-33228 hardening](scripts/bash/ansible_toolkit/security/harden-ansible-cve-2026-33228.sh) — Flatted prototype pollution vulnerability scanner (2026-05-05)
+- [Git pre-commit security scanning](docs/how-to/git-pre-commit-security-scanning.md) — Pre-commit hooks for secrets, vulnerabilities, code quality (2026-05-05)
+- [Docker Swarm cluster setup](docs/how-to/docker-swarm-cluster-installation.md) — High-availability Docker Swarm installation guide (2026-05-04)
 
 ## Contributing
 
