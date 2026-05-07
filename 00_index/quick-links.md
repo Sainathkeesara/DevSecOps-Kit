@@ -130,6 +130,7 @@
 - [CVE-2026-2664](scripts/bash/docker_toolkit/security/cve-2026-2664.sh) - Docker Desktop grpcfuse kernel module privilege escalation scanner
 - [CVE-2026-28400](scripts/bash/docker_toolkit/security/cve-2026-28400.sh) - Docker Model Runner privilege escalation scanner
 - [CVE-2026-34040](../scripts/bash/docker_toolkit/security/docker-cve-2026-34040.sh) - Docker authorization plugin bypass scanner
+- [CVE-2026-33634](../scripts/bash/ci_cd_toolkit/github/trivy-cve-2026-33634.sh) - Trivy supply chain compromise scanner
 
 ## Vault
 - [vault_audit_log_analysis](../scripts/bash/vault_toolkit/vault-audit-log-analysis.sh) - Vault audit log analysis for security events and anomalies
@@ -260,6 +261,7 @@
 - [Pipeline Health](../scripts/bash/ci_cd_toolkit/github/pipeline-health.sh)
 - [Check Action Updates](../scripts/bash/ci_cd_toolkit/github/check-action-updates.sh)
 - [Generate Workflow](../scripts/bash/ci_cd_toolkit/github/generate-workflow.sh)
+- [trivy_cve_2026_33634](../scripts/bash/ci_cd_toolkit/github/trivy-cve-2026-33634.sh) - CVE-2026-33634 Trivy supply chain compromise scanner
 
 ## Observability
 - [observability_toolkit Usage](docs/how-to/observability_toolkit.md)

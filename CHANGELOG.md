@@ -15,6 +15,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Declarative and scripted pipeline patterns for concurrent branch execution
   - Matrix builds, Docker-based parallel execution, shared library integration
   - Error handling, throttling, agent allocation strategies
+- gen-004: `docs/security/trivy/CVE-2026-33634.md` — Trivy CVE-2026-33634 supply chain vulnerability remediation guide (L8)
+  - Comprehensive guide for Trivy ecosystem supply chain attack mitigation
+  - Affected components: trivy-action < v0.35.0, setup-trivy < v0.2.6, malicious trivy images
+  - Attack details, indicators of compromise, verification steps
+  - Secret rotation recommendations, rollback procedures
+- gen-004: `scripts/bash/ci_cd_toolkit/github/trivy-cve-2026-33634.sh` — CVE-2026-33634 Trivy supply chain compromise scanner (L8)
+  - Detects vulnerable Trivy references in GitHub Actions workflows
+  - Supports --check, --fix, --dry-run, --json-output flags
+  - Scans for trivy-action, setup-trivy, and container image versions
+  - Automatic remediation support
 
 ## 2026-05-05
 
