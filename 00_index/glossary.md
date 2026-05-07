@@ -54,6 +54,18 @@
 
 **Falco**: Cloud-native runtime security tool that detects anomalous activity in containers and Kubernetes.
 
+**GitOps**: A DevOps workflow where Git is the single source of truth for infrastructure and application deployments, enabling automated, auditable, and reversible changes.
+
+**CVE (Common Vulnerabilities and Exposures)**: Standardized identifier for publicly known cybersecurity vulnerabilities, providing a unified reference for security issues and their remediation.
+
+**Hardening**: The process of securing a system by reducing its attack surface, removing unnecessary components, and implementing security controls to resist attacks.
+
+**Supply chain attack**: An attack that compromises software dependencies, build systems, or distribution channels to inject malicious code into trusted software.
+
+**IaC (Infrastructure as Code)**: Managing infrastructure through code-based definitions that are versioned, reviewed, and automated for consistent, repeatable deployments.
+
+**Seal (Vault)**: The action of encrypting Vault's data store, making all stored information inaccessible until the vault is unsealed with the appropriate keys or mechanism.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment
