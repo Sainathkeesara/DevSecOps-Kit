@@ -4,6 +4,34 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-08
+
+### Added
+- jen-002: `docs/reference/jenkins-agent-connection-tuning.md` — Jenkins agent connection tuning commands for high-concurrency workloads (L4)
+  - Comprehensive reference for tuning Jenkins agent connections in high-concurrency environments
+  - Covers agent registration, connection pooling, labeling strategies, resource allocation
+  - JNLP and SSH agent configuration, tunnel and proxy settings
+  - Prerequisites, verification steps, rollback procedures, common errors
+- jen-002: `scripts/bash/jenkins_toolkit/agents/jenkins-agent-connection-tuning.sh` — Automated script for Jenkins agent connection tuning
+  - Supports dry-run mode, JSON/text output, verbose logging
+  - Functions: list agents, get info, tune channels, tune timeout, tune ping interval
+  - Bulk operations for labels and executors, agent online/offline management
+- jen-004: `docs/reference/jenkins-job-config-xml-snippets.md` — Jenkins job configuration XML snippets for GitHub webhook integration (L4)
+  - Reusable XML snippets for GitHub webhook-triggered Jenkins builds
+  - Parameterized webhook jobs, secret token management, multi-branch pipeline triggers
+  - Generic webhook trigger, SCM polling, GitHub App authentication
+  - Prerequisites, verification steps, rollback procedures, common errors
+- jen-006: `docs/reference/jenkins-pipeline-retry-strategy.md` — Jenkins pipeline retry strategy configuration for transient failure handling (L4)
+  - Declarative and scripted pipeline retry patterns
+  - Exponential backoff, jitter-aware backoff, error categorization
+  - Retry budgets, circuit breaker pattern, Kubernetes agent retry
+  - Prerequisites, verification steps, rollback procedures, common errors
+
+### Changed
+- 00_index/quick-links.md — Updated Jenkins section with new documentation links
+  - Added jenkins_agent_connection_tuning, jenkins_job_config_xml_snippets, jenkins_pipeline_retry_strategy
+  - Added jenkins_agent_tuning_script reference
+
 ## 2026-05-06
 
 ### Added
