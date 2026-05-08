@@ -9,16 +9,27 @@ A curated collection of production-ready scripts, runbooks, and reference docs f
 ```
 DevOps-Kit/
 ├─ 00_index/        → Navigation: topic index, quick links, glossary
+├─ .github/         → GitHub Actions workflows and configurations
+├─ assets/           → Static assets (diagrams, images)
 ├─ docs/
+│  ├─ concepts/     → Deep dives into technologies and concepts
 │  ├─ how-to/       → Step-by-step guides per tool
-│  ├─ troubleshooting/ → Failure patterns and fixes
+│  ├─ reference/   → Quick-reference tables and flags
 │  ├─ runbooks/     → Incident response procedures
-│  └─ reference/    → Quick-reference tables and flags
+│  ├─ security/     → Security hardening guides and CVE documentation
+│  ├─ setup-guides/ → Installation and configuration guides
+│  └─ troubleshooting/ → Failure patterns and fixes
+├─ environments/    → Environment configurations (dev, staging, prod)
+├─ lab/             → Learning labs and mini-projects
 ├─ scripts/
 │  ├─ bash/         → Shell scripts, organized by tool
+│  ├─ examples/     → Example scripts and templates
+│  ├─ lib/          → Reusable script libraries
+│  ├─ powershell/   → PowerShell utilities
 │  └─ python/       → Python utilities
 ├─ snippets/        → Copy-paste ready one-liners and blocks
-└─ templates/       → Starter configs for k8s, Terraform, Docker, etc.
+├─ templates/       → Starter configs for k8s, Terraform, Docker, etc.
+└─ terraform/       → Terraform modules and examples
 ```
 
 ## How to use this repo
