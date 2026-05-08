@@ -30,6 +30,10 @@
 - [jenkins_scripted_pipeline_groovy](snippets/jenkins-scripted-pipeline-groovy.md) - Jenkins Scripted Pipeline Groovy examples and patterns
 - [jenkins_credential_rotation](docs/reference/jenkins-credential-rotation.md) - Jenkins CLI commands for automated credential rotation and security updates (L4)
 - [jenkins_parallel_multi_branch](docs/how-to/jenkins-parallel-multi-branch.md) - Jenkins pipeline Groovy snippet for parallel multi-branch builds (L4)
+- [jenkins_agent_connection_tuning](docs/reference/jenkins-agent-connection-tuning.md) - Jenkins agent connection tuning commands for high-concurrency workloads (L4)
+- [jenkins_job_config_xml_snippets](docs/reference/jenkins-job-config-xml-snippets.md) - Jenkins job configuration XML snippets for GitHub webhook integration (L4)
+- [jenkins_pipeline_retry_strategy](docs/reference/jenkins-pipeline-retry-strategy.md) - Jenkins pipeline retry strategy configuration for transient failure handling (L4)
+- [jenkins_agent_tuning_script](scripts/bash/jenkins_toolkit/agents/jenkins-agent-connection-tuning.sh) - Automated script for Jenkins agent connection tuning
 
 ## Ansible
 - [ansible_playbook_best_practices](docs/how-to/ansible-playbook-best-practices.md) - Ansible playbook best practices guide for production
