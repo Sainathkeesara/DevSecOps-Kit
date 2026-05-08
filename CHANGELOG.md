@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-08
 
 ### Added
+- tri-001: `docs/how-to/trivy-cicd-integration.md` — Trivy CI/CD pipeline integration for vulnerability scanning (L3)
+  - Integration patterns for GitHub Actions, Jenkins, GitLab CI
+  - Post-build stage configuration, container image scanning
+  - Severity-based filtering, configuration options
+  - Prerequisites, verification steps, rollback procedures, common errors
 - jen-002: `docs/reference/jenkins-agent-connection-tuning.md` — Jenkins agent connection tuning commands for high-concurrency workloads (L4)
   - Comprehensive reference for tuning Jenkins agent connections in high-concurrency environments
   - Covers agent registration, connection pooling, labeling strategies, resource allocation
