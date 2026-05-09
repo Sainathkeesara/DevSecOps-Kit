@@ -34,6 +34,9 @@
 - [jenkins_job_config_xml_snippets](docs/reference/jenkins-job-config-xml-snippets.md) - Jenkins job configuration XML snippets for GitHub webhook integration (L4)
 - [jenkins_pipeline_retry_strategy](docs/reference/jenkins-pipeline-retry-strategy.md) - Jenkins pipeline retry strategy configuration for transient failure handling (L4)
 - [jenkins_agent_tuning_script](scripts/bash/jenkins_toolkit/agents/jenkins-agent-connection-tuning.sh) - Automated script for Jenkins agent connection tuning
+- [CVE-2026-27099 Hardening](../scripts/bash/jenkins_toolkit/security/cve-2026-27099.sh) - Jenkins XSS and DoS vulnerability scanner
+- [CVE-2026-33001 Hardening](../scripts/bash/jenkins_toolkit/security/cve-2026-33001.sh) - Jenkins tar/tar.gz symlink path traversal vulnerability scanner
+- [CVE-2026-33001 Guide](docs/security/jenkins/CVE-2026-33001.md) - Jenkins CVE-2026-33001 remediation and mitigation guide
 
 ## Ansible
 - [ansible_playbook_best_practices](docs/how-to/ansible-playbook-best-practices.md) - Ansible playbook best practices guide for production
@@ -244,6 +247,10 @@
 - [Install Jenkins](../scripts/bash/jenkins_toolkit/install-jenkins.sh) - Automated install on Ubuntu 22.04 with --dry-run and --port options
 - [GitHub Webhook Setup](docs/how-to/github-webhook-jenkins.md) - Configure GitHub webhooks to trigger Jenkins builds
 - [CVE-2026-27099 Hardening](../scripts/bash/jenkins_toolkit/security/cve-2026-27099.sh) - Jenkins XSS and DoS vulnerability scanner
+- [CVE-2026-33001 Hardening](../scripts/bash/jenkins_toolkit/security/cve-2026-33001.sh) - Jenkins tar symlink path traversal vulnerability scanner (L8)
+- [CVE-2026-33001 Guide](docs/security/jenkins/CVE-2026-33001.md) - CVE-2026-33001 remediation guide with upgrade and configuration steps
+- [Trivy Jenkins Integration](../scripts/bash/ci_cd_toolkit/jenkins/trivy-jenkins-integration.sh) - Trivy Jenkins plugin installation and pipeline integration for container image scanning
+- [Trivy Jenkins Plugin Guide](docs/how-to/trivy-jenkins-integration.md) - Trivy Jenkins plugin configuration and pipeline examples (L3)
 
 ## Container Registries
 - [Harbor Registry Setup](docs/how-to/linux-harbor-registry.md) - Production private container registry with Harbor: HTTPS, LDAP auth, replication, Trivy scanning, backup
@@ -267,6 +274,9 @@
 - [Check Action Updates](../scripts/bash/ci_cd_toolkit/github/check-action-updates.sh)
 - [Generate Workflow](../scripts/bash/ci_cd_toolkit/github/generate-workflow.sh)
 - [trivy_cve_2026_33634](../scripts/bash/ci_cd_toolkit/github/trivy-cve-2026-33634.sh) - CVE-2026-33634 Trivy supply chain compromise scanner
+- [Trivy Jenkins Integration](../scripts/bash/ci_cd_toolkit/jenkins/trivy-jenkins-integration.sh) - Trivy plugin installation and Jenkinsfile snippet generation (L3)
+- [Trivy GitHub Actions](../scripts/bash/ci_cd_toolkit/github/trivy-github-actions.sh) - Trivy GitHub Actions workflow generator and validator (L3)
+- [Trivy GitHub Actions Guide](docs/how-to/trivy-github-actions.md) - Trivy GitHub Actions integration patterns (L3)
 
 ## Observability
 - [observability_toolkit Usage](docs/how-to/observability_toolkit.md)

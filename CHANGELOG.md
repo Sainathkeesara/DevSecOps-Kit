@@ -4,6 +4,40 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-09
+
+### Added
+- gen-010: `docs/security/jenkins/CVE-2026-33001.md` — Jenkins CVE-2026-33001 tar/tar.gz symlink path traversal remediation guide (L8)
+   - Comprehensive guide for CVE-2026-33001 mitigation in Jenkins
+   - Covers vulnerable versions (< 2.495.1, < 2.510.1), backup plugin review, safe tar extraction configs
+   - Step-by-step upgrade procedures (Kubernetes and standalone), verification, rollback
+- gen-010: `scripts/bash/jenkins_toolkit/security/cve-2026-33001.sh` — CVE-2026-33001 detection and remediation script (L8)
+   - Detects vulnerable Jenkins versions, checks tar handling configuration
+   - Supports --dry-run, --fix, --json-output, --namespace flags
+   - Provides automated upgrade recommendations and remediation steps
+- tri-006: `docs/how-to/trivy-jenkins-integration.md` — Trivy Jenkins plugin integration for container image scanning in pipeline (L3)
+   - Complete guide for integrating Trivy into Jenkins pipelines via plugin
+   - Declarative and scripted pipeline examples, severity thresholds, SARIF output
+   - Plugin installation, configuration, validation and troubleshooting
+- tri-006: `scripts/bash/ci_cd_toolkit/jenkins/trivy-jenkins-integration.sh` — Trivy Jenkins plugin installation and configuration script (L3)
+   - Plugin installation with --install flag, Jenkinsfile snippet generation with --generate
+   - Pipeline validation with --validate, supports severity/config/output customization
+   - JSON output for automation integration
+- tri-007: `docs/how-to/trivy-github-actions.md` — Trivy GitHub Actions workflow integration for automated security scans (L3)
+   - GitHub Actions integration patterns: fs, image, config, secret scan types
+   - Workflow generation with proper SARIF upload to GitHub Code Scanning
+   - Matrix scanning, conditional triggers, caching strategies, performance tuning
+- tri-007: `scripts/bash/ci_cd_toolkit/github/trivy-github-actions.sh` — Trivy GitHub Actions workflow generator and validator (L3)
+   - Workflow YAML generation with --generate, validation with --validate
+   - Configurable scan types, severity thresholds, events (push/PR/schedule)
+   - Supports --scan-type, --severity, --output-format, --action-version options
+
+### Changed
+- 00_index/quick-links.md — Updated Jenkins and CI/CD sections with new documentation and script links
+   - Added CVE-2026-33001 hardening script and guide under Jenkins
+   - Added Trivy Jenkins integration script and documentation
+   - Added Trivy GitHub Actions script and documentation under CI/CD
+
 ## 2026-05-08
 
 ### Added
