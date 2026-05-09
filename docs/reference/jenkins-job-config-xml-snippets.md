@@ -255,7 +255,7 @@ pipeline {
     </org.jenkinsci.plugins.pipeline.modeldefinition.config.PipelineTriggersConventionProperty>
   </properties>
   <sources>
-    <org.jenkinsci.plugins.workflow.multibranch.DynaBondyBranchSource>
+    <org.jenkinsci.plugins.workflow.multibranch.DynaBeanBranchSource>
       <source>
         <org.jenkinsci.plugins.githubranchsource.builder.BasicGithubBranchSource>
           <id>github</id>
@@ -266,13 +266,13 @@ pipeline {
             <org.jenkinsci.plugins.githubranchsource.traits.SpecifyRefMode>
               <refMode>BRANCH</refMode>
             </org.jenkinsci.plugins.githubranchsource.traits.SpecifyRefMode>
-            <org.jenkinsci.plugins.githubranchsource.traits.WildcardsIgnoreOrigin上海回报>
-              <configuredRefType>ignore_origin</configuredRefType>
-            </org.jenkinsci.plugins.githubranchsource.traits.WildcardsIgnoreOrigin上海回报>
+            <org.jenkinsci.plugins.githubranchsource.traits.WildcardExcludeType>
+              <configuredRefType>exclude_origin</configuredRefType>
+            </org.jenkinsci.plugins.githubranchsource.traits.WildcardExcludeType>
           </traits>
         </org.jenkinsci.plugins.githubranchsource.builder.BasicGithubBranchSource>
       </source>
-    </org.jenkinsci.plugins.workflow.multibranch.DynaBondyBranchSource>
+    </org.jenkinsci.plugins.workflow.multibranch.DynaBeanBranchSource>
   </sources>
 </org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject>
 ```
