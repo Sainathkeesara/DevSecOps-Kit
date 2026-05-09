@@ -7,6 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-09
 
 ### Added
+- ansi-001: `scripts/bash/ansible_toolkit/security/cve-2026-33228-mitigation.yml` — CVE-2026-33228 Ansible mitigation playbook (L6)
+   - Detects vulnerable ansible-core and flatted versions
+   - Performs automatic upgrade via pip when vulnerable
+   - Supports dry-run, report generation, verification
+- tri-001: `scripts/bash/ci_cd_toolkit/trivy-postbuild-scan.sh` — Trivy CI/CD post-build stage integration script (L3)
+   - Runs Trivy scan as pipeline post-build security gate
+   - Supports --scan, --generate, --validate modes
+   - Generates GitHub Actions, Jenkinsfile, GitLab CI snippets
+   - Offline scanning from image tarballs, severity gating
 - gen-010: `docs/security/jenkins/CVE-2026-33001.md` — Jenkins CVE-2026-33001 tar/tar.gz symlink path traversal remediation guide (L8)
    - Comprehensive guide for CVE-2026-33001 mitigation in Jenkins
    - Covers vulnerable versions (< 2.495.1, < 2.510.1), backup plugin review, safe tar extraction configs
