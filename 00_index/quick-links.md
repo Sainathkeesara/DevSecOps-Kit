@@ -41,6 +41,7 @@
 ## Ansible
 - [ansible_playbook_best_practices](docs/how-to/ansible-playbook-best-practices.md) - Ansible playbook best practices guide for production
 - [ansi-001: CVE-2026-33228 Mitigation](../scripts/bash/ansible_toolkit/security/cve-2026-33228-mitigation.yml) - CVE-2026-33228 Ansible playbook for flatted prototype pollution mitigation (L6)
+- [ansi-001: CVE-2026-33228 Execution](../scripts/bash/ansible_toolkit/security/cve-2026-33228-execution.sh) - CVE-2026-33228 mitigation playbook execution and validation script with dry-run support (L6)
 
 ## Terraform
 - [terraform_ecs_service_discovery](docs/how-to/terraform-ecs-service-discovery.md) - ECS Fargate with Route 53 private DNS service discovery
@@ -279,6 +280,7 @@
 - [Trivy GitHub Actions](../scripts/bash/ci_cd_toolkit/github/trivy-github-actions.sh) - Trivy GitHub Actions workflow generator and validator (L3)
 - [Trivy GitHub Actions Guide](docs/how-to/trivy-github-actions.md) - Trivy GitHub Actions integration patterns (L3)
 - [tri-001: Trivy Post-Build Scan](../scripts/bash/ci_cd_toolkit/trivy-postbuild-scan.sh) - Trivy CI/CD post-build stage integration script with severity gating (L3)
+- [tri-002: Trivy Database Update](../scripts/bash/ci_cd_toolkit/trivy-db-update.sh) - Trivy vulnerability database update automation for definition currency (L3)
 
 ## Observability
 - [observability_toolkit Usage](docs/how-to/observability_toolkit.md)

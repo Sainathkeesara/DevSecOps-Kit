@@ -37,9 +37,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
    - Workflow generation with proper SARIF upload to GitHub Code Scanning
    - Matrix scanning, conditional triggers, caching strategies, performance tuning
 - tri-007: `scripts/bash/ci_cd_toolkit/github/trivy-github-actions.sh` — Trivy GitHub Actions workflow generator and validator (L3)
-   - Workflow YAML generation with --generate, validation with --validate
-   - Configurable scan types, severity thresholds, events (push/PR/schedule)
-   - Supports --scan-type, --severity, --output-format, --action-version options
+    - Workflow YAML generation with --generate, validation with --validate
+    - Configurable scan types, severity thresholds, events (push/PR/schedule)
+    - Supports --scan-type, --severity, --output-format, --action-version options
+ - ansi-001: `scripts/bash/ansible_toolkit/security/cve-2026-33228-execution.sh` — CVE-2026-33228 mitigation playbook execution and validation script (L6)
+    - Executes the mitigation playbook with proper inventory and host targeting
+    - Validates remediation results and generates JSON report
+    - Supports dry-run, validate-only, verbose modes, become privilege escalation
+ - tri-002: `scripts/bash/ci_cd_toolkit/trivy-db-update.sh` — Trivy vulnerability database update automation (L3)
+    - Automates Trivy database downloads for vulnerability definition currency
+    - Checks database age and staleness with configurable thresholds
+    - Supports --skip-download, --force, --dry-run, integrity verification
 
 ### Changed
 - 00_index/quick-links.md — Updated Jenkins and CI/CD sections with new documentation and script links
