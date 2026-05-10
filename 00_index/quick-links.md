@@ -289,6 +289,9 @@
 ## Observability
 - [observability_toolkit Usage](docs/how-to/observability_toolkit.md)
 - [Observability Cheatsheet](../snippets/observability-cheatsheet.md)
+- [OpenTelemetry Collector Installation](docs/how-to/observability/otel-collector-installation.md) - OTel Collector installation and pipeline configuration for metrics, traces, and logs (L2)
+- [OTel Collector Install Script](../scripts/bash/observability_toolkit/otel/otel-collector-install.sh) - Automated OTel Collector deployment with agent/gateway modes, dry-run support
+- [obs-007: OTel Collector Pipeline](docs/how-to/observability/otel-collector-installation.md) - OpenTelemetry Collector installation and pipeline configuration (L2)
 - [Prometheus Targets Status](../scripts/bash/observability_toolkit/prometheus/targets-status.sh)
 - [Check Alert](../scripts/bash/observability_toolkit/prometheus/check-alert.sh)
 - [Query Metrics](../scripts/bash/observability_toolkit/prometheus/query-metrics.sh)
@@ -297,6 +300,10 @@
 - [Query Traces (Jaeger)](../scripts/bash/observability_toolkit/jaeger/query-traces.sh)
 - [OTel Collector Health](../scripts/bash/observability_toolkit/otel/collector-health.sh)
 - [Stack Health Check](../scripts/bash/observability_toolkit/stack-health.sh)
+
+## Trivy
+- [obs-007: Trivy CVE-2026-33001 Remediation](docs/how-to/trivy/cve-2026-33001-remediation.md) - Path traversal vulnerability remediation for Trivy < 0.58.0 (L8)
+- [trivy-cve-2026-33001 Script](../scripts/bash/trivy_toolkit/security/cve-2026-33001.sh) - CVE-2026-33001 detection and upgrade script with dry-run, --scan-dir, --version flags
 
 ## Linux
 - [lin-086: Linux Kernel Live Patching](docs/how-to/linux/linux-kpatch-live-patching.md) - Linux kernel live patching with kpatch for CVE-2026-33001 mitigation (L7)

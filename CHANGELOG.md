@@ -7,17 +7,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-10
 
 ### Added
-- lin-086: `docs/how-to/linux/linux-kpatch-live-patching.md` — Linux kernel live patching with kpatch for CVE-2026-33001 mitigation (L7)
-   - Comprehensive guide for deploying kpatch live kernel patching
-   - Covers RHEL, Rocky Linux, AlmaLinux, Fedora installation
-   - Step-by-step installation, patch management, verification
+- obs-007: `docs/how-to/observability/otel-collector-installation.md` — OpenTelemetry Collector installation and pipeline configuration (L2)
+   - Complete guide covering OTel Collector agent/gateway deployment modes
+   - Pipeline configuration for metrics, traces, and logs
+   - Kubernetes DaemonSet deployment examples
    - Prerequisites, verification steps, rollback procedures, common errors
-- lin-086: `scripts/bash/linux_toolkit/security/kpatch-deployment.sh` — kpatch live kernel patching deployment script (L7)
-   - Automated kpatch installation with --install, --apply, --remove, --status, --verify modes
-   - Supports dry-run mode, systemd service configuration, cron-based auto-updates
-   - Idempotent operations, CVE-2026-33001 verification, rollback support
-   - shellcheck passed with warnings only
-- 00_index/quick-links.md — Updated Linux section with kpatch entries
+- obs-007: `scripts/bash/observability_toolkit/otel/otel-collector-install.sh` — OTel Collector deployment script
+   - Supports --dry-run, --version, --mode (agent/gateway/standalone), --port options
+   - Automated binary download, systemd service creation, firewall configuration
+   - Idempotent operations, configuration generation, health verification
+   - shellcheck passed (info only)
+- tri-008: `docs/how-to/trivy/cve-2026-33001-remediation.md` — Trivy CVE-2026-33001 path traversal remediation guide (L8)
+   - Detection and upgrade procedures for Trivy < 0.58.0
+   - Linux/macOS, Docker, Kubernetes upgrade patterns
+   - Verification steps, rollback procedures, common errors
+- tri-008: `scripts/bash/trivy_toolkit/security/cve-2026-33001.sh` — CVE-2026-33001 detection and remediation script
+   - Detects vulnerable Trivy versions, scans for path traversal archives
+   - Supports --dry-run, --verbose, --version, --scan-dir flags
+   - Automated upgrade to 0.58.0, remediation report generation
+   - shellcheck passed (warnings only)
+- 00_index/quick-links.md — Updated Observability and Trivy sections with new entries
+
+### Changed
+- 00_index/quick-links.md — Updated CI/CD section with Trivy CVE-2026-33001 entries
 
 ## 2026-05-09
 
