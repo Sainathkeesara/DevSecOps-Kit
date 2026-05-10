@@ -288,8 +288,8 @@
 
 ## Observability
 - [observability_toolkit Usage](docs/how-to/observability_toolkit.md)
-- [Observability Cheatsheet](../snippets/observability-cheatsheet.md)
 - [OpenTelemetry Collector Installation](docs/how-to/observability/otel-collector-installation.md) - OTel Collector installation and pipeline configuration for metrics, traces, and logs (L2)
+- [Thanos Installation](docs/how-to/thanos_installation.md) - Thanos installation and configuration for long-term metric retention (L2)
 - [OTel Collector Install Script](../scripts/bash/observability_toolkit/otel/otel-collector-install.sh) - Automated OTel Collector deployment with agent/gateway modes, dry-run support
 - [obs-007: OTel Collector Pipeline](docs/how-to/observability/otel-collector-installation.md) - OpenTelemetry Collector installation and pipeline configuration (L2)
 - [Prometheus Targets Status](../scripts/bash/observability_toolkit/prometheus/targets-status.sh)

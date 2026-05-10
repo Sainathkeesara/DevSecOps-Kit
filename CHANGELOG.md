@@ -8,25 +8,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - obs-007: `docs/how-to/observability/otel-collector-installation.md` — OpenTelemetry Collector installation and pipeline configuration (L2)
-   - Complete guide covering OTel Collector agent/gateway deployment modes
-   - Pipeline configuration for metrics, traces, and logs
-   - Kubernetes DaemonSet deployment examples
-   - Prerequisites, verification steps, rollback procedures, common errors
+    - Complete guide covering OTel Collector agent/gateway deployment modes
+    - Pipeline configuration for metrics, traces, and logs
+    - Kubernetes DaemonSet deployment examples
+    - Prerequisites, verification steps, rollback procedures, common errors
 - obs-007: `scripts/bash/observability_toolkit/otel/otel-collector-install.sh` — OTel Collector deployment script
-   - Supports --dry-run, --version, --mode (agent/gateway/standalone), --port options
-   - Automated binary download, systemd service creation, firewall configuration
-   - Idempotent operations, configuration generation, health verification
-   - shellcheck passed (info only)
+    - Supports --dry-run, --version, --mode (agent/gateway/standalone), --port options
+    - Automated binary download, systemd service creation, firewall configuration
+    - Idempotent operations, configuration generation, health verification
+    - shellcheck passed (info only)
+- obs-008: `docs/how-to/thanos_installation.md` — Thanos installation and configuration for long-term metric retention (L2)
+    - Guide for deploying Thanos components (Sidecar, Store, Receiver, Query, Compactor)
+    - Configuration for object storage backends (AWS S3, GCS, Azure Blob)
+    - Integration with existing Prometheus servers via remote write/read
+    - Query aggregation and downsampling capabilities
+    - Prerequisites, verification steps, rollback procedures, common errors
 - tri-008: `docs/how-to/trivy/cve-2026-33001-remediation.md` — Trivy CVE-2026-33001 path traversal remediation guide (L8)
-   - Detection and upgrade procedures for Trivy < 0.58.0
-   - Linux/macOS, Docker, Kubernetes upgrade patterns
-   - Verification steps, rollback procedures, common errors
+    - Detection and upgrade procedures for Trivy < 0.58.0
+    - Linux/macOS, Docker, Kubernetes upgrade patterns
+    - Verification steps, rollback procedures, common errors
 - tri-008: `scripts/bash/trivy_toolkit/security/cve-2026-33001.sh` — CVE-2026-33001 detection and remediation script
-   - Detects vulnerable Trivy versions, scans for path traversal archives
-   - Supports --dry-run, --verbose, --version, --scan-dir flags
-   - Automated upgrade to 0.58.0, remediation report generation
-   - shellcheck passed (warnings only)
-- 00_index/quick-links.md — Updated Observability and Trivy sections with new entries
+    - Detects vulnerable Trivy versions, scans for path traversal archives
+    - Supports --dry-run, --verbose, --version, --scan-dir flags
+    - Automated upgrade to 0.58.0, remediation report generation
+    - shellcheck passed (warnings only)
+- 00_index/quick-links.md — Updated Observability section with new entries
 
 ### Changed
 - 00_index/quick-links.md — Updated CI/CD section with Trivy CVE-2026-33001 entries
