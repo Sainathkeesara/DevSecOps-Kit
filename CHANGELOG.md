@@ -4,6 +4,21 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-10
+
+### Added
+- lin-086: `docs/how-to/linux/linux-kpatch-live-patching.md` — Linux kernel live patching with kpatch for CVE-2026-33001 mitigation (L7)
+   - Comprehensive guide for deploying kpatch live kernel patching
+   - Covers RHEL, Rocky Linux, AlmaLinux, Fedora installation
+   - Step-by-step installation, patch management, verification
+   - Prerequisites, verification steps, rollback procedures, common errors
+- lin-086: `scripts/bash/linux_toolkit/security/kpatch-deployment.sh` — kpatch live kernel patching deployment script (L7)
+   - Automated kpatch installation with --install, --apply, --remove, --status, --verify modes
+   - Supports dry-run mode, systemd service configuration, cron-based auto-updates
+   - Idempotent operations, CVE-2026-33001 verification, rollback support
+   - shellcheck passed with warnings only
+- 00_index/quick-links.md — Updated Linux section with kpatch entries
+
 ## 2026-05-09
 
 ### Added

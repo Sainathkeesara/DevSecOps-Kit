@@ -294,6 +294,10 @@
 - [OTel Collector Health](../scripts/bash/observability_toolkit/otel/collector-health.sh)
 - [Stack Health Check](../scripts/bash/observability_toolkit/stack-health.sh)
 
+## Linux
+- [lin-086: Linux Kernel Live Patching](docs/how-to/linux/linux-kpatch-live-patching.md) - Linux kernel live patching with kpatch for CVE-2026-33001 mitigation (L7)
+- [kpatch_deployment_script](../scripts/bash/linux_toolkit/security/kpatch-deployment.sh) - kpatch live kernel patching deployment script with --install, --apply, --remove, --status, --verify modes
+
 ## Linux Administration
 - [linux_toolkit Usage](docs/how-to/linux_toolkit.md)
 - [lin-081: Disk I/O Scheduler Optimization](docs/how-to/linux/linux-disk-io-scheduler-optimization.md) - Linux disk I/O scheduler optimization for database workloads (L7)
