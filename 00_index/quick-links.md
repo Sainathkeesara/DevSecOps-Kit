@@ -281,6 +281,10 @@
 - [Trivy GitHub Actions Guide](docs/how-to/trivy-github-actions.md) - Trivy GitHub Actions integration patterns (L3)
 - [tri-001: Trivy Post-Build Scan](../scripts/bash/ci_cd_toolkit/trivy-postbuild-scan.sh) - Trivy CI/CD post-build stage integration script with severity gating (L3)
 - [tri-002: Trivy Database Update](../scripts/bash/ci_cd_toolkit/trivy-db-update.sh) - Trivy vulnerability database update automation for definition currency (L3)
+- [tri-003: Trivy Severity Filtering](../scripts/bash/ci_cd_toolkit/trivy-severity-filter.sh) - Trivy severity-based filtering for vulnerability triage (L3)
+- [tri-003: Trivy Severity Filtering Guide](docs/how-to/trivy-severity-filtering.md) - Severity-based filtering for vulnerability triage (L3)
+- [tri-004: Trivy Cache Configuration](../scripts/bash/ci_cd_toolkit/trivy-cache-configure.sh) - Trivy cache configuration for accelerated repeated scans (L3)
+- [tri-004: Trivy Cache Configuration Guide](docs/how-to/trivy-cache-configuration.md) - Cache configuration for optimized scanning performance (L3)
 
 ## Observability
 - [observability_toolkit Usage](docs/how-to/observability_toolkit.md)

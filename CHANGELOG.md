@@ -22,7 +22,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-09
 
 ### Added
-- ansi-001: `scripts/bash/ansible_toolkit/security/cve-2026-33228-mitigation.yml` — CVE-2026-33228 Ansible mitigation playbook (L6)
+- tri-003: `scripts/bash/ci_cd_toolkit/trivy-severity-filter.sh` — Trivy severity-based filtering for vulnerability triage (L3)
+   - Run progressive scans based on severity thresholds
+   - Count vulnerabilities by severity for triage metrics
+   - Filter existing JSON reports by severity level
+   - Support CI/CD pipeline integration
+- tri-003: `docs/how-to/trivy-severity-filtering.md` — Trivy severity-based filtering guide for vulnerability triage (L3)
+   - Progressive scanning strategy for different severity levels
+   - CI/CD pipeline integration patterns
+   - Vulnerability counting and filtering techniques
+- tri-004: `scripts/bash/ci_cd_toolkit/trivy-cache-configure.sh` — Trivy cache configuration for accelerated repeated scans (L3)
+   - Custom cache directory configuration
+   - Cache pre-warming for database downloads
+   - Cache persistence in CI/CD pipelines
+   - Layer caching optimization strategies
+- tri-004: `docs/how-to/trivy-cache-configuration.md` — Trivy cache configuration guide for optimized scanning performance (L3)
+   - Cache types and directory configuration
+   - CI/CD cache management patterns
+   - Performance optimization strategies
+   - Cache verification and troubleshooting
    - Detects vulnerable ansible-core and flatted versions
    - Performs automatic upgrade via pip when vulnerable
    - Supports dry-run, report generation, verification
