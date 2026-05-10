@@ -17,6 +17,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
    - Automated binary download, systemd service creation, firewall configuration
    - Idempotent operations, configuration generation, health verification
    - shellcheck passed (info only)
+- obs-009: `scripts/bash/observability_toolkit/loki/loki-promtail-install.sh` — Loki and Promtail installation script
+   - Supports --dry-run, --loki-version, --promtail-version, --mode (standalone/server/client), --loki-server options
+   - Automated Loki and Promtail deployment with systemd services
+   - Firewall configuration, log rotation setup, health verification
+   - shellcheck passed (info only)
+- oci-007: `docs/how-to/github-container-registry-ghcr.md` — GitHub Container Registry (ghcr.io) configuration guide (L2)
+   - PAT creation, authentication, image tagging and pushing
+   - Access control, GitHub Actions integration for automated builds
+   - Pull images, delete versions, troubleshooting common errors
 - tri-008: `docs/how-to/trivy/cve-2026-33001-remediation.md` — Trivy CVE-2026-33001 path traversal remediation guide (L8)
    - Detection and upgrade procedures for Trivy < 0.58.0
    - Linux/macOS, Docker, Kubernetes upgrade patterns
@@ -26,7 +35,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
    - Supports --dry-run, --verbose, --version, --scan-dir flags
    - Automated upgrade to 0.58.0, remediation report generation
    - shellcheck passed (warnings only)
-- 00_index/quick-links.md — Updated Observability and Trivy sections with new entries
+- 00_index/quick-links.md — Updated Observability and Container Registries sections with new entries
 
 ### Changed
 - 00_index/quick-links.md — Updated CI/CD section with Trivy CVE-2026-33001 entries
