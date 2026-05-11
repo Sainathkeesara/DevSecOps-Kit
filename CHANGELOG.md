@@ -7,6 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-11
 
 ### Added
+- cic-008: `docs/how-to/buildkite-installation.md` — Buildkite agent installation and configuration for CI/CD pipelines (L2)
+    - Complete guide covering Buildkite agent setup with tagging, queues, parallel builds
+    - Pipeline integration patterns, hooks, environment variables
+    - Verification steps, rollback procedures, common error troubleshooting
+- cic-008: `scripts/bash/ci_cd_toolkit/buildkite/buildkite-install.sh` — Buildkite agent installation script
+    - Supports --dry-run, --version, --token, --tags, --queue, --max-runs options
+    - Automated binary download, systemd service creation, token management
+    - Configuration generation with YAML agent configuration
+    - Idempotent operations with uninstall support
+    - shellcheck passed (info only)
 - oci-008: `docs/how-to/azure-container-registry-acr.md` — Azure Container Registry ACR installation and geo-replication setup (L2)
     - Complete guide covering ACR creation via Azure CLI, geo-replication configuration
     - Authentication setup (service principals, admin user), network access controls
@@ -39,6 +49,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     - Verification steps, rollback procedures, common errors
 
 ### Changed
+- 00_index/quick-links.md — Updated CI/CD section with Buildkite installation and documentation entries
 - 00_index/quick-links.md — Updated Observability section with obs-009 Loki Promtail and obs-010 Alertmanager HA entries
 - 00_index/quick-links.md — Updated Container Registries section with oci-007 ghcr.io entry
 
@@ -596,9 +607,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Doc: docs/how-to/linux-monitoring-prometheus.md (168 lines, all 8 sections)
   - Script: scripts/bash/linux_toolkit/monitoring/node-exporter-setup.sh (296 lines, shellcheck passed)
 - lin-009: Linux backup rsync project - Score: 1/10 - Rework required
-  - FAILURE: No output file found in DevOps-Kit
+    - FAILURE: No output file found in DevOps-Kit
 - ter-009: Terraform module composition project - Score: 1/10 - Rework required
-  - FAILURE: No output file found in DevOps-Kit
+    - FAILURE: No output file found in DevOps-Kit
+- oci-008: Azure Container Registry (ACR) installation and geo-replication — Score: 10/10 - Passed audit
 
 ### Added
 - ter-051: Terraform CI/CD Pipeline with Atlantis and GitOps (L7 project)
