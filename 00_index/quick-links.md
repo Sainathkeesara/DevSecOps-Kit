@@ -258,6 +258,8 @@
 - [Harbor Registry Setup](docs/how-to/linux-harbor-registry.md) - Production private container registry with Harbor: HTTPS, LDAP auth, replication, Trivy scanning, backup
 - [GitHub Container Registry (ghcr.io)](docs/how-to/github-container-registry-ghcr.md) - Configure and use ghcr.io for storing and publishing container images (L2)
 - [oci-007: ghcr.io Configuration](docs/how-to/oci-registry-toolkit/github-container-registry-ghcr.md) - GitHub Container Registry setup: authentication, image publishing, access control (L2)
+- [oci-008: Azure Container Registry (ACR)](docs/how-to/azure-container-registry-acr.md) - Azure Container Registry setup with geo-replication for multi-region deployments (L2)
+- [oci-008: ACR Deploy Script](scripts/bash/azure_toolkit/acr/acr-deploy.sh) - ACR deployment script with --dry-run, --replication options
 - [Harbor Deploy Script](scripts/bash/harbor/harbor-deploy.sh) - Automated Harbor installation with TLS, Docker Compose, and Trivy scanner
 - [Harbor Health Check](scripts/bash/harbor/harbor-health-check.sh) - Verify Harbor containers, API, registry, disk usage, and Trivy scanner
 - [Harbor Backup Script](scripts/bash/harbor/harbor-backup.sh) - Backup Harbor database, registry data, config, and Redis with retention
