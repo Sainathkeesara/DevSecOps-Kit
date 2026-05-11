@@ -256,6 +256,8 @@
 
 ## Container Registries
 - [Harbor Registry Setup](docs/how-to/linux-harbor-registry.md) - Production private container registry with Harbor: HTTPS, LDAP auth, replication, Trivy scanning, backup
+- [GitHub Container Registry (ghcr.io)](docs/how-to/github-container-registry-ghcr.md) - Configure and use ghcr.io for storing and publishing container images (L2)
+- [oci-007: ghcr.io Configuration](docs/how-to/github-container-registry-ghcr.md) - GitHub Container Registry setup: authentication, image publishing, access control (L2)
 - [Harbor Deploy Script](scripts/bash/harbor/harbor-deploy.sh) - Automated Harbor installation with TLS, Docker Compose, and Trivy scanner
 - [Harbor Health Check](scripts/bash/harbor/harbor-health-check.sh) - Verify Harbor containers, API, registry, disk usage, and Trivy scanner
 - [Harbor Backup Script](scripts/bash/harbor/harbor-backup.sh) - Backup Harbor database, registry data, config, and Redis with retention
@@ -292,6 +294,8 @@
 - [Thanos Installation](docs/how-to/thanos_installation.md) - Thanos installation and configuration for long-term metric retention (L2)
 - [OTel Collector Install Script](../scripts/bash/observability_toolkit/otel/otel-collector-install.sh) - Automated OTel Collector deployment with agent/gateway modes, dry-run support
 - [obs-007: OTel Collector Pipeline](docs/how-to/observability/otel-collector-installation.md) - OpenTelemetry Collector installation and pipeline configuration (L2)
+- [obs-009: Loki Promtail Installation](docs/how-to/linux-log-aggregation-loki-promtail.md) - Grafana Loki and Promtail installation for centralized log aggregation (L2)
+- [Loki Promtail Install Script](../scripts/bash/observability_toolkit/loki/loki-promtail-install.sh) - Automated Loki and Promtail deployment with standalone/server/client modes, dry-run support
 - [Prometheus Targets Status](../scripts/bash/observability_toolkit/prometheus/targets-status.sh)
 - [Check Alert](../scripts/bash/observability_toolkit/prometheus/check-alert.sh)
 - [Query Metrics](../scripts/bash/observability_toolkit/prometheus/query-metrics.sh)
