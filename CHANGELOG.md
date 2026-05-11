@@ -4,6 +4,34 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-11
+
+### Added
+- obs-009: `docs/how-to/observability/loki-promtail-installation.md` — Grafana Loki Promtail installation and log pipeline configuration (L2)
+    - Complete guide covering Loki + Promtail installation for centralized log aggregation
+    - Package and binary installation methods for Loki and Promtail
+    - Systemd service configuration, log rotation, Grafana integration
+    - LogQL queries for log exploration and alerting patterns
+    - Prerequisites, verification steps, rollback procedures, common errors
+- obs-010: `docs/how-to/observability/alertmanager-ha-clustering.md` — Alertmanager high-availability clustering for alert deduplication (L2)
+    - Complete guide for HA Alertmanager cluster setup with gossip protocol
+    - Cluster configuration, deduplication strategies, silence management
+    - Prometheus integration, active-active and active-passive patterns
+    - Prerequisites, verification steps, rollback procedures, common errors
+- obs-010: `scripts/bash/observability_toolkit/alertmanager/alertmanager-ha-setup.sh` — Alertmanager HA cluster deployment script
+    - Supports --dry-run, --cluster-size, --cluster-name, --listen-port, --http-port options
+    - Automated binary download, cluster configuration generation, systemd service
+    - Gossip protocol setup, firewall configuration, health verification
+- oci-007: `docs/how-to/oci-registry-toolkit/github-container-registry-ghcr.md` — GitHub Container Registry ghcr.io configuration (L2)
+    - Complete guide for ghcr.io configuration: authentication, image publishing, access control
+    - GitHub Actions integration with docker/login-action, multi-architecture builds
+    - Access control, visibility settings, image lifecycle management
+    - Verification steps, rollback procedures, common errors
+
+### Changed
+- 00_index/quick-links.md — Updated Observability section with obs-009 Loki Promtail and obs-010 Alertmanager HA entries
+- 00_index/quick-links.md — Updated Container Registries section with oci-007 ghcr.io entry
+
 ## 2026-05-10
 
 ### Added
