@@ -7,6 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-11
 
 ### Added
+- oci-008: `docs/how-to/azure-container-registry-acr.md` — Azure Container Registry ACR installation and geo-replication setup (L2)
+    - Complete guide covering ACR creation via Azure CLI, geo-replication configuration
+    - Authentication setup (service principals, admin user), network access controls
+    - Image push/pull operations, webhook configuration, retention policies
+    - Prerequisites, verification steps, rollback procedures, common errors
+- oci-008: `scripts/bash/azure_toolkit/acr/acr-deploy.sh` — ACR deployment script
+    - Supports --dry-run, --resource-group, --acr-name, --location, --sku options
+    - Automated geo-replication configuration, credential retrieval, health verification
+    - Idempotent operations, comprehensive logging, status checking
+    - shellcheck passed
 - obs-009: `docs/how-to/observability/loki-promtail-installation.md` — Grafana Loki Promtail installation and log pipeline configuration (L2)
     - Complete guide covering Loki + Promtail installation for centralized log aggregation
     - Package and binary installation methods for Loki and Promtail
