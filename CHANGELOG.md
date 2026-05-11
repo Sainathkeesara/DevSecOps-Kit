@@ -7,6 +7,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-11
 
 ### Added
+- cic-009: `docs/how-to/circleci-runner-installation.md` — CircleCI self-hosted runner installation and resource class configuration (L2)
+    - Complete guide covering CircleCI runner setup with resource classes, labels, namespaces
+    - Pipeline integration patterns, custom working directories, concurrent job execution
+    - Verification steps, rollback procedures, common error troubleshooting
+- cic-009: `scripts/bash/ci_cd_toolkit/circleci/circleci-runner-install.sh` — CircleCI runner deployment script
+    - Supports --dry-run, --token, --resource-class, --name, --labels, --max-runs, --work-dir options
+    - Automated binary download, systemd service creation, JSON configuration generation
+    - Idempotent operations with uninstall support
 - cic-008: `docs/how-to/buildkite-installation.md` — Buildkite agent installation and configuration for CI/CD pipelines (L2)
     - Complete guide covering Buildkite agent setup with tagging, queues, parallel builds
     - Pipeline integration patterns, hooks, environment variables

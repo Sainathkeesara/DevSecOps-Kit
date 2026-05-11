@@ -289,8 +289,10 @@
 - [tri-003: Trivy Severity Filtering Guide](docs/how-to/trivy-severity-filtering.md) - Severity-based filtering for vulnerability triage (L3)
 - [tri-004: Trivy Cache Configuration](../scripts/bash/ci_cd_toolkit/trivy-cache-configure.sh) - Trivy cache configuration for accelerated repeated scans (L3)
 - [tri-004: Trivy Cache Configuration Guide](docs/how-to/trivy-cache-configuration.md) - Cache configuration for optimized scanning performance (L3)
-- [cic-008: Buildkite Installation](../scripts/bash/ci_cd_toolkit/buildkite/buildkite-install.sh) - Buildkite agent installation and configuration for CI/CD pipelines (L2)
+- [cic-008: Buildkite Installation](docs/how-to/buildkite-installation.md) - Buildkite agent installation and configuration for CI/CD pipelines (L2)
 - [Buildkite Installation Guide](docs/how-to/buildkite-installation.md) - Buildkite agent setup with tagging, queues, and parallel build configuration (L2)
+- [cic-009: CircleCI Runner Installation](docs/how-to/circleci-runner-installation.md) - CircleCI self-hosted runner installation and resource class configuration (L2)
+- [cic-009: CircleCI Runner Install Script](../scripts/bash/ci_cd_toolkit/circleci/circleci-runner-install.sh) - CircleCI runner deployment script with --dry-run, --token, --resource-class, --labels options
 
 ## Observability
 - [observability_toolkit Usage](docs/how-to/observability_toolkit.md)
