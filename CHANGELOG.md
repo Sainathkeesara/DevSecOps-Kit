@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-12
 
 ### Added
+- obs-002: `docs/how-to/observability/prometheus-node-exporter-installation.md` — Prometheus node_exporter installation for system metrics collection (L2)
+    - Complete guide covering node_exporter installation on Linux systems
+    - Systemd service configuration, firewall setup, Prometheus integration
+    - Configuration options for collectors, textfile collector for custom metrics
+    - Verification steps, rollback procedures, common errors troubleshooting
 - jen-007: `docs/reference/jenkins-secret-masking-envinject.md` — Jenkins secret credential masking in build logs with EnvInject (L4)
     - Complete reference covering EnvInject plugin installation and configuration
     - Job-level secret injection patterns for Pipeline and Freestyle jobs

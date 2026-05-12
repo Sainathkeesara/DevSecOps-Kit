@@ -309,6 +309,8 @@
 - [obs-009: Loki Promtail Install Script](../scripts/bash/observability_toolkit/loki/loki-promtail-install.sh) - Automated Loki and Promtail deployment with standalone/server/client modes, dry-run support
 - [obs-010: Alertmanager HA Clustering](docs/how-to/observability/alertmanager-ha-clustering.md) - Alertmanager high-availability clustering for alert deduplication (L2)
 - [obs-010: Alertmanager HA Setup Script](../scripts/bash/observability_toolkit/alertmanager/alertmanager-ha-setup.sh) - Automated Alertmanager HA cluster deployment with gossip protocol, dry-run support
+- [obs-002: Prometheus Node Exporter Installation](docs/how-to/observability/prometheus-node-exporter-installation.md) - Prometheus node_exporter installation and configuration for system metrics collection (L2)
+- [Node Exporter Setup Script](../scripts/bash/linux_toolkit/monitoring/node-exporter-setup.sh) - Automated node_exporter installation with --dry-run, --version, --port options
 - [Prometheus Targets Status](../scripts/bash/observability_toolkit/prometheus/targets-status.sh)
 - [Check Alert](../scripts/bash/observability_toolkit/prometheus/check-alert.sh)
 - [Query Metrics](../scripts/bash/observability_toolkit/prometheus/query-metrics.sh)
