@@ -4,6 +4,32 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-12
+
+### Added
+- oci-009: `docs/how-to/google-artifact-registry-gar.md` — Google Artifact Registry GAR installation for GKE integration (L2)
+    - Complete guide covering GAR creation via gcloud, repository configuration, IAM permissions
+    - Authentication setup for Docker and GKE clusters with Workload Identity
+    - Artifact Analysis (vulnerability scanning), Binary Authorization, VPC Service Controls
+    - Lifecycle policies, Cloud Build CI/CD integration, common errors troubleshooting
+- oci-009: `scripts/bash/oci_registry_toolkit/gar/gar-deploy.sh` — GAR deployment script
+    - Supports --dry-run, --project-id, --location, --repo-name, --format options
+    - Automated API enabling, repository creation, IAM configuration, Docker auth setup
+    - Lifecycle policy configuration, idempotent operations, comprehensive logging
+    - shellcheck passed with warnings only
+- oci-010: `docs/how-to/quay-container-registry-installation.md` — Quay container registry installation with Clair vulnerability scanning (L2)
+    - Complete guide covering standalone and OpenShift operator deployment
+    - PostgreSQL and Redis integration, configuration management
+    - Authentication (Database, LDAP, OIDC), repository mirroring, Cosign image signing
+    - Clair integration for vulnerability scanning, geo-replication configuration
+    - Prerequisites, verification steps, rollback procedures, common errors
+- oci-010: `scripts/bash/oci_registry_toolkit/quay/quay-deploy.sh` — Quay deployment script
+    - Supports --hostname, --enable-clair, --enable-letsencrypt, --auth-type options
+    - Automated secret generation, config.yaml creation, Docker Compose setup
+    - Clair scanner configuration, superuser creation, health verification
+    - shellcheck passed (info only)
+- 00_index/quick-links.md — Updated Container Registries section with oci-009 GAR and oci-010 Quay entries
+
 ## 2026-05-11
 
 ### Added

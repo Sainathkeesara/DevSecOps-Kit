@@ -260,6 +260,10 @@
 - [oci-007: ghcr.io Configuration](docs/how-to/oci-registry-toolkit/github-container-registry-ghcr.md) - GitHub Container Registry setup: authentication, image publishing, access control (L2)
 - [oci-008: Azure Container Registry (ACR)](docs/how-to/azure-container-registry-acr.md) - Azure Container Registry setup with geo-replication for multi-region deployments (L2)
 - [oci-008: ACR Deploy Script](scripts/bash/azure_toolkit/acr/acr-deploy.sh) - ACR deployment script with --dry-run, --replication options
+- [oci-009: Google Artifact Registry (GAR)](docs/how-to/google-artifact-registry-gar.md) - Google Artifact Registry GAR installation for GKE integration (L2)
+- [oci-009: GAR Deploy Script](scripts/bash/oci_registry_toolkit/gar/gar-deploy.sh) - GAR deployment script with --dry-run, --project-id, --location, --format options
+- [oci-010: Quay Container Registry](docs/how-to/quay-container-registry-installation.md) - Quay container registry installation with Clair vulnerability scanning (L2)
+- [oci-010: Quay Deploy Script](scripts/bash/oci_registry_toolkit/quay/quay-deploy.sh) - Quay deployment script with --hostname, --enable-clair, --enable-letsencrypt options
 - [Harbor Deploy Script](scripts/bash/harbor/harbor-deploy.sh) - Automated Harbor installation with TLS, Docker Compose, and Trivy scanner
 - [Harbor Health Check](scripts/bash/harbor/harbor-health-check.sh) - Verify Harbor containers, API, registry, disk usage, and Trivy scanner
 - [Harbor Backup Script](scripts/bash/harbor/harbor-backup.sh) - Backup Harbor database, registry data, config, and Redis with retention
