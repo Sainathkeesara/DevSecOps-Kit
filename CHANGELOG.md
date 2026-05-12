@@ -7,6 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-12
 
 ### Added
+- jen-007: `docs/reference/jenkins-secret-masking-envinject.md` — Jenkins secret credential masking in build logs with EnvInject (L4)
+    - Complete reference covering EnvInject plugin installation and configuration
+    - Job-level secret injection patterns for Pipeline and Freestyle jobs
+    - Credentials binding, custom masking patterns, file-based injection
+    - Secure handling scripts with dry-run mode
+    - Verification steps, rollback procedures, common errors
 - oci-009: `docs/how-to/google-artifact-registry-gar.md` — Google Artifact Registry GAR installation for GKE integration (L2)
     - Complete guide covering GAR creation via gcloud, repository configuration, IAM permissions
     - Authentication setup for Docker and GKE clusters with Workload Identity
