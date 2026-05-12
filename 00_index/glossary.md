@@ -22,7 +22,7 @@
 
 **Drain (Kubernetes)**: Mark a node unschedulable and evict all pods from it.
 
-**KRaft**: Kafka's ZooKeeper-less mode using KRaft (Kafka Raft) consensus protocol.
+**KRaft**: Kafka's ZooKeeper-less mode using Kafka Raft consensus protocol for metadata management.
 
 **Static membership (Kafka)**: Kafka consumer feature that maintains consistent group membership across restarts using group.instance.id.
 
@@ -66,6 +66,28 @@
 
 **Seal (Vault)**: The action of encrypting Vault's data store, making all stored information inaccessible until the vault is unsealed with the appropriate keys or mechanism.
 
+**go-getter (Vault)**: A Go-based utility used by Vault's Terraform provider to download remote configuration files, vulnerable to arbitrary file read when fetching untrusted sources.
+
+**Flatted**: A JavaScript library for serializing and deserializing circular JSON structures, vulnerable to prototype pollution when processing untrusted input (CVE-2026-33228).
+
+**Geo-replication (ACR)**: Azure Container Registry feature that replicates container images across multiple Azure regions for low-latency access and redundancy.
+
+**KRaft (Kafka)**: Kafka's internal consensus protocol that replaces ZooKeeper for metadata management, enabling simpler cluster operations and improved scalability.
+
+**Alertmanager HA clustering**: Running multiple Alertmanager instances that use a gossip protocol to share alert state, providing high availability and alert deduplication across instances.
+
+**Promtail**: Grafana Loki's log collection agent that watches local logs and forwards them to Loki for centralized log aggregation and querying.
+
+**OTel Collector**: OpenTelemetry Collector - a vendor-neutral proxy that receives, processes, and exports telemetry data (metrics, traces, logs) to backends like Prometheus, Jaeger, or Loki.
+
+**Gossip protocol (Alertmanager)**: Peer-to-peer communication mechanism used by Alertmanager HA cluster to share silences, notifications, and state without requiring a central coordinator.
+
+**Jaeger**: Open-source distributed tracing system for monitoring and troubleshooting microservices-based distributed systems.
+
+**CircleCI Runner**: Self-hosted agent that executes CI/CD jobs on user-managed infrastructure, providing more control compared to CircleCI's cloud executors.
+
+**Buildkite Agent**: Self-hosted CI agent that polls Buildkite for jobs and executes them on your own infrastructure, supporting Docker, Kubernetes, and bare-metal environments.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment
@@ -76,3 +98,6 @@
 **RCE** - Remote Code Execution
 **DoS** - Denial of Service
 **SSRF** - Server-Side Request Forgery
+**OTel** - OpenTelemetry
+**ACR** - Azure Container Registry
+**KRaft** - Kafka Raft (consensus protocol)

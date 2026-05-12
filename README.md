@@ -42,27 +42,27 @@ DevOps-Kit/
 ## Tools covered
 
 | Tool | Scripts | Docs | Snippets | Templates |
-|------|---------|------|----------|-----------|
-| Kubernetes | 18 | 12 | 1 | 3 |
-| Linux | 51 | 37 | 2 | 14 |
+|------|--------:|-----:|---------:|----------:|
+| Kubernetes | 18 | 17 | 1 | 3 |
+| Linux | 39 | 38 | 2 | 1 |
 | Kafka | 17 | 3 | 2 | 0 |
-| Terraform | 13 | 16 | 1 | 12 |
+| Terraform | 12 | 16 | 1 | 6 |
 | Ansible | 8 | 6 | 1 | 0 |
 | Vault | 7 | 4 | 1 | 0 |
-| Observability | 8 | 1 | 1 | 0 |
-| Docker | 8 | 6 | 1 | 0 |
+| Observability | 8 | 5 | 1 | 0 |
+| Docker | 8 | 7 | 1 | 0 |
+| CI/CD | 12 | 7 | 1 | 0 |
+| OCI/Registry | 5 | 3 | 1 | 0 |
 | Helm | 3 | 3 | 0 | 0 |
-| Jenkins | 2 | 6 | 4 | 1 |
-| OCI/Registry | 5 | 2 | 1 | 0 |
-| CI/CD | 6 | 2 | 1 | 0 |
+| Jenkins | 2 | 11 | 4 | 1 |
 
 ## Quick links
 
-- [Trivy CVE-2026-33634 hardening](docs/security/trivy/CVE-2026-33634.md) — Trivy supply chain compromise scanner and remediation guide (2026-05-06)
-- [Trivy supply chain scanner](scripts/bash/ci_cd_toolkit/github/trivy-cve-2026-33634.sh) — CVE-2026-33634 detection with --check, --fix, --dry-run flags (2026-05-06)
-- [Ansible CVE-2026-33228 hardening](scripts/bash/ansible_toolkit/security/harden-ansible-cve-2026-33228.sh) — Flatted prototype pollution vulnerability scanner (2026-05-05)
-- [Git pre-commit security scanning](docs/how-to/git-pre-commit-security-scanning.md) — Pre-commit hooks for secrets, vulnerabilities, code quality (2026-05-05)
-- [Docker Swarm cluster setup](docs/how-to/docker-swarm-cluster-installation.md) — High-availability Docker Swarm installation guide (2026-05-04)
+- [Alertmanager HA Clustering](docs/how-to/observability/alertmanager-ha-clustering.md) — Alertmanager high-availability clustering for alert deduplication (2026-05-11)
+- [Loki Promtail Installation](docs/how-to/observability/loki-promtail-installation.md) — Grafana Loki Promtail installation and log pipeline configuration (2026-05-11)
+- [Azure Container Registry ACR](docs/how-to/azure-container-registry-acr.md) — Azure Container Registry ACR installation and geo-replication (2026-05-11)
+- [GitHub Container Registry ghcr.io](docs/how-to/oci-registry-toolkit/github-container-registry-ghcr.md) — GitHub Container Registry ghcr.io configuration (2026-05-11)
+- [Buildkite Installation](docs/how-to/buildkite-installation.md) — Buildkite agent installation and configuration for CI/CD pipelines (2026-05-11)
 
 ## Contributing
 
