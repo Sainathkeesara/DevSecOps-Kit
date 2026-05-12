@@ -215,6 +215,7 @@
 - [jenkinsfile_maven_gradle_template](../templates/jenkins/Jenkinsfile-maven-gradle-template.md) - Reusable Jenkinsfile template for Maven/Gradle builds with CI/CD pipeline
 - [jenkins_credential_rotation](docs/reference/jenkins-credential-rotation.md) - Jenkins credential rotation and security updates (L4)
 - [jenkins_parallel_multi_branch](docs/how-to/jenkins-parallel-multi-branch.md) - Jenkins parallel multi-branch pipeline (L4)
+- [jenkins_secret_masking_envinject](docs/reference/jenkins-secret-masking-envinject.md) - Jenkins secret credential masking in build logs with EnvInject (L4)
 
 ## Kubernetes
 - [k8s_toolkit Usage](docs/how-to/k8s_toolkit.md)
