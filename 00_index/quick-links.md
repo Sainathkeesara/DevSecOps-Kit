@@ -310,7 +310,9 @@
 - [obs-010: Alertmanager HA Clustering](docs/how-to/observability/alertmanager-ha-clustering.md) - Alertmanager high-availability clustering for alert deduplication (L2)
 - [obs-010: Alertmanager HA Setup Script](../scripts/bash/observability_toolkit/alertmanager/alertmanager-ha-setup.sh) - Automated Alertmanager HA cluster deployment with gossip protocol, dry-run support
 - [obs-002: Prometheus Node Exporter Installation](docs/how-to/observability/prometheus-node-exporter-installation.md) - Prometheus node_exporter installation and configuration for system metrics collection (L2)
+- [obs-003: Grafana Installation and Data Source Configuration](docs/how-to/observability/grafana-installation.md) - Grafana installation and Prometheus data source configuration for metric visualization (L2)
 - [Node Exporter Setup Script](../scripts/bash/linux_toolkit/monitoring/node-exporter-setup.sh) - Automated node_exporter installation with --dry-run, --version, --port options
+- [Grafana Install Script](../scripts/bash/observability_toolkit/grafana/grafana-install.sh) - Automated Grafana installation with Prometheus data source provisioning, dry-run support
 - [Prometheus Targets Status](../scripts/bash/observability_toolkit/prometheus/targets-status.sh)
 - [Check Alert](../scripts/bash/observability_toolkit/prometheus/check-alert.sh)
 - [Query Metrics](../scripts/bash/observability_toolkit/prometheus/query-metrics.sh)
