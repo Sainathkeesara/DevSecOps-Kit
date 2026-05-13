@@ -4,6 +4,23 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-13
+
+### Added
+- obs-003: `docs/how-to/observability/grafana-installation.md` — Grafana installation and Prometheus data source configuration for metric visualization (L2)
+    - Complete guide covering automated and manual Grafana installation
+    - Systemd service configuration, firewall setup, HTTPS support
+    - Prometheus data source provisioning with auto-discovery
+    - Dashboard import instructions (Node Exporter Full ID 1860)
+    - Verification steps, rollback procedures, common errors troubleshooting
+- obs-003: `scripts/bash/observability_toolkit/grafana/grafana-install.sh` — Grafana installation script with Prometheus data source provisioning
+    - Supports --dry-run, --version, --http-port, --protocol options
+    - Automated binary download, systemd service creation, config generation
+    - Prometheus data source auto-provisioning
+    - Idempotent operations, comprehensive logging
+    - shellcheck passed (info only)
+- 00_index/quick-links.md — Updated Observability section with obs-003 Grafana entries
+
 ## 2026-05-12
 
 ### Added
