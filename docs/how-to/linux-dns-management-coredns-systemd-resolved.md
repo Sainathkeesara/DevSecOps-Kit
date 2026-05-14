@@ -279,7 +279,7 @@ Create utility scripts for managing DNS entries:
 
 ```bash
 #!/usr/bin/env bash
-# File: scripts/bash/linux/dns-management-coredns.sh
+# File: scripts/bash/linux_toolkit/dns-management-coredns.sh
 # Description: Utility script for managing CoreDNS DNS entries
 # Usage: ./dns-management-coredns.sh [add|remove|list] [domain] [ip]
 
@@ -475,7 +475,7 @@ main "$@"
 Make the script executable:
 
 ```bash
-chmod +x scripts/bash/linux/dns-management-coredns.sh
+chmod +x scripts/bash/linux_toolkit/dns-management-coredns.sh
 ```
 
 ### Step 8: Create systemd-resolved Configuration Override
@@ -516,7 +516,7 @@ Create a comprehensive test script:
 
 ```bash
 #!/usr/bin/env bash
-# File: scripts/bash/linux/test-dns-setup.sh
+# File: scripts/bash/linux_toolkit/test-dns-setup.sh
 # Description: Test DNS setup
 
 set -euo pipefail
@@ -602,7 +602,7 @@ echo "=== All checks passed! ==="
 Make the test script executable:
 
 ```bash
-chmod +x scripts/bash/linux/test-dns-setup.sh
+chmod +x scripts/bash/linux_toolkit/test-dns-setup.sh
 ```
 
 ### Step 11: DNS Monitoring and Alerting
@@ -611,7 +611,7 @@ Create a monitoring script:
 
 ```bash
 #!/usr/bin/env bash
-# File: scripts/bash/linux/monitor-dns-health.sh
+# File: scripts/bash/linux_toolkit/monitor-dns-health.sh
 # Description: Monitor DNS health and alert on issues
 
 set -euo pipefail
@@ -698,7 +698,7 @@ fi
 Make the monitoring script executable:
 
 ```bash
-chmod +x scripts/bash/linux/monitor-dns-health.sh
+chmod +x scripts/bash/linux_toolkit/monitor-dns-health.sh
 ```
 
 ### Step 12: Documentation Reference
@@ -780,13 +780,13 @@ journalctl -u coredns -f | grep "query"
 
 7. **Verify DNS management script:**
    ```bash
-   ./scripts/bash/linux/dns-management-coredns.sh list
+   ./scripts/bash/linux_toolkit/dns-management-coredns.sh list
    # Expected: Shows current DNS entries
    ```
 
 8. **Run comprehensive test:**
    ```bash
-   ./scripts/bash/linux/test-dns-setup.sh
+   ./scripts/bash/linux_toolkit/test-dns-setup.sh
    # Expected: All checks pass
    ```
 

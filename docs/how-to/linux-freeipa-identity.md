@@ -79,8 +79,8 @@ sudo ipa-server-install \
 
 ```bash
 # Use the automation script
-sudo chmod +x scripts/bash/linux/identity/freeipa-setup.sh
-sudo ./scripts/bash/linux/identity/freeipa-setup.sh \
+sudo chmod +x scripts/bash/linux_toolkit/identity/freeipa-setup.sh
+sudo ./scripts/bash/linux_toolkit/identity/freeipa-setup.sh \
   --server \
   --realm=CORP.EXAMPLE.COM \
   --domain=corp.example.com \

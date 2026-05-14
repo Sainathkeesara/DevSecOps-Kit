@@ -16,13 +16,13 @@
 - [docker_authz_plugin_script](../scripts/bash/docker_toolkit/security/docker-authz-plugin-hardening.sh) - Docker AuthZ plugin hardening script
 
 ## Kubernetes
-- [aks_privilege_escalation_hardening](../scripts/bash/k8s_toolkit/aks-privilege-escalation-hardening.sh) - CVE-2026-33105 AKS privilege escalation hardening script
+- [k8s_acm_cve_2026_4740](../scripts/bash/k8s_toolkit/security/k8s-acm-cve-2026-4740.sh) - Kubernetes ACM privilege escalation scanner
 - [k8s_aks_cve_2026_33105](docs/how-to/k8s-aks-cve-2026-33105.md) - CVE-2026-33105 AKS privilege escalation remediation guide
-- [mcp_server_kubernetes_hardening](../scripts/bash/k8s_toolkit/mcp-server-kubernetes-hardening.sh) - CVE-2026-39884 hardening script for mcp-server-kubernetes
+- [mcp_server_kubernetes_hardening](../scripts/bash/k8s_toolkit/security/mcp-server-kubernetes-hardening.sh) - CVE-2026-39884 hardening script for mcp-server-kubernetes
 - [kubernetes_mcp_cve_troubleshooting](docs/troubleshooting/kubernetes-mcp-server-cve-2026-39884.md) - CVE-2026-39884 remediation guide
-- [k8s_eso_cve_2026_34984_hardening](../scripts/bash/k8s_toolkit/k8s-eso-cve-2026-34984-hardening.sh) - CVE-2026-34984 hardening script for External Secrets Operator DNS exfiltration
+- [k8s_eso_cve_2026_34984_hardening](../scripts/bash/k8s_toolkit/security/k8s-eso-cve-2026-34984-hardening.sh) - CVE-2026-34984 hardening script for External Secrets Operator DNS exfiltration
 - [k8s_external_secrets_cve_2026_34984](docs/how-to/k8s-external-secrets-cve-2026-34984.md) - CVE-2026-34984 ESO vulnerability remediation guide
-- [k8s_ingress_nginx_cve_2026_4342_hardening](../scripts/bash/k8s_toolkit/k8s-ingress-nginx-cve-2026-4342-hardening.sh) - CVE-2026-4342 ingress-nginx comment-based config injection hardening script
+- [k8s_ingress_nginx_cve_2026_4342_hardening](../scripts/bash/k8s_toolkit/security/k8s-ingress-nginx-cve-2026-4342-hardening.sh) - CVE-2026-4342 ingress-nginx comment-based config injection hardening script
 - [k8s_ingress_nginx_cve_2026_4342](docs/how-to/k8s-ingress-nginx-cve-2026-4342.md) - CVE-2026-4342 ingress-nginx RCE vulnerability remediation guide
 
 ## Jenkins
@@ -45,7 +45,7 @@
 
 ## Terraform
 - [terraform_ecs_service_discovery](docs/how-to/terraform-ecs-service-discovery.md) - ECS Fargate with Route 53 private DNS service discovery
-- [terraform_ecs_service_discovery_deploy](../scripts/bash/terraform_toolkit/terraform-ecs-service-discovery-deploy.sh) - Deployment script for ECS with service discovery
+- [terraform_ecs_service_discovery_deploy](../scripts/bash/terraform/terraform-ecs-service-discovery-deploy.sh) - Deployment script for ECS with service discovery
 
 ## Git
 - [git_commands_reference](snippets/git-commands.md) - Git CLI commands reference with 80+ commands for developers
@@ -77,7 +77,7 @@
 ## Linux
 - [linux_commands_reference](snippets/linux-commands.md) - Linux commands reference with 30+ bash one-liners for sysadmins
 - [lin-074: Shell Command Patterns](docs/how-to/linux/linux-shell-commands-automation.md) - Shell command patterns for automated system administration (L7)
-- [lin-074: system-commands-library.sh](../scripts/bash/linux/linux-system-commands-library.sh) - Shell command library with service, file, network, monitoring functions
+- [lin-074: system-commands-library.sh](../scripts/bash/linux_toolkit/linux-system-commands-library.sh) - Shell command library with service, file, network, monitoring functions
 - [lin-073: IaC Pipeline Workflows](docs/how-to/linux/linux-iac-pipeline-workflows.md) - Infrastructure-as-Code automation workflows for DevOps pipelines (L7)
 - [lin-073: iac-pipeline-workflow.sh](../scripts/bash/linux_toolkit/pipeline/iac-pipeline-workflow.sh) - Pipeline workflow script with multi-environment support, dry-run, approval gates, rollback
 - [linux_container_security_scanning](docs/how-to/linux-container-security-scanning.md) - Container security scanning with Trivy and Falco for vulnerability detection and runtime monitoring
@@ -99,13 +99,13 @@
 - [lin-077: Container Orchestration Systemd Cgroups](docs/how-to/linux/linux-container-orchestration-systemd-cgroups.md) - Container orchestration automation with systemd and cgroups: service units, slices, resource limits, health checks (L7)
 - [container_orchestration_script](../scripts/bash/linux_toolkit/container-orchestration-systemd-cgroups.sh) - Automated container orchestration script with systemd integration, dry-run, cgroup management, rollback
 - [lin-075: System Hardening for Containerized Environments](docs/how-to/linux/linux-system-hardening-containerized.md) - Comprehensive Linux system hardening automation for containerized environments with CIS compliance, automated remediation, CIS benchmarks (L7)
-- [system-hardening-script](../scripts/bash/linux/linux-system-hardening.sh) - Automated hardening script with kernel sysctl, SSH, Docker, firewall, auditd, AppArmor configuration, dry-run support (L7)
+- [system-hardening-script](../scripts/bash/linux_toolkit/linux-system-hardening.sh) - Automated hardening script with kernel sysctl, SSH, Docker, firewall, auditd, AppArmor configuration, dry-run support (L7)
 - [lin-076: System Administration Runbook](docs/runbooks/linux-system-administration.md) - Linux system administration documentation and runbook automation for sysadmin tasks: user management, service management, disk/filesystem, network, process monitoring, backup, security (L7)
 - [sysadmin-scripts](scripts/bash/linux_toolkit/sysadmin/) - System administration automation scripts: user-create, user-modify, disk-usage, process-monitor, service-health, system-backup, network-iface, security-audit
 
 ## Terraform
 - [terraform_eventbridge_lambda](docs/how-to/terraform-eventbridge-lambda.md) - EventBridge with Lambda triggers for real-time event processing
-- [eventbridge_lambda_deploy_script](../scripts/bash/terraform_toolkit/ter-019-deploy.sh) - Automated EventBridge Lambda deployment script with plan/apply/destroy
+- [eventbridge_lambda_deploy_script](../scripts/bash/terraform/ter-019-deploy.sh) - Automated EventBridge Lambda deployment script with plan/apply/destroy
 - [terraform_production_module_template](../templates/terraform/production-module-template.md) - Production Terraform module template with security guardrails
 - [terraform_aws_vpc](docs/how-to/terraform-aws-vpc.md) - AWS VPC setup with public/private subnets, NAT Gateway, and routing
 - [terraform_eks_cluster](docs/how-to/terraform-eks-cluster.md) - EKS cluster with managed node groups, autoscaling, and VPC networking
@@ -119,7 +119,7 @@
 - [terraform_secrets_manager](docs/how-to/terraform-secrets-manager.md) - AWS Secrets Manager integration with Terraform for secure secrets management
 - [terraform_secrets_deploy_script](scripts/bash/terraform_toolkit/secrets/terraform-secrets-deploy.sh) - Deployment script for Secrets Manager with Terraform
 - [lambda_deploy_script](scripts/bash/terraform_toolkit/terraform-lambda-deploy.sh) - Automated Lambda/API Gateway deployment script with dry-run
-- [iam_roles_deploy_script](../scripts/bash/terraform_toolkit/terraform-iam-roles-deploy.sh) - Automated IAM roles and policy deployment script with dry-run
+- [iam_roles_deploy_script](../scripts/bash/terraform/terraform-iam-roles-deploy.sh) - Automated IAM roles and policy deployment script with dry-run
 - [multi_env_setup_script](scripts/bash/terraform_toolkit/multi-env/multi-env-setup.sh) - Automated multi-environment Terraform setup with backend initialization
 - [multi_env_vpc_module](templates/terraform/multi-env/vpc-module.tf) - Reusable VPC module for multi-environment deployments
 - [eks_deploy_script](scripts/bash/terraform_toolkit/eks/eks-deploy.sh) - Automated EKS cluster deployment script
@@ -143,7 +143,7 @@
 - [trivy_cicd_integration](docs/how-to/trivy-cicd-integration.md) - Trivy CI/CD pipeline integration for vulnerability scanning (L3)
 
 ## Vault
-- [vault_audit_log_analysis](../scripts/bash/vault_toolkit/vault-audit-log-analysis.sh) - Vault audit log analysis for security events and anomalies
+- [vault_audit_log_analysis](../scripts/bash/vault/vault-audit-log-analysis.sh) - Vault audit log analysis for security events and anomalies
 - [vault_commands_reference](../snippets/vault-commands.md) - Vault CLI commands for authentication, secrets, policies
 
 ## Helm
@@ -176,7 +176,7 @@
 - [terraform_toolkit](scripts/bash/terraform_toolkit/terraform-workflow.sh) - Terraform workflow scripts (init/plan/apply/destroy with sensitive value handling)
 - [vault_toolkit](docs/how-to/vault_toolkit.md) - Vault security hardening scripts (CVE detection and remediation)
 - [CVE-2025-6037](scripts/bash/vault_toolkit/security/cve-2025-6037.sh) - TLS certificate auth validation bypass detection
-- [CVE-2026-4660](../scripts/bash/vault_toolkit/security/vault-go-getter-hardening.sh) - go-getter arbitrary file read vulnerability detection
+- [CVE-2026-4660](../scripts/bash/vault/security/vault-go-getter-hardening.sh) - go-getter arbitrary file read vulnerability detection
 - [Helm + Terraform Full-Stack](docs/how-to/helm-terraform-fullstack/README.md) - Complete infrastructure-as-code workflow combining Terraform for EKS provisioning and Helm for application deployment
 - [Helm + Terraform Deploy Script](scripts/bash/helm_toolkit/helm-terraform/deploy-helm-terraform.sh) - Automated deployment script for Helm + Terraform workflow
 

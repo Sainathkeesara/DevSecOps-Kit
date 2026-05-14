@@ -380,7 +380,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Kernel sysctl hardening, SSH configuration, Docker daemon hardening, firewall rules
   - User account hardening, auditd configuration, AppArmor profiles
   - Automated remediation, compliance checks, and audit capabilities
-- lin-075: `scripts/bash/linux/linux-system-hardening.sh` — Linux system hardening automation script
+- lin-075: `scripts/bash/linux_toolkit/linux-system-hardening.sh` — Linux system hardening automation script
   - Idempotent hardening with kernel parameters, firewall, SSH, Docker, user accounts
   - Dry-run mode, comprehensive logging, backup and rollback support
   - Modular design with configurable options per hardening component
@@ -396,7 +396,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Documentation covering service management, file operations, network utilities, system monitoring
   - Prerequisites for common Linux utilities, verification steps, rollback procedures
   - Common errors and solutions
-- lin-074: `scripts/bash/linux/linux-system-commands-library.sh` — Shell command library
+- lin-074: `scripts/bash/linux_toolkit/linux-system-commands-library.sh` — Shell command library
   - Functions: service_is_active, service_start/stop/restart, file backup/diff, port checks, connectivity tests
   - System monitoring: get_cpu_usage, get_memory_usage, get_disk_usage, get_load_average
   - Dry-run mode support, binary checks, verbose logging
