@@ -298,6 +298,10 @@
 - [Buildkite Installation Guide](docs/how-to/buildkite-installation.md) - Buildkite agent setup with tagging, queues, and parallel build configuration (L2)
 - [cic-009: CircleCI Runner Installation](docs/how-to/circleci-runner-installation.md) - CircleCI self-hosted runner installation and resource class configuration (L2)
 - [cic-009: CircleCI Runner Install Script](../scripts/bash/ci_cd_toolkit/circleci/circleci-runner-install.sh) - CircleCI runner deployment script with --dry-run, --token, --resource-class, --labels options
+- [cic-010: Argo Workflows Installation](docs/how-to/argo-workflows-installation.md) - Argo Pipelines installation and pipeline template configuration for MLOps workflows (L2)
+- [cic-010: Argo Workflows Install Script](../scripts/bash/argo_toolkit/argo-workflows-install.sh) - Automated Argo Workflows deployment with --dry-run, --namespace, --artifact-s3-bucket options
+- [cic-011: Flux v2 Installation](docs/how-to/fluxcd-installation.md) - Flux v2 installation and GitOps reconciliation for declarative cluster management (L2)
+- [cic-011: Flux v2 Install Script](../scripts/bash/flux_toolkit/flux-install.sh) - Automated Flux v2 deployment with --dry-run, --git-url, --git-branch, --bootstrap options
 
 ## Observability
 - [observability_toolkit Usage](docs/how-to/observability_toolkit.md)
