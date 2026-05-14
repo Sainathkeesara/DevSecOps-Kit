@@ -311,6 +311,8 @@
 - [obs-010: Alertmanager HA Setup Script](../scripts/bash/observability_toolkit/alertmanager/alertmanager-ha-setup.sh) - Automated Alertmanager HA cluster deployment with gossip protocol, dry-run support
 - [obs-002: Prometheus Node Exporter Installation](docs/how-to/observability/prometheus-node-exporter-installation.md) - Prometheus node_exporter installation and configuration for system metrics collection (L2)
 - [obs-003: Grafana Installation and Data Source Configuration](docs/how-to/observability/grafana-installation.md) - Grafana installation and Prometheus data source configuration for metric visualization (L2)
+- [obs-004: Alertmanager Installation and Routing Rule Configuration](docs/how-to/observability/alertmanager-installation.md) - Alertmanager installation and alert routing rule configuration for notification management (L2)
+- [obs-004: Alertmanager Install Script](../scripts/bash/observability_toolkit/alertmanager/alertmanager-install.sh) - Automated Alertmanager deployment with --dry-run, --version, --http-port, --cluster-port options
 - [Node Exporter Setup Script](../scripts/bash/linux_toolkit/monitoring/node-exporter-setup.sh) - Automated node_exporter installation with --dry-run, --version, --port options
 - [Grafana Install Script](../scripts/bash/observability_toolkit/grafana/grafana-install.sh) - Automated Grafana installation with Prometheus data source provisioning, dry-run support
 - [Prometheus Targets Status](../scripts/bash/observability_toolkit/prometheus/targets-status.sh)

@@ -20,6 +20,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     - Idempotent operations, comprehensive logging
     - shellcheck passed (info only)
 - 00_index/quick-links.md — Updated Observability section with obs-003 Grafana entries
+- obs-004: `docs/how-to/observability/alertmanager-installation.md` — Alertmanager installation and routing rule configuration for alert management (L2)
+    - Complete guide covering automated and manual Alertmanager installation
+    - Systemd service configuration, firewall setup, Prometheus integration
+    - Alert routing rules with receivers for email, Slack, PagerDuty, webhook
+    - Inhibition rules for alert suppression, template configuration
+    - Verification steps, rollback procedures, common errors troubleshooting
+- obs-004: `scripts/bash/observability_toolkit/alertmanager/alertmanager-install.sh` — Alertmanager installation script
+    - Supports --dry-run, --version, --http-port, --cluster-port options
+    - Automated binary download, systemd service creation, config generation
+    - Default routing configuration with multiple receivers
+    - Idempotent operations, comprehensive logging
+    - shellcheck passed (info only)
+- 00_index/quick-links.md — Updated Observability section with obs-004 Alertmanager entries
 
 ## 2026-05-12
 
