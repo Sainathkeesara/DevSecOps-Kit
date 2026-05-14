@@ -4,6 +4,29 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-14
+
+### Added
+- cic-010: `docs/how-to/argo-workflows-installation.md` — Argo Pipelines installation and pipeline template configuration for MLOps workflows (L2)
+  - Complete guide covering Argo Workflows installation on Kubernetes
+  - MLOps pipeline templates with model training, evaluation, and deployment
+  - CI/CD pipeline templates with testing, building, and deployment stages
+  - Cron scheduled workflows for automated retraining
+  - Helm repository integration, artifact configuration, verification steps
+- cic-010: `scripts/bash/argo_toolkit/argo-workflows-install.sh` — Argo Workflows deployment script
+  - Supports --dry-run, --namespace, --version, --artifact-s3-bucket options
+  - Automated namespace creation, manifest application, artifact configuration
+  - Health verification and ready check polling
+- cic-011: `docs/how-to/fluxcd-installation.md` — Flux v2 installation and GitOps reconciliation for declarative cluster management (L2)
+  - Complete guide covering Flux v2 installation on Kubernetes
+  - Git repository setup, kustomization configuration, Helm release management
+  - Multi-environment setup, notification configuration, security considerations
+  - Verification steps, rollback procedures, common errors troubleshooting
+- cic-011: `scripts/bash/flux_toolkit/flux-install.sh` — Flux v2 deployment script
+  - Supports --dry-run, --namespace, --git-url, --git-branch, --bootstrap options
+  - Flux CLI installation, component deployment, Git repository configuration
+- 00_index/quick-links.md — Updated CI/CD section with Argo Workflows and Flux v2 entries
+
 ## 2026-05-13
 
 ### Added
@@ -380,7 +403,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Kernel sysctl hardening, SSH configuration, Docker daemon hardening, firewall rules
   - User account hardening, auditd configuration, AppArmor profiles
   - Automated remediation, compliance checks, and audit capabilities
-- lin-075: `scripts/bash/linux/linux-system-hardening.sh` — Linux system hardening automation script
+- lin-075: `scripts/bash/linux_toolkit/linux-system-hardening.sh` — Linux system hardening automation script
   - Idempotent hardening with kernel parameters, firewall, SSH, Docker, user accounts
   - Dry-run mode, comprehensive logging, backup and rollback support
   - Modular design with configurable options per hardening component
@@ -396,7 +419,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Documentation covering service management, file operations, network utilities, system monitoring
   - Prerequisites for common Linux utilities, verification steps, rollback procedures
   - Common errors and solutions
-- lin-074: `scripts/bash/linux/linux-system-commands-library.sh` — Shell command library
+- lin-074: `scripts/bash/linux_toolkit/linux-system-commands-library.sh` — Shell command library
   - Functions: service_is_active, service_start/stop/restart, file backup/diff, port checks, connectivity tests
   - System monitoring: get_cpu_usage, get_memory_usage, get_disk_usage, get_load_average
   - Dry-run mode support, binary checks, verbose logging

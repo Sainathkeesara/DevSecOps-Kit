@@ -13,12 +13,12 @@
 - [script] scripts/bash/k8s_toolkit/rollout-status.sh — Monitor deployment rollout status
 - [script] scripts/bash/k8s_toolkit/secret/decode-secret.sh — Decode base64 Kubernetes secrets
 - [script] scripts/bash/k8s_toolkit/security/cve-2026-3288-nginx.sh — ingress-nginx RCE vulnerability scanner
-- [script] scripts/bash/kubernetes/aks-privilege-escalation-hardening.sh — AKS privilege escalation hardening
-- [script] scripts/bash/kubernetes/k8s-cluster-autoscaler-grpc-hardening.sh — cluster-autoscaler grpc CVE-2026-33186 hardening
-- [script] scripts/bash/kubernetes/k8s-eso-cve-2026-34984-hardening.sh — External Secrets Operator DNS exfiltration hardening
-- [script] scripts/bash/kubernetes/k8s-ingress-nginx-cve-2026-4342-hardening.sh — ingress-nginx comment-based config injection hardening
-- [script] scripts/bash/kubernetes/mcp-server-kubernetes-hardening.sh — mcp-server-kubernetes CVE-2026-39884 hardening
-- [script] scripts/bash/k8s/security/k8s-acm-cve-2026-4740.sh — Kubernetes ACM privilege escalation scanner
+- [script] scripts/bash/k8s_toolkit/security/aks-privilege-escalation-hardening.sh — AKS privilege escalation hardening
+- [script] scripts/bash/k8s_toolkit/security/k8s-cluster-autoscaler-grpc-hardening.sh — cluster-autoscaler grpc CVE-2026-33186 hardening
+- [script] scripts/bash/k8s_toolkit/security/k8s-eso-cve-2026-34984-hardening.sh — External Secrets Operator DNS exfiltration hardening
+- [script] scripts/bash/k8s_toolkit/security/k8s-ingress-nginx-cve-2026-4342-hardening.sh — ingress-nginx comment-based config injection hardening
+- [script] scripts/bash/k8s_toolkit/security/mcp-server-kubernetes-hardening.sh — mcp-server-kubernetes CVE-2026-39884 hardening
+- [script] scripts/bash/k8s_toolkit/security/k8s-acm-cve-2026-4740.sh — Kubernetes ACM privilege escalation scanner
 - [doc] docs/how-to/k8s_toolkit.md — Complete usage guide for all k8s scripts
 - [doc] docs/how-to/k8s_rbac.md — Role, ClusterRole, RoleBinding guide
 - [doc] docs/how-to/k8s-aks-cve-2026-33105.md — AKS privilege escalation remediation
@@ -83,20 +83,20 @@
 - [template] templates/jenkins/Jenkinsfile-maven-gradle-template.md — Maven/Gradle Jenkinsfile template
 
 ## Linux
-- [script] scripts/bash/linux/aide-config.sh — AIDE configuration management
-- [script] scripts/bash/linux/aide-deploy.sh — AIDE deployment
-- [script] scripts/bash/linux/identity/freeipa-setup.sh — FreeIPA server deployment and client enrollment
-- [script] scripts/bash/linux/linux-container-security-scan.sh — Container security scanning with Trivy
-- [script] scripts/bash/linux/linux-dns-coredns.sh — Automated DNS entry management for CoreDNS
-- [script] scripts/bash/linux/linux-dns-monitor.sh — DNS health monitoring with auto-restart
-- [script] scripts/bash/linux/linux-dns-test.sh — DNS setup verification and testing
-- [script] scripts/bash/linux/linux-loki-promtail-deploy.sh — Loki and Promtail deployment
-- [script] scripts/bash/linux/linux-network-monitor.sh — Network health monitoring
-- [script] scripts/bash/linux/linux-system-commands-library.sh — Shell command library
-- [script] scripts/bash/linux/linux-system-hardening.sh — System hardening automation
-- [script] scripts/bash/linux/samba-setup.sh — Samba file server deployment
-- [script] scripts/bash/linux/system-automation-template.sh — Linux automation template deployment
-- [script] scripts/bash/linux/wazuh-deploy.sh — Wazuh SIEM deployment
+- [script] scripts/bash/linux_toolkit/aide-config.sh — AIDE configuration management
+- [script] scripts/bash/linux_toolkit/aide-deploy.sh — AIDE deployment
+- [script] scripts/bash/linux_toolkit/identity/freeipa-setup.sh — FreeIPA server deployment and client enrollment
+- [script] scripts/bash/linux_toolkit/linux-container-security-scan.sh — Container security scanning with Trivy
+- [script] scripts/bash/linux_toolkit/linux-dns-coredns.sh — Automated DNS entry management for CoreDNS
+- [script] scripts/bash/linux_toolkit/linux-dns-monitor.sh — DNS health monitoring with auto-restart
+- [script] scripts/bash/linux_toolkit/linux-dns-test.sh — DNS setup verification and testing
+- [script] scripts/bash/linux_toolkit/linux-loki-promtail-deploy.sh — Loki and Promtail deployment
+- [script] scripts/bash/linux_toolkit/linux-network-monitor.sh — Network health monitoring
+- [script] scripts/bash/linux_toolkit/linux-system-commands-library.sh — Shell command library
+- [script] scripts/bash/linux_toolkit/linux-system-hardening.sh — System hardening automation
+- [script] scripts/bash/linux_toolkit/samba-setup.sh — Samba file server deployment
+- [script] scripts/bash/linux_toolkit/system-automation-template.sh — Linux automation template deployment
+- [script] scripts/bash/linux_toolkit/wazuh-deploy.sh — Wazuh SIEM deployment
 - [script] scripts/bash/linux_toolkit/authentication/ldap-server-setup.sh — LDAP authentication server setup
 - [script] scripts/bash/linux_toolkit/backup/backup-rsync-retention.sh — Backup with rsync and retention policy
 - [script] scripts/bash/linux_toolkit/container-orchestration-systemd-cgroups.sh — Container orchestration with systemd
@@ -265,8 +265,8 @@
 - [snippet] snippets/observability-cheatsheet.md — PromQL, LogQL reference
 
 ## Docker
-- [script] scripts/bash/docker/docker-kaniko-cve-2026-28406-hardening.sh — Kaniko path traversal hardening
-- [script] scripts/bash/docker/security/docker-cve-2026-34040.sh — CVE-2026-34040 remediation
+- [script] scripts/bash/docker_toolkit/docker-kaniko-cve-2026-28406-hardening.sh — Kaniko path traversal hardening
+- [script] scripts/bash/docker_toolkit/security/docker-cve-2026-34040.sh — CVE-2026-34040 remediation
 - [script] scripts/bash/docker_toolkit/docker-image-cleanup.sh — Docker image cleanup with age filtering
 - [script] scripts/bash/docker_toolkit/docker-swarm-cluster-setup.sh — Docker Swarm cluster setup
 - [script] scripts/bash/docker_toolkit/security/cve-2026-2664.sh — Docker Desktop grpcfuse privilege escalation
