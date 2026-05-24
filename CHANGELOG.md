@@ -18,6 +18,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Uses `--exit-code 1` for CI/CD pipeline gating, `--ignore-unfixed` to skip unfixed CVEs
   - shellcheck passed (clean)
 - 00_index/quick-links.md — Updated Trivy section with primer, install notes, and snippet entries
+- semgrep-001: `semgrep/notes/0000-primer-semgrep.md` — First-day primer covering what Semgrep is, key terminology, and a minimal example (L1)
+  - Primer structure: What is it, What does it do, Why does it exist, Key terminology, Tiny example, Next steps
+  - First-person learner voice, ~650 words, no CVE advisories
+- semgrep-002: `semgrep/notes/2026-05-24-install-and-first-scan.md` — Installing Semgrep via pip and running a first auto scan (L1)
+  - Covers `pip install`, `semgrep --config=auto`, and interpreting findings
+  - Scratch-level first-person notes style
+- semgrep-003: `semgrep/snippets/detect-unsafe-subprocess.yaml` — First custom Semgrep rule detecting subprocess with shell=True (L1)
+  - Minimal YAML rule using patterns with metavariable matching
+  - Targets Python command injection risk pattern
+- 00_index/quick-links.md — Updated with Semgrep section (primer, install notes, snippet)
 
 ## 2026-05-14
 

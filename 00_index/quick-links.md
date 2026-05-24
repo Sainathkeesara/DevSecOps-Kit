@@ -335,6 +335,11 @@
 - [obs-007: Trivy CVE-2026-33001 Remediation](docs/how-to/trivy/cve-2026-33001-remediation.md) - Path traversal vulnerability remediation for Trivy < 0.58.0 (L8)
 - [trivy-cve-2026-33001 Script](../scripts/bash/trivy_toolkit/security/cve-2026-33001.sh) - CVE-2026-33001 detection and upgrade script with dry-run, --scan-dir, --version flags
 
+## Semgrep
+- [semgrep-001: Semgrep Primer](semgrep/notes/0000-primer-semgrep.md) - First-day primer covering what Semgrep is, key terminology, and a minimal example (L1)
+- [semgrep-002: Install Semgrep Notes](semgrep/notes/2026-05-24-install-and-first-scan.md) - Installing Semgrep and running a first SAST scan (L1)
+- [semgrep-003: Custom Rule Snippet](semgrep/snippets/detect-unsafe-subprocess.yaml) - First custom Semgrep rule to detect dangerous subprocess patterns (L1)
+
 ## Linux
 - [lin-086: Linux Kernel Live Patching](docs/how-to/linux/linux-kpatch-live-patching.md) - Linux kernel live patching with kpatch for CVE-2026-33001 mitigation (L7)
 - [kpatch_deployment_script](../scripts/bash/linux_toolkit/security/kpatch-deployment.sh) - kpatch live kernel patching deployment script with --install, --apply, --remove, --status, --verify modes
