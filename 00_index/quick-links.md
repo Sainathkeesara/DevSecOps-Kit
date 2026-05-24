@@ -329,6 +329,9 @@
 - [Stack Health Check](../scripts/bash/observability_toolkit/stack-health.sh)
 
 ## Trivy
+- [trivy-001: Trivy Primer](trivy/notes/0000-primer-trivy.md) - First-day primer covering what Trivy is, key terminology, and a tiny example (L1)
+- [trivy-002: Install Trivy Notes](trivy/notes/2026-05-24-install-trivy.md) - Installing Trivy and running a first vulnerability scan (L1)
+- [trivy-003: Scan Docker Image Snippet](trivy/snippets/scan-docker-image.sh) - Minimal bash script to scan a Docker image with severity filtering (L1)
 - [obs-007: Trivy CVE-2026-33001 Remediation](docs/how-to/trivy/cve-2026-33001-remediation.md) - Path traversal vulnerability remediation for Trivy < 0.58.0 (L8)
 - [trivy-cve-2026-33001 Script](../scripts/bash/trivy_toolkit/security/cve-2026-33001.sh) - CVE-2026-33001 detection and upgrade script with dry-run, --scan-dir, --version flags
 

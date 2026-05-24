@@ -4,6 +4,21 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-24
+
+### Added
+- trivy-001: `trivy/notes/0000-primer-trivy.md` — First-day primer covering what Trivy is, key terminology, scan types, and a minimal example (L1)
+  - Primer structure: What is it, What does it do, Why does it exist, Key terminology, Tiny example, Next steps
+  - First-person learner voice, 500+ words, no CVE advisories
+- trivy-002: `trivy/notes/2026-05-24-install-trivy.md` — Installing Trivy and running a first vulnerability scan on a Python app image (L1)
+  - Covers install via official script, first `trivy image` scan, severity filtering
+  - Scratch-level first-person notes style
+- trivy-003: `trivy/snippets/scan-docker-image.sh` — Minimal bash snippet to scan a Docker image with CRITICAL/HIGH severity filtering (L1)
+  - Accepts image name as argument, defaults to alpine:latest
+  - Uses `--exit-code 1` for CI/CD pipeline gating, `--ignore-unfixed` to skip unfixed CVEs
+  - shellcheck passed (clean)
+- 00_index/quick-links.md — Updated Trivy section with primer, install notes, and snippet entries
+
 ## 2026-05-14
 
 ### Added
