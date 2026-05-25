@@ -10,7 +10,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - semgrep-001: `semgrep/notes/0000-primer-semgrep.md` — Semgrep quick primer (L1, rework)
   - First-person scratchy voice (~220 words), no formal headers per quality feedback
   - Covers what Semgrep is, key terminology (rule, pattern, metavariable), and a minimal YAML rule example
-- 00_index/quick-links.md — Updated with Semgrep section and primer entry
+- semgrep-002: `semgrep/notes/2026-05-25-install-semgrep.md` — Installing Semgrep and running a first SAST scan (L1)
+  - First-person scratch notes covering pip install, auto scan, and severity filtering
+- semgrep-003: `semgrep/snippets/first-custom-rule.yaml` — Minimal custom Semgrep rule for detecting dangerous subprocess patterns (L1)
+  - 6-line YAML rule targeting subprocess.Popen with shell=True
+- checkov-001: `checkov/notes/0000-primer-checkov.md` — Checkov quick primer (L1)
+  - First-person primer covering IaC scanning, built-in policies, CLI usage
+  - Sections: What is it, What does it do, Why does it exist, Key terminology, Tiny example, Next steps
+- 00_index/quick-links.md — Updated with Semgrep snippet and Checkov primer entries
 
 ## 2026-05-24
 
