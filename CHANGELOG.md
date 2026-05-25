@@ -17,6 +17,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - checkov-001: `checkov/notes/0000-primer-checkov.md` — Checkov quick primer (L1)
   - First-person primer covering IaC scanning, built-in policies, CLI usage
   - Sections: What is it, What does it do, Why does it exist, Key terminology, Tiny example, Next steps
+- checkov-002: `checkov/notes/2026-05-25-scan-terraform-plan.md` — Installing Checkov and scanning a Terraform plan for misconfigurations (L1)
+  - First-person scratch notes on pip install, terraform plan to JSON conversion, and running Checkov
+- checkov-003: `checkov/snippets/scan-kubernetes.sh` — Minimal bash snippet to scan a Kubernetes manifest with Checkov (L1)
+  - Uses --framework kubernetes --file flags, --compact for readable output
 - 00_index/quick-links.md — Updated with Semgrep snippet and Checkov primer entries
 
 ## 2026-05-24
