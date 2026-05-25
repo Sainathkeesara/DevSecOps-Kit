@@ -1,0 +1,6 @@
+rules:
+  - id: no-shell-true
+    pattern: subprocess.Popen(..., shell=True, ...)
+    message: Using shell=True is dangerous — prefer passing args as a list
+    languages: [python]
+    severity: ERROR

@@ -1,4 +1,4 @@
-# DevOps-Kit
+# DevSecOps-Kit
 
 ## What is this?
 
@@ -7,7 +7,7 @@ A curated collection of production-ready scripts, runbooks, and reference docs f
 ## Repository Structure
 
 ```
-DevOps-Kit/
+DevSecOps-Kit/
 ├─ 00_index/        → Navigation: topic index, quick links, glossary
 ├─ .github/         → GitHub Actions workflows and configurations
 ├─ assets/           → Static assets (diagrams, images)

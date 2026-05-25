@@ -330,6 +330,11 @@
 
 ## Semgrep
 - [semgrep-001: Semgrep Primer](semgrep/notes/0000-primer-semgrep.md) - First-day primer covering what Semgrep is, key terminology, and a tiny example (L1)
+- [semgrep-002: Install Semgrep Notes](semgrep/notes/2026-05-25-install-semgrep.md) - Installing Semgrep and running a first SAST scan (L1)
+- [semgrep-003: Custom Rule Snippet](semgrep/snippets/first-custom-rule.yaml) - Minimal YAML rule to detect dangerous subprocess patterns (L1)
+
+## Checkov
+- [checkov-001: Checkov Primer](checkov/notes/0000-primer-checkov.md) - First-day primer covering what Checkov is, key terminology, and a tiny example (L1)
 
 ## Trivy
 - [trivy-001: Trivy Primer](trivy/notes/0000-primer-trivy.md) - First-day primer covering what Trivy is, key terminology, and a tiny example (L1)
