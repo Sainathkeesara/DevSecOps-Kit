@@ -328,6 +328,9 @@
 - [OTel Collector Health](../scripts/bash/observability_toolkit/otel/collector-health.sh)
 - [Stack Health Check](../scripts/bash/observability_toolkit/stack-health.sh)
 
+## Semgrep
+- [semgrep-001: Semgrep Primer](semgrep/notes/0000-primer-semgrep.md) - First-day primer covering what Semgrep is, key terminology, and a tiny example (L1)
+
 ## Trivy
 - [trivy-001: Trivy Primer](trivy/notes/0000-primer-trivy.md) - First-day primer covering what Trivy is, key terminology, and a tiny example (L1)
 - [trivy-002: Install Trivy Notes](trivy/notes/2026-05-24-install-trivy.md) - Installing Trivy and running a first vulnerability scan (L1)

@@ -4,6 +4,14 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-25
+
+### Added
+- semgrep-001: `semgrep/notes/0000-primer-semgrep.md` — Semgrep quick primer (L1, rework)
+  - First-person scratchy voice (~220 words), no formal headers per quality feedback
+  - Covers what Semgrep is, key terminology (rule, pattern, metavariable), and a minimal YAML rule example
+- 00_index/quick-links.md — Updated with Semgrep section and primer entry
+
 ## 2026-05-24
 
 ### Added
