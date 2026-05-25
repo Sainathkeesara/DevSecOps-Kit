@@ -335,6 +335,8 @@
 
 ## Checkov
 - [checkov-001: Checkov Primer](checkov/notes/0000-primer-checkov.md) - First-day primer covering what Checkov is, key terminology, and a tiny example (L1)
+- [checkov-002: Scan Terraform Plan](checkov/notes/2026-05-25-scan-terraform-plan.md) - Installing Checkov and scanning a Terraform plan for misconfigurations (L1)
+- [checkov-003: Scan Kubernetes Manifest Snippet](checkov/snippets/scan-kubernetes.sh) - Minimal bash snippet to scan a Kubernetes manifest and interpret findings (L1)
 
 ## Trivy
 - [trivy-001: Trivy Primer](trivy/notes/0000-primer-trivy.md) - First-day primer covering what Trivy is, key terminology, and a tiny example (L1)
