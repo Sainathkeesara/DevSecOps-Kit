@@ -7,6 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-26
 
 ### Added
+- semgrep-004: `semgrep/notes/2026-05-26-install-semgrep-pitfalls.md` — Installing Semgrep and first scan pitfalls (L1)
+  - First-person scratch notes covering missing target path, YAML parser strictness, and node_modules exclusion
+  - Structured as narrative of what tripped me up during initial use
+- checkov-004: `checkov/snippets/scan-terraform-dir.py` — Python snippet to scan a local Terraform directory with Checkov SDK (L1)
+  - Minimal Python script using Checkov SDK's Checkov class to run terraform framework scans
+  - Iterates over failed records and prints check_id, file_path, and check_name
+- checkov-005: `checkov/notes/2026-05-26-cli-vs-sdk-comparison.md` — Comparing CLI vs SDK scanning approaches for Terraform (L1)
+  - First-person comparison covering CLI simplicity vs SDK flexibility
+  - Notes sparse SDK documentation as the main gotcha
+- 00_index/quick-links.md — Updated Semgrep and Checkov sections with new L1 entries
 - trivy-001: `trivy/notes/2026-05-26-trivy-quickstart.md` — Following the official Trivy quickstart (L2)
   - First-person notes covering trivy fs, trivy repo, trivy config, and what tripped me up
   - Structured as Steps + Got stuck on + What I'd try next
