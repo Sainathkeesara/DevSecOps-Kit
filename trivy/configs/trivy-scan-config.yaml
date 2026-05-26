@@ -1,0 +1,42 @@
+# Trivy configuration for targeted scanning
+# See: https://aquasecurity.github.io/trivy/latest/docs/reference/configuration/config-file/
+# Using trivy --config trivy-scan-config.yaml
+
+# Severity filter — only report these levels
+severity:
+  - CRITICAL
+  - HIGH
+  - MEDIUM
+
+# Scan targets
+scan:
+  # Skip updates to speed up repeated scans (use trivy --download-db-only first)
+  skip-db-update: false
+
+  # Comma-separated list of directories/files to scan for trivy fs
+  # Leave empty to scan CWD
+  # directories:
+  #   - ./app
+  #   - ./deploy
+
+# Vulnerability
+vulnerability:
+  # Only report vulnerabilities with a known fix
+  only-fixed: false
+
+  # Ignore unfixed vulnerabilities
+  ignore-unfixed: true
+
+# Misconfiguration scanning (for IaC: Kubernetes, Terraform, Dockerfile, etc.)
+misconfiguration:
+  # Use --include-policy-dirs to add custom policies
+  include-policies: []
+
+  # Scan all supported config types by default
+  checks: []
+
+# Output
+format: table
+
+# Exit codes
+exit-code: 1
