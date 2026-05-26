@@ -4,6 +4,21 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-26
+
+### Added
+- trivy-001: `trivy/notes/2026-05-26-trivy-quickstart.md` — Following the official Trivy quickstart (L2)
+  - First-person notes covering trivy fs, trivy repo, trivy config, and what tripped me up
+  - Structured as Steps + Got stuck on + What I'd try next
+- trivy-002: `trivy/scripts/container-vuln-scan.sh` — Minimal container image vulnerability scan script (L2)
+  - Accepts image name and output directory, produces table and JSON output
+  - Exits non-zero if CRITICAL vulnerabilities found (CI/CD gating)
+  - shellcheck passed (clean)
+- trivy-003: `trivy/configs/trivy-scan-config.yaml` — Trivy configuration for targeted scanning (L2)
+  - Configures severity filters, vulnerability options, and misconfiguration scanning
+  - Works with `trivy --config trivy-scan-config.yaml`
+- 00_index/quick-links.md — Updated Trivy section with new L2 entries
+
 ## 2026-05-25
 
 ### Added
