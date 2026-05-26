@@ -332,11 +332,14 @@
 - [semgrep-001: Semgrep Primer](semgrep/notes/0000-primer-semgrep.md) - First-day primer covering what Semgrep is, key terminology, and a tiny example (L1)
 - [semgrep-002: Install Semgrep Notes](semgrep/notes/2026-05-25-install-semgrep.md) - Installing Semgrep and running a first SAST scan (L1)
 - [semgrep-003: Custom Rule Snippet](semgrep/snippets/first-custom-rule.yaml) - Minimal YAML rule to detect dangerous subprocess patterns (L1)
+- [semgrep-004: Install Pitfalls Notes](semgrep/notes/2026-05-26-install-semgrep-pitfalls.md) - What tripped me up installing Semgrep and running first scans (L1)
 
 ## Checkov
 - [checkov-001: Checkov Primer](checkov/notes/0000-primer-checkov.md) - First-day primer covering what Checkov is, key terminology, and a tiny example (L1)
 - [checkov-002: Scan Terraform Plan](checkov/notes/2026-05-25-scan-terraform-plan.md) - Installing Checkov and scanning a Terraform plan for misconfigurations (L1)
 - [checkov-003: Scan Kubernetes Manifest Snippet](checkov/snippets/scan-kubernetes.sh) - Minimal bash snippet to scan a Kubernetes manifest and interpret findings (L1)
+- [checkov-004: Scan Terraform Dir Snippet](checkov/snippets/scan-terraform-dir.py) - Python snippet to scan a local Terraform directory with Checkov SDK (L1)
+- [checkov-005: CLI vs SDK Notes](checkov/notes/2026-05-26-cli-vs-sdk-comparison.md) - Comparing CLI and SDK scanning approaches for Terraform (L1)
 
 ## Trivy
 - [trivy-001: Trivy Primer](trivy/notes/0000-primer-trivy.md) - First-day primer covering what Trivy is, key terminology, and a tiny example (L1)
