@@ -74,6 +74,22 @@
 
 **KRaft (Kafka)**: Kafka's internal consensus protocol that replaces ZooKeeper for metadata management, enabling simpler cluster operations and improved scalability.
 
+**Semgrep**: Static analysis tool for finding code patterns and security vulnerabilities using customizable rules, supporting multiple languages.
+
+**SAST (Static Application Security Testing)**: Security testing methodology that analyzes source code for vulnerabilities without executing the program.
+
+**Checkov**: Infrastructure as Code security scanner that checks Terraform, CloudFormation, Kubernetes, and other IaC frameworks for misconfigurations.
+
+**Atlantis**: Terraform CI/CD tool that automates plan/apply workflows triggered by pull request comments.
+
+**Flux**: GitOps operator for Kubernetes that reconciles cluster state with configuration stored in Git repositories.
+
+**GitOps reconciliation**: Continuous process where a GitOps operator (e.g., Flux, ArgoCD) ensures the live cluster state matches the desired state defined in a Git repository.
+
+**ArgoCD**: Declarative GitOps continuous delivery tool for Kubernetes that automates application deployment and synchronization.
+
+**Vulnerability database**: A curated collection of known security vulnerabilities (e.g., Trivy's vulnerability database) used by scanners to identify affected software versions.
+
 **Alertmanager HA clustering**: Running multiple Alertmanager instances that use a gossip protocol to share alert state, providing high availability and alert deduplication across instances.
 
 **Promtail**: Grafana Loki's log collection agent that watches local logs and forwards them to Loki for centralized log aggregation and querying.
