@@ -1,0 +1,12 @@
+# Trying to catch containers with privileged:true anywhere in a YAML manifest
+# K8s pods and Docker Compose both use this pattern — it's the one thing
+# reviewers miss every time because it's a single boolean deep in nested keys
+rules:
+  - id: privileged-container
+    languages:
+      - yaml
+    message: Container set to privileged mode — bypasses all kernel security controls
+    pattern: |
+      securityContext:
+        privileged: true
+    severity: WARNING
