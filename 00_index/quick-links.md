@@ -333,6 +333,8 @@
 - [semgrep-002: Install Semgrep Notes](semgrep/notes/2026-05-25-install-semgrep.md) - Installing Semgrep and running a first SAST scan (L1)
 - [semgrep-003: Custom Rule Snippet](semgrep/snippets/first-custom-rule.yaml) - Minimal YAML rule to detect dangerous subprocess patterns (L1)
 - [semgrep-004: Install Pitfalls Notes](semgrep/notes/2026-05-26-install-semgrep-pitfalls.md) - What tripped me up installing Semgrep and running first scans (L1)
+- [semgrep-005: Scan Python Codebase Script](semgrep/scripts/scan-python-codebase.sh) - Minimal bash script to scan a Python codebase with Semgrep and filter by severity (L2)
+- [semgrep-007: Semgrep CI Integration Guide](semgrep/docs/semgrep-ci-integration.md) - Wiring Semgrep into a GitHub Actions pipeline with troubleshooting notes (L2)
 
 ## Checkov
 - [checkov-001: Checkov Primer](checkov/notes/0000-primer-checkov.md) - First-day primer covering what Checkov is, key terminology, and a tiny example (L1)
