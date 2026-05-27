@@ -14,6 +14,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - First-person walkthrough covering GitHub Actions setup, .semgrepignore, SARIF output
   - Steps + Got stuck on + What I'd try next format
 - 00_index/quick-links.md — Updated Semgrep section with new L2 entries
+- trufflehog-001: `trufflehog/notes/0000-primer-trufflehog.md` — TruffleHog quick primer (L1)
+  - First-person scratchy primer covering what TruffleHog is, key terminology (detector, verification, entropy), and minimal CLI example
+  - No formal section headers, ~180 words, casual learner voice
+- trufflehog-002: `trufflehog/notes/2026-05-27-install-trufflehog.md` — Installing TruffleHog and scanning a local repo for secrets (L1)
+  - First-person walkthrough covering pip install, git scan with file:// URLs, and what tripped me up
+  - Steps + Got stuck on + What I'd try next format
+- trufflehog-003: `trufflehog/snippets/fake-secrets-test.sh` — Minimal bash snippet to create test secrets and scan with TruffleHog (L1)
+  - Creates a file with fake AWS key, GitHub token, password and scans using `trufflehog filesystem`
+  - shellcheck passed (clean)
+- 00_index/quick-links.md — Added TruffleHog section with primer, install notes, and snippet entries
 
 ## 2026-05-26
 
