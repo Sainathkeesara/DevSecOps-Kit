@@ -7,6 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-27
 
 ### Added
+- syft-001: `syft/notes/0000-primer-syft.md` — Syft quick primer (L1)
+  - First-person primer covering what Syft is, SBOM generation, CycloneDX/SPDX formats, key terminology, and a minimal example
+  - Sections: What is it, What does it do, Why does it exist, Key terminology, Tiny example, Next steps
+- syft-002: `syft/notes/2026-05-27-install-syft-first-sbom.md` — Installing Syft and generating my first SBOM (L1)
+  - First-person scratch notes covering install, `syft alpine:latest`, and what tripped me up with output formats
+  - Steps + Got stuck on + What I'd try next format
+- syft-003: `syft/snippets/tried-sbom-formats.sh` — Minimal bash snippet to generate SBOMs in SPDX and CycloneDX JSON formats (L1)
+  - Accepts image name as argument (defaults to alpine:latest)
+  - Outputs two JSON files: {image}_spdx.json and {image}_cyclonedx.json
+  - shellcheck passed (clean)
 - semgrep-005: `semgrep/scripts/scan-python-codebase.sh` — Minimal bash script to scan a Python codebase with Semgrep and filter by severity (L2)
   - Accepts target directory and severity level as arguments
   - Uses `--config=auto` for community rule registry
