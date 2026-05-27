@@ -53,6 +53,11 @@
 - [Scan Docker images with Trivy](../trivy/scripts/container-vuln-scan.sh)
 - [Trivy CI/CD pipeline integration](../docs/how-to/trivy-cicd-integration.md)
 
+## Scan for leaked secrets
+- [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md)
+- [Install TruffleHog and scan a repo](../trufflehog/notes/2026-05-27-install-trufflehog.md)
+- [Test fake secrets scan with TruffleHog](../trufflehog/snippets/fake-secrets-test.sh)
+
 ## Run a Kubernetes task
 - [k8s_toolkit usage guide](../docs/how-to/k8s_toolkit.md)
 - [Context switcher](../scripts/bash/k8s_toolkit/context/context-manager.sh)
