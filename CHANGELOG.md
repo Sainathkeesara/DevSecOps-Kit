@@ -7,6 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-27
 
 ### Added
+- syft-001: `syft/notes/0000-primer-syft.md` — Syft quick primer (L1, rework v2)
+  - Rewritten per primer format (What is it / What does it do / Why does it exist / Key terminology / Tiny example / Next steps)
+  - First-person scratchy voice (~266 words), no forbidden L1 elements
+- trufflehog-004: `trufflehog/notes/2026-05-27-following-trufflehog-quickstart.md` — Following the official TruffleHog quickstart (L2)
+  - Steps covering install, git scan, org scan, JSON output, issue/PR comments
+  - Documents rate-limit gotcha, --results flag behavior, filesystem positional args, file:// URI requirement
+- trufflehog-005: `trufflehog/snippets/scan-github-repo-for-secrets.sh` — Scan a GitHub repo for leaked secrets (L2)
+  - Accepts repo URL and optional GitHub token as arguments
+  - Outputs structured JSON with detector, verification status, file, commit, line
+  - ShellCheck passed (clean)
 - syft-001: `syft/notes/0000-primer-syft.md` — Syft quick primer (L1, rework)
   - First-person scratchy voice (~250 words), conversational learner tone per quality feedback
   - Covers what Syft is, SBOM generation, key terminology, and a minimal one-command example

@@ -64,6 +64,8 @@
 - [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md)
 - [Install TruffleHog and scan a repo](../trufflehog/notes/2026-05-27-install-trufflehog.md)
 - [Test fake secrets scan with TruffleHog](../trufflehog/snippets/fake-secrets-test.sh)
+- [TruffleHog quickstart walkthrough](../trufflehog/notes/2026-05-27-following-trufflehog-quickstart.md)
+- [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
 
 ## Run a Kubernetes task
 - [k8s_toolkit usage guide](../docs/how-to/k8s_toolkit.md)
