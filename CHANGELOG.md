@@ -4,6 +4,17 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-27
+
+### Added
+- semgrep-005: `semgrep/scripts/scan-python-codebase.sh` — Minimal bash script to scan a Python codebase with Semgrep and filter by severity (L2)
+  - Accepts target directory and severity level as arguments
+  - Uses `--config=auto` for community rule registry
+- semgrep-007: `semgrep/docs/semgrep-ci-integration.md` — Wiring Semgrep into a GitHub Actions pipeline with troubleshooting notes (L2)
+  - First-person walkthrough covering GitHub Actions setup, .semgrepignore, SARIF output
+  - Steps + Got stuck on + What I'd try next format
+- 00_index/quick-links.md — Updated Semgrep section with new L2 entries
+
 ## 2026-05-26
 
 ### Added
