@@ -33,6 +33,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Creates a file with fake AWS key, GitHub token, password and scans using `trufflehog filesystem`
   - shellcheck passed (clean)
 - 00_index/quick-links.md — Added TruffleHog section with primer, install notes, and snippet entries
+- checkov-008: `checkov/configs/checkov-skip-severity-config.yaml` — Checkov config for skip lists and severity thresholds (L2)
+  - Skips CKV_SECRET_*, CKV_DOCKER_*, CKV_GHA_* checks to reduce noise
+  - Uses compact output format and soft_fail configuration
+  - Inline comments explain why each check group is skipped
+- trivy-004: `trivy/scripts/compose-multi-scan.sh` — Scan multi-service Docker Compose project and aggregate vulnerability reports (L3)
+  - Parses docker-compose.yml to extract all image: directives
+  - Scans each image with Trivy (table + JSON output)
+  - Generates aggregated summary with per-image CRITICAL counts
+  - Exits non-zero if any CRITICAL vulnerabilities found (CI/CD gating)
+- 00_index/quick-links.md — Added Checkov config and Trivy compose scan entries
 
 ## 2026-05-26
 

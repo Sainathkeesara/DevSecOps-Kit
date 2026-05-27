@@ -49,8 +49,10 @@
 - [Scan with Checkov (Terraform)](../checkov/snippets/scan-terraform-dir.py)
 - [Scan with Checkov (single file SDK)](../checkov/snippets/scan-a-terraform-file.py)
 - [Checkov quickstart walkthrough](../checkov/notes/2026-05-27-checkov-quickstart-trip-ups.md)
+- [Checkov skip & severity config](../checkov/configs/checkov-skip-severity-config.yaml)
 - [Custom Semgrep rule — privileged containers](../semgrep/snippets/catch-privileged-containers.yaml)
 - [Scan Docker images with Trivy](../trivy/scripts/container-vuln-scan.sh)
+- [Scan multi-service Docker Compose with Trivy](../trivy/scripts/compose-multi-scan.sh)
 - [Trivy CI/CD pipeline integration](../docs/how-to/trivy-cicd-integration.md)
 
 ## Scan for leaked secrets

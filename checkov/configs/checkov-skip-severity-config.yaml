@@ -1,0 +1,64 @@
+# Checkov config: skip lists and severity thresholds for targeted scanning
+# Save as .checkov.yaml in your project root, or pass via --config
+# Usage: checkov --config checkov-skip-severity-config.yaml -d <target>
+
+# Severity threshold — only report these levels and above
+# Supports: CRITICAL, HIGH, MEDIUM, LOW
+# Setting to HIGH means CRITICAL and HIGH are shown, MEDIUM and LOW filtered out
+soft_fail: false
+soft_fail_checks: []
+
+# Skip specific check IDs that are noisy or not relevant to your setup
+# Find check IDs in Checkov output (e.g. CKV_AWS_123) or docs
+skip_check:
+  # Skip generic secrets check — we use TruffleHog for that
+  - CKV_SECRET_1
+  - CKV_SECRET_2
+  - CKV_SECRET_3
+  - CKV_SECRET_4
+  - CKV_SECRET_5
+  - CKV_SECRET_6
+
+  # Skip Docker checks — container scans handled by Trivy
+  - CKV_DOCKER_1
+  - CKV_DOCKER_2
+  - CKV_DOCKER_3
+  - CKV_DOCKER_4
+  - CKV_DOCKER_5
+  - CKV_DOCKER_6
+  - CKV_DOCKER_7
+  - CKV_DOCKER_8
+  - CKV_DOCKER_9
+  - CKV_DOCKER_10
+  - CKV_DOCKER_11
+  - CKV_DOCKER_12
+  - CKV_DOCKER_13
+  - CKV_DOCKER_14
+  - CKV_DOCKER_15
+  - CKV_DOCKER_16
+  - CKV_DOCKER_17
+  - CKV_DOCKER_18
+  - CKV_DOCKER_19
+  - CKV_DOCKER_20
+  - CKV_DOCKER_21
+  - CKV_DOCKER_22
+
+  # Skip GitHub Actions checks — not relevant for our IaC scans
+  - CKV_GHA_1
+  - CKV_GHA_2
+  - CKV_GHA_3
+  - CKV_GHA_4
+  - CKV_GHA_5
+  - CKV_GHA_6
+  - CKV_GHA_7
+
+# Suppress results by resource or policy pattern
+# suppress_policy:
+#   - "my-bucket-name" # skip results for a specific resource
+#   - "CKV_AWS_*"      # skip all AWS checks (pattern match)
+
+# Compact output — less verbose, easier to scan
+compact: true
+
+# Only fail on HIGH and CRITICAL (but still report all severities if not filtered)
+quiet: false
