@@ -2,24 +2,34 @@
 
 > First-day notes for someone who's never used Syft. Personal voice, plain language.
 
+## What is it?
+
 Just learned about Syft today. It's a CLI tool that generates a software bill of materials (SBOM) from container images or directories. Think of it as an inventory camera — point it at an image and it tells you every package inside.
 
-You give it an image name like `syft alpine:latest` and it walks the filesystem looking for package managers (apt, pip, npm, etc.), reads their databases, and prints a table of everything installed.
+## What does it do?
 
-Before Syft, I'd have to manually track what's in my images or trust the build logs. For supply-chain audits or SLSA compliance, you need a repeatable inventory. Syft sits in that spot — generates SBOMs that Grype or Trivy can then scan for vulnerabilities.
+You give it `syft alpine:latest` and it walks the filesystem looking for package managers (apt, pip, npm, etc.), reads their databases, and prints a table of everything installed — name, version, type. It can output JSON, CycloneDX, or SPDX format.
 
-Key terms I hit today:
-- **SBOM** — Software Bill of Materials, the full inventory. `syft alpine:latest` outputs one.
-- **CycloneDX** — OWASP-standard SBOM format. `syft alpine:latest -o cyclonedx-json`.
-- **SPDX** — Linux Foundation SBOM standard. `syft alpine:latest -o spdx-json`.
+## Why does it exist?
+
+Before Syft, I'd have to manually track what's in my images or trust the build logs. For supply-chain audits or SLSA compliance, you need a repeatable inventory. Syft generates SBOMs that Grype or Trivy can then scan for vulnerabilities.
+
+## Key terminology
+
+- **SBOM** — Software Bill of Materials, the full inventory of packages in an image. `syft alpine:latest` outputs one.
+- **CycloneDX** — OWASP-standard SBOM format. Use `-o cyclonedx-json`.
+- **SPDX** — Linux Foundation SBOM standard. Use `-o spdx-json`.
 - **Package cataloger** — The module that detects a specific package manager (python, deb, apk, etc.).
 - **Image source** — Where Syft reads from: `docker:`, `registry:`, `dir:`, `tar:`.
 
+## A tiny example
+
 ```bash
-# One-command SBOM
 syft alpine:latest
 ```
 
-That's the whole thing — one command gives you a table of every package, version, and type.
+One command gives you a table of every package, version, and type.
 
-Next I want to install it and generate SBOMs in both CycloneDX and SPDX to see how they differ for downstream tools.
+## What I'll cover next
+
+I want to install it, generate SBOMs in CycloneDX and SPDX, then pipe them into Grype for vulnerability scanning.
