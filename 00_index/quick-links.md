@@ -53,6 +53,11 @@
 - [Scan Docker images with Trivy](../trivy/scripts/container-vuln-scan.sh)
 - [Trivy CI/CD pipeline integration](../docs/how-to/trivy-cicd-integration.md)
 
+## Scan for SBOM generation
+- [Syft primer](../syft/notes/0000-primer-syft.md)
+- [Install Syft and generate first SBOM](../syft/notes/2026-05-27-install-syft-first-sbom.md)
+- [Generate SPDX + CycloneDX SBOMs](../syft/snippets/tried-sbom-formats.sh)
+
 ## Scan for leaked secrets
 - [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md)
 - [Install TruffleHog and scan a repo](../trufflehog/notes/2026-05-27-install-trufflehog.md)
