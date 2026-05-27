@@ -13,12 +13,11 @@
 - [script] scripts/bash/k8s_toolkit/rollout-status.sh — Monitor deployment rollout status
 - [script] scripts/bash/k8s_toolkit/secret/decode-secret.sh — Decode base64 Kubernetes secrets
 - [script] scripts/bash/k8s_toolkit/security/cve-2026-3288-nginx.sh — ingress-nginx RCE vulnerability scanner
-- [script] scripts/bash/k8s_toolkit/security/aks-privilege-escalation-hardening.sh — AKS privilege escalation hardening
+- [script] scripts/bash/k8s_toolkit/security/k8s-acm-cve-2026-4740.sh — Kubernetes ACM privilege escalation scanner
 - [script] scripts/bash/k8s_toolkit/security/k8s-cluster-autoscaler-grpc-hardening.sh — cluster-autoscaler grpc CVE-2026-33186 hardening
 - [script] scripts/bash/k8s_toolkit/security/k8s-eso-cve-2026-34984-hardening.sh — External Secrets Operator DNS exfiltration hardening
 - [script] scripts/bash/k8s_toolkit/security/k8s-ingress-nginx-cve-2026-4342-hardening.sh — ingress-nginx comment-based config injection hardening
 - [script] scripts/bash/k8s_toolkit/security/mcp-server-kubernetes-hardening.sh — mcp-server-kubernetes CVE-2026-39884 hardening
-- [script] scripts/bash/k8s_toolkit/security/k8s-acm-cve-2026-4740.sh — Kubernetes ACM privilege escalation scanner
 - [doc] docs/how-to/k8s_toolkit.md — Complete usage guide for all k8s scripts
 - [doc] docs/how-to/k8s_rbac.md — Role, ClusterRole, RoleBinding guide
 - [doc] docs/how-to/k8s-aks-cve-2026-33105.md — AKS privilege escalation remediation
@@ -72,6 +71,7 @@
 - [doc] docs/reference/jenkins-commands.md — Jenkins CLI commands reference (50+ commands)
 - [doc] docs/reference/jenkins-credential-rotation.md — Automated credential rotation
 - [doc] docs/reference/jenkins-job-config-xml-snippets.md — Job configuration XML snippets
+- [doc] docs/reference/jenkins-secret-masking-envinject.md — Secret masking with EnvInject
 - [doc] docs/reference/jenkins-pipeline-retry-strategy.md — Pipeline retry strategy configuration
 - [doc] docs/reference/jenkins-rest-api.md — Jenkins REST API reference
 - [doc] docs/troubleshooting/jenkins-troubleshooting.md — Jenkins troubleshooting guide
@@ -94,7 +94,7 @@
 - [script] scripts/bash/linux_toolkit/linux-network-monitor.sh — Network health monitoring
 - [script] scripts/bash/linux_toolkit/linux-system-commands-library.sh — Shell command library
 - [script] scripts/bash/linux_toolkit/linux-system-hardening.sh — System hardening automation
-- [script] scripts/bash/linux_toolkit/samba-setup.sh — Samba file server deployment
+- [script] scripts/bash/linux_toolkit/samba/samba-setup.sh — Samba file server deployment
 - [script] scripts/bash/linux_toolkit/system-automation-template.sh — Linux automation template deployment
 - [script] scripts/bash/linux_toolkit/wazuh-deploy.sh — Wazuh SIEM deployment
 - [script] scripts/bash/linux_toolkit/authentication/ldap-server-setup.sh — LDAP authentication server setup
@@ -197,19 +197,32 @@
 - [doc] docs/how-to/terraform-ecs-service-discovery.md — ECS Fargate service discovery
 - [doc] docs/how-to/terraform-eks-cluster.md — EKS cluster setup
 - [doc] docs/how-to/terraform-eventbridge-lambda.md — EventBridge with Lambda triggers
+- [tf] docs/how-to/k8s-terraform-ansible-provisioning/terraform/control-plane.tf — K8s control plane nodes
+- [tf] docs/how-to/k8s-terraform-ansible-provisioning/terraform/main.tf — K8s provisioning main
+- [tf] docs/how-to/k8s-terraform-ansible-provisioning/terraform/outputs.tf — K8s provisioning outputs
+- [tf] docs/how-to/k8s-terraform-ansible-provisioning/terraform/variables.tf — K8s provisioning variables
+- [tf] docs/how-to/k8s-terraform-ansible-provisioning/terraform/workers.tf — K8s worker nodes
 - [doc] docs/how-to/terraform-iam-roles.md — Reusable IAM roles
 - [doc] docs/how-to/terraform-lambda-api-gateway.md — Serverless API with Lambda
 - [doc] docs/how-to/terraform-module-composition-workspaces.md — Module composition and workspaces
 - [doc] docs/how-to/terraform-multi-env-gitops.md — Multi-environment GitOps
 - [doc] docs/how-to/terraform-rds-read-replicas.md — RDS with read replicas
 - [doc] docs/how-to/terraform-secrets-manager.md — Secrets Manager integration
+- [doc] docs/how-to/terraform-s3-cross-region-replication.md — S3 cross-region replication for DR
 - [doc] docs/how-to/terraform-state-management.md — State management best practices
 - [doc] docs/how-to/terraform-troubleshooting.md — Terraform troubleshooting
 - [snippet] snippets/terraform-commands.md — Terraform CLI one-liners
-- [template] templates/terraform/lambda-api-gateway/ — Lambda + API Gateway module
+- [template] templates/terraform/lambda-api-gateway/main.tf — Lambda + API Gateway module
+- [template] templates/terraform/lambda-api-gateway/outputs.tf — Lambda + API Gateway outputs
+- [template] templates/terraform/lambda-api-gateway/variables.tf — Lambda + API Gateway variables
 - [template] templates/terraform/multi-env/vpc-module.tf — Multi-environment VPC module
 - [template] templates/terraform/production-module-template.md — Production module template
-- [template] templates/terraform/rds-with-replicas/ — RDS with read replicas module
+- [template] templates/terraform/rds-with-replicas/main.tf — RDS with read replicas
+- [template] templates/terraform/rds-with-replicas/monitoring.tf — RDS monitoring setup
+- [template] templates/terraform/rds-with-replicas/outputs.tf — RDS outputs
+- [template] templates/terraform/rds-with-replicas/provider.tf — RDS provider config
+- [template] templates/terraform/rds-with-replicas/terraform.tfvars.example — RDS example vars
+- [template] templates/terraform/rds-with-replicas/variables.tf — RDS variable definitions
 
 ## Ansible
 - [script] scripts/bash/ansible_toolkit/patch-management.yml — Ansible patching playbook
@@ -228,6 +241,10 @@
 - [doc] docs/how-to/ansible-playbook-best-practices.md — Playbook best practices
 - [doc] docs/how-to/ansible_toolkit.md — Ansible toolkit usage guide
 - [doc] docs/security/ansible/CVE-2026-33228.md — CVE-2026-33228 remediation guide
+- [ansible] docs/how-to/k8s-terraform-ansible-provisioning/ansible/inventory.ini.example — K8s provisioning inventory
+- [ansible] docs/how-to/k8s-terraform-ansible-provisioning/ansible/roles/preflight/tasks/main.yml — Preflight tasks for K8s
+- [ansible] docs/how-to/k8s-terraform-ansible-provisioning/ansible/site.yml — K8s provisioning playbook
+- [ansible] docs/how-to/k8s-terraform-ansible-provisioning/ansible/teardown.yml — K8s teardown playbook
 - [doc] docs/runbooks/cve-2026-33228-ansible-flatted.md — CVE-2026-33228 remediation runbook
 - [snippet] snippets/ansible-commands.md — Ansible ad-hoc commands
 
@@ -262,7 +279,14 @@
 - [doc] docs/how-to/observability/otel-collector-installation.md — OTel Collector installation
 - [doc] docs/how-to/observability_toolkit.md — Observability toolkit usage guide
 - [doc] docs/how-to/thanos_installation.md — Thanos installation and configuration
+- [doc] docs/how-to/observability/alertmanager-installation.md — Alertmanager installation and routing rules
+- [doc] docs/how-to/observability/grafana-installation.md — Grafana installation and data source configuration
+- [doc] docs/how-to/observability/prometheus-node-exporter-installation.md — Node exporter installation
+- [doc] docs/how-to/linux-distributed-tracing-jaeger.md — Distributed tracing with Jaeger
 - [snippet] snippets/observability-cheatsheet.md — PromQL, LogQL reference
+- [script] scripts/bash/observability_toolkit/alertmanager/alertmanager-install.sh — Alertmanager automated install
+- [script] scripts/bash/observability_toolkit/grafana/grafana-install.sh — Grafana automated install
+- [script] scripts/bash/observability_toolkit/grafana/provisioning/dashboards/default.yml — Grafana default dashboard provisioning
 
 ## Docker
 - [script] scripts/bash/docker_toolkit/docker-kaniko-cve-2026-28406-hardening.sh — Kaniko path traversal hardening
@@ -315,6 +339,10 @@
 - [doc] docs/how-to/trivy-cache-configuration.md — Trivy cache configuration
 - [doc] docs/security/trivy/CVE-2026-33634.md — Trivy CVE-2026-33634 remediation guide
 - [doc] docs/how-to/trivy/cve-2026-33001-remediation.md — Trivy CVE-2026-33001 remediation
+- [script] scripts/bash/argo_toolkit/argo-workflows-install.sh — Argo Workflows automated install
+- [script] scripts/bash/flux_toolkit/flux-install.sh — Flux v2 automated install
+- [doc] docs/how-to/argo-workflows-installation.md — Argo Workflows installation and pipelines
+- [doc] docs/how-to/fluxcd-installation.md — Flux v2 installation and GitOps reconciliation
 - [snippet] snippets/ci-cd-cheatsheet.md — CI/CD commands reference
 
 ## OCI/Container Registries
@@ -332,6 +360,10 @@
 - [doc] docs/how-to/linux-harbor-registry.md — Harbor container registry setup
 - [doc] docs/how-to/oci-registry-toolkit/github-container-registry-ghcr.md — ghcr.io configuration
 - [doc] docs/how-to/oci_registry_toolkit.md — OCI registry toolkit usage guide
+- [script] scripts/bash/oci_registry_toolkit/gar/gar-deploy.sh — Google Artifact Registry deploy
+- [script] scripts/bash/oci_registry_toolkit/quay/quay-deploy.sh — Quay container registry deploy
+- [doc] docs/how-to/google-artifact-registry-gar.md — Google Artifact Registry setup
+- [doc] docs/how-to/quay-container-registry-installation.md — Quay container registry installation
 - [snippet] snippets/oci-registry-cheatsheet.md — Registry commands reference
 
 ## Git
@@ -362,10 +394,38 @@
 - [doc] docs/setup-guides/git-github-actions-runner.md — GitHub Actions runner setup
 - [snippet] snippets/git-commands.md — Git CLI commands reference
 
+## Checkov
+- [note] checkov/notes/0000-primer-checkov.md — First-day primer on Checkov (L1)
+- [note] checkov/notes/2026-05-25-scan-terraform-plan.md — Scanning a Terraform plan for misconfigurations (L1)
+- [note] checkov/notes/2026-05-26-cli-vs-sdk-comparison.md — CLI vs SDK scanning approaches (L1)
+- [snippet] checkov/snippets/scan-kubernetes.sh — Scan Kubernetes manifests with Checkov
+- [snippet] checkov/snippets/scan-terraform-dir.py — Python SDK scan of Terraform directory
+
+## Semgrep
+- [note] semgrep/notes/0000-primer-semgrep.md — First-day primer on Semgrep (L1)
+- [note] semgrep/notes/2026-05-25-install-semgrep.md — Installing Semgrep and first SAST scan (L1)
+- [note] semgrep/notes/2026-05-26-install-semgrep-pitfalls.md — Installation pitfalls and first scan gotchas (L1)
+- [snippet] semgrep/snippets/first-custom-rule.yaml — Custom rule to detect dangerous subprocess patterns (L1)
+
+## Trivy
+- [note] trivy/notes/0000-primer-trivy.md — First-day primer on Trivy (L1)
+- [note] trivy/notes/2026-05-24-install-trivy.md — Installing Trivy and first vulnerability scan (L1)
+- [note] trivy/notes/2026-05-26-trivy-quickstart.md — Official quickstart walkthrough (L2)
+- [snippet] trivy/snippets/scan-docker-image.sh — Scan a Docker image with severity filtering (L1)
+- [script] trivy/scripts/container-vuln-scan.sh — Container image scan with CRITICAL gating (L2)
+- [config] trivy/configs/trivy-scan-config.yaml — Configuration for targeted scanning (L2)
+
 ## Lab Projects
 - [doc] lab/mini-projects/postgresql-database-server/README.md — PostgreSQL 16 with replication
 - [doc] lab/mini-projects/samba-enterprise-file-sharing/README.md — Enterprise Samba file sharing
 - [doc] lab/mini-projects/terraform-project/README.md — Terraform project with modules
+- [tf] lab/mini-projects/terraform-project/main.tf — Terraform project main
+- [tf] lab/mini-projects/terraform-project/modules/compute/main.tf — Compute module
+- [tf] lab/mini-projects/terraform-project/modules/network/main.tf — Network module
+- [tf] lab/mini-projects/terraform-project/modules/storage/main.tf — Storage module
+- [tf] lab/mini-projects/terraform-project/outputs.tf — Project outputs
+- [tf] lab/mini-projects/terraform-project/variables.tf — Project variables
+- [tf] lab/mini-projects/terraform-project/workspace.tf — Workspace configuration
 
 ## Environments (Terraform)
 - [env] environments/dev/main.tf — Development environment Terraform
@@ -383,6 +443,7 @@
 
 ## Terraform Modules
 - [module] terraform/eventbridge-lambda/main.tf — EventBridge Lambda module
+- [module] terraform/eventbridge-lambda/environments/dev.tfvars — Dev environment vars
 - [module] terraform/eventbridge-lambda/modules/eventbridge/outputs.tf — EventBridge module outputs
 - [module] terraform/eventbridge-lambda/modules/eventbridge/variables.tf — EventBridge module variables
 - [module] terraform/eventbridge-lambda/modules/lambda/outputs.tf — Lambda module outputs
