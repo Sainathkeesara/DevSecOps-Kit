@@ -7,9 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-27
 
 ### Added
-- syft-001: `syft/notes/0000-primer-syft.md` — Syft quick primer (L1)
-  - First-person primer covering what Syft is, SBOM generation, CycloneDX/SPDX formats, key terminology, and a minimal example
-  - Sections: What is it, What does it do, Why does it exist, Key terminology, Tiny example, Next steps
+- syft-001: `syft/notes/0000-primer-syft.md` — Syft quick primer (L1, rework)
+  - First-person scratchy voice (~250 words), conversational learner tone per quality feedback
+  - Covers what Syft is, SBOM generation, key terminology, and a minimal one-command example
 - syft-002: `syft/notes/2026-05-27-install-syft-first-sbom.md` — Installing Syft and generating my first SBOM (L1)
   - First-person scratch notes covering install, `syft alpine:latest`, and what tripped me up with output formats
   - Steps + Got stuck on + What I'd try next format
