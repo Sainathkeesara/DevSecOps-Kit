@@ -13,7 +13,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - semgrep-007: `semgrep/docs/semgrep-ci-integration.md` — Wiring Semgrep into a GitHub Actions pipeline with troubleshooting notes (L2)
   - First-person walkthrough covering GitHub Actions setup, .semgrepignore, SARIF output
   - Steps + Got stuck on + What I'd try next format
-- 00_index/quick-links.md — Updated Semgrep section with new L2 entries
+- semgrep-006: `semgrep/snippets/catch-privileged-containers.yaml` — Custom Semgrep rule for detecting privileged containers in YAML manifests (L2)
+  - Catches `securityContext.privileged: true` in K8s and Docker Compose YAML
+  - Inline comments explain why this pattern matters for security reviews
+- checkov-006: `checkov/notes/2026-05-27-checkov-quickstart-trip-ups.md` — Following the official Checkov quickstart and what tripped me up (L2)
+  - Steps + Got stuck on + What I'd try next format
+  - Covers empty directory silent results, lack of sample bad configs, missing flag docs
+- checkov-007: `checkov/snippets/scan-a-terraform-file.py` — Scan a single Terraform file using the Checkov Python SDK (L2)
+  - Uses `file=` parameter for targeted single-file scanning
+  - Framework-limited to terraform rules to avoid irrelevant checks
+- 00_index/quick-links.md — Updated Semgrep and Checkov sections with new L2 entries
 - trufflehog-001: `trufflehog/notes/0000-primer-trufflehog.md` — TruffleHog quick primer (L1)
   - First-person scratchy primer covering what TruffleHog is, key terminology (detector, verification, entropy), and minimal CLI example
   - No formal section headers, ~180 words, casual learner voice
@@ -519,7 +528,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - lin-073: Infrastructure-as-Code automation workflows for DevOps pipelines (L7)
   - Final score: 9/10
->>>>>>> origin/master
 
 ## 2026-05-02
 
