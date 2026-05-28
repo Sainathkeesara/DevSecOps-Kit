@@ -4,6 +4,21 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-28
+
+### Added
+- trufflehog-006: `trufflehog/configs/trufflehog-custom-regex-config.yaml` — Custom TruffleHog config with regex detectors and entropy thresholds (L2)
+  - Three custom detectors: Internal API key, Raw DSN string, JWT token
+  - Entropy tuning: min_chars 12, min_shannon 5.0 to reduce false positives
+  - Verification enabled for authenticated scans
+- semgrep-008: `semgrep/scripts/detect-hardcoded-secrets.py` — Python script to build a custom Semgrep rule for hardcoded secrets and test it (L3)
+  - Creates a rule targeting sensitive variable names (password, secret, token, api_key, etc.)
+  - Generates a crafted test codebase with safe/unsafe assignments
+  - Runs semgrep scan with JSON output parsing
+  - Error handling for missing semgrep binary, parse failures, runtime errors
+  - Temp file cleanup with optional --keep-temps for debugging
+- 00_index/quick-links.md — Updated TruffleHog and Semgrep sections with new entries
+
 ## 2026-05-27
 
 ### Added
