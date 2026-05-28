@@ -1,0 +1,44 @@
+# Trying out custom regex rules and entropy tuning for TruffleHog
+# Based on what I learned from the quickstart — TruffleHog's default
+# detectors cover well-known patterns (AWS keys, GitHub tokens, etc.)
+# but I keep seeing false negatives for our internal secrets format
+# and the default entropy threshold flags way too much base64 noise
+#
+# Usage: trufflehog filesystem --config=../configs/trufflehog-custom-regex-config.yaml <path>
+
+custom_detectors:
+  # Our team uses API keys prefixed with "sk-internal-" followed by 32 hex chars
+  # — TruffleHog doesn't ship a detector for this so I'm adding one
+  - name: "Internal API key"
+    regex:
+      pattern: "sk-internal-[0-9a-f]{32}"
+    keywords:
+      - "sk-internal"
+
+  # PostgreSQL/MySQL connection strings in config dumps — these show up
+  # in our CI artifacts and Terraform state files but TruffleHog's URI
+  # detector didn't catch the ones without scheme://
+  - name: "Raw DSN string"
+    regex:
+      pattern: "(?:postgres|mysql)://\\w+:\\w+@[\\w\\.-]+:\\d+/\\w+"
+    keywords:
+      - "postgres://"
+      - "mysql://"
+
+  # JWT tokens in debug logs — saw these in a ticket yesterday
+  # The base64-encoded payload makes them look random, but the
+  # eyJ header is distinctive enough for a regex
+  - name: "JWT token"
+    regex:
+      pattern: "eyJ[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]+"
+    keywords:
+      - "eyJ"
+
+entropy:
+  # Default is min_chars=8, min_shannon=4.5 — that flagged a ton of
+  # UUIDs and short variable names in our monorepo. Bumping the char
+  # count to 12 and shannon to 5.0 to cut the noise.
+  min_chars: 12
+  min_shannon: 5.0
+
+verify: true

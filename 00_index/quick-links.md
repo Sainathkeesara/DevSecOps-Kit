@@ -51,6 +51,7 @@
 - [Checkov quickstart walkthrough](../checkov/notes/2026-05-27-checkov-quickstart-trip-ups.md)
 - [Checkov skip & severity config](../checkov/configs/checkov-skip-severity-config.yaml)
 - [Custom Semgrep rule — privileged containers](../semgrep/snippets/catch-privileged-containers.yaml)
+- [Detect hardcoded secrets with Semgrep](../semgrep/scripts/detect-hardcoded-secrets.py)
 - [Scan Docker images with Trivy](../trivy/scripts/container-vuln-scan.sh)
 - [Scan multi-service Docker Compose with Trivy](../trivy/scripts/compose-multi-scan.sh)
 - [Trivy CI/CD pipeline integration](../docs/how-to/trivy-cicd-integration.md)
@@ -66,6 +67,7 @@
 - [Test fake secrets scan with TruffleHog](../trufflehog/snippets/fake-secrets-test.sh)
 - [TruffleHog quickstart walkthrough](../trufflehog/notes/2026-05-27-following-trufflehog-quickstart.md)
 - [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
+- [Custom regex + entropy config for TruffleHog](../trufflehog/configs/trufflehog-custom-regex-config.yaml)
 
 ## Run a Kubernetes task
 - [k8s_toolkit usage guide](../docs/how-to/k8s_toolkit.md)
