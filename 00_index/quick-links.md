@@ -45,6 +45,7 @@
 - [Trivy CVE-2026-33001](../docs/how-to/trivy/cve-2026-33001-remediation.md)
 - [Vault go-getter CVE](../scripts/bash/vault/security/vault-go-getter-hardening.sh)
 - [Scan with Semgrep](../semgrep/notes/0000-primer-semgrep.md)
+- [Semgrep GitHub Actions CI pipeline](../semgrep/docs/github-actions-ci-from-scratch.md)
 - [Scan with Checkov (K8s)](../checkov/snippets/scan-kubernetes.sh)
 - [Scan with Checkov (Terraform)](../checkov/snippets/scan-terraform-dir.py)
 - [Scan with Checkov (single file SDK)](../checkov/snippets/scan-a-terraform-file.py)

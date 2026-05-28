@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-28
 
 ### Added
+- semgrep-009: `semgrep/docs/github-actions-ci-from-scratch.md` — How I wired Semgrep into a GitHub Actions CI pipeline from scratch (L3)
+  - Purpose → Steps → Verify shape with custom rules, caching, and SARIF output
+  - Docker container-based approach instead of the official action wrapper
+  - Covers .semgrepignore configuration and permissions gotcha
+- 00_index/quick-links.md — Added Semgrep CI pipeline entry
 - trufflehog-006: `trufflehog/configs/trufflehog-custom-regex-config.yaml` — Custom TruffleHog config with regex detectors and entropy thresholds (L2)
   - Three custom detectors: Internal API key, Raw DSN string, JWT token
   - Entropy tuning: min_chars 12, min_shannon 5.0 to reduce false positives
