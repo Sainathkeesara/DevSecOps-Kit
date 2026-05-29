@@ -59,11 +59,13 @@
 - [Detect hardcoded secrets with Semgrep](../semgrep/scripts/detect-hardcoded-secrets.py)
 - [Scan Docker images with Trivy](../trivy/scripts/container-vuln-scan.sh)
 - [Scan multi-service Docker Compose with Trivy](../trivy/scripts/compose-multi-scan.sh)
+- [Automated image vulnerability scanning pipeline](../trivy/scripts/image-vuln-pipeline.sh)
 - [Trivy CI/CD pipeline integration](../docs/how-to/trivy-cicd-integration.md)
 
 ## Scan for SBOM generation
 - [Syft primer](../syft/notes/0000-primer-syft.md)
 - [Install Syft and generate first SBOM](../syft/notes/2026-05-27-install-syft-first-sbom.md)
+- [Syft quickstart walkthrough](../syft/notes/2026-05-29-syft-quickstart-trip-ups.md)
 - [Generate SPDX + CycloneDX SBOMs](../syft/snippets/tried-sbom-formats.sh)
 
 ## Scan for leaked secrets

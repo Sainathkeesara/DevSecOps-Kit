@@ -7,6 +7,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-29
 
 ### Added
+- trivy-005: `trivy/scripts/image-vuln-pipeline.sh` — Automated image vulnerability scanning pipeline with Trivy from scratch (L3)
+  - Scans images for vulns, secrets, and misconfigs in one pass
+  - Produces SARIF, JSON, and summary report files
+  - Configurable severity thresholds with pipeline gating
+- syft-004: `syft/notes/2026-05-29-syft-quickstart-trip-ups.md` — Following the official Syft quickstart and what tripped me up (L2)
+  - Steps + Got stuck on + What I'd try next format
+  - Documents output format flag confusion and quickstart omissions
 - checkov-010: `checkov/docs/pre-commit-hook-with-version-pinning.md` — How I wired Checkov into a pre-commit hook with version pinning (L3)
   - Purpose → Steps → Verify shape covering pre-commit setup, version pinning, and validation
   - .pre-commit-config.yaml template with pinned Checkov rev, --soft-fail, and --compact args
