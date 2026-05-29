@@ -27,6 +27,8 @@
 - [Set up Atlantis](../scripts/bash/terraform_toolkit/atlantis/setup-atlantis.sh)
 - [Set up Git credential helper for CI/CD](../scripts/bash/git/credential-helper-ci.sh)
 - [Install GitHub Actions runner](../scripts/bash/git/github-runner-install.sh)
+- [Install Syft and generate first SBOM](../syft/notes/2026-05-27-install-syft-first-sbom.md)
+- [Install TruffleHog](../trufflehog/notes/2026-05-27-install-trufflehog.md)
 
 ## Troubleshoot a tool
 - [Kubernetes CrashLoopBackOff](../docs/troubleshooting/k8s-crashloopbackoff.md)
@@ -45,7 +47,8 @@
 - [Trivy CVE-2026-33001](../docs/how-to/trivy/cve-2026-33001-remediation.md)
 - [Vault go-getter CVE](../scripts/bash/vault/security/vault-go-getter-hardening.sh)
 - [Scan with Semgrep](../semgrep/notes/0000-primer-semgrep.md)
-- [Semgrep GitHub Actions CI pipeline](../semgrep/docs/github-actions-ci-from-scratch.md)
+- [Semgrep CI pipeline from scratch](../semgrep/docs/github-actions-ci-from-scratch.md)
+- [Semgrep CI/CD integration guide](../semgrep/docs/semgrep-ci-integration.md)
 - [Scan with Checkov (K8s)](../checkov/snippets/scan-kubernetes.sh)
 - [Scan with Checkov (Terraform)](../checkov/snippets/scan-terraform-dir.py)
 - [Scan with Checkov (single file SDK)](../checkov/snippets/scan-a-terraform-file.py)

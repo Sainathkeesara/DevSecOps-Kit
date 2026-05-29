@@ -398,14 +398,22 @@
 - [note] checkov/notes/0000-primer-checkov.md — First-day primer on Checkov (L1)
 - [note] checkov/notes/2026-05-25-scan-terraform-plan.md — Scanning a Terraform plan for misconfigurations (L1)
 - [note] checkov/notes/2026-05-26-cli-vs-sdk-comparison.md — CLI vs SDK scanning approaches (L1)
+- [note] checkov/notes/2026-05-27-checkov-quickstart-trip-ups.md — Quickstart walkthrough and common pitfalls (L1)
 - [snippet] checkov/snippets/scan-kubernetes.sh — Scan Kubernetes manifests with Checkov
 - [snippet] checkov/snippets/scan-terraform-dir.py — Python SDK scan of Terraform directory
+- [snippet] checkov/snippets/scan-a-terraform-file.py — Scan a single Terraform file with Checkov SDK
+- [config] checkov/configs/checkov-skip-severity-config.yaml — Skip and severity configuration for Checkov
 
 ## Semgrep
 - [note] semgrep/notes/0000-primer-semgrep.md — First-day primer on Semgrep (L1)
 - [note] semgrep/notes/2026-05-25-install-semgrep.md — Installing Semgrep and first SAST scan (L1)
 - [note] semgrep/notes/2026-05-26-install-semgrep-pitfalls.md — Installation pitfalls and first scan gotchas (L1)
 - [snippet] semgrep/snippets/first-custom-rule.yaml — Custom rule to detect dangerous subprocess patterns (L1)
+- [snippet] semgrep/snippets/catch-privileged-containers.yaml — Custom rule to catch privileged container configurations
+- [doc] semgrep/docs/github-actions-ci-from-scratch.md — Building a Semgrep CI pipeline from scratch with GitHub Actions
+- [doc] semgrep/docs/semgrep-ci-integration.md — Integrating Semgrep into CI/CD pipelines
+- [script] semgrep/scripts/detect-hardcoded-secrets.py — Python script to detect hardcoded secrets using Semgrep
+- [script] semgrep/scripts/scan-python-codebase.sh — Scan a Python codebase with custom Semgrep rules
 
 ## Trivy
 - [note] trivy/notes/0000-primer-trivy.md — First-day primer on Trivy (L1)
@@ -413,7 +421,21 @@
 - [note] trivy/notes/2026-05-26-trivy-quickstart.md — Official quickstart walkthrough (L2)
 - [snippet] trivy/snippets/scan-docker-image.sh — Scan a Docker image with severity filtering (L1)
 - [script] trivy/scripts/container-vuln-scan.sh — Container image scan with CRITICAL gating (L2)
+- [script] trivy/scripts/compose-multi-scan.sh — Scan multi-service Docker Compose deployments with Trivy
 - [config] trivy/configs/trivy-scan-config.yaml — Configuration for targeted scanning (L2)
+
+## Syft
+- [note] syft/notes/0000-primer-syft.md — First-day primer on Syft SBOM generation (L1)
+- [note] syft/notes/2026-05-27-install-syft-first-sbom.md — Installing Syft and generating the first SBOM (L1)
+- [snippet] syft/snippets/tried-sbom-formats.sh — Generate SPDX and CycloneDX SBOMs with Syft (L1)
+
+## TruffleHog
+- [note] trufflehog/notes/0000-primer-trufflehog.md — First-day primer on TruffleHog (L1)
+- [note] trufflehog/notes/2026-05-27-install-trufflehog.md — Installing TruffleHog and scanning a repo (L1)
+- [note] trufflehog/notes/2026-05-27-following-trufflehog-quickstart.md — Walkthrough of the TruffleHog quickstart (L1)
+- [snippet] trufflehog/snippets/fake-secrets-test.sh — Test TruffleHog detection with fake secrets (L1)
+- [snippet] trufflehog/snippets/scan-github-repo-for-secrets.sh — Scan a GitHub repository for leaked secrets (L1)
+- [config] trufflehog/configs/trufflehog-custom-regex-config.yaml — Custom regex and entropy configuration (L1)
 
 ## Lab Projects
 - [doc] lab/mini-projects/postgresql-database-server/README.md — PostgreSQL 16 with replication
