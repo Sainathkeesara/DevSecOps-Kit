@@ -51,6 +51,7 @@
 - [Scan with Checkov (single file SDK)](../checkov/snippets/scan-a-terraform-file.py)
 - [Checkov quickstart walkthrough](../checkov/notes/2026-05-27-checkov-quickstart-trip-ups.md)
 - [Checkov skip & severity config](../checkov/configs/checkov-skip-severity-config.yaml)
+- [Checkov pre-commit hook with version pinning](../checkov/docs/pre-commit-hook-with-version-pinning.md)
 - [Custom Semgrep rule — privileged containers](../semgrep/snippets/catch-privileged-containers.yaml)
 - [Detect hardcoded secrets with Semgrep](../semgrep/scripts/detect-hardcoded-secrets.py)
 - [Scan Docker images with Trivy](../trivy/scripts/container-vuln-scan.sh)
