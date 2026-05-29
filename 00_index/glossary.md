@@ -104,6 +104,12 @@
 
 **Buildkite Agent**: Self-hosted CI agent that polls Buildkite for jobs and executes them on your own infrastructure, supporting Docker, Kubernetes, and bare-metal environments.
 
+**Syft**: Open-source tool for generating SBOMs (Software Bill of Materials) from container images and filesystems.
+
+**TruffleHog**: Open-source secret scanning tool that detects exposed credentials, API keys, and sensitive data in git repositories using regex patterns and entropy analysis.
+
+**SARIF (Static Analysis Results Interchange Format)**: OASIS standard JSON format for exchanging static analysis results, enabling scanners like Semgrep to integrate with platforms such as GitHub Code Scanning.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment
