@@ -4,6 +4,14 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-29
+
+### Added
+- checkov-010: `checkov/docs/pre-commit-hook-with-version-pinning.md` — How I wired Checkov into a pre-commit hook with version pinning (L3)
+  - Purpose → Steps → Verify shape covering pre-commit setup, version pinning, and validation
+  - .pre-commit-config.yaml template with pinned Checkov rev, --soft-fail, and --compact args
+  - Common issues section covering Docker dependency and rev tag lookup
+
 ## 2026-05-28
 
 ### Added
