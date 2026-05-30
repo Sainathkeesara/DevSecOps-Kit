@@ -15,9 +15,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Steps + Got stuck on + What I'd try next format
   - Documents output format flag confusion and quickstart omissions
 - checkov-010: `checkov/docs/pre-commit-hook-with-version-pinning.md` — How I wired Checkov into a pre-commit hook with version pinning (L3)
-  - Purpose → Steps → Verify shape covering pre-commit setup, version pinning, and validation
-  - .pre-commit-config.yaml template with pinned Checkov rev, --soft-fail, and --compact args
-  - Common issues section covering Docker dependency and rev tag lookup
+   - Purpose → Steps → Verify shape covering pre-commit setup, version pinning, and validation
+   - .pre-commit-config.yaml template with pinned Checkov rev, --soft-fail, and --compact args
+   - Common issues section covering Docker dependency and rev tag lookup
+- checkov-009: `checkov/snippets/terraform-scan-custom-policies.py` — Build a Terraform scanning project with Checkov from scratch — custom policies and framework filtering (L3)
+   - Creates sample Terraform with intentional misconfigurations (public S3 bucket, open SG)
+   - Runs Checkov SDK with framework filtering and selective check IDs
+   - Supports external custom policy directory via --policy-dir
+   - Exit non-zero on failures for CI/CD pipeline gating
 
 ## 2026-05-28
 
