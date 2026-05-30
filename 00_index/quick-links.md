@@ -37,6 +37,9 @@
 - [Jenkins failures](../docs/troubleshooting/jenkins-troubleshooting.md)
 - [Terraform errors](../docs/how-to/terraform-troubleshooting.md)
 
+## Compare semgrep scan vs semgrep ci
+- [semgrep scan vs semgrep ci comparison notebook](../semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb)
+
 ## Scan for CVEs
 - [Kubernetes CVEs](topics.md#kubernetes)
 - [Docker CVEs](topics.md#docker)
