@@ -68,6 +68,7 @@
 - [Install Syft and generate first SBOM](../syft/notes/2026-05-27-install-syft-first-sbom.md)
 - [Syft quickstart walkthrough](../syft/notes/2026-05-29-syft-quickstart-trip-ups.md)
 - [Generate SPDX + CycloneDX SBOMs](../syft/snippets/tried-sbom-formats.sh)
+- [SBOM format comparison: CycloneDX vs SPDX vs Syft JSON](../syft/notes/2026-05-30-sbom-format-comparison.md)
 
 ## Scan for leaked secrets
 - [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md)
@@ -76,6 +77,7 @@
 - [TruffleHog quickstart walkthrough](../trufflehog/notes/2026-05-27-following-trufflehog-quickstart.md)
 - [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
 - [Custom regex + entropy config for TruffleHog](../trufflehog/configs/trufflehog-custom-regex-config.yaml)
+- [Pre-commit secret scanning pipeline](../trufflehog/scripts/pre-commit-scan-pipeline.sh)
 
 ## Run a Kubernetes task
 - [k8s_toolkit usage guide](../docs/how-to/k8s_toolkit.md)

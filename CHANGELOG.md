@@ -4,6 +4,17 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-30
+
+### Added
+- syft-006: `syft/notes/2026-05-30-sbom-format-comparison.md` — Comparing CycloneDX vs SPDX vs Syft JSON SBOM output formats (L2)
+  - Steps + What I found + Got stuck on + What I'd try next format
+  - Documents format flag confusion, schema differences, and file size trade-offs
+- trufflehog-007: `trufflehog/scripts/pre-commit-scan-pipeline.sh` — Minimal pre-commit scanning pipeline with TruffleHog (L2)
+  - Scans staged files for secrets using `trufflehog filesystem`
+  - Blocks commit if any secrets detected
+  - shellcheck passed (clean)
+
 ## 2026-05-29
 
 ### Added
