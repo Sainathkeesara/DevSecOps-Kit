@@ -7,6 +7,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-30
 
 ### Added
+- trivy-006: `trivy/docs/ci-pipeline-sarif-output.md` — How I wired Trivy into a CI pipeline with SARIF output (L3)
+  - Purpose → Steps → Verify shape covering scan mode, SARIF output, GitHub Code Scanning upload, and DB caching
+  - Documents `--exit-code` + `--format sarif` interaction gotcha and split-scan workaround
+- trivy-007: `trivy/configs/.trivy.yaml` — Project-level Trivy configuration with severity filtering, DB mirror, and ignore-policy (L3)
+  - Severity thresholds, ignore-unfixed, misconfiguration checks, secret allow-rules
+  - Reference to .trivyignore for CVE-level ignores
+  - Commented DB mirror config for air-gapped environments
 - syft-006: `syft/notes/2026-05-30-sbom-format-comparison.md` — Comparing CycloneDX vs SPDX vs Syft JSON SBOM output formats (L2)
   - Steps + What I found + Got stuck on + What I'd try next format
   - Documents format flag confusion, schema differences, and file size trade-offs
