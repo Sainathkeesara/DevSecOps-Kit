@@ -62,6 +62,8 @@
 - [Scan multi-service Docker Compose with Trivy](../trivy/scripts/compose-multi-scan.sh)
 - [Automated image vulnerability scanning pipeline](../trivy/scripts/image-vuln-pipeline.sh)
 - [Trivy CI/CD pipeline integration](../docs/how-to/trivy-cicd-integration.md)
+- [Trivy CI pipeline with SARIF output](../trivy/docs/ci-pipeline-sarif-output.md)
+- [Trivy project config (.trivy.yaml)](../trivy/configs/.trivy.yaml)
 
 ## Scan for SBOM generation
 - [Syft primer](../syft/notes/0000-primer-syft.md)

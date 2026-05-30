@@ -1,0 +1,37 @@
+# Trivy project configuration
+# Auto-discovered when placed in project root, or used via trivy --config .trivy.yaml
+# Reference: https://aquasecurity.github.io/trivy/latest/docs/reference/configuration/config-file/
+
+severity:
+  - CRITICAL
+  - HIGH
+  - MEDIUM
+  - LOW
+
+scan:
+  skip-db-update: false
+  offline-scan: false
+
+vulnerability:
+  ignore-unfixed: true
+  only-fixed: false
+
+db:
+  # Mirror URL for air-gapped environments — set this or TRIVY_DB_REPOSITORY
+  # repository: registry.internal.example.com/trivy-db:latest
+
+# Trivyignore file path — one CVE or package per line
+ignorefile: .trivyignore
+
+# Rego policy file for fine-grained ignore rules
+# ignore-policy: policy/ignore.rego
+
+misconfiguration:
+  checks:
+    - AVD-DS-0001
+    - AVD-DS-0002
+
+secret:
+  allow-rules:
+    - id: standard-aws-secret-key
+      allow-empty-passwords: true
