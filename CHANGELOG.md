@@ -14,6 +14,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Scans staged files for secrets using `trufflehog filesystem`
   - Blocks commit if any secrets detected
   - shellcheck passed (clean)
+- syft-005: `syft/scripts/gen-multi-format-sboms.sh` — Multi-format SBOM generation script for container images (L2)
+  - Generates SBOMs in 7 formats: syft-json, cyclonedx-json/xml, spdx-json/tag-value, github-json, table
+  - Creates organized output directory
+  - Inline comments explain each format's use case
+  - shellcheck passed (clean)
 
 ## 2026-05-29
 

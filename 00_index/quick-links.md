@@ -68,6 +68,7 @@
 - [Install Syft and generate first SBOM](../syft/notes/2026-05-27-install-syft-first-sbom.md)
 - [Syft quickstart walkthrough](../syft/notes/2026-05-29-syft-quickstart-trip-ups.md)
 - [Generate SPDX + CycloneDX SBOMs](../syft/snippets/tried-sbom-formats.sh)
+- [Generate all Syft SBOM formats](../syft/scripts/gen-multi-format-sboms.sh)
 - [SBOM format comparison: CycloneDX vs SPDX vs Syft JSON](../syft/notes/2026-05-30-sbom-format-comparison.md)
 
 ## Scan for leaked secrets
