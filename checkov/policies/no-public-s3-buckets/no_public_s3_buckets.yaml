@@ -1,0 +1,13 @@
+metadata:
+  id: CKV_CUSTOM_1
+  name: "Ensure S3 buckets do not have public ACLs"
+  category: general
+scope:
+  provider: aws
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_s3_bucket
+  attribute: acl
+  operator: not_equals
+  value: "private"
