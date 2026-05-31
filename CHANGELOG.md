@@ -7,6 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-31
 
 ### Added
+- checkov-012: `checkov/manifests/checkov-sarif-pr-blocking.yaml` — GitHub Actions workflow for automated Checkov scanning with SARIF output and PR blocking (L3)
+  - Auto-detects IaC directories (terraform, kubernetes, k8s, docker)
+  - Produces SARIF output per target directory
+  - Uploads SARIF to GitHub Code Scanning via codeql-action/upload-sarif
+  - Fails the PR check if Checkov reports any issues
+- trivy-008: `trivy/notebooks/trivy-sarif-output-processing.ipynb` — Notebook exploring Trivy SARIF output processing and visualization (L3)
+  - Parses Trivy SARIF JSON into flat vulnerability records
+  - Groups vulnerabilities by severity and CVE
+  - Visualizes severity distribution with matplotlib bar chart
+  - Includes severity-based filtering helpers for CI gating
 - trufflehog-008: `trufflehog/scripts/multi-repo-scan-pipeline.sh` — Multi-repo TruffleHog secret scanning pipeline with JSON output aggregation (L3)
   - Accepts repo URLs from file or CLI arguments
   - Clones each repo and runs TruffleHog filesystem scan

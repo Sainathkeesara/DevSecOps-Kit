@@ -1,0 +1,67 @@
+name: Checkov SARIF scan — PR gate
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+permissions: read-all
+
+jobs:
+  checkov-scan:
+    name: Checkov infrastructure scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Checkov
+        run: pip install checkov
+
+      - name: Determine scan target
+        id: target
+        run: |
+          TARGET_DIRS=""
+          if [ -d "terraform" ]; then TARGET_DIRS="$TARGET_DIRS terraform"; fi
+          if [ -d "kubernetes" ]; then TARGET_DIRS="$TARGET_DIRS kubernetes"; fi
+          if [ -d "k8s" ]; then TARGET_DIRS="$TARGET_DIRS k8s"; fi
+          if [ -d "docker" ]; then TARGET_DIRS="$TARGET_DIRS docker"; fi
+          if [ -z "$TARGET_DIRS" ]; then
+            echo "No recognized IaC directories found — scanning root"
+            TARGET_DIRS="."
+          fi
+          echo "dirs=$TARGET_DIRS" >> "$GITHUB_OUTPUT"
+
+      - name: Run Checkov scan with SARIF output
+        id: checkov
+        continue-on-error: true
+        run: |
+          mkdir -p results
+          for dir in ${{ steps.target.outputs.dirs }}; do
+            echo "Scanning $dir ..."
+            checkov \
+              --directory "$dir" \
+              --framework terraform,kubernetes,dockerfile \
+              --output sarif \
+              --quiet \
+              --compact > "results/checkov-$(echo "$dir" | tr / _).sarif" 2>&1
+          done
+
+      - name: Upload Checkov SARIF to GitHub Code Scanning
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results
+          category: checkov
+
+      - name: Fail on checkov errors
+        if: steps.checkov.outcome != 'success'
+        run: |
+          echo "Checkov found issues — check the SARIF report or run details above"
+          exit 1
