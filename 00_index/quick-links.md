@@ -37,8 +37,8 @@
 - [Jenkins failures](../docs/troubleshooting/jenkins-troubleshooting.md)
 - [Terraform errors](../docs/how-to/terraform-troubleshooting.md)
 
-## Compare checkov scanning modes
-- [Static vs Plan JSON scanning notebook](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb)
+## Compare semgrep scan vs semgrep ci
+- [semgrep scan vs semgrep ci comparison notebook](../semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb)
 
 ## Scan for CVEs
 - [Kubernetes CVEs](topics.md#kubernetes)

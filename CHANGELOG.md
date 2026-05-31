@@ -18,6 +18,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-30
 
 ### Added
+- semgrep-010: `semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb` — Compare `semgrep scan` (local CLI) vs `semgrep ci` (cloud-augmented) findings for the same repo (L3)
+  - Purpose → Scan 1 (semgrep scan) → Scan 2 (semgrep ci) → Comparison table → Verify shape
+  - Runs semgrep scan with --config=auto, parses JSON output, groups findings by severity
+  - Explains cloud augmentation: triage, PR comments, branch tracking, rule tuning, dashboard
+  - Practical comparison when ci can't run (simulated augmentation)
+- 00_index/quick-links.md — Added semgrep scan vs ci comparison notebook entry
+
+### Added
 - trivy-006: `trivy/docs/ci-pipeline-sarif-output.md` — How I wired Trivy into a CI pipeline with SARIF output (L3)
   - Purpose → Steps → Verify shape covering scan mode, SARIF output, GitHub Code Scanning upload, and DB caching
   - Documents `--exit-code` + `--format sarif` interaction gotcha and split-scan workaround
