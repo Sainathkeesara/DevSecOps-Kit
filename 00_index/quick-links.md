@@ -78,6 +78,13 @@
 - [Generate all Syft SBOM formats](../syft/scripts/gen-multi-format-sboms.sh)
 - [SBOM format comparison: CycloneDX vs SPDX vs Syft JSON](../syft/notes/2026-05-30-sbom-format-comparison.md)
 
+## Build a Semgrep rule pack
+- [Multi-rule pack with combinators](../semgrep/configs/multi-rule-pack.yaml)
+
+## Compare scanning approaches
+- [Checkov static vs plan scanning notebook](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb)
+- [Semgrep scan vs semgrep ci notebook](../semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb)
+
 ## Scan for leaked secrets
 - [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md)
 - [Install TruffleHog and scan a repo](../trufflehog/notes/2026-05-27-install-trufflehog.md)
@@ -127,7 +134,10 @@
 
 ## Work with Kafka
 - [Kafka toolkit usage guide](../docs/how-to/kafka_toolkit.md)
-- [Topic CRUD scripts](../scripts/bash/kafka_toolkit/topics/)
+- [Topic list](../scripts/bash/kafka_toolkit/topics/topic-list.sh)
+- [Topic create](../scripts/bash/kafka_toolkit/topics/topic-create.sh)
+- [Topic config](../scripts/bash/kafka_toolkit/topics/topic-config.sh)
+- [Topic delete](../scripts/bash/kafka_toolkit/topics/topic-delete.sh)
 - [Consumer group management](../scripts/bash/kafka_toolkit/consumers/consumer-groups.sh)
 - [Consumer lag monitoring](../scripts/bash/kafka_toolkit/monitoring/consumer-lag.sh)
 - [Cluster health check](../scripts/bash/kafka_toolkit/admin/cluster-health.sh)

@@ -403,6 +403,11 @@
 - [snippet] checkov/snippets/scan-terraform-dir.py — Python SDK scan of Terraform directory
 - [snippet] checkov/snippets/scan-a-terraform-file.py — Scan a single Terraform file with Checkov SDK
 - [config] checkov/configs/checkov-skip-severity-config.yaml — Skip and severity configuration for Checkov
+- [config] checkov/configs/checkov-ci-config.yaml — CI pipeline config with framework selection
+- [manifest] checkov/manifests/checkov-sarif-pr-blocking.yaml — SARIF scan results PR gate workflow
+- [notebook] checkov/notebooks/compare-static-vs-plan-scanning.ipynb — Compare static vs plan scanning with Checkov
+- [snippet] checkov/snippets/terraform-scan-custom-policies.py — Terraform scanning project with custom Checkov policies
+- [policy] checkov/policies/no-public-s3-buckets/no_public_s3_buckets.yaml — Custom policy to deny public S3 buckets
 
 ## Semgrep
 - [note] semgrep/notes/0000-primer-semgrep.md — First-day primer on Semgrep (L1)
@@ -414,6 +419,8 @@
 - [doc] semgrep/docs/semgrep-ci-integration.md — Integrating Semgrep into CI/CD pipelines
 - [script] semgrep/scripts/detect-hardcoded-secrets.py — Python script to detect hardcoded secrets using Semgrep
 - [script] semgrep/scripts/scan-python-codebase.sh — Scan a Python codebase with custom Semgrep rules
+- [config] semgrep/configs/multi-rule-pack.yaml — Multi-rule Semgrep pack with operator combinators
+- [notebook] semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb — Compare semgrep scan vs semgrep ci approaches
 
 ## Trivy
 - [note] trivy/notes/0000-primer-trivy.md — First-day primer on Trivy (L1)
@@ -423,11 +430,18 @@
 - [script] trivy/scripts/container-vuln-scan.sh — Container image scan with CRITICAL gating (L2)
 - [script] trivy/scripts/compose-multi-scan.sh — Scan multi-service Docker Compose deployments with Trivy
 - [config] trivy/configs/trivy-scan-config.yaml — Configuration for targeted scanning (L2)
+- [config] trivy/configs/.trivy.yaml — Trivy project-level default configuration
+- [doc] trivy/docs/ci-pipeline-sarif-output.md — CI pipeline with SARIF output integration
+- [notebook] trivy/notebooks/trivy-sarif-output-processing.ipynb — Trivy SARIF output processing and analysis
+- [script] trivy/scripts/image-vuln-pipeline.sh — Automated image vulnerability scanning pipeline
 
 ## Syft
 - [note] syft/notes/0000-primer-syft.md — First-day primer on Syft SBOM generation (L1)
 - [note] syft/notes/2026-05-27-install-syft-first-sbom.md — Installing Syft and generating the first SBOM (L1)
 - [snippet] syft/snippets/tried-sbom-formats.sh — Generate SPDX and CycloneDX SBOMs with Syft (L1)
+- [note] syft/notes/2026-05-29-syft-quickstart-trip-ups.md — Quickstart walkthrough and common pitfalls (L1)
+- [note] syft/notes/2026-05-30-sbom-format-comparison.md — CycloneDX vs SPDX vs Syft JSON format comparison (L1)
+- [script] syft/scripts/gen-multi-format-sboms.sh — Generate SBOMs in all supported Syft formats
 
 ## TruffleHog
 - [note] trufflehog/notes/0000-primer-trufflehog.md — First-day primer on TruffleHog (L1)
@@ -436,6 +450,9 @@
 - [snippet] trufflehog/snippets/fake-secrets-test.sh — Test TruffleHog detection with fake secrets (L1)
 - [snippet] trufflehog/snippets/scan-github-repo-for-secrets.sh — Scan a GitHub repository for leaked secrets (L1)
 - [config] trufflehog/configs/trufflehog-custom-regex-config.yaml — Custom regex and entropy configuration (L1)
+- [config] trufflehog/configs/custom-detector-rules.yaml — Custom detector rules for proprietary secret patterns
+- [script] trufflehog/scripts/multi-repo-scan-pipeline.sh — Multi-repo secret scanning pipeline
+- [script] trufflehog/scripts/pre-commit-scan-pipeline.sh — Pre-commit secret scanning pipeline
 
 ## Lab Projects
 - [doc] lab/mini-projects/postgresql-database-server/README.md — PostgreSQL 16 with replication

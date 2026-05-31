@@ -108,6 +108,18 @@
 
 **TruffleHog**: Open-source secret scanning tool that detects exposed credentials, API keys, and sensitive data in git repositories using regex patterns and entropy analysis.
 
+**SBOM (Software Bill of Materials)**: A machine-readable inventory of software components and dependencies used in an application, commonly generated in CycloneDX or SPDX formats by tools like Syft.
+
+**CycloneDX**: OWASP standard lightweight SBOM format for software component identification and dependency analysis, commonly used for supply chain security.
+
+**SPDX (Software Package Data Exchange)**: ISO standard format for exchanging SBOM information, developed by the Linux Foundation for license compliance and security use cases.
+
+**Rule pack (Semgrep)**: A collection of Semgrep rules combined with logical operators (AND, OR, NOT) to create composable scanning patterns for complex code analysis.
+
+**Custom detector (TruffleHog)**: A user-defined YAML-based rule that extends TruffleHog's secret detection to match proprietary or organization-specific secret patterns using regex and entropy thresholds.
+
+**Plan scanning (Checkov)**: Analyzing a Terraform plan output (not just source code) with Checkov to catch misconfigurations that only become visible after variable interpolation and resource resolution.
+
 **SARIF (Static Analysis Results Interchange Format)**: OASIS standard JSON format for exchanging static analysis results, enabling scanners like Semgrep to integrate with platforms such as GitHub Code Scanning.
 
 ## Acronyms
