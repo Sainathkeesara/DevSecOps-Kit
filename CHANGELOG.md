@@ -20,6 +20,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - trufflehog-010: `trufflehog/configs/custom-detector-rules.yaml` — Custom TruffleHog detector rules for proprietary credential patterns (L3)
   - Seven custom detectors: API gateway token, VPN cert key, package registry token, mTLS cert serial, proprietary license key, webhook secret, build signing key
   - Entropy tuning adjusted for shorter proprietary patterns
+- semgrep-011: `semgrep/configs/multi-rule-pack.yaml` — Multi-rule Semgrep YAML pack with combinators and test annotations (L3)
+  - Five rules demonstrating pattern-either, patterns, pattern-inside, pattern-not, and pattern-regex
+  - Covers: dangerous subprocess calls, SQL injection via f-strings, hardcoded AWS secrets, exposed debug endpoints, assert on user input
+  - Includes test annotation documentation for semgrep --test workflow
+  - CWE metadata annotated per rule
+- checkov-010: `checkov/configs/checkov-ci-config.yaml` — Checkov CI config with framework selection, skip-list, CI-optimized settings (L3)
+  - Framework scoped to terraform, kubernetes, dockerfile
+  - Skip-list suppresses Docker, GHA, and secrets checks handled by other tools
+  - CI-optimized: compact, quiet, soft_fail=false for pipeline gating
 
 ## 2026-05-30
 
