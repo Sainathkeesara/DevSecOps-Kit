@@ -84,6 +84,7 @@
 - [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
 - [Custom regex + entropy config for TruffleHog](../trufflehog/configs/trufflehog-custom-regex-config.yaml)
 - [Pre-commit secret scanning pipeline](../trufflehog/scripts/pre-commit-scan-pipeline.sh)
+- [Multi-repo secret scanning pipeline](../trufflehog/scripts/multi-repo-scan-pipeline.sh)
 - [Custom detector rules for proprietary patterns](../trufflehog/configs/custom-detector-rules.yaml)
 
 ## Run a Kubernetes task
