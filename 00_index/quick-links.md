@@ -40,6 +40,9 @@
 ## Compare semgrep scan vs semgrep ci
 - [semgrep scan vs semgrep ci comparison notebook](../semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb)
 
+## Scan with Checkov (CI/CD)
+- [Checkov SARIF scan — PR gate workflow](../checkov/manifests/checkov-sarif-pr-blocking.yaml)
+
 ## Scan for CVEs
 - [Kubernetes CVEs](topics.md#kubernetes)
 - [Docker CVEs](topics.md#docker)
@@ -69,6 +72,7 @@
 - [Trivy CI/CD pipeline integration](../docs/how-to/trivy-cicd-integration.md)
 - [Trivy CI pipeline with SARIF output](../trivy/docs/ci-pipeline-sarif-output.md)
 - [Trivy project config (.trivy.yaml)](../trivy/configs/.trivy.yaml)
+- [Trivy SARIF output processing notebook](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
 
 ## Scan for SBOM generation
 - [Syft primer](../syft/notes/0000-primer-syft.md)
