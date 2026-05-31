@@ -1,0 +1,89 @@
+# Checkov CI config — framework selection, skip-list, CI-optimized settings
+#
+# Reference: https://www.checkov.io/2.Basics/Configuring%20Checkov%20with%20a%20config%20file/
+#
+# Usage:
+#   checkov --config checkov-ci-config.yaml -d <target>
+#   # or copy to project root as .checkov.yaml for auto-discovery
+
+# Framework selection — limit to IaC types used in this project.
+# Available: terraform, cloudformation, kubernetes, dockerfile,
+#            arm, bicef, secrets, helm, all
+# Using only what's relevant speeds up scans and reduces noise.
+framework:
+  - terraform
+  - kubernetes
+  - dockerfile
+
+# CI-optimized: compact output groups results by resource,
+# keeping pipeline logs manageable even for large projects
+compact: true
+
+# Quiet mode — only print failed checks, skip pass/skip lines
+quiet: true
+
+# Exit non-zero on findings — blocks the CI pipeline step
+# if any check fails. Set to false for non-blocking scans.
+soft_fail: false
+
+# Soft-fail specific checks — allow these to fail without
+# blocking the pipeline. Useful for known issues you're
+# tracking but don't want to block deploys on.
+soft_fail_checks: []
+
+# Skip-list — suppress noisy check IDs that don't apply
+# to this project's threat model or have known false positives.
+# Check IDs are found in the Checkov output (CKV_*).
+skip_check:
+  # Docker checks — handled separately by Trivy in the pipeline
+  - CKV_DOCKER_1
+  - CKV_DOCKER_2
+  - CKV_DOCKER_3
+  - CKV_DOCKER_4
+  - CKV_DOCKER_5
+  - CKV_DOCKER_6
+  - CKV_DOCKER_7
+  - CKV_DOCKER_8
+  - CKV_DOCKER_9
+  - CKV_DOCKER_10
+  - CKV_DOCKER_11
+  - CKV_DOCKER_12
+  - CKV_DOCKER_13
+  - CKV_DOCKER_14
+  - CKV_DOCKER_15
+  - CKV_DOCKER_16
+  - CKV_DOCKER_17
+  - CKV_DOCKER_18
+  - CKV_DOCKER_19
+  - CKV_DOCKER_20
+  - CKV_DOCKER_21
+  - CKV_DOCKER_22
+
+  # GitHub Actions checks — we don't use GHA for IaC workflows
+  - CKV_GHA_1
+  - CKV_GHA_2
+  - CKV_GHA_3
+  - CKV_GHA_4
+  - CKV_GHA_5
+  - CKV_GHA_6
+  - CKV_GHA_7
+
+  # Secrets checks — covered by TruffleHog in CI; Checkov's
+  # secret detection is less thorough and produces false positives
+  # on test fixture files
+  - CKV_SECRET_1
+  - CKV_SECRET_2
+  - CKV_SECRET_3
+  - CKV_SECRET_4
+  - CKV_SECRET_5
+  - CKV_SECRET_6
+
+# Output to SARIF for GitHub Code Scanning integration
+# Optional: uncomment to enable SARIF output
+# output_format: sarif
+# output_file_path: checkov-results.sarif
+
+# Download and use external policy packs
+# Optional: point at a Git repo with custom policies
+# external_checks_dirs:
+#   - policies/checkov/

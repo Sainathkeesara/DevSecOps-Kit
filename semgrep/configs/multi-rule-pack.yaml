@@ -1,0 +1,132 @@
+# Multi-rule Semgrep pack — combinators and test annotations
+#
+# A collection of security rules demonstrating Semgrep's rule combinators:
+#   pattern-either   — match any of several patterns (OR)
+#   patterns         — require all sub-patterns to match (AND)
+#   pattern-inside   — restrict matches to a parent context
+#   pattern-not      — exclude matches that also match a sub-pattern
+#   pattern-regex    — fall back to PCRE regex when pattern syntax isn't enough
+#
+# Usage:
+#   semgrep --config=multi-rule-pack.yaml <target>
+#
+# Test annotations (for semgrep --test):
+#   Place test files in tests/ next to this file. Annotate lines:
+#   # ruleid: <rule-id>   — this line MUST be flagged
+#   # ok: <rule-id>       — this line MUST NOT be flagged
+#   # todoruleid: <id>    — known FP, should fix eventually
+#   # todook: <id>        — known miss, should fix eventually
+#   Run: semgrep --test --config multi-rule-pack.yaml tests/
+#
+# Reference: https://semgrep.dev/docs/writing-rules/rule-syntax/
+
+rules:
+  - id: dangerous-subprocess-call
+    severity: ERROR
+    languages: [python]
+    message: >-
+      Dangerous subprocess call with shell=True — vulnerable to shell
+      injection. Prefer passing args as a list to subprocess.run().
+    patterns:
+      - pattern-either:
+          - pattern: subprocess.Popen(..., shell=True, ...)
+          - pattern: subprocess.call(..., shell=True, ...)
+          - pattern: subprocess.check_call(..., shell=True, ...)
+          - pattern: os.system(...)
+      - pattern-not: subprocess.call(..., shell=False, ...)
+    # pattern-either acts as OR across four call patterns.
+    # pattern-not filters out the explicit shell=False case.
+    # This approach catches the common unsafe subprocess patterns
+    # while still allowing subprocess.run with shell=False.
+    metadata:
+      category: security
+      technology: python
+      cwe: "CWE-78: OS Command Injection"
+
+  - id: sql-injection-fstring
+    severity: ERROR
+    languages: [python]
+    message: >-
+      SQL query built with f-string or concatenation inside .execute()
+      — risk of SQL injection. Use parameterized queries with
+      cursor.execute(sql, params) instead.
+    patterns:
+      - pattern-inside: |
+          $CURSOR.execute(...)
+      - pattern-either:
+          - pattern: $CURSOR.execute(f"...")
+          - pattern: $CURSOR.execute("..." % ...)
+          - pattern: $CURSOR.execute("..." + ...)
+          - pattern: $CURSOR.execute("...".format(...))
+    # pattern-inside limits the scope to calls to .execute()
+    # so the rule doesn't fire on unrelated f-strings elsewhere.
+    # The docs also suggest adding pattern-not for ORM wrappers,
+    # though no false-positive case has surfaced for that yet.
+    metadata:
+      category: security
+      technology: python
+      cwe: "CWE-89: SQL Injection"
+
+  - id: hardcoded-aws-secret
+    severity: WARNING
+    languages: [python]
+    message: >-
+      Possible hardcoded AWS secret access key. Use environment variables
+      or a secrets manager like AWS Secrets Manager instead.
+    patterns:
+      - pattern-either:
+          - pattern-regex: (?i)aws_secret_access_key\s*=\s*['\"][A-Za-z0-9/+=]{40}['\"]
+          - pattern: |
+              $VAR = "..."
+          - pattern: |
+              $VAR = "..." + "..."
+      - pattern-inside: |
+          $VAR = "..."
+    # pattern-regex catches the concrete secret format while
+    # the YAML patterns catch variable assignments that look
+    # like they're constructing a secret key. The pattern-inside
+    # keeps matches scoped to assignment contexts.
+    metadata:
+      category: security
+      technology: python
+      cwe: "CWE-798: Hardcoded Credentials"
+
+  - id: debug-endpoint-exposed
+    severity: WARNING
+    languages: [python]
+    message: >-
+      Debug or dev-only endpoint exposed. Remove or gate with a
+      feature flag before deploying to production.
+    patterns:
+      - pattern-inside: |
+          @$APP.route(...)
+      - pattern-either:
+          - pattern: @$APP.route("/debug")
+          - pattern: @$APP.route("/dev")
+          - pattern: @$APP.route("/test")
+          - pattern: @$APP.route("/admin/reset")
+    # pattern-inside ensures we only match inside a Flask route
+    # decorator, not on strings that happen to contain "/debug".
+    # $APP is a metavariable that matches any Flask app variable.
+    metadata:
+      category: security
+      technology: flask
+      cwe: "CWE-489: Debug Backdoor"
+
+  - id: assert-on-user-input
+    severity: WARNING
+    languages: [python]
+    message: >-
+      assert used on user-controlled data. Asserts are stripped
+      when Python runs with -O (optimized), making this a no-op
+      in production. Use an explicit if/raise instead.
+    patterns:
+      - pattern: assert $USER_INPUT, ...
+    # Simple single-pattern rule included here for comparison —
+    # not every rule needs combinators. The comma after $USER_INPUT
+    # ensures we're matching the two-argument form of assert that
+    # includes a message, not a bare assert condition.
+    metadata:
+      category: security
+      technology: python
+      cwe: "CWE-617: Reachable Assertion"
