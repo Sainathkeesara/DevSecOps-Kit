@@ -4,6 +4,17 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-05-31
+
+### Added
+- checkov-011: `checkov/notebooks/compare-static-vs-plan-scanning.ipynb` — Notebook comparing static directory scan vs Terraform plan JSON scanning in Checkov (L3)
+  - Purpose → Steps → Verify shape covering both scan modes
+  - Creates sample Terraform project with intentional misconfigurations
+  - Compares failed checks and notes where plan scanning catches resolved variable issues
+- trufflehog-010: `trufflehog/configs/custom-detector-rules.yaml` — Custom TruffleHog detector rules for proprietary credential patterns (L3)
+  - Seven custom detectors: API gateway token, VPN cert key, package registry token, mTLS cert serial, proprietary license key, webhook secret, build signing key
+  - Entropy tuning adjusted for shorter proprietary patterns
+
 ## 2026-05-30
 
 ### Added

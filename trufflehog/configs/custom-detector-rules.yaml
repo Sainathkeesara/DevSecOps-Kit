@@ -1,0 +1,75 @@
+# Custom TruffleHog detector rules for proprietary credential patterns
+#
+# Default detectors cover well-known formats (AWS keys, GitHub tokens, etc.)
+# but organizations often have internal credential patterns that slip through.
+# This config adds detectors for company-specific formats.
+#
+# Usage:
+#   trufflehog filesystem --config=custom-detector-rules.yaml <path>
+#   trufflehog git --config=custom-detector-rules.yaml file://<repo>
+
+custom_detectors:
+  # Internal API gateway uses a "gw-token-" prefix followed by 40 hex chars
+  # — not caught by any default TruffleHog detector
+  - name: "API gateway token"
+    regex:
+      pattern: "gw-token-[0-9a-f]{40}"
+    keywords:
+      - "gw-token"
+
+  # Corporate VPN client certificates embedded in config files use a
+  # "vpn-cert-" prefix — these leak in dotfiles repos
+  - name: "VPN client certificate key"
+    regex:
+      pattern: "vpn-cert-[A-Za-z0-9+/=]{40,60}"
+    keywords:
+      - "vpn-cert"
+
+  # Internal npm/GitHub Packages registry tokens scoped to the org.
+  # Format varies by registry but follows a known prefix+suffix pattern.
+  - name: "Internal package registry token"
+    regex:
+      pattern: "acmecorp_registry_[A-Za-z0-9]{32}"
+    keywords:
+      - "acmecorp_registry"
+
+  # Service mesh mTLS certificate serial numbers in environment files
+  # — these get committed to .env.example files and debug logs
+  - name: "mTLS certificate serial"
+    regex:
+      pattern: "mtls-serial-[0-9a-f]{16,32}"
+    keywords:
+      - "mtls-serial"
+
+  # Proprietary license keys for internal tools follow a structured format:
+  # 5-char product code + dash + 4 groups of 5 uppercase alphanumeric chars
+  - name: "Proprietary license key"
+    regex:
+      pattern: "[A-Z]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}"
+    keywords:
+      - "license"
+      - "-key"
+
+  # Internal webhook secrets use a "whsec_" prefix followed by base64
+  # — similar to Stripe/Svix webhook secrets but with a custom prefix
+  - name: "Internal webhook secret"
+    regex:
+      pattern: "whsec_[A-Za-z0-9+/=]{24,48}"
+    keywords:
+      - "whsec_"
+
+  # Build system signing keys — used to sign internal packages
+  - name: "Build signing key"
+    regex:
+      pattern: "buildkey-[0-9a-f]{64}"
+    keywords:
+      - "buildkey"
+
+entropy:
+  # Lowering the default char threshold slightly (from 12 in the prev config
+  # back toward 10) because proprietary patterns tend to be shorter than
+  # generic secrets. Shannon entropy stays at 5.0 to filter UUIDs.
+  min_chars: 10
+  min_shannon: 5.0
+
+verify: false
