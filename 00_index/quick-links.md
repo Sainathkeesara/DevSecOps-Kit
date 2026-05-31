@@ -37,6 +37,9 @@
 - [Jenkins failures](../docs/troubleshooting/jenkins-troubleshooting.md)
 - [Terraform errors](../docs/how-to/terraform-troubleshooting.md)
 
+## Compare checkov scanning modes
+- [Static vs Plan JSON scanning notebook](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb)
+
 ## Scan for CVEs
 - [Kubernetes CVEs](topics.md#kubernetes)
 - [Docker CVEs](topics.md#docker)
@@ -81,6 +84,7 @@
 - [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
 - [Custom regex + entropy config for TruffleHog](../trufflehog/configs/trufflehog-custom-regex-config.yaml)
 - [Pre-commit secret scanning pipeline](../trufflehog/scripts/pre-commit-scan-pipeline.sh)
+- [Custom detector rules for proprietary patterns](../trufflehog/configs/custom-detector-rules.yaml)
 
 ## Run a Kubernetes task
 - [k8s_toolkit usage guide](../docs/how-to/k8s_toolkit.md)
