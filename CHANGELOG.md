@@ -7,6 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-31
 
 ### Added
+- trufflehog-008: `trufflehog/scripts/multi-repo-scan-pipeline.sh` — Multi-repo TruffleHog secret scanning pipeline with JSON output aggregation (L3)
+  - Accepts repo URLs from file or CLI arguments
+  - Clones each repo and runs TruffleHog filesystem scan
+  - Aggregates results into a single JSON report with plain-text summary
+  - Groups findings by detector type (requires jq)
+  - shellcheck passed (clean)
 - checkov-011: `checkov/notebooks/compare-static-vs-plan-scanning.ipynb` — Notebook comparing static directory scan vs Terraform plan JSON scanning in Checkov (L3)
   - Purpose → Steps → Verify shape covering both scan modes
   - Creates sample Terraform project with intentional misconfigurations
