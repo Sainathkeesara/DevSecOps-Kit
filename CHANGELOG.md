@@ -7,6 +7,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-05-31
 
 ### Added
+- grype-001: `grype/notes/0000-primer-grype.md` — Grype quick primer (L1)
+  - First-person scratchy notes covering what Grype is, SBOM scanning, key terminology (SBOM, CPE, severity, match), and a minimal example
+- grype-002: `grype/notes/2026-05-31-install-grype.md` — Installing Grype and running my first vulnerability scan (L1)
+  - First-person walkthrough covering install, alpine/debian scan, and what tripped me up (bundled Syft, --only-fixed, node_modules)
+- grype-003: `grype/snippets/my-first-grype-commands.sh` — Minimal bash snippet for scanning images and SBOMs (L1)
+  - Scans alpine:latest, filters by --only-fixed, generates SBOM with Syft and scans it offline
+  - shellcheck passed (clean)
 - checkov-012: `checkov/manifests/checkov-sarif-pr-blocking.yaml` — GitHub Actions workflow for automated Checkov scanning with SARIF output and PR blocking (L3)
   - Auto-detects IaC directories (terraform, kubernetes, k8s, docker)
   - Produces SARIF output per target directory

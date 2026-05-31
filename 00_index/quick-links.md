@@ -74,6 +74,11 @@
 - [Trivy project config (.trivy.yaml)](../trivy/configs/.trivy.yaml)
 - [Trivy SARIF output processing notebook](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
 
+## Scan with Grype
+- [Grype primer](../grype/notes/0000-primer-grype.md)
+- [Install Grype and run first scan](../grype/notes/2026-05-31-install-grype.md)
+- [My first Grype commands](../grype/snippets/my-first-grype-commands.sh)
+
 ## Scan for SBOM generation
 - [Syft primer](../syft/notes/0000-primer-syft.md)
 - [Install Syft and generate first SBOM](../syft/notes/2026-05-27-install-syft-first-sbom.md)
