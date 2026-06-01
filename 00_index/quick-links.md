@@ -85,6 +85,8 @@
 - [Syft quickstart walkthrough](../syft/notes/2026-05-29-syft-quickstart-trip-ups.md)
 - [Generate SPDX + CycloneDX SBOMs](../syft/snippets/tried-sbom-formats.sh)
 - [Generate all Syft SBOM formats](../syft/scripts/gen-multi-format-sboms.sh)
+- [Multi-image SBOM pipeline](../syft/scripts/multi-image-sbom-pipeline.sh)
+- [Syft configuration (.syft.yaml)](../syft/configs/.syft.yaml)
 - [SBOM format comparison: CycloneDX vs SPDX vs Syft JSON](../syft/notes/2026-05-30-sbom-format-comparison.md)
 
 ## Build a Semgrep rule pack
