@@ -7,10 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-01
 
 ### Added
+- trivy-011: `trivy/docs/ci-cd-pipeline-recipes.md` — Trivy CI/CD pipeline integration recipes for GitHub Actions, GitLab CI, and Jenkins (L4)
+  - Matrix scan workflow for GitHub Actions with parallel image/fs/config scanning and SARIF upload
+  - GitLab CI multi-stage scanning job with SAST report artifacts and severity gating
+  - Jenkins declarative pipeline with post-action email notification on failure
+  - Caching strategies per platform to avoid repeated vulnerability DB downloads
 - trivy-009: `trivy/templates/trivy-monorepo-scanner/` — Project scaffold: Trivy monorepo scanner with CI integration (L4)
   - Template directory with trivy.yaml, Makefile, .trivyignore, scan-all.sh entry point
   - CI workflow (ci-scan.yml) with SARIF upload to GitHub code scanning
   - Multi-target scanning: container images, filesystem paths, Git history
+  - Final audit score: 9/10 (Merged)
 - trivy-010: `trivy/dockerfiles/custom-policies.Dockerfile` — Containerized Trivy scanning environment with custom policies (L4)
   - Dockerfile that builds an image containing Trivy with support for custom Rego policies
   - Uses Alpine Linux base with non-root user for security
