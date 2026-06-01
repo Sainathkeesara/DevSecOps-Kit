@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-01
 
 ### Added
+- trivy-010: `trivy/dockerfiles/custom-policies.Dockerfile` — Containerized Trivy scanning environment with custom policies (L4)
+  - Dockerfile that builds an image containing Trivy with support for custom Rego policies
+  - Uses Alpine Linux base with non-root user for security
+  - Includes binary validation via SHA256 checksum
+  - Configures proper directories and permissions for policies and cache
 - syft-002: `syft/scripts/multi-image-sbom-pipeline.sh` — Multi-image SBOM generation pipeline with Syft (L3)
   - Accepts images from CLI args or a file (`--from-file`)
   - Generates CycloneDX JSON and SPDX JSON for each image
