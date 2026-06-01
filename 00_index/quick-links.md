@@ -74,6 +74,7 @@
 - [Trivy project config (.trivy.yaml)](../trivy/configs/.trivy.yaml)
 - [Trivy SARIF output processing notebook](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
 - [Containerized Trivy scanning environment with custom policies (Dockerfile)](../trivy/dockerfiles/custom-policies.Dockerfile)
+- [Trivy monorepo scanner scaffold (template)](../trivy/templates/trivy-monorepo-scanner/)
 
 ## Scan with Grype
 - [Grype primer](../grype/notes/0000-primer-grype.md)

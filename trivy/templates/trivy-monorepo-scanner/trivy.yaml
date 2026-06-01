@@ -1,0 +1,27 @@
+# Trivy monorepo scanner configuration
+# Edit these lists to match your monorepo layout.
+
+images:
+  - name: "service-a:latest"
+    dockerfile: "services/service-a/Dockerfile"
+  - name: "service-b:latest"
+    dockerfile: "services/service-b/Dockerfile"
+
+fs-paths:
+  - path: "services/service-a"
+  - path: "services/service-b"
+  - path: "infrastructure/terraform"
+
+git-paths:
+  - path: "."
+
+severity: "HIGH,CRITICAL"
+
+output-dir: "trivy-results"
+
+scan:
+  skip-dirs:
+    - "node_modules"
+    - ".git"
+    - "vendor"
+  timeout: "10m"

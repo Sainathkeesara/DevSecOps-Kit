@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-01
 
 ### Added
+- trivy-009: `trivy/templates/trivy-monorepo-scanner/` — Project scaffold: Trivy monorepo scanner with CI integration (L4)
+  - Template directory with trivy.yaml, Makefile, .trivyignore, scan-all.sh entry point
+  - CI workflow (ci-scan.yml) with SARIF upload to GitHub code scanning
+  - Multi-target scanning: container images, filesystem paths, Git history
 - trivy-010: `trivy/dockerfiles/custom-policies.Dockerfile` — Containerized Trivy scanning environment with custom policies (L4)
   - Dockerfile that builds an image containing Trivy with support for custom Rego policies
   - Uses Alpine Linux base with non-root user for security

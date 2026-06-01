@@ -1,0 +1,5 @@
+# Add false-positive or accepted-risk vulnerabilities here.
+# Format: <vulnerability-id> [optional comment]
+#
+# Example:
+# CVE-2023-12345  # Accepted risk — mitigated by network policy
