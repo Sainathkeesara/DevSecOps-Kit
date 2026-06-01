@@ -73,6 +73,7 @@
 - [Trivy CI pipeline with SARIF output](../trivy/docs/ci-pipeline-sarif-output.md)
 - [Trivy project config (.trivy.yaml)](../trivy/configs/.trivy.yaml)
 - [Trivy SARIF output processing notebook](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
+- [Containerized Trivy scanning environment with custom policies (Dockerfile)](../trivy/dockerfiles/custom-policies.Dockerfile)
 
 ## Scan with Grype
 - [Grype primer](../grype/notes/0000-primer-grype.md)
