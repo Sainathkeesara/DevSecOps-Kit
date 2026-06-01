@@ -4,6 +4,19 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-01
+
+### Added
+- syft-002: `syft/scripts/multi-image-sbom-pipeline.sh` — Multi-image SBOM generation pipeline with Syft (L3)
+  - Accepts images from CLI args or a file (`--from-file`)
+  - Generates CycloneDX JSON and SPDX JSON for each image
+  - Error handling per image so one failure doesn't stop the batch
+  - shellcheck passed (clean)
+- syft-003: `syft/configs/.syft.yaml` — Syft configuration with cataloger and output preferences (L3)
+  - Selects relevant catalogers (python, javascript, ruby, java, go, rust, dpkg, rpm, apk, port)
+  - Excludes node_modules, __pycache__, .git
+  - Default output formats: cyclonedx-json + spdx-json
+
 ## 2026-05-31
 
 ### Added
