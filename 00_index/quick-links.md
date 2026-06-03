@@ -104,6 +104,7 @@
 - [Install TruffleHog and scan a repo](../trufflehog/notes/2026-05-27-install-trufflehog.md)
 - [Test fake secrets scan with TruffleHog](../trufflehog/snippets/fake-secrets-test.sh)
 - [TruffleHog quickstart walkthrough](../trufflehog/notes/2026-05-27-following-trufflehog-quickstart.md)
+- [Comparing TruffleHog scan modes: git vs filesystem vs S3](../trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md)
 - [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
 - [Custom regex + entropy config for TruffleHog](../trufflehog/configs/trufflehog-custom-regex-config.yaml)
 - [Pre-commit secret scanning pipeline](../trufflehog/scripts/pre-commit-scan-pipeline.sh)
