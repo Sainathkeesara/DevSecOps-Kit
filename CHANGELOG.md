@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-03
+
+### Added
+- trufflehog-009: `trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md` — Comparing TruffleHog scan modes: git history vs filesystem vs S3 buckets (L3)
+  - Covers each scan mode's purpose, CLI usage, and tradeoffs
+  - Includes code examples for git, filesystem, and S3 modes
+  - Practical guidance on when to use which mode
+  - Common errors section based on real usage
+
 ## 2026-06-01
 
 ### Added
