@@ -15,7 +15,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Per-target SARIF + JSON output with severity filtering
   - Aggregate summary with pass/fail reporting
   - shellcheck passed (clean)
-- 00_index/quick-links.md — Added Vault section with primer entry
+- grype-005: `grype/scripts/minimal-grype-scan.sh` — Minimal Grype scan: vulnerability analysis of a local container image (L2, rework)
+  - Scans an image with --only-fixed and --fail-on high
+  - Produces both table (human-readable) and JSON (machine-readable) output
+  - shellcheck passed (clean)
+- grype-007: `grype/notes/2026-06-04-grype-quickstart-trip-ups.md` — Following the official Grype quickstart and what tripped me up (L2)
+  - Covers DB download timing, node_modules scan surprise, SBOM path syntax gotcha, Trivy comparison notes
+  - Steps + Got stuck on + What I'd try next format
+- 00_index/quick-links.md — Added Vault section with primer entry, added Grype script and quickstart notes entries
 
 ## 2026-06-03
 
