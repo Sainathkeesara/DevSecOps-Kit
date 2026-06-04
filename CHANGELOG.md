@@ -10,6 +10,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - vault-001: `vault/notes/0000-primer-vault.md` — HashiCorp Vault quick primer (L1)
   - First-person scratchy primer covering what Vault is, key terminology (secret, path, policy, token, seal/unseal, engine), and a minimal CLI example
   - Primer structure: What is it, What does it do, Why does it exist, Key terminology, Tiny example, Next steps
+- trivy-012: `trivy/scripts/multi-target-scanner.sh` — Multi-target Trivy scanner wrapping image, filesystem, and Git repo scans (L4)
+  - Accepts targets in `type:value` format: `image:`, `fs:`, `repo:`
+  - Per-target SARIF + JSON output with severity filtering
+  - Aggregate summary with pass/fail reporting
+  - shellcheck passed (clean)
 - 00_index/quick-links.md — Added Vault section with primer entry
 
 ## 2026-06-03
