@@ -4,6 +4,14 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-04
+
+### Added
+- vault-001: `vault/notes/0000-primer-vault.md` — HashiCorp Vault quick primer (L1)
+  - First-person scratchy primer covering what Vault is, key terminology (secret, path, policy, token, seal/unseal, engine), and a minimal CLI example
+  - Primer structure: What is it, What does it do, Why does it exist, Key terminology, Tiny example, Next steps
+- 00_index/quick-links.md — Added Vault section with primer entry
+
 ## 2026-06-03
 
 ### Added

@@ -111,6 +111,9 @@
 - [Multi-repo secret scanning pipeline](../trufflehog/scripts/multi-repo-scan-pipeline.sh)
 - [Custom detector rules for proprietary patterns](../trufflehog/configs/custom-detector-rules.yaml)
 
+## Manage secrets with Vault
+- [Vault primer](../vault/notes/0000-primer-vault.md)
+
 ## Run a Kubernetes task
 - [k8s_toolkit usage guide](../docs/how-to/k8s_toolkit.md)
 - [Context switcher](../scripts/bash/k8s_toolkit/context/context-manager.sh)
