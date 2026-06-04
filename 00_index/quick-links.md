@@ -81,6 +81,7 @@
 - [Grype primer](../grype/notes/0000-primer-grype.md)
 - [Install Grype and run first scan](../grype/notes/2026-05-31-install-grype.md)
 - [My first Grype commands](../grype/snippets/my-first-grype-commands.sh)
+- [Minimal Grype scan script](../grype/snippets/minimal-grype-scan.sh)
 
 ## Scan for SBOM generation
 - [Syft primer](../syft/notes/0000-primer-syft.md)

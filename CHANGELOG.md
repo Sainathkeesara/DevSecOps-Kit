@@ -7,6 +7,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-04
 
 ### Added
+- grype-005: `grype/snippets/minimal-grype-scan.sh` — Minimal Grype scan script for local container image vulnerability scanning (L2)
+  - Scans images with `--only-fixed` flag for fixable vulnerabilities
+  - Outputs JSON results, counts critical findings with jq
+  - Exit non-zero on critical issues for CI/CD pipeline gating
+- trivy-011: `trivy/docs/ci-cd-pipeline-recipes.md` — Enhanced Trivy CI/CD pipeline integration recipes (L4)
+  - Added "When to use" and "Prerequisites" sections
+  - Added "Common errors" section with 5 real-world gotchas
+  - Added "References" section with documentation links
+
+## 2026-06-04
+
+### Added
 - vault-001: `vault/notes/0000-primer-vault.md` — HashiCorp Vault quick primer (L1)
   - First-person scratchy primer covering what Vault is, key terminology (secret, path, policy, token, seal/unseal, engine), and a minimal CLI example
   - Primer structure: What is it, What does it do, Why does it exist, Key terminology, Tiny example, Next steps

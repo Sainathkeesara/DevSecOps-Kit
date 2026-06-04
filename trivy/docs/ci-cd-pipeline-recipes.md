@@ -4,6 +4,18 @@
 
 Trivy fits into CI/CD pipelines at several stages: post-build image scanning, filesystem scanning on the repository, IaC misconfiguration checks, and secret scanning. Each CI platform has its own syntax for orchestration, but the Trivy commands are portable. This doc covers repeatable recipes for GitHub Actions, GitLab CI, and Jenkins — with caching, severity gating, and SARIF upload.
 
+## When to use
+
+Use these recipes when you need to integrate vulnerability scanning into build pipelines where developers can act on findings. SARIF upload to GitHub Code Scanning or GitLab SAST makes findings visible inline on pull requests and merge requests. Severity gating ensures critical issues block deployment. Matrix scanning parallelizes multiple target types (image, config, filesystem) to avoid sequential scan time.
+
+## Prerequisites
+
+- Trivy installed in CI runner (official script or pre-baked image)
+- CI platform access to vulnerability database (outbound HTTPS to `github.com` or mirrored DB)
+- For GitHub Actions: `github/codeql-action/upload-sarif` action available
+- For GitLab CI: SAST license or `sast` report type enabled
+- For Jenkins: Pipeline plugin and `emailext` step for notifications (optional)
+
 ## Steps
 
 ### 1. GitHub Actions — full matrix scan
@@ -168,3 +180,16 @@ This cuts scan time from ~30s to under 5s.
 3. Check the CI platform's security tab (GitHub Code Scanning, GitLab SAST) — findings from the SARIF upload should appear grouped by severity.
 4. Run the pipeline twice — the second run should be noticeably faster if caching is wired correctly.
 5. Verify that the Jenkins gate stage (`--exit-code 1`) causes the pipeline to fail after scanning the filesystem.
+
+## Common errors
+
+- **DB download timeout**: Trivy exits with `unable to download vulnerability DB` — typically a network or proxy issue. Use `--db-repository` flag in air-gapped environments.
+- **SARIF upload fails with "too many results"**: GitHub caps SARIF at ~25K results; add `--severity HIGH,CRITICAL` to reduce counts.
+- **Matrix job fails only on image scan**: Missing `docker build` step in the matrix condition, or image tagged incorrectly. The `if: matrix.target == 'image'` guard must include the build step.
+- **GitLab artifact `sast` conflicts with multiple files**: GitLab only accepts one SAST artifact; use a loop to combine multiple SARIF files or scan targets sequentially.
+- **`--exit-code 1` exits before SARIF upload**: Trivy exits non-zero when findings exist and `--exit-code 1` is set. Use separate scan steps (one with SARIF, one with exit-code) or the `if: always()` pattern.
+
+## References
+
+- [Trivy documentation](https://aquasecurity.github.io/trivy/)
+- [SARIF specification](https://docs.github.com/en/code-security/code-scanning/understanding-code-scanning-alerts/about-code-scanning-alerts-with-sarif)
