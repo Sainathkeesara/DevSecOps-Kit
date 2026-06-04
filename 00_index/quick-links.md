@@ -72,6 +72,7 @@
 - [Trivy CI/CD pipeline integration](../docs/how-to/trivy-cicd-integration.md)
 - [Trivy CI pipeline with SARIF output](../trivy/docs/ci-pipeline-sarif-output.md)
 - [Trivy CI/CD pipeline recipes](../trivy/docs/ci-cd-pipeline-recipes.md)
+- [Trivy multi-target scanner (image/fs/repo)](../trivy/scripts/multi-target-scanner.sh)
 - [Trivy project config (.trivy.yaml)](../trivy/configs/.trivy.yaml)
 - [Trivy SARIF output processing notebook](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
 - [Containerized Trivy scanning environment with custom policies (Dockerfile)](../trivy/dockerfiles/custom-policies.Dockerfile)
