@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-05
+
+### Added
+- trufflehog-011: `trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb` — Analyzing scan results: false positive patterns, severity tuning, and baseline comparison (L3)
+  - Jupyter notebook with Python code to parse TruffleHog JSON output, classify false positives by path, assign severity, and fingerprint-based baseline comparison
+  - Covers the full post-scan triage workflow
+- vault-002: `vault/notes/2026-06-05-install-vault-and-explore-cli.md` — Installing Vault and exploring the CLI in dev mode (L1)
+  - First-person scratch notes covering dev server setup, KV engine operations, and things I tripped on
+
 ## 2026-06-04
 
 ### Added
