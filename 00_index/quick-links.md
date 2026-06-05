@@ -55,6 +55,7 @@
 - [Scan with Semgrep](../semgrep/notes/0000-primer-semgrep.md)
 - [Semgrep CI pipeline from scratch](../semgrep/docs/github-actions-ci-from-scratch.md)
 - [Semgrep CI/CD integration guide](../semgrep/docs/semgrep-ci-integration.md)
+- [Diff-aware Semgrep CI pipeline (manifest)](../semgrep/manifests/diff-aware-semgrep-ci.yaml)
 - [Scan with Checkov (K8s)](../checkov/snippets/scan-kubernetes.sh)
 - [Scan with Checkov (Terraform)](../checkov/snippets/scan-terraform-dir.py)
 - [Scan with Checkov (single file SDK)](../checkov/snippets/scan-a-terraform-file.py)
@@ -94,6 +95,9 @@
 - [Multi-image SBOM pipeline](../syft/scripts/multi-image-sbom-pipeline.sh)
 - [Syft configuration (.syft.yaml)](../syft/configs/.syft.yaml)
 - [SBOM format comparison: CycloneDX vs SPDX vs Syft JSON](../syft/notes/2026-05-30-sbom-format-comparison.md)
+
+## Scan with CodeQL
+- [My first CodeQL analysis (workflow)](../codeql/configs/first-codeql-analysis.yml)
 
 ## Build a Semgrep rule pack
 - [Multi-rule pack with combinators](../semgrep/configs/multi-rule-pack.yaml)

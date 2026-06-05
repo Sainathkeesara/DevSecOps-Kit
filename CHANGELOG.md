@@ -12,6 +12,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Covers the full post-scan triage workflow
 - vault-002: `vault/notes/2026-06-05-install-vault-and-explore-cli.md` — Installing Vault and exploring the CLI in dev mode (L1)
   - First-person scratch notes covering dev server setup, KV engine operations, and things I tripped on
+- semgrep-013: `semgrep/manifests/diff-aware-semgrep-ci.yaml` — CI pipeline: GitHub Actions workflow for diff-aware Semgrep scanning (L4)
+  - Uses `--baseline-commit` to suppress pre-existing findings and report only new issues
+  - Determines baseline commit from PR base or initial commit for push events
+  - SARIF output uploaded to GitHub Code Scanning via `github/codeql-action/upload-sarif@v3`
+  - Late fail step gates PR on new findings
+- codeql-006: `codeql/configs/first-codeql-analysis.yml` — Minimal CodeQL workflow for GitHub Actions scanning (L2)
+  - Stripped-down CodeQL analysis workflow starting with Python
+  - Uses matrix strategy with `fail-fast: false` for parallel language support
+  - Standard init → autobuild → analyze pipeline with security-events write permissions
+- 00_index/quick-links.md — Added Semgrep CI pipeline entry and CodeQL scan entry
 
 ## 2026-06-04
 
