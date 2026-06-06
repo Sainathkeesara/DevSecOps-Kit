@@ -98,9 +98,13 @@
 
 ## Scan with CodeQL
 - [My first CodeQL analysis (workflow)](../codeql/configs/first-codeql-analysis.yml)
+- [My first CodeQL query: hardcoded credentials in Python](../codeql/snippets/find-hardcoded-creds.ql)
 
 ## Build a Semgrep rule pack
 - [Multi-rule pack with combinators](../semgrep/configs/multi-rule-pack.yaml)
+
+## Custom Semgrep scanning Docker image
+- [Custom Semgrep scanning image (Dockerfile)](../semgrep/dockerfiles/custom-scanning-image.Dockerfile)
 
 ## Compare scanning approaches
 - [Checkov static vs plan scanning notebook](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb)
