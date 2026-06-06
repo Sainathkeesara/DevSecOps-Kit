@@ -4,6 +4,21 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-06
+
+### Added
+- semgrep-015: `semgrep/dockerfiles/custom-scanning-image.Dockerfile` — Custom Semgrep scanning image with pre-loaded rules and CI entrypoint (L4)
+  - Multi-stage Dockerfile with pre-downloaded community rules for offline scanning
+  - CI entrypoint script with baseline-commit support for diff-aware scanning
+  - Non-root user, pinned Semgrep version, Python slim base
+- codeql-005: `codeql/snippets/find-hardcoded-creds.ql` — My first CodeQL query: find hardcoded credentials in Python (L2)
+  - Variable-name heuristic targeting password, secret, api_key, token, credential
+  - QL query with inline reasoning comments
+- semgrep-014: `semgrep/docs/comparing-rule-writing-approaches.md` — Comparing Semgrep rule-writing approaches: pattern vs pattern-inside vs pattern-either (L4, PR #243)
+  - Covers all three core pattern combinators with concrete YAML examples
+  - Purpose → When to use → Key Differences → Prerequisites → Steps → Verify → Common Errors → References structure
+  - Final audit score: 9/10 (Merged)
+
 ## 2026-06-05
 
 ### Added
