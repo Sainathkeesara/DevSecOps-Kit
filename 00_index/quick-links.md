@@ -125,6 +125,9 @@
 - [Analyzing TruffleHog false positives and severity tuning notebook](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb)
 
 ## Scan with OWASP ZAP
+- [ZAP primer](../zap/notes/0000-primer-zap.md)
+- [Install ZAP and explore the desktop UI](../zap/notes/2026-06-06-install-zap-desktop-ui.md)
+- [My first ZAP baseline scan](../zap/snippets/my-first-zap-baseline-scan.sh)
 - [ZAP quickstart walkthrough — UI gotchas](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md)
 - [Authenticated scan with ZAP context](../zap/snippets/authenticated-scan-with-context.sh)
 
