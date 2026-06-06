@@ -7,6 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-06
 
 ### Added
+- opa-001: `opa/notes/0000-primer-opa.md` — OPA/Gatekeeper quick primer (L1)
+  - Primer covering what OPA is, key terminology (Rego, policy, data, Gatekeeper, constraint, ConstraintTemplate), and a minimal CLI example
+  - First-person learner voice with primer structure
+- opa-002: `opa/notes/2026-06-06-install-opa-repl.md` — Installing OPA and exploring the interactive REPL (L1)
+  - First-person scratch notes covering binary install, REPL basics, and things that tripped me up
+- opa-003: `opa/snippets/my-first-opa-policy-eval.sh` — My first OPA policy evaluation with sample data (L1)
+  - Minimal bash snippet using process substitution to evaluate a Rego policy against a Pod manifest
+  - shellcheck passed (clean)
+- 00_index/quick-links.md — Added OPA/Gatekeeper section with primer, install notes, and snippet entries
 - syft-001: `syft/docs/sbom-formats-comparison.md` — SBOM format comparison: SPDX vs CycloneDX vs Syft JSON (L3)
   - Purpose → Steps → Verify structure covering format generation, structure differences, and validation
   - Compares CycloneDX (security tooling), SPDX (license/legal), and Syft JSON (internal minimal) formats

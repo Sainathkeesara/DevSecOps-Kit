@@ -87,6 +87,11 @@
 - [Minimal Grype scan script](../grype/scripts/minimal-grype-scan.sh)
 - [Grype quickstart walkthrough](../grype/notes/2026-06-04-grype-quickstart-trip-ups.md)
 
+## Scan with OPA/Gatekeeper
+- [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md)
+- [Install OPA and explore the REPL](../opa/notes/2026-06-06-install-opa-repl.md)
+- [My first OPA policy evaluation](../opa/snippets/my-first-opa-policy-eval.sh)
+
 ## Scan for SBOM generation
 - [Syft primer](../syft/notes/0000-primer-syft.md)
 - [Install Syft and generate first SBOM](../syft/notes/2026-05-27-install-syft-first-sbom.md)
