@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-06
 
 ### Added
+- syft-001: `syft/docs/sbom-formats-comparison.md` — SBOM format comparison: SPDX vs CycloneDX vs Syft JSON (L3)
+  - Purpose → Steps → Verify structure covering format generation, structure differences, and validation
+  - Compares CycloneDX (security tooling), SPDX (license/legal), and Syft JSON (internal minimal) formats
+  - Format selection guide table for practical integration decisions
 - snyk-001: `snyk/notes/0000-primer-snyk.md` — Snyk quick primer (L1, rework)
   - First-person scratchy notes covering what Snyk is, vulnerability remediation, key terminology (vulnerability, fix, test, monitor, priority score), and a minimal Node.js example
   - Rework: removed CVSS reference to comply with L1 level voice constraints

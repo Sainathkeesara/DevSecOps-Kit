@@ -95,7 +95,7 @@
 - [Generate all Syft SBOM formats](../syft/scripts/gen-multi-format-sboms.sh)
 - [Multi-image SBOM pipeline](../syft/scripts/multi-image-sbom-pipeline.sh)
 - [Syft configuration (.syft.yaml)](../syft/configs/.syft.yaml)
-- [SBOM format comparison: CycloneDX vs SPDX vs Syft JSON](../syft/notes/2026-05-30-sbom-format-comparison.md)
+- [SBOM format comparison: SPDX vs CycloneDX vs Syft JSON](../syft/docs/sbom-formats-comparison.md)
 
 ## Scan with Snyk
 - [Snyk primer](../snyk/notes/0000-primer-snyk.md)
