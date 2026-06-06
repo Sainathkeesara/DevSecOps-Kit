@@ -249,6 +249,8 @@
 - [snippet] snippets/ansible-commands.md — Ansible ad-hoc commands
 
 ## Vault
+- [note] vault/notes/0000-primer-vault.md — First-day primer on HashiCorp Vault (L1)
+- [note] vault/notes/2026-06-05-install-vault-and-explore-cli.md — Installing Vault and exploring the CLI (L1)
 - [script] scripts/bash/vault/security/vault-go-getter-hardening.sh — go-getter arbitrary file read hardening
 - [script] scripts/bash/vault/vault-audit-log-analysis.sh — Vault audit log analysis
 - [script] scripts/bash/vault_toolkit/security/cve-2025-11621.sh — AWS Auth bypass scanner
@@ -407,6 +409,7 @@
 - [manifest] checkov/manifests/checkov-sarif-pr-blocking.yaml — SARIF scan results PR gate workflow
 - [notebook] checkov/notebooks/compare-static-vs-plan-scanning.ipynb — Compare static vs plan scanning with Checkov
 - [snippet] checkov/snippets/terraform-scan-custom-policies.py — Terraform scanning project with custom Checkov policies
+- [doc] checkov/docs/pre-commit-hook-with-version-pinning.md — Pre-commit hook with version pinning for Checkov
 - [policy] checkov/policies/no-public-s3-buckets/no_public_s3_buckets.yaml — Custom policy to deny public S3 buckets
 
 ## Semgrep
@@ -421,6 +424,10 @@
 - [script] semgrep/scripts/scan-python-codebase.sh — Scan a Python codebase with custom Semgrep rules
 - [config] semgrep/configs/multi-rule-pack.yaml — Multi-rule Semgrep pack with operator combinators
 - [notebook] semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb — Compare semgrep scan vs semgrep ci approaches
+- [doc] semgrep/docs/comparing-rule-writing-approaches.md — Pattern vs pattern-inside vs pattern-either approaches
+- [manifest] semgrep/manifests/diff-aware-semgrep-ci.yaml — Diff-aware Semgrep CI pipeline workflow
+- [dockerfile] semgrep/dockerfiles/custom-scanning-image.Dockerfile — Custom Semgrep scanning Docker image
+- [dockerfile] semgrep/dockerfiles/ci-entrypoint.sh — Entrypoint script for Semgrep scanning image
 
 ## Trivy
 - [note] trivy/notes/0000-primer-trivy.md — First-day primer on Trivy (L1)
@@ -429,11 +436,22 @@
 - [snippet] trivy/snippets/scan-docker-image.sh — Scan a Docker image with severity filtering (L1)
 - [script] trivy/scripts/container-vuln-scan.sh — Container image scan with CRITICAL gating (L2)
 - [script] trivy/scripts/compose-multi-scan.sh — Scan multi-service Docker Compose deployments with Trivy
+- [script] trivy/scripts/multi-target-scanner.sh — Multi-target scanner (image/fs/repo)
 - [config] trivy/configs/trivy-scan-config.yaml — Configuration for targeted scanning (L2)
 - [config] trivy/configs/.trivy.yaml — Trivy project-level default configuration
 - [doc] trivy/docs/ci-pipeline-sarif-output.md — CI pipeline with SARIF output integration
+- [doc] trivy/docs/ci-cd-pipeline-recipes.md — CI/CD pipeline recipes for Trivy
 - [notebook] trivy/notebooks/trivy-sarif-output-processing.ipynb — Trivy SARIF output processing and analysis
 - [script] trivy/scripts/image-vuln-pipeline.sh — Automated image vulnerability scanning pipeline
+- [dockerfile] trivy/dockerfiles/custom-policies.Dockerfile — Custom policies scanning Docker image
+
+## Trivy Templates
+- [template] trivy/templates/trivy-monorepo-scanner/Makefile — Monorepo scanner Makefile
+- [template] trivy/templates/trivy-monorepo-scanner/README.md — Monorepo scanner usage guide
+- [template] trivy/templates/trivy-monorepo-scanner/trivy.yaml — Monorepo scanner Trivy config
+- [template] trivy/templates/trivy-monorepo-scanner/.trivyignore — Monorepo scanner ignore rules
+- [template] trivy/templates/trivy-monorepo-scanner/.github/workflows/ci-scan.yml — Monorepo scanner CI workflow
+- [template] trivy/templates/trivy-monorepo-scanner/scripts/scan-all.sh — Monorepo scanner entrypoint
 
 ## Syft
 - [note] syft/notes/0000-primer-syft.md — First-day primer on Syft SBOM generation (L1)
@@ -442,6 +460,29 @@
 - [note] syft/notes/2026-05-29-syft-quickstart-trip-ups.md — Quickstart walkthrough and common pitfalls (L1)
 - [note] syft/notes/2026-05-30-sbom-format-comparison.md — CycloneDX vs SPDX vs Syft JSON format comparison (L1)
 - [script] syft/scripts/gen-multi-format-sboms.sh — Generate SBOMs in all supported Syft formats
+- [script] syft/scripts/multi-image-sbom-pipeline.sh — Multi-image SBOM generation pipeline
+- [config] syft/configs/.syft.yaml — Syft project-level configuration
+
+## Grype
+- [note] grype/notes/0000-primer-grype.md — First-day primer on Grype (L1)
+- [note] grype/notes/2026-05-31-install-grype.md — Installing Grype and running the first scan (L1)
+- [note] grype/notes/2026-06-04-grype-quickstart-trip-ups.md — Quickstart walkthrough and common pitfalls (L1)
+- [snippet] grype/snippets/my-first-grype-commands.sh — First Grype commands reference
+- [script] grype/scripts/minimal-grype-scan.sh — Minimal Grype vulnerability scanning script
+
+## CodeQL
+- [note] codeql/notes/0000-primer-codeql.md — First-day primer on CodeQL (L1)
+- [note] codeql/notes/2026-06-05-install-codeql-first-analysis.md — Installing CodeQL and running first analysis (L1)
+- [snippet] codeql/snippets/find-hardcoded-creds.ql — Custom query for hardcoded credentials in Python
+- [snippet] codeql/snippets/my-first-codeql-commands.sh — First CodeQL CLI commands reference
+- [config] codeql/configs/first-codeql-analysis.yml — Starter GitHub Actions workflow for CodeQL
+
+## ZAP
+- [note] zap/notes/0000-primer-zap.md — First-day primer on OWASP ZAP (L1)
+- [note] zap/notes/2026-06-06-install-zap-desktop-ui.md — Installing ZAP and exploring the desktop UI (L1)
+- [note] zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md — Quickstart walkthrough and UI gotchas (L1)
+- [snippet] zap/snippets/my-first-zap-baseline-scan.sh — First ZAP baseline scan from the CLI
+- [snippet] zap/snippets/authenticated-scan-with-context.sh — Authenticated scan using ZAP context
 
 ## TruffleHog
 - [note] trufflehog/notes/0000-primer-trufflehog.md — First-day primer on TruffleHog (L1)
@@ -453,6 +494,8 @@
 - [config] trufflehog/configs/custom-detector-rules.yaml — Custom detector rules for proprietary secret patterns
 - [script] trufflehog/scripts/multi-repo-scan-pipeline.sh — Multi-repo secret scanning pipeline
 - [script] trufflehog/scripts/pre-commit-scan-pipeline.sh — Pre-commit secret scanning pipeline
+- [doc] trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md — Comparing git, filesystem, and S3 scan modes
+- [notebook] trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb — Analyzing false positives and severity tuning
 
 ## Lab Projects
 - [doc] lab/mini-projects/postgresql-database-server/README.md — PostgreSQL 16 with replication

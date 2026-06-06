@@ -122,6 +122,24 @@
 
 **SARIF (Static Analysis Results Interchange Format)**: OASIS standard JSON format for exchanging static analysis results, enabling scanners like Semgrep to integrate with platforms such as GitHub Code Scanning.
 
+**ZAP (Zed Attack Proxy)**: OWASP's open-source DAST tool for finding security vulnerabilities in web applications during dynamic testing.
+
+**DAST (Dynamic Application Security Testing)**: Security testing methodology that analyzes running applications by simulating attacks, complementing SAST by finding runtime vulnerabilities.
+
+**Baseline scan (ZAP)**: A non-intrusive ZAP spider and passive scan mode that identifies common vulnerabilities without active attack payloads.
+
+**ZAP context**: A ZAP configuration that defines URL patterns, authentication methods, and session handling for targeted scanning of specific web applications.
+
+**CodeQL**: GitHub's semantic code analysis engine that treats code as data, enabling custom vulnerability queries using QL query language.
+
+**QL**: CodeQL's declarative query language for expressing code patterns and security vulnerabilities across multiple programming languages.
+
+**Grype**: Open-source vulnerability scanner for container images and filesystems, focused on CVE matching against multiple upstream databases.
+
+**CPE (Common Platform Enumeration)**: Standardized naming scheme for identifying software platforms and versions used by vulnerability databases for matching.
+
+**Vulnerability matching**: The process of comparing software inventory (from SBOM or filesystem scan) against known CVE databases to identify affected packages.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment
