@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-05
 
 ### Added
+- semgrep-014: `semgrep/docs/comparing-rule-writing-approctions.md` — Comparing Semgrep rule-writing approaches: pattern vs pattern-inside vs pattern-either (L4)
+  - Explains when to use each combinator with concrete examples
+  - Covers pattern scope selection, common errors, and verification patterns
+  - Reference-style guide with purpose, when-to-use, prerequisites, steps, verify, common errors, and references sections
 - trufflehog-011: `trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb` — Analyzing scan results: false positive patterns, severity tuning, and baseline comparison (L3)
   - Jupyter notebook with Python code to parse TruffleHog JSON output, classify false positives by path, assign severity, and fingerprint-based baseline comparison
   - Covers the full post-scan triage workflow
