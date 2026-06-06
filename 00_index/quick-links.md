@@ -124,6 +124,11 @@
 - [Custom detector rules for proprietary patterns](../trufflehog/configs/custom-detector-rules.yaml)
 - [Analyzing TruffleHog false positives and severity tuning notebook](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb)
 
+## Scan with OWASP ZAP
+- [ZAP primer](../zap/notes/0000-primer-zap.md)
+- [Install ZAP and explore the desktop UI](../zap/notes/2026-06-06-install-zap-desktop-ui.md)
+- [My first ZAP baseline scan](../zap/snippets/my-first-zap-baseline-scan.sh)
+
 ## Manage secrets with Vault
 - [Vault primer](../vault/notes/0000-primer-vault.md)
 - [Install Vault and explore the CLI](../vault/notes/2026-06-05-install-vault-and-explore-cli.md)
