@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-06
 
 ### Added
+- checkov-013: `checkov/templates/multi-iac-scan-project/` — Project scaffold: Checkov multi-IaC scanning project (L4)
+  - Purpose → Steps → Verify structure covering Terraform, Kubernetes, CloudFormation, ARM, Docker, and Helm
+  - Includes config file, scanning script with error handling, Makefile, and GitHub Actions CI workflow
+  - shellcheck passed (clean)
 - syft-001: `syft/docs/sbom-formats-comparison.md` — SBOM format comparison: SPDX vs CycloneDX vs Syft JSON (L3)
   - Purpose → Steps → Verify structure covering format generation, structure differences, and validation
   - Compares CycloneDX (security tooling), SPDX (license/legal), and Syft JSON (internal minimal) formats

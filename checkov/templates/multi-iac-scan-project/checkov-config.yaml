@@ -1,0 +1,16 @@
+# Checkov configuration for multi-IaC scanning
+# Override per-repo by copying this file and editing the values below.
+
+compact: true
+skip-check:
+  - CKV_DOCKER_3   # "Last user is root" — accepted baseline
+quiet: false
+framework:
+  - terraform
+  - kubernetes
+  - cloudformation
+  - arm
+  - dockerfile
+  - helm
+output: cli
+soft-fail: false
