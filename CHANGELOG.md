@@ -11,6 +11,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Multi-stage Dockerfile with pre-downloaded community rules for offline scanning
   - CI entrypoint script with baseline-commit support for diff-aware scanning
   - Non-root user, pinned Semgrep version, Python slim base
+- zap-004: `zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md` — Walkthrough: ZAP quickstart and UI exploration gotchas (L2)
+  - First-person notes covering session persistence popup, Sites tree confusion, Alerts tab filtering, active vs passive scan distinction, and bundled JRE
+  - Steps + Got stuck on + What I'd try next format
+- zap-005: `zap/snippets/authenticated-scan-with-context.sh` — Authenticated scan with ZAP context configuration (L2)
+  - Daemon mode startup, context import via REST API, spider + active scan via curl
+  - ShellCheck passed (clean)
 - codeql-005: `codeql/snippets/find-hardcoded-creds.ql` — My first CodeQL query: find hardcoded credentials in Python (L2)
   - Variable-name heuristic targeting password, secret, api_key, token, credential
   - QL query with inline reasoning comments
