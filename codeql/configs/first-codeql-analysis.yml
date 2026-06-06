@@ -1,0 +1,45 @@
+# My first CodeQL workflow for GitHub Actions
+# Started from the GitHub docs template and stripped it
+# down to essentials to understand each step.
+
+name: Minimal CodeQL scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  analyze:
+    name: CodeQL analysis
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # Starting with just Python — can add javascript,go later
+        # once I verify the autobuild works on this repo
+        language: [python]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+
+      # Autobuild tries to figure out the build steps automatically.
+      # For Python it usually just installs dependencies — no
+      # compilation needed. Might need custom build for other langs.
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3

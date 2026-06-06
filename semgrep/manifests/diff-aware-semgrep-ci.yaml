@@ -1,0 +1,61 @@
+name: Semgrep diff-aware scan
+
+on:
+  pull_request:
+    branches: [master, main]
+  push:
+    branches: [master, main]
+
+permissions: read-all
+
+jobs:
+  semgrep-scan:
+    name: Diff-aware scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Semgrep
+        run: pip install semgrep
+
+      - name: Determine baseline commit
+        id: baseline
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "commit=${{ github.event.pull_request.base.sha }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "commit=$(git rev-list --max-parents=0 HEAD)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run Semgrep diff-aware scan
+        id: semgrep
+        continue-on-error: true
+        run: |
+          mkdir -p results
+          semgrep \
+            --config auto \
+            --baseline-commit "${{ steps.baseline.outputs.commit }}" \
+            --sarif \
+            --output results/semgrep-results.sarif \
+            .
+
+      - name: Upload SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results/semgrep-results.sarif
+          category: semgrep
+
+      - name: Fail on findings
+        if: steps.semgrep.outcome != 'success'
+        run: |
+          echo "Semgrep found new issues — check the SARIF report"
+          exit 1
