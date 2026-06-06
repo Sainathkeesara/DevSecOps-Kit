@@ -7,6 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-06
 
 ### Added
+- zap-001: `zap/notes/0000-primer-zap.md` — OWASP ZAP quick primer (L1)
+  - Primer covering what ZAP is, key terminology (proxy, spider, active/passive scan, context, alert, HUD), and a minimal Docker-based example
+  - First-person learner voice with primer structure
+- zap-002: `zap/notes/2026-06-06-install-zap-desktop-ui.md` — Installing OWASP ZAP and exploring the desktop UI (L1)
+  - First-person scratch notes covering Linux installer, first launch, quick start attack, and things that tripped me up
+- zap-003: `zap/snippets/my-first-zap-baseline-scan.sh` — My first ZAP CLI baseline scan script (L1)
+  - Minimal bash snippet wrapping the official ZAP Docker image for headless scanning
+  - Accepts target URL and output directory as arguments
+  - shellcheck passed (clean)
+- 00_index/quick-links.md — Added OWASP ZAP section with primer, install notes, and snippet entries
 - semgrep-015: `semgrep/dockerfiles/custom-scanning-image.Dockerfile` — Custom Semgrep scanning image with pre-loaded rules and CI entrypoint (L4)
   - Multi-stage Dockerfile with pre-downloaded community rules for offline scanning
   - CI entrypoint script with baseline-commit support for diff-aware scanning
