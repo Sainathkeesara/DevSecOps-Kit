@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-06
 
 ### Added
+- snyk-001: `snyk/notes/0000-primer-snyk.md` — Snyk quick primer (L1, rework)
+  - First-person scratchy notes covering what Snyk is, vulnerability remediation, key terminology (vulnerability, fix, test, monitor, priority score), and a minimal Node.js example
+  - Rework: removed CVSS reference to comply with L1 level voice constraints
 - zap-001: `zap/notes/0000-primer-zap.md` — OWASP ZAP quick primer (L1)
   - Primer covering what ZAP is, key terminology (proxy, spider, active/passive scan, context, alert, HUD), and a minimal Docker-based example
   - First-person learner voice with primer structure

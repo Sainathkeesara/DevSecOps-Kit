@@ -97,6 +97,9 @@
 - [Syft configuration (.syft.yaml)](../syft/configs/.syft.yaml)
 - [SBOM format comparison: CycloneDX vs SPDX vs Syft JSON](../syft/notes/2026-05-30-sbom-format-comparison.md)
 
+## Scan with Snyk
+- [Snyk primer](../snyk/notes/0000-primer-snyk.md)
+
 ## Scan with CodeQL
 - [My first CodeQL analysis (workflow)](../codeql/configs/first-codeql-analysis.yml)
 - [My first CodeQL query: hardcoded credentials in Python](../codeql/snippets/find-hardcoded-creds.ql)
