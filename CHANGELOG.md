@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-06
 
 ### Added
+- checkov-013: `checkov/templates/multi-iac-scan-project/` — Project scaffold: Checkov multi-IaC scanning project (L4)
+  - Purpose → Steps → Verify structure covering Terraform, Kubernetes, CloudFormation, ARM, Docker, and Helm
+  - Includes config file, scanning script with error handling, Makefile, and GitHub Actions CI workflow
+  - shellcheck passed (clean)
 - opa-001: `opa/notes/0000-primer-opa.md` — OPA/Gatekeeper quick primer (L1)
   - Primer covering what OPA is, key terminology (Rego, policy, data, Gatekeeper, constraint, ConstraintTemplate), and a minimal CLI example
   - First-person learner voice with primer structure

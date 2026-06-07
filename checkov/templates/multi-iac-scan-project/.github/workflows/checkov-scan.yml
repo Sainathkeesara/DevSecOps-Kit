@@ -1,0 +1,27 @@
+name: Checkov Multi-IaC Scan
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  checkov-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Checkov scan
+        uses: bridgecrewio/checkov-action@v12
+        with:
+          config_file: checkov/configs/checkov-ci-config.yaml
+          framework: terraform,kubernetes,cloudformation,arm,dockerfile,helm
+          compact: true
+          output_format: cli
+
+      - name: Upload SARIF report
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results.sarif
