@@ -15,6 +15,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Minimal bash snippet with path scan, pre-commit scan, commit-range scan, and JSON output
   - shellcheck passed (clean)
 - 00_index/quick-links.md — Added GitGuardian section with primer, install notes, and snippet entries
+- snyk-004: `snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md` — Snyk quickstart walkthrough: steps, gotchas, and next steps (L2)
+- snyk-003: `snyk/snippets/my-first-snyk-commands.sh` — My first Snyk commands: test, monitor, and view results (L1)
+  - shellcheck passed (clean)
 
 ## 2026-06-06
 
