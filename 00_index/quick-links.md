@@ -105,6 +105,8 @@
 
 ## Scan with Snyk
 - [Snyk primer](../snyk/notes/0000-primer-snyk.md)
+- [Snyk quickstart walkthrough](../snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md)
+- [My first Snyk commands](../snyk/snippets/my-first-snyk-commands.sh)
 
 ## Scan with CodeQL
 - [My first CodeQL analysis (workflow)](../codeql/configs/first-codeql-analysis.yml)
