@@ -108,6 +108,11 @@
 - [Snyk quickstart walkthrough](../snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md)
 - [My first Snyk commands](../snyk/snippets/my-first-snyk-commands.sh)
 
+## Scan with GitGuardian
+- [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
+- [Install ggshield and run first scan](../gitguardian/notes/2026-06-07-first-ggshield-scan.md)
+- [My first ggshield commands](../gitguardian/snippets/my-first-ggshield-commands.sh)
+
 ## Scan with CodeQL
 - [My first CodeQL analysis (workflow)](../codeql/configs/first-codeql-analysis.yml)
 - [My first CodeQL query: hardcoded credentials in Python](../codeql/snippets/find-hardcoded-creds.ql)

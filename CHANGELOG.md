@@ -7,6 +7,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-07
 
 ### Added
+- gitguardian-001: `gitguardian/notes/0000-primer-gitguardian.md` — GitGuardian quick primer (L1)
+  - First-person primer covering what GitGuardian is, key terminology (secret, incident, ggshield, occurrence, policy, false positive), and a minimal CLI example
+- gitguardian-002: `gitguardian/notes/2026-06-07-first-ggshield-scan.md` — Installing ggshield and running first secret scan (L1)
+  - First-person scratch notes covering pip install, auth setup gotcha, and what to try next
+- gitguardian-003: `gitguardian/snippets/my-first-ggshield-commands.sh` — My first ggshield CLI commands (L1)
+  - Minimal bash snippet with path scan, pre-commit scan, commit-range scan, and JSON output
+  - shellcheck passed (clean)
+- 00_index/quick-links.md — Added GitGuardian section with primer, install notes, and snippet entries
 - snyk-004: `snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md` — Snyk quickstart walkthrough: steps, gotchas, and next steps (L2)
 - snyk-003: `snyk/snippets/my-first-snyk-commands.sh` — My first Snyk commands: test, monitor, and view results (L1)
   - shellcheck passed (clean)
