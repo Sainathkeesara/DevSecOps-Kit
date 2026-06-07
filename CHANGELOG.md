@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-07
+
+### Added
+- snyk-004: `snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md` — Snyk quickstart walkthrough: steps, gotchas, and next steps (L2)
+- snyk-003: `snyk/snippets/my-first-snyk-commands.sh` — My first Snyk commands: test, monitor, and view results (L1)
+  - shellcheck passed (clean)
+
 ## 2026-06-06
 
 ### Added
