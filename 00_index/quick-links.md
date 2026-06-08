@@ -117,10 +117,12 @@
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
 - [Install ggshield and run first scan](../gitguardian/notes/2026-06-07-first-ggshield-scan.md)
 - [My first ggshield commands](../gitguardian/snippets/my-first-ggshield-commands.sh)
+- [ggshield scheduled scanning config](../gitguardian/configs/.ggshield.yaml)
 
 ## Scan with CodeQL
 - [My first CodeQL analysis (workflow)](../codeql/configs/first-codeql-analysis.yml)
 - [My first CodeQL query: hardcoded credentials in Python](../codeql/snippets/find-hardcoded-creds.ql)
+- [Minimal CodeQL database + query runner](../codeql/scripts/first-codeql-analysis.sh)
 
 ## Build a Semgrep rule pack
 - [Multi-rule pack with combinators](../semgrep/configs/multi-rule-pack.yaml)
@@ -155,6 +157,7 @@
 ## Manage secrets with Vault
 - [Vault primer](../vault/notes/0000-primer-vault.md)
 - [Install Vault and explore the CLI](../vault/notes/2026-06-05-install-vault-and-explore-cli.md)
+- [My first Vault read/write commands](../vault/snippets/vault-read-write.go)
 
 ## Run a Kubernetes task
 - [k8s_toolkit usage guide](../docs/how-to/k8s_toolkit.md)
