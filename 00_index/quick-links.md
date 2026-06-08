@@ -41,6 +41,7 @@
 - [semgrep scan vs semgrep ci comparison notebook](../semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb)
 
 ## Scan with Checkov (CI/CD)
+- [Layered Checkov CI: PR gate + scheduled deep scan + merge block](../checkov/manifests/layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml)
 - [Checkov SARIF scan — PR gate workflow](../checkov/manifests/checkov-sarif-pr-blocking.yaml)
 
 ## Scan for CVEs
@@ -105,6 +106,7 @@
 
 ## Scan with Snyk
 - [Snyk primer](../snyk/notes/0000-primer-snyk.md)
+- [Install Snyk CLI and run first project test](../snyk/notes/2026-06-08-install-snyk-first-test.md)
 - [Snyk quickstart walkthrough](../snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md)
 - [My first Snyk commands](../snyk/snippets/my-first-snyk-commands.sh)
 
