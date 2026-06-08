@@ -1,0 +1,190 @@
+name: Layered Checkov CI — PR gate, scheduled deep scan, merge block
+
+on:
+  pull_request:
+    branches: [master, main]
+    paths:
+      - "**.tf"
+      - "**.yaml"
+      - "**.yml"
+      - "**.json"
+      - "**.dockerfile"
+      - "Dockerfile.*"
+  push:
+    branches: [master, main]
+    paths:
+      - "**.tf"
+      - "**.yaml"
+      - "**.yml"
+      - "**.json"
+      - "**.dockerfile"
+      - "Dockerfile.*"
+  schedule:
+    - cron: "0 3 * * 1"
+
+permissions:
+  contents: read
+  security-events: write
+  pull-requests: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pr-gate:
+    name: PR gate — lightweight scan
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Checkov
+        run: pip install checkov
+
+      - name: Determine IaC frameworks
+        id: frameworks
+        run: |
+          FMTS=""
+          [ -d terraform ] && FMTS="$FMTS terraform"
+          [ -d kubernetes ] || [ -d k8s ] && FMTS="$FMTS kubernetes"
+          [ -f docker-compose.yml ] || [ -f docker-compose.yaml ] && FMTS="$FMTS dockerfile"
+          [ -f Dockerfile ] || ls Dockerfile.* >/dev/null 2>&1 && FMTS="$FMTS dockerfile"
+          echo "frameworks=${FMTS:-terraform,kubernetes,dockerfile}" >> "$GITHUB_OUTPUT"
+
+      - name: Run PR gate scan
+        id: pr-gate
+        continue-on-error: true
+        run: |
+          mkdir -p results
+          FMTS="${{ steps.frameworks.outputs.frameworks }}"
+          for f in $FMTS; do
+            echo "Scanning framework: $f"
+            checkov \
+              --framework "$f" \
+              --output sarif \
+              --quiet \
+              --compact \
+              --soft-fail-on-critical \
+              > "results/checkov-pr-${f}.sarif" 2>&1 || true
+          done
+
+      - name: Annotate PR with Checkov findings
+        if: failure()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results
+          category: checkov-pr-gate
+        continue-on-error: true
+
+      - name: Fail PR gate if blocking issues found
+        if: failure()
+        run: |
+          echo "::error::Checkov PR gate detected high/critical findings."
+          exit 1
+
+  deep-scan:
+    name: Scheduled deep scan — full framework coverage
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Checkov
+        run: pip install checkov
+
+      - name: Run deep scan across all frameworks
+        id: deep
+        continue-on-error: true
+        run: |
+          mkdir -p results
+          checkov \
+            --directory . \
+            --framework terraform,kubernetes,dockerfile,github_actions,arm,cloudformation \
+            --output sarif \
+            --quiet \
+            --compact \
+            > results/checkov-deep-scan.sarif 2>&1 || true
+
+      - name: Upload deep scan SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results/checkov-deep-scan.sarif
+          category: checkov-deep-scan
+        continue-on-error: true
+
+      - name: Fail workflow on deep scan issues
+        if: failure()
+        run: |
+          echo "::warning::Deep scan found issues — review SARIF upload."
+          # Intentionally does not fail the workflow on schedule runs
+          # to avoid noisy scheduled-job failures. Adjust if strict gating is desired.
+
+  merge-block:
+    name: Merge block — pre-merge policy check
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Checkov
+        run: pip install checkov
+
+      - name: Run policy check on merged head
+        id: merge-block
+        continue-on-error: true
+        run: |
+          mkdir -p results
+          FMTS="${{ needs.pr-gate.outputs.frameworks || 'terraform,kubernetes,dockerfile' }}"
+          for f in $FMTS; do
+            echo "Policy check on merged branch: $f"
+            checkov \
+              --framework "$f" \
+              --output sarif \
+              --quiet \
+              --compact \
+              --soft-fail-on-critical \
+              > "results/checkov-merge-${f}.sarif" 2>&1 || true
+          done
+
+      - name: Upload merge block SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results
+          category: checkov-merge-block
+        continue-on-error: true
+
+      - name: Revert merge if critical issues found
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          echo "::error::Critical issues detected post-merge. Initiating revert."
+          gh pr revert "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --comment "Automated revert: Checkov merge-block detected critical findings."

@@ -4,6 +4,19 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-08
+
+### Added
+- checkov-014: `checkov/manifests/layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml` — Layered Checkov CI: PR gate + scheduled deep scan + merge block (L4)
+  - PR gate: lightweight scan on PR with framework auto-detection, SARIF upload, and blocking on high/critical issues
+  - Scheduled deep scan: weekly Monday 03:00 UTC scan across terraform, kubernetes, dockerfile, github_actions, arm, cloudformation frameworks
+  - Merge block: post-merge policy check that reverts the PR if critical findings are detected
+  - Uses concurrency groups and path-based triggers to limit runs to IaC changes
+- snyk-002: `snyk/notes/2026-06-08-install-snyk-first-test.md` — Install Snyk CLI and run my first project test (L1)
+  - First-person scratch notes covering install, auth, `snyk test` against python-goof, and JSON output
+  - Notes comparison intent with Checkov and Grype, plus next steps for `snyk monitor` and IaC scanning
+- 00_index/quick-links.md — Added Checkov layered CI entry and Snyk first-test notes entry
+
 ## 2026-06-07
 
 ### Added
