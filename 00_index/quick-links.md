@@ -87,6 +87,7 @@
 - [Install Grype and run first scan](../grype/notes/2026-05-31-install-grype.md)
 - [My first Grype commands](../grype/snippets/my-first-grype-commands.sh)
 - [Minimal Grype scan script](../grype/scripts/minimal-grype-scan.sh)
+- [Minimal Grype scan with Go SDK](../grype/snippets/minimal-grype-scan.go)
 - [Grype quickstart walkthrough](../grype/notes/2026-06-04-grype-quickstart-trip-ups.md)
 
 ## Scan with OPA/Gatekeeper

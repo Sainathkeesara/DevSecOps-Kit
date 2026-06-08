@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-08
 
 ### Added
+- grype-006: `grype/snippets/minimal-grype-scan.go` — Minimal Grype scan with Go SDK: scanning an image and filtering vulns (L2)
+  - Shows how to use the grype package to programmatically scan container images
+  - Filters output for high and critical severity findings only
 - checkov-014: `checkov/manifests/layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml` — Layered Checkov CI: PR gate + scheduled deep scan + merge block (L4)
   - PR gate: lightweight scan on PR with framework auto-detection, SARIF upload, and blocking on high/critical issues
   - Scheduled deep scan: weekly Monday 03:00 UTC scan across terraform, kubernetes, dockerfile, github_actions, arm, cloudformation frameworks
