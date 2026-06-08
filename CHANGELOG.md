@@ -15,7 +15,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - snyk-002: `snyk/notes/2026-06-08-install-snyk-first-test.md` — Install Snyk CLI and run my first project test (L1)
   - First-person scratch notes covering install, auth, `snyk test` against python-goof, and JSON output
   - Notes comparison intent with Checkov and Grype, plus next steps for `snyk monitor` and IaC scanning
-- 00_index/quick-links.md — Added Checkov layered CI entry and Snyk first-test notes entry
+- checkov-016: `checkov/scripts/scan-terraform-plan.sh` — Terraform plan scanning: export plan JSON and evaluate with Checkov (L4)
+  - Converts terraform plan binary to JSON, then runs Checkov scan with `--framework terraform_plan`
+  - Error handling for missing plan file; accepts optional Checkov args
+  - shellcheck passed (clean)
+- grype-002: `grype/notes/2026-06-08-first-grype-scan.md` — Install Grype and run my first vulnerability scan (L1)
+  - First-person scratch notes covering install, scan of alpine/nginx, and CLI flags
+  - Notes `--only-fixed`, `--fail-on high`, and JSON output for CI gating
+- 00_index/quick-links.md — Added Checkov terraform plan scan script and Grype first-scan notes
 
 ## 2026-06-07
 
