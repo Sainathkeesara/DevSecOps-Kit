@@ -32,7 +32,8 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 | OCI / Container Registries | 11 | 7 | 1 | — | — |
 | Docker | 7 | 7 | 1 | — | — |
 | Vault | 7 | 6 | 1 | — | — |
-| Git | 8 | 19 | 1 | — | — |
+| Snyk | — | 3 | 1 | — | notes:3, snippets |
+| GitGuardian | — | 2 | 1 | — | notes:2, snippets |
 | Helm | 3 | 3 | — | — | — |
 | Checkov | — | 1 | 4 | — | notes:4, configs:2, policies, notebooks |
 | Semgrep | 2 | 3 | 2 | — | notes:3, configs, notebooks, Dockerfiles |
@@ -60,7 +61,8 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 - **`00_index/`** — Navigation: topic index, quick links, glossary
 - **`.github/`** — PR template, CODEOWNERS, workflow README
 - **`checkov/` / `semgrep/` / `trivy/` / `trufflehog/` / `syft/`** — Security scanner notes, scripts, configs
-- **`grype/` / `codeql/` / `zap/`** — Vulnerability scanner and SAST tool content
+- **`grype/` / `codeql/` / `zap/` / `snyk/` / `gitguardian/`** — Vulnerability scanner and security tool content
+- **`opa/`** — OPA/Gatekeeper policies and snippets
 - **`vault/`** — HashiCorp Vault primers and notes
 - **`docs/`** — How-to guides, concepts, reference, runbooks, security docs, troubleshooting, setup guides
 - **`environments/`** — Terraform environment configs (dev / staging / prod)
@@ -78,4 +80,4 @@ Actively maintained with weekly additions. Current focus areas: OWASP ZAP DAST s
 
 ---
 
-_Last updated: 2026-06-06_
+_Last updated: 2026-06-08_
