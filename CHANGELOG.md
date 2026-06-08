@@ -7,6 +7,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-08
 
 ### Added
+- vault-004: `vault/snippets/vault-read-write.go` — My first Vault read/write commands in Go SDK (L1)
+  - Minimal Go snippet using the official hashicorp/vault/api package to write and read a secret
+  - Demonstrates client setup, Write, Read, and type assertion on data.Data
+- codeql-005: `codeql/scripts/first-codeql-analysis.sh` — Minimal CodeQL analysis: create a database and run a pre-built query (L2)
+  - Creates a small vulnerable JS sample (path traversal via res.sendFile)
+  - Builds a CodeQL database and runs the OSCommandInjection query, writes SARIF, reads first lines
+  - Learner-voice comments explain the query path and a fallback find command if the pack is missing
+- gitguardian-006: `gitguardian/configs/.ggshield.yaml` — Scheduled scanning workflow with false-positive suppression (L2)
+  - version 2 config: ignore-known-paths for vendor/node_modules/dist
+  - ignored-detectors lists generic_api_key; ignored-paths glob filters for generated code
+  - allow block covers infra/secret-examples with diff-start-line to suppress expected secrets
 - grype-006: `grype/snippets/minimal-grype-scan.go` — Minimal Grype scan with Go SDK: scanning an image and filtering vulns (L2)
   - Shows how to use the grype package to programmatically scan container images
   - Filters output for high and critical severity findings only

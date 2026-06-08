@@ -1,0 +1,13 @@
+version: "2"
+ignore-known-paths:
+  - "vendor/"
+  - "node_modules/"
+  - "dist/"
+ignored-detectors:
+  - "generic_api_key"
+ignored-paths:
+  - "*.generated.go"
+  - "infra/legacy/**"
+allow:
+  - path: "infra/secret-examples/**"
+    diff-start-line: 1
