@@ -4,6 +4,17 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-09
+
+### Added
+- trufflehog-012: `trufflehog/templates/secret-scanning-pipeline/` — TruffleHog secret scanning pipeline project scaffold with CI integration (L4)
+  - Centralised scan target config (`trufflehog-config.yaml`) with repo and filesystem targets, custom detectors, entropy tuning, and exclusion rules
+  - GitHub Actions CI workflow (`.github/workflows/secret-scan.yml`) that runs on PR, push, and weekly schedule
+  - `scripts/scan-all.sh` — multi-target scan entry point with local and CI modes, graceful fallback when `yq` is unavailable
+  - `Makefile` with `scan`, `scan-ci`, and `clean` targets
+  - `.gitignore` to exclude reports/
+  - shellcheck passed (clean)
+
 ## 2026-06-08
 
 ### Added

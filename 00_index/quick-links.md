@@ -146,6 +146,7 @@
 - [Multi-repo secret scanning pipeline](../trufflehog/scripts/multi-repo-scan-pipeline.sh)
 - [Custom detector rules for proprietary patterns](../trufflehog/configs/custom-detector-rules.yaml)
 - [Analyzing TruffleHog false positives and severity tuning notebook](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb)
+- [TruffleHog secret scanning pipeline scaffold (template)](../trufflehog/templates/secret-scanning-pipeline/)
 
 ## Scan with OWASP ZAP
 - [ZAP primer](../zap/notes/0000-primer-zap.md)

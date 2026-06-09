@@ -1,0 +1,60 @@
+# TruffleHog configuration for secret scanning pipeline
+# Edit these values to match your repository layout and scanning needs.
+
+# Repositories to scan (git mode scans full commit history)
+repos:
+  - url: "https://github.com/your-org/your-repo.git"
+    # Optionally restrict branch or depth
+    # branch: "main"
+    # depth: 50
+
+# Filesystem paths to scan (local directories)
+fs_paths:
+  - "./configs"
+  - "./scripts"
+  - "./deploy"
+
+# Detector configuration
+detectors:
+  # Set to false to disable the built-in detector set
+  default_detectors: true
+
+  # Custom detector definitions (regex patterns for proprietary formats)
+  custom_detectors:
+    - name: "Internal API key"
+      regex:
+        pattern: "sk-internal-[0-9a-f]{32}"
+      keywords:
+        - "sk-internal"
+    - name: "Internal webhook secret"
+      regex:
+        pattern: "whsec_[A-Za-z0-9+/=]{24,48}"
+      keywords:
+        - "whsec_"
+
+# Entropy scanning configuration
+entropy:
+  enabled: true
+  min_chars: 12
+  min_shannon: 5.0
+
+# Exclusion rules — paths and patterns to skip
+exclude:
+  paths:
+    - "vendor/"
+    - "node_modules/"
+    - "dist/"
+    - ".git/"
+    - "*.min.js"
+    - "*.map"
+  # Patterns to exclude by detector name (e.g. noise from build artifacts)
+  detectors: []
+
+# Verification — set to true to attempt live validation of secrets
+verify: false
+
+# Output format
+output: json
+
+# Concurrency — number of parallel scanners
+concurrency: 4
