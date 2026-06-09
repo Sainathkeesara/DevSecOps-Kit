@@ -1,37 +1,50 @@
-# Trivy project configuration
-# Auto-discovered when placed in project root, or used via trivy --config .trivy.yaml
+# Trivy monorepo configuration
+# Auto-discovered at project root, or use: trivy --config .trivy.yaml
 # Reference: https://aquasecurity.github.io/trivy/latest/docs/reference/configuration/config-file/
+#
+# Purpose: Define severity profiles and scan targets for a monorepo where
+# different services/components have different risk tolerances.
+#
+# How to verify: run `trivy fs --config .trivy.yaml .` from the repo root
+# and check that only the configured severity levels are reported.
 
+# Global severity filter — the monorepo's minimum bar
 severity:
   - CRITICAL
   - HIGH
   - MEDIUM
-  - LOW
 
 scan:
   skip-db-update: false
   offline-scan: false
+  # Comma-separated list of directories to scan (empty = CWD).
+  # In a monorepo, list each service directory explicitly.
+  directories:
+    - ./services/api-gateway
+    - ./services/auth
+    - ./services/worker
+    - ./deploy/kubernetes
 
 vulnerability:
   ignore-unfixed: true
   only-fixed: false
 
 db:
-  # Mirror URL for air-gapped environments — set this or TRIVY_DB_REPOSITORY
+  # Mirror URL for air-gapped environments
   # repository: registry.internal.example.com/trivy-db:latest
 
-# Trivyignore file path — one CVE or package per line
 ignorefile: .trivyignore
 
-# Rego policy file for fine-grained ignore rules
-# ignore-policy: policy/ignore.rego
-
 misconfiguration:
-  checks:
-    - AVD-DS-0001
-    - AVD-DS-0002
+  # Scan all supported IaC types (Kubernetes, Terraform, Dockerfile, etc.)
+  checks: []
 
 secret:
   allow-rules:
     - id: standard-aws-secret-key
       allow-empty-passwords: true
+
+# Per-service severity overrides are managed via separate config files
+# passed with --config, or by running scans per directory with different
+# severity flags. Trivy doesn't support nested severity blocks yet —
+# one approach is a wrapper script that iterates over directories.

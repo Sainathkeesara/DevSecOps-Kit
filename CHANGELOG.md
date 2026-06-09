@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2026-06-09
 
+### Updated
+- trivy-013: `trivy/configs/.trivy.yaml` — Trivy monorepo configuration with severity profiles and per-service scan targets (L4)
+  - Added `scan.directories` for explicit monorepo service targeting
+  - Documented per-service severity override approach via wrapper script
+- grype-003: `grype/snippets/my-first-grype-commands.sh` — Refreshed first Grype commands snippet with severity filtering and output limiting (L1)
+
 ### Added
 - trufflehog-012: `trufflehog/templates/secret-scanning-pipeline/` — TruffleHog secret scanning pipeline project scaffold with CI integration (L4)
   - Centralised scan target config (`trufflehog-config.yaml`) with repo and filesystem targets, custom detectors, entropy tuning, and exclusion rules
