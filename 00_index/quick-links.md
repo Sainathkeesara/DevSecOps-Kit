@@ -44,6 +44,9 @@
 - [Layered Checkov CI: PR gate + scheduled deep scan + merge block](../checkov/manifests/layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml)
 - [Checkov SARIF scan — PR gate workflow](../checkov/manifests/checkov-sarif-pr-blocking.yaml)
 
+## Deploy Trivy Operator
+- [Trivy Operator deployment manifest](../trivy/manifests/trivy-operator-deployment.yaml) — Operator controller + node collector for cluster-wide vulnerability scanning
+
 ## Scan for CVEs
 - [Kubernetes CVEs](topics.md#kubernetes)
 - [Docker CVEs](topics.md#docker)
