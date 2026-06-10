@@ -159,6 +159,11 @@
 - [ZAP quickstart walkthrough — UI gotchas](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md)
 - [Authenticated scan with ZAP context](../zap/snippets/authenticated-scan-with-context.sh)
 
+## Runtime security with Falco
+- [Falco primer](../falco/notes/0000-primer-falco.md)
+- [Install Falco and run first detection](../falco/notes/2026-06-10-install-falco-first-detection.md)
+- [My first custom Falco rule: detect shell in container](../falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml)
+
 ## Manage secrets with Vault
 - [Vault primer](../vault/notes/0000-primer-vault.md)
 - [Install Vault and explore the CLI](../vault/notes/2026-06-05-install-vault-and-explore-cli.md)

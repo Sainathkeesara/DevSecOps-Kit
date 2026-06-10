@@ -13,6 +13,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Query helpers for filtering by type (apk, npm, python), name, and layer
   - Cross-layer file span detection for packages whose files cross base image layers
   - Notes on verification and edge cases
+- falco-001: `falco/notes/0000-primer-falco.md` — Falco quick primer (L1)
+  - First-person scratchy primer covering what Falco is, key terminology (eBPF, rules, syscall, priority, output), and a minimal YAML rule example
+- falco-002: `falco/notes/2026-06-10-install-falco-first-detection.md` — Installing Falco and running first detection (L1)
+  - Steps + Got stuck on + What I'd try next format
+  - Covers Helm install, DaemonSet logs, test container alert, and rule tuning
+- falco-003: `falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml` — First custom Falco rule: detect shell execution in container (L1)
+  - Fires when bash, sh, dash, or zsh is spawned inside a container
 
 ## 2026-06-09
 

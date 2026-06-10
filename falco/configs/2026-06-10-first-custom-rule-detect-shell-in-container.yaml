@@ -1,0 +1,6 @@
+rule: Shell in Container
+desc: Alert when an interactive shell is spawned inside a running container
+condition: container and spawned_process and proc.name in (bash, sh, dash, zsh)
+output: Shell detected in container (user=%user.name container=%container.name image=%container.image command=%proc.cmdline)
+priority: WARNING
+tags: [container, shell, mitre_execution]
