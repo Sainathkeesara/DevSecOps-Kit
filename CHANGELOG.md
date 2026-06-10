@@ -19,7 +19,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Steps + Got stuck on + What I'd try next format
   - Covers Helm install, DaemonSet logs, test container alert, and rule tuning
 - falco-003: `falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml` — First custom Falco rule: detect shell execution in container (L1)
-  - Fires when bash, sh, dash, or zsh is spawned inside a container
+   - Fires when bash, sh, dash, or zsh is spawned inside a container
+- grype-008: `grype/scripts/ci-ready-grype-scan.sh` — CI-ready Grype scanning wrapper with severity thresholds and formatted output (L3)
+   - Purpose → Steps → Verify structure for CI integration
+   - Configurable fail-on threshold via env var (default: high)
+   - JSON output with jq-formatted summary and severity counts
+   - Exit-code handling for CI pipeline gating
 
 ## 2026-06-09
 
