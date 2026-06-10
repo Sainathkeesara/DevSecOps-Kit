@@ -4,6 +4,16 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-10
+
+### Added
+- syft-005: `syft/notebooks/sbom-layer-package-analysis.ipynb` — SBOM analysis: extracting and querying package dependencies across image layers (L3)
+  - Purpose → Steps → Verify notebook covering Syft JSON output parsing
+  - Groups packages by layer index to see which layer introduced each dependency
+  - Query helpers for filtering by type (apk, npm, python), name, and layer
+  - Cross-layer file span detection for packages whose files cross base image layers
+  - Notes on verification and edge cases
+
 ## 2026-06-09
 
 ### Updated

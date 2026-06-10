@@ -109,6 +109,7 @@
 - [Multi-image SBOM pipeline](../syft/scripts/multi-image-sbom-pipeline.sh)
 - [Syft configuration (.syft.yaml)](../syft/configs/.syft.yaml)
 - [SBOM format comparison: SPDX vs CycloneDX vs Syft JSON](../syft/docs/sbom-formats-comparison.md)
+- [SBOM layer package analysis notebook](../syft/notebooks/sbom-layer-package-analysis.ipynb)
 
 ## Scan with Snyk
 - [Snyk primer](../snyk/notes/0000-primer-snyk.md)
