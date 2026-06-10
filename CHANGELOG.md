@@ -13,6 +13,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - grype-003: `grype/snippets/my-first-grype-commands.sh` — Refreshed first Grype commands snippet with severity filtering and output limiting (L1)
 
 ### Added
+- trivy-014: `trivy/manifests/trivy-operator-deployment.yaml` — Trivy Operator deployment: Kubernetes manifests for cluster-wide vulnerability scanning (L4)
+  - Namespace, ServiceAccount, ClusterRole, and ClusterRoleBinding for the operator
+  - Operator Deployment with security contexts, resource limits, and label selectors
+  - Node-collector DaemonSet for per-node filesystem scanning with hostPath mounts
+  - Operator config ConfigMap (scan schedule, timeout, enabled scanners) and Trivy config (severity filter, DB repo, timeout)
+  - Policy ConfigMap with JSON-based severity thresholds for automated CI gating (block on critical, warn on high)
+  - Comment header with Purpose / Apply / Verify instructions
 - trufflehog-012: `trufflehog/templates/secret-scanning-pipeline/` — TruffleHog secret scanning pipeline project scaffold with CI integration (L4)
   - Centralised scan target config (`trufflehog-config.yaml`) with repo and filesystem targets, custom detectors, entropy tuning, and exclusion rules
   - GitHub Actions CI workflow (`.github/workflows/secret-scan.yml`) that runs on PR, push, and weekly schedule
