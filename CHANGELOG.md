@@ -7,11 +7,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-11
 
 ### Added
-- checkov-015: `checkov/docs/checkov-integration-patterns.md` — Checkov integration patterns: Terraform plan scanning and custom policies (L4)
-  - Covers plan JSON export + Checkov plan scanning workflow
-  - Custom YAML policy writing with attribute operators and regex matching
-  - Verification steps for plan + custom policy integration
-  - Common errors section for plan parsing and custom policy loading issues
+- semgrep-016: `semgrep/scripts/bulk-scan-helper.py` — Reusable Semgrep bulk-scan helper with Python (L4)
+  - Accepts targets from CLI args or a targets-file list
+  - Runs `semgrep --config=auto --json` per target and aggregates results
+  - Per-target JSON output plus combined summary JSON with severity filter
+  - Exits 1 when any target has findings at or above the threshold, 0 otherwise
+- falco-002: `falco/configs/first-custom-rule-detect-shell-in-container.yaml` — Minimal custom Falco rule: detect shell spawning in a container (L2)
+  - Fires on `execve` syscall when bash, sh, dash, or zsh is spawned inside a container
+  - YAML rule with description, output template, and tags for container/shell/suspicious
 
 ## 2026-06-10
 
