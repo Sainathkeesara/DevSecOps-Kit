@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-11
+
+### Added
+- checkov-015: `checkov/docs/checkov-integration-patterns.md` — Checkov integration patterns: Terraform plan scanning and custom policies (L4)
+  - Covers plan JSON export + Checkov plan scanning workflow
+  - Custom YAML policy writing with attribute operators and regex matching
+  - Verification steps for plan + custom policy integration
+  - Common errors section for plan parsing and custom policy loading issues
+
 ## 2026-06-10
 
 ### Added
