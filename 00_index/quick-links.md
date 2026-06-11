@@ -94,6 +94,7 @@
 - [Minimal Grype scan with Go SDK](../grype/snippets/minimal-grype-scan.go)
 - [Grype quickstart walkthrough](../grype/notes/2026-06-04-grype-quickstart-trip-ups.md)
 - [First Grype vulnerability scan](../grype/notes/2026-06-08-first-grype-scan.md)
+- [CI-ready Grype scanning wrapper with severity thresholds](../grype/scripts/ci-ready-grype-scan.sh)
 
 ## Scan with OPA/Gatekeeper
 - [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md)
