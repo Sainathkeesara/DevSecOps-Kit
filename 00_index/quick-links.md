@@ -130,6 +130,7 @@
 - [My first CodeQL analysis (workflow)](../codeql/configs/first-codeql-analysis.yml)
 - [My first CodeQL query: hardcoded credentials in Python](../codeql/snippets/find-hardcoded-creds.ql)
 - [Minimal CodeQL database + query runner](../codeql/scripts/first-codeql-analysis.sh)
+- [CodeQL quickstart walkthrough — what tripped me up](../codeql/notes/2026-06-05-codeql-quickstart-walkthrough.md)
 
 ## Build a Semgrep rule pack
 - [Multi-rule pack with combinators](../semgrep/configs/multi-rule-pack.yaml)

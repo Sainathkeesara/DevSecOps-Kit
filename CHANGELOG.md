@@ -7,13 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-11
 
 ### Added
+- codeql-004: `codeql/notes/2026-06-05-codeql-quickstart-walkthrough.md` — CodeQL quickstart walkthrough: steps and gotchas (L2)
+  - First-person walkthrough following official CodeQL quickstart
+  - Documents query pack syntax, custom query compilation, SARIF output handling
+  - Gotchas: GitHub token for upload, database location defaults, colon syntax
 - grype-007: `grype/scripts/vuln-diff-two-images.sh` — Vulnerability diff across two container image versions with Grype (L3)
   - Scans two image versions with Grype JSON output
   - Compares vulnerability sets using comm-based diff (new/fixed/common)
   - Severity breakdown for new vulnerabilities
   - Exit-code handling for CI pipeline gating
-
-### Added
 - semgrep-016: `semgrep/scripts/bulk-scan-helper.py` — Reusable Semgrep bulk-scan helper with Python (L4)
   - Accepts targets from CLI args or a targets-file list
   - Runs `semgrep --config=auto --json` per target and aggregates results
