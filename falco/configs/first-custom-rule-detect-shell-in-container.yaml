@@ -1,0 +1,17 @@
+rules:
+  - rule: Container with shell spawned
+    desc: Detects when a shell (bash/sh/dash/zsh) is spawned inside a running container
+    level: WARNING
+    source: syscall
+    syscalls:
+      - execve
+    condition: >
+      spawned_process
+      and container
+      and proc.name in ("bash", "sh", "dash", "zsh")
+    output: >
+      Shell spawned in container (user=%user.name command=%proc.cmdline container=%container.name image=%container.image.repository:%container.image.tag)
+    tags:
+      - container
+      - shell
+      - suspicious
