@@ -127,6 +127,7 @@
 - [ggshield scheduled scanning config](../gitguardian/configs/.ggshield.yaml)
 
 ## Scan with CodeQL
+- [CodeQL quickstart walkthrough: custom query and upload](../codeql/notes/2026-06-05-install-codeql-first-analysis.md)
 - [My first CodeQL analysis (workflow)](../codeql/configs/first-codeql-analysis.yml)
 - [My first CodeQL query: hardcoded credentials in Python](../codeql/snippets/find-hardcoded-creds.ql)
 - [Minimal CodeQL database + query runner](../codeql/scripts/first-codeql-analysis.sh)
