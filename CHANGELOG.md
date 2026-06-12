@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-12
+
+### Changed
+- codeql-004: `codeql/notes/2026-06-05-install-codeql-first-analysis.md` — Reworked CodeQL quickstart notes to focus on custom query execution and SARIF upload (L2)
+  - Clarifies `query compile` as query validation separate from `database analyze`
+  - Uses `--format=csv` for CSV output
+  - Uses `codeql github upload-results` with repository, ref, commit, and SARIF arguments
+  - Keeps the first-person walkthrough voice and avoids repeating the install note
+
 ## 2026-06-11
 
 ### Added
