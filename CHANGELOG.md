@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2026-06-12
 
+### Added
+- trivy-015: `trivy/scripts/custom-trivy-check-conftest.sh` — Custom Trivy check with Rego policies via Conftest integration (L4)
+  - Runs Trivy misconfiguration scans and evaluates results against custom Rego policies via Conftest
+  - Supports image and filesystem targets with configurable severity threshold
+  - Transforms Trivy JSON output into policy input format for Conftest evaluation
+  - Aggregate summary with pass/fail per target and exit-code gating
+  - Binary availability checks, policy dir validation, and shellcheck passed (clean)
+- opa-004: `opa/snippets/enforce-image-registry-constraints.rego` — Kubernetes policy: enforce image registry constraints (L3)
+  - Rego policy denying Pods and init containers with images from unapproved registries
+  - Configurable allowed registry set (docker.io, gcr.io, ghcr.io, registry.example.com)
+  - Designed for Gatekeeper ConstraintTemplate integration
+
 ### Changed
 - codeql-004: `codeql/notes/2026-06-05-install-codeql-first-analysis.md` — Reworked CodeQL quickstart notes to focus on custom query execution and SARIF upload (L2)
   - Clarifies `query compile` as query validation separate from `database analyze`

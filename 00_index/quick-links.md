@@ -86,6 +86,7 @@
 - [Trivy SARIF output processing notebook](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
 - [Containerized Trivy scanning environment with custom policies (Dockerfile)](../trivy/dockerfiles/custom-policies.Dockerfile)
 - [Trivy monorepo scanner scaffold (template)](../trivy/templates/trivy-monorepo-scanner/)
+- [Custom Trivy check with Conftest Rego policies](../trivy/scripts/custom-trivy-check-conftest.sh)
 
 ## Scan with Grype
 - [Grype primer](../grype/notes/0000-primer-grype.md)
@@ -102,6 +103,7 @@
 - [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md)
 - [Install OPA and explore the REPL](../opa/notes/2026-06-06-install-opa-repl.md)
 - [My first OPA policy evaluation](../opa/snippets/my-first-opa-policy-eval.sh)
+- [Enforce image registry constraints](../opa/snippets/enforce-image-registry-constraints.rego)
 
 ## Scan for SBOM generation
 - [Syft primer](../syft/notes/0000-primer-syft.md)
