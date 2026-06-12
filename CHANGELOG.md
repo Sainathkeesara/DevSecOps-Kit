@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2026-06-12
 
+### Added
+- zap-006: `zap/docs/zap-integration-patterns.md` — ZAP integration patterns for web app security testing (L2)
+  - Covers daemon mode setup, spider + active scan via REST API, and full pipeline with report generation
+  - Steps + Got stuck on + What I'd try next structure with scan type comparison table
+  - First-person walkthrough of headless ZAP automation patterns for CI
+- gitguardian-005: `gitguardian/snippets/custom-policy-engine-ggshield.sh` — Custom policy engine integration with ggshield CLI (L2)
+  - Creates sample `.ggshield.yaml` with two custom detectors (JWT bearer tokens, internal API endpoints)
+  - Demonstrates custom detection patterns alongside built-in ggshield detectors
+  - shellcheck passed (clean)
+- 00_index/quick-links.md — Added ZAP integration patterns docs entry and GitGuardian custom policy engine snippet entry
+
 ### Changed
 - codeql-004: `codeql/notes/2026-06-05-install-codeql-first-analysis.md` — Reworked CodeQL quickstart notes to focus on custom query execution and SARIF upload (L2)
   - Clarifies `query compile` as query validation separate from `database analyze`
