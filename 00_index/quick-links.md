@@ -128,6 +128,7 @@
 - [My first ggshield commands](../gitguardian/snippets/my-first-ggshield-commands.sh)
 - [ggshield scheduled scanning config](../gitguardian/configs/.ggshield.yaml)
 - [Custom policy engine with ggshield](../gitguardian/snippets/custom-policy-engine-ggshield.sh)
+- [ggshield quickstart walkthrough — trip-ups and next steps](../gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md)
 
 ## Scan with CodeQL
 - [CodeQL quickstart walkthrough: custom query and upload](../codeql/notes/2026-06-05-install-codeql-first-analysis.md)
@@ -166,6 +167,8 @@
 - [ZAP quickstart walkthrough — UI gotchas](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md)
 - [Authenticated scan with ZAP context](../zap/snippets/authenticated-scan-with-context.sh)
 - [ZAP integration patterns for web app security testing](../zap/docs/zap-integration-patterns.md)
+- [Spider scan against a test app](../zap/notes/2026-06-13-spider-scan-test-app.md)
+- [My first ZAP spider scan via API](../zap/snippets/my-first-zap-spider-scan.sh)
 
 ## Runtime security with Falco
 - [Falco primer](../falco/notes/0000-primer-falco.md)

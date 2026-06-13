@@ -7,31 +7,42 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-13
 
 ### Added
-- cosign-001: `cosign/notes/0000-primer-cosign.md` — Cosign quick primer: what it is, key terminology, and a tiny example (L1)
-- cosign-002: `cosign/notes/2026-06-13-install-cosign-sign-first-image.md` — First Cosign install and signing walkthrough with local registry (L1)
-- cosign-003: `cosign/scripts/verify-signed-image.sh` — Minimal Cosign signature verification script (L1, shellcheck clean)
+- gitguardian-004: `gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md` — Following the ggshield quickstart and trip-ups (L2)
+  - Steps covering pip install, auth setup, first path scan, pre-commit hook, and JSON output
+  - Got stuck on: auth requirement for local scans, staged-file-only hook behavior, under-documented JSON schema
+  - What I'd try next: GitHub Action SARIF comparison, --exclude flag behavior, policy file ignore rules
 
 ## 2026-06-12
 
 ### Added
 - trivy-015: `trivy/scripts/custom-trivy-check-conftest.sh` — Custom Trivy check with Rego policies via Conftest integration (L4)
-  - Runs Trivy misconfiguration scans and evaluates results against custom Rego policies via Conftest
-  - Supports image and filesystem targets with configurable severity threshold
-  - Transforms Trivy JSON output into policy input format for Conftest evaluation
-  - Aggregate summary with pass/fail per target and exit-code gating
-  - Binary availability checks, policy dir validation, and shellcheck passed (clean)
+   - Runs Trivy misconfiguration scans and evaluates results against custom Rego policies via Conftest
+   - Supports image and filesystem targets with configurable severity threshold
+   - Transforms Trivy JSON output into policy input format for Conftest evaluation
+   - Aggregate summary with pass/fail per target and exit-code gating
+   - Binary availability checks, policy dir validation, and shellcheck passed (clean)
 - opa-004: `opa/snippets/enforce-image-registry-constraints.rego` — Kubernetes policy: enforce image registry constraints (L3)
-  - Rego policy denying Pods and init containers with images from unapproved registries
-  - Configurable allowed registry set (docker.io, gcr.io, ghcr.io, registry.example.com)
-  - Designed for Gatekeeper ConstraintTemplate integration
+   - Rego policy denying Pods and init containers with images from unapproved registries
+   - Configurable allowed registry set (docker.io, gcr.io, ghcr.io, registry.example.com)
+   - Designed for Gatekeeper ConstraintTemplate integration
 - zap-006: `zap/docs/zap-integration-patterns.md` — ZAP integration patterns for web app security testing (L2)
-  - Covers daemon mode setup, spider + active scan via REST API, and full pipeline with report generation
-  - Steps + Got stuck on + What I'd try next structure with scan type comparison table
-  - First-person walkthrough of headless ZAP automation patterns for CI
+   - Covers daemon mode setup, spider + active scan via REST API, and full pipeline with report generation
+   - Steps + Got stuck on + What I'd try next structure with scan type comparison table
+   - First-person walkthrough of headless ZAP automation patterns for CI
 - gitguardian-005: `gitguardian/snippets/custom-policy-engine-ggshield.sh` — Custom policy engine integration with ggshield CLI (L2)
-  - Creates sample `.ggshield.yaml` with two custom detectors (JWT bearer tokens, internal API endpoints)
-  - Demonstrates custom detection patterns alongside built-in ggshield detectors
-  - shellcheck passed (clean)
+   - Creates sample `.ggshield.yaml` with two custom detectors (JWT bearer tokens, internal API endpoints)
+   - Demonstrates custom detection patterns alongside built-in ggshield detectors
+   - shellcheck passed (clean)
+
+## 2026-06-13
+
+### Added
+- zap-008: `zap/notes/2026-06-13-spider-scan-test-app.md` — Spider scanning with ZAP against a test app (L1)
+   - First-person walkthrough covering ZAP daemon setup, spider scan via REST API
+   - Notes on discovery results, polling, and scope considerations
+- zap-009: `zap/snippets/my-first-zap-spider-scan.sh` — My first ZAP spider scan via API (L1)
+   - Simple bash wrapper for triggering spider scans and polling completion via ZAP REST API
+   - Outputs discovered URLs after scan completion
 
 ### Changed
 - codeql-004: `codeql/notes/2026-06-05-install-codeql-first-analysis.md` — Reworked CodeQL quickstart notes to focus on custom query execution and SARIF upload (L2)
