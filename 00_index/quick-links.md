@@ -130,6 +130,11 @@
 - [Custom policy engine with ggshield](../gitguardian/snippets/custom-policy-engine-ggshield.sh)
 - [ggshield quickstart walkthrough — trip-ups and next steps](../gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md)
 
+## Scan with Terrascan
+- [Terrascan primer](../terrascan/notes/0000-primer-terrascan.md)
+- [Install Terrascan and run first scan](../terrascan/notes/2026-06-13-first-scan.md)
+- [Deliberately insecure Terraform snippet](../terrascan/snippets/insecure-terraform.tf)
+
 ## Scan with CodeQL
 - [CodeQL quickstart walkthrough: custom query and upload](../codeql/notes/2026-06-05-install-codeql-first-analysis.md)
 - [My first CodeQL analysis (workflow)](../codeql/configs/first-codeql-analysis.yml)
