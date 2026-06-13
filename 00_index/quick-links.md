@@ -128,6 +128,7 @@
 - [My first ggshield commands](../gitguardian/snippets/my-first-ggshield-commands.sh)
 - [ggshield scheduled scanning config](../gitguardian/configs/.ggshield.yaml)
 - [Custom policy engine with ggshield](../gitguardian/snippets/custom-policy-engine-ggshield.sh)
+- [ggshield quickstart walkthrough — trip-ups and next steps](../gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md)
 
 ## Scan with CodeQL
 - [CodeQL quickstart walkthrough: custom query and upload](../codeql/notes/2026-06-05-install-codeql-first-analysis.md)
