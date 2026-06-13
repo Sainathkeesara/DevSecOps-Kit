@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-13
+
+### Added
+- cosign-001: `cosign/notes/0000-primer-cosign.md` — Cosign quick primer: what it is, key terminology, and a tiny example (L1)
+- cosign-002: `cosign/notes/2026-06-13-install-cosign-sign-first-image.md` — First Cosign install and signing walkthrough with local registry (L1)
+- cosign-003: `cosign/scripts/verify-signed-image.sh` — Minimal Cosign signature verification script (L1, shellcheck clean)
+
 ## 2026-06-12
 
 ### Added
