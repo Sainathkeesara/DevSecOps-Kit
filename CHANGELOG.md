@@ -7,6 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-12
 
 ### Added
+- trivy-015: `trivy/scripts/custom-trivy-check-conftest.sh` — Custom Trivy check with Rego policies via Conftest integration (L4)
+  - Runs Trivy misconfiguration scans and evaluates results against custom Rego policies via Conftest
+  - Supports image and filesystem targets with configurable severity threshold
+  - Transforms Trivy JSON output into policy input format for Conftest evaluation
+  - Aggregate summary with pass/fail per target and exit-code gating
+  - Binary availability checks, policy dir validation, and shellcheck passed (clean)
+- opa-004: `opa/snippets/enforce-image-registry-constraints.rego` — Kubernetes policy: enforce image registry constraints (L3)
+  - Rego policy denying Pods and init containers with images from unapproved registries
+  - Configurable allowed registry set (docker.io, gcr.io, ghcr.io, registry.example.com)
+  - Designed for Gatekeeper ConstraintTemplate integration
 - zap-006: `zap/docs/zap-integration-patterns.md` — ZAP integration patterns for web app security testing (L2)
   - Covers daemon mode setup, spider + active scan via REST API, and full pipeline with report generation
   - Steps + Got stuck on + What I'd try next structure with scan type comparison table
@@ -15,7 +25,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Creates sample `.ggshield.yaml` with two custom detectors (JWT bearer tokens, internal API endpoints)
   - Demonstrates custom detection patterns alongside built-in ggshield detectors
   - shellcheck passed (clean)
-- 00_index/quick-links.md — Added ZAP integration patterns docs entry and GitGuardian custom policy engine snippet entry
 
 ### Changed
 - codeql-004: `codeql/notes/2026-06-05-install-codeql-first-analysis.md` — Reworked CodeQL quickstart notes to focus on custom query execution and SARIF upload (L2)
