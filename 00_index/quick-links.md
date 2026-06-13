@@ -167,6 +167,8 @@
 - [ZAP quickstart walkthrough — UI gotchas](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md)
 - [Authenticated scan with ZAP context](../zap/snippets/authenticated-scan-with-context.sh)
 - [ZAP integration patterns for web app security testing](../zap/docs/zap-integration-patterns.md)
+- [Spider scan against a test app](../zap/notes/2026-06-13-spider-scan-test-app.md)
+- [My first ZAP spider scan via API](../zap/snippets/my-first-zap-spider-scan.sh)
 
 ## Runtime security with Falco
 - [Falco primer](../falco/notes/0000-primer-falco.md)
