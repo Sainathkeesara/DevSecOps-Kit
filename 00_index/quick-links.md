@@ -238,3 +238,8 @@
 - [GAR deploy](../scripts/bash/oci_registry_toolkit/gar/gar-deploy.sh)
 - [Quay deploy](../scripts/bash/oci_registry_toolkit/quay/quay-deploy.sh)
 - [OCI registry cheatsheet](../snippets/oci-registry-cheatsheet.md)
+
+## Sign container images with Cosign
+- [Cosign primer](../cosign/notes/0000-primer-cosign.md)
+- [Install Cosign and sign first image](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md)
+- [Verify a signed image](../cosign/scripts/verify-signed-image.sh)
