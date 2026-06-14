@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-14
+
+### Added
+- cosign-003: `cosign/snippets/first-cosign-sign-verify-image.sh` — Sign and verify a container image with Cosign key-pair workflow (L1)
+  - Minimal bash snippet that generates a Cosign key pair, signs a target image, and verifies it
+  - shellcheck passed (clean)
+
 ## 2026-06-13
 
 ### Added
