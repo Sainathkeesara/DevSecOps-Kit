@@ -128,6 +128,7 @@
 - [My first ggshield commands](../gitguardian/snippets/my-first-ggshield-commands.sh)
 - [ggshield scheduled scanning config](../gitguardian/configs/.ggshield.yaml)
 - [Custom policy engine with ggshield](../gitguardian/snippets/custom-policy-engine-ggshield.sh)
+- [Minimal ggshield pre-commit hook integration](../gitguardian/scripts/pre-commit-hook-ggshield.sh)
 - [ggshield quickstart walkthrough — trip-ups and next steps](../gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md)
 
 ## Scan with Terrascan
@@ -137,6 +138,7 @@
 
 ## Scan with CodeQL
 - [CodeQL quickstart walkthrough: custom query and upload](../codeql/notes/2026-06-05-install-codeql-first-analysis.md)
+- [CodeQL QL Datalog gotchas from the language tutorial](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md)
 - [My first CodeQL analysis (workflow)](../codeql/configs/first-codeql-analysis.yml)
 - [My first CodeQL query: hardcoded credentials in Python](../codeql/snippets/find-hardcoded-creds.ql)
 - [Minimal CodeQL database + query runner](../codeql/scripts/first-codeql-analysis.sh)
