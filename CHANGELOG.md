@@ -6,7 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2026-06-14
 
+### Audit — Merged
+- terrascan-001 (PR #275): notes(primer) — Score 10/10. L1 first-person scratchy primer (~260 words) covering what Terrascan is, key terminology (IaC, rule, policy, scan, Rego, violation, SARIF), and a minimal CLI example. No forbidden constructs. All five passes clean. PR #275 merged.
+- terrascan-002 (PR #275): notes — Score 10/10. L1 first-person scratch notes covering install, scan output, JSON gotcha, and next steps. No forbidden constructs. All five passes clean. PR #275 merged.
+- terrascan-003 (PR #275): snippet(hcl) — Score 10/10. L1 HCL snippet with deliberately insecure Terraform (wide-open SG, public S3, unencrypted public RDS). Valid HCL, matches task requirement. All five passes clean. PR #275 merged.
+
 ### Added
+- codeql-001: `codeql/notes/2026-06-14-codeql-datalog-gotchas.md` — CodeQL QL language tutorial notes focused on Datalog-style gotchas (L2)
+  - First-person walkthrough covering `from`, `where`, casts, and `matches`
+  - Explains why QL felt different from Python-style assignment and regex matching
+- gitguardian-002: `gitguardian/scripts/pre-commit-hook-ggshield.sh` — Minimal ggshield pre-commit hook integration (L2)
+  - Checks for `ggshield` and a Git worktree
+  - Installs the pre-commit hook and scans staged changes
 - cosign-003: `cosign/snippets/first-cosign-sign-verify-image.sh` — Sign and verify a container image with Cosign key-pair workflow (L1)
   - Minimal bash snippet that generates a Cosign key pair, signs a target image, and verifies it
   - shellcheck passed (clean)
