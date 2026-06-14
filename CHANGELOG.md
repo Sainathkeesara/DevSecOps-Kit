@@ -12,6 +12,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - terrascan-003 (PR #275): snippet(hcl) — Score 10/10. L1 HCL snippet with deliberately insecure Terraform (wide-open SG, public S3, unencrypted public RDS). Valid HCL, matches task requirement. All five passes clean. PR #275 merged.
 
 ### Added
+- gitguardian-001: `gitguardian/notes/2026-06-14-first-secrets-scan-repo.md` — Run my first secrets scan on a repo with ggshield (L2)
+  - First-person walkthrough covering path scanning, noise filtering with `.ggshield.yaml`, and commit-range scanning
+  - Got stuck on: filtering false positives, commit range diff vs full repo scan
+- snyk-001: `snyk/notes/2026-06-14-first-vulnerability-scan.md` — Run my first vulnerability scan with Snyk (L2)
+  - First-person walkthrough covering `snyk test`, `--all-projects`, auth token setup, and `snyk monitor` comparison
+  - Got stuck on: monorepo project detection, CI auth setup
+- snyk-002: `snyk/configs/snyk-ci-github-actions.yaml` — Minimal Snyk CI pipeline integration with GitHub Actions (L2)
+  - Triggered on push, PR, and weekly schedule
+  - Installs Snyk CLI and runs `snyk test --all-projects --fail-on=high --json`
 - codeql-001: `codeql/notes/2026-06-14-codeql-datalog-gotchas.md` — CodeQL QL language tutorial notes focused on Datalog-style gotchas (L2)
   - First-person walkthrough covering `from`, `where`, casts, and `matches`
   - Explains why QL felt different from Python-style assignment and regex matching

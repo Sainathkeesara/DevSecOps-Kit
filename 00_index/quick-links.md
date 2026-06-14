@@ -121,6 +121,8 @@
 - [Install Snyk CLI and run first project test](../snyk/notes/2026-06-08-install-snyk-first-test.md)
 - [Snyk quickstart walkthrough](../snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md)
 - [My first Snyk commands](../snyk/snippets/my-first-snyk-commands.sh)
+- [Run my first vulnerability scan with Snyk](../snyk/notes/2026-06-14-first-vulnerability-scan.md)
+- [Snyk CI pipeline integration with GitHub Actions](../snyk/configs/snyk-ci-github-actions.yaml)
 
 ## Scan with GitGuardian
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
@@ -130,6 +132,7 @@
 - [Custom policy engine with ggshield](../gitguardian/snippets/custom-policy-engine-ggshield.sh)
 - [Minimal ggshield pre-commit hook integration](../gitguardian/scripts/pre-commit-hook-ggshield.sh)
 - [ggshield quickstart walkthrough — trip-ups and next steps](../gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md)
+- [Run my first secrets scan on a repo with ggshield](../gitguardian/notes/2026-06-14-first-secrets-scan-repo.md)
 
 ## Scan with Terrascan
 - [Terrascan primer](../terrascan/notes/0000-primer-terrascan.md)
