@@ -18,6 +18,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - gitguardian-002: `gitguardian/scripts/pre-commit-hook-ggshield.sh` — Minimal ggshield pre-commit hook integration (L2)
   - Checks for `ggshield` and a Git worktree
   - Installs the pre-commit hook and scans staged changes
+- cosign-003: `cosign/snippets/first-cosign-sign-verify-image.sh` — Sign and verify a container image with Cosign key-pair workflow (L1)
+  - Minimal bash snippet that generates a Cosign key pair, signs a target image, and verifies it
+  - shellcheck passed (clean)
 
 ## 2026-06-13
 
