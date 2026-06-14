@@ -7,6 +7,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-13
 
 ### Added
+- terrascan-001: `terrascan/notes/0000-primer-terrascan.md` — Terrascan quick primer (L1)
+  - Primer covering what Terrascan is, key terminology (IaC, rule, policy, scan, Rego, violation, SARIF), and a minimal CLI example
+  - First-person learner voice with primer structure
+- terrascan-002: `terrascan/notes/2026-06-13-first-scan.md` — Installing Terrascan and running my first IaC scan (L1)
+  - First-person scratch notes covering binary install, scan output with 3 violations (SecurityGroup, SSHAccess, S3Bucket), and JSON output gotcha
+- terrascan-003: `terrascan/snippets/insecure-terraform.tf` — Deliberately insecure Terraform to test Terrascan rules (L1)
+  - HCL snippet with wide-open security group, public S3 bucket, and unencrypted publicly accessible RDS instance
 - gitguardian-004: `gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md` — Following the ggshield quickstart and trip-ups (L2)
   - Steps covering pip install, auth setup, first path scan, pre-commit hook, and JSON output
   - Got stuck on: auth requirement for local scans, staged-file-only hook behavior, under-documented JSON schema
