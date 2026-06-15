@@ -186,11 +186,13 @@
 ## Runtime security with Falco
 - [Falco primer](../falco/notes/0000-primer-falco.md)
 - [Install Falco and run first detection](../falco/notes/2026-06-10-install-falco-first-detection.md)
+- [Install Falco and trigger my first security alert](../falco/notes/2026-06-15-install-falco-first-alert.md)
 - [My first custom Falco rule: detect shell in container](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
 
 ## Manage secrets with Vault
 - [Vault primer](../vault/notes/0000-primer-vault.md)
 - [Install Vault and explore the CLI](../vault/notes/2026-06-05-install-vault-and-explore-cli.md)
+- [Vault getting-started tutorial — what tripped me up](../vault/notes/2026-06-15-vault-getting-started-trip-ups.md)
 - [My first Vault read/write commands](../vault/snippets/vault-read-write.go)
 - [Minimal Vault KV CRUD script](../vault/scripts/vault-kv-crud.sh)
 

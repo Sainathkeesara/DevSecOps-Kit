@@ -7,6 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-15
 
 ### Added
+- falco-001: `falco/notes/2026-06-15-install-falco-first-alert.md` — Install Falco and trigger my first security alert (L2)
+  - First-person walkthrough covering Helm install with eBPF driver, triggering an alert via kubectl exec, and diagnosing noisy default ruleset
+  - Got stuck on: eBPF driver fallback to kernel module, namespace scoping on kubectl logs, custom rules exception syntax
+- vault-001: `vault/notes/2026-06-15-vault-getting-started-trip-ups.md` — Follow the official Vault getting-started tutorial (L2)
+  - First-person walkthrough covering dev server, KV engine, policy creation, token scoping
+  - Got stuck on: built-in engines not mentioned in tutorial, token flag inconsistency, root token revocation gotcha, JSON output format
 - opa-001: `opa/notes/2026-06-15-opa-getting-started-trip-ups.md` — Following the official OPA getting-started tutorial (L2)
   - First-person walkthrough covering server setup, policy loading via API, and decision testing
   - Got stuck on: curl flag confusion, policy loading approaches, REST API path format, decision log visibility
