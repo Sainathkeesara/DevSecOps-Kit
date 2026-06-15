@@ -4,6 +4,16 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-15
+
+### Added
+- opa-001: `opa/notes/2026-06-15-opa-getting-started-trip-ups.md` — Following the official OPA getting-started tutorial (L2)
+  - First-person walkthrough covering server setup, policy loading via API, and decision testing
+  - Got stuck on: curl flag confusion, policy loading approaches, REST API path format, decision log visibility
+- vault-002: `vault/scripts/vault-kv-crud.sh` — Minimal Vault KV CRUD operations script (L2)
+  - Covers write, read, field extraction, list, metadata, delete, undelete, and destroy operations
+  - shellcheck passed (clean)
+
 ## 2026-06-14
 
 ### Audit — Merged
