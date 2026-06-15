@@ -186,7 +186,7 @@
 ## Runtime security with Falco
 - [Falco primer](../falco/notes/0000-primer-falco.md)
 - [Install Falco and run first detection](../falco/notes/2026-06-10-install-falco-first-detection.md)
-- [Install Falco and trigger my first security alert](../falco/notes/2026-06-15-install-falco-first-alert.md)
+- [Falco rule structure — macros, lists, and the append trick](../falco/notes/2026-06-15-falco-rules-macros-lists.md)
 - [My first custom Falco rule: detect shell in container](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
 
 ## Manage secrets with Vault

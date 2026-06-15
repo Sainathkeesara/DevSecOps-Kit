@@ -7,9 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-15
 
 ### Added
-- falco-001: `falco/notes/2026-06-15-install-falco-first-alert.md` — Install Falco and trigger my first security alert (L2)
-  - First-person walkthrough covering Helm install with eBPF driver, triggering an alert via kubectl exec, and diagnosing noisy default ruleset
-  - Got stuck on: eBPF driver fallback to kernel module, namespace scoping on kubectl logs, custom rules exception syntax
+- falco-001: `falco/notes/2026-06-15-falco-rules-macros-lists.md` — Understanding Falco's rule file structure — macros, lists, and the append trick (L2, rework)
+  - First-person walkthrough covering list/macro/rule entry types, append pattern for custom rules, file-ordering gotcha, and output field discovery
+  - Genuinely different topic from existing install/detection notes per rework recommendation
+  - Got stuck on: append file ordering in Helm customRules, output field discovery via grep, expanded condition readability via falco --list
 - vault-001: `vault/notes/2026-06-15-vault-getting-started-trip-ups.md` — Follow the official Vault getting-started tutorial (L2)
   - First-person walkthrough covering dev server, KV engine, policy creation, token scoping
   - Got stuck on: built-in engines not mentioned in tutorial, token flag inconsistency, root token revocation gotcha, JSON output format
