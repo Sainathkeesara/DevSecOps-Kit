@@ -105,6 +105,8 @@
 - [My first OPA policy evaluation](../opa/snippets/my-first-opa-policy-eval.sh)
 - [Enforce image registry constraints](../opa/snippets/enforce-image-registry-constraints.rego)
 - [OPA getting-started tutorial — what tripped me up](../opa/notes/2026-06-15-opa-getting-started-trip-ups.md)
+- [Gatekeeper admission policy — block host network](../opa/configs/tried-a-gatekeeper-constraint.yaml)
+- [How I test OPA policies locally](../opa/scripts/how-i-test-policies-locally.sh)
 
 ## Scan for SBOM generation
 - [Syft primer](../syft/notes/0000-primer-syft.md)
