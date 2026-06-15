@@ -1,0 +1,38 @@
+# trying to write a Gatekeeper ConstraintTemplate + Constraint
+# this blocks pods that use hostNetwork -- I want to enforce
+# a "no host network" rule across my (imaginary) cluster
+#
+# I had to look up the CRD format a few times -- the Gatekeeper
+# docs have examples but the indentation tripped me up
+---
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8sblockhostnetwork
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sBlockHostNetwork
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8sblockhostnetwork
+
+        violation[{"msg": msg}] {
+          input.review.object.spec.hostNetwork == true
+          msg := sprintf("Pod %v uses host networking -- not allowed", [input.review.object.metadata.name])
+        }
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sBlockHostNetwork
+metadata:
+  name: block-all-host-network
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    excludedNamespaces:
+      - kube-system
+      - gatekeeper-system

@@ -13,6 +13,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - vault-002: `vault/scripts/vault-kv-crud.sh` — Minimal Vault KV CRUD operations script (L2)
   - Covers write, read, field extraction, list, metadata, delete, undelete, and destroy operations
   - shellcheck passed (clean)
+- opa-002: `opa/configs/tried-a-gatekeeper-constraint.yaml` — Minimal Kubernetes admission policy with Gatekeeper (L2)
+  - ConstraintTemplate + Constraint to block pods using hostNetwork
+  - First-person comments documenting the learning process
+- opa-003: `opa/scripts/how-i-test-policies-locally.sh` — Testing OPA policies locally before deploying to Gatekeeper (L2)
+  - Minimal runner that invokes `opa eval` with a policy file and JSON input
+  - shellcheck passed (clean)
 
 ## 2026-06-14
 
