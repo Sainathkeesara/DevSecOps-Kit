@@ -1,0 +1,54 @@
+name: Grype vulnerability scan
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  schedule:
+    - cron: '0 6 * * 1'  # weekly Monday 06:00 UTC
+
+jobs:
+  grype-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build target image
+        run: docker build -t app:test -f Dockerfile .
+
+      - name: Scan image with Grype
+        id: grype
+        continue-on-error: true
+        run: |
+          grype app:test \
+            --fail-on high \
+            --only-fixed \
+            --output json \
+            > grype-report.json
+
+      - name: Display summary
+        run: |
+          if [ -f grype-report.json ]; then
+            echo "Found $(jq '.matches | length' grype-report.json) vulnerabilities"
+            jq -r '.matches[] | "\(.vulnerability.severity) \(.vulnerability.id) in \(.artifact.name)@\(.artifact.version)"' \
+              grype-report.json | sort | head -20
+          fi
+
+      - name: Upload SARIF report
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: grype-report.json
+          category: grype
+
+      - name: Fail on high-severity vulnerabilities
+        if: steps.grype.outcome == 'failure'
+        run: |
+          echo "Grype found vulnerabilities at or above the high threshold."
+          echo "Check grype-report.json for details."
+          exit 1
