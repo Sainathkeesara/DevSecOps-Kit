@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-16
+
+### Changed
+- vault-001: `vault/notes/2026-06-15-vault-getting-started-trip-ups.md` — Resubmitted Vault getting-started tutorial notes in a separate PR (L2, rework)
+  - First-person walkthrough covering dev server setup, KV v2 basics, policy creation, token scoping, and JSON output shape
+  - Keeps the same tutorial topic while separating it from the previous shared branch
+
 ## 2026-06-15
 
 ### Added
