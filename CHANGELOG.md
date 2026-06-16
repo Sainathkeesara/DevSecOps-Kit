@@ -7,6 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-16
 
 ### Added
+- zap-002: `zap/configs/zap-authenticated-scan-context.yaml` — ZAP context configuration for form-based authenticated scanning (L3)
+  - Defines URL scope with include/exclude patterns, session cookie management, form-based auth with CSRF token handling, and a test user
+  - YAML comments document the reasoning behind each configuration choice
+- zap-003: `zap/docs/passive-vs-active-scanning-zap.md` — Comparison of passive and active scanning modes in ZAP (L3)
+  - Covers how each mode works, when to use each, and a practical workflow split
+  - Includes a decision table for CI/CD smoke tests vs pre-release deep scans
 - falco-002: `falco/configs/container-drift-detection.yaml` — Custom Falco rules for container drift detection (L2)
   - Two rules: binary modification detection in /usr/bin and package manager execution detection
   - Detects file writes to critical binaries via openat/rename/unlink syscalls

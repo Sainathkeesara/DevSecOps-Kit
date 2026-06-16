@@ -1,0 +1,41 @@
+# ZAP authenticated scan context — form-based auth
+# I put this together while figuring out how to get ZAP
+# past a login form so it could actually find the real issues.
+# There's more than one way to wire this up — the docs also
+# suggest script-based auth for non-standard flows.
+---
+name: AuthenticatedScanApp
+description: >
+  Context for scanning a web app behind form-based
+  authentication. Defines URL scope, auth config, and
+  a test user so ZAP can crawl logged-in pages.
+
+includes:
+  - https://app.example.com/.*
+
+excludes:
+  - https://app.example.com/logout
+  - https://app.example.com/static/.*
+
+sessionManagement:
+  method: cookie
+  params:
+    sessionTokenNames:
+      - JSESSIONID
+
+authentication:
+  method: form
+  params:
+    loginUrl: https://app.example.com/login
+    loginRequestData: "username={%username%}&password={%password%}&_csrf={%csrf_token%}"
+    loginPageUrl: https://app.example.com/login
+    csrfToken:
+      csrfTokenUrl: https://app.example.com/login
+      csrfTokenName: _csrf
+  verificationStrategy: response
+
+users:
+  - name: testuser
+    credentials:
+      username: scan-user@app.example.com
+      password: "CHANGE_ME_PLACEHOLDER"

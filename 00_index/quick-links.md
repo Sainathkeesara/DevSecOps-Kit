@@ -179,6 +179,8 @@
 - [Install ZAP and explore the desktop UI](../zap/notes/2026-06-06-install-zap-desktop-ui.md)
 - [My first ZAP baseline scan](../zap/snippets/my-first-zap-baseline-scan.sh)
 - [ZAP quickstart walkthrough — UI gotchas](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md)
+- [Authenticated scan context config](../zap/configs/zap-authenticated-scan-context.yaml) — Form-based auth context with CSRF handling
+- [Passive vs active scanning in ZAP](../zap/docs/passive-vs-active-scanning-zap.md) — When to use each mode and a practical workflow split
 - [Authenticated scan with ZAP context](../zap/snippets/authenticated-scan-with-context.sh)
 - [ZAP integration patterns for web app security testing](../zap/docs/zap-integration-patterns.md)
 - [Spider scan against a test app](../zap/notes/2026-06-13-spider-scan-test-app.md)
