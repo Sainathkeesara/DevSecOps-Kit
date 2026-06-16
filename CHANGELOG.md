@@ -7,12 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-16
 
 ### Added
-- grype-001: `grype/configs/grype-ci-github-actions.yaml` — Grype CI GitHub Actions workflow (L3)
-  - Purpose → Steps → Verify structure covering build, scan, summary, SARIF upload, and fail-gating
-  - Triggers on push, PR, and weekly schedule with --fail-on high and --only-fixed for CI gating
-- vault-003: `vault/docs/configuring-vault-dev-server.md` — Configuring Vault's development server (L2)
-  - First-person walkthrough covering fixed root token, listen address, engine startup scripts, and in-memory-only storage
-  - Got stuck on: token env var confusion, port bind errors, no TLS in dev mode
+- falco-002: `falco/configs/container-drift-detection.yaml` — Custom Falco rules for container drift detection (L2)
+  - Two rules: binary modification detection in /usr/bin and package manager execution detection
+  - Detects file writes to critical binaries via openat/rename/unlink syscalls
+  - Detects package manager usage (apt, yum, apk, pip, npm) indicating runtime changes
 
 ### Changed
 - vault-001: `vault/notes/2026-06-15-vault-getting-started-trip-ups.md` — Resubmitted Vault getting-started tutorial notes in a separate PR (L2, rework)
