@@ -64,8 +64,10 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 
 - **`00_index/`** — Navigation: topic index, quick links, glossary
 - **`.github/`** — PR template, CODEOWNERS, workflow README
+- **`assets/`** — Static images and diagrams used by guides and project docs
 - **`checkov/` / `semgrep/` / `trivy/` / `trufflehog/` / `syft/`** — Security scanner notes, scripts, configs
 - **`grype/` / `codeql/` / `zap/` / `snyk/` / `gitguardian/` / `falco/` / `cosign/`** — Vulnerability scanner and security tool content
+- **`terrascan/`** — Terrascan primers, notes, and IaC scan snippets
 - **`opa/`** — OPA/Gatekeeper policies and snippets
 - **`vault/`** — HashiCorp Vault primers and notes
 - **`docs/`** — How-to guides, concepts, reference, runbooks, security docs, troubleshooting, setup guides
