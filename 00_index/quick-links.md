@@ -188,6 +188,7 @@
 - [Install Falco and run first detection](../falco/notes/2026-06-10-install-falco-first-detection.md)
 - [Falco rule structure — macros, lists, and the append trick](../falco/notes/2026-06-15-falco-rules-macros-lists.md)
 - [My first custom Falco rule: detect shell in container](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
+- [Custom Falco rules for container drift detection](../falco/configs/container-drift-detection.yaml)
 
 ## Manage secrets with Vault
 - [Vault primer](../vault/notes/0000-primer-vault.md)

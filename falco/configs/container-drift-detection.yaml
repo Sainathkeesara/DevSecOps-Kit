@@ -1,0 +1,36 @@
+rules:
+  - rule: Container binary modified
+    desc: Detects modification of critical system binaries in running containers
+    level: WARNING
+    source: syscall
+    syscalls:
+      - openat
+      - rename
+      - unlink
+    condition: >
+      fd.dir starts with "/usr/bin"
+      and container
+      and (openat or rename or unlink)
+    output: >
+      Binary modified in container (binary=%fd.name container=%container.name image=%container.image.repository)
+    tags:
+      - container
+      - drift
+      - filesystem
+
+  - rule: Package manager executed in container
+    desc: Detects package manager usage which indicates container drift
+    level: ERROR
+    source: syscall
+    syscalls:
+      - execve
+    condition: >
+      container
+      and spawned_process
+      and proc.name in ("apt", "apt-get", "yum", "dnf", "apk", "pip", "npm")
+    output: >
+      Package manager ran in container (pkg=%proc.name container=%container.name image=%container.image.repository)
+    tags:
+      - container
+      - drift
+      - package-manager
