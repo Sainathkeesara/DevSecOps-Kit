@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2026-06-16
 
+### Added
+- falco-002: `falco/configs/container-drift-detection.yaml` — Custom Falco rules for container drift detection (L2)
+  - Two rules: binary modification detection in /usr/bin and package manager execution detection
+  - Detects file writes to critical binaries via openat/rename/unlink syscalls
+  - Detects package manager usage (apt, yum, apk, pip, npm) indicating runtime changes
+
 ### Changed
 - vault-001: `vault/notes/2026-06-15-vault-getting-started-trip-ups.md` — Resubmitted Vault getting-started tutorial notes in a separate PR (L2, rework)
   - First-person walkthrough covering dev server setup, KV v2 basics, policy creation, token scoping, and JSON output shape
