@@ -140,6 +140,18 @@
 
 **Vulnerability matching**: The process of comparing software inventory (from SBOM or filesystem scan) against known CVE databases to identify affected packages.
 
+**Cosign**: Open-source tool for container image signing and verification using cryptographic signatures, part of the Sigstore project, enabling supply chain security through signed artifact provenance.
+
+**OPA (Open Policy Agent)**: Open-source policy engine that uses Rego language to define and enforce policies across cloud-native stacks, including Kubernetes admission control, Terraform plan validation, and CI/CD gate decisions.
+
+**Rego**: OPA's declarative policy language for defining rules that query and transform structured data (JSON, YAML) to make policy decisions.
+
+**Snyk**: Developer security platform for finding and fixing vulnerabilities in open-source dependencies, container images, and infrastructure as code configurations.
+
+**GitGuardian**: Security platform for detecting secrets and sensitive data in source code repositories, known for its custom policy engine and ggshield CLI for pre-commit scanning.
+
+**ggshield**: GitGuardian's CLI tool for scanning git repositories, files, and CI/CD pipelines for exposed secrets and sensitive data.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment

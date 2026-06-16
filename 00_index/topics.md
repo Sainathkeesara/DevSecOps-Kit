@@ -483,6 +483,9 @@
 - [note] zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md — Quickstart walkthrough and UI gotchas (L1)
 - [snippet] zap/snippets/my-first-zap-baseline-scan.sh — First ZAP baseline scan from the CLI
 - [snippet] zap/snippets/authenticated-scan-with-context.sh — Authenticated scan using ZAP context
+- [note] zap/notes/2026-06-13-spider-scan-test-app.md — Spider scan against a test app (L1)
+- [snippet] zap/snippets/my-first-zap-spider-scan.sh — First ZAP spider scan via API
+- [doc] zap/docs/zap-integration-patterns.md — ZAP integration patterns for web app security testing
 
 ## TruffleHog
 - [note] trufflehog/notes/0000-primer-trufflehog.md — First-day primer on TruffleHog (L1)
@@ -533,3 +536,34 @@
 - [module] terraform/eventbridge-lambda/variables.tf — Root variables
 - [module] scripts/bash/terraform_toolkit/networking/terraform/main.tf — VPC networking module
 - [module] scripts/bash/terraform_toolkit/networking/terraform/variables.tf — VPC module variables
+
+## Cosign
+- [note] cosign/notes/0000-primer-cosign.md — First-day primer on Cosign container image signing (L1)
+- [note] cosign/notes/2026-06-13-install-cosign-sign-first-image.md — Installing Cosign and signing the first image (L1)
+- [script] cosign/scripts/verify-signed-image.sh — Verify a signed container image
+
+## Falco
+- [note] falco/notes/0000-primer-falco.md — First-day primer on Falco runtime security (L1)
+- [note] falco/notes/2026-06-10-install-falco-first-detection.md — Installing Falco and running first detection (L1)
+- [config] falco/configs/first-custom-rule-detect-shell-in-container.yaml — Custom rule to detect shell in container
+- [config] falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml — First custom Falco rule snapshot
+
+## OPA
+- [note] opa/notes/0000-primer-opa.md — First-day primer on OPA policy engine (L1)
+- [note] opa/notes/2026-06-06-install-opa-repl.md — Installing OPA and exploring the REPL (L1)
+- [snippet] opa/snippets/my-first-opa-policy-eval.sh — First OPA policy evaluation
+- [snippet] opa/snippets/enforce-image-registry-constraints.rego — Rego policy enforcing image registry constraints
+
+## Snyk
+- [note] snyk/notes/0000-primer-snyk.md — First-day primer on Snyk (L1)
+- [note] snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md — Snyk quickstart walkthrough (L1)
+- [note] snyk/notes/2026-06-08-install-snyk-first-test.md — Installing Snyk CLI and running first project test (L1)
+- [snippet] snyk/snippets/my-first-snyk-commands.sh — First Snyk CLI commands reference
+
+## GitGuardian
+- [note] gitguardian/notes/0000-primer-gitguardian.md — First-day primer on GitGuardian (L1)
+- [note] gitguardian/notes/2026-06-07-first-ggshield-scan.md — Installing ggshield and running first scan (L1)
+- [note] gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md — Quickstart walkthrough and common pitfalls (L1)
+- [snippet] gitguardian/snippets/my-first-ggshield-commands.sh — First ggshield commands reference
+- [snippet] gitguardian/snippets/custom-policy-engine-ggshield.sh — Custom policy engine with ggshield
+- [config] gitguardian/configs/.ggshield.yaml — ggshield scheduled scanning configuration
