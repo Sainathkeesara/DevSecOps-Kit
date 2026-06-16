@@ -98,6 +98,7 @@
 - [First Grype vulnerability scan](../grype/notes/2026-06-08-first-grype-scan.md)
 - [CI-ready Grype scanning wrapper with severity thresholds](../grype/scripts/ci-ready-grype-scan.sh)
 - [Vulnerability diff across two image versions](../grype/scripts/vuln-diff-two-images.sh)
+- [Grype CI GitHub Actions workflow](../grype/configs/grype-ci-github-actions.yaml)
 
 ## Scan with OPA/Gatekeeper
 - [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md)
@@ -196,6 +197,7 @@
 - [Vault getting-started tutorial — what tripped me up](../vault/notes/2026-06-15-vault-getting-started-trip-ups.md)
 - [My first Vault read/write commands](../vault/snippets/vault-read-write.go)
 - [Minimal Vault KV CRUD script](../vault/scripts/vault-kv-crud.sh)
+- [Configuring Vault's dev server](../vault/docs/configuring-vault-dev-server.md)
 
 ## Run a Kubernetes task
 - [k8s_toolkit usage guide](../docs/how-to/k8s_toolkit.md)
