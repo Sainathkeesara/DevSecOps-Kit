@@ -174,6 +174,7 @@
 - [Custom detector rules for proprietary patterns](../trufflehog/configs/custom-detector-rules.yaml)
 - [Analyzing TruffleHog false positives and severity tuning notebook](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb)
 - [TruffleHog secret scanning pipeline scaffold (template)](../trufflehog/templates/secret-scanning-pipeline/)
+- [TruffleHog GitHub secret scanning integration scaffold (template)](../trufflehog/templates/github-secret-scanning-integration/)
 
 ## Scan with OWASP ZAP
 - [ZAP primer](../zap/notes/0000-primer-zap.md)
