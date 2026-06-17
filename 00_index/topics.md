@@ -485,6 +485,7 @@
 - [snippet] zap/snippets/authenticated-scan-with-context.sh — Authenticated scan using ZAP context
 - [note] zap/notes/2026-06-13-spider-scan-test-app.md — Spider scan against a test app (L1)
 - [snippet] zap/snippets/my-first-zap-spider-scan.sh — First ZAP spider scan via API
+- [script] zap/scripts/dast-workflow-from-scratch.sh — Full ZAP DAST workflow from spider to active scan
 - [doc] zap/docs/zap-integration-patterns.md — ZAP integration patterns for web app security testing
 
 ## TruffleHog
