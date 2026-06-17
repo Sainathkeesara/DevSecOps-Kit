@@ -41,7 +41,7 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 | Syft | 3 | 1 | 1 | — | notes:4, configs |
 | Grype | 4 | — | 2 | — | notes:4 |
 | CodeQL | 2 | — | 2 | — | notes:2, configs |
-| ZAP | 3 | 1 | 3 | — | notes:4 |
+| ZAP | 4 | 1 | 3 | — | notes:4 |
 | Falco | — | — | — | — | notes:2, configs:2 |
 | Cosign | 1 | — | — | — | notes:2 |
 | OPA | 1 | — | 2 | — | notes:2 |

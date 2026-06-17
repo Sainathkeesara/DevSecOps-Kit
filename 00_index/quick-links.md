@@ -186,6 +186,7 @@
 - [Authenticated scan with ZAP context](../zap/snippets/authenticated-scan-with-context.sh)
 - [ZAP integration patterns for web app security testing](../zap/docs/zap-integration-patterns.md)
 - [Spider scan against a test app](../zap/notes/2026-06-13-spider-scan-test-app.md)
+- [DAST workflow from spider to active scan](../zap/scripts/dast-workflow-from-scratch.sh) — Start ZAP, crawl a target, run active scanning, and save reports
 - [My first ZAP spider scan via API](../zap/snippets/my-first-zap-spider-scan.sh)
 
 ## Runtime security with Falco
