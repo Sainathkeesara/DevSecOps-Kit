@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-17
+
+### Added
+- trufflehog-001: `trufflehog/templates/github-secret-scanning-integration/` — GitHub Actions scaffold for TruffleHog secret scanning (L4)
+  - Workflow runs on pull requests, pushes, and a weekly schedule
+  - Bash runner scans Git history with TruffleHog JSON output and generates a markdown summary
+  - GitHub Actions job uploads JSON results and comments on pull requests when findings exist
+  - shellcheck passed (clean)
+
 ## 2026-06-16
 
 ### Added
