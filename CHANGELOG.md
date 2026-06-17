@@ -17,6 +17,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Two rules: binary modification detection in /usr/bin and package manager execution detection
   - Detects file writes to critical binaries via openat/rename/unlink syscalls
   - Detects package manager usage (apt, yum, apk, pip, npm) indicating runtime changes
+- gen-009: `general/docs/2026-06-16-readme-layout-assets-terrascan.md` — README Layout audit for undocumented root folders (audit)
+  - Added `assets/` and `terrascan/` entries to README Layout
+  - Confirmed `cosign/` and `falco/` were already documented
 
 ### Changed
 - vault-001: `vault/notes/2026-06-15-vault-getting-started-trip-ups.md` — Resubmitted Vault getting-started tutorial notes in a separate PR (L2, rework)

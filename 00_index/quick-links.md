@@ -2,6 +2,7 @@
 
 ## Getting started
 - [README](../README.md) — Repository overview
+- [README Layout audit: assets and Terrascan](../general/docs/2026-06-16-readme-layout-assets-terrascan.md) — Audit note for undocumented root folders
 - [topics.md](topics.md) — Full topic index by tool
 - [glossary.md](glossary.md) — Tool and domain terminology
 
