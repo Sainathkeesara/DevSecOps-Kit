@@ -1,0 +1,26 @@
+# Syft configuration — SBOM pipeline scaffold
+#
+# Tune catalogers to match your project's language ecosystem.
+# Adding unused catalogers slows scans without benefit.
+#
+# Reference: https://github.com/anchore/syft#configuration
+
+catalogers:
+  - python-package
+  - javascript-package
+  - ruby-gemfile
+  - java-pom
+  - java-gradle
+  - go-module
+  - rust-cargo
+  - dpkg
+  - rpm
+  - apk
+
+exclude:
+  - "**/node_modules/**"
+  - "**/__pycache__/**"
+  - "**/.git/**"
+  - "**/.venv/**"
+
+quiet: true

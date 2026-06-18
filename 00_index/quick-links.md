@@ -109,14 +109,15 @@
 - [OPA getting-started tutorial — what tripped me up](../opa/notes/2026-06-15-opa-getting-started-trip-ups.md)
 - [Gatekeeper admission policy — block host network](../opa/configs/tried-a-gatekeeper-constraint.yaml)
 - [How I test OPA policies locally](../opa/scripts/how-i-test-policies-locally.sh)
-
 ## Scan for SBOM generation
+
 - [Syft primer](../syft/notes/0000-primer-syft.md)
 - [Install Syft and generate first SBOM](../syft/notes/2026-05-27-install-syft-first-sbom.md)
 - [Syft quickstart walkthrough](../syft/notes/2026-05-29-syft-quickstart-trip-ups.md)
 - [Generate SPDX + CycloneDX SBOMs](../syft/snippets/tried-sbom-formats.sh)
 - [Generate all Syft SBOM formats](../syft/scripts/gen-multi-format-sboms.sh)
 - [Multi-image SBOM pipeline](../syft/scripts/multi-image-sbom-pipeline.sh)
+- [SBOM pipeline scaffold template](../syft/templates/sbom-pipeline-scaffold/) — Syft + Grype CI integration scaffold
 - [Syft configuration (.syft.yaml)](../syft/configs/.syft.yaml)
 - [SBOM format comparison: SPDX vs CycloneDX vs Syft JSON](../syft/docs/sbom-formats-comparison.md)
 - [SBOM layer package analysis notebook](../syft/notebooks/sbom-layer-package-analysis.ipynb)
