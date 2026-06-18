@@ -7,6 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-17
 
 ### Added
+- trufflehog-002: `trufflehog/scripts/analyze-trufflehog-results.py` — Reusable Python helper for TruffleHog JSON results analysis (L4)
+  - Reads JSON lines or arrays from stdin or file
+  - Groups results by detector, file, or severity with optional minimum-severity filter
+  - Prints summary with total/verified counts and top detectors
+  - Real error handling for JSON parse failures and empty results
+- trufflehog-003: `trufflehog/dockerfiles/pre-commit-scanner.Dockerfile` — Dockerized TruffleHog scanner for pre-commit hook (L4)
+  - Python 3.12-alpine base with pinned TruffleHog version
+  - Embedded shell script scans staged files and blocks commits on secrets
+  - Designed for bind-mounted repo at /repo
 - trufflehog-001: `trufflehog/templates/github-secret-scanning-integration/` — GitHub Actions scaffold for TruffleHog secret scanning (L4)
   - Workflow runs on pull requests, pushes, and a weekly schedule
   - Bash runner scans Git history with TruffleHog JSON output and generates a markdown summary

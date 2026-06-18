@@ -174,6 +174,8 @@
 - [Custom detector rules for proprietary patterns](../trufflehog/configs/custom-detector-rules.yaml)
 - [Analyzing TruffleHog false positives and severity tuning notebook](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb)
 - [TruffleHog secret scanning pipeline scaffold (template)](../trufflehog/templates/secret-scanning-pipeline/)
+- [Analyze TruffleHog results (Python helper)](../trufflehog/scripts/analyze-trufflehog-results.py) — Filter, group, and summarize TruffleHog JSON output
+- [Dockerized TruffleHog pre-commit scanner (Dockerfile)](../trufflehog/dockerfiles/pre-commit-scanner.Dockerfile) — Containerized secret scanning for pre-commit hooks
 - [TruffleHog GitHub secret scanning integration scaffold (template)](../trufflehog/templates/github-secret-scanning-integration/)
 
 ## Scan with OWASP ZAP
