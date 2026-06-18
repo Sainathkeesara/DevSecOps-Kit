@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-18
+
+### Added
+- gen-006: `general/docs/2026-06-18-readme-layout-remaining-folders.md` — README Layout audit confirming `assets/`, `cosign/`, `falco/`, and `terrascan/` are already documented
+- cosign-002: `cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md` — First-person L1 notes covering Cosign installation and keypair generation
+
 ## 2026-06-17
 
 ### Added

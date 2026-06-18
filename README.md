@@ -68,6 +68,7 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 - **`checkov/` / `semgrep/` / `trivy/` / `trufflehog/` / `syft/`** — Security scanner notes, scripts, configs
 - **`grype/` / `codeql/` / `zap/` / `snyk/` / `gitguardian/` / `falco/` / `cosign/`** — Vulnerability scanner and security tool content
 - **`terrascan/`** — Terrascan primers, notes, and IaC scan snippets
+- **`general/`** — General documentation, cross-tool guides, and meta-content
 - **`opa/`** — OPA/Gatekeeper policies and snippets
 - **`vault/`** — HashiCorp Vault primers and notes
 - **`docs/`** — How-to guides, concepts, reference, runbooks, security docs, troubleshooting, setup guides
@@ -86,4 +87,4 @@ Actively maintained with weekly additions. Current focus areas: OWASP ZAP DAST s
 
 ---
 
-_Last updated: 2026-06-13_
+_Last updated: 2026-06-18_
