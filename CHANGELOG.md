@@ -7,12 +7,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-18
 
 ### Added
+- gen-006: `general/docs/2026-06-18-readme-layout-remaining-folders.md` — README Layout audit confirming `assets/`, `cosign/`, `falco/`, and `terrascan/` are already documented
+- cosign-002: `cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md` — First-person L1 notes covering Cosign installation and keypair generation
 - syft-001: `syft/templates/sbom-pipeline-scaffold/` — SBOM pipeline scaffold for Syft + Grype CI integration (L4)
-  - GitHub Actions workflow that builds an image, generates an SBOM with Syft, and scans it with Grype
-  - SARIF upload for GitHub code scanning integration
-  - Local scan script for pre-commit validation
-  - Syft and Grype configuration files tuned for common language ecosystems
-  - shellcheck passed (clean)
+   - GitHub Actions workflow that builds an image, generates an SBOM with Syft, and scans it with Grype
+   - SARIF upload for GitHub code scanning integration
+   - Local scan script for pre-commit validation
+   - Syft and Grype configuration files tuned for common language ecosystems
+   - shellcheck passed (clean)
 
 ## 2026-06-17
 
