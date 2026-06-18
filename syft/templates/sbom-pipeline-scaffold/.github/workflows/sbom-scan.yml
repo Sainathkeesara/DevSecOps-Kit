@@ -1,0 +1,80 @@
+name: SBOM Scan (Syft + Grype)
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+  schedule:
+    - cron: "0 6 * * 1"  # weekly Monday 06:00 UTC
+
+jobs:
+  sbom-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build target image
+        run: docker build -t app:ci -f Dockerfile .
+
+      - name: Generate SBOM with Syft
+        run: |
+          mkdir -p reports
+          syft scan app:ci \
+            --config syft.yaml \
+            --output cyclonedx-json \
+            > reports/sbom.cdx.json
+
+      - name: Upload SBOM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: reports/sbom.cdx.json
+
+      - name: Scan SBOM with Grype
+        id: grype
+        continue-on-error: true
+        run: |
+          grype sbom:reports/sbom.cdx.json \
+            --config grype.yaml \
+            --output sarif \
+            > reports/grype-results.sarif
+
+      - name: Upload SARIF report
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: reports/grype-results.sarif
+          category: grype
+
+      - name: Display vulnerability summary
+        run: |
+          if [ -f reports/grype-results.sarif ]; then
+            python3 -c "
+import json
+with open('reports/grype-results.sarif') as f:
+    data = json.load(f)
+results = data.get('runs', [{}])[0].get('results', [])
+sev_count = {}
+for r in results:
+    sev = r.get('properties', {}).get('severity', 'unknown')
+    sev_count[sev] = sev_count.get(sev, 0) + 1
+print('Vulnerability summary:')
+for s in ['critical','high','medium','low','unknown']:
+    if s in sev_count:
+        print(f'  {s}: {sev_count[s]}')
+"
+          else
+            echo "No SARIF report generated"
+          fi
+
+      - name: Fail on high-severity vulnerabilities
+        if: steps.grype.outcome == 'failure'
+        run: |
+          echo "Grype found vulnerabilities at or above the configured threshold."
+          echo "Check the uploaded SARIF report for details."
+          exit 1
