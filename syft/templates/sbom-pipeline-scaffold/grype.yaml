@@ -1,0 +1,13 @@
+# Grype configuration — SBOM pipeline scaffold
+#
+# Controls vulnerability matching behaviour and output.
+# The fail-on-severity threshold gates CI — raise or lower as needed.
+#
+# Reference: https://github.com/anchore/grype#configuration
+
+fail-on-severity: high
+
+only-fixed: true
+
+vex:
+  - "**/*.vex.json"
