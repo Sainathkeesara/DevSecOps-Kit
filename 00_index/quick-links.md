@@ -118,6 +118,7 @@
 - [Generate all Syft SBOM formats](../syft/scripts/gen-multi-format-sboms.sh)
 - [Multi-image SBOM pipeline](../syft/scripts/multi-image-sbom-pipeline.sh)
 - [SBOM pipeline scaffold template](../syft/templates/sbom-pipeline-scaffold/) — Syft + Grype CI integration scaffold
+- [Syft + Grype SBOM vulnerability pipeline](../syft/scripts/sbom-vuln-pipeline.sh) — Generate a CycloneDX SBOM and scan it with Grype
 - [Syft configuration (.syft.yaml)](../syft/configs/.syft.yaml)
 - [SBOM format comparison: SPDX vs CycloneDX vs Syft JSON](../syft/docs/sbom-formats-comparison.md)
 - [SBOM layer package analysis notebook](../syft/notebooks/sbom-layer-package-analysis.ipynb)
