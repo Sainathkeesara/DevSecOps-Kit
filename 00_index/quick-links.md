@@ -121,6 +121,8 @@
 - [Syft configuration (.syft.yaml)](../syft/configs/.syft.yaml)
 - [SBOM format comparison: SPDX vs CycloneDX vs Syft JSON](../syft/docs/sbom-formats-comparison.md)
 - [SBOM layer package analysis notebook](../syft/notebooks/sbom-layer-package-analysis.ipynb)
+- [Multi-stage Dockerfile with Syft SBOM generation](../syft/dockerfiles/multi-stage-sbom.Dockerfile) — Build + SBOM + runtime pattern
+- [Syft SBOM output formats reference](../syft/docs/sbom-output-formats-reference.md) — JSON structure guide for native, CycloneDX, and SPDX formats
 
 ## Scan with Snyk
 - [Snyk primer](../snyk/notes/0000-primer-snyk.md)

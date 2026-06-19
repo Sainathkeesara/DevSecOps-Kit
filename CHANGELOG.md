@@ -9,6 +9,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - terrascan-005: `terrascan/notes/2026-06-19-install-terrascan-tiny-tf.md` — L1 first-person notes on installing Terrascan via pip and scanning a single EBS volume Terraform file. Covers pip vs binary install, JSON output parsing, and the `--exit-code` gotcha for CI.
 - terrascan-006: `terrascan/snippets/tiny-tf-with-findings.tf` — L1 minimal HCL snippet with two resources (S3 bucket without logging config, unencrypted EBS snapshot) that trigger distinct Terrascan findings.
+- syft-003: `syft/dockerfiles/multi-stage-sbom.Dockerfile` — Multi-stage Dockerfile demonstrating SBOM generation with Syft (L4)
+  - Three-stage pattern: Go app builder, Syft SBOM generation stage, minimal runtime stage
+  - Generates CycloneDX and SPDX SBOMs from the built application
+  - Pinned Syft version for reproducible builds
+- syft-004: `syft/docs/sbom-output-formats-reference.md` — Reference guide for Syft's three SBOM output formats (L4)
+  - Documents the JSON structure of Syft native, CycloneDX, and SPDX formats with annotated examples
+  - Practical jq extraction commands for each format
+  - Format selection guide and verification steps
 
 ## 2026-06-18
 
