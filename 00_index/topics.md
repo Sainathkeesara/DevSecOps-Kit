@@ -461,6 +461,7 @@
 - [note] syft/notes/2026-05-30-sbom-format-comparison.md — CycloneDX vs SPDX vs Syft JSON format comparison (L1)
 - [script] syft/scripts/gen-multi-format-sboms.sh — Generate SBOMs in all supported Syft formats
 - [script] syft/scripts/multi-image-sbom-pipeline.sh — Multi-image SBOM generation pipeline
+- [script] syft/scripts/sbom-vuln-pipeline.sh — Generate a CycloneDX SBOM and scan it with Grype
 - [config] syft/configs/.syft.yaml — Syft project-level configuration
 
 ## Grype
