@@ -152,6 +152,10 @@
 - [My first CodeQL query: hardcoded credentials in Python](../codeql/snippets/find-hardcoded-creds.ql)
 - [Minimal CodeQL database + query runner](../codeql/scripts/first-codeql-analysis.sh)
 
+## Update dependencies with Dependabot
+- [Dependabot primer](../dependabot/notes/0000-primer-dependabot.md)
+- [Minimal Dependabot npm update config](../dependabot/configs/tried-npm-dependabot.yaml)
+
 ## Build a Semgrep rule pack
 - [Multi-rule pack with combinators](../semgrep/configs/multi-rule-pack.yaml)
 

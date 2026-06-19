@@ -15,6 +15,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
    - Local scan script for pre-commit validation
    - Syft and Grype configuration files tuned for common language ecosystems
    - shellcheck passed (clean)
+- dependabot-001: `dependabot/notes/0000-primer-dependabot.md` — First-person L1 primer covering Dependabot as GitHub's dependency updater (L1)
+  - Explains package ecosystems, manifests, lockfiles, update pull requests, schedules, and PR limits
+- dependabot-003: `dependabot/configs/tried-npm-dependabot.yaml` — Minimal Dependabot config for weekly npm dependency updates (L1)
+  - Watches the root npm project and opens up to three labeled dependency PRs per week
 
 ## 2026-06-17
 
