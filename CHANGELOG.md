@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-19
+
+### Added
+- terrascan-005: `terrascan/notes/2026-06-19-install-terrascan-tiny-tf.md` — L1 first-person notes on installing Terrascan via pip and scanning a single EBS volume Terraform file. Covers pip vs binary install, JSON output parsing, and the `--exit-code` gotcha for CI.
+- terrascan-006: `terrascan/snippets/tiny-tf-with-findings.tf` — L1 minimal HCL snippet with two resources (S3 bucket without logging config, unencrypted EBS snapshot) that trigger distinct Terrascan findings.
+
 ## 2026-06-18
 
 ### Added

@@ -144,6 +144,8 @@
 - [Terrascan primer](../terrascan/notes/0000-primer-terrascan.md)
 - [Install Terrascan and run first scan](../terrascan/notes/2026-06-13-first-scan.md)
 - [Deliberately insecure Terraform snippet](../terrascan/snippets/insecure-terraform.tf)
+- [Install Terrascan via pip and scan a tiny Terraform file](../terrascan/notes/2026-06-19-install-terrascan-tiny-tf.md)
+- [Minimal Terraform that triggers findings](../terrascan/snippets/tiny-tf-with-findings.tf)
 
 ## Scan with CodeQL
 - [CodeQL quickstart walkthrough: custom query and upload](../codeql/notes/2026-06-05-install-codeql-first-analysis.md)
