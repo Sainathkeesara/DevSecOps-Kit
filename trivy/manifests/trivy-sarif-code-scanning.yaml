@@ -1,0 +1,109 @@
+name: Trivy SARIF — GitHub Code Scanning
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+  security-events: write
+
+env:
+  TRIVY_VERSION: 0.54.1
+  TRIVY_CACHE_DIR: /tmp/.trivy-cache
+  TRIVY_SEVERITY: CRITICAL,HIGH
+  IMAGE_TARGET: alpine:latest
+
+jobs:
+  image-scan:
+    name: Trivy image SARIF
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Restore Trivy DB cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.TRIVY_CACHE_DIR }}
+          key: trivy-db-${{ runner.os }}-${{ env.TRIVY_VERSION }}
+
+      - name: Install Trivy
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh \
+            | sh -s -- -b /usr/local v${{ env.TRIVY_VERSION }}
+
+      - name: Scan image and produce SARIF
+        id: scan
+        continue-on-error: true
+        run: |
+          mkdir -p results
+          trivy image \
+            --format sarif \
+            --output results/image-scan.sarif \
+            --severity "$TRIVY_SEVERITY" \
+            --ignore-unfixed \
+            --cache-dir "$TRIVY_CACHE_DIR" \
+            --quiet \
+            "$IMAGE_TARGET"
+
+      - name: Upload image SARIF to Code Scanning
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results/image-scan.sarif
+          category: trivy-image
+
+  fs-scan:
+    name: Trivy filesystem SARIF
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Restore Trivy DB cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.TRIVY_CACHE_DIR }}
+          key: trivy-db-${{ runner.os }}-${{ env.TRIVY_VERSION }}
+
+      - name: Install Trivy
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh \
+            | sh -s -- -b /usr/local v${{ env.TRIVY_VERSION }}
+
+      - name: Run filesystem vulnerability scan
+        id: vuln
+        continue-on-error: true
+        run: |
+          trivy fs \
+            --format sarif \
+            --output results/fs-vuln.sarif \
+            --severity "$TRIVY_SEVERITY" \
+            --ignore-unfixed \
+            --cache-dir "$TRIVY_CACHE_DIR" \
+            --quiet \
+            .
+
+      - name: Run misconfiguration scan
+        id: config
+        continue-on-error: true
+        run: |
+          trivy config \
+            --format sarif \
+            --output results/fs-config.sarif \
+            --severity "$TRIVY_SEVERITY" \
+            --cache-dir "$TRIVY_CACHE_DIR" \
+            --quiet \
+            .
+
+      - name: Upload filesystem SARIF to Code Scanning
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results
+          category: trivy-fs

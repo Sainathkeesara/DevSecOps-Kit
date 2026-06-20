@@ -90,6 +90,7 @@
 - [Containerized Trivy scanning environment with custom policies (Dockerfile)](../trivy/dockerfiles/custom-policies.Dockerfile)
 - [Trivy monorepo scanner scaffold (template)](../trivy/templates/trivy-monorepo-scanner/)
 - [Custom Trivy check with Conftest Rego policies](../trivy/scripts/custom-trivy-check-conftest.sh)
+- [Trivy SARIF Code Scanning workflow](../trivy/manifests/trivy-sarif-code-scanning.yaml) — GitHub Actions manifest for image and filesystem SARIF scanning with Code Scanning upload
 
 ## Scan with Grype
 - [Grype primer](../grype/notes/0000-primer-grype.md)
