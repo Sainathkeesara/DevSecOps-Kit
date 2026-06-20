@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-20
+
+### Added
+- trivy-002: `trivy/notebooks/trivy-scan-mode-comparison.ipynb` — L5 notebook comparing `trivy fs`, `trivy image`, and `trivy repo` scanning modes
+  - Runs all three modes against a sample Python project with known-vulnerable dependencies
+  - Compares result structures: vulnerability counts, misconfigurations, and secrets per mode
+  - Provides a CI/CD decision guide mapping pipeline stage to recommended scan mode
+  - Documents common gotchas: rootfs scanning, private repo auth, severity filter mismatch, SBOM re-scanning
+
 ## 2026-06-19
 
 ### Added
