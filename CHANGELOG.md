@@ -12,6 +12,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Compares result structures: vulnerability counts, misconfigurations, and secrets per mode
   - Provides a CI/CD decision guide mapping pipeline stage to recommended scan mode
   - Documents common gotchas: rootfs scanning, private repo auth, severity filter mismatch, SBOM re-scanning
+- gen-010/gen-011: `general/notes/2026-06-20-dependabot-layout.md` — L1 README Layout audit note documenting the Dependabot root folder and linking it with the existing primer/config.
+- gitguardian-005: `gitguardian/configs/monorepo-allowlists.yaml` — L3 ggshield config with monorepo ignore paths and per-directory allowlist entries.
+- trivy-001: `trivy/docs/sbom-scanning-reference-guide.md` — L5 Trivy SBOM scanning reference guide
+  - Covers SBOM generation for container images, filesystem, and remote repositories
+  - Documents output format selection (SPDX, CycloneDX) and format-specific tooling considerations
+  - CI integration recipes for GitHub Actions and GitLab CI
+  - Severity filtering, `.trivyignore` usage, and common SBOM-related issues
 
 ## 2026-06-19
 
