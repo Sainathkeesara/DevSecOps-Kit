@@ -7,6 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-20
 
 ### Added
+- trivy-004: `trivy/manifests/trivy-sarif-code-scanning.yaml` — L5 GitHub Actions manifest integrating Trivy SARIF output with GitHub Code Scanning
+  - Dual-job workflow: image vulnerability scan and filesystem scan (vulnerabilities + misconfigurations)
+  - Each job produces SARIF output and uploads via `github/codeql-action/upload-sarif@v3`
+  - Trivy DB caching for faster subsequent runs
+  - Scheduled weekly scan alongside push/PR triggers
+  - Uses `continue-on-error` to ensure SARIF upload completes before optional gating
 - trivy-002: `trivy/notebooks/trivy-scan-mode-comparison.ipynb` — L5 notebook comparing `trivy fs`, `trivy image`, and `trivy repo` scanning modes
   - Runs all three modes against a sample Python project with known-vulnerable dependencies
   - Compares result structures: vulnerability counts, misconfigurations, and secrets per mode
