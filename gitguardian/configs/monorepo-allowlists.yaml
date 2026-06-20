@@ -1,0 +1,24 @@
+version: "2"
+ignore-known-paths:
+  - "node_modules/"
+  - "vendor/"
+  - "dist/"
+  - "build/"
+  - ".terraform/"
+ignored-detectors:
+  - "generic_api_key"
+ignored-paths:
+  - "*.generated.go"
+  - "*.min.js"
+  - "frontend/src/generated/**"
+  - "backend/vendor/**"
+  - "infra/terraform/.terraform/**"
+allow:
+  - path: "services/payments/test/fixtures/**"
+    diff-start-line: 1
+  - path: "services/payments/docs/examples/**"
+    diff-start-line: 1
+  - path: "infra/modules/example/**"
+    diff-start-line: 1
+  - path: "examples/**/*.yaml"
+    diff-start-line: 1

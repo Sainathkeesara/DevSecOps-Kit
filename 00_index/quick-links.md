@@ -159,6 +159,7 @@
 
 ## Update dependencies with Dependabot
 - [Dependabot primer](../dependabot/notes/0000-primer-dependabot.md)
+- [README Layout audit: Dependabot root folder](../general/notes/2026-06-20-dependabot-layout.md) — README Layout note for the Dependabot root folder
 - [Minimal Dependabot npm update config](../dependabot/configs/tried-npm-dependabot.yaml)
 
 ## Build a Semgrep rule pack
