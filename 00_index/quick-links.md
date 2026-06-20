@@ -87,7 +87,7 @@
 - [Trivy SARIF output processing notebook](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
 - [Trivy scan mode comparison: fs vs image vs repo](../trivy/notebooks/trivy-scan-mode-comparison.ipynb) — Decision guide with practical CI/CD recommendations
 - [Trivy SBOM scanning reference guide](../trivy/docs/sbom-scanning-reference-guide.md)
- - [Containerized Trivy scanning environment with custom policies (Dockerfile)](../trivy/dockerfiles/custom-policies.Dockerfile)
+- [Containerized Trivy scanning environment with custom policies (Dockerfile)](../trivy/dockerfiles/custom-policies.Dockerfile)
 - [Trivy monorepo scanner scaffold (template)](../trivy/templates/trivy-monorepo-scanner/)
 - [Custom Trivy check with Conftest Rego policies](../trivy/scripts/custom-trivy-check-conftest.sh)
 
