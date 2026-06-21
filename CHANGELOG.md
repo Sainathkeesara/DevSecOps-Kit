@@ -30,6 +30,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - gen-012: `general/notes/2026-06-20-dependabot-layout.md` — L1 README Layout audit note documenting the Dependabot root folder and `.pr_result.json` ignore decision.
   - Confirms `dependabot/` structure with primer and configs is documented in README
   - Decision: `.pr_result.json` should remain ignored (CI artifact already in `.gitignore`, removed from tracking)
+- semgrep-001: `semgrep/docs/semgrep-rule-writing-reference.md` — L5 Semgrep rule writing reference covering pattern syntax and metavariable constraints
+  - Reference-style guide with Purpose, When to use, Prerequisites, Steps, Verify, Common errors, References
+  - Documents basic pattern matching, metavariable constraints (regex, comparison), ellipsis, and constraint patterns
+  - Includes practical examples for security-focused rule creation (subprocess, SQL injection, Flask debug mode, CORS)
 
 ### Changed
 - `.pr_result.json` — Removed from git tracking (remains in `.gitignore` as CI artifact)
