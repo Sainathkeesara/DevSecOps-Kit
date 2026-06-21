@@ -152,6 +152,12 @@
 
 **ggshield**: GitGuardian's CLI tool for scanning git repositories, files, and CI/CD pipelines for exposed secrets and sensitive data.
 
+**Dependabot**: GitHub's automated dependency update tool that monitors dependencies for known vulnerabilities and creates pull requests to update them.
+
+**Terrascan**: Static code analysis tool for Infrastructure as Code that detects security violations and compliance issues in Terraform, Kubernetes, and other IaC templates.
+
+**Severity gating**: A CI/CD practice where pipeline stages are blocked or allowed based on the severity level of security findings, typically failing builds on CRITICAL or HIGH vulnerabilities.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment
