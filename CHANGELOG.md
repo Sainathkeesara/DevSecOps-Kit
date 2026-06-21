@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-21
+
+### Added
+- checkov-003: `checkov/templates/reusable-workflow-custom-policies/` — GitHub Actions reusable workflow template for Checkov custom policies (L5)
+  - Reusable workflow with configurable inputs: scan directory, frameworks, custom policy path, severity threshold, SARIF output toggle, artifact upload
+  - Sample Checkov custom policy YAML files for S3 bucket ACL and EC2 public IP restriction
+  - Example caller workflow for push/PR triggers
+  - README with Purpose, When to use, Prerequisites, Steps, Verify, Common errors, and References sections
+
 ## 2026-06-20
 
 ### Added

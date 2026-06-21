@@ -72,6 +72,7 @@
 - [Checkov CI config with framework selection](../checkov/configs/checkov-ci-config.yaml)
 - [Build Terraform scanning project with Checkov custom policies](../checkov/snippets/terraform-scan-custom-policies.py)
 - [Multi-IaC scanning project scaffold (template)](../checkov/templates/multi-iac-scan-project/)
+- [Checkov reusable workflow for custom policies (template)](../checkov/templates/reusable-workflow-custom-policies/)
 - [Scan Terraform plan with Checkov](../checkov/scripts/scan-terraform-plan.sh)
 - [Deep Checkov Terraform plan scan with severity gating](../checkov/scripts/deep-terraform-plan-scan.sh)
 - [Checkov AI infrastructure checks reference (Bedrock, Vertex AI, OpenAI)](../checkov/docs/checkov-ai-infrastructure-checks.md)
