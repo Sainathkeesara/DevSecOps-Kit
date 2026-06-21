@@ -2,10 +2,10 @@
 > A working engineer's DevSecOps reference — scripts, how-to guides, runbooks, and templates for infrastructure automation, security scanning, CI/CD, and observability.
 
 [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Files](https://img.shields.io/badge/files-557-blue)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Shell](https://img.shields.io/badge/Shell-213-4EAA25?logo=gnubash&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Markdown](https://img.shields.io/badge/Markdown-230-000000?logo=markdown&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Terraform](https://img.shields.io/badge/Terraform-38-7B42BC?logo=terraform&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Files](https://img.shields.io/badge/files-608-blue)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Shell](https://img.shields.io/badge/Shell-222-4EAA25?logo=gnubash&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Markdown](https://img.shields.io/badge/Markdown-251-000000?logo=markdown&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Terraform](https://img.shields.io/badge/Terraform-40-7B42BC?logo=terraform&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 
 ---
 
@@ -21,42 +21,44 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 
 | Tool | Scripts | Docs | Snippets | Templates | More |
 |------|--------:|-----:|---------:|----------:|----:|
-| Linux | 50 | 39 | 2 | 14 | — |
-| Kubernetes | 17 | 13 | 1 | 3 | — |
+| Linux | 50 | 40 | 2 | 14 | — |
+| Kubernetes | 17 | 11 | 1 | 3 | — |
 | Kafka | 17 | 3 | 2 | — | — |
-| Terraform | 15 | 17 | 1 | 12 | modules:7, environments:12 |
+| Terraform | 15 | 17 | 1 | 12 | environments:12 |
 | Jenkins | 4 | 13 | 4 | 1 | — |
-| Ansible | 11 | 7 | 1 | — | — |
-| CI/CD | 17 | 11 | 1 | — | ArgoCD, Flux |
-| Observability | 14 | 3 | 1 | — | — |
+| Ansible | 11 | 8 | 1 | — | — |
+| CI/CD | 17 | 12 | 1 | — | ArgoCD, Flux |
+| Observability | 14 | 9 | 1 | — | — |
 | OCI / Container Registries | 11 | 7 | 1 | — | — |
-| Docker | 7 | 5 | 1 | — | — |
-| Vault | 7 | 6 | 1 | — | notes:3 |
-| Git | 8 | 24 | 1 | — | — |
+| Docker | 7 | 6 | 1 | — | — |
+| Vault | 7 | 4 | 1 | — | notes:3 |
+| Git | 8 | 20 | 1 | — | — |
 | Helm | 3 | 2 | — | — | — |
-| Checkov | 6 | 2 | 4 | 5 | notes:4, configs:2, policies, notebooks |
-| Semgrep | 4 | 3 | 2 | — | notes:3, configs, notebooks, Dockerfiles |
-| Trivy | 7 | 2 | 1 | 6 | notes:3, configs:2, notebooks, Dockerfiles |
-| TruffleHog | 5 | 1 | 2 | 6 | notes:3, configs:2 |
-| Syft | 3 | 1 | 1 | — | notes:4, configs |
-| Grype | 4 | — | 2 | — | notes:4 |
-| CodeQL | 2 | — | 2 | — | notes:2, configs |
-| ZAP | 4 | 1 | 3 | — | notes:4 |
-| Falco | — | — | — | — | notes:2, configs:2 |
-| Cosign | 1 | — | — | — | notes:2 |
-| OPA | 1 | — | 2 | — | notes:2 |
-| GitGuardian | 2 | — | 2 | — | notes:3, configs |
-| Snyk | 1 | — | 1 | — | notes:3 |
+| Checkov | 2 | 3 | 4 | 5 | notes:4, configs:2, manifests, policies, notebooks |
+| Semgrep | 3 | 3 | 2 | — | notes:3, configs, notebooks, Dockerfiles |
+| Trivy | 5 | 3 | 1 | 6 | notes:3, configs:2, notebooks, Dockerfiles |
+| TruffleHog | 3 | 1 | 2 | 11 | notes:3, configs:2 |
+| Syft | 3 | 2 | 1 | 7 | notes:4, configs, Dockerfiles |
+| Grype | 3 | — | 2 | — | notes:4, configs |
+| CodeQL | 1 | — | 2 | — | notes:3, configs |
+| ZAP | 1 | 2 | 3 | — | notes:4, configs |
+| Falco | — | — | — | — | notes:3, configs:3 |
+| Cosign | 1 | — | 1 | — | notes:3 |
+| OPA | 1 | — | 2 | — | notes:3, configs |
+| GitGuardian | 1 | — | 2 | — | notes:4, configs:2 |
+| Snyk | 1 | — | 1 | — | notes:4, configs |
+| Terrascan | — | — | 2 | — | notes:3 |
+| Dependabot | — | — | — | — | notes:1, configs |
 
 ---
 
 ## Quick links
 
-- [Cosign — sign and verify container images](cosign/notes/2026-06-13-install-cosign-sign-first-image.md) — Install Cosign, sign an image, and verify signatures
-- [Falco — runtime security primer](falco/notes/0000-primer-falco.md) — First-day primer on Falco runtime security
-- [ZAP — spider scan against a test app](zap/notes/2026-06-13-spider-scan-test-app.md) — Run a ZAP spider scan against a test application
-- [GitGuardian — ggshield quickstart trip-ups](gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md) — Quickstart walkthrough and common pitfalls
-- [ZAP — authenticated scan with context](zap/snippets/authenticated-scan-with-context.sh) — Authenticated scanning using ZAP context
+- [Checkov AI infrastructure checks](checkov/docs/checkov-ai-infrastructure-checks.md) — Checkov coverage for Bedrock, Vertex AI, OpenAI
+- [Deep Checkov Terraform plan scan](checkov/scripts/deep-terraform-plan-scan.sh) — Terraform plan scan with severity gating
+- [Trivy SARIF Code Scanning manifest](trivy/manifests/trivy-sarif-code-scanning.yaml) — GitHub Actions manifest for SARIF scanning with Code Scanning upload
+- [Trivy scan mode comparison notebook](trivy/notebooks/trivy-scan-mode-comparison.ipynb) — Decision guide for fs, image, and repo scanning modes
+- [Dependabot layout documentation](general/notes/2026-06-20-dependabot-layout.md) — README layout note for the Dependabot root folder
 
 ---
 
@@ -88,4 +90,4 @@ Actively maintained with weekly additions. Current focus areas: OWASP ZAP DAST s
 
 ---
 
-_Last updated: 2026-06-20_
+_Last updated: 2026-06-21_

@@ -115,6 +115,7 @@
 - [OPA getting-started tutorial — what tripped me up](../opa/notes/2026-06-15-opa-getting-started-trip-ups.md)
 - [Gatekeeper admission policy — block host network](../opa/configs/tried-a-gatekeeper-constraint.yaml)
 - [How I test OPA policies locally](../opa/scripts/how-i-test-policies-locally.sh)
+
 ## Scan for SBOM generation
 
 - [Syft primer](../syft/notes/0000-primer-syft.md)
@@ -157,6 +158,7 @@
 - [Minimal Terraform that triggers findings](../terrascan/snippets/tiny-tf-with-findings.tf)
 
 ## Scan with CodeQL
+- [CodeQL primer](../codeql/notes/0000-primer-codeql.md)
 - [CodeQL quickstart walkthrough: custom query and upload](../codeql/notes/2026-06-05-install-codeql-first-analysis.md)
 - [CodeQL QL Datalog gotchas from the language tutorial](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md)
 - [My first CodeQL analysis (workflow)](../codeql/configs/first-codeql-analysis.yml)
@@ -288,3 +290,8 @@
 - [Install Cosign and sign first image](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md)
 - [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh)
 - [Verify a signed image](../cosign/scripts/verify-signed-image.sh)
+
+## Review layout documentation
+- [README layout audit: assets and Terrascan](../general/docs/2026-06-16-readme-layout-assets-terrascan.md)
+- [README layout audit: remaining folders](../general/docs/2026-06-18-readme-layout-remaining-folders.md)
+- [Dependabot root folder layout](../general/notes/2026-06-20-dependabot-layout.md)
