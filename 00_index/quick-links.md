@@ -63,6 +63,7 @@
 - [Semgrep rule-writing approaches: pattern vs pattern-inside vs pattern-either](../semgrep/docs/comparing-rule-writing-approaches.md)
 - [Semgrep rule writing reference: pattern to metavariable](../semgrep/docs/semgrep-rule-writing-reference.md)
 - [Diff-aware Semgrep CI pipeline (manifest)](../semgrep/manifests/diff-aware-semgrep-ci.yaml)
+- [Semgrep GitLab CI SAST pipeline (manifest)](../semgrep/manifests/semgrep-gitlab-ci.yaml)
 - [Scan with Checkov (K8s)](../checkov/snippets/scan-kubernetes.sh)
 - [Scan with Checkov (Terraform)](../checkov/snippets/scan-terraform-dir.py)
 - [Scan with Checkov (single file SDK)](../checkov/snippets/scan-a-terraform-file.py)

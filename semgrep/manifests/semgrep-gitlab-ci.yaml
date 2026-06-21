@@ -1,0 +1,100 @@
+# Semgrep GitLab CI — SAST scanning pipeline
+#
+# Purpose: Run Semgrep SAST scans in GitLab CI with merge-request diff-aware
+# scanning, scheduled full scans, and SARIF artifact generation.
+#
+# When to use:
+# - Any GitLab-hosted project that needs SAST scanning without the
+#   official GitLab SAST template
+# - Projects that want diff-aware MR scanning (findings only on new code)
+#   plus periodic deep scans
+#
+# Prerequisites:
+# - GitLab 14.0+ (for merge request pipelines and SARIF artifact support)
+# - A GitLab CI runner with Docker executor
+# - GIT_DEPTH: 0 for diff-aware baseline detection
+#
+# Common errors:
+# - Missing fetch-depth: 0 causes semgrep --baseline-commit to fail
+#   silently (default shallow clone has only the HEAD commit)
+# - SARIF upload to GitLab SAST requires the path to match
+#   gl-sast-report.json naming convention OR manual conversion
+# - Semgrep rule packs can be large; use GIT_STRATEGY: fetch + caching
+#   to avoid re-downloading rules on every MR
+
+stages:
+  - sast
+
+variables:
+  SEMGREP_IMAGE: returntocorp/semgrep:latest
+  SEMGREP_RULESET: auto
+  SEMGREP_SEVERITY: ERROR,WARNING
+
+sast-semgrep-mr:
+  stage: sast
+  image: $SEMGREP_IMAGE
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+  variables:
+    GIT_DEPTH: 0
+  cache:
+    key: semgrep-rules-$SEMGREP_RULESET
+    paths:
+      - .semgrep_cache/
+  script:
+    - |
+      semgrep \
+        --config "$SEMGREP_RULESET" \
+        --baseline-commit "$CI_MERGE_REQUEST_DIFF_BASE_SHA" \
+        --severity "$SEMGREP_SEVERITY" \
+        --format sarif \
+        --output gl-sast-report.sarif \
+        --error \
+        .
+    - |
+      echo "=== Summary ==="
+      echo "Findings in MR diff: $(jq '.runs[0].results | length' gl-sast-report.sarif 2>/dev/null || echo 0)"
+  artifacts:
+    reports:
+      sast: gl-sast-report.sarif
+    paths:
+      - gl-sast-report.sarif
+    expire_in: 30 days
+  interruptible: true
+
+sast-semgrep-scheduled:
+  stage: sast
+  image: $SEMGREP_IMAGE
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+  variables:
+    GIT_DEPTH: 0
+  cache:
+    key: semgrep-rules-$SEMGREP_RULESET
+    paths:
+      - .semgrep_cache/
+  script:
+    - |
+      semgrep \
+        --config "$SEMGREP_RULESET" \
+        --severity "$SEMGREP_SEVERITY" \
+        --format sarif \
+        --output gl-sast-report-full.sarif \
+        --error \
+        .
+    - |
+      echo "=== Full scan summary ==="
+      jq '.runs[0].results | length' gl-sast-report-full.sarif 2>/dev/null || echo "No results"
+      echo "CRITICAL: $(jq '[.runs[0].results[] | select(.level == "error")] | length' gl-sast-report-full.sarif)"
+      echo "WARNING:  $(jq '[.runs[0].results[] | select(.level == "warning")] | length' gl-sast-report-full.sarif)"
+  artifacts:
+    reports:
+      sast: gl-sast-report-full.sarif
+    paths:
+      - gl-sast-report-full.sarif
+    expire_in: 90 days
+
+# Verify: After a merge request pipeline runs, open the MR and navigate
+# to Security > SAST to see findings. Verify diff-aware behavior by
+# introducing a deliberate vulnerability in an MR branch — only that
+# finding should appear.
