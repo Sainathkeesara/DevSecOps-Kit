@@ -7,6 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-20
 
 ### Added
+- checkov-002: `checkov/scripts/deep-terraform-plan-scan.sh` — Deep Checkov Terraform plan scanning with severity gating and custom policy support (L5)
+  - Priority-qualified binary validation for terraform, checkov, jq
+  - Timestamped plan export with configurable failure severity, skip checks, and external checks dir
+  - SARIF output with error-level result aggregation for CI gating
+  - shellcheck passed (clean)
+- checkov-004: `checkov/docs/checkov-ai-infrastructure-checks.md` — Checkov AI infrastructure checks reference covering AWS Bedrock, Google Vertex AI, and OpenAI-associated resources (L5)
+  - Reference-style guide with Purpose, When to use, Prerequisites, Coverage by provider, Combined scan, Verify, Common errors, References
+  - Documents built-in CKV_AWS_* and CKV_GCP_* checks alongside custom policy patterns for third-party AI APIs
+  - Practical verification workflow for plan-json scanning per provider
 - trivy-004: `trivy/manifests/trivy-sarif-code-scanning.yaml` — L5 GitHub Actions manifest integrating Trivy SARIF output with GitHub Code Scanning
   - Dual-job workflow: image vulnerability scan and filesystem scan (vulnerabilities + misconfigurations)
   - Each job produces SARIF output and uploads via `github/codeql-action/upload-sarif@v3`
