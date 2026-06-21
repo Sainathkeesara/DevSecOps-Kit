@@ -1,0 +1,13 @@
+metadata:
+  id: CKV_CUSTOM_EC2_001
+  name: "Ensure EC2 instances do not have public IP addresses on launch"
+  category: "NETWORKING"
+scope:
+  provider: aws
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_instance
+  attribute: associate_public_ip_address
+  operator: not_equals
+  value: true

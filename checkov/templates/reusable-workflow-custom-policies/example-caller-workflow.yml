@@ -1,0 +1,19 @@
+name: Checkov scan — call reusable workflow
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  checkov-custom-policies:
+    name: IaC scan with custom policies
+    uses: ./.github/workflows/reusable-checkov-custom-policies.yml
+    with:
+      scan-directory: .
+      frameworks: terraform,kubernetes,dockerfile
+      custom-policy-dir: custom-policies
+      severity-threshold: HIGH
+      output-sarif: true
+      upload-artifact: true
