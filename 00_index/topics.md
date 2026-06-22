@@ -657,8 +657,3 @@
 - [module] scripts/bash/terraform_toolkit/networking/terraform/main.tf — VPC networking module
 - [module] scripts/bash/terraform_toolkit/networking/terraform/variables.tf — VPC module variables
 
-## General
-- [doc] general/docs/2026-06-16-readme-layout-assets-terrascan.md — README layout and assets planning
-- [doc] general/docs/2026-06-18-readme-layout-remaining-folders.md — Remaining folder layout planning
-- [note] general/notes/2026-06-20-dependabot-layout.md — Dependabot layout notes
-

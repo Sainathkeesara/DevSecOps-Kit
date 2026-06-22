@@ -1,0 +1,113 @@
+# Learning Path — DevSecOps
+
+> A suggested progression from beginner to confident practitioner. Each stage builds on the previous one. Topics marked ⏳ have primers written but the next level of content is still coming.
+
+## Stage 1: Foundations
+
+These concepts have no prerequisites and are the starting point for any security engineer.
+
+- **Linux & Shell Fundamentals** — Everything runs on Linux. Scripts, containers, pipelines all depend on shell fluency. [Linux toolkit guide](../docs/how-to/linux_toolkit.md) | [Cheatsheet](../snippets/linux-cheatsheet.md)
+- **Version Control with Git** — Branching, commits, remotes, and CI/CD triggers. Primers cover mental models and everyday commands. [Git fundamentals](../docs/concepts/git-001-version-control-fundamentals.md) | [Commands reference](../docs/reference/git-commands.md)
+- **CI/CD Pipeline Concepts** — How code moves from commit to deployment; why gates and scans matter. [CI/CD toolkit guide](../docs/how-to/ci_cd_toolkit.md) | [Cheatsheet](../snippets/ci-cd-cheatsheet.md)
+- **Infrastructure as Code** — Terraform, Ansible, and the idea of declarative infrastructure. [Terraform state management](../docs/how-to/terraform-state-management.md) | [Ansible playbook best practices](../docs/how-to/ansible-playbook-best-practices.md)
+- **Application Security Testing Concepts** — SAST, DAST, SCA — what they catch and when to use each. Primers on Semgrep, CodeQL, ZAP, and Snyk cover this.
+- **Container & Runtime Security** — Images, registries, runtime behaviour. Trivy, Syft, Grype, Cosign, and Falco all depend on this. [Docker security best practices](../docs/how-to/docker-security-best-practices.md)
+- **Secrets & Access Management** — How secrets leak and how to protect them. Vault, TruffleHog, and GitGuardian depend on this. [Vault primer](../vault/notes/0000-primer-vault.md)
+- **Software Supply Chain Security** — Dependency risk, SBOMs, signing. Syft, Grype, Cosign, Dependabot all live here.
+
+## Stage 2: Core Tools
+
+These tools are unlocked from the start and cover the most common DevSecOps workflows.
+
+- **Trivy** — Universal vulnerability scanner for containers, filesystems, repos, and SBOMs. Four notebooks, five scripts, and six template files. [Primer](../trivy/notes/0000-primer-trivy.md) | [Scan modes comparison](../trivy/notebooks/trivy-scan-mode-comparison.ipynb)
+- **Semgrep** — SAST tool with custom rule writing, multi-language support, and CI/CD integration. [Primer](../semgrep/notes/0000-primer-semgrep.md) | [Rule writing reference](../semgrep/docs/semgrep-rule-writing-reference.md)
+- **Checkov** — IaC security scanner for Terraform, Kubernetes, CloudFormation. Supports custom policies and plan scanning. [Primer](../checkov/notes/0000-primer-checkov.md) | [Plan scanning](../checkov/scripts/deep-terraform-plan-scan.sh)
+- **TruffleHog** — Secret scanner with git, filesystem, and S3 scan modes. Custom regex and entropy-based detection. [Primer](../trufflehog/notes/0000-primer-trufflehog.md) | [Scan modes comparison](../trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md)
+- **OWASP ZAP** — DAST tool for web application security testing. Baseline, spider, and active scan modes. [Primer](../zap/notes/0000-primer-zap.md) | [DAST workflow](../zap/scripts/dast-workflow-from-scratch.sh)
+
+## Stage 3: Building Skills
+
+Intermediate tools that add SBOM management, software composition analysis, and deeper vulnerability workflows.
+
+- **Syft** — SBOM generation in CycloneDX and SPDX formats. Integrates with Grype for vulnerability correlation. [Primer](../syft/notes/0000-primer-syft.md) | [SBOM pipeline scaffold](../syft/templates/sbom-pipeline-scaffold/)
+- **Grype** — Vulnerability scanner for container images and filesystems. Designed to consume Syft SBOMs. [Primer](../grype/notes/0000-primer-grype.md) | [Vulnerability diff](../grype/scripts/vuln-diff-two-images.sh)
+- **CodeQL** — Semantic code analysis with custom QL queries. Supports multiple languages and CI integration. [Primer](../codeql/notes/0000-primer-codeql.md) | [Custom queries in CI](../codeql/docs/wired-custom-queries-into-ci.md)
+- **GitGuardian** — Secrets detection platform with ggshield CLI for pre-commit and CI scanning. [Primer](../gitguardian/notes/0000-primer-gitguardian.md) | [Custom policy engine](../gitguardian/snippets/custom-policy-engine-ggshield.sh)
+- **Snyk** — Developer security platform for open-source dependencies and containers. [Primer](../snyk/notes/0000-primer-snyk.md) | [CI pipeline integration](../snyk/configs/snyk-ci-github-actions.yaml)
+- **Dependabot** — GitHub's automated dependency update tool for vulnerability patching. [Primer](../dependabot/notes/0000-primer-dependabot.md) | [npm config](../dependabot/configs/tried-npm-dependabot.yaml)
+- **Terrascan** — IaC static analysis for Terraform and Kubernetes. [Primer](../terrascan/notes/0000-primer-terrascan.md) | [First scan](../terrascan/notes/2026-06-13-first-scan.md)
+
+## Stage 4: Advanced Tools
+
+Tools that depend on foundational concepts and earlier tools being complete.
+
+- **Cosign** — Container image signing and verification as part of the Sigstore project. Requires SBOM and vulnerability awareness. [Primer](../cosign/notes/0000-primer-cosign.md) | [Sign first image](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md)
+- **Falco** — Runtime security monitoring for containers and Kubernetes. Requires understanding of container behaviour and system calls. [Primer](../falco/notes/0000-primer-falco.md) | [Custom rules](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
+- **OPA / Gatekeeper** — Policy engine for Kubernetes admission control and IaC validation. Requires understanding of Rego and Kubernetes policies. [Primer](../opa/notes/0000-primer-opa.md) | [Gatekeeper constraint](../opa/configs/tried-a-gatekeeper-constraint.yaml)
+- **HashiCorp Vault** — Secrets management, dynamic secrets, encryption-as-a-service. [Primer](../vault/notes/0000-primer-vault.md) | [KV CRUD](../vault/scripts/vault-kv-crud.sh)
+
+## Stage 5: Mastery
+
+Cross-cutting integration and custom tooling.
+
+- **Custom policy authoring** — Writing Checkov policies, Semgrep rules, Falco rules, OPA Rego policies, and TruffleHog custom detectors.
+- **Multi-stage CI/CD pipelines** — Combining SAST + SCA + DAST + secret scanning + SBOM generation + container signing in a single gated pipeline.
+- **CVE remediation workflows** — Using the CVE-specific scripts and guides for Ansible, Docker, Jenkins, Kafka, Kubernetes, and Trivy.
+- **Multi-cluster security posture management** — Integrating Falco, OPA, Trivy Operator, and kubescape across multiple Kubernetes clusters.
+
+## Progression Map
+
+```mermaid
+flowchart LR
+  subgraph Foundations
+    Linux["Linux & Shell"]
+    Git["Version Control (Git)"]
+    CICD["CI/CD Pipeline Concepts"]
+    IaC["Infrastructure as Code"]
+    AppSec["AppSec Testing Concepts"]
+    Container["Container & Runtime Security"]
+    Secrets["Secrets & Access Management"]
+    SupplyChain["Software Supply Chain Security"]
+  end
+
+  subgraph Core[Stage 2: Core Tools]
+    Trivy
+    Semgrep
+    Checkov
+    TruffleHog
+    ZAP
+  end
+
+  subgraph Intermediate[Stage 3: Building Skills]
+    Syft
+    Grype
+    CodeQL
+    GitGuardian
+    Snyk
+    Dependabot
+    Terrascan
+  end
+
+  subgraph Advanced[Stage 4: Advanced Tools]
+    Cosign
+    Falco
+    OPA["OPA/Gatekeeper"]
+    Vault
+  end
+
+  Linux --> Trivy & Semgrep & Checkov & TruffleHog & ZAP
+  Git --> TruffleHog & CodeQL & Semgrep & Dependabot
+  CICD --> Trivy & Semgrep & Checkov & Syft & Grype & ZAP
+  IaC --> Checkov & Terrascan & OPA
+  AppSec --> Semgrep & CodeQL & ZAP & Snyk & Checkov
+  Container --> Trivy & Syft & Grype & Cosign & Falco & OPA
+  Secrets --> Vault & TruffleHog & GitGuardian
+  SupplyChain --> Syft & Grype & Cosign & Trivy & Dependabot & Snyk
+
+  Trivy --> Syft & Grype & ZAP & Vault & Falco
+  Semgrep --> ZAP & CodeQL & Snyk
+  Checkov --> Terrascan & OPA
+  TruffleHog --> GitGuardian
+  Syft --> Grype & Cosign
+  Grype --> Cosign
+```
