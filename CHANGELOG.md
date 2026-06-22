@@ -4,6 +4,16 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-22
+
+### Added
+- codeql-003: `codeql/docs/wired-custom-queries-into-ci.md` — How I wired CodeQL custom queries into a GitHub Actions CI pipeline (L3)
+  - Purpose → Steps → Verify shape covering custom pack structure, workflow init flags, and separate SARIF output
+  - Documents the `packs: ./codeql-custom` approach and an alternative separate-analysis-pass pattern
+- codeql-002: `codeql/snippets/hardcoded-creds-local-flow.ql` — Custom CodeQL query using local taint tracking to detect hardcoded credentials (L3)
+  - Uses TaintTracking::Configuration for source-to-sink flow analysis
+  - Detects string literals flowing into credential-named variables and credential-target function arguments
+
 ## 2026-06-21
 
 ### Added

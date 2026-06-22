@@ -165,7 +165,9 @@
 - [CodeQL QL Datalog gotchas from the language tutorial](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md)
 - [My first CodeQL analysis (workflow)](../codeql/configs/first-codeql-analysis.yml)
 - [My first CodeQL query: hardcoded credentials in Python](../codeql/snippets/find-hardcoded-creds.ql)
+- [Hardcoded credential via local data flow](../codeql/snippets/hardcoded-creds-local-flow.ql) — L3 query using taint tracking
 - [Minimal CodeQL database + query runner](../codeql/scripts/first-codeql-analysis.sh)
+- [How I wired custom queries into a GitHub Actions CI pipeline](../codeql/docs/wired-custom-queries-into-ci.md)
 
 ## Update dependencies with Dependabot
 - [Dependabot primer](../dependabot/notes/0000-primer-dependabot.md)
