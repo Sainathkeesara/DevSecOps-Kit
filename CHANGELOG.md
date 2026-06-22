@@ -7,6 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-22
 
 ### Added
+- codeql-004: `codeql/manifests/multi-language-codeql-analysis.yaml` — Multi-language CodeQL analysis CI workflow manifest with Python, JavaScript, Go, and Java matrix (L3)
+  - Matrix strategy over four languages with `fail-fast: false`
+  - Custom config file support via `config-file` init parameter
+  - Weekly schedule alongside push/PR triggers
+  - SARIF output with `upload: Failure` for CI gating
+- cosign-004: `cosign/scripts/minimal-sign-verify.sh` — Minimal container image signing and verification with Cosign (L2)
+  - Generates a key pair, signs a target image, and verifies the signature
+  - Default image argument with configurable override
+  - First-person learner comments documenting the workflow
 - codeql-003: `codeql/docs/wired-custom-queries-into-ci.md` — How I wired CodeQL custom queries into a GitHub Actions CI pipeline (L3)
   - Purpose → Steps → Verify shape covering custom pack structure, workflow init flags, and separate SARIF output
   - Documents the `packs: ./codeql-custom` approach and an alternative separate-analysis-pass pattern

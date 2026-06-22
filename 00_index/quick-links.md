@@ -168,6 +168,7 @@
 - [Hardcoded credential via local data flow](../codeql/snippets/hardcoded-creds-local-flow.ql) — L3 query using taint tracking
 - [Minimal CodeQL database + query runner](../codeql/scripts/first-codeql-analysis.sh)
 - [How I wired custom queries into a GitHub Actions CI pipeline](../codeql/docs/wired-custom-queries-into-ci.md)
+- [Multi-language CodeQL analysis CI workflow](../codeql/manifests/multi-language-codeql-analysis.yaml) — Matrix workflow for Python, JavaScript, Go, and Java
 
 ## Update dependencies with Dependabot
 - [Dependabot primer](../dependabot/notes/0000-primer-dependabot.md)
@@ -294,6 +295,7 @@
 - [Install Cosign and sign first image](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md)
 - [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh)
 - [Verify a signed image](../cosign/scripts/verify-signed-image.sh)
+- [Minimal sign and verify script](../cosign/scripts/minimal-sign-verify.sh) — Quick key pair workflow with Cosign
 
 ## Review layout documentation
 - [README layout audit: assets and Terrascan](../general/docs/2026-06-16-readme-layout-assets-terrascan.md)
