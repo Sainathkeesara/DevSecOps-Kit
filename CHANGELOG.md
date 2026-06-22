@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-21
 
 ### Added
+- semgrep-002: `semgrep/manifests/semgrep-gitlab-ci.yaml` — L5 GitLab CI manifest integrating Semgrep SAST with diff-aware MR scanning and scheduled full scans
+  - Merge request job with `--baseline-commit` for finding only new issues
+  - Scheduled full-scan job with severity breakdown
+  - SARIF artifact output for GitLab SAST report integration
+  - Rule caching for faster pipeline runs
 - checkov-003: `checkov/templates/reusable-workflow-custom-policies/` — GitHub Actions reusable workflow template for Checkov custom policies (L5)
   - Reusable workflow with configurable inputs: scan directory, frameworks, custom policy path, severity threshold, SARIF output toggle, artifact upload
   - Sample Checkov custom policy YAML files for S3 bucket ACL and EC2 public IP restriction
