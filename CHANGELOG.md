@@ -13,6 +13,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - codeql-002: `codeql/snippets/hardcoded-creds-local-flow.ql` — Custom CodeQL query using local taint tracking to detect hardcoded credentials (L3)
   - Uses TaintTracking::Configuration for source-to-sink flow analysis
   - Detects string literals flowing into credential-named variables and credential-target function arguments
+- cosign-003: `cosign/notes/2026-06-22-cosign-getting-started-trip-ups.md` — Following the official Cosign getting-started tutorial and what tripped me up (L2)
+  - Covers keypair generation, signing a pushed image, verify JSON output, keyless OIDC prerequisites, and attestation predicate gotcha
+  - Steps + Got stuck on + What I'd try next format
+- dependabot-002: `dependabot/notes/2026-06-22-first-time-dependabot-setup.md` — Enable Dependabot on my first repo and trigger a version bump PR (L1)
+  - Scratchy walkthrough covering `.github/dependabot.yml` creation, YAML indentation gotcha, and PR behavior after config push
+  - First-person present tense, under 300 words
 
 ## 2026-06-21
 

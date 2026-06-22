@@ -173,6 +173,7 @@
 - [Dependabot primer](../dependabot/notes/0000-primer-dependabot.md)
 - [README Layout audit: Dependabot root folder](../general/notes/2026-06-20-dependabot-layout.md) — README Layout note for the Dependabot root folder
 - [Minimal Dependabot npm update config](../dependabot/configs/tried-npm-dependabot.yaml)
+- [First-time Dependabot setup — what tripped me up](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md)
 
 ## Build a Semgrep rule pack
 - [Multi-rule pack with combinators](../semgrep/configs/multi-rule-pack.yaml)
@@ -292,6 +293,7 @@
 - [Cosign primer](../cosign/notes/0000-primer-cosign.md)
 - [Install Cosign and generate first keypair](../cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md)
 - [Install Cosign and sign first image](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md)
+- [Cosign getting-started tutorial — what tripped me up](../cosign/notes/2026-06-22-cosign-getting-started-trip-ups.md)
 - [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh)
 - [Verify a signed image](../cosign/scripts/verify-signed-image.sh)
 
