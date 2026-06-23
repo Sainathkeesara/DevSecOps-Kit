@@ -223,6 +223,9 @@
 - [My first custom Falco rule: detect shell in container](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
 - [Custom Falco rules for container drift detection](../falco/configs/container-drift-detection.yaml)
 
+## Runtime security with Tetragon
+- [Tetragon primer](../tetragon/notes/0000-primer-tetragon.md)
+
 ## Manage secrets with Vault
 - [Vault primer](../vault/notes/0000-primer-vault.md)
 - [Install Vault and explore the CLI](../vault/notes/2026-06-05-install-vault-and-explore-cli.md)
