@@ -1,11 +1,11 @@
 # DevSecOps-Kit
-> A working engineer's DevSecOps reference — scripts, how-to guides, runbooks, and templates for infrastructure automation, security scanning, CI/CD, and observability.
+> A working engineer's devops and devsecops reference — scripts, how-to guides, runbooks, and templates for infrastructure automation, security scanning, CI/CD, and observability.
 
 [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Files](https://img.shields.io/badge/files-615-blue)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Shell](https://img.shields.io/badge/Shell-222-4EAA25?logo=gnubash&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Files](https://img.shields.io/badge/files-621-blue)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Shell](https://img.shields.io/badge/Shell-223-4EAA25?logo=gnubash&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 [![Terraform](https://img.shields.io/badge/Terraform-40-7B42BC?logo=terraform&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Markdown](https://img.shields.io/badge/Markdown-252-000000?logo=markdown&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Markdown](https://img.shields.io/badge/Markdown-255-000000?logo=markdown&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 
 ---
 
@@ -35,7 +35,7 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 | Git | 8 | 17 | 1 | — | — |
 | Helm | 3 | 3 | — | — | — |
 | Checkov | 2 | 3 | 4 | 10 | notes:4, configs:2, manifests:2, notebooks, policies |
-| Semgrep | 3 | 4 | 2 | — | notes:3, configs, notebooks, manifests:2, dockerfiles:2 |
+| Semgrep | 3 | 4 | 2 | — | notes:3, configs, notebooks:1, manifests:2, dockerfiles:2 |
 | Trivy | 5 | 6 | 1 | 6 | notes:3, configs:2, notebooks:2, manifests:2, dockerfiles |
 | TruffleHog | 3 | 1 | 2 | 11 | notes:3, configs:2, notebooks, dockerfiles |
 | Syft | 3 | 2 | 1 | 7 | notes:4, configs, notebooks, dockerfiles |
@@ -43,22 +43,22 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 | CodeQL | 1 | 1 | 3 | — | notes:3, configs |
 | ZAP | 1 | 2 | 3 | — | notes:4, configs |
 | Falco | — | — | — | — | notes:3, configs:3 |
-| Cosign | 1 | — | 1 | — | notes:3 |
+| Cosign | 2 | — | 1 | — | notes:4, configs |
 | OPA | 1 | — | 2 | — | notes:3, configs |
 | GitGuardian | 1 | — | 2 | — | notes:4, configs:2 |
 | Snyk | — | — | 1 | — | notes:4, configs |
 | Terrascan | — | — | 2 | — | notes:3 |
-| Dependabot | — | — | — | — | notes:1, configs |
+| Dependabot | — | — | — | — | notes:3, configs |
 
 ---
 
 ## Quick links
 
-- [CodeQL custom queries in CI](codeql/docs/wired-custom-queries-into-ci.md) — Wiring custom CodeQL queries into a GitHub Actions CI pipeline
-- [CodeQL hardcoded creds with taint tracking](codeql/snippets/hardcoded-creds-local-flow.ql) — L3 query for credential detection via local data flow
-- [Semgrep GitLab CI manifest](semgrep/manifests/semgrep-gitlab-ci.yaml) — SAST pipeline manifest for GitLab CI
-- [Semgrep rule writing reference](semgrep/docs/semgrep-rule-writing-reference.md) — Pattern, metavariable, and taint tracking reference
-- [Checkov reusable custom policies workflow](checkov/templates/reusable-workflow-custom-policies/) — Reusable GitHub workflow for custom Checkov policies
+- [Keyless Cosign signing for GitHub Actions](cosign/configs/keyless-signing-github-actions.yaml) — Keyless container signing workflow using GitHub OIDC
+- [Dependabot alerts and security updates walkthrough](dependabot/notes/dependabot-alerts-security-updates.md) — Enabling alerts and auto-fix PRs
+- [Learning path and progress tracker](00_index/learning-path.md) — Structured progression from beginner to advanced
+- [Cosign getting-started pitfalls](cosign/notes/2026-06-22-cosign-getting-started-trip-ups.md) — Common trip-ups from the official Cosign tutorial
+- [First-time Dependabot setup guide](dependabot/notes/2026-06-22-first-time-dependabot-setup.md) — Enabling Dependabot and triggering version-bump PRs
 
 ---
 
@@ -76,7 +76,7 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 - **`docs/`** — How-to guides, concepts, reference, runbooks, security docs, troubleshooting, setup guides
 - **`environments/`** — Terraform environment configs (dev / staging / prod)
 - **`lab/`** — Mini-projects and sandboxes
-- **`scripts/`** — Shell scripts organized by tool (bash toolkit directories)
+- **`scripts/`** — Shell scripts organised by tool (bash toolkit directories)
 - **`snippets/`** — Copy-paste ready one-liners and cheatsheets
 - **`templates/`** — Starter configs for Kubernetes, Terraform, Docker, Linux automation, Jenkins, Logstash, syslog-ng
 - **`terraform/`** — Terraform modules (EventBridge Lambda, networking)
@@ -89,4 +89,4 @@ Actively maintained with weekly additions. Current focus areas: OWASP ZAP DAST s
 
 ---
 
-_Last updated: 2026-06-22_
+_Last updated: 2026-06-23_
