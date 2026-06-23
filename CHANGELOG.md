@@ -16,6 +16,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - dependabot-004: `dependabot/notes/dependabot-alerts-security-updates.md` — Enabling Dependabot alerts and security updates on a sample repo (L1)
    - First-person scratchy notes covering dashboard toggle setup, alert triage flow, and security update behavior
    - Got-stuck list: alerts vs updates toggle confusion, private repo visibility requirement, dismissed alert re-opening via REST API
+- gitguardian-003: `gitguardian/scripts/gg-incident-response-pipeline.sh` — Build a GitGuardian incident response pipeline from scratch (L3)
+   - Scans commits with `ggshield secret scan commit-range` and normalizes JSON output
+   - Parses findings with jq and reports severity per secret
+   - Supports optional webhook alerting and severity-based pipeline gating via `FAIL_ON`
+- snyk-003: `snyk/configs/snyk-dependency-patch-ignore.yaml` — Snyk policy configuration for dependency patching and ignore rules (L3)
+   - `.snyk`-style YAML policy demonstrating `ignore` blocks with expiry dates and permanent ignores
+   - `patch` section mapping vulnerable packages to patched versions for automated remediation suggestions
 
 ## 2026-06-22
 

@@ -1,0 +1,28 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities
+version: v1.25.0
+
+# Ignore rules — suppress findings that are accepted risks or will be
+# resolved in a planned update cycle.
+ignore:
+  # Prototype pollution in lodash merge/clone functions.
+  # Accepted risk for staging; remediation tracked internally.
+  'SNYK-JS-LODASH-1018907':
+    - '* > lodash':
+        reason: Prototype pollution; acceptable risk in staging, tracked in SPR-1042
+        expires: '2026-12-31T23:59:59.000Z'
+
+  # Prototype pollution in minimist via constructor prototype.
+  # Dev-only transitive dependency with low exposure surface.
+  'SNYK-JS-MINIMIST-2027456':
+    - '* > minimist':
+        reason: Dev-only transitive dependency; low blast radius
+        # expires omitted — team decision to keep this ignore permanent
+
+# Patch rules — map a vulnerable package version to a known good patch.
+# Snyk uses these to recommend upgrades during remediation workflows.
+patch:
+  # lodash prototype pollution fix.
+  # Key format: <ecosystem>:<package>:<YYYYMMDD>
+  'npm:lodash:20210119':
+    - myapp > node_modules > lodash:
+        patched: '2021-01-19T00:00:00.000Z'
