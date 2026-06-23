@@ -1,0 +1,28 @@
+# My first TracingPolicy — observes exec and file access events
+# I'm still figuring out the selector syntax, but this picks up the events I care about
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: exec-and-file-tracer
+spec:
+  tracepoints:
+  - name: exec
+    selectors:
+    - matchArgs:
+      - index: 0
+        type: string
+        operator: "Equal"
+        values:
+        - "/usr/bin/wget"
+  kprobes:
+  - call: "security_file_permission"
+    syscall: false
+    args:
+    - index: 0
+      type: "file"
+    selectors:
+    - matchArgs:
+      - index: 0
+        operator: "Equal"
+        values:
+        - "0"

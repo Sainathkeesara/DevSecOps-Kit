@@ -160,6 +160,7 @@
 - [Deliberately insecure Terraform snippet](../terrascan/snippets/insecure-terraform.tf)
 - [Install Terrascan via pip and scan a tiny Terraform file](../terrascan/notes/2026-06-19-install-terrascan-tiny-tf.md)
 - [Minimal Terraform that triggers findings](../terrascan/snippets/tiny-tf-with-findings.tf)
+- [Minimal Terrascan CI scan script](../terrascan/scripts/tried-terrascan-ci-scan.sh) — Scan Terraform and fail on high severity violations
 
 ## Scan with CodeQL
 - [CodeQL primer](../codeql/notes/0000-primer-codeql.md)
@@ -227,6 +228,7 @@
 
 ## Runtime security with Tetragon
 - [Tetragon primer](../tetragon/notes/0000-primer-tetragon.md)
+- [First TracingPolicy: exec and file access](../tetragon/configs/first-tracing-policy-exec-file.yaml) — Minimal TracingPolicy to observe exec and file access events
 
 ## Manage secrets with Vault
 - [Vault primer](../vault/notes/0000-primer-vault.md)

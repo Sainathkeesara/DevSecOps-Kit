@@ -9,6 +9,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - tetragon-001: `tetragon/notes/0000-primer-tetragon.md` — Tetragon quick primer (L1)
    - First-person scratchy primer covering what Tetragon is, key terminology (eBPF, TracingPolicy, node agent, process events), and a minimal YAML example
+- terrascan-009: `terrascan/scripts/tried-terrascan-ci-scan.sh` — Minimal Terrascan CI script to scan Terraform and fail on high severity violations (L2)
+   - First-person learner bash script that runs `terrascan scan` with `--severity high --exit-code 1`
+   - Accepts scan directory as argument (defaults to `.`)
+   - Documents the `--exit-code` gotcha in comments
+- tetragon-003: `tetragon/configs/first-tracing-policy-exec-file.yaml` — Minimal TracingPolicy to observe exec and file access events (L1)
+   - First-person TracingPolicy YAML with tracepoint for exec events and kprobe for file access
+   - Learner comments documenting the selector syntax exploration
 - cosign-005: `cosign/configs/keyless-signing-github-actions.yaml` — Cosign signing + GitHub Actions keyless CI integration (L2)
    - GitHub Actions workflow that builds and pushes a container image, then signs it with Cosign in keyless (OIDC) mode
    - Uses `sigstore/cosign-installer` action and `cosign sign --yes` with automatic GitHub OIDC token detection
