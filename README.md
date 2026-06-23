@@ -2,10 +2,10 @@
 > A working engineer's devops and devsecops reference — scripts, how-to guides, runbooks, and templates for infrastructure automation, security scanning, CI/CD, and observability.
 
 [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Files](https://img.shields.io/badge/files-621-blue)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Shell](https://img.shields.io/badge/Shell-223-4EAA25?logo=gnubash&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Files](https://img.shields.io/badge/files-678-blue)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Shell](https://img.shields.io/badge/Shell-225-4EAA25?logo=gnubash&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 [![Terraform](https://img.shields.io/badge/Terraform-40-7B42BC?logo=terraform&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Markdown](https://img.shields.io/badge/Markdown-255-000000?logo=markdown&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Markdown](https://img.shields.io/badge/Markdown-260-000000?logo=markdown&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 
 ---
 
@@ -13,7 +13,7 @@
 
 A curated collection of production-ready shell scripts, how-to guides, runbooks, snippets, and templates covering the tools and practices a practising DevSecOps engineer reaches for daily. Every entry is version-specific, scenario-grounded, and designed to be adapted for real infrastructure work.
 
-The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linux system administration, container registries, and security scanning (Trivy, Semgrep, Checkov, TruffleHog, Syft, Grype, CodeQL, ZAP, Falco, Cosign, OPA, GitGuardian, Snyk) with CVE-specific remediation guidance.
+The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linux system administration, container registries, and security scanning (Trivy, Semgrep, Checkov, TruffleHog, Syft, Grype, CodeQL, ZAP, Falco, Cosign, OPA, GitGuardian, Snyk, Terrascan, Dependabot) with CVE-specific remediation guidance.
 
 ---
 
@@ -25,7 +25,7 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 | Kubernetes | 17 | 19 | 1 | 3 | — |
 | Kafka | 17 | 3 | 2 | — | — |
 | Terraform | 15 | 16 | 2 | 12 | environments:13 |
-| Jenkins | 4 | 11 | 4 | 1 | — |
+| Jenkins | 4 | 14 | 4 | 1 | — |
 | Ansible | 11 | 9 | 1 | — | — |
 | CI/CD | 16 | 12 | 1 | — | ArgoCD, Flux |
 | Observability | 14 | 9 | 1 | — | — |
@@ -36,8 +36,8 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 | Helm | 3 | 3 | — | — | — |
 | Checkov | 2 | 3 | 4 | 10 | notes:4, configs:2, manifests:2, notebooks, policies |
 | Semgrep | 3 | 4 | 2 | — | notes:3, configs, notebooks:1, manifests:2, dockerfiles:2 |
-| Trivy | 5 | 6 | 1 | 6 | notes:3, configs:2, notebooks:2, manifests:2, dockerfiles |
-| TruffleHog | 3 | 1 | 2 | 11 | notes:3, configs:2, notebooks, dockerfiles |
+| Trivy | 6 | 6 | 1 | 6 | notes:3, configs:2, notebooks:2, manifests:2, dockerfiles |
+| TruffleHog | 4 | 1 | 2 | 11 | notes:3, configs:2, notebooks, dockerfiles |
 | Syft | 3 | 2 | 1 | 7 | notes:4, configs, notebooks, dockerfiles |
 | Grype | 3 | — | 2 | — | notes:4, configs |
 | CodeQL | 1 | 1 | 3 | — | notes:3, configs |
@@ -45,10 +45,11 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 | Falco | — | — | — | — | notes:3, configs:3 |
 | Cosign | 2 | — | 1 | — | notes:4, configs |
 | OPA | 1 | — | 2 | — | notes:3, configs |
-| GitGuardian | 1 | — | 2 | — | notes:4, configs:2 |
-| Snyk | — | — | 1 | — | notes:4, configs |
+| GitGuardian | 3 | 2 | 2 | — | notes:4, configs:2 |
+| Snyk | — | — | 1 | — | notes:4, configs:2 |
 | Terrascan | — | — | 2 | — | notes:3 |
 | Dependabot | — | — | — | — | notes:3, configs |
+| Tetragon | — | — | — | — | notes:2 |
 
 ---
 
@@ -56,9 +57,9 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 
 - [Keyless Cosign signing for GitHub Actions](cosign/configs/keyless-signing-github-actions.yaml) — Keyless container signing workflow using GitHub OIDC
 - [Dependabot alerts and security updates walkthrough](dependabot/notes/dependabot-alerts-security-updates.md) — Enabling alerts and auto-fix PRs
-- [Learning path and progress tracker](00_index/learning-path.md) — Structured progression from beginner to advanced
-- [Cosign getting-started pitfalls](cosign/notes/2026-06-22-cosign-getting-started-trip-ups.md) — Common trip-ups from the official Cosign tutorial
-- [First-time Dependabot setup guide](dependabot/notes/2026-06-22-first-time-dependabot-setup.md) — Enabling Dependabot and triggering version-bump PRs
+- [Tetragon Docker install and first events](tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md) — Running Tetragon with Docker and observing first events
+- [Monorepo CI per-team exclusions with GitGuardian](gitguardian/docs/monorepo-ci-per-team-exclusions.md) — Configuring team-level exclusions in GitGuardian CI
+- [TruffleHog GitHub secret scanning integration template](trufflehog/templates/github-secret-scanning-integration/) — Scaffold for GitHub-hosted secret scanning
 
 ---
 
@@ -69,9 +70,8 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 - **`assets/`** — Static images and diagrams used by guides and project docs
 - **`checkov/` / `semgrep/` / `trivy/` / `trufflehog/` / `syft/`** — Security scanner notes, scripts, configs
 - **`grype/` / `codeql/` / `zap/` / `snyk/` / `gitguardian/` / `falco/` / `cosign/` / `tetragon/`** — Vulnerability scanner and security tool content
-- **`terrascan/`** — Terrascan primers, notes, and IaC scan snippets
+- **`terrascan/` / `opa/`** — IaC compliance and policy engine primers
 - **`dependabot/`** — Dependabot primer, notes, and dependency update configs
-- **`opa/`** — OPA/Gatekeeper policies and snippets
 - **`vault/`** — HashiCorp Vault primers and notes
 - **`docs/`** — How-to guides, concepts, reference, runbooks, security docs, troubleshooting, setup guides
 - **`environments/`** — Terraform environment configs (dev / staging / prod)
@@ -85,8 +85,8 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 
 ## Status
 
-Actively maintained with weekly additions. Current focus areas: OWASP ZAP DAST scanning primers, Cosign container image signing, Falco runtime security rules, Kubernetes security CVEs, Terraform provisioning patterns, and CI/CD pipeline integration scripts.
+Actively maintained with weekly additions. Current focus areas: Tetragon eBPF-based runtime security, GitGuardian CI integration, Cosign keyless container signing, and CI/CD pipeline integration for security scanners.
 
 ---
 
-_Last updated: 2026-06-23_
+_Last updated: 2026-06-24_
