@@ -4,6 +4,17 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-23
+
+### Added
+- cosign-005: `cosign/configs/keyless-signing-github-actions.yaml` — Cosign signing + GitHub Actions keyless CI integration (L2)
+  - GitHub Actions workflow that builds and pushes a container image, then signs it with Cosign in keyless (OIDC) mode
+  - Uses `sigstore/cosign-installer` action and `cosign sign --yes` with automatic GitHub OIDC token detection
+  - Includes a sanity-check verify step with commented-out issuer validation template
+- dependabot-004: `dependabot/notes/dependabot-alerts-security-updates.md` — Enabling Dependabot alerts and security updates on a sample repo (L1)
+  - First-person scratchy notes covering dashboard toggle setup, alert triage flow, and security update behavior
+  - Got-stuck list: alerts vs updates toggle confusion, private repo visibility requirement, dismissed alert re-opening via REST API
+
 ## 2026-06-22
 
 ### Added

@@ -174,6 +174,7 @@
 - [Dependabot primer](../dependabot/notes/0000-primer-dependabot.md)
 - [Minimal Dependabot npm update config](../dependabot/configs/tried-npm-dependabot.yaml)
 - [First-time Dependabot setup — what tripped me up](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md)
+- [Dependabot alerts and security updates — what tripped me up](../dependabot/notes/dependabot-alerts-security-updates.md)
 
 ## Build a Semgrep rule pack
 - [Multi-rule pack with combinators](../semgrep/configs/multi-rule-pack.yaml)
@@ -294,6 +295,7 @@
 - [Install Cosign and generate first keypair](../cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md)
 - [Install Cosign and sign first image](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md)
 - [Cosign getting-started tutorial — what tripped me up](../cosign/notes/2026-06-22-cosign-getting-started-trip-ups.md)
+- [Cosign keyless GitHub Actions CI signing config](../cosign/configs/keyless-signing-github-actions.yaml)
 - [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh)
 - [Verify a signed image](../cosign/scripts/verify-signed-image.sh)
 - [Minimal sign and verify script](../cosign/scripts/minimal-sign-verify.sh) — Quick key pair workflow with Cosign
