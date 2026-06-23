@@ -2,9 +2,9 @@
 
 ## Getting started
 - [README](../README.md) — Repository overview
-- [README Layout audit: assets and Terrascan](../general/docs/2026-06-16-readme-layout-assets-terrascan.md) — Audit note for undocumented root folders
 - [topics.md](topics.md) — Full topic index by tool
 - [glossary.md](glossary.md) — Tool and domain terminology
+- [learning-path.md](learning-path.md) — Suggested progression from beginner to advanced
 
 ## Set up a tool
 - [Install Semgrep](../semgrep/notes/2026-05-25-install-semgrep.md)
@@ -172,7 +172,6 @@
 
 ## Update dependencies with Dependabot
 - [Dependabot primer](../dependabot/notes/0000-primer-dependabot.md)
-- [README Layout audit: Dependabot root folder](../general/notes/2026-06-20-dependabot-layout.md) — README Layout note for the Dependabot root folder
 - [Minimal Dependabot npm update config](../dependabot/configs/tried-npm-dependabot.yaml)
 - [First-time Dependabot setup — what tripped me up](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md)
 
@@ -299,7 +298,4 @@
 - [Verify a signed image](../cosign/scripts/verify-signed-image.sh)
 - [Minimal sign and verify script](../cosign/scripts/minimal-sign-verify.sh) — Quick key pair workflow with Cosign
 
-## Review layout documentation
-- [README layout audit: assets and Terrascan](../general/docs/2026-06-16-readme-layout-assets-terrascan.md)
-- [README layout audit: remaining folders](../general/docs/2026-06-18-readme-layout-remaining-folders.md)
-- [Dependabot root folder layout](../general/notes/2026-06-20-dependabot-layout.md)
+
