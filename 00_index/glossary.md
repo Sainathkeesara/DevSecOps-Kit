@@ -156,6 +156,10 @@
 
 **Terrascan**: Static code analysis tool for Infrastructure as Code that detects security violations and compliance issues in Terraform, Kubernetes, and other IaC templates.
 
+**OIDC (OpenID Connect)** — Authentication protocol used by Cosign for keyless container image signing, delegating identity to a trusted issuer like GitHub Actions or a cloud provider.
+
+**Attestation (Cosign)** — A signed statement about a container artifact (often containing an SBOM or build provenance), verified alongside the image signature to establish supply chain provenance.
+
 **Severity gating**: A CI/CD practice where pipeline stages are blocked or allowed based on the severity level of security findings, typically failing builds on CRITICAL or HIGH vulnerabilities.
 
 ## Acronyms

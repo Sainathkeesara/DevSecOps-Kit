@@ -438,6 +438,11 @@
 - [template] checkov/templates/multi-iac-scan-project/scan.sh — Multi-IaC scan entrypoint
 - [template] checkov/templates/multi-iac-scan-project/README.md — Multi-IaC scan project readme
 - [template] checkov/templates/multi-iac-scan-project/.github/workflows/checkov-scan.yml — Checkov scan CI workflow
+- [template] checkov/templates/reusable-workflow-custom-policies/.github/workflows/reusable-checkov-custom-policies.yml — Reusable Checkov custom policies workflow
+- [template] checkov/templates/reusable-workflow-custom-policies/custom-policies/no_public_s3_buckets.yaml — Block public S3 buckets policy
+- [template] checkov/templates/reusable-workflow-custom-policies/custom-policies/restrict_ec2_public_ip.yaml — Restrict EC2 public IP policy
+- [template] checkov/templates/reusable-workflow-custom-policies/example-caller-workflow.yml — Example caller workflow
+- [template] checkov/templates/reusable-workflow-custom-policies/README.md — Custom policies workflow readme
 
 ## Semgrep
 - [note] semgrep/notes/0000-primer-semgrep.md — First-day primer on Semgrep
@@ -456,6 +461,8 @@
 - [manifest] semgrep/manifests/diff-aware-semgrep-ci.yaml — Diff-aware Semgrep CI workflow
 - [dockerfile] semgrep/dockerfiles/custom-scanning-image.Dockerfile — Custom scanning Docker image
 - [dockerfile] semgrep/dockerfiles/ci-entrypoint.sh — Entrypoint for scanning image
+- [doc] semgrep/docs/semgrep-rule-writing-reference.md — Pattern, metavariable, and taint tracking reference
+- [manifest] semgrep/manifests/semgrep-gitlab-ci.yaml — SAST pipeline manifest for GitLab CI
 
 ## Trivy
 - [note] trivy/notes/0000-primer-trivy.md — First-day primer on Trivy
@@ -526,6 +533,9 @@
 - [snippet] codeql/snippets/my-first-codeql-commands.sh — First CodeQL CLI commands
 - [config] codeql/configs/first-codeql-analysis.yml — Starter GitHub Actions workflow
 - [script] codeql/scripts/first-codeql-analysis.sh — First CodeQL analysis script
+- [doc] codeql/docs/wired-custom-queries-into-ci.md — Wiring custom CodeQL queries into CI
+- [manifest] codeql/manifests/multi-language-codeql-analysis.yaml — Multi-language CodeQL analysis workflow
+- [snippet] codeql/snippets/hardcoded-creds-local-flow.ql — Hardcoded credentials via local data flow
 
 ## ZAP
 - [note] zap/notes/0000-primer-zap.md — First-day primer on OWASP ZAP
@@ -572,6 +582,9 @@
 - [note] cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md — Generating first keypair
 - [script] cosign/scripts/verify-signed-image.sh — Verify signed container image
 - [snippet] cosign/snippets/first-cosign-sign-verify-image.sh — First sign and verify commands
+- [config] cosign/configs/keyless-signing-github-actions.yaml — Keyless Cosign signing for GitHub Actions
+- [script] cosign/scripts/minimal-sign-verify.sh — Minimal sign and verify script
+- [note] cosign/notes/2026-06-22-cosign-getting-started-trip-ups.md — Cosign getting-started pitfalls
 
 ## Falco
 - [note] falco/notes/0000-primer-falco.md — First-day primer on Falco runtime security
@@ -619,6 +632,8 @@
 ## Dependabot
 - [note] dependabot/notes/0000-primer-dependabot.md — First-day primer on Dependabot
 - [config] dependabot/configs/tried-npm-dependabot.yaml — npm Dependabot config
+- [note] dependabot/notes/2026-06-22-first-time-dependabot-setup.md — First-time Dependabot setup guide
+- [note] dependabot/notes/dependabot-alerts-security-updates.md — Dependabot alerts and security updates
 
 ## Lab Projects
 - [doc] lab/mini-projects/terraform-project/README.md — Terraform project with modules
