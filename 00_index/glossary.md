@@ -162,6 +162,14 @@
 
 **Severity gating**: A CI/CD practice where pipeline stages are blocked or allowed based on the severity level of security findings, typically failing builds on CRITICAL or HIGH vulnerabilities.
 
+**Tetragon**: Cloud-native eBPF-based security observability and runtime enforcement tool that monitors kernel-level events for detecting and preventing malicious behaviour in containers and Kubernetes.
+
+**eBPF (extended Berkeley Packet Filter)**: Linux kernel technology that allows sandboxed programs to run within the kernel without modifying kernel source code or loading modules, used for observability, networking, and security.
+
+**tetra**: Tetragon's CLI tool for streaming process, file, and network events from a running Tetragon agent, used for real-time debugging and ad-hoc observation.
+
+**TracingPolicy**: Tetragon custom resource that defines which kernel events to observe (exec, file access, network connect) and optional enforcement actions, written in YAML with match criteria for binaries, namespaces, and process ancestry.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment

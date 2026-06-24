@@ -613,6 +613,8 @@
 - [config] gitguardian/configs/.ggshield.yaml — ggshield scheduled scanning config
 - [config] gitguardian/configs/monorepo-allowlists.yaml — Monorepo allowlists config
 - [script] gitguardian/scripts/pre-commit-hook-ggshield.sh — Pre-commit hook for ggshield
+- [script] gitguardian/scripts/gg-incident-response-pipeline.sh — Incident response automation
+- [doc] gitguardian/docs/monorepo-ci-per-team-exclusions.md — Per-team exclusion config for monorepo CI
 
 ## Snyk
 - [note] snyk/notes/0000-primer-snyk.md — First-day primer on Snyk
@@ -621,6 +623,7 @@
 - [note] snyk/notes/2026-06-14-first-vulnerability-scan.md — First vulnerability scan
 - [snippet] snyk/snippets/my-first-snyk-commands.sh — First Snyk CLI commands
 - [config] snyk/configs/snyk-ci-github-actions.yaml — Snyk CI GitHub Actions config
+- [config] snyk/configs/snyk-dependency-patch-ignore.yaml — Dependency patch and ignore policy
 
 ## Terrascan
 - [note] terrascan/notes/0000-primer-terrascan.md — First-day primer on Terrascan
@@ -628,6 +631,10 @@
 - [note] terrascan/notes/2026-06-19-install-terrascan-tiny-tf.md — Installing and tiny Terraform
 - [snippet] terrascan/snippets/insecure-terraform.tf — Insecure Terraform for testing
 - [snippet] terrascan/snippets/tiny-tf-with-findings.tf — Tiny Terraform with findings
+
+## Tetragon
+- [note] tetragon/notes/0000-primer-tetragon.md — First-day primer on Tetragon eBPF security
+- [note] tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md — Running Tetragon with Docker and observing first events
 
 ## Dependabot
 - [note] dependabot/notes/0000-primer-dependabot.md — First-day primer on Dependabot

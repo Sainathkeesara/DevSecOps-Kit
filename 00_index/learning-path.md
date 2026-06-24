@@ -45,6 +45,7 @@ Tools that depend on foundational concepts and earlier tools being complete.
 - **Falco** — Runtime security monitoring for containers and Kubernetes. Requires understanding of container behaviour and system calls. [Primer](../falco/notes/0000-primer-falco.md) | [Custom rules](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
 - **OPA / Gatekeeper** — Policy engine for Kubernetes admission control and IaC validation. Requires understanding of Rego and Kubernetes policies. [Primer](../opa/notes/0000-primer-opa.md) | [Gatekeeper constraint](../opa/configs/tried-a-gatekeeper-constraint.yaml)
 - **HashiCorp Vault** — Secrets management, dynamic secrets, encryption-as-a-service. [Primer](../vault/notes/0000-primer-vault.md) | [KV CRUD](../vault/scripts/vault-kv-crud.sh)
+- **Tetragon** — eBPF-based runtime security observability for detecting kernel-level anomalies in containers. [Primer](../tetragon/notes/0000-primer-tetragon.md) | [Docker install](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
 
 ## Stage 5: Mastery
 
@@ -93,6 +94,7 @@ flowchart LR
     Falco
     OPA["OPA/Gatekeeper"]
     Vault
+    Tetragon
   end
 
   Linux --> Trivy & Semgrep & Checkov & TruffleHog & ZAP
@@ -105,6 +107,7 @@ flowchart LR
   SupplyChain --> Syft & Grype & Cosign & Trivy & Dependabot & Snyk
 
   Trivy --> Syft & Grype & ZAP & Vault & Falco
+  Falco --> Tetragon
   Semgrep --> ZAP & CodeQL & Snyk
   Checkov --> Terrascan & OPA
   TruffleHog --> GitGuardian
