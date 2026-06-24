@@ -226,6 +226,7 @@
 - [Falco rule structure — macros, lists, and the append trick](../falco/notes/2026-06-15-falco-rules-macros-lists.md)
 - [My first custom Falco rule: detect shell in container](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
 - [Custom Falco rules for container drift detection](../falco/configs/container-drift-detection.yaml)
+- [Tuning Falco rules to reduce noisy alerts](../falco/docs/tuned-falco-rules-noise-reduction.md) — How I identified noisy rules, added exceptions, and adjusted priority levels
 
 ## Runtime security with Tetragon
 - [Tetragon primer](../tetragon/notes/0000-primer-tetragon.md)

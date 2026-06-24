@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-24
+
+### Added
+- falco-007: `falco/docs/tuned-falco-rules-noise-reduction.md` — How I tuned Falco rules to reduce noisy alerts in a production cluster (L3)
+   - Purpose → Steps → Verify → Common errors shape covering baseline collection, exception patterns, priority adjustment, and output routing
+   - Documents real gotchas: Helm custom rules ordering, exception field mismatch, priority change on append rules, overly broad exceptions
+
 ## 2026-06-23
 
 ### Added
