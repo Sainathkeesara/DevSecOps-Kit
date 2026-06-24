@@ -221,11 +221,13 @@
 - [My first ZAP spider scan via API](../zap/snippets/my-first-zap-spider-scan.sh)
 
 ## Runtime security with Falco
-- [Falco primer](../falco/notes/0000-primer-falco.md)
-- [Install Falco and run first detection](../falco/notes/2026-06-10-install-falco-first-detection.md)
-- [Falco rule structure — macros, lists, and the append trick](../falco/notes/2026-06-15-falco-rules-macros-lists.md)
-- [My first custom Falco rule: detect shell in container](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
-- [Custom Falco rules for container drift detection](../falco/configs/container-drift-detection.yaml)
+ - [Falco primer](../falco/notes/0000-primer-falco.md)
+ - [Install Falco and run first detection](../falco/notes/2026-06-10-install-falco-first-detection.md)
+ - [Falco rule structure — macros, lists, and the append trick](../falco/notes/2026-06-15-falco-rules-macros-lists.md)
+ - [My first custom Falco rule: detect shell in container](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
+ - [Custom Falco rules for container drift detection](../falco/configs/container-drift-detection.yaml)
+ - [Comparing syscall vs tracepoint rules for container monitoring](../falco/docs/syscall-vs-tracepoint-rules.md) — Syscall vs tracepoint rule sources, coverage, and performance tradeoffs
+ - [Deploy custom Falco ruleset with Helm](../falco/scripts/deploy-falco-ruleset.sh)
 
 ## Runtime security with Tetragon
 - [Tetragon primer](../tetragon/notes/0000-primer-tetragon.md)

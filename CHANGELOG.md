@@ -4,6 +4,17 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-24
+
+### Added
+- falco-005: `falco/docs/syscall-vs-tracepoint-rules.md` — Comparing Falco syscall and tracepoint-driven rules for container behavior monitoring (L3)
+   - Purpose → When to use → Prerequisites → Steps → Verify → Common errors → References shape
+   - Covers syscall-driven rules for broad system coverage versus tracepoint rules for lower overhead
+   - Includes rule examples, performance considerations, and kernel compatibility notes
+- falco-006: `falco/scripts/deploy-falco-ruleset.sh` — Custom Falco ruleset deployment with Kubernetes Helm chart end-to-end (L3)
+   - Creates namespace, ConfigMap from custom rules file, and installs Falco with Helm
+   - Supports custom rules mounting via Helm values
+
 ## 2026-06-23
 
 ### Added
