@@ -67,6 +67,8 @@ The kit spans Kubernetes, Terraform, CI/CD pipelines, observability stacks, Linu
 
 - **`00_index/`** — Navigation: topic index, quick links, glossary, learning path
 - **`.github/`** — PR template, CODEOWNERS, workflow README
+- **`CHANGELOG.md`** — Release history and version changelog
+- **`CONTRIBUTING.md`** — Contribution guidelines and development setup
 - **`assets/`** — Static images and diagrams used by guides and project docs
 - **`checkov/` / `semgrep/` / `trivy/` / `trufflehog/` / `syft/`** — Security scanner notes, scripts, configs
 - **`grype/` / `codeql/` / `zap/` / `snyk/` / `gitguardian/` / `falco/` / `cosign/` / `tetragon/`** — Vulnerability scanner and security tool content
