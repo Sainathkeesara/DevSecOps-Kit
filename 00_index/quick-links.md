@@ -229,7 +229,7 @@
 
 ## Runtime security with Tetragon
 - [Tetragon primer](../tetragon/notes/0000-primer-tetragon.md)
-<- [Install Tetragon via Docker and observe first events](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md) — L1 first-person walkthrough of running Tetragon in standalone Docker mode and streaming process events with tetra
+- [Install Tetragon via Docker and observe first events](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md) — L1 first-person walkthrough of running Tetragon in standalone Docker mode and streaming process events with tetra
 - [First TracingPolicy: exec and file access](../tetragon/configs/first-tracing-policy-exec-file.yaml) — Minimal TracingPolicy to observe exec and file access events
 
 ## Manage secrets with Vault
