@@ -28,8 +28,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
    - Parses findings with jq and reports severity per secret
    - Supports optional webhook alerting and severity-based pipeline gating via `FAIL_ON`
 - snyk-003: `snyk/configs/snyk-dependency-patch-ignore.yaml` — Snyk policy configuration for dependency patching and ignore rules (L3)
-   - `.snyk`-style YAML policy demonstrating `ignore` blocks with expiry dates and permanent ignores
-   - `patch` section mapping vulnerable packages to patched versions for automated remediation suggestions
+    - `.snyk`-style YAML policy demonstrating `ignore` blocks with expiry dates and permanent ignores
+    - `patch` section mapping vulnerable packages to patched versions for automated remediation suggestions
+- gitguardian-004: `gitguardian/docs/monorepo-ci-per-team-exclusions.md` — How I wired GitGuardian into a monorepo CI and configured per-team exclusions (L3)
+    - Purpose → When to use → Prerequisites → Steps → Verify → Common errors → References shape
+    - Covers root config with universal noise suppression, per-team `.ggshield.yaml` overrides in service subdirectories, two-pass CI pipeline (scheduled full scan + PR diff gate), and team-based alert routing via directory prefix
+    - Documents real gotchas: config resolution precedence, `detectors-ignore` version requirement, overlapping path-ignore rules, and recursive scan edge cases
+- tetragon-002: `tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md` — Install Tetragon via Docker and observe my first system events (L1)
+    - First-person scratch notes covering Docker run with eBPF prerequisites, `tetra getevents` for real-time streaming, and process exec event observation
+    - Cleanup and next-steps pointer to TracingPolicy filtering
 
 ## 2026-06-22
 

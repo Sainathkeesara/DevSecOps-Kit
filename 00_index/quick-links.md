@@ -153,6 +153,7 @@
 - [ggshield quickstart walkthrough — trip-ups and next steps](../gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md)
 - [Run my first secrets scan on a repo with ggshield](../gitguardian/notes/2026-06-14-first-secrets-scan-repo.md)
 - [GitGuardian incident response pipeline](../gitguardian/scripts/gg-incident-response-pipeline.sh)
+- [Monorepo CI with per-team exclusions](../gitguardian/docs/monorepo-ci-per-team-exclusions.md) — How I wired GitGuardian into a monorepo CI with per-directory allowlist overrides and team-based alert routing
 
 ## Scan with Terrascan
 - [Terrascan primer](../terrascan/notes/0000-primer-terrascan.md)
@@ -228,6 +229,7 @@
 
 ## Runtime security with Tetragon
 - [Tetragon primer](../tetragon/notes/0000-primer-tetragon.md)
+<- [Install Tetragon via Docker and observe first events](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md) — L1 first-person walkthrough of running Tetragon in standalone Docker mode and streaming process events with tetra
 - [First TracingPolicy: exec and file access](../tetragon/configs/first-tracing-policy-exec-file.yaml) — Minimal TracingPolicy to observe exec and file access events
 
 ## Manage secrets with Vault
