@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-25
+
+### Added
+- con-001: `docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md` — Application Security Testing Concepts primer: SAST, DAST, SCA, and key terminology (L1)
+- con-002: `docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md` — CI/CD Pipeline Concepts primer: stages, gates, triggers, and pipeline fundamentals (L1)
+- con-003: `docs/concepts/container-runtime-security/0000-primer-container-runtime-security.md` — Container & Runtime Security primer: image vs runtime security, syscalls, eBPF, and terminology (L1)
+
 ## 2026-06-24
 
 ### Added
