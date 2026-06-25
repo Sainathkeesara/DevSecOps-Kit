@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-24
 
 ### Added
+- grype-002: `grype/scripts/grype-vuln-pipeline.sh` — Grype vulnerability scanning pipeline with SARIF output for CI integration (L3)
 - falco-005: `falco/docs/syscall-vs-tracepoint-rules.md` — Comparing Falco syscall and tracepoint-driven rules for container behavior monitoring (L3)
    - Purpose → When to use → Prerequisites → Steps → Verify → Common errors → References shape
    - Covers syscall-driven rules for broad system coverage versus tracepoint rules for lower overhead
