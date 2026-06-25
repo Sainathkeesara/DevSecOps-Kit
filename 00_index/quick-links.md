@@ -108,6 +108,7 @@
 - [CI-ready Grype scanning wrapper with severity thresholds](../grype/scripts/ci-ready-grype-scan.sh)
 - [Vulnerability diff across two image versions](../grype/scripts/vuln-diff-two-images.sh)
 - [Grype CI GitHub Actions workflow](../grype/configs/grype-ci-github-actions.yaml)
+- [Grype SBOM and vulnerability output explorer](../grype/notebooks/grype-sbom-output-explorer.ipynb)
 - [Grype vulnerability scanning pipeline with SARIF output](../grype/scripts/grype-vuln-pipeline.sh) — Scan images, generate SARIF, integrate with CI
 
 ## Scan with OPA/Gatekeeper
