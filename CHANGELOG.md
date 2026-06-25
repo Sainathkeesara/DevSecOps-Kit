@@ -11,6 +11,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - con-002: `docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md` — CI/CD Pipeline Concepts primer: stages, gates, triggers, and pipeline fundamentals (L1)
 - con-003: `docs/concepts/container-runtime-security/0000-primer-container-runtime-security.md` — Container & Runtime Security primer: image vs runtime security, syscalls, eBPF, and terminology (L1)
 
+## 2026-06-25
+
+### Added
+- con-004: `docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md` — Infrastructure as Code primer: what IaC is, why it matters, and key terminology (L1)
+- con-005: `docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md` — Linux & Shell Fundamentals primer: what the shell is, why it matters, and core terminology (L1)
+- con-006: `docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md` — Secrets & Access Management primer: controlling access, handling credentials, and least privilege (L1)
+
 ## 2026-06-24
 
 ### Added
