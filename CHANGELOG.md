@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - con-001: `docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md` — Application Security Testing Concepts primer: SAST, DAST, SCA, and key terminology (L1)
 - con-002: `docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md` — CI/CD Pipeline Concepts primer: stages, gates, triggers, and pipeline fundamentals (L1)
 - con-003: `docs/concepts/container-runtime-security/0000-primer-container-runtime-security.md` — Container & Runtime Security primer: image vs runtime security, syscalls, eBPF, and terminology (L1)
+- con-007: `docs/concepts/software-supply-chain-security/0000-primer-software-supply-chain-security.md` — Software Supply Chain Security primer: supply chain attacks, SBOM, signing, and dependency verification (L1)
+- con-008: `docs/concepts/version-control-with-git/0000-primer-version-control-with-git.md` — Version Control with Git primer: repos, commits, branches, and collaboration workflows (L1)
+- con-009: `docs/concepts/containers-orchestration/0000-primer-containers-orchestration.md` — Containers & Orchestration primer: images, containers, registries, and Kubernetes fundamentals (L1)
 
 ## 2026-06-24
 
