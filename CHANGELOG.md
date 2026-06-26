@@ -4,6 +4,14 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-26
+
+### Added
+- snyk-002: `snyk/docs/multi-project-ci-pipeline.md` — Multi-project Snyk CI pipeline with per-service monitoring (L3)
+  - Purpose → Steps → Verify structure covering matrix-based per-service scanning
+  - Documents service-to-project mapping, GitHub Actions matrix workflow, org-level tags, and per-service failure rules
+  - Common errors section based on real gotchas: duplicate monitors, working-directory mismatch, and org-scoped token issues
+
 ## 2026-06-25
 
 ### Added

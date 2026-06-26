@@ -153,8 +153,9 @@
 - [Snyk quickstart walkthrough](../snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md)
 - [My first Snyk commands](../snyk/snippets/my-first-snyk-commands.sh)
 - [Run my first vulnerability scan with Snyk](../snyk/notes/2026-06-14-first-vulnerability-scan.md)
-- [Snyk CI pipeline integration with GitHub Actions](../snyk/configs/snyk-ci-github-actions.yaml)
-- [Snyk dependency patch and ignore policy](../snyk/configs/snyk-dependency-patch-ignore.yaml)
+ - [Snyk CI pipeline integration with GitHub Actions](../snyk/configs/snyk-ci-github-actions.yaml)
+ - [Snyk dependency patch and ignore policy](../snyk/configs/snyk-dependency-patch-ignore.yaml)
+ - [Snyk multi-project CI pipeline with per-service monitoring](../snyk/docs/multi-project-ci-pipeline.md)
 
 ## Scan with GitGuardian
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
