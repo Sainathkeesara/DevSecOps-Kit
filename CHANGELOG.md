@@ -7,6 +7,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-26
 
 ### Added
+- vault-004: `vault/configs/2026-06-26-dev-test-policies.hcl` — Vault policy and secrets engine configuration for dev/test environments (L2)
+   - HCL policies for separate KV v2 engines at dev-kv (full CRUD) and test-kv (read-mostly)
+   - Documents the /data/ vs /metadata/ path split gotcha and kv-v1 vs kv-v2 silent-empty trap
+   - First-person learner comments with "Got stuck on" section
+- falco-003: `falco/snippets/tried-file-access-detector.go` — Go snippet to detect suspicious file access from Falco JSON output (L2)
+   - Reads Falco JSON lines from stdin, matches known file-access rules and scans output fields for sensitive paths
+   - First-person Go code with reasoning comments
 - snyk-002: `snyk/docs/multi-project-ci-pipeline.md` — Multi-project Snyk CI pipeline with per-service monitoring (L3)
   - Purpose → Steps → Verify structure covering matrix-based per-service scanning
   - Documents service-to-project mapping, GitHub Actions matrix workflow, org-level tags, and per-service failure rules

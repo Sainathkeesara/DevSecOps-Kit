@@ -243,6 +243,7 @@
  - [Custom Falco rules for container drift detection](../falco/configs/container-drift-detection.yaml)
  - [Comparing syscall vs tracepoint rules for container monitoring](../falco/docs/syscall-vs-tracepoint-rules.md) — Syscall vs tracepoint rule sources, coverage, and performance tradeoffs
  - [Deploy custom Falco ruleset with Helm](../falco/scripts/deploy-falco-ruleset.sh)
+ - [Go Falco event parser: suspicious file access detector](../falco/snippets/tried-file-access-detector.go) — L2 Go snippet that reads Falco JSON output and alerts on sensitive file access patterns
 
 ## Runtime security with Tetragon
 - [Tetragon primer](../tetragon/notes/0000-primer-tetragon.md)
@@ -256,6 +257,7 @@
 - [My first Vault read/write commands](../vault/snippets/vault-read-write.go)
 - [Minimal Vault KV CRUD script](../vault/scripts/vault-kv-crud.sh)
 - [Configuring Vault's dev server](../vault/docs/configuring-vault-dev-server.md)
+- [Vault dev/test policy and secrets engine config](../vault/configs/2026-06-26-dev-test-policies.hcl) — L2 HCL policy configuration for KV v2 with separate dev (full CRUD) and test (read-mostly) access
 
 ## Run a Kubernetes task
 - [k8s_toolkit usage guide](../docs/how-to/k8s_toolkit.md)
