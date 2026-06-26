@@ -14,6 +14,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - con-008: `docs/concepts/version-control-with-git/0000-primer-version-control-with-git.md` — Version Control with Git primer: repos, commits, branches, and collaboration workflows (L1)
 - con-009: `docs/concepts/containers-orchestration/0000-primer-containers-orchestration.md` — Containers & Orchestration primer: images, containers, registries, and Kubernetes fundamentals (L1)
 
+## 2026-06-25
+
+### Added
+- con-004: `docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md` — Infrastructure as Code primer: what IaC is, why it matters, and key terminology (L1)
+- con-005: `docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md` — Linux & Shell Fundamentals primer: what the shell is, why it matters, and core terminology (L1)
+- con-006: `docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md` — Secrets & Access Management primer: controlling access, handling credentials, and least privilege (L1)
+
 ## 2026-06-24
 
 ### Added
