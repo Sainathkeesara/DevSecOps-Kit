@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-26
 
 ### Added
+- vault-005: `vault/scripts/vault-db-dynamic-secrets.sh` — Vault dynamic database secrets workflow: Postgres dynamic credentials end-to-end (L3)
+   - Spins up a Postgres container, enables Vault's database secrets engine, configures connection and role
+   - Generates ephemeral credentials, verifies them against Postgres, revokes lease, and confirms removal
+   - Real error handling with cleanup trap, prerequisite checks, and connection timeout
+   - shellcheck passed (clean)
 - vault-004: `vault/configs/2026-06-26-dev-test-policies.hcl` — Vault policy and secrets engine configuration for dev/test environments (L2)
    - HCL policies for separate KV v2 engines at dev-kv (full CRUD) and test-kv (read-mostly)
    - Documents the /data/ vs /metadata/ path split gotcha and kv-v1 vs kv-v2 silent-empty trap
