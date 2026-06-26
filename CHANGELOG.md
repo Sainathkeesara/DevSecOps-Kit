@@ -12,10 +12,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Documents service-to-project mapping, GitHub Actions matrix workflow, org-level tags, and per-service failure rules
   - Common errors section based on real gotchas: duplicate monitors, working-directory mismatch, and org-scoped token issues
 - snyk-001: `snyk/scripts/snyk-vuln-scan-pipeline.sh` — Snyk vulnerability scanning pipeline from scratch: test, monitor, fail on high CVEs (L3)
-   - Bash pipeline that runs snyk test or snyk container test depending on target type
+    - Bash pipeline that runs snyk test or snyk container test depending on target type
    - Pushes a snapshot to the Snyk dashboard for continuous monitoring via snyk monitor
    - Parses JSON output with jq, counts severity levels, and fails the build when CRITICAL or HIGH findings exceed the threshold
    - shellcheck passed (clean)
+- zap-010: `zap/configs/ci-dast-automation-framework-plan.yaml` — ZAP Automation Framework plan for CI-integrated DAST scanning (L3)
+   - Defines context, spider, AJAX spider, passive scan config, active scan with targeted rules, and JSON report
+   - Uses template variables (TARGET_URL, AUTH_METHOD, LOGIN_URL, SCAN_USER, SCAN_PASS) for CI parameter injection
+   - Tests for minimum URL discovery and alert count gating with WARN/INFO thresholds
+- terrascan-008: `terrascan/configs/tried-custom-s3-rule.yaml` — Minimal Terrascan custom rule configuration for AWS S3 bucket policies (L2)
+   - Two custom Rego rules: block public ACLs and require default encryption
+   - First-person learner comments explaining the custom rule setup process
+   - YAML multi-document format for separate policy definitions
 
 ## 2026-06-25
 

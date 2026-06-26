@@ -177,6 +177,7 @@
 - [Install Terrascan via pip and scan a tiny Terraform file](../terrascan/notes/2026-06-19-install-terrascan-tiny-tf.md)
 - [Minimal Terraform that triggers findings](../terrascan/snippets/tiny-tf-with-findings.tf)
 - [Minimal Terrascan CI scan script](../terrascan/scripts/tried-terrascan-ci-scan.sh) — Scan Terraform and fail on high severity violations
+- [Custom S3 bucket policy rule (config)](../terrascan/configs/tried-custom-s3-rule.yaml) — Custom Rego rules for S3 public access and encryption checks
 
 ## Scan with CodeQL
 - [CodeQL primer](../codeql/notes/0000-primer-codeql.md)
@@ -234,6 +235,7 @@
 - [Spider scan against a test app](../zap/notes/2026-06-13-spider-scan-test-app.md)
 - [DAST workflow from spider to active scan](../zap/scripts/dast-workflow-from-scratch.sh) — Start ZAP, crawl a target, run active scanning, and save reports
 - [My first ZAP spider scan via API](../zap/snippets/my-first-zap-spider-scan.sh)
+- [CI-integrated DAST Automation Framework plan](../zap/configs/ci-dast-automation-framework-plan.yaml) — Headless scanning pipeline for CI environments
 
 ## Runtime security with Falco
  - [Falco primer](../falco/notes/0000-primer-falco.md)

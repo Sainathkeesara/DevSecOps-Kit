@@ -1,0 +1,54 @@
+# Trying to write a custom Terrascan rule for S3 bucket policies
+# Following the docs on custom rules — I wanted to catch buckets
+# that allow public access or don't have encryption enabled.
+# The API version and kind might be wrong; I'm guessing based on
+# the examples in the Terrascan repo. Doing this because the built-in
+# rules flagged some things but I wanted more specific checks for
+# our S3 bucket naming convention.
+---
+apiVersion: v1
+kind: policy
+metadata:
+  name: s3-bucket-block-public-access
+  severity: high
+  category: S3
+  cloudProvider: aws
+  resourceType: aws_s3_bucket_public_access_block
+spec:
+  rego:
+    - |
+      package terrascan
+
+      violation[{"msg": msg}] {
+        resource := input.resource
+        resource.type == "aws_s3_bucket_public_access_block"
+        resource.config.block_public_acls == false
+        msg := sprintf("S3 bucket '%s' has public ACLs enabled", [resource.name])
+      }
+
+      violation[{"msg": msg}] {
+        resource := input.resource
+        resource.type == "aws_s3_bucket_public_access_block"
+        resource.config.block_public_policy == false
+        msg := sprintf("S3 bucket '%s' allows public policies", [resource.name])
+      }
+---
+apiVersion: v1
+kind: policy
+metadata:
+  name: s3-bucket-default-encryption
+  severity: medium
+  category: S3
+  cloudProvider: aws
+  resourceType: aws_s3_bucket
+spec:
+  rego:
+    - |
+      package terrascan
+
+      violation[{"msg": msg}] {
+        resource := input.resource
+        resource.type == "aws_s3_bucket"
+        not resource.config.server_side_encryption_configuration
+        msg := sprintf("S3 bucket '%s' does not have default encryption", [resource.name])
+      }
