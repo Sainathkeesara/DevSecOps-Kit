@@ -269,6 +269,7 @@
 - [doc] vault/docs/configuring-vault-dev-server.md — Configuring Vault dev server
 - [script] vault/scripts/vault-kv-crud.sh — Vault KV CRUD operations
 - [snippet] vault/snippets/vault-read-write.go — Vault read/write in Go
+- [config] vault/configs/2026-06-26-dev-test-policies.hcl — Dev/test policies and secrets engine config
 - [script] scripts/bash/vault/security/vault-go-getter-hardening.sh — go-getter file read hardening
 - [script] scripts/bash/vault/vault-audit-log-analysis.sh — Vault audit log analysis
 - [script] scripts/bash/vault_toolkit/security/cve-2025-11621.sh — AWS Auth bypass scanner
@@ -549,6 +550,7 @@
 - [doc] zap/docs/zap-integration-patterns.md — ZAP integration patterns
 - [doc] zap/docs/passive-vs-active-scanning-zap.md — Passive vs active scanning
 - [config] zap/configs/zap-authenticated-scan-context.yaml — Authenticated scan context config
+- [config] zap/configs/ci-dast-automation-framework-plan.yaml — Headless DAST automation pipeline config
 
 ## TruffleHog
 - [note] trufflehog/notes/0000-primer-trufflehog.md — First-day primer on TruffleHog
@@ -593,6 +595,10 @@
 - [config] falco/configs/first-custom-rule-detect-shell-in-container.yaml — Detect shell in container
 - [config] falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml — First custom rule snapshot
 - [config] falco/configs/container-drift-detection.yaml — Container drift detection
+- [snippet] falco/snippets/tried-file-access-detector.go — Go file access detector for Falco events
+- [doc] falco/docs/syscall-vs-tracepoint-rules.md — Syscall vs tracepoint rule comparison
+- [doc] falco/docs/tuned-falco-rules-noise-reduction.md — Tuning Falco rules to reduce noise
+- [script] falco/scripts/deploy-falco-ruleset.sh — Deploy custom Falco ruleset with Helm
 
 ## OPA
 - [note] opa/notes/0000-primer-opa.md — First-day primer on OPA policy engine
@@ -624,6 +630,8 @@
 - [snippet] snyk/snippets/my-first-snyk-commands.sh — First Snyk CLI commands
 - [config] snyk/configs/snyk-ci-github-actions.yaml — Snyk CI GitHub Actions config
 - [config] snyk/configs/snyk-dependency-patch-ignore.yaml — Dependency patch and ignore policy
+- [script] snyk/scripts/snyk-vuln-scan-pipeline.sh — Snyk vulnerability scanning pipeline
+- [doc] snyk/docs/multi-project-ci-pipeline.md — Multi-project CI pipeline with per-service monitoring
 
 ## Terrascan
 - [note] terrascan/notes/0000-primer-terrascan.md — First-day primer on Terrascan
@@ -631,6 +639,8 @@
 - [note] terrascan/notes/2026-06-19-install-terrascan-tiny-tf.md — Installing and tiny Terraform
 - [snippet] terrascan/snippets/insecure-terraform.tf — Insecure Terraform for testing
 - [snippet] terrascan/snippets/tiny-tf-with-findings.tf — Tiny Terraform with findings
+- [config] terrascan/configs/tried-custom-s3-rule.yaml — Custom S3 bucket policy Rego rule
+- [script] terrascan/scripts/tried-terrascan-ci-scan.sh — Minimal Terrascan CI scan script
 
 ## Tetragon
 - [note] tetragon/notes/0000-primer-tetragon.md — First-day primer on Tetragon eBPF security
