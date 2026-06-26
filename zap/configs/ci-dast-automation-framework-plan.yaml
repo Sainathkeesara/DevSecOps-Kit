@@ -1,0 +1,108 @@
+# ZAP Automation Framework plan — CI-integrated DAST scanning
+# This plan defines the full scanning pipeline: spider crawl, passive scan,
+# AJAX spider for JS-heavy pages, active scan for common web vulns, and
+# a JSON report. Designed to run headless via zap.sh -cmd -autorun plan.yaml
+# in a CI pipeline. The docs also suggest splitting long jobs across
+# separate plan files for very large targets.
+---
+env:
+  contexts:
+    - name: ci-target
+      urls:
+        - "{{TARGET_URL}}"
+      includePaths:
+        - ".*"
+      excludePaths:
+        - ".*\\.(css|js|png|jpg|jpeg|gif|ico|svg|woff2?|ttf|eot)(\\?.*)?$"
+      authentication:
+        method: "{{AUTH_METHOD}}"
+        parameters:
+          loginPageUrl: "{{LOGIN_URL}}"
+          loginRequestData: "username={%username%}&password={%password%}"
+        verificationStrategy: response
+      sessionManagement:
+        method: cookie
+        parameters:
+          sessionTokenNames:
+            - "{{SESSION_TOKEN}}"
+      users:
+        - name: ci-user
+          credentials:
+            username: "{{SCAN_USER}}"
+            password: "{{SCAN_PASS}}"
+
+jobs:
+  - type: spider
+    parameters:
+      context: ci-target
+      user: ci-user
+      maxChildren: 10
+      maxDepth: 5
+      maxDuration: 2
+      subtreeOnly: false
+    tests:
+      - type: spiderStats
+        onFail: WARN
+        statistic: urls_added
+        value: 1
+        operator: ">="
+
+  - type: passiveScan-config
+    parameters:
+      maxAlertsPerRule: 10
+      passiveScanThreads: 4
+
+  - type: spiderAjax
+    parameters:
+      context: ci-target
+      user: ci-user
+      maxDuration: 5
+      maxCrawlDepth: 5
+      numberOfBrowsers: 1
+    tests:
+      - type: spiderAjaxStats
+        onFail: WARN
+        statistic: urls_added
+        value: 1
+        operator: ">="
+
+  - type: activeScan
+    parameters:
+      context: ci-target
+      user: ci-user
+      maxDuration: 20
+      maxScansInUI: 5
+      threadPerHost: 4
+      alertThreshold: MEDIUM
+    policyDefinition:
+      rules:
+        - id: 40012
+          threshold: MEDIUM
+          strength: DEFAULT
+        - id: 40018
+          threshold: MEDIUM
+          strength: DEFAULT
+        - id: 90019
+          threshold: MEDIUM
+          strength: DEFAULT
+        - id: 40014
+          threshold: MEDIUM
+          strength: DEFAULT
+        - id: 40024
+          threshold: MEDIUM
+          strength: DEFAULT
+    tests:
+      - type: alertCount
+        onFail: INFO
+        action: raise_alerts
+        risk: HIGH
+        count: 0
+        operator: "=="
+
+  - type: report
+    parameters:
+      template: traditional-json-plus
+      reportDir: "{{REPORT_DIR}}"
+      reportFileName: "zap-report-{{DATE:yyyyMMdd-HHmmss}}.json"
+      reportTitle: "CI DAST Scan — {{TARGET_URL}}"
+      display: false
