@@ -155,6 +155,7 @@
 - [Run my first vulnerability scan with Snyk](../snyk/notes/2026-06-14-first-vulnerability-scan.md)
 - [Snyk CI pipeline integration with GitHub Actions](../snyk/configs/snyk-ci-github-actions.yaml)
 - [Snyk dependency patch and ignore policy](../snyk/configs/snyk-dependency-patch-ignore.yaml)
+- [Snyk multi-project CI pipeline with per-service monitoring](../snyk/docs/multi-project-ci-pipeline.md)
 - [Snyk vulnerability scanning pipeline](../snyk/scripts/snyk-vuln-scan-pipeline.sh) — Test, monitor, and fail on high CVEs
 
 ## Scan with GitGuardian
