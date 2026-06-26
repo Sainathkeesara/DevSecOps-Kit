@@ -11,6 +11,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Purpose → Steps → Verify structure covering matrix-based per-service scanning
   - Documents service-to-project mapping, GitHub Actions matrix workflow, org-level tags, and per-service failure rules
   - Common errors section based on real gotchas: duplicate monitors, working-directory mismatch, and org-scoped token issues
+- snyk-001: `snyk/scripts/snyk-vuln-scan-pipeline.sh` — Snyk vulnerability scanning pipeline from scratch: test, monitor, fail on high CVEs (L3)
+   - Bash pipeline that runs snyk test or snyk container test depending on target type
+   - Pushes a snapshot to the Snyk dashboard for continuous monitoring via snyk monitor
+   - Parses JSON output with jq, counts severity levels, and fails the build when CRITICAL or HIGH findings exceed the threshold
+   - shellcheck passed (clean)
 
 ## 2026-06-25
 
