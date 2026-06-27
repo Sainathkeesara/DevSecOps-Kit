@@ -259,6 +259,7 @@
 - [My first Vault read/write commands](../vault/snippets/vault-read-write.go)
 - [Minimal Vault KV CRUD script](../vault/scripts/vault-kv-crud.sh)
 - [Configuring Vault's dev server](../vault/docs/configuring-vault-dev-server.md)
+- [Vault Agent auto-auth with Kubernetes service accounts](../vault/docs/vault-agent-auto-auth-kubernetes.md) — L3 docs: wire Vault Agent sidecar to authenticate via Kubernetes service account and render secrets into pods
 - [Vault dev/test policy and secrets engine config](../vault/configs/2026-06-26-dev-test-policies.hcl) — L2 HCL policy configuration for KV v2 with separate dev (full CRUD) and test (read-mostly) access
 
 ## Run a Kubernetes task
