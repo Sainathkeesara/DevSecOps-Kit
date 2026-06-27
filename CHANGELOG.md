@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - vault-006: `vault/docs/vault-agent-auto-auth-kubernetes.md` — Vault Agent auto-auth with Kubernetes service accounts (L3)
+- opa-002: `opa/snippets/deny-privileged-hostnetwork.rego` — OPA Rego policy to deny privileged containers and hostNetwork access (L3)
+- opa-003: `opa/docs/wired-opa-admission-control.md` — Guide to wiring OPA into admission control: local testing, ConstraintTemplate, Constraint, ConfigMap deployment (L3)
   - Purpose → Steps → Verify structure covering Kubernetes auth method setup, role binding, policy definition, agent config, and sidecar deployment
   - Documents the metadata path gotcha for KV v2 and the template re-render limitation
   - Realistic error handling notes based on actual gotchas hit during setup
