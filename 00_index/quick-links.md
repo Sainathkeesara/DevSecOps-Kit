@@ -130,6 +130,8 @@
 - [OPA getting-started tutorial — what tripped me up](../opa/notes/2026-06-15-opa-getting-started-trip-ups.md)
 - [Gatekeeper admission policy — block host network](../opa/configs/tried-a-gatekeeper-constraint.yaml)
 - [How I test OPA policies locally](../opa/scripts/how-i-test-policies-locally.sh)
+- [Deny privileged containers and hostNetwork (Rego snippet)](../opa/snippets/deny-privileged-hostnetwork.rego)
+- [How I wired OPA into admission control](../opa/docs/wired-opa-admission-control.md)
 
 ## Scan for SBOM generation
 
