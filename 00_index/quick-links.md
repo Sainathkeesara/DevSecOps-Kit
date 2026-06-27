@@ -258,6 +258,7 @@
 - [Vault getting-started tutorial — what tripped me up](../vault/notes/2026-06-15-vault-getting-started-trip-ups.md)
 - [My first Vault read/write commands](../vault/snippets/vault-read-write.go)
 - [Minimal Vault KV CRUD script](../vault/scripts/vault-kv-crud.sh)
+- [Vault dynamic database secrets workflow](../vault/scripts/vault-db-dynamic-secrets.sh) — Postgres dynamic credentials from scratch: config, role, generate, verify, revoke
 - [Configuring Vault's dev server](../vault/docs/configuring-vault-dev-server.md)
 - [Vault dev/test policy and secrets engine config](../vault/configs/2026-06-26-dev-test-policies.hcl) — L2 HCL policy configuration for KV v2 with separate dev (full CRUD) and test (read-mostly) access
 
