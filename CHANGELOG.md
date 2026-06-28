@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-28
+
+### Added
+- vault-007: `vault/configs/multi-environment-access-control.hcl` — Vault policy as code for multi-environment access control (L3)
+   - Path-based access control scoped to dev, staging, and prod environments
+   - CI/CD scoped policies using identity entity interpolation for dynamic paths
+   - Separated dev (full CRUD), staging (read-mostly with release team write), and prod (read-only) access levels
+   - Transit, database, and PKI engine access patterns for each environment tier
+
 ## 2026-06-27
 
 ### Added

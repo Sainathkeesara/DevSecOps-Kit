@@ -265,6 +265,7 @@
 - [Configuring Vault's dev server](../vault/docs/configuring-vault-dev-server.md)
 - [Vault Agent auto-auth with Kubernetes service accounts](../vault/docs/vault-agent-auto-auth-kubernetes.md) — L3 docs: wire Vault Agent sidecar to authenticate via Kubernetes service account and render secrets into pods
 - [Vault dev/test policy and secrets engine config](../vault/configs/2026-06-26-dev-test-policies.hcl) — L2 HCL policy configuration for KV v2 with separate dev (full CRUD) and test (read-mostly) access
+- [Vault multi-environment access control policy](../vault/configs/multi-environment-access-control.hcl) — L3 HCL policy for dev/staging/prod secrets, transit, database, and PKI engine access
 
 ## Run a Kubernetes task
 - [k8s_toolkit usage guide](../docs/how-to/k8s_toolkit.md)
