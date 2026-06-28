@@ -172,6 +172,14 @@
 
 **TracingPolicy**: Tetragon custom resource that defines which kernel events to observe (exec, file access, network connect) and optional enforcement actions, written in YAML with match criteria for binaries, namespaces, and process ancestry.
 
+**Macro (Falco)** — Reusable rule fragment in Falco that abstracts common condition patterns, allowing rules to share and compose complex detection logic.
+
+**List (Falco)** — Named collection of values in Falco rules that can be referenced across macros and rules for maintainable, ordered pattern matching.
+
+**Vault Agent auto-auth** — Vault Agent sidecar feature that automatically authenticates with a trusted identity source (Kubernetes service account, AWS IAM, etc.) and renews tokens without manual intervention.
+
+**Automation Framework (ZAP)** — ZAP's structured, scriptable scanning workflow engine that defines contexts, users, and scan sequences for repeatable DAST pipelines in CI environments.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment
