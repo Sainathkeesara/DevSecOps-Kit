@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-28
 
 ### Added
+- vault-007: `vault/configs/multi-environment-access-control.hcl` — Vault policy as code for multi-environment access control (L3)
+   - Path-based access control scoped to dev, staging, and prod environments
+   - CI/CD scoped policies using identity entity interpolation for dynamic paths
+   - Separated dev (full CRUD), staging (read-mostly with release team write), and prod (read-only) access levels
+   - Transit, database, and PKI engine access patterns for each environment tier
 - grype-004: `grype/scripts/grype-results-to-sarif.py` — Reusable Grype results parser and SARIF converter (L4)
    - Reads Grype JSON output from file or stdin, maps severity levels to SARIF levels
    - Builds valid SARIF 2.1.0 log with rule IDs, messages, and artifact locations
