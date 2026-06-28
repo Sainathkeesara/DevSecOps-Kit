@@ -7,6 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-28
 
 ### Added
+- zap-011: `zap/scripts/zap-dast-sarif-code-scanning.sh` — ZAP automated DAST pipeline: scan, generate SARIF, and post to GitHub Code Scanning (L4)
+   - Runs spider and active scans via ZAP daemon in Docker
+   - Converts ZAP alerts JSON to SARIF 2.1.0 format using jq
+   - Uploads SARIF to GitHub Code Scanning via `gh api` when GITHUB_TOKEN is set
+   - Configurable `FAIL_ON` threshold (high/medium/low/never)
+   - shellcheck passed (clean)
+- zap-012: `zap/dockerfiles/custom-zap-automation.Dockerfile` — Custom ZAP Docker image with pre-configured Automation Framework plans (L4)
+   - Self-contained build (no external plan files needed) — plans created inline
+   - Two embedded plans: `quick-scan.yaml` (spider + passive) and `full-scan.yaml` (spider + AJAX + active)
+   - Pre-configured for CI-driven DAST scanning pipelines
 - vault-007: `vault/configs/multi-environment-access-control.hcl` — Vault policy as code for multi-environment access control (L3)
    - Path-based access control scoped to dev, staging, and prod environments
    - CI/CD scoped policies using identity entity interpolation for dynamic paths
