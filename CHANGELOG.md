@@ -14,9 +14,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
    - Configurable `FAIL_ON` threshold (high/medium/low/never)
    - shellcheck passed (clean)
 - zap-012: `zap/dockerfiles/custom-zap-automation.Dockerfile` — Custom ZAP Docker image with pre-configured Automation Framework plans (L4)
-   - Self-contained build (no external plan files needed) — plans created inline
-   - Two embedded plans: `quick-scan.yaml` (spider + passive) and `full-scan.yaml` (spider + AJAX + active)
-   - Pre-configured for CI-driven DAST scanning pipelines
+    - Self-contained build (no external plan files needed) — plans created inline
+    - Two embedded plans: `quick-scan.yaml` (spider + passive) and `full-scan.yaml` (spider + AJAX + active)
+    - Pre-configured for CI-driven DAST scanning pipelines
+- zap-013: `zap/templates/zap-dast-integration/` — OWASP ZAP DAST integration scaffold: GitHub Actions + Automation Framework (L4)
+    - GitHub Actions workflow that runs ZAP in Docker using the Automation Framework
+    - Includes `zap-automation-plan.yaml` with spider, AJAX spider, passive scan config, active scan, and JSON report jobs
+    - SARIF upload to GitHub Code Scanning via `github/codeql-action/upload-sarif@v3`
 - vault-007: `vault/configs/multi-environment-access-control.hcl` — Vault policy as code for multi-environment access control (L3)
    - Path-based access control scoped to dev, staging, and prod environments
    - CI/CD scoped policies using identity entity interpolation for dynamic paths
@@ -1446,7 +1450,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-04-12
 
 ### Added
-- lin-028: `docs/how-to/linux-aide-configuration-management.md` — AIDE file integrity monitoring how-to guide
+- lin-028: `docs/how-to/linux/linux-aide-configuration-management-top.md` — AIDE file integrity monitoring how-to guide
 - lin-028: `scripts/bash/linux_toolkit/aide-deploy.sh` — Automated AIDE deployment and management script
 
 ## 2026-04-11
@@ -1632,7 +1636,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - k8s-010: Kubernetes cluster provisioning with Terraform + Ansible (L9 cross-tool project)
-  - `docs/how-to/k8s-terraform-ansible-provisioning.md`: Full walkthrough covering VPC setup, Ansible bootstrap, kubeadm init, Calico CNI, worker join
+  - `docs/how-to/k8s-terraform-ansible-provisioning/README.md`: Full walkthrough covering VPC setup, Ansible bootstrap, kubeadm init, Calico CNI, worker join
   - `docs/how-to/k8s-terraform-ansible-provisioning/terraform/main.tf`: VPC, subnets, NAT GW, IGW, bastion host
   - `docs/how-to/k8s-terraform-ansible-provisioning/terraform/control-plane.tf`: CP nodes, NLB, target groups, security groups
   - `docs/how-to/k8s-terraform-ansible-provisioning/terraform/workers.tf`: Worker nodes, worker security group
