@@ -12,6 +12,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
    - CI/CD scoped policies using identity entity interpolation for dynamic paths
    - Separated dev (full CRUD), staging (read-mostly with release team write), and prod (read-only) access levels
    - Transit, database, and PKI engine access patterns for each environment tier
+- grype-004: `grype/scripts/grype-results-to-sarif.py` — Reusable Grype results parser and SARIF converter (L4)
+   - Reads Grype JSON output from file or stdin, maps severity levels to SARIF levels
+   - Builds valid SARIF 2.1.0 log with rule IDs, messages, and artifact locations
+   - Error handling for missing files and malformed JSON
+- grype-006: `grype/dockerfiles/multi-stage-grype-scan.Dockerfile` — Multi-stage build with Grype vulnerability scanning stage (L4)
+   - Three-stage pattern: Go builder, Grype scan with JSON+SARIF output, minimal Alpine runtime
+   - Self-contained Go HTTP server as demo application
+   - Supports `--target` selection for build vs scan vs runtime
 
 ## 2026-06-27
 
