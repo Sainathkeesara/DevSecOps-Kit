@@ -121,6 +121,8 @@
 - [Grype CI GitHub Actions workflow](../grype/configs/grype-ci-github-actions.yaml)
 - [Grype SBOM and vulnerability output explorer](../grype/notebooks/grype-sbom-output-explorer.ipynb)
 - [Grype vulnerability scanning pipeline with SARIF output](../grype/scripts/grype-vuln-pipeline.sh) — Scan images, generate SARIF, integrate with CI
+- [Grype results to SARIF converter](../grype/scripts/grype-results-to-sarif.py) — Reusable Python script to convert Grype JSON output to SARIF 2.1.0 format
+- [Multi-stage Grype vulnerability scanning Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile) — Build + scan + runtime stages with Grype
 
 ## Scan with OPA/Gatekeeper
 - [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md)
@@ -214,6 +216,7 @@
 - [Test fake secrets scan with TruffleHog](../trufflehog/snippets/fake-secrets-test.sh)
 - [TruffleHog quickstart walkthrough](../trufflehog/notes/2026-05-27-following-trufflehog-quickstart.md)
 - [Comparing TruffleHog scan modes: git vs filesystem vs S3](../trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md)
+- [TruffleHog output format reference — JSON, SARIF, and CSV for CI ingestion](../trufflehog/docs/trufflehog-output-formats-json-sarif-csv.md) — Reference covering v3+ JSON schema, SARIF conversion, and CSV export patterns for GitHub Actions and other CI pipelines
 - [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
 - [Custom regex + entropy config for TruffleHog](../trufflehog/configs/trufflehog-custom-regex-config.yaml)
 - [Pre-commit secret scanning pipeline](../trufflehog/scripts/pre-commit-scan-pipeline.sh)
@@ -264,6 +267,7 @@
 - [Configuring Vault's dev server](../vault/docs/configuring-vault-dev-server.md)
 - [Vault Agent auto-auth with Kubernetes service accounts](../vault/docs/vault-agent-auto-auth-kubernetes.md) — L3 docs: wire Vault Agent sidecar to authenticate via Kubernetes service account and render secrets into pods
 - [Vault dev/test policy and secrets engine config](../vault/configs/2026-06-26-dev-test-policies.hcl) — L2 HCL policy configuration for KV v2 with separate dev (full CRUD) and test (read-mostly) access
+- [Vault multi-environment access control policy](../vault/configs/multi-environment-access-control.hcl) — L3 HCL policy for dev/staging/prod secrets, transit, database, and PKI engine access
 
 ## Run a Kubernetes task
 - [k8s_toolkit usage guide](../docs/how-to/k8s_toolkit.md)

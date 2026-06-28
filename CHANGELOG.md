@@ -4,15 +4,37 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-28
+
+### Added
+- vault-007: `vault/configs/multi-environment-access-control.hcl` — Vault policy as code for multi-environment access control (L3)
+   - Path-based access control scoped to dev, staging, and prod environments
+   - CI/CD scoped policies using identity entity interpolation for dynamic paths
+   - Separated dev (full CRUD), staging (read-mostly with release team write), and prod (read-only) access levels
+   - Transit, database, and PKI engine access patterns for each environment tier
+- grype-004: `grype/scripts/grype-results-to-sarif.py` — Reusable Grype results parser and SARIF converter (L4)
+   - Reads Grype JSON output from file or stdin, maps severity levels to SARIF levels
+   - Builds valid SARIF 2.1.0 log with rule IDs, messages, and artifact locations
+   - Error handling for missing files and malformed JSON
+- grype-006: `grype/dockerfiles/multi-stage-grype-scan.Dockerfile` — Multi-stage build with Grype vulnerability scanning stage (L4)
+   - Three-stage pattern: Go builder, Grype scan with JSON+SARIF output, minimal Alpine runtime
+   - Self-contained Go HTTP server as demo application
+   - Supports `--target` selection for build vs scan vs runtime
+
 ## 2026-06-27
 
 ### Added
 - vault-006: `vault/docs/vault-agent-auto-auth-kubernetes.md` — Vault Agent auto-auth with Kubernetes service accounts (L3)
 - opa-002: `opa/snippets/deny-privileged-hostnetwork.rego` — OPA Rego policy to deny privileged containers and hostNetwork access (L3)
 - opa-003: `opa/docs/wired-opa-admission-control.md` — Guide to wiring OPA into admission control: local testing, ConstraintTemplate, Constraint, ConfigMap deployment (L3)
-  - Purpose → Steps → Verify structure covering Kubernetes auth method setup, role binding, policy definition, agent config, and sidecar deployment
-  - Documents the metadata path gotcha for KV v2 and the template re-render limitation
-  - Realistic error handling notes based on actual gotchas hit during setup
+   - Purpose → Steps → Verify structure covering Kubernetes auth method setup, role binding, policy definition, agent config, and sidecar deployment
+   - Documents the metadata path gotcha for KV v2 and the template re-render limitation
+   - Realistic error handling notes based on actual gotchas hit during setup
+- trufflehog-002: `trufflehog/docs/trufflehog-output-formats-json-sarif-csv.md` — TruffleHog output format reference covering v3+ JSON schema, SARIF conversion, and CSV export patterns for CI ingestion (L5)
+   - Purpose → When to use → Prerequisites → Steps → Verify → Common errors → References structure
+   - Covers native `--json`, `--json-legacy`, and `--github-actions` output flags and their field mappings
+   - Includes Python conversion snippets for JSON-to-SARIF and JSON-to-CSV pipelines
+   - Documents `SourceMetadata` shape mismatch across Git, filesystem, and S3 sources
 
 ## 2026-06-26
 
