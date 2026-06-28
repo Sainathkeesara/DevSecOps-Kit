@@ -1,0 +1,43 @@
+# Full scan: spider + AJAX spider + active scan
+# Takes longer (~15-30 min depending on target size) but catches SQLi, XSS,
+# and other OWASP Top 10 vulnerabilities through active testing.
+env:
+  contexts:
+    - name: full-target
+      urls:
+        - "{{TARGET_URL}}"
+      includePaths:
+        - ".*"
+      excludePaths:
+        - ".*\\.(css|js|png|jpg|jpeg|gif|ico|svg|woff2?|ttf|eot)(\\?.*)?$"
+jobs:
+  - type: spider
+    parameters:
+      context: full-target
+      maxDuration: 3
+      subtreeOnly: false
+
+  - type: spiderAjax
+    parameters:
+      context: full-target
+      maxDuration: 5
+      numberOfBrowsers: 1
+
+  - type: passiveScan-config
+    parameters:
+      maxAlertsPerRule: 10
+
+  - type: activeScan
+    parameters:
+      context: full-target
+      maxDuration: 20
+      threadPerHost: 4
+      alertThreshold: MEDIUM
+
+  - type: report
+    parameters:
+      template: traditional-json-plus
+      reportDir: /zap/reports
+      reportFileName: "zap-full-report-{{DATE:yyyyMMdd-HHmmss}}.json"
+      reportTitle: "Full DAST Scan — {{TARGET_URL}}"
+      display: false

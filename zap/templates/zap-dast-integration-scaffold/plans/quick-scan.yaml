@@ -1,0 +1,30 @@
+# Quick scan: spider + passive scan only
+# Runs fast (~2 min) and catches low-hanging fruit like missing headers,
+# information disclosure through passive rules, and exposed endpoints.
+env:
+  contexts:
+    - name: quick-target
+      urls:
+        - "{{TARGET_URL}}"
+      includePaths:
+        - ".*"
+      excludePaths:
+        - ".*\\.(css|js|png|jpg|jpeg|gif|ico|svg|woff2?|ttf|eot)(\\?.*)?$"
+jobs:
+  - type: spider
+    parameters:
+      context: quick-target
+      maxDuration: 2
+      subtreeOnly: false
+
+  - type: passiveScan-config
+    parameters:
+      maxAlertsPerRule: 10
+
+  - type: report
+    parameters:
+      template: traditional-json-plus
+      reportDir: /zap/reports
+      reportFileName: "zap-quick-report-{{DATE:yyyyMMdd-HHmmss}}.json"
+      reportTitle: "Quick DAST Scan — {{TARGET_URL}}"
+      display: false

@@ -17,6 +17,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
    - Self-contained build (no external plan files needed) — plans created inline
    - Two embedded plans: `quick-scan.yaml` (spider + passive) and `full-scan.yaml` (spider + AJAX + active)
    - Pre-configured for CI-driven DAST scanning pipelines
+- zap-013: `zap/templates/zap-dast-integration-scaffold/` — ZAP DAST integration scaffold: GitHub Actions workflow + Automation Framework plans (L4)
+   - Copy-paste scaffold with quick and full scan plans
+   - GitHub Actions workflow with PR/push/schedule triggers
 - vault-007: `vault/configs/multi-environment-access-control.hcl` — Vault policy as code for multi-environment access control (L3)
    - Path-based access control scoped to dev, staging, and prod environments
    - CI/CD scoped policies using identity entity interpolation for dynamic paths
