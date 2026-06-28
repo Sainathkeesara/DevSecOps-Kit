@@ -97,7 +97,7 @@
 - [Automated image vulnerability scanning pipeline](../trivy/scripts/image-vuln-pipeline.sh)
 - [Trivy CI/CD pipeline integration](../docs/how-to/trivy-cicd-integration.md)
 - [Trivy CI pipeline with SARIF output](../trivy/docs/ci-pipeline-sarif-output.md)
-- [Trivy CI/CD pipeline recipes](../trivy/docs/ci-pipeline-recipes.md)
+- [Trivy CI/CD pipeline recipes](../trivy/docs/ci-cd-pipeline-recipes.md)
 - [Trivy multi-target scanner (image/fs/repo)](../trivy/scripts/multi-target-scanner.sh)
 - [Trivy project config (.trivy.yaml)](../trivy/configs/.trivy.yaml)
 - [Trivy SARIF output processing notebook](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
@@ -222,7 +222,7 @@
 - [Pre-commit secret scanning pipeline](../trufflehog/scripts/pre-commit-scan-pipeline.sh)
 - [Multi-repo secret scanning pipeline](../trufflehog/scripts/multi-repo-scan-pipeline.sh)
 - [Custom detector rules for proprietary patterns](../trufflehog/configs/custom-detector-rules.yaml)
-- [Analyzing TruffleHog false positives and severity tuning notebook](../trufflehog/notebooks/analyzing-false-positives-severity-tuning.ipynb)
+- [Analyzing TruffleHog false positives notebook](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb)
 - [TruffleHog secret scanning pipeline scaffold (template)](../trufflehog/templates/secret-scanning-pipeline/)
 - [Analyze TruffleHog results (Python helper)](../trufflehog/scripts/analyze-trufflehog-results.py) — Filter, group, and summarize TruffleHog JSON output
 - [Dockerized TruffleHog pre-commit scanner (Dockerfile)](../trufflehog/dockerfiles/pre-commit-scanner.Dockerfile) — Containerized secret scanning for pre-commit hooks
@@ -291,7 +291,7 @@
 - [Linux toolkit usage guide](../docs/how-to/linux_toolkit.md)
 - [System health check](../scripts/bash/linux_toolkit/system/health-check.sh)
 - [Disk usage](../scripts/bash/linux_toolkit/system/disk-usage.sh)
-- [Service management](../scripts/bash/linux_toolkit/system/manage-services.sh)
+- [Service management](../scripts/bash/linux_toolkit/service/manage-services.sh)
 - [Network diagnostics](../scripts/bash/linux_toolkit/network/net-diag.sh)
 - [Process manager](../scripts/bash/linux_toolkit/process/process-manager.sh)
 - [User create](../scripts/bash/linux_toolkit/sysadmin/user-create.sh)
@@ -315,7 +315,7 @@
 - [Topic delete](../scripts/bash/kafka_toolkit/topics/topic-delete.sh)
 - [Consumer group management](../scripts/bash/kafka_toolkit/consumers/consumer-groups.sh)
 - [Consumer lag monitoring](../scripts/bash/kafka_toolkit/monitoring/consumer-lag.sh)
-- [Cluster health check](../scripts/bash/kafka_toolkit/admin/cluster-health-check.sh)
+- [Cluster health check](../scripts/bash/kafka_toolkit/admin/cluster-health.sh)
 - [ACL management](../scripts/bash/kafka_toolkit/acl/manage-acls.sh)
 - [Kafka cheatsheet](../snippets/kafka-cheatsheet.md)
 
