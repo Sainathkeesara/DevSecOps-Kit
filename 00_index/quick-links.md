@@ -97,7 +97,7 @@
 - [Automated image vulnerability scanning pipeline](../trivy/scripts/image-vuln-pipeline.sh)
 - [Trivy CI/CD pipeline integration](../docs/how-to/trivy-cicd-integration.md)
 - [Trivy CI pipeline with SARIF output](../trivy/docs/ci-pipeline-sarif-output.md)
-- [Trivy CI/CD pipeline recipes](../trivy/docs/ci-cd-pipeline-recipes.md) — CI/CD pipeline recipes for Trivy
+- [Trivy CI/CD pipeline recipes](../trivy/docs/ci-cd-pipeline-recipes.md)
 - [Trivy multi-target scanner (image/fs/repo)](../trivy/scripts/multi-target-scanner.sh)
 - [Trivy project config (.trivy.yaml)](../trivy/configs/.trivy.yaml)
 - [Trivy SARIF output processing notebook](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
@@ -222,7 +222,7 @@
 - [Pre-commit secret scanning pipeline](../trufflehog/scripts/pre-commit-scan-pipeline.sh)
 - [Multi-repo secret scanning pipeline](../trufflehog/scripts/multi-repo-scan-pipeline.sh)
 - [Custom detector rules for proprietary patterns](../trufflehog/configs/custom-detector-rules.yaml)
-- [Analyzing TruffleHog false positives and severity tuning notebook](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb)
+- [Analyzing TruffleHog false positives notebook](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb)
 - [TruffleHog secret scanning pipeline scaffold (template)](../trufflehog/templates/secret-scanning-pipeline/)
 - [Analyze TruffleHog results (Python helper)](../trufflehog/scripts/analyze-trufflehog-results.py) — Filter, group, and summarize TruffleHog JSON output
 - [Dockerized TruffleHog pre-commit scanner (Dockerfile)](../trufflehog/dockerfiles/pre-commit-scanner.Dockerfile) — Containerized secret scanning for pre-commit hooks
@@ -241,6 +241,8 @@
 - [DAST workflow from spider to active scan](../zap/scripts/dast-workflow-from-scratch.sh) — Start ZAP, crawl a target, run active scanning, and save reports
 - [My first ZAP spider scan via API](../zap/snippets/my-first-zap-spider-scan.sh)
 - [CI-integrated DAST Automation Framework plan](../zap/configs/ci-dast-automation-framework-plan.yaml) — Headless scanning pipeline for CI environments
+- [ZAP DAST pipeline with SARIF output and GitHub Code Scanning](../zap/scripts/zap-dast-sarif-code-scanning.sh) — Run DAST scan, convert alerts to SARIF, and upload to GitHub Code Scanning
+- [Custom ZAP Docker image with pre-configured Automation Framework plans](../zap/dockerfiles/custom-zap-automation.Dockerfile) — Self-contained image with embedded quick-scan and full-scan plans
 
 ## Runtime security with Falco
  - [Falco primer](../falco/notes/0000-primer-falco.md)

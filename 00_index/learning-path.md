@@ -35,7 +35,7 @@ Intermediate tools that add SBOM management, software composition analysis, and 
 - **GitGuardian** — Secrets detection platform with ggshield CLI for pre-commit and CI scanning. [Primer](../gitguardian/notes/0000-primer-gitguardian.md) | [Custom policy engine](../gitguardian/snippets/custom-policy-engine-ggshield.sh)
 - **Snyk** — Developer security platform for open-source dependencies and containers. [Primer](../snyk/notes/0000-primer-snyk.md) | [CI pipeline integration](../snyk/configs/snyk-ci-github-actions.yaml)
 - **Dependabot** — GitHub's automated dependency update tool for vulnerability patching. [Primer](../dependabot/notes/0000-primer-dependabot.md) | [npm config](../dependabot/configs/tried-npm-dependabot.yaml)
-- **Terrascan** — IaC static analysis for Terraform and Kubernetes. [Primer](../terrascan/notes/0000-primer-terrascan.md) | [First scan](../terrascan/notes/2026-06-13-first-scan.md)
+- **Terrascan** — IaC static analysis for Terraform and Kubernetes with custom Rego rules. [Primer](../terrascan/notes/0000-primer-terrascan.md) | [First scan](../terrascan/notes/2026-06-13-first-scan.md) | [Custom Rego rules](../terrascan/configs/tried-custom-s3-rule.yaml)
 
 ## Stage 4: Advanced Tools
 
@@ -44,7 +44,7 @@ Tools that depend on foundational concepts and earlier tools being complete.
 - **Cosign** — Container image signing and verification as part of the Sigstore project. Requires SBOM and vulnerability awareness. [Primer](../cosign/notes/0000-primer-cosign.md) | [Sign first image](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md)
 - **Falco** — Runtime security monitoring for containers and Kubernetes. Requires understanding of container behaviour and system calls. [Primer](../falco/notes/0000-primer-falco.md) | [Custom rules](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
 - **OPA / Gatekeeper** — Policy engine for Kubernetes admission control and IaC validation. Requires understanding of Rego and Kubernetes policies. [Primer](../opa/notes/0000-primer-opa.md) | [Gatekeeper constraint](../opa/configs/tried-a-gatekeeper-constraint.yaml)
-- **HashiCorp Vault** — Secrets management, dynamic secrets, encryption-as-a-service. [Primer](../vault/notes/0000-primer-vault.md) | [KV CRUD](../vault/scripts/vault-kv-crud.sh)
+- **HashiCorp Vault** — Secrets management, dynamic secrets, encryption-as-a-service. [Primer](../vault/notes/0000-primer-vault.md) | [KV CRUD](../vault/scripts/vault-kv-crud.sh) | [Policy-as-code](../vault/configs/2026-06-26-dev-test-policies.hcl)
 - **Tetragon** — eBPF-based runtime security observability for detecting kernel-level anomalies in containers. [Primer](../tetragon/notes/0000-primer-tetragon.md) | [Docker install](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
 
 ## Stage 5: Mastery

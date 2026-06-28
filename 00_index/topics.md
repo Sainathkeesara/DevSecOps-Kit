@@ -267,10 +267,9 @@
 - [note] vault/notes/2026-06-05-install-vault-and-explore-cli.md — Installing Vault and CLI
 - [note] vault/notes/2026-06-15-vault-getting-started-trip-ups.md — Getting started pitfalls
 - [doc] vault/docs/configuring-vault-dev-server.md — Configuring Vault dev server
-- [doc] vault/docs/vault-agent-auto-auth-kubernetes.md — Vault Agent auto-auth with Kubernetes service accounts
 - [script] vault/scripts/vault-kv-crud.sh — Vault KV CRUD operations
-- [script] vault/scripts/vault-db-dynamic-secrets.sh — Vault dynamic database secrets workflow
 - [snippet] vault/snippets/vault-read-write.go — Vault read/write in Go
+- [config] vault/configs/2026-06-26-dev-test-policies.hcl — Dev/test policies and secrets engine config
 - [script] scripts/bash/vault/security/vault-go-getter-hardening.sh — go-getter file read hardening
 - [script] scripts/bash/vault/vault-audit-log-analysis.sh — Vault audit log analysis
 - [script] scripts/bash/vault_toolkit/security/cve-2025-11621.sh — AWS Auth bypass scanner
@@ -283,7 +282,6 @@
 - [doc] docs/how-to/vault_toolkit.md — Vault toolkit usage guide
 - [doc] docs/troubleshooting/vault-seal-unseal.md — Vault seal/unseal issues
 - [snippet] snippets/vault-commands.md — Vault CLI commands
-- [config] vault/configs/2026-06-26-dev-test-policies.hcl — Vault dev/test KV v2 policies
 
 ## Observability
 - [script] scripts/bash/observability_toolkit/alertmanager/alertmanager-ha-setup.sh — Alertmanager HA cluster setup
@@ -552,7 +550,7 @@
 - [doc] zap/docs/zap-integration-patterns.md — ZAP integration patterns
 - [doc] zap/docs/passive-vs-active-scanning-zap.md — Passive vs active scanning
 - [config] zap/configs/zap-authenticated-scan-context.yaml — Authenticated scan context config
-- [config] zap/configs/ci-dast-automation-framework-plan.yaml — CI DAST automation framework plan
+- [config] zap/configs/ci-dast-automation-framework-plan.yaml — Headless DAST automation pipeline config
 
 ## TruffleHog
 - [note] trufflehog/notes/0000-primer-trufflehog.md — First-day primer on TruffleHog
@@ -597,21 +595,15 @@
 - [config] falco/configs/first-custom-rule-detect-shell-in-container.yaml — Detect shell in container
 - [config] falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml — First custom rule snapshot
 - [config] falco/configs/container-drift-detection.yaml — Container drift detection
-- [doc] falco/docs/syscall-vs-tracepoint-rules.md — Syscall vs tracepoint rule sources, coverage, and performance tradeoffs
-- [doc] falco/docs/tuned-falco-rules-noise-reduction.md — Tuned Falco rules for production noise reduction
+- [snippet] falco/snippets/tried-file-access-detector.go — Go file access detector for Falco events
+- [doc] falco/docs/syscall-vs-tracepoint-rules.md — Syscall vs tracepoint rule comparison
+- [doc] falco/docs/tuned-falco-rules-noise-reduction.md — Tuning Falco rules to reduce noise
 - [script] falco/scripts/deploy-falco-ruleset.sh — Deploy custom Falco ruleset with Helm
-- [snippet] falco/snippets/tried-file-access-detector.go — Go Falco event parser for sensitive file access detection
 
 ## OPA
 - [note] opa/notes/0000-primer-opa.md — First-day primer on OPA policy engine
 - [note] opa/notes/2026-06-06-install-opa-repl.md — Installing and exploring REPL
 - [note] opa/notes/2026-06-15-opa-getting-started-trip-ups.md — Getting started pitfalls
-- [snippet] opa/snippets/deny-privileged-hostnetwork.rego — Deny privileged containers and hostNetwork pods
-- [snippet] opa/snippets/enforce-image-registry-constraints.rego — Image registry constraint policy
-- [snippet] opa/snippets/my-first-opa-policy-eval.sh — First OPA policy evaluation
-- [config] opa/configs/tried-a-gatekeeper-constraint.yaml — Gatekeeper constraint example
-- [script] opa/scripts/how-i-test-policies-locally.sh — Local policy testing script
-- [doc] opa/docs/wired-opa-admission-control.md — How I wired OPA into admission control
 - [snippet] opa/snippets/my-first-opa-policy-eval.sh — First OPA policy evaluation
 - [snippet] opa/snippets/enforce-image-registry-constraints.rego — Image registry constraint policy
 - [config] opa/configs/tried-a-gatekeeper-constraint.yaml — Gatekeeper constraint example
@@ -638,8 +630,8 @@
 - [snippet] snyk/snippets/my-first-snyk-commands.sh — First Snyk CLI commands
 - [config] snyk/configs/snyk-ci-github-actions.yaml — Snyk CI GitHub Actions config
 - [config] snyk/configs/snyk-dependency-patch-ignore.yaml — Dependency patch and ignore policy
-- [doc] snyk/docs/multi-project-ci-pipeline.md — Snyk multi-project CI pipeline with per-service monitoring
 - [script] snyk/scripts/snyk-vuln-scan-pipeline.sh — Snyk vulnerability scanning pipeline
+- [doc] snyk/docs/multi-project-ci-pipeline.md — Multi-project CI pipeline with per-service monitoring
 
 ## Terrascan
 - [note] terrascan/notes/0000-primer-terrascan.md — First-day primer on Terrascan
@@ -647,12 +639,12 @@
 - [note] terrascan/notes/2026-06-19-install-terrascan-tiny-tf.md — Installing and tiny Terraform
 - [snippet] terrascan/snippets/insecure-terraform.tf — Insecure Terraform for testing
 - [snippet] terrascan/snippets/tiny-tf-with-findings.tf — Tiny Terraform with findings
-- [config] terrascan/configs/tried-custom-s3-rule.yaml — Custom Rego rules for S3 public access and encryption
+- [config] terrascan/configs/tried-custom-s3-rule.yaml — Custom S3 bucket policy Rego rule
+- [script] terrascan/scripts/tried-terrascan-ci-scan.sh — Minimal Terrascan CI scan script
 
 ## Tetragon
 - [note] tetragon/notes/0000-primer-tetragon.md — First-day primer on Tetragon eBPF security
 - [note] tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md — Running Tetragon with Docker and observing first events
-- [config] tetragon/configs/first-tracing-policy-exec-file.yaml — Minimal TracingPolicy for exec and file access events
 
 ## Dependabot
 - [note] dependabot/notes/0000-primer-dependabot.md — First-day primer on Dependabot
