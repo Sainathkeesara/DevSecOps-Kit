@@ -2,9 +2,9 @@
 > A working engineer's devops and devsecops reference — scripts, how-to guides, runbooks, and templates for infrastructure automation, security scanning, CI/CD, and observability.
 
 [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Files](https://img.shields.io/badge/files-649-blue)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Shell](https://img.shields.io/badge/Shell-228-4EAA25?logo=gnubash&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Markdown](https://img.shields.io/badge/Markdown-271-000000?logo=markdown&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Files](https://img.shields.io/badge/files-659-blue)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Shell](https://img.shields.io/badge/Shell-230-4EAA25?logo=gnubash&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Markdown](https://img.shields.io/badge/Markdown-274-000000?logo=markdown&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 [![Terraform](https://img.shields.io/badge/Terraform-40-7B42BC?logo=terraform&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 
 ---
@@ -22,44 +22,44 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 | Tool | Notes | Scripts | Configs | Snippets | Docs | Manifests | Templates | Notebooks | Dockerfiles | More |
 |------|------:|--------:|--------:|---------:|-----:|----------:|----------:|----------:|------------:|------|
 | Trivy | 3 | 7 | 2 | 1 | 3 | 2 | 6 | 2 | 1 | — |
-| Semgrep | 3 | 2 | 1 | 2 | 4 | 2 | — | 1 | 2 | — |
+| Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — |
 | Checkov | 4 | 4 | 2 | 4 | 3 | 2 | 10 | 1 | — | policies:1 |
-| TruffleHog | 3 | 6 | 2 | 2 | 1 | — | 11 | 1 | 1 | — |
-| Syft | 4 | 5 | 1 | 1 | 2 | — | 7 | 1 | 1 | — |
-| Grype | 4 | 5 | 1 | 2 | — | — | — | 1 | — | — |
-| CodeQL | 3 | 2 | 1 | 3 | 1 | 1 | — | — | — | — |
-| ZAP | 4 | 4 | 2 | 3 | 2 | — | — | — | — | — |
-| Snyk | 4 | 2 | 2 | 1 | 1 | — | — | — | — | — |
-| GitGuardian | 4 | 4 | 2 | 2 | 1 | — | — | — | — | — |
+| TruffleHog | 3 | 3 | 2 | 2 | 2 | — | 11 | 1 | 1 | — |
+| Syft | 4 | 3 | 1 | 1 | 2 | — | 7 | 1 | 1 | — |
+| Grype | 4 | 5 | 1 | 2 | — | — | — | 1 | 1 | — |
+| CodeQL | 3 | 1 | 1 | 3 | 1 | 1 | — | — | — | — |
+| ZAP | 4 | 2 | 2 | 3 | 2 | — | — | — | 1 | — |
+| Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | — | — |
+| GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — | — |
 | Falco | 3 | 1 | 3 | 1 | 2 | — | — | — | — | — |
-| Cosign | 4 | 3 | 1 | 1 | — | — | — | — | — | — |
-| OPA | 3 | 2 | 1 | 2 | — | — | — | — | — | — |
+| Cosign | 4 | 2 | 1 | 1 | — | — | — | — | — | — |
+| OPA | 3 | 1 | 1 | 3 | 1 | — | — | — | — | — |
 | Terrascan | 3 | 1 | 1 | 2 | — | — | — | — | — | — |
 | Dependabot | 3 | — | 1 | — | — | — | — | — | — | — |
 | Tetragon | 2 | — | 1 | — | — | — | — | — | — | — |
-| Vault | 3 | 1 | 1 | 1 | 1 | — | — | — | — | scripts:8 |
-| Linux | — | 50 | — | 2 | 38 | — | 16 | — | — | runbooks:1 |
-| Kubernetes | — | 17 | — | 1 | 10 | — | 3 | — | — | — |
+| Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | — | scripts:9 |
+| Linux | — | 50 | — | 2 | 40 | — | 16 | — | — | runbooks:1 |
+| Kubernetes | — | 17 | — | 1 | 11 | — | 3 | — | — | — |
 | Kafka | — | 17 | — | 2 | 3 | — | — | — | — | — |
-| Terraform | — | 13 | — | 1 | 17 | — | 12 | — | — | envs:12, tf:5 |
-| Jenkins | — | 4 | — | 4 | 13 | — | 1 | — | — | — |
+| Terraform | — | 15 | — | 1 | 16 | — | 12 | — | — | envs:12, tf:5 |
+| Jenkins | — | 4 | — | 4 | 11 | — | 1 | — | — | — |
 | Ansible | — | 11 | — | 1 | 6 | — | — | — | — | playbooks:4 |
-| Observability | — | 14 | — | 1 | 8 | — | — | — | — | — |
-| OCI / Registries | — | 11 | — | 1 | 7 | — | — | — | — | — |
-| Docker | — | 7 | — | 1 | 5 | — | — | — | — | security:2 |
+| Observability | — | 14 | — | 1 | 9 | — | — | — | — | — |
+| OCI / Registries | — | 11 | — | 1 | 6 | — | — | — | — | — |
+| Docker | — | 7 | — | 1 | 6 | — | — | — | — | — |
 | Helm | — | 3 | — | — | 2 | — | — | — | — | — |
-| CI/CD | — | 17 | — | 1 | 10 | — | — | — | — | — |
-| Git | — | 8 | — | 1 | 17 | — | — | — | — | — |
+| CI/CD | — | 17 | — | 1 | 11 | — | — | — | — | — |
+| Git | — | 8 | — | 1 | 20 | — | — | — | — | — |
 
 ---
 
 ## Quick links
 
-- [Custom S3 Terrascan rule](terrascan/configs/tried-custom-s3-rule.yaml) — Rego rule for S3 public access and encryption checks
-- [CI-integrated DAST Automation Framework plan](zap/configs/ci-dast-automation-framework-plan.yaml) — Headless scanning pipeline for CI environments
-- [Falco file access detector in Go](falco/snippets/tried-file-access-detector.go) — Go snippet that reads Falco JSON output and alerts on sensitive file access
-- [Vault dev/test policy config](vault/configs/2026-06-26-dev-test-policies.hcl) — HCL policy configuration for KV v2 with separate dev and test access
-- [Snyk multi-project CI pipeline](snyk/docs/multi-project-ci-pipeline.md) — Per-service monitoring and CI integration for monorepos
+- [Custom ZAP Docker image with Automation Framework plans](zap/dockerfiles/custom-zap-automation.Dockerfile) — Self-contained image with embedded quick-scan and full-scan plans for CI
+- [ZAP DAST pipeline with SARIF and Code Scanning](zap/scripts/zap-dast-sarif-code-scanning.sh) — Run DAST, convert alerts to SARIF, upload to GitHub Code Scanning
+- [Vault multi-environment access control policy](vault/configs/multi-environment-access-control.hcl) — HCL policy for dev/staging/prod engines
+- [Multi-stage Grype vulnerability scanning Dockerfile](grype/dockerfiles/multi-stage-grype-scan.Dockerfile) — Build + scan + runtime stages with Grype
+- [Grype results to SARIF converter](grype/scripts/grype-results-to-sarif.py) — Reusable Python script to convert Grype JSON output to SARIF 2.1.0
 
 ---
 
@@ -84,8 +84,8 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 ## Status
 
-Active maintenance with weekly additions. Current focus areas: Terrascan custom Rego rules, ZAP DAST automation framework, Falco Go SDK snippets, Vault policy-as-code, and multi-project Snyk CI integration.
+Active maintenance with weekly additions. Current focus areas: ZAP DAST automation framework, Grype SARIF output integration, Vault policy-as-code, and OPA admission control wiring.
 
 ---
 
-_Last updated: 2026-06-26_
+_Last updated: 2026-06-28_
