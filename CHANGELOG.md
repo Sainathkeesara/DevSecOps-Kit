@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-29
+
+### Added
+- grype-005: `grype/docs/grype-syft-integration-guide.md` — Grype + Syft integration guide for container image SBOM workflows (L4)
+    - Covers SBOM generation with Syft, scanning with Grype, comparing direct vs SBOM-based scans
+    - Offline/air-gapped workflow — generate SBOM on connected host, scan on disconnected host
+    - CI pipeline integration with GitHub Actions steps
+    - Documents the CycloneDX vs Syft native JSON format gotcha
+
 ## 2026-06-28
 
 ### Added
