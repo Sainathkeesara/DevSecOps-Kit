@@ -182,6 +182,7 @@
 - [Minimal Terraform that triggers findings](../terrascan/snippets/tiny-tf-with-findings.tf)
 - [Minimal Terrascan CI scan script](../terrascan/scripts/tried-terrascan-ci-scan.sh) — Scan Terraform and fail on high severity violations
 - [Custom S3 bucket policy rule (config)](../terrascan/configs/tried-custom-s3-rule.yaml) — Custom Rego rules for S3 public access and encryption checks
+- [Terrascan getting-started tutorial — what tripped me up](../terrascan/notes/2026-06-29-terrascan-getting-started-trip-ups.md) — L2 notes following the official quick start: install, scan, exit codes, and CI gating gotchas
 
 ## Scan with CodeQL
 - [CodeQL primer](../codeql/notes/0000-primer-codeql.md)
