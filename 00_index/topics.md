@@ -270,6 +270,9 @@
 - [script] vault/scripts/vault-kv-crud.sh — Vault KV CRUD operations
 - [snippet] vault/snippets/vault-read-write.go — Vault read/write in Go
 - [config] vault/configs/2026-06-26-dev-test-policies.hcl — Dev/test policies and secrets engine config
+- [config] vault/configs/multi-environment-access-control.hcl — Dev/staging/prod access control policy
+- [script] vault/scripts/vault-db-dynamic-secrets.sh — Postgres dynamic secrets from scratch
+- [doc] vault/docs/vault-agent-auto-auth-kubernetes.md — Vault Agent auto-auth with Kubernetes service accounts
 - [script] scripts/bash/vault/security/vault-go-getter-hardening.sh — go-getter file read hardening
 - [script] scripts/bash/vault/vault-audit-log-analysis.sh — Vault audit log analysis
 - [script] scripts/bash/vault_toolkit/security/cve-2025-11621.sh — AWS Auth bypass scanner
@@ -524,7 +527,11 @@
 - [script] grype/scripts/minimal-grype-scan.sh — Minimal Grype vulnerability scan
 - [script] grype/scripts/ci-ready-grype-scan.sh — CI-ready Grype scanning
 - [script] grype/scripts/vuln-diff-two-images.sh — Vulnerability diff across images
+- [script] grype/scripts/grype-vuln-pipeline.sh — Grype vulnerability scanning pipeline with SARIF output
+- [script] grype/scripts/grype-results-to-sarif.py — Grype results to SARIF converter Python script
 - [config] grype/configs/grype-ci-github-actions.yaml — Grype CI GitHub Actions config
+- [notebook] grype/notebooks/grype-sbom-output-explorer.ipynb — Grype SBOM and vulnerability output explorer
+- [dockerfile] grype/dockerfiles/multi-stage-grype-scan.Dockerfile — Multi-stage Grype vulnerability scanning Dockerfile
 
 ## CodeQL
 - [note] codeql/notes/0000-primer-codeql.md — First-day primer on CodeQL
@@ -547,10 +554,15 @@
 - [snippet] zap/snippets/authenticated-scan-with-context.sh — Authenticated scan with context
 - [snippet] zap/snippets/my-first-zap-spider-scan.sh — First ZAP spider scan
 - [script] zap/scripts/dast-workflow-from-scratch.sh — Full ZAP DAST workflow
+- [script] zap/scripts/zap-dast-sarif-code-scanning.sh — ZAP DAST pipeline with SARIF output and GitHub Code Scanning
 - [doc] zap/docs/zap-integration-patterns.md — ZAP integration patterns
 - [doc] zap/docs/passive-vs-active-scanning-zap.md — Passive vs active scanning
 - [config] zap/configs/zap-authenticated-scan-context.yaml — Authenticated scan context config
 - [config] zap/configs/ci-dast-automation-framework-plan.yaml — Headless DAST automation pipeline config
+- [dockerfile] zap/dockerfiles/custom-zap-automation.Dockerfile — Custom ZAP Docker image with pre-configured Automation Framework plans
+- [template] zap/templates/zap-dast-integration/.github/workflows/zap-dast.yml — ZAP DAST CI workflow
+- [template] zap/templates/zap-dast-integration/README.md — ZAP DAST integration scaffold readme
+- [template] zap/templates/zap-dast-integration/zap-automation-plan.yaml — CI DAST Automation Framework plan
 
 ## TruffleHog
 - [note] trufflehog/notes/0000-primer-trufflehog.md — First-day primer on TruffleHog
@@ -564,6 +576,7 @@
 - [script] trufflehog/scripts/pre-commit-scan-pipeline.sh — Pre-commit secret scanning
 - [script] trufflehog/scripts/analyze-trufflehog-results.py — Analyze scan results
 - [doc] trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md — Git, filesystem, S3 comparison
+- [doc] trufflehog/docs/trufflehog-output-formats-json-sarif-csv.md — JSON, SARIF, and CSV output shapes for CI ingestion
 - [notebook] trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb — False positive analysis
 - [dockerfile] trufflehog/dockerfiles/pre-commit-scanner.Dockerfile — Pre-commit scanner image
 - [template] trufflehog/templates/github-secret-scanning-integration/README.md — GH secret scan readme
@@ -645,6 +658,7 @@
 ## Tetragon
 - [note] tetragon/notes/0000-primer-tetragon.md — First-day primer on Tetragon eBPF security
 - [note] tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md — Running Tetragon with Docker and observing first events
+- [config] tetragon/configs/first-tracing-policy-exec-file.yaml — First TracingPolicy: exec and file access
 
 ## Dependabot
 - [note] dependabot/notes/0000-primer-dependabot.md — First-day primer on Dependabot
