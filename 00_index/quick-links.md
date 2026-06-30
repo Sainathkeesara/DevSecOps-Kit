@@ -123,6 +123,7 @@
 - [Grype vulnerability scanning pipeline with SARIF output](../grype/scripts/grype-vuln-pipeline.sh) — Scan images, generate SARIF, integrate with CI
 - [Grype results to SARIF converter](../grype/scripts/grype-results-to-sarif.py) — Reusable Python script to convert Grype JSON output to SARIF 2.1.0 format
 - [Multi-stage Grype vulnerability scanning Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile) — Build + scan + runtime stages with Grype
+- [Grype + Syft integration guide](../grype/docs/grype-syft-integration-guide.md) — SBOM generation with Syft, offline scanning with Grype, and CI pipeline integration
 
 ## Scan with OPA/Gatekeeper
 - [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md)
@@ -182,6 +183,7 @@
 - [Minimal Terraform that triggers findings](../terrascan/snippets/tiny-tf-with-findings.tf)
 - [Minimal Terrascan CI scan script](../terrascan/scripts/tried-terrascan-ci-scan.sh) — Scan Terraform and fail on high severity violations
 - [Custom S3 bucket policy rule (config)](../terrascan/configs/tried-custom-s3-rule.yaml) — Custom Rego rules for S3 public access and encryption checks
+- [Terrascan getting-started tutorial — what tripped me up](../terrascan/notes/2026-06-29-terrascan-getting-started-trip-ups.md) — L2 notes following the official quick start: install, scan, exit codes, and CI gating gotchas
 
 ## Scan with CodeQL
 - [CodeQL primer](../codeql/notes/0000-primer-codeql.md)
