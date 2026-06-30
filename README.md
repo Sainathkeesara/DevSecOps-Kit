@@ -1,5 +1,5 @@
 # DevSecOps-Kit
-> A working engineer's devops and devsecops reference — scripts, how-to guides, runbooks, and templates for infrastructure automation, security scanning, CI/CD, and observability.
+> A working engineer's devops and devsecops reference — scripts, how-to guides, runbooks, and templates for vulnerability scanning, secret detection, supply chain security, runtime security, CI/CD, and infrastructure automation.
 
 [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 [![Files](https://img.shields.io/badge/files-659-blue)](https://github.com/Sainathkeesara/DevSecOps-Kit)
@@ -79,6 +79,9 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 - **`templates/`** — Starter configs for Kubernetes, Terraform, Linux automation, Jenkins, Logstash, syslog-ng
 - **`terraform/`** — Terraform modules (EventBridge Lambda)
 - **`assets/`** — Static images and diagrams
+- **`.github/`** — GitHub templates (PR template, CODEOWNERS, CI workflow docs)
+- **`CHANGELOG.md`** — Release history and version tracking
+- **`CONTRIBUTING.md`** — Contribution guidelines and workflow
 
 ---
 
