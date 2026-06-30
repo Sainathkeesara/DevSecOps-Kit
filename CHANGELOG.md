@@ -7,11 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-29
 
 ### Added
-- grype-005: `grype/docs/grype-syft-integration-guide.md` — Grype + Syft integration guide for container image SBOM workflows (L4)
-    - Covers SBOM generation with Syft, scanning with Grype, comparing direct vs SBOM-based scans
-    - Offline/air-gapped workflow — generate SBOM on connected host, scan on disconnected host
-    - CI pipeline integration with GitHub Actions steps
-    - Documents the CycloneDX vs Syft native JSON format gotcha
+- terrascan-010: `terrascan/notes/2026-06-29-terrascan-getting-started-trip-ups.md` — Following the official Terrascan getting-started tutorial (L2)
+    - Covers install via curl, first scan with exit code behavior, and CI gating via JSON parsing
+    - Got stuck on: exit codes (0/3/4/5), silent policy download, archived repo status, severity filter not affecting exit code
+    - What I'd try next: custom Rego policies with `--config-path`
 
 ## 2026-06-28
 
