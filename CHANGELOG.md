@@ -4,6 +4,14 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-29
+
+### Added
+- terrascan-010: `terrascan/notes/2026-06-29-terrascan-getting-started-trip-ups.md` — Following the official Terrascan getting-started tutorial (L2)
+    - Covers install via curl, first scan with exit code behavior, and CI gating via JSON parsing
+    - Got stuck on: exit codes (0/3/4/5), silent policy download, archived repo status, severity filter not affecting exit code
+    - What I'd try next: custom Rego policies with `--config-path`
+
 ## 2026-06-28
 
 ### Added
