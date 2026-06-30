@@ -229,6 +229,7 @@
 - [Analyze TruffleHog results (Python helper)](../trufflehog/scripts/analyze-trufflehog-results.py) — Filter, group, and summarize TruffleHog JSON output
 - [Dockerized TruffleHog pre-commit scanner (Dockerfile)](../trufflehog/dockerfiles/pre-commit-scanner.Dockerfile) — Containerized secret scanning for pre-commit hooks
 - [TruffleHog GitHub secret scanning integration scaffold (template)](../trufflehog/templates/github-secret-scanning-integration/)
+- [TruffleHog PR secret scan reusable workflow (manifest)](../trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml) — Reusable GitHub Actions workflow for PR-level secret scanning with SARIF upload and verified-only gating
 
 ## Scan with OWASP ZAP
 - [ZAP primer](../zap/notes/0000-primer-zap.md)
