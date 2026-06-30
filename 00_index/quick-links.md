@@ -123,6 +123,7 @@
 - [Grype vulnerability scanning pipeline with SARIF output](../grype/scripts/grype-vuln-pipeline.sh) — Scan images, generate SARIF, integrate with CI
 - [Grype results to SARIF converter](../grype/scripts/grype-results-to-sarif.py) — Reusable Python script to convert Grype JSON output to SARIF 2.1.0 format
 - [Multi-stage Grype vulnerability scanning Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile) — Build + scan + runtime stages with Grype
+- [Grype + Syft integration guide](../grype/docs/grype-syft-integration-guide.md) — SBOM generation with Syft, offline scanning with Grype, and CI pipeline integration
 
 ## Scan with OPA/Gatekeeper
 - [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md)
