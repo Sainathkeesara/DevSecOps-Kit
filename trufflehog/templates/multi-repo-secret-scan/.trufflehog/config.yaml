@@ -1,0 +1,56 @@
+# TruffleHog configuration for multi-repository scanning
+# Usage: trufflehog git --config=.trufflehog/config.yaml <repo>
+
+# Custom detectors for organization-specific credential patterns
+custom_detectors:
+  # Internal API gateway tokens — not covered by default detectors
+  - name: "API gateway token"
+    regex:
+      pattern: "sk-internal-[0-9a-f]{32}"
+    keywords:
+      - "sk-internal"
+      - "api_key_internal"
+
+  # PostgreSQL/MySQL DSN strings without scheme prefix
+  - name: "Raw DSN string"
+    regex:
+      pattern: "(?:postgres|mysql)://\\w+:\\w+@[\\w\\.-]+:\\d+/\\w+"
+    keywords:
+      - "postgres://"
+      - "mysql://"
+
+  # JWT tokens in debug logs and crash reports
+  - name: "JWT token"
+    regex:
+      pattern: "eyJ[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]+"
+    keywords:
+      - "eyJ"
+
+  # Internal service account keys (format: svc_ + 32 hex chars)
+  - name: "Service account key"
+    regex:
+      pattern: "svc_[0-9a-f]{32}"
+    keywords:
+      - "svc_"
+
+  # Proprietary license keys (format: 5 groups of 5 uppercase alphanumeric)
+  - name: "Proprietary license key"
+    regex:
+      pattern: "[A-Z]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}"
+    keywords:
+      - "license"
+      - "-key"
+
+# Entropy tuning to reduce noise
+entropy:
+  # Default (8, 4.5) flags UUIDs and short strings in our codebase
+  min_chars: 12
+  min_shannon: 5.0
+
+# Enable verification (requires network access to service endpoints)
+verify: true
+
+# Output format configuration
+output:
+  format: json
+  path: ""
