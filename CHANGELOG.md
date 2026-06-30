@@ -4,6 +4,16 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-06-30
+
+### Added
+- trufflehog-003: `trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml` — TruffleHog GitHub Actions reusable workflow for PR-level secret scanning (L5)
+    - Configurable scan depth, exclude globs, custom config path, and SARIF output
+    - Inline Python SARIF converter maps TruffleHog NDJSON to SARIF 2.1.0 with severity mapping
+    - Dual gating mode: fail on verified secrets only or fail on any finding
+    - SARIF upload to GitHub Code Scanning via `github/codeql-action/upload-sarif@v3`
+    - Optional TruffleHog token secret for authenticated scanning features
+
 ## 2026-06-29
 
 ### Added
