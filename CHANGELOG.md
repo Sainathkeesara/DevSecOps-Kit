@@ -4,15 +4,29 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-01
+
+### Added
+- con-010: `docs/concepts/configuration-management/0000-primer-configuration-management.md` — Configuration Management concept primer (L1)
+    - What it is, why it matters for devops, key terminology, and a concrete Ansible playbook example
+- con-011: `docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md` — Observability & Monitoring concept primer (L1)
+    - Metrics, logs, traces, alerts, SLI/SLO/SLA terminology, and a Prometheus alert rule example
+- git-001: `git/notes/0000-primer-git.md` — Git quick primer (L1)
+    - What Git is, how it works, key terminology, and the basic init/add/commit workflow
+
 ## 2026-06-30
 
 ### Added
-- trufflehog-003: `trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml` — TruffleHog GitHub Actions reusable workflow for PR-level secret scanning (L5)
-    - Configurable scan depth, exclude globs, custom config path, and SARIF output
-    - Inline Python SARIF converter maps TruffleHog NDJSON to SARIF 2.1.0 with severity mapping
-    - Dual gating mode: fail on verified secrets only or fail on any finding
-    - SARIF upload to GitHub Code Scanning via `github/codeql-action/upload-sarif@v3`
-    - Optional TruffleHog token secret for authenticated scanning features
+- trufflehog-004: `trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb` — Comparing TruffleHog scan modes: git history vs filesystem vs GitHub API (L5)
+    - Demonstrates filesystem scan for current-state checks and git scan for historical detection
+    - Compares output structure differences (commit hashes in git metadata)
+    - Performance characteristics and mode selection guidance
+- trufflehog-005: `trufflehog/templates/multi-repo-secret-scan/` — TruffleHog multi-repository configuration scaffold with centralized allowlisting (L5)
+    - Centralized config at `.trufflehog/config.yaml` for custom detectors and entropy tuning
+    - Organization-wide allowlist at `.trufflehog/allowlist.yaml` for false positive management
+    - Multi-repository scan script with aggregated JSON output
+    - GitHub Actions workflow for scheduled organization scans
+    - shellcheck passed (clean)
 
 ## 2026-06-29
 

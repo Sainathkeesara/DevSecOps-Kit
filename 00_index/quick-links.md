@@ -9,18 +9,26 @@
 ## Core concepts
 - [Application Security Testing Concepts](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md) — SAST, DAST, SCA, and key security testing terminology
 - [CI/CD Pipeline Concepts](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md) — Stages, gates, triggers, and pipeline fundamentals
+- [Configuration Management](../docs/concepts/configuration-management/0000-primer-configuration-management.md) — Desired state, idempotency, drift, and config management fundamentals (L1)
 - [Container & Runtime Security](../docs/concepts/container-runtime-security/0000-primer-container-runtime-security.md) — Image vs runtime security, syscalls, eBPF
 - [Software Supply Chain Security](../docs/concepts/software-supply-chain-security/0000-primer-software-supply-chain-security.md) — Supply chain attacks, SBOM, signing, and dependency verification
 - [Version Control with Git](../docs/concepts/version-control-with-git/0000-primer-version-control-with-git.md) — Repos, commits, branches, and collaboration workflows
 - [Containers & Orchestration](../docs/concepts/containers-orchestration/0000-primer-containers-orchestration.md) — Images, containers, registries, and Kubernetes fundamentals
 - [Infrastructure as Code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) — What IaC is, why it matters, and key terminology (L1)
 - [Linux & Shell Fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) — What Linux and the shell are, why they matter, and core terminology (L1)
+- [Observability & Monitoring](../docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md) — Metrics, logs, traces, SLOs, and telemetry fundamentals (L1)
 - [Secrets & Access Management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md) — Controlling access and handling credentials securely (L1)
+- [Configuration Management](../docs/concepts/configuration-management/0000-primer-configuration-management.md) — Keeping systems in a known, consistent state with code (L1)
+- [Observability & Monitoring](../docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md) — Metrics, logs, traces, and understanding system behavior (L1)
+
+## Learn Git
+- [Git primer](../git/notes/0000-primer-git.md) — What Git is, key commands, and first repository
 
 ## Set up a tool
 - [Install Semgrep](../semgrep/notes/2026-05-25-install-semgrep.md)
 - [Install Checkov](../checkov/notes/2026-05-25-scan-terraform-plan.md)
 - [Install Trivy](../trivy/notes/2026-05-24-install-trivy.md)
+- [Git primer](../git/notes/0000-primer-git.md) — What is Git? — quick primer for version control beginners
 - [Install Git](../scripts/bash/git/git-install.sh)
 - [Install Jenkins](../scripts/bash/jenkins_toolkit/install-jenkins.sh)
 - [Deploy Loki + Promtail](../scripts/bash/observability_toolkit/loki/loki-promtail-install.sh)
@@ -225,7 +233,9 @@
 - [Multi-repo secret scanning pipeline](../trufflehog/scripts/multi-repo-scan-pipeline.sh)
 - [Custom detector rules for proprietary patterns](../trufflehog/configs/custom-detector-rules.yaml)
 - [Analyzing TruffleHog false positives notebook](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb)
+- [TruffleHog scan modes comparison notebook](../trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb) — Git history vs filesystem vs GitHub API scanning
 - [TruffleHog secret scanning pipeline scaffold (template)](../trufflehog/templates/secret-scanning-pipeline/)
+- [TruffleHog multi-repository configuration scaffold (template)](../trufflehog/templates/multi-repo-secret-scan/) — Centralized config and allowlist for organization-wide scanning
 - [Analyze TruffleHog results (Python helper)](../trufflehog/scripts/analyze-trufflehog-results.py) — Filter, group, and summarize TruffleHog JSON output
 - [Dockerized TruffleHog pre-commit scanner (Dockerfile)](../trufflehog/dockerfiles/pre-commit-scanner.Dockerfile) — Containerized secret scanning for pre-commit hooks
 - [TruffleHog GitHub secret scanning integration scaffold (template)](../trufflehog/templates/github-secret-scanning-integration/)
@@ -333,6 +343,9 @@
 - [GAR deploy](../scripts/bash/oci_registry_toolkit/gar/gar-deploy.sh)
 - [Quay deploy](../scripts/bash/oci_registry_toolkit/quay/quay-deploy.sh)
 - [OCI registry cheatsheet](../snippets/oci-registry-cheatsheet.md)
+
+## Get started with Git
+- [Git primer](../git/notes/0000-primer-git.md) — What Git is, key terminology, and the basic commit workflow (L1)
 
 ## Sign container images with Cosign
 - [Cosign primer](../cosign/notes/0000-primer-cosign.md)

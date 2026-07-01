@@ -1,8 +1,8 @@
 # DevSecOps-Kit
-> A working engineer's devops and devsecops reference — scripts, how-to guides, runbooks, and templates for vulnerability scanning, secret detection, supply chain security, runtime security, CI/CD, and infrastructure automation.
+> A working engineer's devops and devsecops reference — scripts, notes, snippets, and templates for vulnerability scanning, secret detection, supply chain security, runtime security, CI/CD, and infrastructure automation.
 
 [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Files](https://img.shields.io/badge/files-672-blue)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Files](https://img.shields.io/badge/files-683-blue)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 [![Shell](https://img.shields.io/badge/Shell-231-4EAA25?logo=gnubash&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 [![Markdown](https://img.shields.io/badge/Markdown-278-000000?logo=markdown&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 [![Terraform](https://img.shields.io/badge/Terraform-40-7B42BC?logo=terraform&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
@@ -11,9 +11,9 @@
 
 ## What's in here
 
-A curated collection of shell scripts, how-to guides, runbooks, snippets, and templates covering the tools and practices a practising security engineer reaches for daily. Every entry is version-specific, scenario-grounded, and designed to be adapted for real infrastructure work.
+A curated collection of notes, scripts, snippets, and templates covering the tools and practices a practising security engineer reaches for daily. Every entry is version-specific, scenario-grounded, and designed to be adapted for real infrastructure work.
 
-The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terrascan), secret detection (TruffleHog, GitGuardian), supply chain security (Syft, Cosign, Dependabot), runtime security (Falco, Tetragon), policy engines (OPA), secrets management (Vault), CI/CD, observability, Kubernetes, Terraform, Docker, Linux, and Kafka — with CVE-specific remediation guidance.
+The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terrascan), secret detection (TruffleHog, GitGuardian), supply chain security (Syft, Cosign, Dependabot), runtime security (Falco, Tetragon), policy engines (OPA), secrets management (Vault), CI/CD, Linux, Kubernetes, Terraform, Docker, and Kafka — with CVE-specific remediation guidance.
 
 ---
 
@@ -21,14 +21,14 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 | Tool | Notes | Scripts | Configs | Snippets | Docs | Manifests | Templates | Notebooks | Dockerfiles | More |
 |------|------:|--------:|--------:|---------:|-----:|----------:|----------:|----------:|------------:|------|
-| Trivy | 3 | 6 | 2 | 1 | 3 | 2 | 6 | 2 | 1 | — |
+| Trivy | 3 | 5 | 2 | 1 | 3 | 2 | 6 | 2 | 1 | — |
 | Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — |
 | Checkov | 4 | 2 | 2 | 4 | 3 | 2 | 10 | 1 | — | policies:1 |
-| TruffleHog | 3 | 5 | 2 | 2 | 2 | 1 | 11 | 1 | 1 | — |
-| Syft | 4 | 4 | 1 | 1 | 2 | — | 7 | 1 | 1 | — |
+| TruffleHog | 4 | 3 | 2 | 2 | 2 | 1 | 11 | 1 | 1 | — |
+| Syft | 4 | 3 | 1 | 1 | 2 | — | 7 | 1 | 1 | — |
 | Grype | 4 | 5 | 1 | 2 | 1 | — | — | 1 | 1 | — |
 | CodeQL | 3 | 1 | 1 | 3 | 1 | 1 | — | — | — | — |
-| ZAP | 4 | 3 | 2 | 3 | 2 | — | 10 | — | 1 | — |
+| ZAP | 4 | 2 | 2 | 3 | 2 | — | 10 | — | 1 | — |
 | Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | — | — |
 | GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — | — |
 | Falco | 3 | 1 | 3 | 1 | 2 | — | — | — | — | — |
@@ -37,9 +37,9 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 | Terrascan | 4 | 1 | 1 | 2 | — | — | — | — | — | — |
 | Dependabot | 3 | — | 1 | — | — | — | — | — | — | — |
 | Tetragon | 2 | — | 1 | — | — | — | — | — | — | — |
-| Vault | 3 | 10 | 2 | 1 | 2 | — | — | — | — | — |
-| Linux | — | 50 | — | 2 | 40 | — | 14 | — | — | runbooks:1 |
-| Kubernetes | — | 15 | — | 1 | 19 | — | 3 | — | — | — |
+| Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | — | — |
+| Linux | — | 50 | — | 2 | 40 | — | 14 | — | — | runbooks:2 |
+| Kubernetes | — | 17 | — | 1 | 11 | — | 3 | — | — | — |
 | Kafka | — | 17 | — | 2 | 3 | — | — | — | — | — |
 | Terraform | — | 16 | — | 1 | 27 | — | 12 | — | — | envs:12, tf:5 |
 | Jenkins | — | 5 | — | 4 | 14 | — | 1 | — | — | — |
@@ -55,11 +55,11 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 ## Quick links
 
-- [TruffleHog PR secret scan reusable workflow](trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml) — Reusable GitHub Actions workflow for PR-level secret scanning with SARIF upload
-- [Grype + Syft integration guide](grype/docs/grype-syft-integration-guide.md) — SBOM generation, offline scanning, and CI pipeline integration
-- [Terrascan getting-started trip-ups](terrascan/notes/2026-06-29-terrascan-getting-started-trip-ups.md) — L2 notes: install, scan, exit codes, and CI gating gotchas
 - [ZAP DAST integration scaffold](zap/templates/zap-dast-integration/) — GitHub Actions workflow + Automation Framework plan scaffold for CI DAST scanning
-- [Vault multi-environment access control policy](vault/configs/multi-environment-access-control.hcl) — HCL policy for dev/staging/prod engines
+- [Trivy monorepo scanner scaffold](trivy/templates/trivy-monorepo-scanner/) — Targeted scanning configuration with ignore rules and SARIF output
+- [TruffleHog scan modes comparison notebook](trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb) — Git history vs filesystem vs GitHub API scanning comparison
+- [Checkov reusable workflow for custom policies](checkov/templates/reusable-workflow-custom-policies/) — Reusable GitHub Actions workflow for Checkov with custom policies
+- [Custom ZAP Docker image with Automation Framework plans](zap/dockerfiles/custom-zap-automation.Dockerfile) — Self-contained image with embedded quick-scan and full-scan plans for CI
 
 ---
 
@@ -87,7 +87,7 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 ## Status
 
-Active maintenance with weekly additions. Current focus areas: TruffleHog PR-level secret scanning, Grype SARIF output integration, ZAP DAST automation framework, and Terrascan CI gating workflows.
+Active maintenance with weekly additions. Current focus areas: Kubernetes CVE remediation, ZAP DAST automation framework, Grype SARIF output integration, Vault policy-as-code, and OPA admission control wiring.
 
 ---
 

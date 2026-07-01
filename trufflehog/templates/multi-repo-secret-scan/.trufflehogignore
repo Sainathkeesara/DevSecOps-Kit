@@ -1,0 +1,36 @@
+# TruffleHog global ignore patterns for multi-repository scanning
+
+# Test files and fixtures
+*_test.go
+*_test.py
+*test*.py
+*spec*.rb
+
+# Example and demo directories
+example/
+examples/
+demo/
+samples/
+
+# Documentation
+*.md
+README*
+CHANGELOG*
+
+# Generated files
+*.lock
+*.log
+*.generated
+*.gen
+
+# Build artifacts
+dist/
+build/
+target/
+node_modules/
+vendor/
+
+# Environment files
+.env.example
+.env.sample
+*.env.example
