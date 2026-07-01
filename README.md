@@ -31,7 +31,7 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 | ZAP | 4 | 2 | 2 | 3 | 2 | — | 10 | — | 1 | — |
 | Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | — | — |
 | GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — | — |
-| Falco | 3 | 1 | 3 | 1 | 2 | — | — | — | — | — |
+| Falco | 3 | 2 | 3 | 1 | 2 | — | — | — | — | — |
 | Cosign | 4 | 2 | 1 | 1 | — | — | — | — | — | — |
 | OPA | 3 | 1 | 1 | 3 | 1 | — | — | — | — | — |
 | Terrascan | 4 | 1 | 1 | 2 | — | — | — | — | — | — |
@@ -55,7 +55,7 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 ## Quick links
 
-- [ZAP DAST integration scaffold](zap/templates/zap-dast-integration/) — GitHub Actions workflow + Automation Framework plan scaffold for CI DAST scanning
+- [ZAP DAST integration scaffold](zap/templates/zap-dast-integration-scaffold/) — Full project scaffold with Makefile, plans, and GitHub Actions workflow for CI DAST scanning
 - [Trivy monorepo scanner scaffold](trivy/templates/trivy-monorepo-scanner/) — Targeted scanning configuration with ignore rules and SARIF output
 - [TruffleHog scan modes comparison notebook](trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb) — Git history vs filesystem vs GitHub API scanning comparison
 - [Checkov reusable workflow for custom policies](checkov/templates/reusable-workflow-custom-policies/) — Reusable GitHub Actions workflow for Checkov with custom policies
@@ -66,7 +66,7 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 ## Layout
 
 - **`00_index/`** — Navigation: topic index, quick links, glossary, learning path
-- **`checkov/` / `semgrep/` / `trivy/` / `trufflehog/` / `syft/`** — Security scanner notes, scripts, configs
+- **`checkov/` / `semgrep/` / `trivy/` / `trufflehog/` / `syft/` / `git/`** — Security scanner notes, scripts, configs
 - **`grype/` / `codeql/` / `zap/` / `snyk/` / `gitguardian/` / `falco/` / `cosign/` / `tetragon/`** — Vulnerability scanner and runtime security tool content
 - **`terrascan/` / `opa/`** — IaC compliance and policy engine primers
 - **`dependabot/`** — Dependabot primer, notes, and dependency update configs

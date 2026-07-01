@@ -256,7 +256,8 @@
 - [CI-integrated DAST Automation Framework plan](../zap/configs/ci-dast-automation-framework-plan.yaml) — Headless scanning pipeline for CI environments
 - [ZAP DAST pipeline with SARIF output and GitHub Code Scanning](../zap/scripts/zap-dast-sarif-code-scanning.sh) — Run DAST scan, convert alerts to SARIF, and upload to GitHub Code Scanning
 - [Custom ZAP Docker image with pre-configured Automation Framework plans](../zap/dockerfiles/custom-zap-automation.Dockerfile) — Self-contained image with embedded quick-scan and full-scan plans
-- [OWASP ZAP DAST integration scaffold (template)](../zap/templates/zap-dast-integration/) — GitHub Actions workflow + Automation Framework plan scaffold for CI DAST scanning
+- [OWASP ZAP DAST integration scaffold (template)](../zap/templates/zap-dast-integration-scaffold/) — Full project scaffold with Makefile, plans, and GitHub Actions workflow for CI DAST scanning
+- [OWASP ZAP DAST plan (template)](../zap/templates/zap-dast-integration/) — Automation Framework plan with GitHub Actions workflow
 
 ## Runtime security with Falco
  - [Falco primer](../falco/notes/0000-primer-falco.md)
@@ -267,6 +268,7 @@
  - [Comparing syscall vs tracepoint rules for container monitoring](../falco/docs/syscall-vs-tracepoint-rules.md) — Syscall vs tracepoint rule sources, coverage, and performance tradeoffs
  - [Deploy custom Falco ruleset with Helm](../falco/scripts/deploy-falco-ruleset.sh)
  - [Go Falco event parser: suspicious file access detector](../falco/snippets/tried-file-access-detector.go) — L2 Go snippet that reads Falco JSON output and alerts on sensitive file access patterns
+ - [Minimal Falco deployment with webhook alert forwarding](../falco/scripts/minimal-falco-deploy.sh) — Helm-based Falco install with optional webhook output configuration
 
 ## Runtime security with Tetragon
 - [Tetragon primer](../tetragon/notes/0000-primer-tetragon.md)

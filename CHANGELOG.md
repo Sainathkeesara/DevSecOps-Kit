@@ -7,7 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-07-01
 
 ### Added
-- con-010: `docs/concepts/configuration-management/0000-primer-configuration-management.md` — Configuration Management concept primer (L1)
+- falco-004: `falco/scripts/minimal-falco-deploy.sh` — Minimal Falco deployment to Kubernetes with webhook alert forwarding (L2)
+    - Helm install of Falco with optional webhook URL configuration for alert forwarding
+    - Creates namespace, installs chart, and verifies DaemonSet rollout
+    - shellcheck passed (clean)
+ - con-010: `docs/concepts/configuration-management/0000-primer-configuration-management.md` — Configuration Management concept primer (L1)
     - What it is, why it matters for devops, key terminology, and a concrete Ansible playbook example
 - con-011: `docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md` — Observability & Monitoring concept primer (L1)
     - Metrics, logs, traces, alerts, SLI/SLO/SLA terminology, and a Prometheus alert rule example
