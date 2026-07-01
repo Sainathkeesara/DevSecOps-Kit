@@ -16,6 +16,8 @@
 - [Infrastructure as Code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) — What IaC is, why it matters, and key terminology (L1)
 - [Linux & Shell Fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) — What Linux and the shell are, why they matter, and core terminology (L1)
 - [Secrets & Access Management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md) — Controlling access and handling credentials securely (L1)
+- [Configuration Management](../docs/concepts/configuration-management/0000-primer-configuration-management.md) — Desired state, idempotency, and keeping systems consistent (L1)
+- [Observability & Monitoring](../docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md) — Metrics, logs, traces, and understanding system health (L1)
 
 ## Set up a tool
 - [Install Semgrep](../semgrep/notes/2026-05-25-install-semgrep.md)
@@ -333,6 +335,9 @@
 - [GAR deploy](../scripts/bash/oci_registry_toolkit/gar/gar-deploy.sh)
 - [Quay deploy](../scripts/bash/oci_registry_toolkit/quay/quay-deploy.sh)
 - [OCI registry cheatsheet](../snippets/oci-registry-cheatsheet.md)
+
+## Get started with Git
+- [Git primer](../git/notes/0000-primer-git.md) — What Git is, key terminology, and the basic commit workflow (L1)
 
 ## Sign container images with Cosign
 - [Cosign primer](../cosign/notes/0000-primer-cosign.md)
