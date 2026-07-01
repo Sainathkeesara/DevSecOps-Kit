@@ -4,49 +4,53 @@
 
 ## What is it?
 
-Monitoring is collecting and visualizing data about your systems — CPU usage, request latency, error rates, disk space — so you know when something goes wrong. Observability goes a step further: it means designing your systems so that you can ask arbitrary questions about their internal state without having to predict ahead of time what you'll need to know.
+Observability and monitoring are two related but different ideas about understanding what a system is doing. Monitoring is the practice of collecting predefined metrics and alerts — you decide ahead of time what matters (CPU usage, request latency, error rate) and watch those signals. Observability is the broader idea that you should be able to ask any question about your system's state without having to predict it in advance, by examining the data it produces.
 
-I think of it like a car's dashboard. Monitoring is the check-engine light that tells you something's wrong. Observability is being able to pull up detailed diagnostic data — fuel trims, cylinder misfire counts, O2 sensor readings — to figure out *why* the light came on. You want both, but observability is what lets you debug novel problems you never anticipated.
+A common analogy: monitoring tells you the engine temperature is rising (you set a threshold and get an alert). Observability lets you open the hood and figure out *why* the temperature is rising, even if you never thought to instrument that specific cause. Monitoring is knowing your car has a temperature gauge; observability means you also have logs of what the engine was doing before it overheated.
 
 ## Why does it matter for devops?
 
-Without observability, operating a distributed system is like flying a plane with no instruments. You don't know if you're climbing or descending until you hit something. Monitoring tells you the system is up; observability tells you *how* it's working and lets you find the root cause when it breaks.
+You can't automate what you can't measure. Every pipeline, every deployment, every security scan produces events and metrics. Without observability, you're making decisions blind — did that deploy actually succeed? Is the database connection pool exhausted? Did the Falco rule fire because of a real intrusion or a false positive?
 
-For a devops practitioner, this is essential. When a deployment goes bad, I need to know immediately. When latency spikes, I need to trace where the bottleneck is. When a pod crashes in a Kubernetes cluster, I need to see logs and metrics together to understand why. The three pillars — metrics, logs, and traces — each answer a different kind of question, and modern observability platforms (Prometheus, Grafana, Loki, Jaeger, Datadog) combine them.
+Observability also directly supports the security side of devops. Anomaly detection, runtime security monitoring, and audit trails all depend on collecting and analyzing system signals. If I can see what's normal, I can spot what's abnormal. That's the foundation for tools like Falco, Prometheus, and Grafana.
 
 ## Key terminology
 
-- **Metric** — A numeric measurement collected over time. Example: `http_requests_total{status="200"} 1423` — the count of successful HTTP requests so far.
-- **Log** — A timestamped text record of an event. Example: `2026-07-01T10:30:00Z ERROR failed to connect to database: timeout`.
-- **Trace** — A record of a request's path through a distributed system. Example: an API call that passes through a gateway, a service, and a database, with the time spent at each hop.
-- **SLO (Service Level Objective)** — A target reliability measure, expressed as a percentage. Example: "99.9% of requests complete in under 500ms over a 30-day window."
-- **SLI (Service Level Indicator)** — The actual measurement of reliability. Example: the measured 99.95% of requests under 500ms over the last 30 days.
-- **SLA (Service Level Agreement)** — A contractual commitment to meet SLOs, often with penalties. Example: "If uptime drops below 99.9%, customers get a 5% credit."
-- **Alert** — A notification triggered when a metric crosses a threshold. Example: PagerDuty pages when disk usage exceeds 90%.
-- **Dashboard** — A visual display of key metrics. Example: a Grafana dashboard showing request rate, error rate, and latency percentiles.
+- **Metric** — A numerical value measured over time. Example: `http_requests_total{status="200"} 10234` — a counter of HTTP 200 responses.
+- **Log** — A timestamped record of an event, usually text. Example: `2026-07-01T10:00:00Z ERROR failed to connect to database: timeout`.
+- **Trace** — A record of a request's path through a distributed system. Example: an API call that goes through a gateway, a service, and a database, with timing for each hop.
+- **Alert** — A notification triggered when a metric or log pattern crosses a threshold. Example: PagerDuty page when pod crash-loop rate exceeds 5/min.
+- **Dashboard** — A visual display of metrics and logs, organized to answer common questions. Example: a Grafana dashboard showing request rate, error rate, and p99 latency.
+- **Service Level Indicator (SLI)** — A specific metric that measures a aspect of service quality. Example: "proportion of requests completed in under 500ms."
+- **Service Level Objective (SLO)** — A target value for an SLI. Example: "99.9% of requests complete in under 500ms per month."
+- **Service Level Agreement (SLA)** — A contractual commitment based on SLOs. Example: "If uptime drops below 99.9%, customers get a credit."
 
 ## A concrete example
 
 ```bash
-# Simulate a metric collection and alert check
-ENDPOINT="https://api.example.com/health"
+# Simulate a basic metric + alert pipeline with Prometheus rules
+cat > /tmp/alert-rule.yml << 'EOF'
+groups:
+  - name: instance
+    rules:
+      - alert: InstanceDown
+        expr: up == 0
+        for: 5m
+        annotations:
+          summary: "Instance {{ $labels.instance }} down"
+      - alert: HighCPU
+        expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
+        for: 10m
+        annotations:
+          summary: "Instance {{ $labels.instance }} CPU > 80%"
+EOF
 
-# Check response time with curl
-START=$(date +%s%N)
-HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$ENDPOINT")
-END=$(date +%s%N)
-LATENCY=$(( (END - START) / 1000000 ))
-
-echo "latency_ms=$LATENCY status=$HTTP_CODE"
-
-# Simple SLO check — alert if latency exceeds 500ms
-if [ "$LATENCY" -gt 500 ]; then
-  echo "ALERT: latency ${LATENCY}ms exceeds SLO of 500ms"
-fi
+echo "This Prometheus rule file defines two alerts: one fires when an instance stops reporting,
+the other when CPU usage stays above 80% for 10 minutes."
 ```
 
-This simulates what a monitoring agent does: measure something useful, compare against a target, and flag a problem. In a real deployment, Prometheus collects this kind of data continuously and Alertmanager handles the notification routing.
+This example shows what monitoring looks like in practice: you define conditions, set thresholds, and get notified when things break. The data comes from `node_exporter` metrics that Prometheus scrapes automatically.
 
 ## How this connects to what's next
 
-The three pillars (metrics, logs, traces) map directly to tools: Prometheus for metrics, Grafana for dashboards, Loki for logs, Jaeger for traces. Infrastructure monitoring tools like Falco and Tetragon sit at the runtime security layer. Understanding the concepts first makes the tooling make sense — you're not learning Prometheus syntax, you're learning how to instrument and interrogate a system.
+Observability is the lens through which I'll look at every tool in this kit. Prometheus and Grafana are the core metric stack. Falco and Tetragon produce security events that need to be forwarded and alerted on. Even CI pipelines generate metrics (build duration, scan pass/fail rates) that belong on a dashboard. Understanding the data types — metrics, logs, traces — is what lets me choose the right tool for each signal.

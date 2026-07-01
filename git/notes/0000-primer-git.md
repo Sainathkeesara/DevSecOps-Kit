@@ -4,38 +4,45 @@
 
 ## What is it?
 
-Git is a version control tool for tracking changes in text files — source code, config files, documentation, basically anything that isn't a binary blob. It's the tool everyone in software uses to save, share, and review work.
+Git is a version control system — it tracks changes to files over time. Every time you save a snapshot (a "commit"), Git remembers what changed, who changed it, and when. It's like a time machine for your code: you can go back to any previous state, compare versions, and branch off to try experiments without breaking the main project.
+
+If you've ever saved a file as `report_final_v3_actuallyfinal.docx`, Git is the tool that makes that pattern obsolete. Instead of naming hacks, you get clean history that you can search, diff, and revert.
 
 ## What does it do?
 
-Git keeps a full history of every change I make, lets me create branches to work on things without breaking the main code, and merges branches back together when I'm done. It lives locally on my machine — I don't need a server to use it.
+Git lets you record snapshots of your project at any point, switch between different versions, merge work from multiple people, and sync changes with remote repositories (like GitHub). You can create "branches" to work on features in isolation, then merge them back when they're ready. It's the backbone of modern software collaboration — nearly every open-source project and team workflow runs on Git.
 
 ## Why does it exist?
 
-Before Git, teams used older tools like Subversion or CVS, which needed a constant connection to a central server and handled branching poorly. Git was built by Linus Torvalds for the Linux kernel development, where hundreds of people needed to contribute without stepping on each other. Every copy of the repo is a full backup — if the server dies, anyone's clone has the entire history.
+Before Git, teams shared code by copying files to shared drives, FTP servers, or central CVS/SVN servers. Centralized version control had a single point of failure and required network access for every operation. Git was built to be distributed — every developer has a full copy of the entire history on their machine. You can commit, branch, and browse history offline. It also introduced cryptographic hashing (SHA-1) of content, so history can't be altered without detection.
+
+Linus Torvalds created Git in 2005 to manage the Linux kernel development. The kernel team needed something faster and more reliable than the existing tools, and Git solved that problem. Today it's the most widely used version control system in the world.
 
 ## Key terminology
 
-- **Commit** — A snapshot of my changes with a message. Run `git commit -m "fix login bug"`.
-- **Branch** — A parallel version of the code I can work on. Run `git branch feature-x`.
-- **Clone** — A local copy of a remote repository. Run `git clone https://github.com/user/repo.git`.
-- **Push / Pull** — Sending my commits to a remote / fetching theirs. Run `git push origin main`.
-- **Staging area** — Where I prepare files before committing. Run `git add file.py` to stage it.
-- **Diff** — The difference between two versions. Run `git diff` to see unstaged changes.
+- **Repository (repo)** — A directory containing your project files and the entire Git history. Example: `git init` creates a new repo.
+- **Commit** — A snapshot of changes at a point in time. Example: `git commit -m "add login feature"` saves your staged changes.
+- **Branch** — A movable pointer to a commit, letting you develop in isolation. Example: `git checkout -b feature-xyz` creates and switches to a new branch.
+- **Staging area (index)** — A middle step between editing files and committing. You stage specific changes, then commit what's staged. Example: `git add file.py` stages a file.
+- **Remote** — A copy of the repository hosted elsewhere. Example: `origin` is the default remote name when you clone from GitHub.
+- **Pull / Push** — Sync changes with a remote. Pull fetches and merges; push sends your commits. Example: `git push origin main`.
+- **Merge** — Combining changes from two branches. Example: `git merge feature-xyz` integrates the feature into the current branch.
+- **Clone** — Downloading a remote repository to your local machine. Example: `git clone https://github.com/user/repo.git`.
+- **Diff** — Showing what changed between two versions. Example: `git diff` shows unstaged changes.
 
 ## A tiny example
 
 ```bash
-mkdir hello-git && cd hello-git
-git init
-echo "# Hello" > README.md
+git init my-first-repo
+cd my-first-repo
+echo "# Hello World" > README.md
 git add README.md
 git commit -m "first commit"
 git log --oneline
 ```
 
-This initialises a repo, adds a file, and saves the first commit. That's the whole core workflow in five commands.
+This creates a new repository, adds one file, commits it, and shows the single-entry history. That's the entire basic workflow: init, add, commit, repeat.
 
 ## What I'll cover next
 
-I want to try branching, merging, and resolving a conflict — the stuff that comes up every day in team work. Then I'll look at connecting to GitHub and pushing work up.
+I want to get comfortable with branching and merging, understand how to undo mistakes (reset, revert), and learn how to collaborate on GitHub with pull requests. After that, rebasing and the stash command — the stuff that makes Git really powerful once the basics are solid.
