@@ -1,0 +1,7 @@
+# List target repositories for multi-repository TruffleHog scanning
+# One repository URL per line
+# Lines starting with # are ignored
+
+# Example entries:
+# https://github.com/your-org/repo1
+# https://github.com/your-org/repo2

@@ -1,0 +1,39 @@
+# Centralized allowlist for verified false positives in multi-repository scanning
+# Format: each entry specifies detector, file path, and reason for allowlisting
+#
+# Usage: reference this file in TruffleHog commands with --allow-rules
+# See: https://github.com/trufflesecurity/trufflehog#allow-rules
+
+allowlist:
+  # Documentation examples that deliberately contain fake credentials
+  - detector: AWS
+    path: "docs/examples/"
+    reason: "Intentional example credentials in documentation files"
+    
+  - detector: GenericDatabase
+    path: "docs/examples/aws-config.example"
+    line: 15
+    reason: "Example credential in documentation"
+
+  # Test fixtures with mock credentials
+  - detector: AWS
+    path: "**/*_test.go"
+    reason: "Mock credentials in Go test fixtures"
+    
+  - detector: GenericAPIKey
+    path: "**/test/**"
+    reason: "Test fixtures in test directories"
+
+  # CI/CD sample configurations
+  - detector: GenericSecret
+    path: ".github/workflows/examples/"
+    reason: "Example workflow files showing placeholder syntax"
+
+  # Known vendor / generated files
+  - detector: GenericAPIKey
+    path: "**/node_modules/**"
+    reason: "Dependencies may contain placeholder strings"
+
+  - detector: AWS
+    path: "**/vendor/**"
+    reason: "Vendored code with legacy examples"
