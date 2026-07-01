@@ -16,11 +16,14 @@
 - [Infrastructure as Code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) — What IaC is, why it matters, and key terminology (L1)
 - [Linux & Shell Fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) — What Linux and the shell are, why they matter, and core terminology (L1)
 - [Secrets & Access Management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md) — Controlling access and handling credentials securely (L1)
+- [Configuration Management](../docs/concepts/configuration-management/0000-primer-configuration-management.md) — Keeping systems in a known, consistent state with code (L1)
+- [Observability & Monitoring](../docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md) — Metrics, logs, traces, and understanding system behavior (L1)
 
 ## Set up a tool
 - [Install Semgrep](../semgrep/notes/2026-05-25-install-semgrep.md)
 - [Install Checkov](../checkov/notes/2026-05-25-scan-terraform-plan.md)
 - [Install Trivy](../trivy/notes/2026-05-24-install-trivy.md)
+- [Git primer](../git/notes/0000-primer-git.md) — What is Git? — quick primer for version control beginners
 - [Install Git](../scripts/bash/git/git-install.sh)
 - [Install Jenkins](../scripts/bash/jenkins_toolkit/install-jenkins.sh)
 - [Deploy Loki + Promtail](../scripts/bash/observability_toolkit/loki/loki-promtail-install.sh)

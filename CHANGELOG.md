@@ -4,6 +4,16 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-01
+
+### Added
+- con-010: `docs/concepts/configuration-management/0000-primer-configuration-management.md` — Configuration Management concept primer (L1)
+    - What it is, why it matters for devops, key terminology, and a concrete Ansible playbook example
+- con-011: `docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md` — Observability & Monitoring concept primer (L1)
+    - Metrics, logs, traces, alerts, SLI/SLO/SLA terminology, and a Prometheus alert rule example
+- git-001: `git/notes/0000-primer-git.md` — Git quick primer (L1)
+    - What Git is, how it works, key terminology, and the basic init/add/commit workflow
+
 ## 2026-06-30
 
 ### Added
