@@ -1,0 +1,7 @@
+# Reports directory
+reports/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo

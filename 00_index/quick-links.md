@@ -225,7 +225,9 @@
 - [Multi-repo secret scanning pipeline](../trufflehog/scripts/multi-repo-scan-pipeline.sh)
 - [Custom detector rules for proprietary patterns](../trufflehog/configs/custom-detector-rules.yaml)
 - [Analyzing TruffleHog false positives notebook](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb)
+- [TruffleHog scan modes comparison notebook](../trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb) — Git history vs filesystem vs GitHub API scanning
 - [TruffleHog secret scanning pipeline scaffold (template)](../trufflehog/templates/secret-scanning-pipeline/)
+- [TruffleHog multi-repository configuration scaffold (template)](../trufflehog/templates/multi-repo-secret-scan/) — Centralized config and allowlist for organization-wide scanning
 - [Analyze TruffleHog results (Python helper)](../trufflehog/scripts/analyze-trufflehog-results.py) — Filter, group, and summarize TruffleHog JSON output
 - [Dockerized TruffleHog pre-commit scanner (Dockerfile)](../trufflehog/dockerfiles/pre-commit-scanner.Dockerfile) — Containerized secret scanning for pre-commit hooks
 - [TruffleHog GitHub secret scanning integration scaffold (template)](../trufflehog/templates/github-secret-scanning-integration/)
