@@ -339,6 +339,9 @@
 - [Quay deploy](../scripts/bash/oci_registry_toolkit/quay/quay-deploy.sh)
 - [OCI registry cheatsheet](../snippets/oci-registry-cheatsheet.md)
 
+## Get started with Git
+- [Git primer](../git/notes/0000-primer-git.md) — What Git is, key terminology, and the basic commit workflow (L1)
+
 ## Sign container images with Cosign
 - [Cosign primer](../cosign/notes/0000-primer-cosign.md)
 - [Install Cosign and generate first keypair](../cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md)
