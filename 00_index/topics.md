@@ -393,6 +393,7 @@
 - [snippet] snippets/oci-registry-cheatsheet.md — Registry commands reference
 
 ## Git
+- [notes] git/notes/0000-primer-git.md — Git quick primer: what Git is, key commands, and first repository
 - [script] scripts/bash/git/credential-helper-ci.sh — Credential helper configuration
 - [script] scripts/bash/git/git-automation.sh — Git automation for CI/CD
 - [script] scripts/bash/git/git-cicd-hooks.sh — CI/CD hooks
