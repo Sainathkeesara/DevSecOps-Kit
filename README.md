@@ -41,15 +41,15 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 | Linux | — | 50 | — | 2 | 40 | — | 14 | — | — | runbooks:2 |
 | Kubernetes | — | 17 | — | 1 | 11 | — | 3 | — | — | — |
 | Kafka | — | 17 | — | 2 | 3 | — | — | — | — | — |
-| Terraform | — | 15 | — | 1 | 16 | — | 12 | — | — | envs:12, tf:5 |
-| Jenkins | — | 4 | — | 4 | 11 | — | 1 | — | — | — |
-| Ansible | — | 11 | — | 1 | 6 | — | — | — | — | playbooks:4 |
-| Observability | — | 14 | — | 1 | 9 | — | — | — | — | — |
-| OCI / Registries | — | 11 | — | 1 | 6 | — | — | — | — | — |
-| Docker | — | 7 | — | 1 | 6 | — | — | — | — | — |
-| Helm | — | 3 | — | — | 2 | — | — | — | — | — |
-| CI/CD | — | 17 | — | 1 | 11 | — | — | — | — | — |
-| Git | — | 8 | — | 1 | 20 | — | — | — | — | — |
+| Terraform | — | 16 | — | 1 | 27 | — | 12 | — | — | envs:12, tf:5 |
+| Jenkins | — | 5 | — | 4 | 14 | — | 1 | — | — | — |
+| Ansible | — | 11 | — | 1 | 17 | — | — | — | — | playbooks:4 |
+| Observability | — | 14 | — | 1 | 7 | — | — | — | — | — |
+| OCI / Registries | — | 11 | — | 1 | 7 | — | — | — | — | — |
+| Docker | — | 4 | — | 1 | 2 | — | — | — | — | security:2 |
+| Helm | — | 3 | — | — | 3 | — | — | — | — | — |
+| CI/CD | — | 15 | — | 1 | 7 | — | — | — | — | security:2 |
+| Git | — | 8 | — | 1 | 25 | — | — | — | — | — |
 
 ---
 
