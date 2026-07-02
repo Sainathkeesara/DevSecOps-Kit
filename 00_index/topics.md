@@ -536,6 +536,8 @@
 - [config] grype/configs/grype-ci-github-actions.yaml — Grype CI GitHub Actions config
 - [dockerfile] grype/dockerfiles/multi-stage-grype-scan.Dockerfile — Multi-stage build + scan + runtime Dockerfile
 - [script] grype/scripts/grype-results-to-sarif.py — Convert Grype JSON output to SARIF 2.1.0 format
+- [doc] grype/docs/grype-syft-integration-guide.md — SBOM generation with Syft, offline scanning with Grype, and CI pipeline integration
+- [notebook] grype/notebooks/grype-sbom-output-explorer.ipynb — SBOM and vulnerability output explorer
 
 ## CodeQL
 - [note] codeql/notes/0000-primer-codeql.md — First-day primer on CodeQL
@@ -564,7 +566,17 @@
 - [config] zap/configs/zap-authenticated-scan-context.yaml — Authenticated scan context config
 - [config] zap/configs/ci-dast-automation-framework-plan.yaml — Headless DAST automation pipeline config
 - [dockerfile] zap/dockerfiles/custom-zap-automation.Dockerfile — Custom ZAP image with embedded scan plans
-- [script] zap/scripts/zap-dast-sarif-code-scanning.sh — DAST pipeline with SARIF and Code Scanning
+
+- [template] zap/templates/zap-dast-integration/.github/workflows/zap-dast.yml — DAST CI workflow
+- [template] zap/templates/zap-dast-integration/README.md — DAST integration scaffold readme
+- [template] zap/templates/zap-dast-integration/zap-automation-plan.yaml — DAST automation plan
+- [template] zap/templates/zap-dast-integration-scaffold/.github/workflows/zap-dast.yml — DAST scaffold CI workflow
+- [template] zap/templates/zap-dast-integration-scaffold/.gitignore — DAST scaffold gitignore
+- [template] zap/templates/zap-dast-integration-scaffold/Makefile — DAST scaffold Makefile
+- [template] zap/templates/zap-dast-integration-scaffold/README.md — DAST scaffold readme
+- [template] zap/templates/zap-dast-integration-scaffold/plans/full-scan.yaml — DAST full scan plan
+- [template] zap/templates/zap-dast-integration-scaffold/plans/quick-scan.yaml — DAST quick scan plan
+- [template] zap/templates/zap-dast-integration-scaffold/scripts/run-zap-dast.sh — DAST scaffold entrypoint
 
 ## TruffleHog
 - [note] trufflehog/notes/0000-primer-trufflehog.md — First-day primer on TruffleHog
@@ -580,6 +592,8 @@
 - [doc] trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md — Git, filesystem, S3 comparison
 - [doc] trufflehog/docs/trufflehog-output-formats-json-sarif-csv.md — Output format reference for CI ingestion
 - [notebook] trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb — False positive analysis
+- [notebook] trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb — Git history vs filesystem vs GitHub API scanning comparison
+- [manifest] trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml — Reusable GitHub Actions workflow for PR-level secret scanning with SARIF upload
 - [dockerfile] trufflehog/dockerfiles/pre-commit-scanner.Dockerfile — Pre-commit scanner image
 - [template] trufflehog/templates/github-secret-scanning-integration/README.md — GH secret scan readme
 - [template] trufflehog/templates/github-secret-scanning-integration/Makefile — GH secret scan Makefile
@@ -592,6 +606,16 @@
 - [template] trufflehog/templates/secret-scanning-pipeline/trufflehog-config.yaml — Secret scanning config
 - [template] trufflehog/templates/secret-scanning-pipeline/.github/workflows/secret-scan.yml — Secret scan CI workflow
 - [template] trufflehog/templates/secret-scanning-pipeline/.gitignore — Secret scanning gitignore
+- [template] trufflehog/templates/multi-repo-secret-scan/.github/workflows/org-secret-scan.yml — Multi-repo org secret scan workflow
+- [template] trufflehog/templates/multi-repo-secret-scan/.trufflehog/allowlist.yaml — Multi-repo allowlist config
+- [template] trufflehog/templates/multi-repo-secret-scan/.trufflehog/config.yaml — Multi-repo TruffleHog config
+- [template] trufflehog/templates/multi-repo-secret-scan/.trufflehogignore — Multi-repo ignore rules
+- [template] trufflehog/templates/multi-repo-secret-scan/Makefile — Multi-repo scan Makefile
+- [template] trufflehog/templates/multi-repo-secret-scan/README.md — Multi-repo scan readme
+- [template] trufflehog/templates/multi-repo-secret-scan/repos.txt — Multi-repo target list
+- [template] trufflehog/templates/multi-repo-secret-scan/scripts/generate-report.py — Multi-repo report generator
+- [template] trufflehog/templates/multi-repo-secret-scan/scripts/scan-multi-repo.sh — Multi-repo scan entrypoint
+- [template] trufflehog/templates/multi-repo-secret-scan/.gitignore — Multi-repo gitignore
 
 ## Cosign
 - [note] cosign/notes/0000-primer-cosign.md — First-day primer on Cosign
@@ -614,6 +638,8 @@
 - [doc] falco/docs/syscall-vs-tracepoint-rules.md — Syscall vs tracepoint rule comparison
 - [doc] falco/docs/tuned-falco-rules-noise-reduction.md — Tuning Falco rules to reduce noise
 - [script] falco/scripts/deploy-falco-ruleset.sh — Deploy custom Falco ruleset with Helm
+- [script] falco/scripts/tried-falco-k8s-alert-forwarding.sh — Deploy Falco with alert forwarding via Falcosidekick
+- [script] falco/scripts/tried-falco-k8s-deploy-alert-forwarding.sh — Minimal Falco deployment with Kubernetes integration and alert forwarding
 
 ## OPA
 - [note] opa/notes/0000-primer-opa.md — First-day primer on OPA policy engine
@@ -658,6 +684,7 @@
 - [snippet] terrascan/snippets/tiny-tf-with-findings.tf — Tiny Terraform with findings
 - [config] terrascan/configs/tried-custom-s3-rule.yaml — Custom S3 bucket policy Rego rule
 - [script] terrascan/scripts/tried-terrascan-ci-scan.sh — Minimal Terrascan CI scan script
+- [note] terrascan/notes/2026-06-29-terrascan-getting-started-trip-ups.md — Getting-started tutorial pitfalls
 
 ## Tetragon
 - [note] tetragon/notes/0000-primer-tetragon.md — First-day primer on Tetragon eBPF security

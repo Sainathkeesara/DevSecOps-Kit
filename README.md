@@ -2,9 +2,9 @@
 > A working engineer's devops and devsecops reference — scripts, notes, snippets, and templates for vulnerability scanning, secret detection, supply chain security, runtime security, CI/CD, and infrastructure automation.
 
 [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Files](https://img.shields.io/badge/files-683-blue)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Shell](https://img.shields.io/badge/Shell-231-4EAA25?logo=gnubash&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Markdown](https://img.shields.io/badge/Markdown-278-000000?logo=markdown&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Files](https://img.shields.io/badge/files-688-blue)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Shell](https://img.shields.io/badge/Shell-234-4EAA25?logo=gnubash&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Markdown](https://img.shields.io/badge/Markdown-282-000000?logo=markdown&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 [![Terraform](https://img.shields.io/badge/Terraform-40-7B42BC?logo=terraform&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 
 ---
@@ -24,32 +24,33 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 | Trivy | 3 | 5 | 2 | 1 | 3 | 2 | 6 | 2 | 1 | — |
 | Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — |
 | Checkov | 4 | 2 | 2 | 4 | 3 | 2 | 10 | 1 | — | policies:1 |
-| TruffleHog | 4 | 3 | 2 | 2 | 2 | 1 | 11 | 1 | 1 | — |
+| TruffleHog | 3 | 3 | 2 | 2 | 2 | 1 | 19 | 2 | 1 | — |
 | Syft | 4 | 3 | 1 | 1 | 2 | — | 7 | 1 | 1 | — |
 | Grype | 4 | 5 | 1 | 2 | 1 | — | — | 1 | 1 | — |
 | CodeQL | 3 | 1 | 1 | 3 | 1 | 1 | — | — | — | — |
-| ZAP | 4 | 2 | 2 | 3 | 2 | — | 10 | — | 1 | — |
+| ZAP | 4 | 3 | 2 | 3 | 2 | — | 10 | — | 1 | — |
 | Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | — | — |
 | GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — | — |
-| Falco | 3 | 1 | 3 | 1 | 2 | — | — | — | — | — |
+| Falco | 3 | 3 | 3 | 1 | 2 | — | — | — | — | — |
 | Cosign | 4 | 2 | 1 | 1 | — | — | — | — | — | — |
 | OPA | 3 | 1 | 1 | 3 | 1 | — | — | — | — | — |
 | Terrascan | 4 | 1 | 1 | 2 | — | — | — | — | — | — |
 | Dependabot | 3 | — | 1 | — | — | — | — | — | — | — |
 | Tetragon | 2 | — | 1 | — | — | — | — | — | — | — |
-| Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | — | — |
-| Linux | — | 50 | — | 2 | 40 | — | 14 | — | — | runbooks:2 |
+| Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | — | plus scripts:4 |
+| Linux | — | 51 | — | 2 | 40 | — | 14 | — | — | runbooks:1 |
 | Kubernetes | — | 17 | — | 1 | 11 | — | 3 | — | — | — |
 | Kafka | — | 17 | — | 2 | 3 | — | — | — | — | — |
-| Terraform | — | 16 | — | 1 | 27 | — | 12 | — | — | envs:12, tf:5 |
+| Terraform | — | 16 | — | 1 | 27 | — | 12 | — | — | envs:12, tf:5, modules:9 |
 | Jenkins | — | 5 | — | 4 | 14 | — | 1 | — | — | — |
 | Ansible | — | 11 | — | 1 | 17 | — | — | — | — | playbooks:4 |
 | Observability | — | 14 | — | 1 | 7 | — | — | — | — | — |
 | OCI / Registries | — | 11 | — | 1 | 7 | — | — | — | — | — |
 | Docker | — | 4 | — | 1 | 2 | — | — | — | — | security:2 |
 | Helm | — | 3 | — | — | 3 | — | — | — | — | — |
-| CI/CD | — | 15 | — | 1 | 7 | — | — | — | — | security:2 |
+| CI/CD | — | 18 | — | 1 | 10 | — | — | — | — | security:1 |
 | Git | — | 8 | — | 1 | 25 | — | — | — | — | — |
+| Lab | — | — | — | — | 3 | — | — | — | — | tf:7 |
 
 ---
 
@@ -59,7 +60,7 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 - [Trivy monorepo scanner scaffold](trivy/templates/trivy-monorepo-scanner/) — Targeted scanning configuration with ignore rules and SARIF output
 - [TruffleHog scan modes comparison notebook](trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb) — Git history vs filesystem vs GitHub API scanning comparison
 - [Checkov reusable workflow for custom policies](checkov/templates/reusable-workflow-custom-policies/) — Reusable GitHub Actions workflow for Checkov with custom policies
-- [Custom ZAP Docker image with Automation Framework plans](zap/dockerfiles/custom-zap-automation.Dockerfile) — Self-contained image with embedded quick-scan and full-scan plans for CI
+- [Configuration Management primer](docs/concepts/configuration-management/0000-primer-configuration-management.md) — Desired state, idempotency, drift, and config management fundamentals
 
 ---
 
@@ -71,6 +72,7 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 - **`terrascan/` / `opa/`** — IaC compliance and policy engine primers
 - **`dependabot/`** — Dependabot primer, notes, and dependency update configs
 - **`vault/`** — HashiCorp Vault primers and notes
+- **`git/`** — Git primers, notes, and version control reference
 - **`docs/`** — How-to guides, concepts, reference, runbooks, security docs, troubleshooting, setup guides
 - **`environments/`** — Terraform environment configs (dev / staging / prod)
 - **`lab/`** — Mini-projects and sandboxes
@@ -91,4 +93,4 @@ Active maintenance with weekly additions. Current focus areas: Kubernetes CVE re
 
 ---
 
-_Last updated: 2026-06-30_
+_Last updated: 2026-07-02_
