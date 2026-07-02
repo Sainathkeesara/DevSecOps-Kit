@@ -4,6 +4,16 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-02
+
+### Added
+- falco-004: `falco/scripts/tried-falco-k8s-deploy-alert-forwarding.sh` — Minimal Falco deployment with Kubernetes integration and alert forwarding (L2)
+    - Deploys Falco via Helm chart with JSON output enabled
+    - Configurable alert forwarding mode: stdout (default) or webhook via falcosidekick
+    - Generates test alerts using an Alpine container and checks Falco logs for detection
+    - First-person learner script with inline reasoning comments and gotchas documented
+    - shellcheck passed (clean)
+
 ## 2026-07-01
 
 ### Added
