@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-02
+
+### Added
+- falco-004: `falco/scripts/tried-falco-k8s-alert-forwarding.sh` — Minimal Falco deployment with Kubernetes integration and alert forwarding (L2)
+    - Deploys Falco via Helm with JSON output enabled
+    - Deploys Falcosidekick for webhook-based alert forwarding
+    - Got stuck on: missing jsonOutput=true, service DNS name for httpOutput.url, privileged container requirement
+    - shellcheck passed (clean)
+
 ## 2026-07-01
 
 ### Added
