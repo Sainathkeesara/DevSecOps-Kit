@@ -266,6 +266,7 @@
  - [Custom Falco rules for container drift detection](../falco/configs/container-drift-detection.yaml)
  - [Comparing syscall vs tracepoint rules for container monitoring](../falco/docs/syscall-vs-tracepoint-rules.md) — Syscall vs tracepoint rule sources, coverage, and performance tradeoffs
  - [Deploy custom Falco ruleset with Helm](../falco/scripts/deploy-falco-ruleset.sh)
+ - [Deploy Falco with alert forwarding via Falcosidekick](../falco/scripts/tried-falco-k8s-alert-forwarding.sh) — L2 bash script that deploys Falco with JSON output and forwards alerts to a webhook
  - [Go Falco event parser: suspicious file access detector](../falco/snippets/tried-file-access-detector.go) — L2 Go snippet that reads Falco JSON output and alerts on sensitive file access patterns
  - [Minimal Falco deployment with alert forwarding](../falco/scripts/tried-falco-k8s-deploy-alert-forwarding.sh) — L2 bash script: deploy Falco on Kubernetes, configure stdout or webhook alert forwarding, and test with a trigger alert
 
