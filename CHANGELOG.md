@@ -4,6 +4,17 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-03
+
+### Added
+- defectdojo-001: `defectdojo/notes/0000-primer-defectdojo.md` — DefectDojo quick primer covering vulnerability management workflow, products/engagements, and a Docker Compose startup example (L1)
+    - First-person plain-language primer: what DefectDojo is, what it does, why it exists
+    - Key terminology: Product, Engagement, Finding, Test, Deduplication, API Token, Jira Sync
+    - word count within 400-900 range
+- defectdojo-002: `defectdojo/snippets/install-defectdojo-first-scan-report.sh` — Minimal bash snippet to clone DefectDojo and start it locally (L1)
+    - 9-line Docker Compose startup with localhost URL and next-step pointer
+    - shellcheck passed (clean)
+
 ## 2026-07-02
 
 ### Added

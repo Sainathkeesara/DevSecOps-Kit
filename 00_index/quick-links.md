@@ -359,3 +359,7 @@
 - [Verify a signed image](../cosign/scripts/verify-signed-image.sh)
 - [Minimal sign and verify script](../cosign/scripts/minimal-sign-verify.sh) — Quick key pair workflow with Cosign
 
+## Manage security findings with DefectDojo
+- [DefectDojo primer](../defectdojo/notes/0000-primer-defectdojo.md) — What DefectDojo is, key terminology, and a local Docker Compose startup example (L1)
+- [Install DefectDojo and import first scan report](../defectdojo/snippets/install-defectdojo-first-scan-report.sh) — Clone repo, start stack, and point browser at localhost:8080
+
