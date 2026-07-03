@@ -256,7 +256,7 @@
 - [CI-integrated DAST Automation Framework plan](../zap/configs/ci-dast-automation-framework-plan.yaml) — Headless scanning pipeline for CI environments
 - [ZAP DAST pipeline with SARIF output and GitHub Code Scanning](../zap/scripts/zap-dast-sarif-code-scanning.sh) — Run DAST scan, convert alerts to SARIF, and upload to GitHub Code Scanning
 - [Custom ZAP Docker image with pre-configured Automation Framework plans](../zap/dockerfiles/custom-zap-automation.Dockerfile) — Self-contained image with embedded quick-scan and full-scan plans
-- [OWASP ZAP DAST integration scaffold (template)](../zap/templates/zap-dast-integration/) — GitHub Actions workflow + Automation Framework plan scaffold for CI DAST scanning
+- [OWASP ZAP DAST integration scaffold (template)](../zap/templates/zap-dast-integration/) — GitHub Actions workflow + Automation Framework plan for CI-integrated DAST scanning
 
 ## Runtime security with Falco
  - [Falco primer](../falco/notes/0000-primer-falco.md)

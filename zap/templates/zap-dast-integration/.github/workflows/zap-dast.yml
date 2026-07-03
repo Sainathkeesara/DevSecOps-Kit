@@ -2,48 +2,72 @@ name: ZAP DAST Scan
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ main ]
-  workflow_dispatch:
-    inputs:
-      target_url:
-        description: "Target URL to scan"
-        required: true
-        type: string
+    branches: [ main, master ]
+  schedule:
+    - cron: "0 2 * * 1"  # Weekly Monday 02:00 UTC
+
+permissions:
+  contents: read
+  security-events: write
 
 jobs:
-  zap-dast:
+  dast-scan:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      security-events: write
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run ZAP Automation Framework scan
+      - name: Set target URL
+        id: target
         run: |
-          mkdir -p zap-report
-          docker run --rm \
-            -v "${{ github.workspace }}:/zap/wrk/:rw" \
+          if [[ -n "${{ vars.TARGET_URL }}" ]]; then
+            echo "url=${{ vars.TARGET_URL }}" >> $GITHUB_OUTPUT
+          else
+            echo "url=http://localhost:8080" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run ZAP quick scan
+        run: |
+          mkdir -p zap-results
+          docker run --rm -v "${{ github.workspace }}:/zap/wrk/:rw" \
             ghcr.io/zaproxy/zaproxy:stable \
             zap.sh -cmd -autorun /zap/wrk/zap-automation-plan.yaml \
-            -job TARGET_URL "${{ github.event.inputs.target_url || vars.TARGET_URL }}" \
-            -job REPORT_DIR "/zap/wrk/zap-report"
-        env:
-          TARGET_URL: ${{ github.event.inputs.target_url || vars.TARGET_URL }}
+            -job TARGET_URL "${{ steps.target.outputs.url }}" \
+            -job REPORT_DIR "/zap/wrk/zap-results"
 
-      - name: Upload ZAP report
+      - name: Convert ZAP JSON to SARIF
+        run: |
+          REPORT=$(ls -t zap-results/*.json 2>/dev/null | head -1)
+          if [[ -n "$REPORT" ]]; then
+            echo "Converting $REPORT to SARIF..."
+            jq -s '
+              {
+                version: "2.1.0",
+                runs: [{
+                  tool: { driver: { name: "OWASP ZAP", informationUri: "https://www.zaproxy.org" } },
+                  results: [.[] | .alerts[]? // .[]? | {
+                    ruleId: .pluginId // "unknown",
+                    message: { text: .name // "Alert" },
+                    level: (if .risk == "High" then "error" elif .risk == "Medium" then "warning" elif .risk == "Low" then "note" else "none" end),
+                    locations: [{ physicalLocation: { artifactLocation: { uri: .url // .attack // "unknown" } } }]
+                  }]
+                }]
+              }
+            ' "$REPORT" > zap-results/zap-results.sarif
+          fi
+
+      - name: Upload ZAP report artifact
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: zap-report
-          path: zap-report/
+          path: zap-results/
+          retention-days: 30
 
       - name: Upload SARIF to Code Scanning
         uses: github/codeql-action/upload-sarif@v3
         if: always()
         with:
-          sarif_file: zap-report/zap-results.sarif
+          sarif_file: zap-results/zap-results.sarif

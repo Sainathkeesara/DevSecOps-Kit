@@ -1,0 +1,16 @@
+# ZAP results
+zap-results/
+reports/
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Editors
+.vscode/
+.idea/
