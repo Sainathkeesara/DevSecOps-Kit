@@ -4,6 +4,17 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-03
+
+### Added
+- defectdojo-001: `defectdojo/notes/0000-primer-defectdojo.md` — DefectDojo quick primer covering vulnerability management workflow, products/engagements, and a Docker Compose startup example (L1)
+    - First-person plain-language primer: what DefectDojo is, what it does, why it exists
+    - Key terminology: Product, Engagement, Finding, Test, Deduplication, API Token, Jira Sync
+    - word count within 400-900 range
+- defectdojo-002: `defectdojo/snippets/install-defectdojo-first-scan-report.sh` — Minimal bash snippet to clone DefectDojo and start it locally (L1)
+    - 9-line Docker Compose startup with localhost URL and next-step pointer
+    - shellcheck passed (clean)
+
 ## 2026-07-02
 
 ### Added
@@ -59,9 +70,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     - Two embedded plans: `quick-scan.yaml` (spider + passive) and `full-scan.yaml` (spider + AJAX + active)
     - Pre-configured for CI-driven DAST scanning pipelines
 - zap-013: `zap/templates/zap-dast-integration/` — OWASP ZAP DAST integration scaffold: GitHub Actions + Automation Framework (L4)
-    - GitHub Actions workflow that runs ZAP in Docker using the Automation Framework
-    - Includes `zap-automation-plan.yaml` with spider, AJAX spider, passive scan config, active scan, and JSON report jobs
-    - SARIF upload to GitHub Code Scanning via `github/codeql-action/upload-sarif@v3`
+    - Complete project scaffold with `plans/` (quick and full scan), `scripts/run-zap-dast.sh`, `Makefile`, `.gitignore`
+    - GitHub Actions workflow with automated JSON-to-SARIF conversion for Code Scanning integration
+    - Purpose → When to use → Prerequisites → Steps → Verify → Common errors structure for team adoption
 - vault-007: `vault/configs/multi-environment-access-control.hcl` — Vault policy as code for multi-environment access control (L3)
    - Path-based access control scoped to dev, staging, and prod environments
    - CI/CD scoped policies using identity entity interpolation for dynamic paths

@@ -1,0 +1,28 @@
+# Quick scan plan: spider + passive scan
+# Runs fast (~2 min) and catches low-hanging fruit
+env:
+  contexts:
+    - name: zap-target
+      urls:
+        - "{{TARGET_URL}}"
+      includePaths:
+        - ".*"
+      excludePaths:
+        - ".*\\.(css|js|png|jpg|jpeg|gif|ico|svg|woff2?|ttf|eot)(\\?.*)?$"
+
+jobs:
+  - type: spider
+    parameters:
+      context: zap-target
+      maxDuration: 2
+
+  - type: passiveScan-config
+    parameters:
+      maxAlertsPerRule: 10
+
+  - type: report
+    parameters:
+      template: traditional-json-plus
+      reportDir: "{{REPORT_DIR}}"
+      reportFileName: "zap-quick-report-{{DATE:yyyyMMdd-HHmmss}}.json"
+      reportTitle: "Quick DAST Scan"
