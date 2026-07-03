@@ -18,8 +18,6 @@
 - [Linux & Shell Fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) — What Linux and the shell are, why they matter, and core terminology (L1)
 - [Observability & Monitoring](../docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md) — Metrics, logs, traces, SLOs, and telemetry fundamentals (L1)
 - [Secrets & Access Management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md) — Controlling access and handling credentials securely (L1)
-- [Configuration Management](../docs/concepts/configuration-management/0000-primer-configuration-management.md) — Keeping systems in a known, consistent state with code (L1)
-- [Observability & Monitoring](../docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md) — Metrics, logs, traces, and understanding system behavior (L1)
 
 ## Learn Git
 - [Git primer](../git/notes/0000-primer-git.md) — What Git is, key commands, and first repository

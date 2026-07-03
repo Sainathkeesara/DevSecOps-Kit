@@ -180,6 +180,22 @@
 
 **Automation Framework (ZAP)** — ZAP's structured, scriptable scanning workflow engine that defines contexts, users, and scan sequences for repeatable DAST pipelines in CI environments.
 
+**Idempotency**: A property of configuration management operations where running the same operation multiple times produces the same result as running it once — subsequent runs only make changes if the current state differs from the desired state.
+
+**Desired state**: The target configuration declared in a configuration management tool (e.g., "nginx 1.24 on port 80"). The tool converges the actual system toward this state.
+
+**Drift (configuration management)**: When a system's actual configuration differs from the desired state defined in code, often caused by manual changes or failed automation runs.
+
+**Push model (configuration management)**: A central server pushes configuration to target nodes on demand, typically via SSH (e.g., Ansible).
+
+**Pull model (configuration management)**: Nodes fetch their configuration from a central source on a schedule, typically using an agent (e.g., Puppet, Chef).
+
+**SLI (Service Level Indicator)**: A specific metric that measures an aspect of service quality, such as the proportion of requests completed under 500ms.
+
+**SLO (Service Level Objective)**: A target value for an SLI, such as "99.9% of requests complete in under 500ms per month."
+
+**SLA (Service Level Agreement)**: A contractual commitment based on SLOs, often with financial penalties for breaches.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment
