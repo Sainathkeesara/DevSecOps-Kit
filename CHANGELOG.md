@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-04
+
+### Added
+- ansible-001: `ansible/scripts/bootstrap-target-node.sh` — Bootstrap script for target node preparation referenced in linux-iac-pipeline-workflows.md (L1)
+    - Prepares Linux nodes for Ansible automation with Python 3 and required packages
+    - Creates passwordless sudo entry for automation user
+
 ## 2026-07-03
 
 ### Added

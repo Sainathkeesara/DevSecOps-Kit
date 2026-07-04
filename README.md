@@ -70,7 +70,9 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 - **`checkov/` / `semgrep/` / `trivy/` / `trufflehog/` / `syft/`** — Security scanner notes, scripts, configs
 - **`grype/` / `codeql/` / `zap/` / `snyk/` / `gitguardian/` / `falco/` / `cosign/` / `tetragon/`** — Vulnerability scanner and runtime security tool content
 - **`terrascan/` / `opa/`** — IaC compliance and policy engine primers
-- **`dependabot/`** — Dependabot primer, notes, and dependency update configs
+ - **`ansible/`** — Ansible bootstrap scripts for target node preparation
+ - **`dependabot/`** — Dependabot primer, notes, and dependency update configs
+- **`defectdojo/`** — DefectDojo vulnerability management and AppSec findings aggregation
 - **`vault/`** — HashiCorp Vault primers and notes
 - **`git/`** — Git primers, notes, and version control reference
 - **`docs/`** — How-to guides, concepts, reference, runbooks, security docs, troubleshooting, setup guides

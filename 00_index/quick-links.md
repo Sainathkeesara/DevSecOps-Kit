@@ -333,6 +333,9 @@
 - [ACL management](../scripts/bash/kafka_toolkit/acl/manage-acls.sh)
 - [Kafka cheatsheet](../snippets/kafka-cheatsheet.md)
 
+## Work with Ansible
+- [Bootstrap target node for Ansible](../ansible/scripts/bootstrap-target-node.sh) — L1 bash script that prepares Linux nodes with Python and required packages for Ansible automation
+
 ## Work with container registries
 - [OCI registry toolkit usage guide](../docs/how-to/oci_registry_toolkit.md)
 - [List repos](../scripts/bash/oci_registry_toolkit/registry/list-repos.sh)
