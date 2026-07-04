@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-04
+
+### Added
+- zap-013: `zap/templates/dast-github-actions-scaffold/` — OWASP ZAP DAST integration scaffold: GitHub Actions + Automation Framework (L4)
+    - GitHub Actions workflow triggering on pull requests and pushes with scheduled weekly scan option
+    - Automation Framework plans for quick (spider + passive) and full (spider + AJAX + active) scans
+    - Local runner script with real error handling and configurable plan/target/output arguments
+    - Purpose → When to use → Prerequisites → Steps → Verify reference structure in README
+
 ## 2026-07-03
 
 ### Added

@@ -1,0 +1,28 @@
+name: DAST Scan
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+  schedule:
+    - cron: "0 6 * * 1"
+
+jobs:
+  dast-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run quick DAST scan
+        run: |
+          chmod +x scripts/run-dast-scan.sh
+          ./scripts/run-dast-scan.sh "${{ vars.TARGET_URL || 'http://localhost:8080' }}" reports plans/quick-scan.yaml
+
+      - name: Upload scan report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dast-report
+          path: reports/
+          retention-days: 30

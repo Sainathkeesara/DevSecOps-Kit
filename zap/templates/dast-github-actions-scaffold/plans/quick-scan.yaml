@@ -1,0 +1,30 @@
+# Quick scan: spider + passive scan
+# Catches missing security headers, information disclosure, and exposed
+# endpoints without modifying the target.
+env:
+  contexts:
+    - name: quick-target
+      urls:
+        - "{{TARGET_URL}}"
+      includePaths:
+        - ".*"
+      excludePaths:
+        - ".*\\.(css|js|png|jpg|jpeg|gif|ico|svg|woff2?|ttf|eot)(\\?.*)?$"
+jobs:
+  - type: spider
+    parameters:
+      context: quick-target
+      maxDuration: 2
+      subtreeOnly: false
+
+  - type: passiveScan
+    parameters:
+      maxAlertsPerRule: 10
+
+  - type: report
+    parameters:
+      format: json
+      reportDir: /zap/reports
+      reportFileName: "zap-quick-report-{{DATE:yyyyMMdd-HHmmss}}.json"
+      reportTitle: "Quick DAST Scan — {{TARGET_URL}}"
+      display: false
