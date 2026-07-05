@@ -1,0 +1,99 @@
+# last_verified: 2026-07-05 · grype n/a
+
+name: Grype container vulnerability scan (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      image:
+        description: Container image to scan (e.g. "app:latest" or "registry.example.com/app:v1.2")
+        type: string
+        required: true
+      fail-on-severity:
+        description: Severity threshold that fails the workflow (critical, high, medium, low, negligible)
+        type: string
+        required: false
+        default: high
+      only-fixed:
+        description: Only report vulnerabilities that have a known fix
+        type: boolean
+        required: false
+        default: true
+      grype-version:
+        description: Specific Grype version to install (e.g. v0.79.0). Defaults to latest.
+        type: string
+        required: false
+        default: ""
+    outputs:
+      vulnerability-count:
+        description: Total vulnerabilities found at or above the configured severity
+        value: ${{ jobs.grype-scan.outputs.vulnerability-count }}
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  grype-scan:
+    runs-on: ubuntu-latest
+    outputs:
+      vulnerability-count: ${{ steps.count.outputs.count }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Grype
+        run: |
+          if [ -n "${{ inputs.grype-version }}" ]; then
+            curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh |
+              sh -s -- -b /usr/local/bin "${{ inputs.grype-version }}"
+          else
+            curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh |
+              sh -s -- -b /usr/local/bin
+          fi
+          grype version
+
+      - name: Scan image with Grype
+        id: scan
+        continue-on-error: true
+        run: |
+          ONLY_FIXED=""
+          if [ "${{ inputs.only-fixed }}" == "true" ]; then
+            ONLY_FIXED="--only-fixed"
+          fi
+          grype "${{ inputs.image }}" \
+            --output sarif \
+            --fail-on "${{ inputs.fail-on-severity }}" \
+            $ONLY_FIXED \
+            > grype-results.sarif
+
+      - name: Count vulnerabilities
+        id: count
+        run: |
+          if [ -f grype-results.sarif ]; then
+            COUNT=$(jq '.runs[0].results | length' grype-results.sarif)
+          else
+            COUNT=0
+          fi
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "Vulnerabilities found: $COUNT"
+
+      - name: Upload SARIF to GitHub Code Scanning
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: grype-results.sarif
+          category: grype
+
+      - name: Upload SARIF artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: grype-sarif-results
+          path: grype-results.sarif
+          if-no-files-found: ignore
+
+      - name: Fail on vulnerabilities above threshold
+        if: steps.scan.outcome == 'failure'
+        run: |
+          echo "::error::Grype found vulnerabilities at or above ${{ inputs.fail-on-severity }} severity"
+          exit 1
