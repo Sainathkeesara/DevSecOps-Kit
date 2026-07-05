@@ -1,3 +1,5 @@
+# last_verified: 2026-07-05 · zap stable
+# Purpose: GitHub Actions workflow for ZAP DAST scanning with Automation Framework
 name: ZAP DAST Scan
 
 on:
@@ -6,7 +8,11 @@ on:
   push:
     branches: [main, master]
   schedule:
-    - cron: "0 6 * * 1"  # Weekly Monday 06:00 UTC
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+  security-events: write
 
 jobs:
   dast-scan:
@@ -14,11 +20,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set target URL
+        id: target
+        run: |
+          if [[ -n "${{ vars.ZAP_TARGET_URL }}" ]]; then
+            echo "url=${{ vars.ZAP_TARGET_URL }}" >> $GITHUB_OUTPUT
+          else
+            echo "url=http://localhost:8080" >> $GITHUB_OUTPUT
+          fi
+
       - name: Run ZAP DAST scan
         run: |
-          chmod +x scripts/run-zap-dast.sh
-          ./scripts/run-zap-dast.sh "${{ vars.ZAP_TARGET_URL || 'http://localhost:8080' }}" \
-            reports
+          mkdir -p reports
+          docker run --rm -v "${{ github.workspace }}:/zap/wrk/:rw" \
+            ghcr.io/zaproxy/zaproxy:stable \
+            zap.sh -cmd -autorun /zap/wrk/zap-automation-plan.yaml \
+            -job TARGET_URL "${{ steps.target.outputs.url }}" \
+            -job REPORT_DIR "/zap/wrk/reports"
 
       - name: Upload report artifact
         if: always()

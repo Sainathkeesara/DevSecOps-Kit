@@ -69,10 +69,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     - Self-contained build (no external plan files needed) — plans created inline
     - Two embedded plans: `quick-scan.yaml` (spider + passive) and `full-scan.yaml` (spider + AJAX + active)
     - Pre-configured for CI-driven DAST scanning pipelines
-- zap-013: `zap/templates/zap-dast-integration/` — OWASP ZAP DAST integration scaffold: GitHub Actions + Automation Framework (L4)
-    - Complete project scaffold with `plans/` (quick and full scan), `scripts/run-zap-dast.sh`, `Makefile`, `.gitignore`
-    - GitHub Actions workflow with automated JSON-to-SARIF conversion for Code Scanning integration
-    - Purpose → When to use → Prerequisites → Steps → Verify → Common errors structure for team adoption
+- zap-013: `zap/templates/zap-dast-integration-scaffold/` — OWASP ZAP DAST integration scaffold: GitHub Actions + Automation Framework (L4)
+    - Scaffold (starter template) with root-level `zap-automation-plan.yaml` as primary Automation Framework entrypoint
+    - GitHub Actions workflow runs the plan directly via `zap.sh -cmd -autorun` with `-job` variables for TARGET_URL and REPORT_DIR
+    - `plans/` (quick and full), `scripts/run-zap-dast.sh`, `Makefile` (`make plan-scan`, `make quick-scan`, `make full-scan`), `.gitignore`
 - vault-007: `vault/configs/multi-environment-access-control.hcl` — Vault policy as code for multi-environment access control (L3)
    - Path-based access control scoped to dev, staging, and prod environments
    - CI/CD scoped policies using identity entity interpolation for dynamic paths
