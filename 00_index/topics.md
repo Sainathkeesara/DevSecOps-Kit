@@ -570,13 +570,6 @@
 - [template] zap/templates/zap-dast-integration/.github/workflows/zap-dast.yml — DAST CI workflow
 - [template] zap/templates/zap-dast-integration/README.md — DAST integration scaffold readme
 - [template] zap/templates/zap-dast-integration/zap-automation-plan.yaml — DAST automation plan
-- [template] zap/templates/zap-dast-integration-scaffold/.github/workflows/zap-dast.yml — DAST scaffold CI workflow
-- [template] zap/templates/zap-dast-integration-scaffold/.gitignore — DAST scaffold gitignore
-- [template] zap/templates/zap-dast-integration-scaffold/Makefile — DAST scaffold Makefile
-- [template] zap/templates/zap-dast-integration-scaffold/README.md — DAST scaffold readme
-- [template] zap/templates/zap-dast-integration-scaffold/plans/full-scan.yaml — DAST full scan plan
-- [template] zap/templates/zap-dast-integration-scaffold/plans/quick-scan.yaml — DAST quick scan plan
-- [template] zap/templates/zap-dast-integration-scaffold/scripts/run-zap-dast.sh — DAST scaffold entrypoint
 
 ## TruffleHog
 - [note] trufflehog/notes/0000-primer-trufflehog.md — First-day primer on TruffleHog
