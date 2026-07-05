@@ -1,13 +1,15 @@
 # DevSecOps-Kit
 > A working engineer's devops and devsecops reference — scripts, notes, snippets, and templates for vulnerability scanning, secret detection, supply chain security, runtime security, CI/CD, and infrastructure automation.
 
-[![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Files](https://img.shields.io/badge/files-688-blue)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Shell](https://img.shields.io/badge/Shell-234-4EAA25?logo=gnubash&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Markdown](https://img.shields.io/badge/Markdown-282-000000?logo=markdown&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
-[![Terraform](https://img.shields.io/badge/Terraform-40-7B42BC?logo=terraform&logoColor=white)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+| Last commit | Repo size | Languages |
+|-------------|-----------|-----------|
+| [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) | [![Repo size](https://img.shields.io/github/repo-size/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) | [![Top language](https://img.shields.io/github/languages/top/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Language count](https://img.shields.io/github/languages/count/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) |
 
 ---
+
+## Who this is for
+
+A working DevSecOps engineer's quick-reference for Trivy, Semgrep, Checkov, Grype, TruffleHog, Syft, Cosign, OPA, Falco, and HashiCorp Vault. Use it as a shelf you grab from, not a tutorial site. It deliberately does not try to replace each tool's official docs.
 
 ## What's in here
 
@@ -17,50 +19,13 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 ---
 
-## Coverage
-
-| Tool | Notes | Scripts | Configs | Snippets | Docs | Manifests | Templates | Notebooks | Dockerfiles | More |
-|------|------:|--------:|--------:|---------:|-----:|----------:|----------:|----------:|------------:|------|
-| Trivy | 3 | 5 | 2 | 1 | 3 | 2 | 6 | 2 | 1 | — |
-| Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — |
-| Checkov | 4 | 2 | 2 | 4 | 3 | 2 | 10 | 1 | — | policies:1 |
-| TruffleHog | 3 | 3 | 2 | 2 | 2 | 1 | 19 | 2 | 1 | — |
-| Syft | 4 | 3 | 1 | 1 | 2 | — | 7 | 1 | 1 | — |
-| Grype | 4 | 5 | 1 | 2 | 1 | — | — | 1 | 1 | — |
-| CodeQL | 3 | 1 | 1 | 3 | 1 | 1 | — | — | — | — |
-| ZAP | 4 | 3 | 2 | 3 | 2 | — | 10 | — | 1 | — |
-| Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | — | — |
-| GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — | — |
-| Falco | 3 | 3 | 3 | 1 | 2 | — | — | — | — | — |
-| Cosign | 4 | 2 | 1 | 1 | — | — | — | — | — | — |
-| OPA | 3 | 1 | 1 | 3 | 1 | — | — | — | — | — |
-| Terrascan | 4 | 1 | 1 | 2 | — | — | — | — | — | — |
-| Dependabot | 3 | — | 1 | — | — | — | — | — | — | — |
-| Tetragon | 2 | — | 1 | — | — | — | — | — | — | — |
-| Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | — | plus scripts:4 |
-| Linux | — | 51 | — | 2 | 40 | — | 14 | — | — | runbooks:1 |
-| Kubernetes | — | 17 | — | 1 | 11 | — | 3 | — | — | — |
-| Kafka | — | 17 | — | 2 | 3 | — | — | — | — | — |
-| Terraform | — | 16 | — | 1 | 27 | — | 12 | — | — | envs:12, tf:5, modules:9 |
-| Jenkins | — | 5 | — | 4 | 14 | — | 1 | — | — | — |
-| Ansible | — | 11 | — | 1 | 17 | — | — | — | — | playbooks:4 |
-| Observability | — | 14 | — | 1 | 7 | — | — | — | — | — |
-| OCI / Registries | — | 11 | — | 1 | 7 | — | — | — | — | — |
-| Docker | — | 4 | — | 1 | 2 | — | — | — | — | security:2 |
-| Helm | — | 3 | — | — | 3 | — | — | — | — | — |
-| CI/CD | — | 18 | — | 1 | 10 | — | — | — | — | security:1 |
-| Git | — | 8 | — | 1 | 25 | — | — | — | — | — |
-| Lab | — | — | — | — | 3 | — | — | — | — | tf:7 |
-
----
-
 ## Quick links
 
-- [ZAP DAST integration scaffold](zap/templates/zap-dast-integration/) — GitHub Actions workflow + Automation Framework plan scaffold for CI DAST scanning
-- [Trivy monorepo scanner scaffold](trivy/templates/trivy-monorepo-scanner/) — Targeted scanning configuration with ignore rules and SARIF output
-- [TruffleHog scan modes comparison notebook](trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb) — Git history vs filesystem vs GitHub API scanning comparison
-- [Checkov reusable workflow for custom policies](checkov/templates/reusable-workflow-custom-policies/) — Reusable GitHub Actions workflow for Checkov with custom policies
-- [Configuration Management primer](docs/concepts/configuration-management/0000-primer-configuration-management.md) — Desired state, idempotency, drift, and config management fundamentals
+- [zap-automation-plan.yaml](zap/templates/zap-dast-integration-scaffold/zap-automation-plan.yaml) — Headless DAST scanning configuration for CI
+- [DefectDojo primer](defectdojo/notes/0000-primer-defectdojo.md) — What DefectDojo is, key terminology, and local Docker Compose startup
+- [Install DefectDojo and import first scan report](defectdojo/snippets/install-defectdojo-first-scan-report.sh) — Clone repo, start stack, and point browser at localhost:8080
+- [ZAP DAST full scan plan](zap/templates/zap-dast-integration/plans/full-scan.yaml) — Full scan plan for CI-integrated DAST with ZAP Automation Framework
+- [ZAP DAST quick scan plan](zap/templates/zap-dast-integration/plans/quick-scan.yaml) — Quick scan plan for CI-integrated DAST with ZAP Automation Framework
 
 ---
 
@@ -71,6 +36,7 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 - **`grype/` / `codeql/` / `zap/` / `snyk/` / `gitguardian/` / `falco/` / `cosign/` / `tetragon/`** — Vulnerability scanner and runtime security tool content
 - **`terrascan/` / `opa/`** — IaC compliance and policy engine primers
 - **`dependabot/`** — Dependabot primer, notes, and dependency update configs
+- **`defectdojo/`** — DefectDojo vulnerability management platform notes, scripts, configs, and snippets
 - **`vault/`** — HashiCorp Vault primers and notes
 - **`git/`** — Git primers, notes, and version control reference
 - **`docs/`** — How-to guides, concepts, reference, runbooks, security docs, troubleshooting, setup guides
@@ -87,10 +53,44 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 ---
 
-## Status
+## Coverage
 
-Active maintenance with weekly additions. Current focus areas: Kubernetes CVE remediation, ZAP DAST automation framework, Grype SARIF output integration, Vault policy-as-code, and OPA admission control wiring.
+| Tool | Notes | Scripts | Configs | Snippets | Docs | Manifests | Templates | Notebooks | Dockerfiles |
+|------|------:|--------:|--------:|---------:|-----:|----------:|----------:|----------:|------------:|
+| Trivy | 3 | 5 | 2 | 1 | 3 | 2 | 6 | 2 | 1 |
+| Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 |
+| Checkov | 4 | 2 | 2 | 4 | 3 | 2 | 10 | 1 | — |
+| TruffleHog | 3 | 3 | 2 | 2 | 2 | 1 | 19 | 2 | 1 |
+| Syft | 4 | 3 | 1 | 1 | 2 | — | 7 | 1 | 1 |
+| Grype | 4 | 5 | 1 | 2 | 1 | — | — | 1 | 1 |
+| CodeQL | 3 | 1 | 1 | 3 | 1 | 1 | — | — | — |
+| ZAP | 4 | 2 | 2 | 3 | 2 | — | 16 | — | 1 |
+| Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | — |
+| GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — |
+| Falco | 3 | 3 | 3 | 1 | 2 | — | — | — | — |
+| Cosign | 4 | 2 | 1 | 1 | — | — | — | — | — |
+| OPA | 3 | 1 | 1 | 3 | 1 | — | — | — | — |
+| Terrascan | 4 | 1 | 1 | 2 | — | — | — | — | — |
+| Dependabot | 3 | — | 1 | — | — | — | — | — | — |
+| Tetragon | 2 | — | 1 | — | — | — | — | — | — |
+| Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | — |
+| Git | 1 | 8 | — | 1 | 25 | — | — | — | — |
+| Docker | — | 4 | — | 1 | 2 | — | — | — | — |
+| Kubernetes | — | 17 | — | 1 | 11 | — | 3 | — | — |
+| Terraform | — | 16 | — | 1 | 27 | — | 12 | — | — |
+| Helm | — | 3 | — | — | 3 | — | — | — | — |
+| Ansible | — | 11 | — | 1 | 17 | — | — | — | — |
+| Observability | — | 14 | — | 1 | 7 | — | — | — | — |
+| OCI Registries | — | 11 | — | 1 | 7 | — | — | — | — |
+| Jenkins | — | 5 | — | 4 | 14 | — | 1 | — | — |
+| DefectDojo | 1 | 1 | — | — | — | — | — | — | — |
 
 ---
 
-_Last updated: 2026-07-02_
+## Status
+
+Active maintenance with weekly additions. Current focus areas: Kubernetes CVE remediation, ZAP Automation Framework, Grype SARIF output integration, Vault policy-as-code, and OPA admission control wiring.
+
+---
+
+_Last updated: 2026-07-05_

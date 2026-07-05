@@ -1,3 +1,9 @@
+---
+last_verified: 2026-07-05
+tool_version: stable
+sources: []
+---
+
 # ZAP DAST Integration Scaffold
 
 A project scaffold for running OWASP ZAP Dynamic Application Security Testing

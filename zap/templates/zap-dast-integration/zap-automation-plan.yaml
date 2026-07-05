@@ -1,7 +1,7 @@
-# ZAP Automation Framework plan — CI DAST scaffold
+# last_verified: 2026-07-05 · zap stable
+# Purpose: ZAP Automation Framework plan for CI-integrated DAST scanning
 # Runs spider crawl, passive scan, AJAX spider, active scan, and exports JSON/SARIF.
-# Intended for headless CI execution via:
-#   zap.sh -cmd -autorun zap-automation-plan.yaml
+# Intended for headless CI execution via: zap.sh -cmd -autorun zap-automation-plan.yaml
 ---
 env:
   contexts:

@@ -1,736 +1,191 @@
 # Topics
 
-## Kubernetes
-- [script] scripts/bash/k8s_toolkit/context/context-manager.sh — Multi-cluster context switching
-- [script] scripts/bash/k8s_toolkit/debug/debug-pod.sh — Interactive pod debugging session
-- [script] scripts/bash/k8s_toolkit/job/cleanup-jobs.sh — Clean up completed or failed jobs
-- [script] scripts/bash/k8s_toolkit/node/drain-node.sh — Safely drain a node before maintenance
-- [script] scripts/bash/k8s_toolkit/pod/exec-pod.sh — Execute commands in running pods
-- [script] scripts/bash/k8s_toolkit/pod/pod-logs.sh — Stream and tail pod logs
-- [script] scripts/bash/k8s_toolkit/pod/restart-pod.sh — Restart pods with graceful termination
-- [script] scripts/bash/k8s_toolkit/report/namespace-report.sh — Generate namespace resource reports
-- [script] scripts/bash/k8s_toolkit/rollout-restart.sh — Restart deployments with watch
-- [script] scripts/bash/k8s_toolkit/rollout-status.sh — Monitor deployment rollout status
-- [script] scripts/bash/k8s_toolkit/secret/decode-secret.sh — Decode base64 Kubernetes secrets
-- [script] scripts/bash/k8s_toolkit/security/cve-2026-3288-nginx.sh — ingress-nginx RCE vulnerability scanner
-- [script] scripts/bash/k8s_toolkit/security/k8s-acm-cve-2026-4740.sh — Kubernetes ACM privilege escalation scanner
-- [script] scripts/bash/k8s_toolkit/security/k8s-cluster-autoscaler-grpc-hardening.sh — cluster-autoscaler gRPC hardening
-- [script] scripts/bash/k8s_toolkit/security/k8s-eso-cve-2026-34984-hardening.sh — External Secrets Operator hardening
-- [script] scripts/bash/k8s_toolkit/security/k8s-ingress-nginx-cve-2026-4342-hardening.sh — ingress-nginx config injection hardening
-- [script] scripts/bash/k8s_toolkit/security/mcp-server-kubernetes-hardening.sh — mcp-server-kubernetes CVE hardening
-- [doc] docs/how-to/k8s_toolkit.md — Complete usage guide for all k8s scripts
-- [doc] docs/how-to/k8s_rbac.md — Role, ClusterRole, RoleBinding guide
-- [doc] docs/how-to/k8s-aks-cve-2026-33105.md — AKS privilege escalation remediation
-- [doc] docs/how-to/k8s-argocd-vault-gitops.md — GitOps with ArgoCD and Vault
-- [doc] docs/how-to/k8s-external-secrets-cve-2026-34984.md — External Secrets Operator remediation
-- [doc] docs/how-to/k8s-ingress-nginx-cve-2026-4342.md — ingress-nginx RCE vulnerability remediation
-- [doc] docs/how-to/k8s-jenkins-vault-cicd-security.md — CI/CD with Jenkins and Vault
-- [doc] docs/how-to/k8s-terraform-ansible-provisioning.md — K8s provisioning with Terraform + Ansible
-- [doc] docs/setup-guides/eks-cluster-setup.md — EKS cluster setup guide
-- [doc] docs/troubleshooting/k8s-crashloopbackoff.md — CrashLoopBackOff diagnosis and fix
-- [doc] docs/troubleshooting/k8s-cluster-autoscaler-cve-2026-33186.md — cluster-autoscaler CVE hardening
-- [doc] docs/troubleshooting/kubernetes-mcp-server-cve-2026-39884.md — MCP server CVE remediation
-- [snippet] snippets/kubectl-cheatsheet.md — Quick kubectl reference
-- [template] templates/k8s/deploy-prod-app.sh — Production deployment generator
-- [template] templates/k8s/deployment-monitor.sh — Deployment monitoring script
-- [template] templates/k8s/production-deployment.yaml — Deployment with HPA and PDB
+> A map of what's here. For a beginner-to-advanced reading order, see [learning-path.md](learning-path.md).
 
-## Kafka
-- [script] scripts/bash/kafka_toolkit/acl/manage-acls.sh — Manage Kafka ACLs
-- [script] scripts/bash/kafka_toolkit/admin/broker-health.sh — Individual broker health check
-- [script] scripts/bash/kafka_toolkit/admin/cluster-health.sh — Cluster health overview
-- [script] scripts/bash/kafka_toolkit/consumers/check-lag.sh — Check consumer lag with thresholds
-- [script] scripts/bash/kafka_toolkit/consumers/consumer-groups.sh — List consumer groups
-- [script] scripts/bash/kafka_toolkit/messaging/consume-message.sh — Consume messages from topic
-- [script] scripts/bash/kafka_toolkit/messaging/produce-message.sh — Produce messages to topic
-- [script] scripts/bash/kafka_toolkit/monitoring/consumer-lag.sh — Monitor consumer lag
-- [script] scripts/bash/kafka_toolkit/monitoring/throughput-check.sh — Measure topic throughput
-- [script] scripts/bash/kafka_toolkit/partitions/partition-mgmt.sh — Partition management
-- [script] scripts/bash/kafka_toolkit/partitions/partition-reassign.sh — Partition reassignment
-- [script] scripts/bash/kafka_toolkit/security/cve-2025-27817.sh — Kafka Client SSRF scanner
-- [script] scripts/bash/kafka_toolkit/security/cve-2025-27818.sh — Kafka Connect SASL JAAS RCE scanner
-- [script] scripts/bash/kafka_toolkit/topics/topic-config.sh — View/modify topic config
-- [script] scripts/bash/kafka_toolkit/topics/topic-create.sh — Create new topics
-- [script] scripts/bash/kafka_toolkit/topics/topic-delete.sh — Delete topics
-- [script] scripts/bash/kafka_toolkit/topics/topic-list.sh — List Kafka topics
-- [doc] docs/how-to/kafka_toolkit.md — Complete usage guide
-- [doc] docs/setup-guides/kafka-cluster-setup.md — Local Kafka cluster setup
-- [doc] docs/troubleshooting/kafka-consumer-lag.md — Consumer lag troubleshooting
-- [snippet] snippets/kafka-cheatsheet.md — Kafka commands reference
-- [snippet] snippets/kafka-topics-commands.md — Kafka topics CLI one-liners
+## Trivy · 25 files
+- **primer:** [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md)
+- **notes** (3): [trivy-quickstart-trip-ups.md](../trivy/notes/2026-05-26-trivy-quickstart.md), [scan-modes-comparison.ipynb](../trivy/notebooks/trivy-scan-mode-comparison.ipynb), [sarif-output-processing.ipynb](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
+- **scripts** (5): [container-vuln-scan.sh](../trivy/scripts/container-vuln-scan.sh), [image-vuln-pipeline.sh](../trivy/scripts/image-vuln-pipeline.sh), [multi-target-scanner.sh](../trivy/scripts/multi-target-scanner.sh), [compose-multi-scan.sh](../trivy/scripts/compose-multi-scan.sh), [custom-trivy-check-conftest.sh](../trivy/scripts/custom-trivy-check-conftest.sh)
+- **configs** (2): [.trivy.yaml](../trivy/configs/.trivy.yaml), [trivy-scan-config.yaml](../trivy/configs/trivy-scan-config.yaml)
+- **snippets** (1): [scan-docker-image.sh](../trivy/snippets/scan-docker-image.sh)
+- **docs** (3): [ci-pipeline-sarif-output.md](../trivy/docs/ci-pipeline-sarif-output.md), [ci-cd-pipeline-recipes.md](../trivy/docs/ci-cd-pipeline-recipes.md), [sbom-scanning-reference-guide.md](../trivy/docs/sbom-scanning-reference-guide.md)
+- **manifests** (2): [trivy-operator-deployment.yaml](../trivy/manifests/trivy-operator-deployment.yaml), [trivy-sarif-code-scanning.yaml](../trivy/manifests/trivy-sarif-code-scanning.yaml)
+- **templates** (6): [trivy-monorepo-scanner](../trivy/templates/trivy-monorepo-scanner/), [custom-policies.Dockerfile](../trivy/dockerfiles/custom-policies.Dockerfile)
+- **notebooks** (2): [trivy-scan-mode-comparison.ipynb](../trivy/notebooks/trivy-scan-mode-comparison.ipynb), [trivy-sarif-output-processing.ipynb](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
+- **dockerfiles** (1): [custom-policies.Dockerfile](../trivy/dockerfiles/custom-policies.Dockerfile)
 
-## Jenkins
-- [script] scripts/bash/jenkins_toolkit/agents/jenkins-agent-connection-tuning.sh — Jenkins agent connection tuning
-- [script] scripts/bash/jenkins_toolkit/install-jenkins.sh — Automated Jenkins installation
-- [script] scripts/bash/jenkins_toolkit/security/cve-2026-27099.sh — Jenkins XSS/DoS vulnerability scanner
-- [script] scripts/bash/jenkins_toolkit/security/cve-2026-33001.sh — Jenkins tar symlink path traversal scanner
-- [doc] docs/how-to/github-webhook-jenkins.md — GitHub webhook configuration
-- [doc] docs/how-to/jenkins-parallel-multi-branch.md — Parallel multi-branch pipeline patterns
-- [doc] docs/how-to/jenkins_toolkit.md — Jenkins toolkit usage guide
-- [doc] docs/reference/jenkins-agent-connection-tuning.md — Agent connection tuning reference
-- [doc] docs/reference/jenkins-commands.md — Jenkins CLI commands reference
-- [doc] docs/reference/jenkins-credential-rotation.md — Automated credential rotation
-- [doc] docs/reference/jenkins-job-config-xml-snippets.md — Job configuration XML snippets
-- [doc] docs/reference/jenkins-pipeline-retry-strategy.md — Pipeline retry strategy configuration
-- [doc] docs/reference/jenkins-rest-api.md — Jenkins REST API reference
-- [doc] docs/reference/jenkins-secret-masking-envinject.md — Secret masking with EnvInject
-- [doc] docs/troubleshooting/jenkins-troubleshooting.md — Jenkins troubleshooting guide
-- [doc] docs/security/jenkins/CVE-2026-33001.md — CVE-2026-33001 remediation guide
-- [snippet] snippets/jenkins-cheatsheet.md — Jenkinsfile examples
-- [snippet] snippets/jenkins-cli-commands.md — Jenkins CLI with 150+ commands
-- [snippet] snippets/jenkins-commands-reference.md — 100+ CLI commands reference
-- [snippet] snippets/jenkins-scripted-pipeline-groovy.md — Scripted pipeline Groovy examples
-- [template] templates/jenkins/Jenkinsfile-maven-gradle-template.md — Maven/Gradle Jenkinsfile template
+## Semgrep · 18 files
+- **primer:** [0000-primer-semgrep.md](../semgrep/notes/0000-primer-semgrep.md)
+- **notes** (3): [2026-05-25-install-semgrep.md](../semgrep/notes/2026-05-25-install-semgrep.md), [2026-05-26-install-semgrep-pitfalls.md](../semgrep/notes/2026-05-26-install-semgrep-pitfalls.md)
+- **scripts** (3): [scan-python-codebase.sh](../semgrep/scripts/scan-python-codebase.sh), [bulk-scan-helper.py](../semgrep/scripts/bulk-scan-helper.py), [detect-hardcoded-secrets.py](../semgrep/scripts/detect-hardcoded-secrets.py)
+- **configs** (1): [multi-rule-pack.yaml](../semgrep/configs/multi-rule-pack.yaml)
+- **snippets** (2): [first-custom-rule.yaml](../semgrep/snippets/first-custom-rule.yaml), [catch-privileged-containers.yaml](../semgrep/snippets/catch-privileged-containers.yaml)
+- **docs** (4): [github-actions-ci-from-scratch.md](../semgrep/docs/github-actions-ci-from-scratch.md), [semgrep-ci-integration.md](../semgrep/docs/semgrep-ci-integration.md), [comparing-rule-writing-approaches.md](../semgrep/docs/comparing-rule-writing-approaches.md), [semgrep-rule-writing-reference.md](../semgrep/docs/semgrep-rule-writing-reference.md)
+- **manifests** (2): [diff-aware-semgrep-ci.yaml](../semgrep/manifests/diff-aware-semgrep-ci.yaml), [semgrep-gitlab-ci.yaml](../semgrep/manifests/semgrep-gitlab-ci.yaml)
+- **notebooks** (1): [semgrep-scan-vs-ci-comparison.ipynb](../semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb)
+- **dockerfiles** (2): [ci-entrypoint.sh](../semgrep/dockerfiles/ci-entrypoint.sh), [custom-scanning-image.Dockerfile](../semgrep/dockerfiles/custom-scanning-image.Dockerfile)
 
-## Linux
-- [script] scripts/bash/linux_toolkit/aide-config.sh — AIDE configuration management
-- [script] scripts/bash/linux_toolkit/aide-deploy.sh — AIDE deployment
-- [script] scripts/bash/linux_toolkit/authentication/ldap-server-setup.sh — LDAP authentication server setup
-- [script] scripts/bash/linux_toolkit/backup/backup-rsync-retention.sh — Backup with rsync and retention
-- [script] scripts/bash/linux_toolkit/container-orchestration-systemd-cgroups.sh — Container orchestration with systemd
-- [script] scripts/bash/linux_toolkit/database/pg-backup.sh — PostgreSQL backup with rotation
-- [script] scripts/bash/linux_toolkit/database/pg-healthcheck.sh — PostgreSQL health check
-- [script] scripts/bash/linux_toolkit/database/pg-setup.sh — PostgreSQL 16 automated installation
-- [script] scripts/bash/linux_toolkit/dns/bind9-server-setup.sh — BIND9 DNS server setup
-- [script] scripts/bash/linux_toolkit/identity/freeipa-setup.sh — FreeIPA server deployment
-- [script] scripts/bash/linux_toolkit/lib/iac-operations.sh — Shell script library for IaC
-- [script] scripts/bash/linux_toolkit/linux-container-security-scan.sh — Container security scanning with Trivy
-- [script] scripts/bash/linux_toolkit/linux-dns-coredns.sh — Automated DNS for CoreDNS
-- [script] scripts/bash/linux_toolkit/linux-dns-monitor.sh — DNS health monitoring
-- [script] scripts/bash/linux_toolkit/linux-dns-test.sh — DNS setup verification
-- [script] scripts/bash/linux_toolkit/linux-loki-promtail-deploy.sh — Loki and Promtail deployment
-- [script] scripts/bash/linux_toolkit/linux-network-monitor.sh — Network health monitoring
-- [script] scripts/bash/linux_toolkit/linux-system-commands-library.sh — Shell command library
-- [script] scripts/bash/linux_toolkit/linux-system-hardening.sh — System hardening automation
-- [script] scripts/bash/linux_toolkit/loadbalancer/haproxy-setup.sh — HAProxy load balancer setup
-- [script] scripts/bash/linux_toolkit/logging/elk-setup.sh — ELK stack automated deployment
-- [script] scripts/bash/linux_toolkit/mail/mail-server-setup.sh — Postfix and Dovecot mail server
-- [script] scripts/bash/linux_toolkit/monitoring/node-exporter-setup.sh — Prometheus node_exporter install
-- [script] scripts/bash/linux_toolkit/network/net-diag.sh — Network diagnostics
-- [script] scripts/bash/linux_toolkit/network/nginx-reverse-proxy.sh — Nginx reverse proxy with SSL/TLS
-- [script] scripts/bash/linux_toolkit/pipeline/iac-pipeline-workflow.sh — IaC pipeline workflows
-- [script] scripts/bash/linux_toolkit/process/process-manager.sh — Process management
-- [script] scripts/bash/linux_toolkit/samba/samba-setup.sh — Samba file server deployment
-- [script] scripts/bash/linux_toolkit/security/aide-deploy.sh — AIDE deployment (security variant)
-- [script] scripts/bash/linux_toolkit/security/ansible-patch-management.sh — Automated patching with Ansible
-- [script] scripts/bash/linux_toolkit/security/container-host-hardening.sh — Docker container host hardening
-- [script] scripts/bash/linux_toolkit/security/forensics/incident-response.sh — Incident response automation
-- [script] scripts/bash/linux_toolkit/security/kpatch-deployment.sh — kpatch live kernel patching
-- [script] scripts/bash/linux_toolkit/security/openscap-hardening.sh — OpenSCAP compliance automation
-- [script] scripts/bash/linux_toolkit/security/security-check.sh — Security audit
-- [script] scripts/bash/linux_toolkit/service/manage-services.sh — Systemd service management
-- [script] scripts/bash/linux_toolkit/setup-centralized-logging.sh — Centralized logging pipeline
-- [script] scripts/bash/linux_toolkit/sysadmin/disk-usage.sh — Disk usage analysis
-- [script] scripts/bash/linux_toolkit/sysadmin/network-iface.sh — Network interface management
-- [script] scripts/bash/linux_toolkit/sysadmin/process-monitor.sh — Process monitoring
-- [script] scripts/bash/linux_toolkit/sysadmin/security-audit.sh — Security audit checks
-- [script] scripts/bash/linux_toolkit/sysadmin/service-health.sh — Service health check
-- [script] scripts/bash/linux_toolkit/sysadmin/system-backup.sh — Automated system backup
-- [script] scripts/bash/linux_toolkit/sysadmin/user-create.sh — Create system users
-- [script] scripts/bash/linux_toolkit/sysadmin/user-modify.sh — Modify users and groups
-- [script] scripts/bash/linux_toolkit/system-automation-template.sh — Linux automation template
-- [script] scripts/bash/linux_toolkit/system/disk-usage.sh — Disk usage analysis
-- [script] scripts/bash/linux_toolkit/system/health-check.sh — System health monitoring
-- [script] scripts/bash/linux_toolkit/vpn/wireguard-server-setup.sh — WireGuard VPN server installation
-- [script] scripts/bash/linux_toolkit/wazuh-deploy.sh — Wazuh SIEM deployment
-- [doc] docs/how-to/linux-aide-configuration-management.md — AIDE configuration management guide
-- [doc] docs/how-to/linux-aide-configuration.md — AIDE setup and usage guide
-- [doc] docs/how-to/linux-ansible-patching.md — Automated patching with Ansible
-- [doc] docs/how-to/linux-backup-rsync-retention.md — Backup solution with rsync
-- [doc] docs/how-to/linux-centralized-logging-syslog-ng-logstash.md — Centralized logging pipeline
-- [doc] docs/how-to/linux-container-host-docker-security.md — Container host Docker security
-- [doc] docs/how-to/linux-container-host-security.md — Container host security hardening
-- [doc] docs/how-to/linux-container-security-scanning.md — Container scanning with Trivy and Falco
-- [doc] docs/how-to/linux-dns-bind9.md — BIND9 DNS server setup
-- [doc] docs/how-to/linux-dns-management-coredns-systemd-resolved.md — CoreDNS and systemd-resolved
-- [doc] docs/how-to/linux-elk-log-aggregation.md — ELK stack log aggregation
-- [doc] docs/how-to/linux-freeipa-identity.md — FreeIPA identity management
-- [doc] docs/how-to/linux-haproxy-load-balancer.md — HAProxy load balancer guide
-- [doc] docs/how-to/linux-incident-response-automation.md — Incident response automation
-- [doc] docs/how-to/linux-ldap-server.md — LDAP server setup
-- [doc] docs/how-to/linux-log-aggregation-loki-promtail.md — Loki and Promtail log aggregation
-- [doc] docs/how-to/linux-mail-server.md — Postfix and Dovecot mail server
-- [doc] docs/how-to/linux-monitoring-prometheus-node-exporter.md — Prometheus node_exporter
-- [doc] docs/how-to/linux-monitoring-prometheus.md — Prometheus monitoring setup
-- [doc] docs/how-to/linux-network-traffic-analysis.md — Network traffic analysis
-- [doc] docs/how-to/linux-nginx-reverse-proxy-ssl-tls.md — Nginx reverse proxy with SSL/TLS
-- [doc] docs/how-to/linux-openscap-hardening.md — OpenSCAP compliance scanning
-- [doc] docs/how-to/linux-samba-file-sharing.md — Samba file sharing server
-- [doc] docs/how-to/linux-samba.md — Samba setup guide
-- [doc] docs/how-to/linux-vpn-wireguard.md — WireGuard VPN server guide
-- [doc] docs/how-to/linux/linux-aide-configuration-management.md — AIDE configuration management
-- [doc] docs/how-to/linux/linux-container-orchestration-systemd-cgroups.md — Systemd cgroups orchestration
-- [doc] docs/how-to/linux/linux-disk-io-scheduler-optimization.md — Disk I/O scheduler optimization
-- [doc] docs/how-to/linux/linux-iac-pipeline-workflows.md — IaC pipeline workflows
-- [doc] docs/how-to/linux/linux-kpatch-live-patching.md — Linux kernel live patching
-- [doc] docs/how-to/linux/linux-shell-commands-automation.md — Shell command patterns
-- [doc] docs/how-to/linux/linux-shell-script-library-iac.md — IaC shell script library
-- [doc] docs/how-to/linux/linux-system-automation-template.md — System automation template
-- [doc] docs/how-to/linux/linux-system-hardening-containerized.md — Container system hardening
-- [doc] docs/how-to/linux/linux-wazuh-siem.md — Wazuh SIEM deployment
-- [doc] docs/how-to/linux_toolkit.md — Linux toolkit usage guide
-- [doc] docs/runbooks/linux-system-administration.md — System administration runbook
-- [snippet] snippets/linux-cheatsheet.md — Linux commands reference
-- [snippet] snippets/linux-commands.md — Bash one-liners for sysadmins
-- [template] templates/linux-automation/README.md — Linux automation template overview
-- [template] templates/linux-automation/deploy.sh — Linux automation deployment script
-- [template] templates/linux-automation/group_vars.yml — Linux automation group variables
-- [template] templates/linux-automation/inventory.yml — Linux automation inventory
-- [template] templates/linux-automation/playbooks/deploy.yml — Linux automation deploy playbook
-- [template] templates/linux-automation/playbooks/hardening.yml — Linux automation hardening playbook
-- [template] templates/linux-automation/roles/base/tasks/main.yml — Linux base role tasks
-- [template] templates/linux-automation/roles/hardening/tasks/main.yml — Linux hardening role tasks
-- [template] templates/linux-automation/roles/monitoring/tasks/main.yml — Linux monitoring role tasks
-- [template] templates/linux-automation/roles/orchestrator/handlers/main.yml — Orchestrator handlers
-- [template] templates/linux-automation/roles/orchestrator/tasks/main.yml — Orchestrator tasks
-- [template] templates/linux-automation/roles/orchestrator/templates/myservice.j2 — Orchestrator service template
-- [template] templates/linux-automation/roles/security/tasks/main.yml — Security role tasks
-- [template] templates/linux-automation/systemd-service.j2 — Systemd service unit template
-- [template] templates/logstash/logstash.conf — Logstash pipeline configuration
-- [template] templates/syslog-ng/syslog-ng.conf — Syslog-NG configuration template
+## Checkov · 29 files
+- **primer:** [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md)
+- **notes** (4): [2026-05-25-scan-terraform-plan.md](../checkov/notes/2026-05-25-scan-terraform-plan.md), [2026-05-26-cli-vs-sdk-comparison.md](../checkov/notes/2026-05-26-cli-vs-sdk-comparison.md), [2026-05-27-checkov-quickstart-trip-ups.md](../checkov/notes/2026-05-27-checkov-quickstart-trip-ups.md)
+- **scripts** (2): [scan-terraform-plan.sh](../checkov/scripts/scan-terraform-plan.sh), [deep-terraform-plan-scan.sh](../checkov/scripts/deep-terraform-plan-scan.sh)
+- **configs** (2): [checkov-ci-config.yaml](../checkov/configs/checkov-ci-config.yaml), [checkov-skip-severity-config.yaml](../checkov/configs/checkov-skip-severity-config.yaml)
+- **snippets** (4): [scan-kubernetes.sh](../checkov/snippets/scan-kubernetes.sh), [scan-terraform-dir.py](../checkov/snippets/scan-terraform-dir.py), [scan-a-terraform-file.py](../checkov/snippets/scan-a-terraform-file.py), [terraform-scan-custom-policies.py](../checkov/snippets/terraform-scan-custom-policies.py)
+- **docs** (3): [checkov-integration-patterns.md](../checkov/docs/checkov-integration-patterns.md), [checkov-ai-infrastructure-checks.md](../checkov/docs/checkov-ai-infrastructure-checks.md), [pre-commit-hook-with-version-pinning.md](../checkov/docs/pre-commit-hook-with-version-pinning.md)
+- **manifests** (2): [checkov-sarif-pr-blocking.yaml](../checkov/manifests/checkov-sarif-pr-blocking.yaml), [layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml](../checkov/manifests/layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml)
+- **templates** (10): [multi-iac-scan-project](../checkov/templates/multi-iac-scan-project/), [reusable-workflow-custom-policies](../checkov/templates/reusable-workflow-custom-policies/)
+- **notebooks** (1): [compare-static-vs-plan-scanning.ipynb](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb)
+- **policies** (1): no-public-s3-buckets.yaml
 
-## Terraform
-- [script] scripts/bash/terraform/ter-019-deploy.sh — EventBridge Lambda deployment
-- [script] scripts/bash/terraform/terraform-ecs-service-discovery-deploy.sh — ECS service discovery deploy
-- [script] scripts/bash/terraform/terraform-iam-roles-deploy.sh — IAM roles deployment
-- [script] scripts/bash/terraform_toolkit/atlantis/setup-atlantis.sh — Atlantis setup
-- [script] scripts/bash/terraform_toolkit/eks/eks-cleanup.sh — EKS cluster cleanup
-- [script] scripts/bash/terraform_toolkit/eks/eks-deploy.sh — EKS cluster deployment
-- [script] scripts/bash/terraform_toolkit/eks/eks-health-check.sh — EKS health check
-- [script] scripts/bash/terraform_toolkit/multi-env/multi-env-setup.sh — Multi-environment setup
-- [script] scripts/bash/terraform_toolkit/networking/vpc-setup.sh — VPC deployment
-- [script] scripts/bash/terraform_toolkit/rds-deploy.sh — RDS deployment
-- [script] scripts/bash/terraform_toolkit/secrets/terraform-secrets-deploy.sh — AWS Secrets Manager deploy
-- [script] scripts/bash/terraform_toolkit/terraform-lambda-deploy.sh — Lambda/API Gateway deployment
-- [script] scripts/bash/terraform_toolkit/terraform-workflow.sh — Terraform workflow automation
-- [doc] docs/how-to/terraform-atlantis-gitops.md — Terraform CI/CD with Atlantis
-- [doc] docs/how-to/terraform-aws-secrets-manager.md — AWS Secrets Manager integration
-- [doc] docs/how-to/terraform-aws-vpc.md — AWS VPC setup
-- [doc] docs/how-to/terraform-cloudfront-waf.md — CloudFront with WAF
-- [doc] docs/how-to/terraform-ecs-service-discovery.md — ECS Fargate service discovery
-- [doc] docs/how-to/terraform-eks-cluster.md — EKS cluster setup
-- [doc] docs/how-to/terraform-eventbridge-lambda.md — EventBridge with Lambda triggers
-- [doc] docs/how-to/terraform-iam-roles.md — Reusable IAM roles
-- [doc] docs/how-to/terraform-lambda-api-gateway.md — Serverless API with Lambda
-- [doc] docs/how-to/terraform-module-composition-workspaces.md — Module composition and workspaces
-- [doc] docs/how-to/terraform-multi-env-gitops.md — Multi-environment GitOps
-- [doc] docs/how-to/terraform-rds-read-replicas.md — RDS with read replicas
-- [doc] docs/how-to/terraform-s3-cross-region-replication.md — S3 cross-region replication for DR
-- [doc] docs/how-to/terraform-secrets-manager.md — Secrets Manager integration
-- [doc] docs/how-to/terraform-state-management.md — State management best practices
-- [doc] docs/how-to/terraform-troubleshooting.md — Terraform troubleshooting
-- [snippet] snippets/terraform-commands.md — Terraform CLI one-liners
-- [tf] docs/how-to/k8s-terraform-ansible-provisioning/terraform/control-plane.tf — K8s control plane nodes
-- [tf] docs/how-to/k8s-terraform-ansible-provisioning/terraform/main.tf — K8s provisioning main
-- [tf] docs/how-to/k8s-terraform-ansible-provisioning/terraform/outputs.tf — K8s provisioning outputs
-- [tf] docs/how-to/k8s-terraform-ansible-provisioning/terraform/variables.tf — K8s provisioning variables
-- [tf] docs/how-to/k8s-terraform-ansible-provisioning/terraform/workers.tf — K8s worker nodes
-- [template] templates/terraform/lambda-api-gateway/main.tf — Lambda + API Gateway module
-- [template] templates/terraform/lambda-api-gateway/outputs.tf — Lambda + API Gateway outputs
-- [template] templates/terraform/lambda-api-gateway/terraform-lambda-api-gateway.md — Lambda API Gateway guide
-- [template] templates/terraform/lambda-api-gateway/variables.tf — Lambda + API Gateway variables
-- [template] templates/terraform/multi-env/vpc-module.tf — Multi-environment VPC module
-- [template] templates/terraform/production-module-template.md — Production module template
-- [template] templates/terraform/rds-with-replicas/main.tf — RDS with read replicas
-- [template] templates/terraform/rds-with-replicas/monitoring.tf — RDS monitoring setup
-- [template] templates/terraform/rds-with-replicas/outputs.tf — RDS outputs
-- [template] templates/terraform/rds-with-replicas/provider.tf — RDS provider config
-- [template] templates/terraform/rds-with-replicas/terraform.tfvars.example — RDS example vars
-- [template] templates/terraform/rds-with-replicas/variables.tf — RDS variable definitions
+## TruffleHog · 37 files
+- **primer:** [0000-primer-trufflehog.md](../trufflehog/notes/0000-primer-trufflehog.md)
+- **notes** (3): [2026-05-27-install-trufflehog.md](../trufflehog/notes/2026-05-27-install-trufflehog.md), [2026-05-27-following-trufflehog-quickstart.md](../trufflehog/notes/2026-05-27-following-trufflehog-quickstart.md)
+- **scripts** (3): [pre-commit-scan-pipeline.sh](../trufflehog/scripts/pre-commit-scan-pipeline.sh), [multi-repo-scan-pipeline.sh](../trufflehog/scripts/multi-repo-scan-pipeline.sh), [analyze-trufflehog-results.py](../trufflehog/scripts/analyze-trufflehog-results.py)
+- **configs** (2): [trufflehog-custom-regex-config.yaml](../trufflehog/configs/trufflehog-custom-regex-config.yaml), [custom-detector-rules.yaml](../trufflehog/configs/custom-detector-rules.yaml)
+- **snippets** (2): [fake-secrets-test.sh](../trufflehog/snippets/fake-secrets-test.sh), [scan-github-repo-for-secrets.sh](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
+- **docs** (2): [comparing-scan-modes-git-filesystem-s3.md](../trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md), [trufflehog-output-formats-json-sarif-csv.md](../trufflehog/docs/trufflehog-output-formats-json-sarif-csv.md)
+- **manifests** (1): [trufflehog-pr-secret-scan-reusable.yaml](../trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml)
+- **templates** (19): [secret-scanning-pipeline](../trufflehog/templates/secret-scanning-pipeline/), [multi-repo-secret-scan](../trufflehog/templates/multi-repo-secret-scan/), [github-secret-scanning-integration](../trufflehog/templates/github-secret-scanning-integration/)
+- **notebooks** (2): [analyzing-trufflehog-false-positives.ipynb](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb), [trufflehog-scan-modes-comparison.ipynb](../trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb)
+- **dockerfiles** (1): [pre-commit-scanner.Dockerfile](../trufflehog/dockerfiles/pre-commit-scanner.Dockerfile)
 
-## Ansible
-- [script] scripts/bash/ansible_toolkit/patch-management.yml — Ansible patching playbook
-- [script] scripts/bash/ansible_toolkit/security/aap-cve-2026-0598-check.sh — AAP auth bypass scanner
-- [script] scripts/bash/ansible_toolkit/security/aap-cve-2026-24049-check.sh — AAP privilege escalation scanner
-- [script] scripts/bash/ansible_toolkit/security/cve-2025-14010-audit.sh — Sensitive variable exposure scanner
-- [script] scripts/bash/ansible_toolkit/security/cve-2025-9907-eda-creds.sh — EDA credentials exposure scanner
-- [script] scripts/bash/ansible_toolkit/security/cve-2026-0598-audit.sh — Lightspeed auth bypass scanner
-- [script] scripts/bash/ansible_toolkit/security/cve-2026-33228-audit.sh — Flatted prototype pollution auditor
-- [script] scripts/bash/ansible_toolkit/security/cve-2026-33228-execution.sh — CVE-2026-33228 mitigation execution
-- [script] scripts/bash/ansible_toolkit/security/cve-2026-33228-mitigation.yml — CVE-2026-33228 mitigation playbook
-- [script] scripts/bash/ansible_toolkit/security/harden-ansible-cve-2026-33228.sh — Flatted prototype pollution hardening
-- [script] scripts/bash/ansible_toolkit/security/vault-password-rotation.sh — Vault password rotation
-- [doc] docs/how-to/ansible-cve-2026-33228-flatted.md — CVE-2026-33228 hardening guide
-- [doc] docs/how-to/ansible-lightspeed-cve-2026-0598.md — CVE-2026-0598 remediation guide
-- [doc] docs/how-to/ansible-playbook-best-practices.md — Playbook best practices
-- [doc] docs/how-to/ansible_toolkit.md — Ansible toolkit usage guide
-- [doc] docs/security/ansible/CVE-2026-33228.md — CVE-2026-33228 remediation guide
-- [doc] docs/runbooks/cve-2026-33228-ansible-flatted.md — CVE-2026-33228 remediation runbook
-- [snippet] snippets/ansible-commands.md — Ansible ad-hoc commands
-- [ansible] docs/how-to/k8s-terraform-ansible-provisioning/ansible/inventory.ini.example — K8s provisioning inventory
-- [ansible] docs/how-to/k8s-terraform-ansible-provisioning/ansible/roles/preflight/tasks/main.yml — Preflight tasks for K8s
-- [ansible] docs/how-to/k8s-terraform-ansible-provisioning/ansible/site.yml — K8s provisioning playbook
-- [ansible] docs/how-to/k8s-terraform-ansible-provisioning/ansible/teardown.yml — K8s teardown playbook
+## Syft · 20 files
+- **primer:** [0000-primer-syft.md](../syft/notes/0000-primer-syft.md)
+- **notes** (4): [2026-05-27-install-syft-first-sbom.md](../syft/notes/2026-05-27-install-syft-first-sbom.md), [2026-05-29-syft-quickstart-trip-ups.md](../syft/notes/2026-05-29-syft-quickstart-trip-ups.md), [2026-05-30-sbom-format-comparison.md](../syft/notes/2026-05-30-sbom-format-comparison.md)
+- **scripts** (3): [gen-multi-format-sboms.sh](../syft/scripts/gen-multi-format-sboms.sh), [multi-image-sbom-pipeline.sh](../syft/scripts/multi-image-sbom-pipeline.sh), [sbom-vuln-pipeline.sh](../syft/scripts/sbom-vuln-pipeline.sh)
+- **configs** (1): [.syft.yaml](../syft/configs/.syft.yaml)
+- **snippets** (1): [tried-sbom-formats.sh](../syft/snippets/tried-sbom-formats.sh)
+- **docs** (2): [sbom-formats-comparison.md](../syft/docs/sbom-formats-comparison.md), [sbom-output-formats-reference.md](../syft/docs/sbom-output-formats-reference.md)
+- **templates** (7): [sbom-pipeline-scaffold](../syft/templates/sbom-pipeline-scaffold/)
+- **notebooks** (1): [sbom-layer-package-analysis.ipynb](../syft/notebooks/sbom-layer-package-analysis.ipynb)
+- **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
 
-## Vault
-- [note] vault/notes/0000-primer-vault.md — First-day primer on HashiCorp Vault
-- [note] vault/notes/2026-06-05-install-vault-and-explore-cli.md — Installing Vault and CLI
-- [note] vault/notes/2026-06-15-vault-getting-started-trip-ups.md — Getting started pitfalls
-- [doc] vault/docs/configuring-vault-dev-server.md — Configuring Vault dev server
-- [doc] vault/docs/vault-agent-auto-auth-kubernetes.md — Vault Agent auto-auth with K8s service accounts
-- [script] vault/scripts/vault-kv-crud.sh — Vault KV CRUD operations
-- [script] vault/scripts/vault-db-dynamic-secrets.sh — Vault dynamic Postgres secrets workflow
-- [config] vault/configs/multi-environment-access-control.hcl — Multi-environment access control policy
-- [snippet] vault/snippets/vault-read-write.go — Vault read/write in Go
-- [config] vault/configs/2026-06-26-dev-test-policies.hcl — Dev/test policies and secrets engine config
-- [config] vault/configs/multi-environment-access-control.hcl — Dev/staging/prod access control policy
-- [script] vault/scripts/vault-db-dynamic-secrets.sh — Postgres dynamic secrets from scratch
-- [doc] vault/docs/vault-agent-auto-auth-kubernetes.md — Vault Agent auto-auth with Kubernetes service accounts
-- [script] scripts/bash/vault/security/vault-go-getter-hardening.sh — go-getter file read hardening
-- [script] scripts/bash/vault/vault-audit-log-analysis.sh — Vault audit log analysis
-- [script] scripts/bash/vault_toolkit/security/cve-2025-11621.sh — AWS Auth bypass scanner
-- [script] scripts/bash/vault_toolkit/security/cve-2025-5999.sh — Privilege escalation scanner
-- [script] scripts/bash/vault_toolkit/security/cve-2025-6000.sh — Plugin directory RCE scanner
-- [script] scripts/bash/vault_toolkit/security/cve-2025-6013.sh — LDAP MFA enforcement bypass scanner
-- [script] scripts/bash/vault_toolkit/security/cve-2025-6037.sh — TLS certificate auth bypass scanner
-- [doc] docs/how-to/vault-secure-deployment.md — Vault secure deployment guide
-- [doc] docs/how-to/vault-troubleshooting-seal-unseal.md — Seal/unseal troubleshooting
-- [doc] docs/how-to/vault_toolkit.md — Vault toolkit usage guide
-- [doc] docs/troubleshooting/vault-seal-unseal.md — Vault seal/unseal issues
-- [snippet] snippets/vault-commands.md — Vault CLI commands
+## Grype · 15 files
+- **primer:** [0000-primer-grype.md](../grype/notes/0000-primer-grype.md)
+- **notes** (4): [2026-05-31-install-grype.md](../grype/notes/2026-05-31-install-grype.md), [2026-06-04-grype-quickstart-trip-ups.md](../grype/notes/2026-06-04-grype-quickstart-trip-ups.md), [2026-06-08-first-grype-scan.md](../grype/notes/2026-06-08-first-grype-scan.md)
+- **scripts** (5): [minimal-grype-scan.sh](../grype/scripts/minimal-grype-scan.sh), [ci-ready-grype-scan.sh](../grype/scripts/ci-ready-grype-scan.sh), [vuln-diff-two-images.sh](../grype/scripts/vuln-diff-two-images.sh), [grype-vuln-pipeline.sh](../grype/scripts/grype-vuln-pipeline.sh), [grype-results-to-sarif.py](../grype/scripts/grype-results-to-sarif.py)
+- **configs** (1): [grype-ci-github-actions.yaml](../grype/configs/grype-ci-github-actions.yaml)
+- **snippets** (2): [my-first-grype-commands.sh](../grype/snippets/my-first-grype-commands.sh), [minimal-grype-scan.go](../grype/snippets/minimal-grype-scan.go)
+- **docs** (1): [grype-syft-integration-guide.md](../grype/docs/grype-syft-integration-guide.md)
+- **dockerfiles** (1): [multi-stage-grype-scan.Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile)
+- **notebooks** (1): [grype-sbom-output-explorer.ipynb](../grype/notebooks/grype-sbom-output-explorer.ipynb)
 
-## Observability
-- [script] scripts/bash/observability_toolkit/alertmanager/alertmanager-ha-setup.sh — Alertmanager HA cluster setup
-- [script] scripts/bash/observability_toolkit/alertmanager/alertmanager-install.sh — Alertmanager automated install
-- [script] scripts/bash/observability_toolkit/grafana/grafana-install.sh — Grafana automated install
-- [script] scripts/bash/observability_toolkit/grafana/health-check.sh — Grafana health check
-- [script] scripts/bash/observability_toolkit/grafana/provisioning/dashboards/default.yml — Grafana default dashboard
-- [script] scripts/bash/observability_toolkit/jaeger/query-traces.sh — Query Jaeger traces
-- [script] scripts/bash/observability_toolkit/loki/loki-promtail-install.sh — Loki and Promtail installation
-- [script] scripts/bash/observability_toolkit/loki/query-logs.sh — Query Loki logs with LogQL
-- [script] scripts/bash/observability_toolkit/otel/collector-health.sh — OTel collector health
-- [script] scripts/bash/observability_toolkit/otel/otel-collector-install.sh — OTel Collector installation
-- [script] scripts/bash/observability_toolkit/prometheus/check-alert.sh — Check Prometheus alerts
-- [script] scripts/bash/observability_toolkit/prometheus/query-metrics.sh — Execute PromQL queries
-- [script] scripts/bash/observability_toolkit/prometheus/targets-status.sh — Prometheus targets health
-- [script] scripts/bash/observability_toolkit/stack-health.sh — Full stack health check
-- [doc] docs/how-to/observability/alertmanager-ha-clustering.md — Alertmanager HA clustering
-- [doc] docs/how-to/observability/alertmanager-installation.md — Alertmanager installation
-- [doc] docs/how-to/observability/grafana-installation.md — Grafana installation
-- [doc] docs/how-to/observability/loki-promtail-installation.md — Loki Promtail installation
-- [doc] docs/how-to/observability/otel-collector-installation.md — OTel Collector installation
-- [doc] docs/how-to/observability/prometheus-node-exporter-installation.md — Node exporter install
-- [doc] docs/how-to/observability_toolkit.md — Observability toolkit guide
-- [doc] docs/how-to/thanos_installation.md — Thanos installation and config
-- [doc] docs/how-to/linux-distributed-tracing-jaeger.md — Distributed tracing with Jaeger
-- [snippet] snippets/observability-cheatsheet.md — PromQL, LogQL reference
+## CodeQL · 10 files
+- **primer:** [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md)
+- **notes** (3): [2026-06-05-install-codeql-first-analysis.md](../codeql/notes/2026-06-05-install-codeql-first-analysis.md), [2026-06-14-codeql-datalog-gotchas.md](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md)
+- **scripts** (1): [first-codeql-analysis.sh](../codeql/scripts/first-codeql-analysis.sh)
+- **configs** (1): [first-codeql-analysis.yml](../codeql/configs/first-codeql-analysis.yml)
+- **snippets** (3): [find-hardcoded-creds.ql](../codeql/snippets/find-hardcoded-creds.ql), [my-first-codeql-commands.sh](../codeql/snippets/my-first-codeql-commands.sh), [hardcoded-creds-local-flow.ql](../codeql/snippets/hardcoded-creds-local-flow.ql)
+- **docs** (1): [wired-custom-queries-into-ci.md](../codeql/docs/wired-custom-queries-into-ci.md)
+- **manifests** (1): [multi-language-codeql-analysis.yaml](../codeql/manifests/multi-language-codeql-analysis.yaml)
 
-## Docker
-- [script] scripts/bash/docker_toolkit/docker-image-cleanup.sh — Docker image cleanup with aging
-- [script] scripts/bash/docker_toolkit/docker-kaniko-cve-2026-28406-hardening.sh — Kaniko path traversal hardening
-- [script] scripts/bash/docker_toolkit/docker-swarm-cluster-setup.sh — Docker Swarm cluster setup
-- [script] scripts/bash/docker_toolkit/security/cve-2026-2664.sh — Docker Desktop privilege escalation
-- [script] scripts/bash/docker_toolkit/security/cve-2026-28400.sh — Docker Model Runner escalation
-- [script] scripts/bash/docker_toolkit/security/docker-authz-plugin-hardening.sh — AuthZ plugin hardening
-- [script] scripts/bash/docker_toolkit/security/docker-cve-2026-34040.sh — AuthZ plugin bypass
-- [doc] docs/how-to/docker-kaniko-cve-2026-28406.md — Kaniko path traversal remediation
-- [doc] docs/how-to/docker-security-best-practices.md — Docker security hardening guide
-- [doc] docs/how-to/docker-security.md — Docker comprehensive security guide
-- [doc] docs/how-to/docker-swarm-cluster-installation.md — Docker Swarm cluster install
-- [doc] docs/security/docker/AUTHZ-PLUGIN-HARDENING.md — Docker AuthZ plugin hardening
-- [doc] docs/security/docker/CVE-2026-34040.md — Docker CVE-2026-34040 remediation
-- [snippet] snippets/docker-commands.md — Docker CLI snippets
+## OWASP ZAP · 30 files
+- **primer:** [0000-primer-zap.md](../zap/notes/0000-primer-zap.md)
+- **notes** (4): [2026-06-06-install-zap-desktop-ui.md](../zap/notes/2026-06-06-install-zap-desktop-ui.md), [2026-06-06-zap-quickstart-ui-gotchas.md](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md), [2026-06-13-spider-scan-test-app.md](../zap/notes/2026-06-13-spider-scan-test-app.md)
+- **scripts** (3): [dast-workflow-from-scratch.sh](../zap/scripts/dast-workflow-from-scratch.sh), [zap-dast-sarif-code-scanning.sh](../zap/scripts/zap-dast-sarif-code-scanning.sh)
+- **configs** (2): [zap-authenticated-scan-context.yaml](../zap/configs/zap-authenticated-scan-context.yaml), [ci-dast-automation-framework-plan.yaml](../zap/configs/ci-dast-automation-framework-plan.yaml)
+- **snippets** (3): [my-first-zap-baseline-scan.sh](../zap/snippets/my-first-zap-baseline-scan.sh), [my-first-zap-spider-scan.sh](../zap/snippets/my-first-zap-spider-scan.sh), [authenticated-scan-with-context.sh](../zap/snippets/authenticated-scan-with-context.sh)
+- **docs** (2): [zap-integration-patterns.md](../zap/docs/zap-integration-patterns.md), [passive-vs-active-scanning-zap.md](../zap/docs/passive-vs-active-scanning-zap.md)
+- **templates** (10): [zap-dast-integration](../zap/templates/zap-dast-integration/), [zap-dast-integration-scaffold](../zap/templates/zap-dast-integration-scaffold/)
+- **dockerfiles** (1): [custom-zap-automation.Dockerfile](../zap/dockerfiles/custom-zap-automation.Dockerfile)
 
-## Helm
-- [script] scripts/bash/helm_toolkit/helm-terraform/deploy-helm-terraform.sh — Helm + Terraform deployment
-- [script] scripts/bash/helm_toolkit/security/cve-2025-53547-harden.sh — Chart.yaml code injection hardening
-- [script] scripts/bash/helm_toolkit/security/cve-2025-53547.sh — Chart.yaml code injection scanner
-- [doc] docs/how-to/helm-commands-reference.md — Helm CLI commands reference
-- [doc] docs/how-to/helm-security-scanning.md — Helm security scanning guide
-- [doc] docs/how-to/helm-terraform-fullstack/README.md — Helm + Terraform full-stack guide
+## Snyk · 9 files
+- **primer:** [0000-primer-snyk.md](../snyk/notes/0000-primer-snyk.md)
+- **notes** (4): [2026-06-07-snyk-quickstart-walkthrough.md](../snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md), [2026-06-08-install-snyk-first-test.md](../snyk/notes/2026-06-08-install-snyk-first-test.md), [2026-06-14-first-vulnerability-scan.md](../snyk/notes/2026-06-14-first-vulnerability-scan.md)
+- **scripts** (1): [snyk-vuln-scan-pipeline.sh](../snyk/scripts/snyk-vuln-scan-pipeline.sh)
+- **configs** (2): [snyk-ci-github-actions.yaml](../snyk/configs/snyk-ci-github-actions.yaml), [snyk-dependency-patch-ignore.yaml](../snyk/configs/snyk-dependency-patch-ignore.yaml)
+- **docs** (1): [multi-project-ci-pipeline.md](../snyk/docs/multi-project-ci-pipeline.md)
+- **snippets** (1): [my-first-snyk-commands.sh](../snyk/snippets/my-first-snyk-commands.sh)
 
-## CI/CD
-- [script] scripts/bash/ci_cd_toolkit/buildkite/buildkite-install.sh — Buildkite agent installation
-- [script] scripts/bash/ci_cd_toolkit/circleci/circleci-runner-install.sh — CircleCI runner installation
-- [script] scripts/bash/ci_cd_toolkit/github/check-action-updates.sh — Check outdated GitHub Actions
-- [script] scripts/bash/ci_cd_toolkit/github/generate-workflow.sh — Generate starter workflows
-- [script] scripts/bash/ci_cd_toolkit/github/lint-workflows.sh — Lint GitHub Actions workflows
-- [script] scripts/bash/ci_cd_toolkit/github/pipeline-health.sh — Check pipeline health
-- [script] scripts/bash/ci_cd_toolkit/github/trivy-cve-2026-33634.sh — Trivy supply chain compromise scanner
-- [script] scripts/bash/ci_cd_toolkit/github/trivy-github-actions.sh — Trivy Actions workflow generator
-- [script] scripts/bash/ci_cd_toolkit/github/validate-workflow.sh — Validate workflow syntax
-- [script] scripts/bash/ci_cd_toolkit/jenkins/trivy-jenkins-integration.sh — Trivy Jenkins integration
-- [script] scripts/bash/ci_cd_toolkit/trivy-cache-configure.sh — Trivy cache configuration
-- [script] scripts/bash/ci_cd_toolkit/trivy-db-update.sh — Trivy database update automation
-- [script] scripts/bash/ci_cd_toolkit/trivy-postbuild-scan.sh — Trivy post-build stage integration
-- [script] scripts/bash/ci_cd_toolkit/trivy-severity-filter.sh — Trivy severity-based filtering
-- [script] scripts/bash/trivy_toolkit/security/cve-2026-33001.sh — Trivy CVE-2026-33001 path traversal
-- [script] scripts/bash/argo_toolkit/argo-workflows-install.sh — Argo Workflows automated install
-- [script] scripts/bash/flux_toolkit/flux-install.sh — Flux v2 automated install
-- [doc] docs/how-to/buildkite-installation.md — Buildkite agent installation guide
-- [doc] docs/how-to/circleci-runner-installation.md — CircleCI runner installation
-- [doc] docs/how-to/ci_cd_toolkit.md — CI/CD toolkit usage guide
-- [doc] docs/how-to/trivy-cicd-integration.md — Trivy CI/CD pipeline integration
-- [doc] docs/how-to/trivy-github-actions.md — Trivy GitHub Actions integration
-- [doc] docs/how-to/trivy-jenkins-integration.md — Trivy Jenkins plugin integration
-- [doc] docs/how-to/trivy-severity-filtering.md — Trivy severity-based filtering
-- [doc] docs/how-to/trivy-cache-configuration.md — Trivy cache configuration
-- [doc] docs/how-to/argo-workflows-installation.md — Argo Workflows installation
-- [doc] docs/how-to/fluxcd-installation.md — Flux v2 GitOps reconciliation
-- [doc] docs/security/trivy/CVE-2026-33634.md — Trivy CVE-2026-33634 remediation
-- [doc] docs/how-to/trivy/cve-2026-33001-remediation.md — Trivy CVE-2026-33001 remediation
-- [snippet] snippets/ci-cd-cheatsheet.md — CI/CD commands reference
+## GitGuardian · 11 files
+- **primer:** [0000-primer-gitguardian.md](../gitguardian/notes/0000-primer-gitguardian.md)
+- **notes** (4): [2026-06-07-first-ggshield-scan.md](../gitguardian/notes/2026-06-07-first-ggshield-scan.md), [2026-06-13-ggshield-quickstart-trip-ups.md](../gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md), [2026-06-14-first-secrets-scan-repo.md](../gitguardian/notes/2026-06-14-first-secrets-scan-repo.md)
+- **scripts** (2): [pre-commit-hook-ggshield.sh](../gitguardian/scripts/pre-commit-hook-ggshield.sh), [gg-incident-response-pipeline.sh](../gitguardian/scripts/gg-incident-response-pipeline.sh)
+- **configs** (2): [.ggshield.yaml](../gitguardian/configs/.ggshield.yaml), [monorepo-allowlists.yaml](../gitguardian/configs/monorepo-allowlists.yaml)
+- **snippets** (2): [my-first-ggshield-commands.sh](../gitguardian/snippets/my-first-ggshield-commands.sh), [custom-policy-engine-ggshield.sh](../gitguardian/snippets/custom-policy-engine-ggshield.sh)
+- **docs** (1): [monorepo-ci-per-team-exclusions.md](../gitguardian/docs/monorepo-ci-per-team-exclusions.md)
 
-## OCI/Container Registries
-- [script] scripts/bash/azure_toolkit/acr/acr-deploy.sh — ACR deployment with geo-replication
-- [script] scripts/bash/harbor/harbor-backup.sh — Harbor backup script
-- [script] scripts/bash/harbor/harbor-deploy.sh — Harbor deployment
-- [script] scripts/bash/harbor/harbor-health-check.sh — Harbor health verification
-- [script] scripts/bash/oci_registry_toolkit/auth/check-auth.sh — Auth diagnostics
-- [script] scripts/bash/oci_registry_toolkit/gar/gar-deploy.sh — Google Artifact Registry deploy
-- [script] scripts/bash/oci_registry_toolkit/quay/quay-deploy.sh — Quay container registry deploy
-- [script] scripts/bash/oci_registry_toolkit/registry/list-repos.sh — List repositories
-- [script] scripts/bash/oci_registry_toolkit/registry/list-tags.sh — List tags for repo
-- [script] scripts/bash/oci_registry_toolkit/tags/find-old-tags.sh — Find old/unused tags
-- [script] scripts/bash/oci_registry_toolkit/tools/keepalive-pull-plan.sh — Keepalive pull plan
-- [doc] docs/how-to/azure-container-registry-acr.md — Azure Container Registry ACR setup
-- [doc] docs/how-to/github-container-registry-ghcr.md — GitHub Container Registry ghcr.io
-- [doc] docs/how-to/linux-harbor-registry.md — Harbor container registry setup
-- [doc] docs/how-to/oci-registry-toolkit/github-container-registry-ghcr.md — ghcr.io configuration
-- [doc] docs/how-to/oci_registry_toolkit.md — OCI registry toolkit usage guide
-- [doc] docs/how-to/google-artifact-registry-gar.md — Google Artifact Registry setup
-- [doc] docs/how-to/quay-container-registry-installation.md — Quay container registry install
-- [snippet] snippets/oci-registry-cheatsheet.md — Registry commands reference
+## Falco · 12 files
+- **primer:** [0000-primer-falco.md](../falco/notes/0000-primer-falco.md)
+- **notes** (3): [2026-06-10-install-falco-first-detection.md](../falco/notes/2026-06-10-install-falco-first-detection.md), [2026-06-15-falco-rules-macros-lists.md](../falco/notes/2026-06-15-falco-rules-macros-lists.md)
+- **scripts** (3): [deploy-falco-ruleset.sh](../falco/scripts/deploy-falco-ruleset.sh), [tried-falco-k8s-alert-forwarding.sh](../falco/scripts/tried-falco-k8s-alert-forwarding.sh), [tried-falco-k8s-deploy-alert-forwarding.sh](../falco/scripts/tried-falco-k8s-deploy-alert-forwarding.sh)
+- **configs** (3): [first-custom-rule-detect-shell-in-container.yaml](../falco/configs/first-custom-rule-detect-shell-in-container.yaml), [2026-06-10-first-custom-rule-detect-shell-in-container.yaml](../falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml), [container-drift-detection.yaml](../falco/configs/container-drift-detection.yaml)
+- **snippets** (1): [tried-file-access-detector.go](../falco/snippets/tried-file-access-detector.go)
+- **docs** (2): [syscall-vs-tracepoint-rules.md](../falco/docs/syscall-vs-tracepoint-rules.md), [tuned-falco-rules-noise-reduction.md](../falco/docs/tuned-falco-rules-noise-reduction.md)
 
-## Git
-- [notes] git/notes/0000-primer-git.md — Git quick primer: what Git is, key commands, and first repository
-- [script] scripts/bash/git/credential-helper-ci.sh — Credential helper configuration
-- [script] scripts/bash/git/git-automation.sh — Git automation for CI/CD
-- [script] scripts/bash/git/git-cicd-hooks.sh — CI/CD hooks
-- [script] scripts/bash/git/git-install-macos.sh — macOS installation script
-- [script] scripts/bash/git/git-install-wsl.sh — WSL installation script
-- [script] scripts/bash/git/git-install.sh — Linux installation script
-- [script] scripts/bash/git/git-pre-commit-hooks.sh — Pre-commit hook automation
-- [script] scripts/bash/git/github-runner-install.sh — GitHub Actions runner installation
-- [doc] docs/concepts/git-001-version-control-fundamentals.md — Version control fundamentals
-- [doc] docs/concepts/git-002-basic-commands-setup.md — Basic Git commands and setup
-- [doc] docs/concepts/git-003-workflow.md — Git workflow patterns
-- [doc] docs/concepts/git-005-configuration-aliases.md — Git config, aliases, and best practices
-- [doc] docs/concepts/git-version-control-mental-model.md — Architecture and branching model
-- [doc] docs/how-to/git-cicd-automation.md — Git automation for CI/CD
-- [doc] docs/how-to/git/git-credential-helper-cicd-setup.md — Credential helper for CI/CD
-- [doc] docs/how-to/git-installation-macos.md — Git installation on macOS
-- [doc] docs/how-to/git-installation-wsl.md — Git installation on WSL
-- [doc] docs/how-to/git-installation.md — Git installation for Linux
-- [doc] docs/how-to/git-pre-commit-security-scanning.md — Pre-commit security scanning
-- [doc] docs/how-to/git-workflow-optimization.md — Git workflow optimization for DevOps
-- [doc] docs/reference/git-advanced-commands.md — Git advanced command patterns
-- [doc] docs/reference/git-commands.md — Git command patterns
-- [doc] docs/security/git-security-access-control-authentication.md — Git access control hardening
-- [doc] docs/setup-guides/git-credential-helper-ci-cd.md — Credential helper setup guide
-- [doc] docs/setup-guides/git-github-actions-runner.md — GitHub Actions runner setup
-- [snippet] snippets/git-commands.md — Git CLI commands reference
+## Cosign · 8 files
+- **primer:** [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md)
+- **notes** (4): [2026-06-13-install-cosign-sign-first-image.md](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md), [2026-06-14-install-cosign-generate-first-keypair.md](../cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md), [2026-06-22-cosign-getting-started-trip-ups.md](../cosign/notes/2026-06-22-cosign-getting-started-trip-ups.md)
+- **scripts** (2): [minimal-sign-verify.sh](../cosign/scripts/minimal-sign-verify.sh), [verify-signed-image.sh](../cosign/scripts/verify-signed-image.sh)
+- **configs** (1): [keyless-signing-github-actions.yaml](../cosign/configs/keyless-signing-github-actions.yaml)
+- **snippets** (1): [first-cosign-sign-verify-image.sh](../cosign/snippets/first-cosign-sign-verify-image.sh)
 
-## Checkov
-- [note] checkov/notes/0000-primer-checkov.md — First-day primer on Checkov
-- [note] checkov/notes/2026-05-25-scan-terraform-plan.md — Scanning Terraform plan
-- [note] checkov/notes/2026-05-26-cli-vs-sdk-comparison.md — CLI vs SDK scanning approaches
-- [note] checkov/notes/2026-05-27-checkov-quickstart-trip-ups.md — Quickstart walkthrough pitfalls
-- [snippet] checkov/snippets/scan-kubernetes.sh — Scan Kubernetes manifests
-- [snippet] checkov/snippets/scan-terraform-dir.py — Python SDK scan of Terraform dir
-- [snippet] checkov/snippets/scan-a-terraform-file.py — Scan single Terraform file
-- [snippet] checkov/snippets/terraform-scan-custom-policies.py — Terraform scan with custom policies
-- [config] checkov/configs/checkov-skip-severity-config.yaml — Skip and severity config
-- [config] checkov/configs/checkov-ci-config.yaml — CI pipeline config with framework selection
-- [manifest] checkov/manifests/checkov-sarif-pr-blocking.yaml — SARIF results PR gate workflow
-- [manifest] checkov/manifests/layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml — Layered PR gate deep scan workflow
-- [notebook] checkov/notebooks/compare-static-vs-plan-scanning.ipynb — Static vs plan scanning comparison
-- [doc] checkov/docs/pre-commit-hook-with-version-pinning.md — Pre-commit hook with version pinning
-- [doc] checkov/docs/checkov-ai-infrastructure-checks.md — Checkov AI infrastructure checks
-- [doc] checkov/docs/checkov-integration-patterns.md — Checkov integration patterns
-- [policy] checkov/policies/no-public-s3-buckets/no_public_s3_buckets.yaml — Deny public S3 buckets policy
-- [script] checkov/scripts/deep-terraform-plan-scan.sh — Deep Terraform plan scanning
-- [script] checkov/scripts/scan-terraform-plan.sh — Terraform plan scanning script
-- [template] checkov/templates/multi-iac-scan-project/Makefile — Multi-IaC scan project Makefile
-- [template] checkov/templates/multi-iac-scan-project/checkov-config.yaml — Multi-IaC scan config
-- [template] checkov/templates/multi-iac-scan-project/scan.sh — Multi-IaC scan entrypoint
-- [template] checkov/templates/multi-iac-scan-project/README.md — Multi-IaC scan project readme
-- [template] checkov/templates/multi-iac-scan-project/.github/workflows/checkov-scan.yml — Checkov scan CI workflow
-- [template] checkov/templates/reusable-workflow-custom-policies/.github/workflows/reusable-checkov-custom-policies.yml — Reusable Checkov custom policies workflow
-- [template] checkov/templates/reusable-workflow-custom-policies/custom-policies/no_public_s3_buckets.yaml — Block public S3 buckets policy
-- [template] checkov/templates/reusable-workflow-custom-policies/custom-policies/restrict_ec2_public_ip.yaml — Restrict EC2 public IP policy
-- [template] checkov/templates/reusable-workflow-custom-policies/example-caller-workflow.yml — Example caller workflow
-- [template] checkov/templates/reusable-workflow-custom-policies/README.md — Custom policies workflow readme
+## OPA · 9 files
+- **primer:** [0000-primer-opa.md](../opa/notes/0000-primer-opa.md)
+- **notes** (3): [2026-06-06-install-opa-repl.md](../opa/notes/2026-06-06-install-opa-repl.md), [2026-06-15-opa-getting-started-trip-ups.md](../opa/notes/2026-06-15-opa-getting-started-trip-ups.md)
+- **scripts** (1): [how-i-test-policies-locally.sh](../opa/scripts/how-i-test-policies-locally.sh)
+- **configs** (1): [tried-a-gatekeeper-constraint.yaml](../opa/configs/tried-a-gatekeeper-constraint.yaml)
+- **snippets** (3): [my-first-opa-policy-eval.sh](../opa/snippets/my-first-opa-policy-eval.sh), [enforce-image-registry-constraints.rego](../opa/snippets/enforce-image-registry-constraints.rego), [deny-privileged-hostnetwork.rego](../opa/snippets/deny-privileged-hostnetwork.rego)
+- **docs** (1): [wired-opa-admission-control.md](../opa/docs/wired-opa-admission-control.md)
 
-## Semgrep
-- [note] semgrep/notes/0000-primer-semgrep.md — First-day primer on Semgrep
-- [note] semgrep/notes/2026-05-25-install-semgrep.md — Installing and first SAST scan
-- [note] semgrep/notes/2026-05-26-install-semgrep-pitfalls.md — Installation pitfalls and gotchas
-- [snippet] semgrep/snippets/first-custom-rule.yaml — Custom rule for dangerous subprocess
-- [snippet] semgrep/snippets/catch-privileged-containers.yaml — Catch privileged container configs
-- [doc] semgrep/docs/github-actions-ci-from-scratch.md — Semgrep CI with GitHub Actions
-- [doc] semgrep/docs/semgrep-ci-integration.md — Integrating Semgrep into CI/CD
-- [doc] semgrep/docs/comparing-rule-writing-approaches.md — Pattern vs pattern-inside approaches
-- [script] semgrep/scripts/detect-hardcoded-secrets.py — Detect hardcoded secrets
-- [script] semgrep/scripts/scan-python-codebase.sh — Scan Python codebase with custom rules
-- [script] semgrep/scripts/bulk-scan-helper.py — Bulk scan helper script
-- [config] semgrep/configs/multi-rule-pack.yaml — Multi-rule Semgrep pack
-- [notebook] semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb — semgrep scan vs semgrep ci comparison
-- [manifest] semgrep/manifests/diff-aware-semgrep-ci.yaml — Diff-aware Semgrep CI workflow
-- [dockerfile] semgrep/dockerfiles/custom-scanning-image.Dockerfile — Custom scanning Docker image
-- [dockerfile] semgrep/dockerfiles/ci-entrypoint.sh — Entrypoint for scanning image
-- [doc] semgrep/docs/semgrep-rule-writing-reference.md — Pattern, metavariable, and taint tracking reference
-- [manifest] semgrep/manifests/semgrep-gitlab-ci.yaml — SAST pipeline manifest for GitLab CI
+## Terrascan · 8 files
+- **primer:** [0000-primer-terrascan.md](../terrascan/notes/0000-primer-terrascan.md)
+- **notes** (4): [2026-06-13-first-scan.md](../terrascan/notes/2026-06-13-first-scan.md), [2026-06-19-install-terrascan-tiny-tf.md](../terrascan/notes/2026-06-19-install-terrascan-tiny-tf.md), [2026-06-29-terrascan-getting-started-trip-ups.md](../terrascan/notes/2026-06-29-terrascan-getting-started-trip-ups.md)
+- **scripts** (1): [tried-terrascan-ci-scan.sh](../terrascan/scripts/tried-terrascan-ci-scan.sh)
+- **configs** (1): [tried-custom-s3-rule.yaml](../terrascan/configs/tried-custom-s3-rule.yaml)
+- **snippets** (2): [insecure-terraform.tf](../terrascan/snippets/insecure-terraform.tf), [tiny-tf-with-findings.tf](../terrascan/snippets/tiny-tf-with-findings.tf)
 
-## Trivy
-- [note] trivy/notes/0000-primer-trivy.md — First-day primer on Trivy
-- [note] trivy/notes/2026-05-24-install-trivy.md — Installing and first vulnerability scan
-- [note] trivy/notes/2026-05-26-trivy-quickstart.md — Official quickstart walkthrough
-- [snippet] trivy/snippets/scan-docker-image.sh — Docker image scan with severity filter
-- [script] trivy/scripts/container-vuln-scan.sh — Container scan with CRITICAL gating
-- [script] trivy/scripts/compose-multi-scan.sh — Multi-service Docker Compose scan
-- [script] trivy/scripts/multi-target-scanner.sh — Multi-target image/fs/repo scanner
-- [script] trivy/scripts/image-vuln-pipeline.sh — Image vulnerability pipeline
-- [script] trivy/scripts/custom-trivy-check-conftest.sh — Custom Trivy check with Conftest
-- [config] trivy/configs/trivy-scan-config.yaml — Targeted scanning configuration
-- [config] trivy/configs/.trivy.yaml — Project-level default configuration
-- [doc] trivy/docs/ci-pipeline-sarif-output.md — CI pipeline with SARIF output
-- [doc] trivy/docs/ci-cd-pipeline-recipes.md — CI/CD pipeline recipes for Trivy
-- [doc] trivy/docs/sbom-scanning-reference-guide.md — SBOM scanning reference guide
-- [notebook] trivy/notebooks/trivy-sarif-output-processing.ipynb — SARIF output processing
-- [notebook] trivy/notebooks/trivy-scan-mode-comparison.ipynb — Scan mode comparison
-- [dockerfile] trivy/dockerfiles/custom-policies.Dockerfile — Custom policies scanning image
-- [manifest] trivy/manifests/trivy-operator-deployment.yaml — Trivy Operator deployment
-- [manifest] trivy/manifests/trivy-sarif-code-scanning.yaml — Trivy SARIF code scanning workflow
-- [template] trivy/templates/trivy-monorepo-scanner/Makefile — Monorepo scanner Makefile
-- [template] trivy/templates/trivy-monorepo-scanner/trivy.yaml — Monorepo scanner Trivy config
-- [template] trivy/templates/trivy-monorepo-scanner/.trivyignore — Monorepo scanner ignore rules
-- [template] trivy/templates/trivy-monorepo-scanner/scripts/scan-all.sh — Monorepo scanner entrypoint
-- [template] trivy/templates/trivy-monorepo-scanner/README.md — Monorepo scanner readme
-- [template] trivy/templates/trivy-monorepo-scanner/.github/workflows/ci-scan.yml — Monorepo scanner CI workflow
+## Tetragon · 3 files
+- **primer:** [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md)
+- **notes** (1): [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
+- **configs** (1): [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml)
 
-## Syft
-- [note] syft/notes/0000-primer-syft.md — First-day primer on Syft SBOM generation
-- [note] syft/notes/2026-05-27-install-syft-first-sbom.md — Installing and first SBOM
-- [note] syft/notes/2026-05-29-syft-quickstart-trip-ups.md — Quickstart walkthrough pitfalls
-- [note] syft/notes/2026-05-30-sbom-format-comparison.md — CycloneDX vs SPDX comparison
-- [snippet] syft/snippets/tried-sbom-formats.sh — Generate SPDX and CycloneDX SBOMs
-- [script] syft/scripts/gen-multi-format-sboms.sh — Generate SBOMs in all formats
-- [script] syft/scripts/multi-image-sbom-pipeline.sh — Multi-image SBOM pipeline
-- [script] syft/scripts/sbom-vuln-pipeline.sh — SBOM generation and Grype scan
-- [config] syft/configs/.syft.yaml — Syft project-level configuration
-- [dockerfile] syft/dockerfiles/multi-stage-sbom.Dockerfile — Multi-stage SBOM Dockerfile
-- [doc] syft/docs/sbom-formats-comparison.md — SBOM formats comparison
-- [doc] syft/docs/sbom-output-formats-reference.md — SBOM output formats reference
-- [notebook] syft/notebooks/sbom-layer-package-analysis.ipynb — SBOM layer package analysis
-- [template] syft/templates/sbom-pipeline-scaffold/Makefile — SBOM pipeline scaffold Makefile
-- [template] syft/templates/sbom-pipeline-scaffold/grype.yaml — SBOM pipeline Grype config
-- [template] syft/templates/sbom-pipeline-scaffold/scripts/scan-sbom.sh — SBOM scan entrypoint
-- [template] syft/templates/sbom-pipeline-scaffold/syft.yaml — SBOM pipeline Syft config
-- [template] syft/templates/sbom-pipeline-scaffold/README.md — SBOM pipeline scaffold readme
-- [template] syft/templates/sbom-pipeline-scaffold/.github/workflows/sbom-scan.yml — SBOM scan CI workflow
-- [template] syft/templates/sbom-pipeline-scaffold/.gitignore — SBOM pipeline gitignore
+## Dependabot · 4 files
+- **primer:** [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md)
+- **notes** (3): [2026-06-22-first-time-dependabot-setup.md](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md), [dependabot-alerts-security-updates.md](../dependabot/notes/dependabot-alerts-security-updates.md)
+- **configs** (1): [tried-npm-dependabot.yaml](../dependabot/configs/tried-npm-dependabot.yaml)
 
-## Grype
-- [note] grype/notes/0000-primer-grype.md — First-day primer on Grype
-- [note] grype/notes/2026-05-31-install-grype.md — Installing and first scan
-- [note] grype/notes/2026-06-04-grype-quickstart-trip-ups.md — Quickstart walkthrough pitfalls
-- [note] grype/notes/2026-06-08-first-grype-scan.md — First vulnerability scan
-- [snippet] grype/snippets/my-first-grype-commands.sh — First Grype commands reference
-- [snippet] grype/snippets/minimal-grype-scan.go — Minimal Grype scan in Go
-- [script] grype/scripts/minimal-grype-scan.sh — Minimal Grype vulnerability scan
-- [script] grype/scripts/ci-ready-grype-scan.sh — CI-ready Grype scanning
-- [script] grype/scripts/vuln-diff-two-images.sh — Vulnerability diff across images
-- [script] grype/scripts/grype-vuln-pipeline.sh — Grype vulnerability scanning pipeline with SARIF output
-- [script] grype/scripts/grype-results-to-sarif.py — Grype results to SARIF converter Python script
-- [config] grype/configs/grype-ci-github-actions.yaml — Grype CI GitHub Actions config
-- [dockerfile] grype/dockerfiles/multi-stage-grype-scan.Dockerfile — Multi-stage build + scan + runtime Dockerfile
-- [script] grype/scripts/grype-results-to-sarif.py — Convert Grype JSON output to SARIF 2.1.0 format
-- [doc] grype/docs/grype-syft-integration-guide.md — SBOM generation with Syft, offline scanning with Grype, and CI pipeline integration
-- [notebook] grype/notebooks/grype-sbom-output-explorer.ipynb — SBOM and vulnerability output explorer
+## DefectDojo · 2 files
+- **primer:** [0000-primer-defectdojo.md](../defectdojo/notes/0000-primer-defectdojo.md)
+- **snippets** (1): [install-defectdojo-first-scan-report.sh](../defectdojo/snippets/install-defectdojo-first-scan-report.sh)
 
-## CodeQL
-- [note] codeql/notes/0000-primer-codeql.md — First-day primer on CodeQL
-- [note] codeql/notes/2026-06-05-install-codeql-first-analysis.md — Installing and first analysis
-- [note] codeql/notes/2026-06-14-codeql-datalog-gotchas.md — CodeQL Datalog gotchas
-- [snippet] codeql/snippets/find-hardcoded-creds.ql — Query for hardcoded credentials
-- [snippet] codeql/snippets/my-first-codeql-commands.sh — First CodeQL CLI commands
-- [config] codeql/configs/first-codeql-analysis.yml — Starter GitHub Actions workflow
-- [script] codeql/scripts/first-codeql-analysis.sh — First CodeQL analysis script
-- [doc] codeql/docs/wired-custom-queries-into-ci.md — Wiring custom CodeQL queries into CI
-- [manifest] codeql/manifests/multi-language-codeql-analysis.yaml — Multi-language CodeQL analysis workflow
-- [snippet] codeql/snippets/hardcoded-creds-local-flow.ql — Hardcoded credentials via local data flow
+## Vault · 10 files
+- **primer:** [0000-primer-vault.md](../vault/notes/0000-primer-vault.md)
+- **notes** (3): [2026-06-05-install-vault-and-explore-cli.md](../vault/notes/2026-06-05-install-vault-and-explore-cli.md), [2026-06-15-vault-getting-started-trip-ups.md](../vault/notes/2026-06-15-vault-getting-started-trip-ups.md)
+- **scripts** (2): [vault-kv-crud.sh](../vault/scripts/vault-kv-crud.sh), [vault-db-dynamic-secrets.sh](../vault/scripts/vault-db-dynamic-secrets.sh)
+- **configs** (2): [2026-06-26-dev-test-policies.hcl](../vault/configs/2026-06-26-dev-test-policies.hcl), [multi-environment-access-control.hcl](../vault/configs/multi-environment-access-control.hcl)
+- **snippets** (1): [vault-read-write.go](../vault/snippets/vault-read-write.go)
+- **docs** (2): [configuring-vault-dev-server.md](../vault/docs/configuring-vault-dev-server.md), [vault-agent-auto-auth-kubernetes.md](../vault/docs/vault-agent-auto-auth-kubernetes.md)
 
-## ZAP
-- [note] zap/notes/0000-primer-zap.md — First-day primer on OWASP ZAP
-- [note] zap/notes/2026-06-06-install-zap-desktop-ui.md — Installing and exploring UI
-- [note] zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md — Quickstart and UI gotchas
-- [note] zap/notes/2026-06-13-spider-scan-test-app.md — Spider scan against test app
-- [snippet] zap/snippets/my-first-zap-baseline-scan.sh — First ZAP baseline scan
-- [snippet] zap/snippets/authenticated-scan-with-context.sh — Authenticated scan with context
-- [snippet] zap/snippets/my-first-zap-spider-scan.sh — First ZAP spider scan
-- [script] zap/scripts/dast-workflow-from-scratch.sh — Full ZAP DAST workflow
-- [script] zap/scripts/zap-dast-sarif-code-scanning.sh — ZAP DAST pipeline with SARIF output and GitHub Code Scanning
-- [doc] zap/docs/zap-integration-patterns.md — ZAP integration patterns
-- [doc] zap/docs/passive-vs-active-scanning-zap.md — Passive vs active scanning
-- [config] zap/configs/zap-authenticated-scan-context.yaml — Authenticated scan context config
-- [config] zap/configs/ci-dast-automation-framework-plan.yaml — Headless DAST automation pipeline config
-- [dockerfile] zap/dockerfiles/custom-zap-automation.Dockerfile — Custom ZAP image with embedded scan plans
+## Git · 10 files
+- **primer:** [0000-primer-git.md](../git/notes/0000-primer-git.md)
+- **scripts** (8): [git-install.sh](../scripts/bash/git/git-install.sh), [git-install-macos.sh](../scripts/bash/git/git-install-macos.sh), [git-install-wsl.sh](../scripts/bash/git/git-install-wsl.sh), [git-automation.sh](../scripts/bash/git/git-automation.sh), [credential-helper-ci.sh](../scripts/bash/git/credential-helper-ci.sh), [git-pre-commit-hooks.sh](../scripts/bash/git/git-pre-commit-hooks.sh), [github-runner-install.sh](../scripts/bash/git/github-runner-install.sh), [git-cicd-hooks.sh](../scripts/bash/git/git-cicd-hooks.sh)
+- **snippets** (1): [git-commands.md](../snippets/git-commands.md)
 
-- [template] zap/templates/zap-dast-integration/.github/workflows/zap-dast.yml — DAST CI workflow
-- [template] zap/templates/zap-dast-integration/README.md — DAST integration scaffold readme
-- [template] zap/templates/zap-dast-integration/zap-automation-plan.yaml — DAST automation plan
-- [template] zap/templates/zap-dast-integration-scaffold/.github/workflows/zap-dast.yml — DAST scaffold CI workflow
-- [template] zap/templates/zap-dast-integration-scaffold/.gitignore — DAST scaffold gitignore
-- [template] zap/templates/zap-dast-integration-scaffold/Makefile — DAST scaffold Makefile
-- [template] zap/templates/zap-dast-integration-scaffold/README.md — DAST scaffold readme
-- [template] zap/templates/zap-dast-integration-scaffold/plans/full-scan.yaml — DAST full scan plan
-- [template] zap/templates/zap-dast-integration-scaffold/plans/quick-scan.yaml — DAST quick scan plan
-- [template] zap/templates/zap-dast-integration-scaffold/scripts/run-zap-dast.sh — DAST scaffold entrypoint
+## Observability · 14 files
+- **scripts** (14): [scripts/bash/observability-toolkit](../scripts/bash/observability_toolkit/) → […and more](../scripts/bash/observability_toolkit/)
 
-## TruffleHog
-- [note] trufflehog/notes/0000-primer-trufflehog.md — First-day primer on TruffleHog
-- [note] trufflehog/notes/2026-05-27-install-trufflehog.md — Installing and scanning a repo
-- [note] trufflehog/notes/2026-05-27-following-trufflehog-quickstart.md — Quickstart walkthrough
-- [snippet] trufflehog/snippets/fake-secrets-test.sh — Test detection with fake secrets
-- [snippet] trufflehog/snippets/scan-github-repo-for-secrets.sh — Scan GitHub repo for secrets
-- [config] trufflehog/configs/trufflehog-custom-regex-config.yaml — Custom regex and entropy config
-- [config] trufflehog/configs/custom-detector-rules.yaml — Custom detector rules
-- [script] trufflehog/scripts/multi-repo-scan-pipeline.sh — Multi-repo secret scanning
-- [script] trufflehog/scripts/pre-commit-scan-pipeline.sh — Pre-commit secret scanning
-- [script] trufflehog/scripts/analyze-trufflehog-results.py — Analyze scan results
-- [doc] trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md — Git, filesystem, S3 comparison
-- [doc] trufflehog/docs/trufflehog-output-formats-json-sarif-csv.md — Output format reference for CI ingestion
-- [notebook] trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb — False positive analysis
-- [notebook] trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb — Git history vs filesystem vs GitHub API scanning comparison
-- [manifest] trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml — Reusable GitHub Actions workflow for PR-level secret scanning with SARIF upload
-- [dockerfile] trufflehog/dockerfiles/pre-commit-scanner.Dockerfile — Pre-commit scanner image
-- [template] trufflehog/templates/github-secret-scanning-integration/README.md — GH secret scan readme
-- [template] trufflehog/templates/github-secret-scanning-integration/Makefile — GH secret scan Makefile
-- [template] trufflehog/templates/github-secret-scanning-integration/scripts/scan-github.sh — GH secret scan script
-- [template] trufflehog/templates/github-secret-scanning-integration/.github/workflows/github-secret-scan.yml — GH secret scan workflow
-- [template] trufflehog/templates/github-secret-scanning-integration/.gitignore — GH secret scan gitignore
-- [template] trufflehog/templates/secret-scanning-pipeline/README.md — Secret scanning pipeline readme
-- [template] trufflehog/templates/secret-scanning-pipeline/Makefile — Secret scanning pipeline Makefile
-- [template] trufflehog/templates/secret-scanning-pipeline/scripts/scan-all.sh — Secret scanning entrypoint
-- [template] trufflehog/templates/secret-scanning-pipeline/trufflehog-config.yaml — Secret scanning config
-- [template] trufflehog/templates/secret-scanning-pipeline/.github/workflows/secret-scan.yml — Secret scan CI workflow
-- [template] trufflehog/templates/secret-scanning-pipeline/.gitignore — Secret scanning gitignore
-- [template] trufflehog/templates/multi-repo-secret-scan/.github/workflows/org-secret-scan.yml — Multi-repo org secret scan workflow
-- [template] trufflehog/templates/multi-repo-secret-scan/.trufflehog/allowlist.yaml — Multi-repo allowlist config
-- [template] trufflehog/templates/multi-repo-secret-scan/.trufflehog/config.yaml — Multi-repo TruffleHog config
-- [template] trufflehog/templates/multi-repo-secret-scan/.trufflehogignore — Multi-repo ignore rules
-- [template] trufflehog/templates/multi-repo-secret-scan/Makefile — Multi-repo scan Makefile
-- [template] trufflehog/templates/multi-repo-secret-scan/README.md — Multi-repo scan readme
-- [template] trufflehog/templates/multi-repo-secret-scan/repos.txt — Multi-repo target list
-- [template] trufflehog/templates/multi-repo-secret-scan/scripts/generate-report.py — Multi-repo report generator
-- [template] trufflehog/templates/multi-repo-secret-scan/scripts/scan-multi-repo.sh — Multi-repo scan entrypoint
-- [template] trufflehog/templates/multi-repo-secret-scan/.gitignore — Multi-repo gitignore
+## Docker · 4 files
+- **scripts** (4): [docker-image-cleanup.sh](../scripts/bash/docker_toolkit/docker-image-cleanup.sh), [docker-swarm-cluster-setup.sh](../scripts/bash/docker_toolkit/docker-swarm-cluster-setup.sh), [docker-kaniko-cve-2026-28406-hardening.sh](../scripts/bash/docker_toolkit/docker-kaniko-cve-2026-28406-hardening.sh)
+- **snippets** (1): [docker-commands.md](../snippets/docker-commands.md)
+- **docs** (2): [docker-security-best-practices.md](../docs/how-to/docker-security-best-practices.md), [docker-security.md](../docs/how-to/docker-security.md)
 
-## Cosign
-- [note] cosign/notes/0000-primer-cosign.md — First-day primer on Cosign
-- [note] cosign/notes/2026-06-13-install-cosign-sign-first-image.md — Installing and signing first image
-- [note] cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md — Generating first keypair
-- [script] cosign/scripts/verify-signed-image.sh — Verify signed container image
-- [snippet] cosign/snippets/first-cosign-sign-verify-image.sh — First sign and verify commands
-- [config] cosign/configs/keyless-signing-github-actions.yaml — Keyless Cosign signing for GitHub Actions
-- [script] cosign/scripts/minimal-sign-verify.sh — Minimal sign and verify script
-- [note] cosign/notes/2026-06-22-cosign-getting-started-trip-ups.md — Cosign getting-started pitfalls
+## Kubernetes · 17 files
+- **scripts** (17): [scripts/bash/k8s-toolkit](../scripts/bash/k8s_toolkit/) → […and more](../scripts/bash/k8s_toolkit/)
+- **snippets** (1): [kubectl-cheatsheet.md](../snippets/kubectl-cheatsheet.md)
+- **docs** (11): [docs/how-to/k8s-toolkit.md](../docs/how-to/k8s_toolkit.md), [docs/how-to/k8s-rbac.md](../docs/how-to/k8s_rbac.md)
+- **templates** (3): [templates/k8s](../templates/k8s/)
 
-## Falco
-- [note] falco/notes/0000-primer-falco.md — First-day primer on Falco runtime security
-- [note] falco/notes/2026-06-10-install-falco-first-detection.md — Installing and first detection
-- [note] falco/notes/2026-06-15-falco-rules-macros-lists.md — Falco rules, macros, lists
-- [config] falco/configs/first-custom-rule-detect-shell-in-container.yaml — Detect shell in container
-- [config] falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml — First custom rule snapshot
-- [config] falco/configs/container-drift-detection.yaml — Container drift detection
-- [snippet] falco/snippets/tried-file-access-detector.go — Go file access detector for Falco events
-- [doc] falco/docs/syscall-vs-tracepoint-rules.md — Syscall vs tracepoint rule comparison
-- [doc] falco/docs/tuned-falco-rules-noise-reduction.md — Tuning Falco rules to reduce noise
-- [script] falco/scripts/deploy-falco-ruleset.sh — Deploy custom Falco ruleset with Helm
-- [script] falco/scripts/tried-falco-k8s-alert-forwarding.sh — Deploy Falco with alert forwarding via Falcosidekick
-- [script] falco/scripts/tried-falco-k8s-deploy-alert-forwarding.sh — Minimal Falco deployment with Kubernetes integration and alert forwarding
+## Terraform · 16 files
+- **scripts** (16): [scripts/bash/terraform](../scripts/bash/terraform/) → […and more](../scripts/bash/terraform/)
+- **snippets** (1): [terraform-commands.md](../snippets/terraform-commands.md)
+- **docs** (27): [docs/how-to/terraform-*.md](../docs/how-to/) → […and more](../docs/how-to/)
+- **templates** (12): [templates/terraform](../templates/terraform/) → […and more](../templates/terraform/)
 
-## OPA
-- [note] opa/notes/0000-primer-opa.md — First-day primer on OPA policy engine
-- [note] opa/notes/2026-06-06-install-opa-repl.md — Installing and exploring REPL
-- [note] opa/notes/2026-06-15-opa-getting-started-trip-ups.md — Getting started pitfalls
-- [snippet] opa/snippets/my-first-opa-policy-eval.sh — First OPA policy evaluation
-- [snippet] opa/snippets/enforce-image-registry-constraints.rego — Image registry constraint policy
-- [config] opa/configs/tried-a-gatekeeper-constraint.yaml — Gatekeeper constraint example
-- [script] opa/scripts/how-i-test-policies-locally.sh — Local policy testing script
-- [doc] opa/docs/wired-opa-admission-control.md — Wiring OPA into admission control
-- [snippet] opa/snippets/deny-privileged-hostnetwork.rego — Deny privileged containers and hostNetwork
+## Ansible · 11 files
+- **scripts** (11): [scripts/bash/ansible-toolkit](../scripts/bash/ansible_toolkit/) → […and more](../scripts/bash/ansible_toolkit/)
+- **snippets** (1): [ansible-commands.md](../snippets/ansible-commands.md)
+- **docs** (17): [docs/how-to/ansible-toolkit.md](../docs/how-to/ansible_toolkit.md), [docs/how-to/ansible-playbook-best-practices.md](../docs/how-to/ansible-playbook-best-practices.md)
 
-## GitGuardian
-- [note] gitguardian/notes/0000-primer-gitguardian.md — First-day primer on GitGuardian
-- [note] gitguardian/notes/2026-06-07-first-ggshield-scan.md — Installing and first scan
-- [note] gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md — Quickstart walkthrough pitfalls
-- [note] gitguardian/notes/2026-06-14-first-secrets-scan-repo.md — First secrets scan of repo
-- [snippet] gitguardian/snippets/my-first-ggshield-commands.sh — First ggshield commands
-- [snippet] gitguardian/snippets/custom-policy-engine-ggshield.sh — Custom policy engine
-- [config] gitguardian/configs/.ggshield.yaml — ggshield scheduled scanning config
-- [config] gitguardian/configs/monorepo-allowlists.yaml — Monorepo allowlists config
-- [script] gitguardian/scripts/pre-commit-hook-ggshield.sh — Pre-commit hook for ggshield
-- [script] gitguardian/scripts/gg-incident-response-pipeline.sh — Incident response automation
-- [doc] gitguardian/docs/monorepo-ci-per-team-exclusions.md — Per-team exclusion config for monorepo CI
-
-## Snyk
-- [note] snyk/notes/0000-primer-snyk.md — First-day primer on Snyk
-- [note] snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md — Quickstart walkthrough
-- [note] snyk/notes/2026-06-08-install-snyk-first-test.md — Installing and first test
-- [note] snyk/notes/2026-06-14-first-vulnerability-scan.md — First vulnerability scan
-- [snippet] snyk/snippets/my-first-snyk-commands.sh — First Snyk CLI commands
-- [config] snyk/configs/snyk-ci-github-actions.yaml — Snyk CI GitHub Actions config
-- [config] snyk/configs/snyk-dependency-patch-ignore.yaml — Dependency patch and ignore policy
-- [script] snyk/scripts/snyk-vuln-scan-pipeline.sh — Snyk vulnerability scanning pipeline
-- [doc] snyk/docs/multi-project-ci-pipeline.md — Multi-project CI pipeline with per-service monitoring
-
-## Terrascan
-- [note] terrascan/notes/0000-primer-terrascan.md — First-day primer on Terrascan
-- [note] terrascan/notes/2026-06-13-first-scan.md — First Terrascan scan
-- [note] terrascan/notes/2026-06-19-install-terrascan-tiny-tf.md — Installing and tiny Terraform
-- [snippet] terrascan/snippets/insecure-terraform.tf — Insecure Terraform for testing
-- [snippet] terrascan/snippets/tiny-tf-with-findings.tf — Tiny Terraform with findings
-- [config] terrascan/configs/tried-custom-s3-rule.yaml — Custom S3 bucket policy Rego rule
-- [script] terrascan/scripts/tried-terrascan-ci-scan.sh — Minimal Terrascan CI scan script
-- [note] terrascan/notes/2026-06-29-terrascan-getting-started-trip-ups.md — Getting-started tutorial pitfalls
-
-## Tetragon
-- [note] tetragon/notes/0000-primer-tetragon.md — First-day primer on Tetragon eBPF security
-- [note] tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md — Running Tetragon with Docker and observing first events
-- [config] tetragon/configs/first-tracing-policy-exec-file.yaml — First TracingPolicy: exec and file access
-
-## Dependabot
-- [note] dependabot/notes/0000-primer-dependabot.md — First-day primer on Dependabot
-- [config] dependabot/configs/tried-npm-dependabot.yaml — npm Dependabot config
-- [note] dependabot/notes/2026-06-22-first-time-dependabot-setup.md — First-time Dependabot setup guide
-- [note] dependabot/notes/dependabot-alerts-security-updates.md — Dependabot alerts and security updates
-
-## Lab Projects
-- [doc] lab/mini-projects/terraform-project/README.md — Terraform project with modules
-- [tf] lab/mini-projects/terraform-project/main.tf — Terraform project main
-- [tf] lab/mini-projects/terraform-project/modules/compute/main.tf — Compute module
-- [tf] lab/mini-projects/terraform-project/modules/network/main.tf — Network module
-- [tf] lab/mini-projects/terraform-project/modules/storage/main.tf — Storage module
-- [tf] lab/mini-projects/terraform-project/outputs.tf — Project outputs
-- [tf] lab/mini-projects/terraform-project/variables.tf — Project variables
-- [tf] lab/mini-projects/terraform-project/workspace.tf — Workspace configuration
-- [doc] lab/mini-projects/postgresql-database-server/README.md — PostgreSQL 16 with replication
-- [doc] lab/mini-projects/samba-enterprise-file-sharing/README.md — Enterprise Samba file sharing
-
-## Environments (Terraform)
-- [env] environments/dev/main.tf — Development environment Terraform
-- [env] environments/dev/outputs.tf — Development outputs
-- [env] environments/dev/terraform.tfvars — Development variables
-- [env] environments/dev/variables.tf — Development variable definitions
-- [env] environments/prod/main.tf — Production environment Terraform
-- [env] environments/prod/outputs.tf — Production outputs
-- [env] environments/prod/terraform.tfvars — Production variables
-- [env] environments/prod/variables.tf — Production variable definitions
-- [env] environments/staging/main.tf — Staging environment Terraform
-- [env] environments/staging/outputs.tf — Staging outputs
-- [env] environments/staging/terraform.tfvars — Staging variables
-- [env] environments/staging/variables.tf — Staging variable definitions
-
-## Terraform Modules
-- [module] terraform/eventbridge-lambda/main.tf — EventBridge Lambda module
-- [module] terraform/eventbridge-lambda/environments/dev.tfvars — Dev environment vars
-- [module] terraform/eventbridge-lambda/modules/eventbridge/outputs.tf — EventBridge module outputs
-- [module] terraform/eventbridge-lambda/modules/eventbridge/variables.tf — EventBridge module variables
-- [module] terraform/eventbridge-lambda/modules/lambda/outputs.tf — Lambda module outputs
-- [module] terraform/eventbridge-lambda/modules/lambda/variables.tf — Lambda module variables
-- [module] terraform/eventbridge-lambda/variables.tf — Root variables
-- [module] scripts/bash/terraform_toolkit/networking/terraform/main.tf — VPC networking module
-- [module] scripts/bash/terraform_toolkit/networking/terraform/variables.tf — VPC module variables
-
+## Jenkins · 5 files
+- **scripts** (5): [scripts/bash/jenkins-toolkit](../scripts/bash/jenkins_toolkit/) → […and more](../scripts/bash/jenkins_toolkit/)

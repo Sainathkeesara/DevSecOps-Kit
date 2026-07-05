@@ -706,8 +706,8 @@ ansible all -i inventory/prod.yml -m apt -a "name=python3" --become
 
 - [Terraform Documentation](https://developer.hashicorp.com/terraform/docs)
 - [Ansible Documentation](https://docs.ansible.com/ansible/latest/user_guide/index.html)
-- [iac-operations.sh Library](../scripts/bash/linux_toolkit/lib/iac-operations.sh)
-- [Linux Automation Template](../templates/linux-automation/)
+- [iac-operations.sh Library](../../../scripts/bash/linux_toolkit/lib/iac-operations.sh)
+- [Linux Automation Template](../../../templates/linux-automation/)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
 - [Jenkins Pipeline Documentation](https://www.jenkins.io/doc/book/pipeline/)
 - [Terraform Backend Configuration](https://developer.hashicorp.com/terraform/language/settings/backends/configuration)

@@ -1,4 +1,5 @@
-# Full scan plan: spider + AJAX spider + active scan
+# last_verified: 2026-07-05 · zap stable
+# Purpose: ZAP Automation Framework full scan plan
 # Takes longer (~10-20 min) but catches OWASP Top 10 vulnerabilities
 env:
   contexts:

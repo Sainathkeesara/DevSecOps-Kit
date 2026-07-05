@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# last_verified: 2026-07-05 · zap stable
 # Purpose: Run a ZAP DAST scan using the Automation Framework via Docker.
 # Usage:   ./run-zap-dast.sh <target_url> <output_dir> [plan_file]
 # Example: ./run-zap-dast.sh https://staging.example.com ./reports plans/quick-scan.yaml
