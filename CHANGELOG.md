@@ -9,6 +9,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - zap-014: `zap/docs/zap-automation-plan-structure.md` — ZAP Automation Framework plan structure reference covering contexts, requests, and passive scan configuration (L4)
 
+## 2026-07-04
+
+### Added
+- git-004: `git/notes/2026-07-04-git-branching-merge-confusions.md` — Following a Git branching and merging tutorial and write-up of confusions (L2)
+    - First-person notes covering what worked (fast-forward, log --graph), got stuck on (merge conflicts, merge strategies, rebase after merge), and what I'd try next
+    - L2 loose shape: What I followed → What worked → Got stuck on → What I'd try next
+- git-005: `git/snippets/2026-07-04-git-rebase-vs-merge-conflict-patterns.sh` — Git rebase vs merge comparison with conflict resolution patterns (L2)
+    - Bash snippet creating a disposable repo and walking through merge vs rebase on the same conflicting edit
+    - Demonstrates conflict markers and the difference in post-conflict history shape
+    - shellcheck passed (clean)
+
 ## 2026-07-03
 
 ### Added

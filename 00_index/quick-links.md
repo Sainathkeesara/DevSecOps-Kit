@@ -21,6 +21,8 @@
 
 ## Learn Git
 - [Git primer](../git/notes/0000-primer-git.md) — What Git is, key commands, and first repository
+- [Following a Git branching and merging tutorial — my confusions](../git/notes/2026-07-04-git-branching-merge-confusions.md) — L2 notes covering what worked, what tripped me up, and next steps
+- [Git rebase vs merge comparison snippet](../git/snippets/2026-07-04-git-rebase-vs-merge-conflict-patterns.sh) — L2 bash snippet demonstrating conflict patterns for both merge and rebase
 
 ## Set up a tool
 - [Install Semgrep](../semgrep/notes/2026-05-25-install-semgrep.md)
