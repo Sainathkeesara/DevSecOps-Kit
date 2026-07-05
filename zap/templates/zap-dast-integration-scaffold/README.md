@@ -89,6 +89,12 @@ longer but catch more vulnerabilities.
 - Open a PR against your repo and confirm the CI workflow runs and produces a
   report artifact.
 
+## Maintenance
+
+The `.github/dependabot.yml` file configures Dependabot to keep the ZAP Docker
+image up to date. Review and merge Dependabot PRs in your repository to receive
+security fixes and base image updates automatically.
+
 ## Common errors
 
 - **ZAP container exits immediately**: usually a missing target URL or invalid

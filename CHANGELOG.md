@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-05
+
+### Added
+- zap-013: `zap/templates/zap-dast-integration-scaffold/.github/dependabot.yml` — Dependabot config for ZAP Docker image updates in the DAST integration scaffold (L4)
+    - Weekly Docker image updates for `ghcr.io/zaproxy/zaproxy:stable`
+    - Patch-level updates only by default; direct dependency scope
+
 ## 2026-07-04
 
 ### Added
