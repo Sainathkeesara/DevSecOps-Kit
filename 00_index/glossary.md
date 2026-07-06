@@ -196,6 +196,14 @@
 
 **SLA (Service Level Agreement)**: A contractual commitment based on SLOs, often with financial penalties for breaches.
 
+## DefectDojo
+
+- **Product** — An application or service tracked in DefectDojo.
+- **Engagement** — A time-boxed testing window or sprint within a DefectDojo product.
+- **Finding** — A single vulnerability or issue imported from a security scanner into DefectDojo.
+- **Test** — The result of importing one scan file into a DefectDojo engagement.
+- **Deduplication** — Merging identical findings across scans so one issue doesn't fan out into multiple tickets.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment

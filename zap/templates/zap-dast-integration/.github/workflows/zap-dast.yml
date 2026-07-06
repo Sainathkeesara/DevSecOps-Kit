@@ -1,3 +1,5 @@
+# last_verified: 2026-07-05 · zap stable
+# Purpose: GitHub Actions workflow for ZAP DAST scanning with Automation Framework
 name: ZAP DAST Scan
 
 on:
