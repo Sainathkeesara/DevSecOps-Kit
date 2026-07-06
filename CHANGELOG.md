@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-07-06
 
 ### Added
+- syft-003: `syft/docs/registry-auth-caching-patterns.md` — Syft enterprise registry authentication and caching patterns for high-scale CI (L5)
+  - Registry credential resolution, non-Docker credential injection, multi-registry auth in a single job
+  - SBOM result caching via GitHub Actions cache and S3/GCS with image digest keys
+  - Layer-aware caching strategy for mutable tags
 - grype-007: `grype/manifests/grype-reusable-sarif-workflow.yaml` — Reusable GitHub Actions workflow for Grype container vulnerability scanning with SARIF output (L4)
   - `workflow_call` manifest accepting `image` or `sbom-path` inputs with configurable `fail-on`, `severity`, `ignore-unfixed`, and `grype-version` parameters
   - Exposes `sarif-path` and `findings-count` outputs for downstream steps
