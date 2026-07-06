@@ -21,6 +21,8 @@
 
 ## Learn Git
 - [Git primer](../git/notes/0000-primer-git.md) — What Git is, key commands, and first repository
+- [Following a Git branching and merging tutorial — my confusions](../git/notes/2026-07-04-git-branching-merge-confusions.md) — L2 notes covering what worked, what tripped me up, and next steps
+- [Git rebase vs merge comparison snippet](../git/snippets/2026-07-04-git-rebase-vs-merge-conflict-patterns.sh) — L2 bash snippet demonstrating conflict patterns for both merge and rebase
 
 ## Set up a tool
 - [Install Semgrep](../semgrep/notes/2026-05-25-install-semgrep.md)
@@ -246,6 +248,7 @@
 - [ZAP quickstart walkthrough — UI gotchas](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md)
 - [Authenticated scan context config](../zap/configs/zap-authenticated-scan-context.yaml) — Form-based auth context with CSRF handling
 - [Passive vs active scanning in ZAP](../zap/docs/passive-vs-active-scanning-zap.md) — When to use each mode and a practical workflow split
+- [ZAP Automation Framework plan structure](../zap/docs/zap-automation-plan-structure.md) — Contexts, requests, and passive scan configuration reference
 - [Authenticated scan with ZAP context](../zap/snippets/authenticated-scan-with-context.sh)
 - [ZAP integration patterns for web app security testing](../zap/docs/zap-integration-patterns.md)
 - [Spider scan against a test app](../zap/notes/2026-06-13-spider-scan-test-app.md)

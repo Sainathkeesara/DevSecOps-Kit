@@ -32,6 +32,7 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 ## Layout
 
 - **`00_index/`** — Navigation: topic index, quick links, glossary, learning path
+- **`defectdojo/`** — DefectDojo vulnerability management, notes, and snippets
 - **`checkov/` / `semgrep/` / `trivy/` / `trufflehog/` / `syft/`** — Security scanner notes, scripts, configs
 - **`grype/` / `codeql/` / `zap/` / `snyk/` / `gitguardian/` / `falco/` / `cosign/` / `tetragon/`** — Vulnerability scanner and runtime security tool content
 - **`terrascan/` / `opa/`** — IaC compliance and policy engine primers
