@@ -4,6 +4,18 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-06
+
+### Added
+- grype-007: `grype/manifests/grype-reusable-sarif-workflow.yaml` — Reusable GitHub Actions workflow for Grype container vulnerability scanning with SARIF output (L4)
+  - `workflow_call` manifest accepting `image` or `sbom-path` inputs with configurable `fail-on`, `severity`, `ignore-unfixed`, and `grype-version` parameters
+  - Exposes `sarif-path` and `findings-count` outputs for downstream steps
+  - Inline Python SARIF 2.1.0 converter embedded in the scan step
+  - Grype DB caching via `actions/cache@v4`; artifact upload for JSON + SARIF results
+- dependabot-002: `dependabot/notes/2026-06-15-dependabot-first-repo-bump-pr.md` — First repo Dependabot setup and version-bump PR walkthrough (L1)
+  - Scratchy first-person notes covering `.github/dependabot.yml` creation, toggle verification, and PR behavior
+  - Got-stuck list: directory path typo, `open-pull-requests-limit` ceiling behaviour, ecosystem mismatch (dotnet vs pip)
+
 ## 2026-07-05
 
 ### Added
