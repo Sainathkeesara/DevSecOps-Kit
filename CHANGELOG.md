@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-07-06
 
 ### Added
+- argocd-001: `argocd/notes/0000-primer-argocd.md` — ArgoCD quick primer: what it is, GitOps analogy, key terms (L1)
+- argocd-002: `argocd/notes/2026-07-06-install-argocd-first-app.md` — First-install walkthrough with login, password, and `.git` suffix gotchas (L1)
+- argocd-003: `argocd/manifests/2026-07-06-sample-app-application.yaml` — Minimal Application manifest with automated prune/selfHeal sync policy (L1)
 - grype-007: `grype/manifests/grype-reusable-sarif-workflow.yaml` — Reusable GitHub Actions workflow for Grype container vulnerability scanning with SARIF output (L4)
   - `workflow_call` manifest accepting `image` or `sbom-path` inputs with configurable `fail-on`, `severity`, `ignore-unfixed`, and `grype-version` parameters
   - Exposes `sarif-path` and `findings-count` outputs for downstream steps
