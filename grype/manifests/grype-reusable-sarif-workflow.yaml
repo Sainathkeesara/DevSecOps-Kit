@@ -1,0 +1,201 @@
+name: Grype SARIF — reusable container vulnerability scan
+
+on:
+  workflow_call:
+    inputs:
+      image:
+        description: Container image to scan. Leave empty to skip image scan.
+        type: string
+        required: false
+        default: ""
+      sbom-path:
+        description: Path to an SBOM file produced by Syft or Grype SBOM mode.
+        type: string
+        required: false
+        default: ""
+      severity:
+        description: Vulnerabilities at or above this severity trigger the fail step.
+        type: string
+        required: false
+        default: "HIGH"
+      fail-on:
+        description: Exit non-zero when findings at this severity or above are found.
+        type: string
+        required: false
+        default: "high"
+      ignore-unfixed:
+        description: Skip vulnerabilities with no available fix.
+        type: boolean
+        required: false
+        default: true
+      grype-version:
+        description: Pin the Grype CLI version installed by the workflow.
+        type: string
+        required: false
+        default: "0.71.0"
+    outputs:
+      sarif-path:
+        description: Path to the SARIF file produced by this run.
+        value: ${{ jobs.grype-scan.outputs.sarif-path }}
+      findings-count:
+        description: Number of matched vulnerabilities in the Grype JSON output.
+        value: ${{ jobs.grype-scan.outputs.findings-count }}
+
+permissions:
+  contents: read
+  security-events: write
+
+env:
+  GRYPE_CACHE_DIR: /tmp/.grype-cache
+
+jobs:
+  grype-scan:
+    name: Grype container scan (${{ inputs.image || inputs.sbom-path || 'default' }})
+    runs-on: ubuntu-latest
+    outputs:
+      sarif-path: ${{ steps.scan.outputs.sarif-path }}
+      findings-count: ${{ steps.scan.outputs.findings-count }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Restore Grype DB cache
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.GRYPE_CACHE_DIR }}
+          key: grype-db-${{ runner.os }}-${{ inputs.grype-version }}
+          restore-keys: |
+            grype-db-${{ runner.os }}-
+
+      - name: Install Grype
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh \
+            | sh -s -- -b /usr/local v${{ inputs.grype-version }}
+
+      - name: Build image (when image input is set)
+        if: ${{ inputs.image != '' }}
+        run: docker build -t ${{ inputs.image }} .
+
+      - name: Scan with Grype
+        id: scan
+        continue-on-error: true
+        env:
+          SCAN_TARGET: ${{ inputs.image || inputs.sbom-path }}
+          WORKSPACE: ${{ github.workspace }}
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/grype-results"
+          grype "$SCAN_TARGET" \
+            --fail-on ${{ inputs.fail-on }} \
+            --output json \
+            ${{ inputs.ignore-unfixed && '--only-fixed' || '' }} \
+            > "$GITHUB_WORKSPACE/grype-results/grype-results.json"
+
+          COUNT=$(jq '.matches | length' "$GITHUB_WORKSPACE/grype-results/grype-results.json")
+          echo "findings-count=$COUNT" >> $GITHUB_OUTPUT
+
+          python3 - << 'PYEOF'
+          import json, os, sys
+
+          workspace    = os.environ["WORKSPACE"]
+          results_path = f"{workspace}/grype-results/grype-results.json"
+          output_path  = f"{workspace}/grype-results/grype-results.sarif"
+
+          severity_map = {
+              "Critical": "error",
+              "High":     "error",
+              "Medium":   "warning",
+              "Low":      "note",
+              "Negligible": "note",
+              "Unknown":  "none",
+          }
+          fail_on = "${{ inputs.fail-on }}".title()
+
+          with open(results_path) as fh:
+              data = json.load(fh)
+
+          sarif = {
+              "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+              "version": "2.1.0",
+              "runs": [{
+                  "tool": {
+                      "driver": {
+                          "name": "Grype",
+                          "informationUri": "https://github.com/anchore/grype",
+                          "version": "${{ inputs.grype-version }}",
+                      }
+                  },
+                  "results": [],
+              }],
+          }
+
+          for match in data.get("matches", []):
+              vuln     = match.get("vulnerability", {})
+              artifact = match.get("artifact", {})
+              severity = vuln.get("severity", "Unknown")
+              fix      = vuln.get("fix", {})
+              fix_versions = fix.get("versions", []) if isinstance(fix, dict) else []
+
+              loc = artifact.get("locations", [{}])[0] if artifact.get("locations") else {}
+              path = loc.get("path", artifact.get("name", "unknown"))
+              line = loc.get("lineNumber", 1)
+
+              message = (
+                  f"{vuln.get('id', '')} in {artifact.get('name', 'unknown')}"
+                  f" {artifact.get('version', '')}: {vuln.get('description', '')}"
+              )
+              if fix_versions:
+                  message += f" (fixed in: {', '.join(fix_versions)})"
+              elif not vuln.get("fixAvailable", True):
+                  message += " (no fix available)"
+
+              sarif["runs"][0]["results"].append({
+                  "ruleId": vuln.get("id", ""),
+                  "level": severity_map.get(severity, "none"),
+                  "message": {"text": message},
+                  "locations": [{
+                      "physicalLocation": {
+                          "artifactLocation": {"uri": path},
+                          "region": {"startLine": line},
+                      }
+                  }],
+                  "properties": {
+                      "severity": severity,
+                      "package": artifact.get("name", ""),
+                      "version": artifact.get("version", ""),
+                      "type": artifact.get("type", ""),
+                      "fix_available": vuln.get("fixAvailable", True),
+                  },
+              })
+
+          with open(output_path, "w") as fh:
+              json.dump(sarif, fh, indent=2)
+
+
+          PYEOF
+
+          echo "sarif-path=${{ github.workspace }}/grype-results/grype-results.sarif" >> $GITHUB_OUTPUT
+
+      - name: Upload SARIF to GitHub Code Scanning
+        if: always() && steps.scan.outputs.sarif-path != ''
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif-file: ${{ steps.scan.outputs.sarif-path }}
+          category: grype
+
+      - name: Upload Grype JSON results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: grype-results
+          path: ${{ github.workspace }}/grype-results/
+          if-no-files-found: ignore
+
+      - name: Fail on findings at threshold
+        if: ${{ steps.scan.outputs.findings-count != '0' }}
+        run: |
+          echo "::error::Grype found ${{ steps.scan.outputs.findings-count }} vulnerabilities at or above '${{ inputs.fail-on }}' severity"
+          exit 1

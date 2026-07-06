@@ -129,6 +129,7 @@
 - [Grype CI GitHub Actions workflow](../grype/configs/grype-ci-github-actions.yaml)
 - [Grype SBOM and vulnerability output explorer](../grype/notebooks/grype-sbom-output-explorer.ipynb)
 - [Grype vulnerability scanning pipeline with SARIF output](../grype/scripts/grype-vuln-pipeline.sh) — Scan images, generate SARIF, integrate with CI
+- [Grype reusable SARIF workflow (manifest)](../grype/manifests/grype-reusable-sarif-workflow.yaml) — Reusable GitHub Actions workflow for Grype container vulnerability scanning with SARIF output
 - [Grype results to SARIF converter](../grype/scripts/grype-results-to-sarif.py) — Reusable Python script to convert Grype JSON output to SARIF 2.1.0 format
 - [Multi-stage Grype vulnerability scanning Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile) — Build + scan + runtime stages with Grype
 - [Grype + Syft integration guide](../grype/docs/grype-syft-integration-guide.md) — SBOM generation with Syft, offline scanning with Grype, and CI pipeline integration
@@ -208,6 +209,7 @@
 - [Dependabot primer](../dependabot/notes/0000-primer-dependabot.md)
 - [Minimal Dependabot npm update config](../dependabot/configs/tried-npm-dependabot.yaml)
 - [First-time Dependabot setup — what tripped me up](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md)
+- [Dependabot on my first repo — version-bump PR walkthrough](../dependabot/notes/2026-06-15-dependabot-first-repo-bump-pr.md)
 - [Dependabot alerts and security updates — what tripped me up](../dependabot/notes/dependabot-alerts-security-updates.md)
 
 ## Build a Semgrep rule pack
