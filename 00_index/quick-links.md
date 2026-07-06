@@ -24,6 +24,11 @@
 - [Following a Git branching and merging tutorial — my confusions](../git/notes/2026-07-04-git-branching-merge-confusions.md) — L2 notes covering what worked, what tripped me up, and next steps
 - [Git rebase vs merge comparison snippet](../git/snippets/2026-07-04-git-rebase-vs-merge-conflict-patterns.sh) — L2 bash snippet demonstrating conflict patterns for both merge and rebase
 
+## Learn ArgoCD
+- [ArgoCD primer](../argocd/notes/0000-primer-argocd.md) — What ArgoCD is, GitOps basics, and key terminology (L1)
+- [Install ArgoCD and deploy my first app](../argocd/notes/2026-07-06-install-argocd-first-app.md) — L1 notes: prereqs, login gotchas, and first sync
+- [Minimal ArgoCD Application manifest](../argocd/manifests/2026-07-06-sample-app-application.yaml) — L1 Application manifest with automated prune/selfHeal sync
+
 ## Set up a tool
 - [Install Semgrep](../semgrep/notes/2026-05-25-install-semgrep.md)
 - [Install Checkov](../checkov/notes/2026-05-25-scan-terraform-plan.md)

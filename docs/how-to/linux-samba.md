@@ -63,38 +63,38 @@ testparm -s
 
 The automation script is located at:
 ```
-scripts/bash/linux_toolkit/samba-setup.sh
+scripts/bash/linux_toolkit/samba/samba-setup.sh
 ```
 
 Make it executable:
 ```bash
-chmod +x scripts/bash/linux_toolkit/samba-setup.sh
+chmod +x scripts/bash/linux_toolkit/samba/samba-setup.sh
 ```
 
 ### Step 3: Run the Samba Setup
 
 **Basic installation and configuration:**
 ```bash
-sudo ./scripts/bash/linux_toolkit/samba-setup.sh --install
+sudo ./scripts/bash/linux_toolkit/samba/samba-setup.sh --install
 ```
 
 **Custom share name:**
 ```bash
-sudo ./scripts/bash/linux_toolkit/samba-setup.sh --install \
+sudo ./scripts/bash/linux_toolkit/samba/samba-setup.sh --install \
   --share-name companyfiles \
   --share-path /data/company
 ```
 
 **Custom username:**
 ```bash
-sudo ./scripts/bash/linux_toolkit/samba-setup.sh --install \
+sudo ./scripts/bash/linux_toolkit/samba/samba-setup.sh --install \
   --username admin \
   --group-name admins
 ```
 
 **Dry-run mode (testing):**
 ```bash
-sudo ./scripts/bash/linux_toolkit/samba-setup.sh --dry-run --install
+sudo ./scripts/bash/linux_toolkit/samba/samba-setup.sh --dry-run --install
 ```
 
 ### Step 4: Configure User Access

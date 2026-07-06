@@ -7,11 +7,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-07-06
 
 ### Added
-- syft-003: `syft/docs/enterprise-registry-auth-caching.md` — Syft enterprise registry authentication and caching patterns for high-scale CI (L5)
-  - Covers Docker config–based, environment variable, and config file authentication methods
-  - TLS and CA certificate configuration for internal registries
-  - CI cache persistence patterns (GitHub Actions cache, persistent volume mounts)
-  - Verification steps and common error diagnostics
+- syft-003: `syft/docs/enterprise-registry-auth-caching-patterns.md` — Syft enterprise registry authentication and caching patterns for high-scale CI (L5)
+  - Reference-style guide covering Docker config, explicit flags, and env-var registry auth methods
+  - Package catalog cache configuration and CI persistence with `actions/cache`
+  - `.syft.yaml` configuration for enterprise CI, multi-arch scanning, and cloud registry auth (ECR, GAR)
+- argocd-001: `argocd/notes/0000-primer-argocd.md` — ArgoCD quick primer: what it is, GitOps analogy, key terms (L1)
+- argocd-002: `argocd/notes/2026-07-06-install-argocd-first-app.md` — First-install walkthrough with login, password, and `.git` suffix gotchas (L1)
+- argocd-003: `argocd/manifests/2026-07-06-sample-app-application.yaml` — Minimal Application manifest with automated prune/selfHeal sync policy (L1)
 - grype-007: `grype/manifests/grype-reusable-sarif-workflow.yaml` — Reusable GitHub Actions workflow for Grype container vulnerability scanning with SARIF output (L4)
   - `workflow_call` manifest accepting `image` or `sbom-path` inputs with configurable `fail-on`, `severity`, `ignore-unfixed`, and `grype-version` parameters
   - Exposes `sarif-path` and `findings-count` outputs for downstream steps

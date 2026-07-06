@@ -1,0 +1,25 @@
+# last_verified: 2026-07-06 · ArgoCD n/a
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sample-app
+  namespace: argocd
+  # finalizers let ArgoCD clean up cluster resources when the Application is deleted
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: HEAD
+    path: guestbook
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  # automated sync: keep the cluster matching Git
+  syncPolicy:
+    automated:
+      prune: true        # delete cluster objects removed from Git
+      selfHeal: true     # revert manual cluster edits back to Git state
+    syncOptions:
+      - CreateNamespace=true
