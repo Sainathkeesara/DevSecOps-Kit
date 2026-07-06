@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - zap-014: `zap/docs/zap-automation-plan-structure.md` — ZAP Automation Framework plan structure reference covering contexts, requests, and passive scan configuration (L4)
+- grype-007: `grype/manifests/grype-sarif-reusable-workflow.yaml` — Reusable GitHub Actions workflow for Grype container vulnerability scanning with SARIF output (L4)
 
 ## 2026-07-04
 
