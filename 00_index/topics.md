@@ -4,7 +4,7 @@
 
 ## Trivy · 25 files
 - **primer:** [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md)
-- **notes** (3): [trivy-quickstart-trip-ups.md](../trivy/notes/2026-05-26-trivy-quickstart.md), [scan-modes-comparison.ipynb](../trivy/notebooks/trivy-scan-mode-comparison.ipynb), [sarif-output-processing.ipynb](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
+- **notes** (3): [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md), [2026-05-24-install-trivy.md](../trivy/notes/2026-05-24-install-trivy.md), [2026-05-26-trivy-quickstart.md](../trivy/notes/2026-05-26-trivy-quickstart.md)
 - **scripts** (5): [container-vuln-scan.sh](../trivy/scripts/container-vuln-scan.sh), [image-vuln-pipeline.sh](../trivy/scripts/image-vuln-pipeline.sh), [multi-target-scanner.sh](../trivy/scripts/multi-target-scanner.sh), [compose-multi-scan.sh](../trivy/scripts/compose-multi-scan.sh), [custom-trivy-check-conftest.sh](../trivy/scripts/custom-trivy-check-conftest.sh)
 - **configs** (2): [.trivy.yaml](../trivy/configs/.trivy.yaml), [trivy-scan-config.yaml](../trivy/configs/trivy-scan-config.yaml)
 - **snippets** (1): [scan-docker-image.sh](../trivy/snippets/scan-docker-image.sh)
@@ -60,13 +60,14 @@
 - **notebooks** (1): [sbom-layer-package-analysis.ipynb](../syft/notebooks/sbom-layer-package-analysis.ipynb)
 - **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
 
-## Grype · 15 files
+## Grype · 17 files
 - **primer:** [0000-primer-grype.md](../grype/notes/0000-primer-grype.md)
 - **notes** (4): [2026-05-31-install-grype.md](../grype/notes/2026-05-31-install-grype.md), [2026-06-04-grype-quickstart-trip-ups.md](../grype/notes/2026-06-04-grype-quickstart-trip-ups.md), [2026-06-08-first-grype-scan.md](../grype/notes/2026-06-08-first-grype-scan.md)
 - **scripts** (5): [minimal-grype-scan.sh](../grype/scripts/minimal-grype-scan.sh), [ci-ready-grype-scan.sh](../grype/scripts/ci-ready-grype-scan.sh), [vuln-diff-two-images.sh](../grype/scripts/vuln-diff-two-images.sh), [grype-vuln-pipeline.sh](../grype/scripts/grype-vuln-pipeline.sh), [grype-results-to-sarif.py](../grype/scripts/grype-results-to-sarif.py)
 - **configs** (1): [grype-ci-github-actions.yaml](../grype/configs/grype-ci-github-actions.yaml)
 - **snippets** (2): [my-first-grype-commands.sh](../grype/snippets/my-first-grype-commands.sh), [minimal-grype-scan.go](../grype/snippets/minimal-grype-scan.go)
 - **docs** (1): [grype-syft-integration-guide.md](../grype/docs/grype-syft-integration-guide.md)
+- **manifests** (2): [grype-reusable-sarif-workflow.yaml](../grype/manifests/grype-reusable-sarif-workflow.yaml), [grype-sarif-reusable-workflow.yaml](../grype/manifests/grype-sarif-reusable-workflow.yaml)
 - **dockerfiles** (1): [multi-stage-grype-scan.Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile)
 - **notebooks** (1): [grype-sbom-output-explorer.ipynb](../grype/notebooks/grype-sbom-output-explorer.ipynb)
 
@@ -79,13 +80,13 @@
 - **docs** (1): [wired-custom-queries-into-ci.md](../codeql/docs/wired-custom-queries-into-ci.md)
 - **manifests** (1): [multi-language-codeql-analysis.yaml](../codeql/manifests/multi-language-codeql-analysis.yaml)
 
-## OWASP ZAP · 30 files
+## OWASP ZAP · 31 files
 - **primer:** [0000-primer-zap.md](../zap/notes/0000-primer-zap.md)
 - **notes** (4): [2026-06-06-install-zap-desktop-ui.md](../zap/notes/2026-06-06-install-zap-desktop-ui.md), [2026-06-06-zap-quickstart-ui-gotchas.md](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md), [2026-06-13-spider-scan-test-app.md](../zap/notes/2026-06-13-spider-scan-test-app.md)
 - **scripts** (3): [dast-workflow-from-scratch.sh](../zap/scripts/dast-workflow-from-scratch.sh), [zap-dast-sarif-code-scanning.sh](../zap/scripts/zap-dast-sarif-code-scanning.sh)
 - **configs** (2): [zap-authenticated-scan-context.yaml](../zap/configs/zap-authenticated-scan-context.yaml), [ci-dast-automation-framework-plan.yaml](../zap/configs/ci-dast-automation-framework-plan.yaml)
 - **snippets** (3): [my-first-zap-baseline-scan.sh](../zap/snippets/my-first-zap-baseline-scan.sh), [my-first-zap-spider-scan.sh](../zap/snippets/my-first-zap-spider-scan.sh), [authenticated-scan-with-context.sh](../zap/snippets/authenticated-scan-with-context.sh)
-- **docs** (2): [zap-integration-patterns.md](../zap/docs/zap-integration-patterns.md), [passive-vs-active-scanning-zap.md](../zap/docs/passive-vs-active-scanning-zap.md)
+- **docs** (3): [zap-integration-patterns.md](../zap/docs/zap-integration-patterns.md), [passive-vs-active-scanning-zap.md](../zap/docs/passive-vs-active-scanning-zap.md), [zap-automation-plan-structure.md](../zap/docs/zap-automation-plan-structure.md)
 - **templates** (10): [zap-dast-integration](../zap/templates/zap-dast-integration/), [zap-dast-integration-scaffold](../zap/templates/zap-dast-integration-scaffold/)
 - **dockerfiles** (1): [custom-zap-automation.Dockerfile](../zap/dockerfiles/custom-zap-automation.Dockerfile)
 
@@ -140,9 +141,9 @@
 - **notes** (1): [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
 - **configs** (1): [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml)
 
-## Dependabot · 4 files
+## Dependabot · 5 files
 - **primer:** [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md)
-- **notes** (3): [2026-06-22-first-time-dependabot-setup.md](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md), [dependabot-alerts-security-updates.md](../dependabot/notes/dependabot-alerts-security-updates.md)
+- **notes** (3): [2026-06-22-first-time-dependabot-setup.md](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md), [dependabot-alerts-security-updates.md](../dependabot/notes/dependabot-alerts-security-updates.md), [2026-06-15-dependabot-first-repo-bump-pr.md](../dependabot/notes/2026-06-15-dependabot-first-repo-bump-pr.md)
 - **configs** (1): [tried-npm-dependabot.yaml](../dependabot/configs/tried-npm-dependabot.yaml)
 
 ## DefectDojo · 2 files
@@ -157,8 +158,9 @@
 - **snippets** (1): [vault-read-write.go](../vault/snippets/vault-read-write.go)
 - **docs** (2): [configuring-vault-dev-server.md](../vault/docs/configuring-vault-dev-server.md), [vault-agent-auto-auth-kubernetes.md](../vault/docs/vault-agent-auto-auth-kubernetes.md)
 
-## Git · 10 files
+## Git · 12 files
 - **primer:** [0000-primer-git.md](../git/notes/0000-primer-git.md)
+- **notes** (2): [2026-07-04-git-branching-merge-confusions.md](../git/notes/2026-07-04-git-branching-merge-confusions.md)
 - **scripts** (8): [git-install.sh](../scripts/bash/git/git-install.sh), [git-install-macos.sh](../scripts/bash/git/git-install-macos.sh), [git-install-wsl.sh](../scripts/bash/git/git-install-wsl.sh), [git-automation.sh](../scripts/bash/git/git-automation.sh), [credential-helper-ci.sh](../scripts/bash/git/credential-helper-ci.sh), [git-pre-commit-hooks.sh](../scripts/bash/git/git-pre-commit-hooks.sh), [github-runner-install.sh](../scripts/bash/git/github-runner-install.sh), [git-cicd-hooks.sh](../scripts/bash/git/git-cicd-hooks.sh)
 - **snippets** (1): [git-commands.md](../snippets/git-commands.md)
 
