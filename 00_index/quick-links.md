@@ -24,6 +24,11 @@
 - [Following a Git branching and merging tutorial — my confusions](../git/notes/2026-07-04-git-branching-merge-confusions.md) — L2 notes covering what worked, what tripped me up, and next steps
 - [Git rebase vs merge comparison snippet](../git/snippets/2026-07-04-git-rebase-vs-merge-conflict-patterns.sh) — L2 bash snippet demonstrating conflict patterns for both merge and rebase
 
+## Learn ArgoCD
+- [ArgoCD primer](../argocd/notes/0000-primer-argocd.md) — What ArgoCD is, GitOps basics, and key terminology (L1)
+- [Install ArgoCD and deploy my first app](../argocd/notes/2026-07-06-install-argocd-first-app.md) — L1 notes: prereqs, login gotchas, and first sync
+- [Minimal ArgoCD Application manifest](../argocd/manifests/2026-07-06-sample-app-application.yaml) — L1 Application manifest with automated prune/selfHeal sync
+
 ## Set up a tool
 - [Install Semgrep](../semgrep/notes/2026-05-25-install-semgrep.md)
 - [Install Checkov](../checkov/notes/2026-05-25-scan-terraform-plan.md)
@@ -161,7 +166,7 @@
 - [SBOM layer package analysis notebook](../syft/notebooks/sbom-layer-package-analysis.ipynb)
 - [Multi-stage Dockerfile with Syft SBOM generation](../syft/dockerfiles/multi-stage-sbom.Dockerfile) — Build + SBOM + runtime pattern
 - [Syft SBOM output formats reference](../syft/docs/sbom-output-formats-reference.md) — JSON structure guide for native, CycloneDX, and SPDX formats
-- [Syft registry authentication and caching patterns](../syft/docs/registry-auth-caching-patterns.md) — Enterprise patterns for private registry auth and SBOM caching in high-scale CI
+- [Syft enterprise registry auth and caching patterns](../syft/docs/enterprise-registry-auth-caching-patterns.md) — Registry authentication, cache management, and CI configuration for production-scale SBOM generation (L5)
 
 ## Scan with Snyk
 - [Snyk primer](../snyk/notes/0000-primer-snyk.md)
