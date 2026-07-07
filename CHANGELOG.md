@@ -18,10 +18,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - dependabot-002: `dependabot/notes/2026-06-15-dependabot-first-repo-bump-pr.md` — First repo Dependabot setup and version-bump PR walkthrough (L1)
   - Scratchy first-person notes covering `.github/dependabot.yml` creation, toggle verification, and PR behavior
   - Got-stuck list: directory path typo, `open-pull-requests-limit` ceiling behaviour, ecosystem mismatch (dotnet vs pip)
-- falco-007: `falco/docs/tuned-falco-rules-noise-reduction.md` — How I tuned Falco rules to reduce noisy alerts in a cluster (L3)
-  - Purpose → Steps → Verify shape: baseline stats collection, false-positive identification, exception rules, priority lowering, and priority-based output routing
-  - Verification: before/after count comparison, known-bad action test, exception test
-  - Common errors documented inline: exception field mismatch, Helm custom rules ordering, append priority override limitation, overly broad exceptions
+- syft-003: `syft/docs/enterprise-registry-auth-caching-patterns.md` — Syft enterprise registry authentication and caching patterns for high-scale CI (L5)
+  - Reference-style guide covering Docker config, explicit flags, and env-var registry auth methods
+  - Package catalog cache configuration and CI persistence with `actions/cache`
+  - `.syft.yaml` configuration for enterprise CI, multi-arch scanning, and cloud registry auth (ECR, GAR)
 
 ## 2026-07-05
 
