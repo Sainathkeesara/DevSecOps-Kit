@@ -166,6 +166,7 @@
 - [SBOM layer package analysis notebook](../syft/notebooks/sbom-layer-package-analysis.ipynb)
 - [Multi-stage Dockerfile with Syft SBOM generation](../syft/dockerfiles/multi-stage-sbom.Dockerfile) — Build + SBOM + runtime pattern
 - [Syft SBOM output formats reference](../syft/docs/sbom-output-formats-reference.md) — JSON structure guide for native, CycloneDX, and SPDX formats
+- [Syft enterprise registry auth and caching patterns](../syft/docs/enterprise-registry-auth-caching-patterns.md) — Registry authentication, cache management, and CI configuration for production-scale SBOM generation (L5)
 
 ## Scan with Snyk
 - [Snyk primer](../snyk/notes/0000-primer-snyk.md)
