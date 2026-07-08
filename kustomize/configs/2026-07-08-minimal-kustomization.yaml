@@ -1,0 +1,19 @@
+# last_verified: 2026-07-08 · kustomize n/a
+
+# Minimal kustomization.yaml — base level
+# Usage: kubectl kustomize . | kubectl apply -f -
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - deployment.yaml
+  - service.yaml
+  - configmap.yaml
+
+commonLabels:
+  app: my-app
+  managed-by: kustomize
+
+namePrefix: myapp-
+
+namespace: default

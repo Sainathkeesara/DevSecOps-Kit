@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-08
+
+### Added
+- kustomize-001: `kustomize/notes/0000-primer-kustomize.md` — Kustomize quick primer: what it is, base/overlay patching, and key terminology (L1)
+- kustomize-002: `kustomize/notes/2026-07-08-install-kustomize-first-overlay.md` — First overlay creation notes with install, patch targeting gotchas, and ordering (L1)
+- kustomize-003: `kustomize/configs/2026-07-08-minimal-kustomization.yaml` — Minimal kustomization.yaml with commonLabels, namePrefix, and namespace (L1)
+
 ## 2026-07-06
 
 ### Added
