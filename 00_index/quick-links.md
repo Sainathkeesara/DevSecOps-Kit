@@ -386,3 +386,12 @@
 - [DefectDojo primer](../defectdojo/notes/0000-primer-defectdojo.md) — What DefectDojo is, key terminology, and a local Docker Compose startup example (L1)
 - [Install DefectDojo and import first scan report](../defectdojo/snippets/install-defectdojo-first-scan-report.sh) — Clone repo, start stack, and point browser at localhost:8080
 
+## Get started with GitHub Actions
+- [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md) — What GitHub Actions is, workflows, jobs, runners, and a tiny CI example (L1)
+
+## Get started with SonarQube
+- [SonarQube primer](../sonarqube/notes/0000-primer-sonarqube.md) — What SonarQube is, Quality Gates, profiles, and a tiny analysis example (L1)
+
+## Get started with OpenTofu
+- [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md) — What OpenTofu is, providers, state, modules, and a tiny HCL example (L1)
+
