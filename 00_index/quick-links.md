@@ -29,6 +29,9 @@
 - [Install ArgoCD and deploy my first app](../argocd/notes/2026-07-06-install-argocd-first-app.md) — L1 notes: prereqs, login gotchas, and first sync
 - [Minimal ArgoCD Application manifest](../argocd/manifests/2026-07-06-sample-app-application.yaml) — L1 Application manifest with automated prune/selfHeal sync
 
+## Get started with Docker
+- [Docker primer](../docker/notes/0000-primer-docker.md) — What Docker is, images vs containers, volumes, and a tiny Dockerfile example (L1)
+
 ## Set up a tool
 - [Install Semgrep](../semgrep/notes/2026-05-25-install-semgrep.md)
 - [Install Checkov](../checkov/notes/2026-05-25-scan-terraform-plan.md)
@@ -362,6 +365,12 @@
 - [Kustomize primer](../kustomize/notes/0000-primer-kustomize.md) — What Kustomize is, how base/overlay patching works, and a tiny example (L1)
 - [Install Kustomize and create my first overlay](../kustomize/notes/2026-07-08-install-kustomize-first-overlay.md) — L1 notes: install, patch targeting gotchas, and overlay ordering
 - [Minimal kustomization.yaml](../kustomize/configs/2026-07-08-minimal-kustomization.yaml) — Base-level config with commonLabels, namePrefix, and namespace
+
+## Get started with Helm
+- [Helm primer](../helm/notes/0000-primer-helm.md) — What Helm is, charts, releases, values, and a tiny install example (L1)
+
+## Get started with Kubernetes
+- [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md) — What Kubernetes is, clusters, nodes, pods, and a tiny Deployment example (L1)
 
 ## Sign container images with Cosign
 - [Cosign primer](../cosign/notes/0000-primer-cosign.md)
