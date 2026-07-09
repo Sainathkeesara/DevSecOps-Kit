@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-09
+
+### Added
+- docker-001: `docker/notes/0000-primer-docker.md` — Docker quick primer: what it is, images vs containers, and key terminology (L1)
+- helm-001: `helm/notes/0000-primer-helm.md` — Helm quick primer: what it is, charts, releases, and a tiny install example (L1)
+- kubernetes-001: `kubernetes/notes/0000-primer-kubernetes.md` — Kubernetes quick primer: what it is, clusters, pods, deployments, and a tiny example (L1)
+
 ## 2026-07-08
 
 ### Added
