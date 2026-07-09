@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - docker-001: `docker/notes/0000-primer-docker.md` — Docker quick primer: what it is, images vs containers, and key terminology (L1)
 - helm-001: `helm/notes/0000-primer-helm.md` — Helm quick primer: what it is, charts, releases, and a tiny install example (L1)
 - kubernetes-001: `kubernetes/notes/0000-primer-kubernetes.md` — Kubernetes quick primer: what it is, clusters, pods, deployments, and a tiny example (L1)
+- github-actions-001: `github-actions/notes/0000-primer-github-actions.md` — GitHub Actions quick primer: what it is, workflows, jobs, runners, and a tiny CI example (L1)
+- sonarqube-001: `sonarqube/notes/0000-primer-sonarqube.md` — SonarQube quick primer: what it is, Quality Gates, profiles, and a tiny analysis example (L1)
+- opentofu-001: `opentofu/notes/0000-primer-opentofu.md` — OpenTofu quick primer: what it is, providers, state, modules, and a tiny HCL example (L1)
 
 ## 2026-07-08
 
