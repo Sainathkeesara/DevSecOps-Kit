@@ -358,6 +358,11 @@
 ## Get started with Git
 - [Git primer](../git/notes/0000-primer-git.md) — What Git is, key terminology, and the basic commit workflow (L1)
 
+## Get started with Kustomize
+- [Kustomize primer](../kustomize/notes/0000-primer-kustomize.md) — What Kustomize is, how base/overlay patching works, and a tiny example (L1)
+- [Install Kustomize and create my first overlay](../kustomize/notes/2026-07-08-install-kustomize-first-overlay.md) — L1 notes: install, patch targeting gotchas, and overlay ordering
+- [Minimal kustomization.yaml](../kustomize/configs/2026-07-08-minimal-kustomization.yaml) — Base-level config with commonLabels, namePrefix, and namespace
+
 ## Sign container images with Cosign
 - [Cosign primer](../cosign/notes/0000-primer-cosign.md)
 - [Install Cosign and generate first keypair](../cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md)
