@@ -9,9 +9,9 @@ These concepts have no prerequisites and are the starting point for any security
 - **Linux & Shell Fundamentals** — Everything runs on Linux. Scripts, containers, pipelines all depend on shell fluency. [Linux toolkit guide](../docs/how-to/linux_toolkit.md) | [Cheatsheet](../snippets/linux-cheatsheet.md)
 - **Version Control with Git** — Branching, commits, remotes, and CI/CD triggers. Primers cover mental models and everyday commands. [Git fundamentals](../docs/concepts/git-001-version-control-fundamentals.md) | [Commands reference](../docs/reference/git-commands.md)
 - **CI/CD Pipeline Concepts** — How code moves from commit to deployment; why gates and scans matter. [CI/CD toolkit guide](../docs/how-to/ci_cd_toolkit.md) | [Cheatsheet](../snippets/ci-cd-cheatsheet.md)
-- **Infrastructure as Code** — Terraform, Ansible, and the idea of declarative infrastructure. [Terraform state management](../docs/how-to/terraform-state-management.md) | [Ansible playbook best practices](../docs/how-to/ansible-playbook-best-practices.md)
+- **Infrastructure as Code** — Terraform, OpenTofu, and the idea of declarative infrastructure. [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md) | [Terraform state management](../docs/how-to/terraform-state-management.md)
 - **Application Security Testing Concepts** — SAST, DAST, SCA — what they catch and when to use each. Primers on Semgrep, CodeQL, ZAP, and Snyk cover this.
-- **Container & Runtime Security** — Images, registries, runtime behaviour. Trivy, Syft, Grype, Cosign, and Falco all depend on this. [Docker security best practices](../docs/how-to/docker-security-best-practices.md)
+- **Container & Runtime Security** — Images, registries, runtime behaviour. Trivy, Syft, Grype, Cosign, and Falco all depend on this. [Docker primer](../docker/notes/0000-primer-docker.md) | [Docker security best practices](../docs/how-to/docker-security-best-practices.md)
 - **Secrets & Access Management** — How secrets leak and how to protect them. Vault, TruffleHog, and GitGuardian depend on this. [Vault primer](../vault/notes/0000-primer-vault.md)
 - **Software Supply Chain Security** — Dependency risk, SBOMs, signing. Syft, Grype, Cosign, Dependabot all live here.
 - **Configuration Management** — Desired state, idempotency, drift, and managing systems as code. The foundation for Ansible. [Primer](../docs/concepts/configuration-management/0000-primer-configuration-management.md)
@@ -21,7 +21,10 @@ These concepts have no prerequisites and are the starting point for any security
 
 These tools are unlocked from the start and cover the most common DevSecOps workflows.
 
-- **Trivy** — Universal vulnerability scanner for containers, filesystems, repos, and SBOMs. Four notebooks, five scripts, and six template files. [Primer](../trivy/notes/0000-primer-trivy.md) | [Scan modes comparison](../trivy/notebooks/trivy-scan-mode-comparison.ipynb)
+- **Git** — Version control foundation for every DevOps workflow. [Primer](../git/notes/0000-primer-git.md) | [Branching and merging](../git/notes/2026-07-04-git-branching-merge-confusions.md)
+- **Docker** — Container runtime for packaging and running applications. [Primer](../docker/notes/0000-primer-docker.md)
+- **Kubernetes** — Container orchestration for deploying and scaling workloads. [Primer](../kubernetes/notes/0000-primer-kubernetes.md)
+- **Trivy** — Universal vulnerability scanner for containers, filesystems, repos, and SBOMs. [Primer](../trivy/notes/0000-primer-trivy.md) | [Scan modes comparison](../trivy/notebooks/trivy-scan-mode-comparison.ipynb)
 - **Semgrep** — SAST tool with custom rule writing, multi-language support, and CI/CD integration. [Primer](../semgrep/notes/0000-primer-semgrep.md) | [Rule writing reference](../semgrep/docs/semgrep-rule-writing-reference.md)
 - **Checkov** — IaC security scanner for Terraform, Kubernetes, CloudFormation. Supports custom policies and plan scanning. [Primer](../checkov/notes/0000-primer-checkov.md) | [Plan scanning](../checkov/scripts/deep-terraform-plan-scan.sh)
 - **TruffleHog** — Secret scanner with git, filesystem, and S3 scan modes. Custom regex and entropy-based detection. [Primer](../trufflehog/notes/0000-primer-trufflehog.md) | [Scan modes comparison](../trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md)
@@ -31,6 +34,9 @@ These tools are unlocked from the start and cover the most common DevSecOps work
 
 Intermediate tools that add SBOM management, software composition analysis, and deeper vulnerability workflows.
 
+- **Helm** — Package manager for Kubernetes charts and releases. [Primer](../helm/notes/0000-primer-helm.md)
+- **Kustomize** — Kubernetes YAML customization without templating. [Primer](../kustomize/notes/0000-primer-kustomize.md) | [First overlay](../kustomize/notes/2026-07-08-install-kustomize-first-overlay.md)
+- **GitHub Actions** — GitHub's built-in CI/CD system. [Primer](../github-actions/notes/0000-primer-github-actions.md)
 - **Syft** — SBOM generation in CycloneDX and SPDX formats. Integrates with Grype for vulnerability correlation. [Primer](../syft/notes/0000-primer-syft.md) | [SBOM pipeline scaffold](../syft/templates/sbom-pipeline-scaffold/)
 - **Grype** — Vulnerability scanner for container images and filesystems. Designed to consume Syft SBOMs. [Primer](../grype/notes/0000-primer-grype.md) | [Vulnerability diff](../grype/scripts/vuln-diff-two-images.sh)
 - **CodeQL** — Semantic code analysis with custom QL queries. Supports multiple languages and CI integration. [Primer](../codeql/notes/0000-primer-codeql.md) | [Custom queries in CI](../codeql/docs/wired-custom-queries-into-ci.md)
@@ -43,6 +49,8 @@ Intermediate tools that add SBOM management, software composition analysis, and 
 
 Tools that depend on foundational concepts and earlier tools being complete.
 
+- **ArgoCD** — Declarative GitOps continuous delivery for Kubernetes. Requires Kubernetes and Git fluency. [Primer](../argocd/notes/0000-primer-argocd.md) | [First app deployment](../argocd/notes/2026-07-06-install-argocd-first-app.md)
+- **SonarQube** — Static analysis platform for bugs, code smells, and security issues with Quality Gates. [Primer](../sonarqube/notes/0000-primer-sonarqube.md)
 - **Cosign** — Container image signing and verification as part of the Sigstore project. Requires SBOM and vulnerability awareness. [Primer](../cosign/notes/0000-primer-cosign.md) | [Sign first image](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md)
 - **Falco** — Runtime security monitoring for containers and Kubernetes. Requires understanding of container behaviour and system calls. [Primer](../falco/notes/0000-primer-falco.md) | [Custom rules](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
 - **OPA / Gatekeeper** — Policy engine for Kubernetes admission control and IaC validation. Requires understanding of Rego and Kubernetes policies. [Primer](../opa/notes/0000-primer-opa.md) | [Gatekeeper constraint](../opa/configs/tried-a-gatekeeper-constraint.yaml)
@@ -75,6 +83,8 @@ flowchart LR
   end
 
   subgraph Core[Stage 2: Core Tools]
+    Docker
+    Kubernetes
     Trivy
     Semgrep
     Checkov
@@ -83,6 +93,9 @@ flowchart LR
   end
 
   subgraph Intermediate[Stage 3: Building Skills]
+    Helm
+    Kustomize
+    GitHubActions["GitHub Actions"]
     Syft
     Grype
     CodeQL
@@ -93,14 +106,17 @@ flowchart LR
   end
 
   subgraph Advanced[Stage 4: Advanced Tools]
+    ArgoCD
+    SonarQube
     Cosign
     Falco
     OPA["OPA/Gatekeeper"]
     Vault
     Tetragon
+    DefectDojo
   end
 
-  Linux --> Trivy & Semgrep & Checkov & TruffleHog & ZAP
+  Linux --> Docker & Kubernetes & Trivy & Semgrep & Checkov & TruffleHog & ZAP
   Git --> TruffleHog & CodeQL & Semgrep & Dependabot
   CICD --> Trivy & Semgrep & Checkov & Syft & Grype & ZAP
   IaC --> Checkov & Terrascan & OPA
@@ -109,6 +125,10 @@ flowchart LR
   Secrets --> Vault & TruffleHog & GitGuardian
   SupplyChain --> Syft & Grype & Cosign & Trivy & Dependabot & Snyk
 
+  Docker --> Kubernetes
+  Kubernetes --> Helm & Kustomize & ArgoCD
+  Git --> GitHubActions
+  CICD --> GitHubActions
   Trivy --> Syft & Grype & ZAP & Vault & Falco
   Falco --> Tetragon
   Semgrep --> ZAP & CodeQL & Snyk
