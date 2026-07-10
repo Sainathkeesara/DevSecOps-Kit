@@ -22,11 +22,11 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 ## Quick links
 
-- [github-actions primer](github-actions/notes/0000-primer-github-actions.md) — What GitHub Actions is, workflows, jobs, runners, and a tiny CI example (L1)
-- [opentofu primer](opentofu/notes/0000-primer-opentofu.md) — What OpenTofu is, providers, state, modules, and a tiny HCL example (L1)
-- [sonarqube primer](sonarqube/notes/0000-primer-sonarqube.md) — What SonarQube is, Quality Gates, profiles, and a tiny analysis example (L1)
-- [docker primer](docker/notes/0000-primer-docker.md) — What Docker is, images vs containers, volumes, and a tiny Dockerfile example (L1)
-- [helm primer](helm/notes/0000-primer-helm.md) — What Helm is, charts, releases, values, and a tiny install example (L1)
+- [AKS privilege escalation hardening](scripts/bash/k8s_toolkit/security/aks-privilege-escalation-hardening.sh) — Node-level checks and remediation for AKS privilege escalation
+- [Samba setup](scripts/bash/linux_toolkit/samba-setup.sh) — Samba file-share setup script for Linux hosts
+- [Patch report](scripts/patch-report.sh) — Generates a consolidated OS patch and version report
+- [Cosign keyless OIDC CI](cosign/manifests/2026-07-10-keyless-oidc-ci.yaml) — Cosign keyless image signing workflow driven by an OIDC identity in CI
+- [Dependabot npm version strategy](dependabot/configs/2026-07-10-npm-version-strategy.yaml) — Dependabot config for controlled npm dependency updates
 
 ---
 
@@ -47,7 +47,6 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 - **`snippets/`** — Copy-paste ready one-liners and cheatsheets
 - **`templates/`** — Starter configs for Kubernetes, Terraform, Linux automation, Jenkins, Logstash, syslog-ng
 - **`terraform/`** — Terraform modules (EventBridge Lambda)
-- **`assets/`** — Static images and diagrams
 - **`.github/`** — GitHub templates (PR template, CODEOWNERS)
 - **`CHANGELOG.md`** — Release history and version tracking
 - **`CONTRIBUTING.md`** — Contribution guidelines and workflow
@@ -74,10 +73,10 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 | OPA | 3 | 1 | 1 | 3 | 1 | — | — | — | — | — |
 | Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | — | — |
 | CodeQL | 3 | 1 | 1 | 3 | 1 | 1 | — | — | — | — |
-| Terrascan | 4 | 1 | 1 | 2 | — | — | — | — | — | — |
+| Terrascan | 5 | 1 | 1 | 2 | — | — | — | — | — | — |
 | Cosign | 4 | 2 | 1 | 1 | — | — | — | — | — | — |
 | Tetragon | 2 | — | 1 | — | — | — | — | — | — | — |
-| Dependabot | 4 | — | 1 | — | — | — | — | — | — | — |
+| Dependabot | 4 | — | 2 | — | — | — | — | — | — | — |
 | DefectDojo | 1 | — | — | 1 | — | — | — | — | — | — |
 | Git | 2 | — | — | 1 | — | — | — | — | — | — |
 | ArgoCD | 2 | — | — | — | — | 1 | — | — | — | — |
@@ -99,4 +98,4 @@ Currently expanding L1 primers for newer tools (GitHub Actions, OpenTofu, SonarQ
 
 ---
 
-_Last updated: 2026-07-09_
+_Last updated: 2026-07-10_

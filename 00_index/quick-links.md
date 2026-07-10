@@ -109,6 +109,9 @@
 - [Multi-environment setup](../scripts/bash/terraform_toolkit/multi-env/multi-env-setup.sh)
 - [Deploy EKS cluster](../scripts/bash/terraform_toolkit/eks/eks-deploy.sh)
 - [Set up Atlantis](../scripts/bash/terraform_toolkit/atlantis/setup-atlantis.sh)
+- [AKS privilege escalation hardening](../scripts/bash/k8s_toolkit/security/aks-privilege-escalation-hardening.sh)
+- [Samba file-share setup](../scripts/bash/linux_toolkit/samba-setup.sh)
+- [OS patch report](../scripts/patch-report.sh)
 
 ### Troubleshoot issues
 - [Kubernetes CrashLoopBackOff](../docs/troubleshooting/k8s-crashloopbackoff.md)

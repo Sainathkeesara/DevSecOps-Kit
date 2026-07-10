@@ -105,12 +105,13 @@
 - **snippets** (1): [tried-file-access-detector.go](../falco/snippets/tried-file-access-detector.go)
 - **docs** (2): [syscall-vs-tracepoint-rules.md](../falco/docs/syscall-vs-tracepoint-rules.md), [tuned-falco-rules-noise-reduction.md](../falco/docs/tuned-falco-rules-noise-reduction.md)
 
-## Cosign · 8 files
+## Cosign · 9 files
 - **primer:** [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md)
 - **notes** (4): [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md), [2026-06-13-install-cosign-sign-first-image.md](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md), [2026-06-14-install-cosign-generate-first-keypair.md](../cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md), [2026-06-22-cosign-getting-started-trip-ups.md](../cosign/notes/2026-06-22-cosign-getting-started-trip-ups.md)
 - **scripts** (2): [minimal-sign-verify.sh](../cosign/scripts/minimal-sign-verify.sh), [verify-signed-image.sh](../cosign/scripts/verify-signed-image.sh)
 - **configs** (1): [keyless-signing-github-actions.yaml](../cosign/configs/keyless-signing-github-actions.yaml)
 - **snippets** (1): [first-cosign-sign-verify-image.sh](../cosign/snippets/first-cosign-sign-verify-image.sh)
+- **manifests** (1): [2026-07-10-keyless-oidc-ci.yaml](../cosign/manifests/2026-07-10-keyless-oidc-ci.yaml)
 
 ## OPA · 9 files
 - **primer:** [0000-primer-opa.md](../opa/notes/0000-primer-opa.md)
@@ -120,9 +121,9 @@
 - **snippets** (3): [my-first-opa-policy-eval.sh](../opa/snippets/my-first-opa-policy-eval.sh), [enforce-image-registry-constraints.rego](../opa/snippets/enforce-image-registry-constraints.rego), [deny-privileged-hostnetwork.rego](../opa/snippets/deny-privileged-hostnetwork.rego)
 - **docs** (1): [wired-opa-admission-control.md](../opa/docs/wired-opa-admission-control.md)
 
-## Terrascan · 8 files
+## Terrascan · 9 files
 - **primer:** [0000-primer-terrascan.md](../terrascan/notes/0000-primer-terrascan.md)
-- **notes** (4): [0000-primer-terrascan.md](../terrascan/notes/0000-primer-terrascan.md), [2026-06-13-first-scan.md](../terrascan/notes/2026-06-13-first-scan.md), [2026-06-19-install-terrascan-tiny-tf.md](../terrascan/notes/2026-06-19-install-terrascan-tiny-tf.md), [2026-06-29-terrascan-getting-started-trip-ups.md](../terrascan/notes/2026-06-29-terrascan-getting-started-trip-ups.md)
+- **notes** (5): [0000-primer-terrascan.md](../terrascan/notes/0000-primer-terrascan.md), [2026-06-13-first-scan.md](../terrascan/notes/2026-06-13-first-scan.md), [2026-06-19-install-terrascan-tiny-tf.md](../terrascan/notes/2026-06-19-install-terrascan-tiny-tf.md), [2026-06-29-terrascan-getting-started-trip-ups.md](../terrascan/notes/2026-06-29-terrascan-getting-started-trip-ups.md), [2026-07-10-terrascan-getting-started-trip-ups.md](../terrascan/notes/2026-07-10-terrascan-getting-started-trip-ups.md)
 - **scripts** (1): [tried-terrascan-ci-scan.sh](../terrascan/scripts/tried-terrascan-ci-scan.sh)
 - **configs** (1): [tried-custom-s3-rule.yaml](../terrascan/configs/tried-custom-s3-rule.yaml)
 - **snippets** (2): [insecure-terraform.tf](../terrascan/snippets/insecure-terraform.tf), [tiny-tf-with-findings.tf](../terrascan/snippets/tiny-tf-with-findings.tf)
@@ -132,10 +133,10 @@
 - **notes** (1): [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
 - **configs** (1): [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml)
 
-## Dependabot · 5 files
+## Dependabot · 6 files
 - **primer:** [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md)
 - **notes** (3): [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md), [2026-06-22-first-time-dependabot-setup.md](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md), [2026-06-15-dependabot-first-repo-bump-pr.md](../dependabot/notes/2026-06-15-dependabot-first-repo-bump-pr.md)
-- **configs** (1): [tried-npm-dependabot.yaml](../dependabot/configs/tried-npm-dependabot.yaml)
+- **configs** (2): [tried-npm-dependabot.yaml](../dependabot/configs/tried-npm-dependabot.yaml), [2026-07-10-npm-version-strategy.yaml](../dependabot/configs/2026-07-10-npm-version-strategy.yaml)
 
 ## DefectDojo · 2 files
 - **primer:** [0000-primer-defectdojo.md](../defectdojo/notes/0000-primer-defectdojo.md)
@@ -159,8 +160,9 @@
 - **notes** (2): [0000-primer-argocd.md](../argocd/notes/0000-primer-argocd.md), [2026-07-06-install-argocd-first-app.md](../argocd/notes/2026-07-06-install-argocd-first-app.md)
 - **manifests** (1): [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml)
 
-## Docker · 1 file
+## Docker · 2 files
 - **notes** (1): [0000-primer-docker.md](../docker/notes/0000-primer-docker.md)
+- **dockerfiles** (1): [2026-07-10-first-custom-image.Dockerfile](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
 
 ## Helm · 1 file
 - **notes** (1): [0000-primer-helm.md](../helm/notes/0000-primer-helm.md)
