@@ -1,0 +1,56 @@
+# last_verified: 2026-07-10 · cosign n/a
+# Trying Cosign keyless signing with GitHub OIDC in CI
+# I followed the docs to set this up and got it working after a few tries.
+name: Cosign keyless sign and verify
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  sign-and-verify:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # needed by cosign to get the OIDC JWT from GitHub
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3
+        # pinned to v3 — v4 changed the default keyless behavior
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push container image
+        run: |
+          IMAGE_ID="${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
+          IMAGE_ID=$(echo "$IMAGE_ID" | tr '[:upper:]' '[:lower:]')
+          docker build -t "$IMAGE_ID:latest" -t "$IMAGE_ID:${{ github.sha }}" .
+          docker push "$IMAGE_ID:${{ github.sha }}"
+          echo "IMAGE=$IMAGE_ID:${{ github.sha }}" >> "$GITHUB_ENV"
+
+      - name: Sign the image with Cosign keyless
+        run: |
+          cosign sign "${{ env.IMAGE }}" --yes
+        # keyless mode is the default now — no COSIGN_EXPERIMENTAL needed
+        # cosign pulls the OIDC token from the ACTIONS_ID_TOKEN_REQUEST_TOKEN env var
+
+      - name: Verify the signature
+        run: |
+          cosign verify "${{ env.IMAGE }}" \
+            --certificate-identity-regexp ".*${{ github.repository_owner }}.*" \
+            --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
+        # I had to match both the identity AND the issuer — just one wasn't enough

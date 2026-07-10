@@ -73,12 +73,17 @@
 
 ### Manage dependencies
 - [Minimal Dependabot npm update config](../dependabot/configs/tried-npm-dependabot.yaml)
+- [Dependabot npm version strategy config](../dependabot/configs/2026-07-10-npm-version-strategy.yaml)
 - [Dependabot alerts and security updates](../dependabot/notes/dependabot-alerts-security-updates.md)
 
 ### Sign and verify images
 - [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh)
 - [Verify a signed image](../cosign/scripts/verify-signed-image.sh)
 - [Cosign keyless GitHub Actions CI signing config](../cosign/configs/keyless-signing-github-actions.yaml)
+- [Cosign keyless OIDC CI workflow](../cosign/manifests/2026-07-10-keyless-oidc-ci.yaml)
+
+### Build container images
+- [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
 
 ### Manage policies
 - [My first OPA policy evaluation](../opa/snippets/my-first-opa-policy-eval.sh)

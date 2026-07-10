@@ -1,0 +1,17 @@
+# last_verified: 2026-07-10 · dependabot n/a
+# Trying Dependabot with versioning-strategy for npm
+# Without this setting Dependabot only updates the lockfile — I wanted it to
+# also bump the version range in package.json so CI picks up the change.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # increase bumps the semver range in package.json (e.g. "^1.2.3" → "^1.3.0")
+    # increase-if-necessary only bumps when the lockfile change requires it
+    versioning-strategy: increase
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "npm"

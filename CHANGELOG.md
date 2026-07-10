@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-10
+
+### Added
+- cosign-006: `cosign/manifests/2026-07-10-keyless-oidc-ci.yaml` — Cosign keyless signing with GitHub OIDC verification in CI (L2)
+- dependabot-007: `dependabot/configs/2026-07-10-npm-version-strategy.yaml` — Minimal Dependabot config for npm ecosystem with version update strategy (L2)
+- docker-002: `docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile` — First custom Docker image from a minimal Dockerfile (L1)
+
 ## 2026-07-09
 
 ### Added
