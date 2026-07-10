@@ -1,9 +1,10 @@
 # DevSecOps-Kit
-> A working engineer's devops and devsecops reference — scripts, notes, snippets, and templates for vulnerability scanning, secret detection, supply chain security, runtime security, CI/CD, and infrastructure automation.
 
-| Last commit | Repo size | Languages |
-|-------------|-----------|-----------|
-| [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) | [![Repo size](https://img.shields.io/github/repo-size/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) | [![Top language](https://img.shields.io/github/languages/top/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Language count](https://img.shields.io/github/languages/count/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) |
+> A working engineer's devops and devsecops reference — notes, snippets, configs, and templates for vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and infrastructure automation.
+
+| Last commit | Repo size | Top language | Languages |
+|-------------|-----------|--------------|-----------|
+| [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) | [![Repo size](https://img.shields.io/github/repo-size/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) | [![Top language](https://img.shields.io/github/languages/top/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) | [![Language count](https://img.shields.io/github/languages/count/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) |
 
 ---
 
@@ -21,18 +22,18 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 ## Quick links
 
-- [zap-automation-plan.yaml](zap/templates/zap-dast-integration-scaffold/zap-automation-plan.yaml) — Headless DAST scanning configuration for CI
-- [DefectDojo primer](defectdojo/notes/0000-primer-defectdojo.md) — What DefectDojo is, key terminology, and local Docker Compose startup
-- [Install DefectDojo and import first scan report](defectdojo/snippets/install-defectdojo-first-scan-report.sh) — Clone repo, start stack, and point browser at localhost:8080
-- [ZAP DAST full scan plan](zap/templates/zap-dast-integration/plans/full-scan.yaml) — Full scan plan for CI-integrated DAST with ZAP Automation Framework
-- [ZAP DAST quick scan plan](zap/templates/zap-dast-integration/plans/quick-scan.yaml) — Quick scan plan for CI-integrated DAST with ZAP Automation Framework
+- [github-actions primer](github-actions/notes/0000-primer-github-actions.md) — What GitHub Actions is, workflows, jobs, runners, and a tiny CI example (L1)
+- [opentofu primer](opentofu/notes/0000-primer-opentofu.md) — What OpenTofu is, providers, state, modules, and a tiny HCL example (L1)
+- [sonarqube primer](sonarqube/notes/0000-primer-sonarqube.md) — What SonarQube is, Quality Gates, profiles, and a tiny analysis example (L1)
+- [docker primer](docker/notes/0000-primer-docker.md) — What Docker is, images vs containers, volumes, and a tiny Dockerfile example (L1)
+- [helm primer](helm/notes/0000-primer-helm.md) — What Helm is, charts, releases, values, and a tiny install example (L1)
 
 ---
 
 ## Layout
 
 - **`00_index/`** — Navigation: topic index, quick links, glossary, learning path
-- **`defectdojo/`** — DefectDojo vulnerability management, notes, and snippets
+- **`argocd/`** — ArgoCD GitOps continuous delivery notes, manifests, and first-app deployments
 - **`checkov/` / `semgrep/` / `trivy/` / `trufflehog/` / `syft/`** — Security scanner notes, scripts, configs
 - **`grype/` / `codeql/` / `zap/` / `snyk/` / `gitguardian/` / `falco/` / `cosign/` / `tetragon/`** — Vulnerability scanner and runtime security tool content
 - **`terrascan/` / `opa/`** — IaC compliance and policy engine primers
@@ -47,7 +48,7 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 - **`templates/`** — Starter configs for Kubernetes, Terraform, Linux automation, Jenkins, Logstash, syslog-ng
 - **`terraform/`** — Terraform modules (EventBridge Lambda)
 - **`assets/`** — Static images and diagrams
-- **`.github/`** — GitHub templates (PR template, CODEOWNERS, CI workflow docs)
+- **`.github/`** — GitHub templates (PR template, CODEOWNERS)
 - **`CHANGELOG.md`** — Release history and version tracking
 - **`CONTRIBUTING.md`** — Contribution guidelines and workflow
 
@@ -55,42 +56,47 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 ## Coverage
 
-| Tool | Notes | Scripts | Configs | Snippets | Docs | Manifests | Templates | Notebooks | Dockerfiles |
-|------|------:|--------:|--------:|---------:|-----:|----------:|----------:|----------:|------------:|
-| Trivy | 3 | 5 | 2 | 1 | 3 | 2 | 6 | 2 | 1 |
-| Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 |
-| Checkov | 4 | 2 | 2 | 4 | 3 | 2 | 10 | 1 | — |
-| TruffleHog | 3 | 3 | 2 | 2 | 2 | 1 | 21 | 2 | 1 |
-| Syft | 4 | 3 | 1 | 1 | 2 | — | 7 | 1 | 1 |
-| Grype | 4 | 5 | 1 | 2 | 1 | 2 | — | 1 | 1 |
-| CodeQL | 3 | 1 | 1 | 3 | 1 | 1 | — | — | — |
-| ZAP | 4 | 2 | 2 | 3 | 3 | — | 16 | — | 1 |
-| Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | — |
-| GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — |
-| Falco | 3 | 3 | 3 | 1 | 2 | — | — | — | — |
-| Cosign | 4 | 2 | 1 | 1 | — | — | — | — | — |
-| OPA | 3 | 1 | 1 | 3 | 1 | — | — | — | — |
-| Terrascan | 4 | 1 | 1 | 2 | — | — | — | — | — |
-| Dependabot | 3 | — | 1 | — | — | — | — | — | — |
-| Tetragon | 2 | — | 1 | — | — | — | — | — | — |
-| Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | — |
-| Git | 2 | 8 | — | 1 | 25 | — | — | — | — |
-| Docker | — | 4 | — | 1 | 2 | — | — | — | — |
-| Kubernetes | — | 17 | — | 1 | 11 | — | 3 | — | — |
-| Terraform | — | 16 | — | 1 | 27 | — | 12 | — | — |
-| Helm | — | 3 | — | — | 3 | — | — | — | — |
-| Ansible | — | 11 | — | 1 | 17 | — | — | — | — |
-| Observability | — | 14 | — | 1 | 7 | — | — | — | — |
-| OCI Registries | — | 11 | — | 1 | 7 | — | — | — | — |
-| Jenkins | — | 5 | — | 4 | 14 | — | 1 | — | — |
-| DefectDojo | 1 | — | — | 1 | — | — | — | — | — |
+<details>
+<summary>Coverage table</summary>
+
+| Tool | Notes | Scripts | Configs | Snippets | Docs | Manifests | Templates | Notebooks | Dockerfiles | Policies |
+|------|------:|--------:|--------:|---------:|-----:|----------:|----------:|----------:|------------:|---------:|
+| Trivy | 3 | 5 | 2 | 1 | 3 | 2 | 6 | 2 | 1 | — |
+| TruffleHog | 3 | 3 | 2 | 2 | 2 | 1 | 21 | 2 | 1 | — |
+| ZAP | 4 | 2 | 2 | 3 | 3 | — | 16 | — | 1 | — |
+| Syft | 4 | 3 | 1 | 1 | 5 | — | 7 | 1 | 1 | — |
+| Checkov | 4 | 2 | 2 | 4 | 3 | 2 | 10 | 1 | — | 1 |
+| Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — |
+| Grype | 4 | 5 | 1 | 2 | 1 | 2 | — | 1 | 1 | — |
+| Falco | 3 | 3 | 3 | 1 | 2 | — | — | — | — | — |
+| Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | — | — |
+| GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — | — |
+| OPA | 3 | 1 | 1 | 3 | 1 | — | — | — | — | — |
+| Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | — | — |
+| CodeQL | 3 | 1 | 1 | 3 | 1 | 1 | — | — | — | — |
+| Terrascan | 4 | 1 | 1 | 2 | — | — | — | — | — | — |
+| Cosign | 4 | 2 | 1 | 1 | — | — | — | — | — | — |
+| Tetragon | 2 | — | 1 | — | — | — | — | — | — | — |
+| Dependabot | 4 | — | 1 | — | — | — | — | — | — | — |
+| DefectDojo | 1 | — | — | 1 | — | — | — | — | — | — |
+| Git | 2 | — | — | 1 | — | — | — | — | — | — |
+| ArgoCD | 2 | — | — | — | — | 1 | — | — | — | — |
+| Kustomize | 2 | — | 1 | — | — | — | — | — | — | — |
+| Docker | 1 | — | — | — | — | — | — | — | — | — |
+| Helm | 1 | — | — | — | — | — | — | — | — | — |
+| Kubernetes | 1 | — | — | — | — | — | — | — | — | — |
+| GitHub Actions | 1 | — | — | — | — | — | — | — | — | — |
+| SonarQube | 1 | — | — | — | — | — | — | — | — | — |
+| OpenTofu | 1 | — | — | — | — | — | — | — | — | — |
+
+</details>
 
 ---
 
 ## Status
 
-Active maintenance with weekly additions. Current focus areas: Kubernetes CVE remediation, ZAP Automation Framework, Grype SARIF output integration, Vault policy-as-code, and OPA admission control wiring.
+Currently expanding L1 primers for newer tools (GitHub Actions, OpenTofu, SonarQube, Docker, Helm, Kubernetes). Active areas: Kubernetes CVE remediation, ZAP Automation Framework, Grype SARIF output integration, Vault policy-as-code, and OPA admission control wiring.
 
 ---
 
-_Last updated: 2026-07-06_
+_Last updated: 2026-07-09_
