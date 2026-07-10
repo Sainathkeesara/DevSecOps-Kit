@@ -34,6 +34,7 @@
 - [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md)
 - [DefectDojo primer](../defectdojo/notes/0000-primer-defectdojo.md)
 - [Git primer](../git/notes/0000-primer-git.md)
+- [Simulate CI locally with Git](../git/scripts/2026-07-10-local-ci-simulation.sh)
 - [ArgoCD primer](../argocd/notes/0000-primer-argocd.md)
 - [Docker primer](../docker/notes/0000-primer-docker.md)
 - [Helm primer](../helm/notes/0000-primer-helm.md)

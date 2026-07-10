@@ -2,6 +2,8 @@
 
 > A working engineer's devops and devsecops reference — notes, snippets, configs, and templates for vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and infrastructure automation.
 
+> **New here? Start at [the learning path](00_index/learning-path.md).** It walks you from first-contact to confident in a sensible order — read that before the table below.
+
 | Last commit | Repo size | Top language | Languages |
 |-------------|-----------|--------------|-----------|
 | [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) | [![Repo size](https://img.shields.io/github/repo-size/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) | [![Top language](https://img.shields.io/github/languages/top/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) | [![Language count](https://img.shields.io/github/languages/count/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) |
@@ -86,15 +88,17 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 | Tetragon | 2 | — | 1 | — | — | — | — | — | — | — |
 | Dependabot | 4 | — | 2 | — | — | — | — | — | — | — |
 | DefectDojo | 1 | — | — | 1 | — | — | — | — | — | — |
-| Git | 2 | — | — | 1 | — | — | — | — | — | — |
+| Git | 2 | 1 | — | 1 | — | — | — | — | — | — |
 | ArgoCD | 2 | — | — | — | — | 1 | — | — | — | — |
 | Kustomize | 2 | — | 1 | — | — | — | — | — | — | — |
-| Docker | 1 | — | — | — | — | — | — | — | — | — |
+| Docker | 1 | — | — | — | — | — | — | — | 1 | — |
 | Helm | 1 | — | — | — | — | — | — | — | — | — |
 | Kubernetes | 1 | — | — | — | — | — | — | — | — | — |
 | GitHub Actions | 1 | — | — | — | — | — | — | — | — | — |
 | SonarQube | 1 | — | — | — | — | — | — | — | — | — |
 | OpenTofu | 1 | — | — | — | — | — | — | — | — | — |
+
+> **New here? Start at [the learning path](00_index/learning-path.md).** It walks you from first-contact to confident in a sensible order — read that before the table above.
 
 </details>
 
@@ -102,8 +106,8 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 ## Status
 
-Currently expanding L1 primers for newer tools (GitHub Actions, OpenTofu, SonarQube, Docker, Helm, Kubernetes). Active areas: Kubernetes CVE remediation, ZAP Automation Framework, Grype SARIF output integration, Vault policy-as-code, and OPA admission control wiring.
+Currently focused on Cosign keyless signing in CI, Terrascan getting-started notes, Dependabot version strategies, AKS privilege-escalation hardening, OWASP Top 10 SAST snippets, and local CI simulation. Ongoing: Kubernetes CVE remediation, ZAP Automation Framework, Grype SARIF output integration, Vault policy-as-code, and OPA admission control wiring.
 
 ---
 
-_Last updated: 2026-07-10_
+_Last updated: 2026-07-11_
