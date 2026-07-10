@@ -13,6 +13,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - k8s-001: `scripts/bash/k8s_toolkit/security/aks-privilege-escalation-hardening.sh` — AKS privilege escalation detection and optional remediation script (L1)
 - ansible-004: `scripts/patch-report.sh` — Ansible patch management report generator with server inventory and security update count (L1)
 - lin-001: `scripts/bash/linux_toolkit/samba-setup.sh` — Samba file server setup script with share directory, smb.conf, user creation, and service enablement (L1)
+- git-006: `git/scripts/2026-07-10-local-ci-simulation.sh` — Local CI simulation via a pre-commit hook that lints staged shell scripts and runs tests (L2)
+- con-012: `docs/concepts/application-security-testing-concepts/snippets/2026-07-10-owasp-top10-sast.sh` — OWASP Top 10 SAST practice harness mapping deliberately vulnerable labs to SAST detection (L2)
 
 ## 2026-07-09
 

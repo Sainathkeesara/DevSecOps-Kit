@@ -37,9 +37,17 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 - **`checkov/` / `semgrep/` / `trivy/` / `trufflehog/` / `syft/`** — Security scanner notes, scripts, configs
 - **`grype/` / `codeql/` / `zap/` / `snyk/` / `gitguardian/` / `falco/` / `cosign/` / `tetragon/`** — Vulnerability scanner and runtime security tool content
 - **`terrascan/` / `opa/`** — IaC compliance and policy engine primers
+- **`defectdojo/`** — Vulnerability management, triage, and tracking platform
 - **`dependabot/`** — Dependabot primer, notes, and dependency update configs
 - **`vault/`** — HashiCorp Vault primers and notes
 - **`git/`** — Git primers, notes, and version control reference
+- **`docker/`** — Docker image authoring, runtime, and container security notes
+- **`github-actions/`** — GitHub Actions CI/CD workflows, runners, and reusable actions
+- **`helm/`** — Helm chart authoring, releases, and repository management notes
+- **`kubernetes/`** — Kubernetes cluster administration, manifests, and workload patterns
+- **`kustomize/`** — Kustomize overlay and base configuration notes
+- **`sonarqube/`** — SonarQube static analysis, Quality Gates, and profiles
+- **`opentofu/`** — OpenTofu IaC notes, providers, state, and modules
 - **`docs/`** — How-to guides, concepts, reference, runbooks, security docs, troubleshooting, setup guides
 - **`environments/`** — Terraform environment configs (dev / staging / prod)
 - **`lab/`** — Mini-projects and sandboxes
