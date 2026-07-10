@@ -204,6 +204,60 @@
 - **Test** — The result of importing one scan file into a DefectDojo engagement.
 - **Deduplication** — Merging identical findings across scans so one issue doesn't fan out into multiple tickets.
 
+**Quality Gate** — SonarQube's pass/fail conditions for a project (e.g., no new bugs, coverage ≥ 80%). Enforced in CI to block PRs that degrade code quality.
+
+**Quality Profile** — SonarQube's per-language set of activated rules. Default is "Sonar way"; teams can create custom profiles with stricter or looser rules.
+
+**Issue (SonarQube)** — A single bug, vulnerability, or code smell detected during analysis. Examples include "Remove this unused parameter" or "Potential SQL injection".
+
+**Hotspot (SonarQube)** — Security-sensitive code requiring human review, such as `eval()` usage or direct SQL string concatenation.
+
+**Technical Debt (SonarQube)** — Estimated remediation time for all maintainability issues in a project, expressed in days or hours.
+
+**Workflow (GitHub Actions)** — A YAML file (`.github/workflows/*.yml`) defining automation that triggers on events like `push`, `pull_request`, or `schedule`.
+
+**Job (GitHub Actions)** — A group of steps that share a runner. A workflow can have multiple jobs (e.g., lint, test, deploy).
+
+**Runner (GitHub Actions)** — The VM or container executing jobs. Can be `ubuntu-latest` (GitHub-hosted) or a self-hosted machine.
+
+**Event (GitHub Actions)** — The workflow trigger. Examples: `push` to main, `pull_request` opened, `schedule` at midnight.
+
+**Action (GitHub Actions)** — Reusable unit from the GitHub Marketplace, like `actions/checkout@v4`.
+
+**Chart (Helm)** — A packaged collection of Kubernetes manifest templates, metadata, and default values. Example: `bitnami/nginx`.
+
+**Release (Helm)** — A running instance of a chart in a cluster with a specific name and configuration. Example: `helm install my-nginx bitnami/nginx`.
+
+**Cluster (Kubernetes)** — A set of machines (nodes) controlled by Kubernetes, combining a control plane with worker nodes.
+
+**Pod (Kubernetes)** — The smallest deployable unit, usually wrapping one container. Example: a single Pod running the `nginx` container.
+
+**Deployment (Kubernetes)** — Manages a set of identical Pods, ensuring the desired count is running and performing rolling updates.
+
+**Service (Kubernetes)** — A stable network endpoint that load-balances traffic to a set of Pods. Example: a ClusterIP Service.
+
+**Namespace (Kubernetes)** — A virtual partition inside a cluster for isolation and resource grouping. Example: `default` or `kube-system`.
+
+**Base (Kustomize)** — The directory with core Kubernetes manifests and a `kustomization.yaml` listing them. The source of truth for common config.
+
+**Overlay (Kustomize)** — A directory with its own `kustomization.yaml` that references bases and adds patches, name prefixes, or namespace changes for a specific environment.
+
+**Patch (Kustomize)** — A partial YAML file (strategic merge or JSON patch) that overrides specific fields in a base resource without rewriting the whole manifest.
+
+**Provider (OpenTofu/Terraform)** — Plugin that talks to a cloud API. Example: `hashicorp/aws`.
+
+**Resource (OpenTofu/Terraform)** — A managed cloud object defined in configuration. Example: `aws_s3_bucket.data`.
+
+**Plan (OpenTofu/Terraform)** — Diff showing what changes OpenTofu will make. Example: `tofu plan`.
+
+**SonarQube** — Static analysis platform inspecting code for bugs, code smells, and security issues with Quality Gates enforced in CI.
+
+**OpenTofu** — Open-source infrastructure-as-code tool forked from Terraform, using the same HCL syntax under an MPL 2.0 license.
+
+**GitHub Actions** — GitHub's built-in CI/CD system using YAML workflow files to automate builds, tests, and deployments.
+
+**Workflow (general)** — A repeatable sequence of automated steps in a CI/CD pipeline.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment
