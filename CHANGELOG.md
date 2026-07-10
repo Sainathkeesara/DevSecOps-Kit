@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - cosign-006: `cosign/manifests/2026-07-10-keyless-oidc-ci.yaml` — Cosign keyless signing with GitHub OIDC verification in CI (L2)
 - dependabot-007: `dependabot/configs/2026-07-10-npm-version-strategy.yaml` — Minimal Dependabot config for npm ecosystem with version update strategy (L2)
 - docker-002: `docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile` — First custom Docker image from a minimal Dockerfile (L1)
+- k8s-001: `scripts/bash/k8s_toolkit/security/aks-privilege-escalation-hardening.sh` — AKS privilege escalation detection and optional remediation script (L1)
+- ansible-004: `scripts/patch-report.sh` — Ansible patch management report generator with server inventory and security update count (L1)
+- lin-001: `scripts/bash/linux_toolkit/samba-setup.sh` — Samba file server setup script with share directory, smb.conf, user creation, and service enablement (L1)
 
 ## 2026-07-09
 
