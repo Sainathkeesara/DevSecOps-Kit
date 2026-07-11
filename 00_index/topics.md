@@ -70,10 +70,10 @@
 - **notebooks** (1): [semgrep-scan-vs-ci-comparison.ipynb](../semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb)
 - **dockerfiles** (2): [ci-entrypoint.sh](../semgrep/dockerfiles/ci-entrypoint.sh), [custom-scanning-image.Dockerfile](../semgrep/dockerfiles/custom-scanning-image.Dockerfile)
 
-## Grype · 17 files
+## Grype · 18 files
 - **primer:** [0000-primer-grype.md](../grype/notes/0000-primer-grype.md)
 - **notes** (4): [0000-primer-grype.md](../grype/notes/0000-primer-grype.md), [2026-05-31-install-grype.md](../grype/notes/2026-05-31-install-grype.md), [2026-06-04-grype-quickstart-trip-ups.md](../grype/notes/2026-06-04-grype-quickstart-trip-ups.md), [2026-06-08-first-grype-scan.md](../grype/notes/2026-06-08-first-grype-scan.md)
-- **scripts** (5): [minimal-grype-scan.sh](../grype/scripts/minimal-grype-scan.sh), [ci-ready-grype-scan.sh](../grype/scripts/ci-ready-grype-scan.sh), [vuln-diff-two-images.sh](../grype/scripts/vuln-diff-two-images.sh), [grype-vuln-pipeline.sh](../grype/scripts/grype-vuln-pipeline.sh), [grype-results-to-sarif.py](../grype/scripts/grype-results-to-sarif.py)
+- **scripts** (6): [minimal-grype-scan.sh](../grype/scripts/minimal-grype-scan.sh), [ci-ready-grype-scan.sh](../grype/scripts/ci-ready-grype-scan.sh), [vuln-diff-two-images.sh](../grype/scripts/vuln-diff-two-images.sh), [grype-vuln-pipeline.sh](../grype/scripts/grype-vuln-pipeline.sh), [grype-results-to-sarif.py](../grype/scripts/grype-results-to-sarif.py), [grype-end-to-end-scan-pipeline.sh](../grype/scripts/grype-end-to-end-scan-pipeline.sh)
 - **configs** (1): [grype-ci-github-actions.yaml](../grype/configs/grype-ci-github-actions.yaml)
 - **snippets** (2): [my-first-grype-commands.sh](../grype/snippets/my-first-grype-commands.sh), [minimal-grype-scan.go](../grype/snippets/minimal-grype-scan.go)
 - **docs** (1): [grype-syft-integration-guide.md](../grype/docs/grype-syft-integration-guide.md)
@@ -133,9 +133,9 @@
 - **notes** (1): [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
 - **configs** (1): [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml)
 
-## Dependabot · 6 files
+## Dependabot · 7 files
 - **primer:** [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md)
-- **notes** (3): [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md), [2026-06-22-first-time-dependabot-setup.md](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md), [2026-06-15-dependabot-first-repo-bump-pr.md](../dependabot/notes/2026-06-15-dependabot-first-repo-bump-pr.md)
+- **notes** (5): [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md), [2026-06-22-first-time-dependabot-setup.md](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md), [2026-06-15-dependabot-first-repo-bump-pr.md](../dependabot/notes/2026-06-15-dependabot-first-repo-bump-pr.md), [2026-07-10-enabling-dependabot-alerts.md](../dependabot/notes/2026-07-10-enabling-dependabot-alerts.md), [dependabot-alerts-security-updates.md](../dependabot/notes/dependabot-alerts-security-updates.md)
 - **configs** (2): [tried-npm-dependabot.yaml](../dependabot/configs/tried-npm-dependabot.yaml), [2026-07-10-npm-version-strategy.yaml](../dependabot/configs/2026-07-10-npm-version-strategy.yaml)
 
 ## DefectDojo · 2 files

@@ -24,11 +24,11 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 ## Quick links
 
-- [AKS privilege escalation hardening](scripts/bash/k8s_toolkit/security/aks-privilege-escalation-hardening.sh) — Node-level checks and remediation for AKS privilege escalation
-- [Samba setup](scripts/bash/linux_toolkit/samba-setup.sh) — Samba file-share setup script for Linux hosts
-- [Patch report](scripts/patch-report.sh) — Generates a consolidated OS patch and version report
-- [Cosign keyless OIDC CI](cosign/manifests/2026-07-10-keyless-oidc-ci.yaml) — Cosign keyless image signing workflow driven by an OIDC identity in CI
-- [Dependabot npm version strategy](dependabot/configs/2026-07-10-npm-version-strategy.yaml) — Dependabot config for controlled npm dependency updates
+- [Grype end-to-end scan pipeline](grype/scripts/grype-end-to-end-scan-pipeline.sh) — Full Grype pipeline from SBOM generation to SARIF output
+- [Dependabot alerts](dependabot/notes/2026-07-10-enabling-dependabot-alerts.md) — Enabling and configuring Dependabot alerts on a repository
+- [Cosign keyless OIDC CI](cosign/manifests/2026-07-10-keyless-oidc-ci.yaml) — Cosign keyless image signing workflow driven by OIDC identity in CI
+- [OWASP Top 10 SAST snippets](docs/concepts/application-security-testing-concepts/snippets/2026-07-10-owasp-top10-sast.sh) — SAST rule snippets mapped against OWASP Top 10 categories
+- [Local CI simulation](git/scripts/2026-07-10-local-ci-simulation.sh) — Simulate CI pipeline stages locally before pushing
 
 ---
 
@@ -76,7 +76,7 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 | Syft | 4 | 3 | 1 | 1 | 5 | — | 7 | 1 | 1 | — |
 | Checkov | 4 | 2 | 2 | 4 | 3 | 2 | 10 | 1 | — | 1 |
 | Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — |
-| Grype | 4 | 5 | 1 | 2 | 1 | 2 | — | 1 | 1 | — |
+| Grype | 4 | 6 | 1 | 2 | 1 | 2 | — | 1 | 1 | — |
 | Falco | 3 | 3 | 3 | 1 | 2 | — | — | — | — | — |
 | Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | — | — |
 | GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — | — |
@@ -86,7 +86,7 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 | Terrascan | 5 | 1 | 1 | 2 | — | — | — | — | — | — |
 | Cosign | 4 | 2 | 1 | 1 | — | — | — | — | — | — |
 | Tetragon | 2 | — | 1 | — | — | — | — | — | — | — |
-| Dependabot | 4 | — | 2 | — | — | — | — | — | — | — |
+| Dependabot | 5 | — | 2 | — | — | — | — | — | — | — |
 | DefectDojo | 1 | — | — | 1 | — | — | — | — | — | — |
 | Git | 2 | 1 | — | 1 | — | — | — | — | — | — |
 | ArgoCD | 2 | — | — | — | — | 1 | — | — | — | — |
@@ -98,15 +98,13 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 | SonarQube | 1 | — | — | — | — | — | — | — | — | — |
 | OpenTofu | 1 | — | — | — | — | — | — | — | — | — |
 
-> **New here? Start at [the learning path](00_index/learning-path.md).** It walks you from first-contact to confident in a sensible order — read that before the table above.
-
 </details>
 
 ---
 
 ## Status
 
-Currently focused on Cosign keyless signing in CI, Terrascan getting-started notes, Dependabot version strategies, AKS privilege-escalation hardening, OWASP Top 10 SAST snippets, and local CI simulation. Ongoing: Kubernetes CVE remediation, ZAP Automation Framework, Grype SARIF output integration, Vault policy-as-code, and OPA admission control wiring.
+Currently focused on Grype end-to-end pipeline workflows, Dependabot alert configuration, Cosign keyless OIDC signing, and local CI simulation. Ongoing: Kubernetes CVE remediation, ZAP Automation Framework, Grype SARIF output integration, Vault policy-as-code, and OPA admission control wiring.
 
 ---
 

@@ -14,6 +14,7 @@
 - [Linux & Shell Fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) — What Linux and the shell are, why they matter, and core terminology (L1)
 - [Observability & Monitoring](../docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md) — Metrics, logs, traces, SLOs, and telemetry fundamentals (L1)
 - [Secrets & Access Management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md) — Controlling access and handling credentials securely (L1)
+- [OWASP Top 10 SAST rule mapping](../docs/concepts/application-security-testing-concepts/snippets/2026-07-10-owasp-top10-sast.sh) — SAST rule snippets mapped to OWASP Top 10 categories
 
 ### Learn a specific tool
 - [Trivy primer](../trivy/notes/0000-primer-trivy.md)
@@ -59,6 +60,7 @@
 - [CI-ready Grype scanning wrapper](../grype/scripts/ci-ready-grype-scan.sh)
 - [Vulnerability diff across two image versions](../grype/scripts/vuln-diff-two-images.sh)
 - [Grype results to SARIF converter](../grype/scripts/grype-results-to-sarif.py)
+- [Grype end-to-end scan pipeline](../grype/scripts/grype-end-to-end-scan-pipeline.sh) — Full SBOM generation to SARIF output in one script
 - [ZAP baseline scan script](../zap/snippets/my-first-zap-baseline-scan.sh)
 - [DAST workflow from spider to active scan](../zap/scripts/dast-workflow-from-scratch.sh)
 - [ZAP DAST SARIF code scanning](../zap/scripts/zap-dast-sarif-code-scanning.sh)
@@ -76,6 +78,7 @@
 - [Minimal Dependabot npm update config](../dependabot/configs/tried-npm-dependabot.yaml)
 - [Dependabot npm version strategy config](../dependabot/configs/2026-07-10-npm-version-strategy.yaml)
 - [Dependabot alerts and security updates](../dependabot/notes/dependabot-alerts-security-updates.md)
+- [Enabling Dependabot alerts on a repository](../dependabot/notes/2026-07-10-enabling-dependabot-alerts.md)
 
 ### Sign and verify images
 - [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh)
