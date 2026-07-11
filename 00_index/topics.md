@@ -150,9 +150,10 @@
 - **snippets** (1): [vault-read-write.go](../vault/snippets/vault-read-write.go)
 - **docs** (2): [configuring-vault-dev-server.md](../vault/docs/configuring-vault-dev-server.md), [vault-agent-auto-auth-kubernetes.md](../vault/docs/vault-agent-auto-auth-kubernetes.md)
 
-## Git · 3 files
+## Git · 4 files
 - **primer:** [0000-primer-git.md](../git/notes/0000-primer-git.md)
 - **notes** (2): [0000-primer-git.md](../git/notes/0000-primer-git.md), [2026-07-04-git-branching-merge-confusions.md](../git/notes/2026-07-04-git-branching-merge-confusions.md)
+- **scripts** (1): [2026-07-10-local-ci-simulation.sh](../git/scripts/2026-07-10-local-ci-simulation.sh)
 - **snippets** (1): [2026-07-04-git-rebase-vs-merge-conflict-patterns.sh](../git/snippets/2026-07-04-git-rebase-vs-merge-conflict-patterns.sh)
 
 ## ArgoCD · 3 files
