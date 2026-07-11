@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - k8s-001: `scripts/bash/k8s_toolkit/security/aks-privilege-escalation-hardening.sh` — Rework: removed `--dry-run`/`DRY_RUN` (forbidden at L1), reshaped to 15-line L1-sized script with two core checks (L1)
 
 ### Added
+- grype-002: `grype/scripts/grype-end-to-end-scan-pipeline.sh` — End-to-end Grype pipeline: scan images, emit JSON + SARIF, gate CI on severity (L3)
+- dependabot-004: `dependabot/notes/2026-07-10-enabling-dependabot-alerts.md` — Enabling Dependabot alerts and security updates on a sample repo (L1)
 - cosign-006: `cosign/manifests/2026-07-10-keyless-oidc-ci.yaml` — Cosign keyless signing with GitHub OIDC verification in CI (L2)
 - dependabot-007: `dependabot/configs/2026-07-10-npm-version-strategy.yaml` — Minimal Dependabot config for npm ecosystem with version update strategy (L2)
 - docker-002: `docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile` — First custom Docker image from a minimal Dockerfile (L1)
