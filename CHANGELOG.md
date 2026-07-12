@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - docker-002: `docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile` — First custom Docker image from a minimal Dockerfile (L1)
 - docker-003: `docker/notes/2026-07-12-explore-docker-cli.md` — Exploring the Docker CLI — images, containers, volumes, and networks (L1)
+- git-010: `git/notes/2026-07-12-install-git-identity-first-commit.md` — Install Git, configure identity, and first commit pitfalls (L1)
+- git-008: `git/scripts/2026-07-12-bump-version.sh` — Simple version bumper script referenced in git-cicd-automation.md (L1)
 
 ## 2026-07-10
 
