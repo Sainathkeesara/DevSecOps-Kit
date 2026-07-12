@@ -88,6 +88,8 @@
 
 ### Build container images
 - [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
+- [Custom Dockerfile (this cycle)](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile)
+- [Explore the Docker CLI](../docker/notes/2026-07-12-explore-docker-cli.md)
 
 ### Manage policies
 - [My first OPA policy evaluation](../opa/snippets/my-first-opa-policy-eval.sh)

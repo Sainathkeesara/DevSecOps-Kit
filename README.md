@@ -24,17 +24,18 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 ## Quick links
 
-- [Grype end-to-end scan pipeline](grype/scripts/grype-end-to-end-scan-pipeline.sh) — Full Grype pipeline from SBOM generation to SARIF output
+- [Explore the Docker CLI](docker/notes/2026-07-12-explore-docker-cli.md) — First-contact notes for the Docker command line
+- [Custom Docker image](docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile) — A from-scratch custom Dockerfile built this cycle
 - [Dependabot alerts](dependabot/notes/2026-07-10-enabling-dependabot-alerts.md) — Enabling and configuring Dependabot alerts on a repository
-- [Cosign keyless OIDC CI](cosign/manifests/2026-07-10-keyless-oidc-ci.yaml) — Cosign keyless image signing workflow driven by OIDC identity in CI
-- [OWASP Top 10 SAST snippets](docs/concepts/application-security-testing-concepts/snippets/2026-07-10-owasp-top10-sast.sh) — SAST rule snippets mapped against OWASP Top 10 categories
-- [Local CI simulation](git/scripts/2026-07-10-local-ci-simulation.sh) — Simulate CI pipeline stages locally before pushing
+- [Grype end-to-end scan pipeline](grype/scripts/grype-end-to-end-scan-pipeline.sh) — Full Grype pipeline from SBOM generation to SARIF output
+- [Assets index](assets/README.md) — Directory of static assets referenced by the docs
 
 ---
 
 ## Layout
 
 - **`00_index/`** — Navigation: topic index, quick links, glossary, learning path
+- **`assets/`** — Static assets referenced by docs: architecture diagrams and workflow illustrations
 - **`argocd/`** — ArgoCD GitOps continuous delivery notes, manifests, and first-app deployments
 - **`checkov/` / `semgrep/` / `trivy/` / `trufflehog/` / `syft/`** — Security scanner notes, scripts, configs
 - **`grype/` / `codeql/` / `zap/` / `snyk/` / `gitguardian/` / `falco/` / `cosign/` / `tetragon/`** — Vulnerability scanner and runtime security tool content
@@ -91,7 +92,7 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 | Git | 2 | 1 | — | 1 | — | — | — | — | — | — |
 | ArgoCD | 2 | — | — | — | — | 1 | — | — | — | — |
 | Kustomize | 2 | — | 1 | — | — | — | — | — | — | — |
-| Docker | 1 | — | — | — | — | — | — | — | 1 | — |
+| Docker | 2 | — | — | — | — | — | — | — | 2 | — |
 | Helm | 1 | — | — | — | — | — | — | — | — | — |
 | Kubernetes | 1 | — | — | — | — | — | — | — | — | — |
 | GitHub Actions | 1 | — | — | — | — | — | — | — | — | — |
@@ -108,4 +109,4 @@ Currently focused on Grype end-to-end pipeline workflows, Dependabot alert confi
 
 ---
 
-_Last updated: 2026-07-11_
+_Last updated: 2026-07-12_
