@@ -2,11 +2,9 @@
 
 > A working engineer's devops and devsecops reference — notes, snippets, configs, and templates for vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and infrastructure automation.
 
-> **New here? Start at [the learning path](00_index/learning-path.md).** It walks you from first-contact to confident in a sensible order — read that before the table below.
+[![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Repo size](https://img.shields.io/github/repo-size/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Top language](https://img.shields.io/github/languages/top/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Languages](https://img.shields.io/github/languages/count/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 
-| Last commit | Repo size | Top language | Languages |
-|-------------|-----------|--------------|-----------|
-| [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) | [![Repo size](https://img.shields.io/github/repo-size/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) | [![Top language](https://img.shields.io/github/languages/top/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) | [![Language count](https://img.shields.io/github/languages/count/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) |
+> **New here? Start at [the learning path](00_index/learning-path.md).** It walks you from first-contact to confident in a sensible order — read that before the table below.
 
 ---
 
@@ -24,18 +22,17 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 ## Quick links
 
-- [Explore the Docker CLI](docker/notes/2026-07-12-explore-docker-cli.md) — First-contact notes for the Docker command line
-- [Custom Docker image](docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile) — A from-scratch custom Dockerfile built this cycle
+- [Docker notes and first image](docker/notes/2026-07-12-explore-docker-cli.md) — Docker CLI exploration and first custom Dockerfile
 - [Dependabot alerts](dependabot/notes/2026-07-10-enabling-dependabot-alerts.md) — Enabling and configuring Dependabot alerts on a repository
 - [Grype end-to-end scan pipeline](grype/scripts/grype-end-to-end-scan-pipeline.sh) — Full Grype pipeline from SBOM generation to SARIF output
-- [Assets index](assets/README.md) — Directory of static assets referenced by the docs
+- [Cosign keyless OIDC CI](cosign/manifests/2026-07-10-keyless-oidc-ci.yaml) — Cosign keyless image signing workflow driven by OIDC identity in CI
+- [OWASP Top 10 SAST snippets](docs/concepts/application-security-testing-concepts/snippets/2026-07-10-owasp-top10-sast.sh) — SAST rule snippets mapped against OWASP Top 10 categories
 
 ---
 
 ## Layout
 
 - **`00_index/`** — Navigation: topic index, quick links, glossary, learning path
-- **`assets/`** — Static assets referenced by docs: architecture diagrams and workflow illustrations
 - **`argocd/`** — ArgoCD GitOps continuous delivery notes, manifests, and first-app deployments
 - **`checkov/` / `semgrep/` / `trivy/` / `trufflehog/` / `syft/`** — Security scanner notes, scripts, configs
 - **`grype/` / `codeql/` / `zap/` / `snyk/` / `gitguardian/` / `falco/` / `cosign/` / `tetragon/`** — Vulnerability scanner and runtime security tool content
@@ -85,11 +82,11 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 | Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | — | — |
 | CodeQL | 3 | 1 | 1 | 3 | 1 | 1 | — | — | — | — |
 | Terrascan | 5 | 1 | 1 | 2 | — | — | — | — | — | — |
-| Cosign | 4 | 2 | 1 | 1 | — | — | — | — | — | — |
+| Cosign | 4 | 2 | 1 | 1 | — | 1 | — | — | — | — |
 | Tetragon | 2 | — | 1 | — | — | — | — | — | — | — |
 | Dependabot | 5 | — | 2 | — | — | — | — | — | — | — |
 | DefectDojo | 1 | — | — | 1 | — | — | — | — | — | — |
-| Git | 2 | 1 | — | 1 | — | — | — | — | — | — |
+| Git | 3 | 2 | — | 1 | — | — | — | — | — | — |
 | ArgoCD | 2 | — | — | — | — | 1 | — | — | — | — |
 | Kustomize | 2 | — | 1 | — | — | — | — | — | — | — |
 | Docker | 2 | — | — | — | — | — | — | — | 2 | — |
@@ -105,8 +102,8 @@ The kit spans vulnerability scanning (Trivy, Semgrep, Checkov, Grype, CodeQL, Sn
 
 ## Status
 
-Currently focused on Grype end-to-end pipeline workflows, Dependabot alert configuration, Cosign keyless OIDC signing, and local CI simulation. Ongoing: Kubernetes CVE remediation, ZAP Automation Framework, Grype SARIF output integration, Vault policy-as-code, and OPA admission control wiring.
+Currently working through Docker CLI exploration and custom image authoring. Ongoing: Grype end-to-end pipeline workflows, Dependabot alert configuration, Cosign keyless OIDC signing, Kubernetes CVE remediation, ZAP Automation Framework, and OPA admission control wiring.
 
 ---
 
-_Last updated: 2026-07-12_
+_Last updated: 2026-07-13_

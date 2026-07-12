@@ -150,10 +150,10 @@
 - **snippets** (1): [vault-read-write.go](../vault/snippets/vault-read-write.go)
 - **docs** (2): [configuring-vault-dev-server.md](../vault/docs/configuring-vault-dev-server.md), [vault-agent-auto-auth-kubernetes.md](../vault/docs/vault-agent-auto-auth-kubernetes.md)
 
-## Git · 4 files
+## Git · 6 files
 - **primer:** [0000-primer-git.md](../git/notes/0000-primer-git.md)
-- **notes** (2): [0000-primer-git.md](../git/notes/0000-primer-git.md), [2026-07-04-git-branching-merge-confusions.md](../git/notes/2026-07-04-git-branching-merge-confusions.md)
-- **scripts** (1): [2026-07-10-local-ci-simulation.sh](../git/scripts/2026-07-10-local-ci-simulation.sh)
+- **notes** (3): [0000-primer-git.md](../git/notes/0000-primer-git.md), [2026-07-04-git-branching-merge-confusions.md](../git/notes/2026-07-04-git-branching-merge-confusions.md), [2026-07-12-install-git-identity-first-commit.md](../git/notes/2026-07-12-install-git-identity-first-commit.md)
+- **scripts** (2): [2026-07-10-local-ci-simulation.sh](../git/scripts/2026-07-10-local-ci-simulation.sh), [2026-07-12-bump-version.sh](../git/scripts/2026-07-12-bump-version.sh)
 - **snippets** (1): [2026-07-04-git-rebase-vs-merge-conflict-patterns.sh](../git/snippets/2026-07-04-git-rebase-vs-merge-conflict-patterns.sh)
 
 ## ArgoCD · 3 files
