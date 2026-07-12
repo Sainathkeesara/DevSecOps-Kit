@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-12
+
+### Added
+- docker-002: `docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile` — First custom Docker image from a minimal Dockerfile (L1)
+- docker-003: `docker/notes/2026-07-12-explore-docker-cli.md` — Exploring the Docker CLI — images, containers, volumes, and networks (L1)
+
 ## 2026-07-10
 
 ### Changed
