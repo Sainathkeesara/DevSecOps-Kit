@@ -22,7 +22,7 @@ These concepts have no prerequisites and are the starting point for any security
 These tools are unlocked from the start and cover the most common DevSecOps workflows.
 
 - **Git** — Version control foundation for every DevOps workflow. [Primer](../git/notes/0000-primer-git.md) | [Branching and merging](../git/notes/2026-07-04-git-branching-merge-confusions.md) | [Local CI simulation](../git/scripts/2026-07-10-local-ci-simulation.sh)
-- **Docker** — Container runtime for packaging and running applications. [Primer](../docker/notes/0000-primer-docker.md)
+- **Docker** — Container runtime for packaging and running applications. [Primer](../docker/notes/0000-primer-docker.md) | [Explore the CLI](../docker/notes/2026-07-12-explore-docker-cli.md) | [Custom image](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile)
 - **Kubernetes** — Container orchestration for deploying and scaling workloads. [Primer](../kubernetes/notes/0000-primer-kubernetes.md)
 - **Trivy** — Universal vulnerability scanner for containers, filesystems, repos, and SBOMs. [Primer](../trivy/notes/0000-primer-trivy.md) | [Scan modes comparison](../trivy/notebooks/trivy-scan-mode-comparison.ipynb)
 - **Semgrep** — SAST tool with custom rule writing, multi-language support, and CI/CD integration. [Primer](../semgrep/notes/0000-primer-semgrep.md) | [Rule writing reference](../semgrep/docs/semgrep-rule-writing-reference.md)

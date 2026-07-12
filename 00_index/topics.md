@@ -161,9 +161,9 @@
 - **notes** (2): [0000-primer-argocd.md](../argocd/notes/0000-primer-argocd.md), [2026-07-06-install-argocd-first-app.md](../argocd/notes/2026-07-06-install-argocd-first-app.md)
 - **manifests** (1): [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml)
 
-## Docker · 2 files
-- **notes** (1): [0000-primer-docker.md](../docker/notes/0000-primer-docker.md)
-- **dockerfiles** (1): [2026-07-10-first-custom-image.Dockerfile](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
+## Docker · 4 files
+- **notes** (2): [0000-primer-docker.md](../docker/notes/0000-primer-docker.md), [2026-07-12-explore-docker-cli.md](../docker/notes/2026-07-12-explore-docker-cli.md)
+- **dockerfiles** (2): [2026-07-10-first-custom-image.Dockerfile](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile), [2026-07-12-first-custom-docker-image.Dockerfile](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile)
 
 ## Helm · 1 file
 - **notes** (1): [0000-primer-helm.md](../helm/notes/0000-primer-helm.md)
