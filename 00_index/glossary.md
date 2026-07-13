@@ -164,6 +164,66 @@
 
 **Severity gating**: A CI/CD practice where pipeline stages are blocked or allowed based on the severity level of security findings, typically failing builds on CRITICAL or HIGH vulnerabilities.
 
+**SCA (Software Composition Analysis)**: Security testing methodology that analyzes open-source dependencies and third-party libraries for known vulnerabilities, license violations, and outdated packages.
+
+**IAST (Interactive Application Security Testing)**: Security testing methodology that instruments running applications to identify vulnerabilities in real time during functional testing, combining aspects of SAST and DAST.
+
+**Secrets scanning**: Automated process of detecting hardcoded credentials, API keys, tokens, and passwords in source code, configuration files, and git history before they reach production.
+
+**Dashboard (Grafana)** — A named collection of panels on a single screen, usually sharing a time range. Example: a "Web API Overview" dashboard with panels for request rate, error rate, p99 latency, and active connections.
+
+**Panel (Grafana)** — A single visualization unit inside a dashboard — graph, stat/gauge, table, heatmap, or bar gauge. Example: a stat panel showing current request rate as a big number with a sparkline.
+
+**Data source (Grafana)** — The backend Grafana queries — Prometheus, Loki, InfluxDB, etc. Each data source has its own query language. Example: Prometheus data source uses PromQL.
+
+**Variable (Grafana)** — A dashboard-level placeholder that lets you parameterize queries. Example: a `$namespace` dropdown that filters all panels to a specific Kubernetes namespace.
+
+**Row (Grafana)** — A visual grouping of panels within a dashboard. Example: grouping all latency panels under a "Latency" row and all volume panels under "Throughput."
+
+**Alert (Grafana)** — A condition evaluated against a query result that triggers a notification channel when true. Example: alert when `up{job="api"} == 0` for 60 seconds.
+
+**Notification channel (Grafana)** — The endpoint Grafana sends alert payloads to — Slack, webhook, PagerDuty, email, etc.
+
+**Annotation (Grafana)** — A vertical marker or region overlay on a panel timeline, usually tied to deployment events. Example: a marker at each deployment time so you can correlate latency changes with code releases.
+
+**Explore (Grafana)** — An ad-hoc query mode for investigating metrics and logs without building a dashboard panel first.
+
+**Logs (Observability)** — Timestamped text records of discrete events. Example: an application writing `2026-07-13T14:02:01Z WARN connection pool exhausted` to stdout.
+
+**Metrics (Observability)** — Numeric values measured at regular intervals. Example: `http_requests_total{method="POST",code="500"} 42` scraped every 15 seconds.
+
+**Traces (Observability)** — Records of a single request's journey across service boundaries, broken into spans. Example: a POST /checkout trace showing spans for auth-service (12ms), inventory-service (34ms), and payment-service (890ms).
+
+**Distributed tracing** — Traces collected across multiple services in a microservice architecture, linked by a shared trace ID injected at the edge.
+
+**Structured logging** — Logging in a parseable format (usually JSON) instead of freeform text. Example: `{"ts":"...","level":"warn","msg":"pool exhausted","pool":"checkout","active":50,"waiting":120}`.
+
+**Metric (Prometheus)** — A named numeric measurement with labels. Example: `http_requests_total{method="POST",endpoint="/api/checkout",code="200"} 1042`.
+
+**Labels (Prometheus)** — Key-value pairs attached to a metric that let you distinguish time-series with the same name. Example: `method`, `endpoint`, `code` on `http_requests_total`.
+
+**Scrape (Prometheus)** — A single pull of a metrics endpoint. Example: Prometheus GETs `http://myapp:8080/metrics` every 15 seconds and stores the result.
+
+**Scrape interval (Prometheus)** — How often Prometheus pulls each target. Example: `15s` (scrape every 15 seconds) is the default; sensitive metrics may use `5s`.
+
+**Exporter (Prometheus)** — An agent that translates an existing system's metrics into the Prometheus format. Example: `node_exporter` exposes CPU, memory, disk, and network metrics from a Linux host as `/metrics`.
+
+**PromQL** — Prometheus's query language. Example: `rate(http_requests_total[5m])` computes the per-second average rate of requests over the last 5 minutes.
+
+**Instant vector (Prometheus)** — A set of time-series with a single sample each, at a specific timestamp. Example: `http_requests_total` at right now returns one sample per (method, endpoint, code) combination.
+
+**Range vector (Prometheus)** — A set of time-series with a range of samples over time. Example: `http_requests_total[5m]` returns all samples from the last 5 minutes for each series.
+
+**Recording rule (Prometheus)** — A pre-computed query stored as a new time-series, reducing query load for dashboards and alerts. Example: pre-compute `job:request_rate:rate5m` so your 20 dashboards don't all run the same `rate()` query.
+
+**Alerting rule (Prometheus)** — A PromQL expression evaluated on a schedule that fires an alert when the result is true. Example: `up{job="api"} == 0` fires a "service down" alert if the API hasn't responded to a scrape for 60 seconds.
+
+**Target (Prometheus)** — An endpoint Prometheus scrapes, defined by a static config or service discovery. Example: `myapp:8080/metrics` on port 8080.
+
+**Service discovery (Prometheus)** — Automatic target discovery from an external system. Example: Kubernetes SD watches the API server and adds/removes pod targets as pods are scheduled and terminated.
+
+**Pushgateway (Prometheus)** — A standalone component for short-lived jobs (batch, cron) that cannot be scraped because they don't run long enough. The job pushes its final metrics to the gateway, and Prometheus scrapes the gateway.
+
 **Tetragon**: Cloud-native eBPF-based security observability and runtime enforcement tool that monitors kernel-level events for detecting and preventing malicious behaviour in containers and Kubernetes.
 
 **eBPF (extended Berkeley Packet Filter)**: Linux kernel technology that allows sandboxed programs to run within the kernel without modifying kernel source code or loading modules, used for observability, networking, and security.

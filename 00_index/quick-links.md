@@ -4,16 +4,17 @@
 
 ### Get started with a new tool
 - [Application Security Testing Concepts](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md) — SAST, DAST, SCA, and key security testing terminology
+- [Applying AppSec in DevSecOps](../docs/concepts/application-security-testing-concepts/2026-07-12-applying-appsec-in-devsecops.md) — Where SAST, DAST, SCA, and secrets scanning fit in a pipeline
 - [CI/CD Pipeline Concepts](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md) — Stages, gates, triggers, and pipeline fundamentals
 - [Configuration Management](../docs/concepts/configuration-management/0000-primer-configuration-management.md) — Desired state, idempotency, drift, and config management fundamentals (L1)
 - [Container & Runtime Security](../docs/concepts/container-runtime-security/0000-primer-container-runtime-security.md) — Image vs runtime security, syscalls, eBPF
+- [Observability & Monitoring](../docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md) — Metrics, logs, traces, SLOs, and telemetry fundamentals (L1)
+- [Secrets & Access Management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md) — Controlling access and handling credentials securely (L1)
 - [Software Supply Chain Security](../docs/concepts/software-supply-chain-security/0000-primer-software-supply-chain-security.md) — Supply chain attacks, SBOM, signing, and dependency verification
 - [Version Control with Git](../docs/concepts/version-control-with-git/0000-primer-version-control-with-git.md) — Repos, commits, branches, and collaboration workflows
 - [Containers & Orchestration](../docs/concepts/containers-orchestration/0000-primer-containers-orchestration.md) — Images, containers, registries, and Kubernetes fundamentals
 - [Infrastructure as Code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) — What IaC is, why it matters, and key terminology (L1)
 - [Linux & Shell Fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) — What Linux and the shell are, why they matter, and core terminology (L1)
-- [Observability & Monitoring](../docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md) — Metrics, logs, traces, SLOs, and telemetry fundamentals (L1)
-- [Secrets & Access Management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md) — Controlling access and handling credentials securely (L1)
 - [OWASP Top 10 SAST rule mapping](../docs/concepts/application-security-testing-concepts/snippets/2026-07-10-owasp-top10-sast.sh) — SAST rule snippets mapped to OWASP Top 10 categories
 
 ### Learn a specific tool
@@ -44,6 +45,9 @@
 - [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md)
 - [SonarQube primer](../sonarqube/notes/0000-primer-sonarqube.md)
 - [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
+- [Grafana primer](../grafana/notes/0000-primer-grafana.md)
+- [Prometheus primer](../prometheus/notes/0000-primer-prometheus.md)
+- [Observability primer](../observability/notes/0000-primer-observability.md)
 
 ### Scan for vulnerabilities
 - [Scan Docker images with Trivy](../trivy/scripts/container-vuln-scan.sh)
