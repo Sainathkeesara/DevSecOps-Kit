@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-13
+
+### Added
+- grafana-001: `grafana/notes/0000-primer-grafana.md` — Grafana quick primer: dashboards, panels, data sources, PromQL, and a tiny example (L1)
+- observability-001: `observability/notes/0000-primer-observability.md` — Observability quick primer: logs, metrics, traces, SLIs/SLOs, and a Flask + Prometheus example (L1)
+- prometheus-001: `prometheus/notes/0000-primer-prometheus.md` — Prometheus quick primer: scrape model, metrics/labels, PromQL, exporters, and a tiny instrumented app example (L1)
+
 ## 2026-07-12
 
 ### Added
@@ -343,7 +350,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Compares result structures: vulnerability counts, misconfigurations, and secrets per mode
   - Provides a CI/CD decision guide mapping pipeline stage to recommended scan mode
   - Documents common gotchas: rootfs scanning, private repo auth, severity filter mismatch, SBOM re-scanning
-- gen-012: `general/notes/2026-06-20-dependabot-layout.md` — L1 README Layout audit note documenting the Dependabot root folder and `.pr_result.json` ignore decision.
+- gen-012: L1 README Layout audit note documenting the Dependabot root folder and `.pr_result.json` ignore decision.
   - Confirms `dependabot/` structure with primer and configs is documented in README
   - Decision: `.pr_result.json` should remain ignored (CI artifact already in `.gitignore`, removed from tracking)
 - semgrep-001: `semgrep/docs/semgrep-rule-writing-reference.md` — L5 Semgrep rule writing reference covering pattern syntax and metavariable constraints
@@ -372,7 +379,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-18
 
 ### Added
-- gen-006: `general/docs/2026-06-18-readme-layout-remaining-folders.md` — README Layout audit confirming `assets/`, `cosign/`, `falco/`, and `terrascan/` are already documented
+- gen-006: README Layout audit confirming `assets/`, `cosign/`, `falco/`, and `terrascan/` are already documented
 - cosign-002: `cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md` — First-person L1 notes covering Cosign installation and keypair generation
 - syft-001: `syft/templates/sbom-pipeline-scaffold/` — SBOM pipeline scaffold for Syft + Grype CI integration (L4)
    - GitHub Actions workflow that builds an image, generates an SBOM with Syft, and scans it with Grype
@@ -420,7 +427,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Two rules: binary modification detection in /usr/bin and package manager execution detection
   - Detects file writes to critical binaries via openat/rename/unlink syscalls
   - Detects package manager usage (apt, yum, apk, pip, npm) indicating runtime changes
-- gen-009: `general/docs/2026-06-16-readme-layout-assets-terrascan.md` — README Layout audit for undocumented root folders (audit)
+- gen-009: README Layout audit for undocumented root folders (audit)
   - Added `assets/` and `terrascan/` entries to README Layout
   - Confirmed `cosign/` and `falco/` were already documented
 
