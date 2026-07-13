@@ -18,6 +18,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - docker-003: `docker/notes/2026-07-12-explore-docker-cli.md` — Exploring the Docker CLI — images, containers, volumes, and networks (L1)
 - git-010: `git/notes/2026-07-12-install-git-identity-first-commit.md` — Install Git, configure identity, and first commit pitfalls (L1)
 - git-008: `git/scripts/2026-07-12-bump-version.sh` — Simple version bumper script referenced in git-cicd-automation.md (L1)
+- con-042: `docs/concepts/application-security-testing-concepts/snippets/2026-07-12-appsec-practice-exercises.py` — Practice exercises: SAST scan vs DAST probe on a vulnerable endpoint (L2)
+- con-043: `docs/concepts/application-security-testing-concepts/2026-07-12-applying-appsec-in-devsecops.md` — Applying Application Security Testing in DevSecOps — pitfalls and pipeline integration (L2)
 
 ## 2026-07-10
 
@@ -708,7 +710,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-06-05
 
 ### Added
-- semgrep-014: `semgrep/docs/comparing-rule-writing-approctions.md` — Comparing Semgrep rule-writing approaches: pattern vs pattern-inside vs pattern-either (L4)
+- semgrep-014: `semgrep/docs/comparing-rule-writing-approaches.md` — Comparing Semgrep rule-writing approaches: pattern vs pattern-inside vs pattern-either (L4)
   - Explains when to use each combinator with concrete examples
   - Covers pattern scope selection, common errors, and verification patterns
   - Reference-style guide with purpose, when-to-use, prerequisites, steps, verify, common errors, and references sections
@@ -1575,7 +1577,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - ter-016: `scripts/bash/git/git-install-macos.sh` — Automated Git installation script for macOS
 - git-003: `docs/how-to/git-installation-wsl.md` — Git installation on WSL how-to guide
 - git-003: `scripts/bash/git/git-install-wsl.sh` — Automated Git installation script for WSL
-- git-003: `snippets/git-commands-reference.md` — Git CLI commands reference with 80+ commands
+- git-003: `snippets/git-commands.md` — Git CLI commands reference with 80+ commands
 - ter-017: `docs/how-to/terraform-iam-roles.md` — IAM roles with policy modules how-to guide
 - ter-017: `scripts/bash/terraform_toolkit/terraform-iam-roles-deploy.sh` — Automated IAM roles deployment script
 
@@ -1588,7 +1590,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-04-12
 
 ### Added
-- lin-028: `docs/how-to/linux/linux-aide-configuration-management-top.md` — AIDE file integrity monitoring how-to guide
+- lin-028: `docs/how-to/linux/linux-aide-configuration-management.md` — AIDE file integrity monitoring how-to guide
 - lin-028: `scripts/bash/linux_toolkit/aide-deploy.sh` — Automated AIDE deployment and management script
 
 ## 2026-04-11
