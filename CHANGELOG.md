@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-14
+
+### Added
+- con-036: `docs/concepts/configuration-management/snippets/2026-07-14-practice-ansible-playbook-basics.yaml` — Practice: Ansible playbook basics demonstrating desired state, idempotency, and verify pattern (L2)
+- con-037: `docs/concepts/configuration-management/2026-07-14-devsecops-patterns.md` — Configuration Management in DevSecOps workflows — patterns and best practices (L2)
+
 ## 2026-07-13
 
 ### Added

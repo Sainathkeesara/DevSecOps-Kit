@@ -1,0 +1,36 @@
+# last_verified: 2026-07-14 · ansible-core 2.16
+---
+- name: CM practice — enforce nginx desired state
+  hosts: webservers
+  become: yes
+  vars:
+    nginx_version: "1.24"
+    doc_root: /var/www/myapp
+
+  tasks:
+    - name: Install specific nginx version
+      ansible.builtin.apt:
+        name: "nginx={{ nginx_version }}*"
+        state: present
+        update_cache: yes
+
+    - name: Drop custom index page
+      ansible.builtin.copy:
+        dest: "{{ doc_root }}/index.html"
+        content: |
+          <html><body><h1>Managed by Ansible</h1></body></html>
+        owner: www-data
+        group: www-data
+        mode: "0644"
+
+    - name: Start and enable nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    # idempotency check — running this playbook twice produces the same result
+    - name: Verify nginx is listening on port 80
+      ansible.builtin.wait_for:
+        port: 80
+        delay: 2
