@@ -318,6 +318,14 @@
 
 **Workflow (general)** — A repeatable sequence of automated steps in a CI/CD pipeline.
 
+**Grafana** — Open-source dashboard and visualization layer for time-series metrics, connecting to data sources like Prometheus, Loki, and Elasticsearch.
+
+**Prometheus** — Open-source time-series database and monitoring system that scrapes metrics from HTTP endpoints and exposes a PromQL query API.
+
+**Metric** — A numerical value measured over time, identified by a metric name and key-value labels (e.g., `http_requests_total{status="200"}`).
+
+**Loki** — Grafana Labs' log aggregation system inspired by Prometheus, using a similar label-based indexing approach for log data.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment

@@ -5,7 +5,7 @@
 ## Trivy · 25 files
 - **primer:** [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md)
 - **notes** (3): [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md), [2026-05-24-install-trivy.md](../trivy/notes/2026-05-24-install-trivy.md), [2026-05-26-trivy-quickstart.md](../trivy/notes/2026-05-26-trivy-quickstart.md)
-- **scripts** (5): [container-vuln-scan.sh](../trivy/scripts/container-vuln-scan.sh), [image-vuln-pipeline.sh](../trivy/scripts/image-vuln-pipeline.sh), [multi-target-scanner.sh](../trivy/scripts/multi-target-scanner.sh)
+- **scripts** (5): [container-vuln-scan.sh](../trivy/scripts/container-vuln-scan.sh), [image-vuln-pipeline.sh](../trivy/scripts/image-vuln-pipeline.sh), [multi-target-scanner.sh](../trivy/scripts/multi-target-scanner.sh), [compose-multi-scan.sh](../trivy/scripts/compose-multi-scan.sh), [custom-trivy-check-conftest.sh](../trivy/scripts/custom-trivy-check-conftest.sh)
 - **configs** (2): [.trivy.yaml](../trivy/configs/.trivy.yaml), [trivy-scan-config.yaml](../trivy/configs/trivy-scan-config.yaml)
 - **snippets** (1): [scan-docker-image.sh](../trivy/snippets/scan-docker-image.sh)
 - **docs** (3): [ci-pipeline-sarif-output.md](../trivy/docs/ci-pipeline-sarif-output.md), [ci-cd-pipeline-recipes.md](../trivy/docs/ci-cd-pipeline-recipes.md), [sbom-scanning-reference-guide.md](../trivy/docs/sbom-scanning-reference-guide.md)
@@ -29,7 +29,7 @@
 ## ZAP · 31 files
 - **primer:** [0000-primer-zap.md](../zap/notes/0000-primer-zap.md)
 - **notes** (4): [0000-primer-zap.md](../zap/notes/0000-primer-zap.md), [2026-06-06-install-zap-desktop-ui.md](../zap/notes/2026-06-06-install-zap-desktop-ui.md), [2026-06-06-zap-quickstart-ui-gotchas.md](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md), [2026-06-13-spider-scan-test-app.md](../zap/notes/2026-06-13-spider-scan-test-app.md)
-- **scripts** (2): [dast-workflow-from-scratch.sh](../zap/scripts/dast-workflow-from-scratch.sh), [zap-dast-sarif-code-scanning.sh](../zap/scripts/zap-dast-sarif-code-scanning.sh)
+- **scripts** (3): [dast-workflow-from-scratch.sh](../zap/scripts/dast-workflow-from-scratch.sh), [zap-dast-sarif-code-scanning.sh](../zap/scripts/zap-dast-sarif-code-scanning.sh)
 - **configs** (2): [zap-authenticated-scan-context.yaml](../zap/configs/zap-authenticated-scan-context.yaml), [ci-dast-automation-framework-plan.yaml](../zap/configs/ci-dast-automation-framework-plan.yaml)
 - **snippets** (3): [my-first-zap-baseline-scan.sh](../zap/snippets/my-first-zap-baseline-scan.sh), [my-first-zap-spider-scan.sh](../zap/snippets/my-first-zap-spider-scan.sh), [authenticated-scan-with-context.sh](../zap/snippets/authenticated-scan-with-context.sh)
 - **docs** (3): [zap-integration-patterns.md](../zap/docs/zap-integration-patterns.md), [passive-vs-active-scanning-zap.md](../zap/docs/passive-vs-active-scanning-zap.md), [zap-automation-plan-structure.md](../zap/docs/zap-automation-plan-structure.md)
@@ -130,7 +130,7 @@
 
 ## Tetragon · 3 files
 - **primer:** [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md)
-- **notes** (2): [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md), [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
+- **notes** (1): [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
 - **configs** (1): [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml)
 
 ## Dependabot · 7 files
@@ -188,11 +188,11 @@
 ## Grafana · 1 file
 - **notes** (1): [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md)
 
-## Prometheus · 1 file
-- **notes** (1): [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md)
-
 ## Observability · 1 file
 - **notes** (1): [0000-primer-observability.md](../observability/notes/0000-primer-observability.md)
+
+## Prometheus · 1 file
+- **notes** (1): [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md)
 
 ## CodeQL · 10 files
 - **primer:** [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md)
