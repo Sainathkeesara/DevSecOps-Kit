@@ -1,6 +1,6 @@
 # Learning Path — DevSecOps
 
-> A suggested progression from beginner to confident practitioner. Each stage builds on the previous one. Topics marked ⏳ have primers written but the next level of content is still coming.
+> A suggested progression from beginner to confident practitioner. Each stage builds on the previous one. If a topic is listed but has no content yet, it's marked as ⏳ (coming soon).
 
 ## Stage 1: Foundations
 
@@ -10,12 +10,12 @@ These concepts have no prerequisites and are the starting point for any security
 - **Version Control with Git** — Branching, commits, remotes, and CI/CD triggers. Primers cover mental models and everyday commands. [Git fundamentals](../docs/concepts/git-001-version-control-fundamentals.md) | [Commands reference](../docs/reference/git-commands.md)
 - **CI/CD Pipeline Concepts** — How code moves from commit to deployment; why gates and scans matter. [CI/CD toolkit guide](../docs/how-to/ci_cd_toolkit.md) | [Cheatsheet](../snippets/ci-cd-cheatsheet.md)
 - **Infrastructure as Code** — Terraform, OpenTofu, and the idea of declarative infrastructure. [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md) | [Terraform state management](../docs/how-to/terraform-state-management.md)
-- **Application Security Testing Concepts** — SAST, DAST, SCA — what they catch and when to use each. Primers on Semgrep, CodeQL, ZAP, and Snyk cover this.
+- **Application Security Testing Concepts** — SAST, DAST, SCA — what they catch and when to use each. Primers on Semgrep, CodeQL, ZAP, and Snyk cover this. [Applying AppSec in DevSecOps](../docs/concepts/application-security-testing-concepts/2026-07-12-applying-appsec-in-devsecops.md)
 - **Container & Runtime Security** — Images, registries, runtime behaviour. Trivy, Syft, Grype, Cosign, and Falco all depend on this. [Docker primer](../docker/notes/0000-primer-docker.md) | [Docker security best practices](../docs/how-to/docker-security-best-practices.md)
 - **Secrets & Access Management** — How secrets leak and how to protect them. Vault, TruffleHog, and GitGuardian depend on this. [Vault primer](../vault/notes/0000-primer-vault.md)
 - **Software Supply Chain Security** — Dependency risk, SBOMs, signing. Syft, Grype, Cosign, Dependabot all live here.
 - **Configuration Management** — Desired state, idempotency, drift, and managing systems as code. The foundation for Ansible. [Primer](../docs/concepts/configuration-management/0000-primer-configuration-management.md)
-- **Observability & Monitoring** — Metrics, logs, traces, SLOs, and understanding system behaviour. The foundation for Prometheus and Grafana. [SLI/SLO/SLA definitions](../00_index/glossary.md)
+- **Observability & Monitoring** — Metrics, logs, traces, SLOs, and understanding system behaviour. The foundation for Prometheus and Grafana. [Observability primer](../observability/notes/0000-primer-observability.md) | [SLI/SLO/SLA definitions](../00_index/glossary.md)
 
 ## Stage 2: Core Tools
 
@@ -44,6 +44,8 @@ Intermediate tools that add SBOM management, software composition analysis, and 
 - **Snyk** — Developer security platform for open-source dependencies and containers. [Primer](../snyk/notes/0000-primer-snyk.md) | [CI pipeline integration](../snyk/configs/snyk-ci-github-actions.yaml)
 - **Dependabot** — GitHub's automated dependency update tool for vulnerability patching. [Primer](../dependabot/notes/0000-primer-dependabot.md) | [npm config](../dependabot/configs/tried-npm-dependabot.yaml) | [Enabling alerts](../dependabot/notes/2026-07-10-enabling-dependabot-alerts.md)
 - **Terrascan** — IaC static analysis for Terraform and Kubernetes with custom Rego rules. [Primer](../terrascan/notes/0000-primer-terrascan.md) | [First scan](../terrascan/notes/2026-06-13-first-scan.md) | [Custom Rego rules](../terrascan/configs/tried-custom-s3-rule.yaml)
+- **Prometheus** — Time-series metrics collection and alerting for cloud-native environments. [Primer](../prometheus/notes/0000-primer-prometheus.md)
+- **Grafana** — Dashboard and visualization layer for metrics. [Primer](../grafana/notes/0000-primer-grafana.md)
 
 ## Stage 4: Advanced Tools
 
@@ -66,6 +68,7 @@ Cross-cutting integration and custom tooling.
 - **Multi-stage CI/CD pipelines** — Combining SAST + SCA + DAST + secret scanning + SBOM generation + container signing in a single gated pipeline. [TruffleHog PR secret scan reusable workflow](../trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml)
 - **CVE remediation workflows** — Using the CVE-specific scripts and guides for Ansible, Docker, Jenkins, Kafka, Kubernetes, and Trivy.
 - **Multi-cluster security posture management** — Integrating Falco, OPA, Trivy Operator, and kubescape across multiple Kubernetes clusters.
+- **Observability stack integration** — Wiring Prometheus metrics, Grafana dashboards, Loki logs, and Jaeger traces into a unified SLO-driven alerting pipeline.
 
 ## Progression Map
 
@@ -80,6 +83,7 @@ flowchart LR
     Container["Container & Runtime Security"]
     Secrets["Secrets & Access Management"]
     SupplyChain["Software Supply Chain Security"]
+    Observ["Observability & Monitoring"]
   end
 
   subgraph Core[Stage 2: Core Tools]
@@ -103,6 +107,8 @@ flowchart LR
     Snyk
     Dependabot
     Terrascan
+    Prometheus
+    Grafana
   end
 
   subgraph Advanced[Stage 4: Advanced Tools]
@@ -124,6 +130,7 @@ flowchart LR
   Container --> Trivy & Syft & Grype & Cosign & Falco & OPA
   Secrets --> Vault & TruffleHog & GitGuardian
   SupplyChain --> Syft & Grype & Cosign & Trivy & Dependabot & Snyk
+  Observ --> Prometheus & Grafana
 
   Docker --> Kubernetes
   Kubernetes --> Helm & Kustomize & ArgoCD
@@ -136,4 +143,5 @@ flowchart LR
   TruffleHog --> GitGuardian
   Syft --> Grype & Cosign
   Grype --> Cosign
+  Prometheus --> Grafana
 ```

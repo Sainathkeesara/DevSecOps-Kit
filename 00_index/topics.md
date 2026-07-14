@@ -10,7 +10,7 @@
 - **snippets** (1): [scan-docker-image.sh](../trivy/snippets/scan-docker-image.sh)
 - **docs** (3): [ci-pipeline-sarif-output.md](../trivy/docs/ci-pipeline-sarif-output.md), [ci-cd-pipeline-recipes.md](../trivy/docs/ci-cd-pipeline-recipes.md), [sbom-scanning-reference-guide.md](../trivy/docs/sbom-scanning-reference-guide.md)
 - **manifests** (2): [trivy-operator-deployment.yaml](../trivy/manifests/trivy-operator-deployment.yaml), [trivy-sarif-code-scanning.yaml](../trivy/manifests/trivy-sarif-code-scanning.yaml)
-- **templates** (6): [trivy-monorepo-scanner](../trivy/templates/trivy-monorepo-scanner/), [custom-policies.Dockerfile](../trivy/dockerfiles/custom-policies.Dockerfile)
+- **templates** (6): [trivy-monorepo-scanner](../trivy/templates/trivy-monorepo-scanner/)
 - **notebooks** (2): [trivy-scan-mode-comparison.ipynb](../trivy/notebooks/trivy-scan-mode-comparison.ipynb), [trivy-sarif-output-processing.ipynb](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
 - **dockerfiles** (1): [custom-policies.Dockerfile](../trivy/dockerfiles/custom-policies.Dockerfile)
 
@@ -29,7 +29,7 @@
 ## ZAP · 31 files
 - **primer:** [0000-primer-zap.md](../zap/notes/0000-primer-zap.md)
 - **notes** (4): [0000-primer-zap.md](../zap/notes/0000-primer-zap.md), [2026-06-06-install-zap-desktop-ui.md](../zap/notes/2026-06-06-install-zap-desktop-ui.md), [2026-06-06-zap-quickstart-ui-gotchas.md](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md), [2026-06-13-spider-scan-test-app.md](../zap/notes/2026-06-13-spider-scan-test-app.md)
-- **scripts** (3): [dast-workflow-from-scratch.sh](../zap/scripts/dast-workflow-from-scratch.sh), [zap-dast-sarif-code-scanning.sh](../zap/scripts/zap-dast-sarif-code-scanning.sh)
+- **scripts** (2): [dast-workflow-from-scratch.sh](../zap/scripts/dast-workflow-from-scratch.sh), [zap-dast-sarif-code-scanning.sh](../zap/scripts/zap-dast-sarif-code-scanning.sh)
 - **configs** (2): [zap-authenticated-scan-context.yaml](../zap/configs/zap-authenticated-scan-context.yaml), [ci-dast-automation-framework-plan.yaml](../zap/configs/ci-dast-automation-framework-plan.yaml)
 - **snippets** (3): [my-first-zap-baseline-scan.sh](../zap/snippets/my-first-zap-baseline-scan.sh), [my-first-zap-spider-scan.sh](../zap/snippets/my-first-zap-spider-scan.sh), [authenticated-scan-with-context.sh](../zap/snippets/authenticated-scan-with-context.sh)
 - **docs** (3): [zap-integration-patterns.md](../zap/docs/zap-integration-patterns.md), [passive-vs-active-scanning-zap.md](../zap/docs/passive-vs-active-scanning-zap.md), [zap-automation-plan-structure.md](../zap/docs/zap-automation-plan-structure.md)
@@ -130,7 +130,7 @@
 
 ## Tetragon · 3 files
 - **primer:** [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md)
-- **notes** (1): [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
+- **notes** (2): [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md), [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
 - **configs** (1): [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml)
 
 ## Dependabot · 7 files
@@ -184,6 +184,15 @@
 
 ## OpenTofu · 1 file
 - **notes** (1): [0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md)
+
+## Grafana · 1 file
+- **notes** (1): [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md)
+
+## Prometheus · 1 file
+- **notes** (1): [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md)
+
+## Observability · 1 file
+- **notes** (1): [0000-primer-observability.md](../observability/notes/0000-primer-observability.md)
 
 ## CodeQL · 10 files
 - **primer:** [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md)
