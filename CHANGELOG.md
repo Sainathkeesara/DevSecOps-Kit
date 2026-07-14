@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - con-036: `docs/concepts/configuration-management/snippets/2026-07-14-practice-ansible-playbook-basics.yaml` — Practice: Ansible playbook basics demonstrating desired state, idempotency, and verify pattern (L2)
 - con-037: `docs/concepts/configuration-management/2026-07-14-devsecops-patterns.md` — Configuration Management in DevSecOps workflows — patterns and best practices (L2)
+- github-actions-002: `github-actions/configs/2026-07-14-first-github-actions-workflow.yaml` — My first GitHub Actions workflow with push trigger and a single echo job (L1)
+- github-actions-003: `github-actions/notes/2026-07-14-explore-github-actions.md` — Exploring GitHub Actions — workflows, runners, events, and marketplace (L1)
 
 ## 2026-07-13
 
