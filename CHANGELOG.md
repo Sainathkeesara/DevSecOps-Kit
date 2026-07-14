@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - grafana-001: `grafana/notes/0000-primer-grafana.md` — Grafana quick primer: dashboards, panels, data sources, PromQL, and a tiny example (L1)
 - observability-001: `observability/notes/0000-primer-observability.md` — Observability quick primer: logs, metrics, traces, SLIs/SLOs, and a Flask + Prometheus example (L1)
 - prometheus-001: `prometheus/notes/0000-primer-prometheus.md` — Prometheus quick primer: scrape model, metrics/labels, PromQL, exporters, and a tiny instrumented app example (L1)
+- terraform-009: `terraform/scripts/2026-07-13-zip-build.sh` — Minimal Lambda ZIP build script for Terraform AWS Lambda deployments (L1)
 
 ## 2026-07-12
 
