@@ -22,11 +22,11 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Quick links
 
-- [Docker CLI exploration and first custom image](docker/notes/2026-07-12-explore-docker-cli.md) — Docker CLI exploration and building a custom Dockerfile
-- [Dependabot alerts on a repository](dependabot/notes/2026-07-10-enabling-dependabot-alerts.md) — Enabling and configuring Dependabot alerts
-- [Grype end-to-end scan pipeline](grype/scripts/grype-end-to-end-scan-pipeline.sh) — Full Grype pipeline from SBOM generation to SARIF output
-- [Cosign keyless OIDC CI manifest](cosign/manifests/2026-07-10-keyless-oidc-ci.yaml) — Keyless image signing driven by OIDC identity in CI
-- [OWASP Top 10 SAST rule snippets](docs/concepts/application-security-testing-concepts/snippets/2026-07-10-owasp-top10-sast.sh) — SAST snippets mapped against OWASP Top 10
+- [Configuration management DevSecOps patterns](docs/concepts/configuration-management/2026-07-14-devsecops-patterns.md) — How CM closes the gap with security scanning and drift detection
+- [Practice: Ansible playbook basics](docs/concepts/configuration-management/snippets/2026-07-14-practice-ansible-playbook-basics.yaml) — Hands-on exercise building a basic Ansible playbook
+- [Terraform zip build helper](terraform/scripts/2026-07-13-zip-build.sh) — Package a Terraform build artifact for deployment
+- [Grafana primer](grafana/notes/0000-primer-grafana.md) — First contact with Grafana dashboards and data sources
+- [Observability primer](observability/notes/0000-primer-observability.md) — Metrics, logs, and traces fundamentals
 
 ---
 
@@ -105,8 +105,8 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Status
 
-Currently working through Docker CLI exploration and custom image authoring. Ongoing: Grype end-to-end pipeline workflows, Dependabot alert configuration, Cosign keyless OIDC signing, Kubernetes CVE remediation, ZAP Automation Framework, and OPA admission control wiring. Recently added: Grafana primer, Observability primer, Prometheus primer, Terraform build scripts.
+Currently expanding the foundational concept docs — Configuration Management in DevSecOps (desired state, drift, GitOps) with hands-on practice exercises. Recently added: Grafana, Observability, and Prometheus primers, a Terraform zip-build helper, and the configuration-management DevSecOps patterns write-up.
 
 ---
 
-_Last updated: 2026-07-14_
+_Last updated: 2026-07-15_

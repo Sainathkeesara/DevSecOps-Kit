@@ -202,3 +202,29 @@
 - **snippets** (3): [find-hardcoded-creds.ql](../codeql/snippets/find-hardcoded-creds.ql), [my-first-codeql-commands.sh](../codeql/snippets/my-first-codeql-commands.sh), [hardcoded-creds-local-flow.ql](../codeql/snippets/hardcoded-creds-local-flow.ql)
 - **docs** (1): [wired-custom-queries-into-ci.md](../codeql/docs/wired-custom-queries-into-ci.md)
 - **manifests** (1): [multi-language-codeql-analysis.yaml](../codeql/manifests/multi-language-codeql-analysis.yaml)
+
+---
+
+## Cross-cutting content
+
+These directories cut across every tool above. Browse the folders for the full set.
+
+## Docs · 169 files
+- **concepts** (17): foundational primers — [application-security-testing](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md), [ci-cd-pipeline](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md), [configuration-management](../docs/concepts/configuration-management/0000-primer-configuration-management.md), [infrastructure-as-code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) … _and more under `docs/concepts/`._
+- **how-to** (many): [kubernetes toolkit](../docs/how-to/k8s_toolkit.md), [linux toolkit](../docs/how-to/linux_toolkit.md), [jenkins toolkit](../docs/how-to/jenkins_toolkit.md), [ansible toolkit](../docs/how-to/ansible_toolkit.md), [vault toolkit](../docs/how-to/vault_toolkit.md) … _browse `docs/how-to/`._
+- **reference** (git & jenkins commands), **runbooks**, **security**, **troubleshooting**, **setup-guides** — _browse `docs/`._
+
+## Scripts · 185 files
+- **bash toolkits**: [ansible](../scripts/bash/ansible_toolkit/), [docker](../scripts/bash/docker_toolkit/), [k8s](../scripts/bash/k8s_toolkit/), [linux](../scripts/bash/linux_toolkit/), [terraform](../scripts/bash/terraform_toolkit/), [vault](../scripts/bash/vault_toolkit/), [jenkins](../scripts/bash/jenkins_toolkit/), [git](../scripts/bash/git/), [observability](../scripts/bash/observability_toolkit/), [helm](../scripts/bash/helm_toolkit/), [kafka](../scripts/bash/kafka_toolkit/), [oci-registry](../scripts/bash/oci_registry_toolkit/), [ci-cd](../scripts/bash/ci_cd_toolkit/), [harbor](../scripts/bash/harbor/), [argo](../scripts/bash/argo_toolkit/), [flux](../scripts/bash/flux_toolkit/), [azure](../scripts/bash/azure_toolkit/) … _browse `scripts/bash/`._
+
+## Snippets · 17 files
+- cheatsheets: [terraform-commands](../snippets/terraform-commands.md), [kubectl-cheatsheet](../snippets/kubectl-cheatsheet.md), [git-commands](../snippets/git-commands.md), [docker-commands](../snippets/docker-commands.md), [jenkins-cheatsheet](../snippets/jenkins-cheatsheet.md), [linux-cheatsheet](../snippets/linux-cheatsheet.md), [kafka-cheatsheet](../snippets/kafka-cheatsheet.md), [observability-cheatsheet](../snippets/observability-cheatsheet.md), [oci-registry-cheatsheet](../snippets/oci-registry-cheatsheet.md), [vault-commands](../snippets/vault-commands.md), [ci-cd-cheatsheet](../snippets/ci-cd-cheatsheet.md) … _browse `snippets/`._
+
+## Templates · 32 files
+- [k8s](../templates/k8s/), [terraform](../templates/terraform/), [jenkins](../templates/jenkins/), [linux-automation](../templates/linux-automation/), [logstash](../templates/logstash/), [syslog-ng](../templates/syslog-ng/) … _browse `templates/`._
+
+## Environments · 12 files
+- Terraform environment configs: [dev](../environments/dev/), [staging](../environments/staging/), [prod](../environments/prod/)
+
+## Lab · 10 files
+- **mini-projects**: [terraform-project](../lab/mini-projects/terraform-project/README.md), [postgresql-database-server](../lab/mini-projects/postgresql-database-server/README.md), [samba-enterprise-file-sharing](../lab/mini-projects/samba-enterprise-file-sharing/README.md)
