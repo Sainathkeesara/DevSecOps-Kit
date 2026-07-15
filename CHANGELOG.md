@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-15
+
+### Added
+- terraform-001: `terraform/notes/0000-primer-terraform.md` — Terraform quick primer: what it is, key terminology, and a tiny example (L1)
+- terraform-002: `terraform/configs/2026-07-15-first-config.tf` — My first Terraform configuration: provider, resource, variable, and output (L1)
+- terraform-003: `terraform/notes/2026-07-15-explore-terraform.md` — Exploring Terraform: state, providers, variables, and modules (L1)
+
 ## 2026-07-14
 
 ### Added
