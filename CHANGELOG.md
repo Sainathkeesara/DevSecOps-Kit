@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-15
+
+### Added
+- kubernetes-002: `kubernetes/manifests/2026-07-15-first-pod-service.yaml` — First pod and Service deployed with kubectl (L1)
+- kubernetes-003: `kubernetes/notes/2026-07-15-explore-kubernetes.md` — Exploring Kubernetes: pods, deployments, services, and namespaces (L1)
+- helm-002: `helm/manifests/2026-07-15-first-chart-values.yaml` — First Helm chart values overlay for an official repo chart (L1)
+
 ## 2026-07-14
 
 ### Added
