@@ -7,17 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-07-15
 
 ### Added
-- kubernetes-002: `kubernetes/manifests/2026-07-15-first-pod-service.yaml` — First pod and Service deployed with kubectl (L1)
-- kubernetes-003: `kubernetes/notes/2026-07-15-explore-kubernetes.md` — Exploring Kubernetes: pods, deployments, services, and namespaces (L1)
-- helm-002: `helm/manifests/2026-07-15-first-chart-values.yaml` — First Helm chart values overlay for an official repo chart (L1)
+- terraform-001: `terraform/notes/0000-primer-terraform.md` — Terraform quick primer: what it is, key terminology, and a tiny example (L1)
+- terraform-002: `terraform/configs/2026-07-15-first-config.tf` — My first Terraform configuration: provider, resource, variable, and output (L1)
+- terraform-003: `terraform/notes/2026-07-15-explore-terraform.md` — Exploring Terraform: state, providers, variables, and modules (L1)
 
 ## 2026-07-14
 
 ### Added
 - con-036: `docs/concepts/configuration-management/snippets/2026-07-14-practice-ansible-playbook-basics.yaml` — Practice: Ansible playbook basics demonstrating desired state, idempotency, and verify pattern (L2)
 - con-037: `docs/concepts/configuration-management/2026-07-14-devsecops-patterns.md` — Configuration Management in DevSecOps workflows — patterns and best practices (L2)
-- github-actions-002: `github-actions/configs/2026-07-14-first-github-actions-workflow.yaml` — My first GitHub Actions workflow with push trigger and a single echo job (L1)
-- github-actions-003: `github-actions/notes/2026-07-14-explore-github-actions.md` — Exploring GitHub Actions — workflows, runners, events, and marketplace (L1)
 
 ## 2026-07-13
 
