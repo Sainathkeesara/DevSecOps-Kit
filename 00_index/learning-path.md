@@ -14,7 +14,7 @@ These concepts have no prerequisites and are the starting point for any security
 - **Container & Runtime Security** — Images, registries, runtime behaviour. Trivy, Syft, Grype, Cosign, and Falco all depend on this. [Docker primer](../docker/notes/0000-primer-docker.md) | [Docker security best practices](../docs/how-to/docker-security-best-practices.md)
 - **Secrets & Access Management** — How secrets leak and how to protect them. Vault, TruffleHog, and GitGuardian depend on this. [Vault primer](../vault/notes/0000-primer-vault.md)
 - **Software Supply Chain Security** — Dependency risk, SBOMs, signing. Syft, Grype, Cosign, Dependabot all live here.
-- **Configuration Management** — Desired state, idempotency, drift, and managing systems as code. The foundation for Ansible. [Primer](../docs/concepts/configuration-management/0000-primer-configuration-management.md)
+- **Configuration Management** — Desired state, idempotency, drift, and managing systems as code. The foundation for Ansible. [Primer](../docs/concepts/configuration-management/0000-primer-configuration-management.md) | [DevSecOps patterns](../docs/concepts/configuration-management/2026-07-14-devsecops-patterns.md)
 - **Observability & Monitoring** — Metrics, logs, traces, SLOs, and understanding system behaviour. The foundation for Prometheus and Grafana. [Observability primer](../observability/notes/0000-primer-observability.md) | [SLI/SLO/SLA definitions](../00_index/glossary.md)
 
 ## Stage 2: Core Tools

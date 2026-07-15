@@ -6,6 +6,7 @@
 - [Application Security Testing Concepts](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md) — SAST, DAST, SCA, and key security testing terminology
 - [CI/CD Pipeline Concepts](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md) — Stages, gates, triggers, and pipeline fundamentals
 - [Configuration Management](../docs/concepts/configuration-management/0000-primer-configuration-management.md) — Desired state, idempotency, drift, and config management fundamentals
+- [Configuration Management in DevSecOps](../docs/concepts/configuration-management/2026-07-14-devsecops-patterns.md) — Patterns: desired state as source of truth, drift, GitOps, and pairing CM with scanners
 - [Container & Runtime Security](../docs/concepts/container-runtime-security/0000-primer-container-runtime-security.md) — Image vs runtime security, syscalls, eBPF
 - [Software Supply Chain Security](../docs/concepts/software-supply-chain-security/0000-primer-software-supply-chain-security.md) — Supply chain attacks, SBOM, signing, and dependency verification
 - [Version Control with Git](../docs/concepts/version-control-with-git/0000-primer-version-control-with-git.md) — Repos, commits, branches, and collaboration workflows
@@ -115,6 +116,7 @@
 - [Network diagnostics](../scripts/bash/linux_toolkit/network/net-diag.sh)
 - [User create](../scripts/bash/linux_toolkit/sysadmin/user-create.sh)
 - [Terraform workflow script](../scripts/bash/terraform_toolkit/terraform-workflow.sh)
+- [Terraform zip build helper](../terraform/scripts/2026-07-13-zip-build.sh)
 - [Multi-environment setup](../scripts/bash/terraform_toolkit/multi-env/multi-env-setup.sh)
 - [Deploy EKS cluster](../scripts/bash/terraform_toolkit/eks/eks-deploy.sh)
 - [Set up Atlantis](../scripts/bash/terraform_toolkit/atlantis/setup-atlantis.sh)

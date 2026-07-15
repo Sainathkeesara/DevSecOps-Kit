@@ -1,0 +1,8 @@
+# last_verified: 2026-07-15 · helm n/a
+# Values overlay for my first chart install:
+#   helm repo add bitnami https://charts.bitnami.com/bitnami
+#   helm install my-nginx bitnami/nginx -f first-chart-values.yaml
+replicaCount: 1
+service:
+  type: ClusterIP
+  port: 80
