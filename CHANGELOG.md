@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-16
+
+### Added
+- sonarqube-002: `sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh` — Run my first SonarQube analysis with SonarScanner CLI (L1)
+- zap-015: `zap/snippets/2026-07-16-zap-docker-quickstart-json-export.sh` — ZAP Docker quick-start with automated baseline scan and JSON report export (L1)
+
 ## 2026-07-15
 
 ### Added
