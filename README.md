@@ -22,11 +22,11 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Quick links
 
-- [Configuration management DevSecOps patterns](docs/concepts/configuration-management/2026-07-14-devsecops-patterns.md) — How CM closes the gap with security scanning and drift detection
-- [Practice: Ansible playbook basics](docs/concepts/configuration-management/snippets/2026-07-14-practice-ansible-playbook-basics.yaml) — Hands-on exercise building a basic Ansible playbook
-- [Terraform zip build helper](terraform/scripts/2026-07-13-zip-build.sh) — Package a Terraform build artifact for deployment
-- [Grafana primer](grafana/notes/0000-primer-grafana.md) — First contact with Grafana dashboards and data sources
-- [Observability primer](observability/notes/0000-primer-observability.md) — Metrics, logs, and traces fundamentals
+- [Terraform primer](terraform/notes/0000-primer-terraform.md) — First contact with Terraform HCL, providers, and state
+- [Explore Terraform](terraform/notes/2026-07-15-explore-terraform.md) — Hands-on tour of a first Terraform config
+- [First Terraform config](terraform/configs/2026-07-15-first-config.tf) — Minimal HCL configuration to start from
+- [Explore Kubernetes](kubernetes/notes/2026-07-15-explore-kubernetes.md) — First look at Kubernetes objects and the kubectl CLI
+- [Explore GitHub Actions](github-actions/notes/2026-07-14-explore-github-actions.md) — First workflow and CI trigger walkthrough
 
 ---
 
@@ -53,7 +53,7 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 - **`scripts/`** — Shell scripts organised by tool (bash toolkit directories)
 - **`snippets/`** — Copy-paste ready one-liners and cheatsheets
 - **`templates/`** — Starter configs for Kubernetes, Terraform, Linux, Jenkins, Logstash, syslog-ng
-- **`terraform/`** — Terraform modules (EventBridge Lambda, scripts)
+- **`terraform/`** — Terraform primers, configs, scripts, and EventBridge Lambda modules
 - **`.github/`** — GitHub templates (PR template, CODEOWNERS)
 - **`CHANGELOG.md`** — Release history and version tracking
 - **`CONTRIBUTING.md`** — Contribution guidelines and workflow
@@ -97,7 +97,7 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 | Grafana | 1 | — | — | — | — | — | — | — | — | — |
 | Observability | 1 | — | — | — | — | — | — | — | — | — |
 | Prometheus | 1 | — | — | — | — | — | — | — | — | — |
-| Terraform | — | 1 | — | — | — | — | — | — | — | — |
+| Terraform | 2 | 1 | 1 | — | — | — | — | — | — | — |
 
 </details>
 
@@ -105,8 +105,8 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Status
 
-Currently expanding the foundational concept docs — Configuration Management in DevSecOps (desired state, drift, GitOps) with hands-on practice exercises. Recently added: Grafana, Observability, and Prometheus primers, a Terraform zip-build helper, and the configuration-management DevSecOps patterns write-up.
+Currently expanding the foundational concept docs — Configuration Management in DevSecOps (desired state, drift, GitOps) with hands-on practice exercises. Recently added: Terraform primers and first config, a Kubernetes exploration note and first pod/service manifest, and a GitHub Actions exploration note with a first workflow.
 
 ---
 
-_Last updated: 2026-07-15_
+_Last updated: 2026-07-16_

@@ -24,6 +24,7 @@ These tools are unlocked from the start and cover the most common DevSecOps work
 - **Git** — Version control foundation for every DevOps workflow. [Primer](../git/notes/0000-primer-git.md) | [Branching and merging](../git/notes/2026-07-04-git-branching-merge-confusions.md) | [Local CI simulation](../git/scripts/2026-07-10-local-ci-simulation.sh)
 - **Docker** — Container runtime for packaging and running applications. [Primer](../docker/notes/0000-primer-docker.md) | [Explore the CLI](../docker/notes/2026-07-12-explore-docker-cli.md) | [Custom image](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile)
 - **Kubernetes** — Container orchestration for deploying and scaling workloads. [Primer](../kubernetes/notes/0000-primer-kubernetes.md)
+- **Terraform** — Declarative infrastructure provisioning with HCL and providers. [Primer](../terraform/notes/0000-primer-terraform.md) | [First config](../terraform/configs/2026-07-15-first-config.tf)
 - **Trivy** — Universal vulnerability scanner for containers, filesystems, repos, and SBOMs. [Primer](../trivy/notes/0000-primer-trivy.md) | [Scan modes comparison](../trivy/notebooks/trivy-scan-mode-comparison.ipynb)
 - **Semgrep** — SAST tool with custom rule writing, multi-language support, and CI/CD integration. [Primer](../semgrep/notes/0000-primer-semgrep.md) | [Rule writing reference](../semgrep/docs/semgrep-rule-writing-reference.md)
 - **Checkov** — IaC security scanner for Terraform, Kubernetes, CloudFormation. Supports custom policies and plan scanning. [Primer](../checkov/notes/0000-primer-checkov.md) | [Plan scanning](../checkov/scripts/deep-terraform-plan-scan.sh)
@@ -86,15 +87,16 @@ flowchart LR
     Observ["Observability & Monitoring"]
   end
 
-  subgraph Core[Stage 2: Core Tools]
-    Docker
-    Kubernetes
-    Trivy
-    Semgrep
-    Checkov
-    TruffleHog
-    ZAP
-  end
+   subgraph Core[Stage 2: Core Tools]
+     Docker
+     Kubernetes
+     Terraform
+     Trivy
+     Semgrep
+     Checkov
+     TruffleHog
+     ZAP
+   end
 
   subgraph Intermediate[Stage 3: Building Skills]
     Helm
@@ -125,7 +127,7 @@ flowchart LR
   Linux --> Docker & Kubernetes & Trivy & Semgrep & Checkov & TruffleHog & ZAP
   Git --> TruffleHog & CodeQL & Semgrep & Dependabot
   CICD --> Trivy & Semgrep & Checkov & Syft & Grype & ZAP
-  IaC --> Checkov & Terrascan & OPA
+   IaC --> Checkov & Terrascan & OPA & Terraform
   AppSec --> Semgrep & CodeQL & ZAP & Snyk & Checkov
   Container --> Trivy & Syft & Grype & Cosign & Falco & OPA
   Secrets --> Vault & TruffleHog & GitGuardian

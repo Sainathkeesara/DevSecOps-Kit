@@ -47,6 +47,13 @@
 - **notebooks** (1): [sbom-layer-package-analysis.ipynb](../syft/notebooks/sbom-layer-package-analysis.ipynb)
 - **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
 
+## Terraform · 11 files
+- **primer:** [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md)
+- **notes** (2): [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md), [2026-07-15-explore-terraform.md](../terraform/notes/2026-07-15-explore-terraform.md)
+- **scripts** (1): [2026-07-13-zip-build.sh](../terraform/scripts/2026-07-13-zip-build.sh)
+- **configs** (1): [2026-07-15-first-config.tf](../terraform/configs/2026-07-15-first-config.tf)
+- _…and eventbridge-lambda module content under `terraform/` — browse the folder._
+
 ## Checkov · 29 files
 - **primer:** [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md)
 - **notes** (4): [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md), [2026-05-25-scan-terraform-plan.md](../checkov/notes/2026-05-25-scan-terraform-plan.md), [2026-05-26-cli-vs-sdk-comparison.md](../checkov/notes/2026-05-26-cli-vs-sdk-comparison.md), [2026-05-27-checkov-quickstart-trip-ups.md](../checkov/notes/2026-05-27-checkov-quickstart-trip-ups.md)
