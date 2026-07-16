@@ -11,6 +11,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - terraform-002: `terraform/configs/2026-07-15-first-config.tf` — My first Terraform configuration: provider, resource, variable, and output (L1)
 - terraform-003: `terraform/notes/2026-07-15-explore-terraform.md` — Exploring Terraform: state, providers, variables, and modules (L1)
 
+## 2026-07-16
+
+### Added
+- git-008: `scripts/bump-version.sh` — Minimal version bumper script referenced in git-cicd-automation.md (L1)
+- trivy-009: `scripts/triage-vulnerabilities.sh` — Progressive Trivy vulnerability triage script referenced in trivy-severity-filtering.md (L1)
+- ansible-005: `scripts/pipeline/deploy.sh` — Minimal Ansible deploy wrapper referenced in linux-iac-pipeline-workflows.md (L1)
+- ansible-005: `scripts/pipeline/rollback.sh` — Minimal rollback script referenced in linux-iac-pipeline-workflows.md (L1)
+- ansible-005: `scripts/ansible/bootstrap.sh` — Minimal target bootstrap script referenced in linux-iac-pipeline-workflows.md (L1)
+
 ## 2026-07-14
 
 ### Added
