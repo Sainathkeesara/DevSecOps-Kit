@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-17
+
+### Added
+- con-044: `docs/concepts/ci-cd-pipeline-concepts/scripts/2026-07-17-practice-ci-cd-exercises.sh` — Practice CI/CD pipeline concepts: build, test, and deploy stages with gating logic (L2)
+
 ## 2026-07-16
 
 ### Added
