@@ -22,11 +22,11 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Quick links
 
-- [Terraform primer](terraform/notes/0000-primer-terraform.md) — First contact with Terraform HCL, providers, and state
-- [Explore Terraform](terraform/notes/2026-07-15-explore-terraform.md) — Hands-on tour of a first Terraform config
-- [First Terraform config](terraform/configs/2026-07-15-first-config.tf) — Minimal HCL configuration to start from
-- [Explore Kubernetes](kubernetes/notes/2026-07-15-explore-kubernetes.md) — First look at Kubernetes objects and the kubectl CLI
-- [Explore GitHub Actions](github-actions/notes/2026-07-14-explore-github-actions.md) — First workflow and CI trigger walkthrough
+- [SonarQube first SonarScanner run](sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh) — Run your first project analysis with the SonarScanner CLI
+- [ZAP Docker quickstart JSON export](zap/snippets/2026-07-16-zap-docker-quickstart-json-export.sh) — Spin up ZAP in Docker and export a baseline scan as JSON
+- [Ansible bootstrap](scripts/ansible/bootstrap.sh) — Provision a host with the Ansible toolkit baseline
+- [Pipeline deploy](scripts/pipeline/deploy.sh) — Deploy step used by the kit's pipeline scripts
+- [Bump version](scripts/bump-version.sh) — Version-bump helper used across the kit
 
 ---
 
@@ -69,7 +69,7 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 |------|------:|--------:|--------:|---------:|-----:|----------:|----------:|----------:|------------:|---------:|
 | Trivy | 3 | 5 | 2 | 1 | 3 | 2 | 6 | 2 | 1 | — |
 | TruffleHog | 3 | 3 | 2 | 2 | 2 | 1 | 21 | 2 | 1 | — |
-| ZAP | 4 | 2 | 2 | 3 | 3 | — | 16 | — | 1 | — |
+| ZAP | 4 | 2 | 2 | 4 | 3 | — | 16 | — | 1 | — |
 | Syft | 4 | 3 | 1 | 1 | 5 | — | 7 | 1 | 1 | — |
 | Checkov | 4 | 2 | 2 | 4 | 3 | 2 | 10 | 1 | — | 1 |
 | Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — |
@@ -89,10 +89,10 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 | ArgoCD | 2 | — | — | — | — | 1 | — | — | — | — |
 | Kustomize | 2 | — | 1 | — | — | — | — | — | — | — |
 | Docker | 2 | — | — | — | — | — | — | — | 2 | — |
-| Helm | 1 | — | — | — | — | — | — | — | — | — |
-| Kubernetes | 1 | — | — | — | — | — | — | — | — | — |
-| GitHub Actions | 1 | — | — | — | — | — | — | — | — | — |
-| SonarQube | 1 | — | — | — | — | — | — | — | — | — |
+| Helm | 1 | — | — | — | — | 1 | — | — | — | — |
+| Kubernetes | 2 | — | — | — | — | 1 | — | — | — | — | — |
+| GitHub Actions | 2 | — | 1 | — | — | — | — | — | — | — |
+| SonarQube | 1 | — | — | 1 | — | — | — | — | — | — |
 | OpenTofu | 1 | — | — | — | — | — | — | — | — | — |
 | Grafana | 1 | — | — | — | — | — | — | — | — | — |
 | Observability | 1 | — | — | — | — | — | — | — | — | — |
@@ -105,8 +105,8 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Status
 
-Currently expanding the foundational concept docs — Configuration Management in DevSecOps (desired state, drift, GitOps) with hands-on practice exercises. Recently added: Terraform primers and first config, a Kubernetes exploration note and first pod/service manifest, and a GitHub Actions exploration note with a first workflow.
+Currently fleshing out the Kubernetes ecosystem (first pod/service manifest, first Helm chart values) and rounding out the scanner set — most recently a SonarQube first-scan run and a ZAP Docker quickstart. Foundational concept docs and per-tool primers are in good shape; next focus is deeper how-to coverage and cross-tool CI/CD recipes.
 
 ---
 
-_Last updated: 2026-07-16_
+_Last updated: 2026-07-17_

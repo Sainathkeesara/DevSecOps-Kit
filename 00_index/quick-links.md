@@ -44,6 +44,7 @@
 - [Kustomize primer](../kustomize/notes/0000-primer-kustomize.md)
 - [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md)
 - [SonarQube primer](../sonarqube/notes/0000-primer-sonarqube.md)
+- [SonarQube first scan run](../sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh)
 - [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
 - [Terraform primer](../terraform/notes/0000-primer-terraform.md)
 - [Grafana primer](../grafana/notes/0000-primer-grafana.md)
@@ -67,6 +68,7 @@
 - [Grype results to SARIF converter](../grype/scripts/grype-results-to-sarif.py)
 - [Grype end-to-end scan pipeline](../grype/scripts/grype-end-to-end-scan-pipeline.sh) — Full SBOM generation to SARIF output in one script
 - [ZAP baseline scan script](../zap/snippets/my-first-zap-baseline-scan.sh)
+- [ZAP Docker quickstart with JSON export](../zap/snippets/2026-07-16-zap-docker-quickstart-json-export.sh)
 - [DAST workflow from spider to active scan](../zap/scripts/dast-workflow-from-scratch.sh)
 - [ZAP DAST SARIF code scanning](../zap/scripts/zap-dast-sarif-code-scanning.sh)
 - [Snyk vulnerability scanning pipeline](../snyk/scripts/snyk-vuln-scan-pipeline.sh)
