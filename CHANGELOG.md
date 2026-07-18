@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - grype-002: `grype/scripts/grype-scan-pipeline-end-to-end.sh` — End-to-end Grype pipeline: scan images, emit JSON + SARIF, gate CI on severity threshold (L3)
+- terraform-005: `terraform/scripts/2026-07-18-cleanup.sh` — Minimal Terraform destroy script for project cleanup (L1)
+- terraform-005: `terraform/scripts/2026-07-18-deploy.sh` — Minimal Terraform deploy script: init, plan, apply for Secrets Manager environments (L1)
+- dependabot-011: `dependabot/configs/2026-07-18-python-project-version-update.yaml` — Minimal Dependabot config for Python pip ecosystem with weekly direct-dependency updates (L2)
+- docker-006: `docker/scripts/2026-07-18-custom-network-volume-mounts.sh` — Run a container with custom bridge networking and named volume mounts from the CLI (L2)
 
 ## 2026-07-17
 
