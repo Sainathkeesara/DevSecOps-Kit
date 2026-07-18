@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-18
+
+### Added
+- grype-002: `grype/scripts/grype-scan-pipeline-end-to-end.sh` — End-to-end Grype pipeline: scan images, emit JSON + SARIF, gate CI on severity threshold (L3)
+
 ## 2026-07-17
 
 ### Added
