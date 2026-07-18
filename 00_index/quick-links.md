@@ -5,6 +5,7 @@
 ### Get started with a new concept
 - [Application Security Testing Concepts](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md) — SAST, DAST, SCA, and key security testing terminology
 - [CI/CD Pipeline Concepts](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md) — Stages, gates, triggers, and pipeline fundamentals
+- [CI/CD Pipeline Concepts practice exercises](../docs/concepts/ci-cd-pipeline-concepts/scripts/2026-07-17-practice-ci-cd-exercises.sh) — Hands-on pipeline simulation with stages, gates, and rollbacks
 - [Configuration Management](../docs/concepts/configuration-management/0000-primer-configuration-management.md) — Desired state, idempotency, drift, and config management fundamentals
 - [Configuration Management in DevSecOps](../docs/concepts/configuration-management/2026-07-14-devsecops-patterns.md) — Patterns: desired state as source of truth, drift, GitOps, and pairing CM with scanners
 - [Container & Runtime Security](../docs/concepts/container-runtime-security/0000-primer-container-runtime-security.md) — Image vs runtime security, syscalls, eBPF
@@ -41,6 +42,8 @@
 - [Docker primer](../docker/notes/0000-primer-docker.md)
 - [Helm primer](../helm/notes/0000-primer-helm.md)
 - [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md)
+- [Explore Kubernetes](../kubernetes/notes/2026-07-15-explore-kubernetes.md) — First look at K8s objects and kubectl
+- [First pod and service manifest](../kubernetes/manifests/2026-07-15-first-pod-service.yaml) — Minimal deployment starting point
 - [Kustomize primer](../kustomize/notes/0000-primer-kustomize.md)
 - [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md)
 - [SonarQube primer](../sonarqube/notes/0000-primer-sonarqube.md)
@@ -67,8 +70,9 @@
 - [Vulnerability diff across two image versions](../grype/scripts/vuln-diff-two-images.sh)
 - [Grype results to SARIF converter](../grype/scripts/grype-results-to-sarif.py)
 - [Grype end-to-end scan pipeline](../grype/scripts/grype-end-to-end-scan-pipeline.sh) — Full SBOM generation to SARIF output in one script
+- [Grype scan pipeline end-to-end (new)](../grype/scripts/grype-scan-pipeline-end-to-end.sh) — Complete SBOM-to-SARIF pipeline with vulnerability correlation
 - [ZAP baseline scan script](../zap/snippets/my-first-zap-baseline-scan.sh)
-- [ZAP Docker quickstart with JSON export](../zap/snippets/2026-07-16-zap-docker-quickstart-json-export.sh)
+- [ZAP Docker quickstart with JSON export](../zap/snippets/2026-07-16-zap-docker-quickstart-json-export.sh) — Run ZAP in Docker and export results as JSON
 - [DAST workflow from spider to active scan](../zap/scripts/dast-workflow-from-scratch.sh)
 - [ZAP DAST SARIF code scanning](../zap/scripts/zap-dast-sarif-code-scanning.sh)
 - [Snyk vulnerability scanning pipeline](../snyk/scripts/snyk-vuln-scan-pipeline.sh)
@@ -95,8 +99,13 @@
 
 ### Build container images
 - [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
-- [Custom Dockerfile (this cycle)](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile)
+- [Custom Dockerfile](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile)
 - [Explore the Docker CLI](../docker/notes/2026-07-12-explore-docker-cli.md)
+
+### Set up CI/CD
+- [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md)
+- [Explore GitHub Actions](../github-actions/notes/2026-07-14-explore-github-actions.md) — First workflow and CI trigger walkthrough
+- [First GitHub Actions workflow config](../github-actions/configs/2026-07-14-first-github-actions-workflow.yaml) — Minimal CI trigger on push and PR
 
 ### Manage policies
 - [My first OPA policy evaluation](../opa/snippets/my-first-opa-policy-eval.sh)
