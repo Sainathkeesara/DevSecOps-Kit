@@ -1,0 +1,10 @@
+# last_verified: 2026-07-18 · Dependabot n/a
+
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    allow:
+      - dependency-type: "direct"
