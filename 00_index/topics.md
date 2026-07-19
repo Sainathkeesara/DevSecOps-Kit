@@ -5,7 +5,7 @@
 ## Trivy · 25 files
 - **primer:** [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md)
 - **notes** (3): [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md), [2026-05-24-install-trivy.md](../trivy/notes/2026-05-24-install-trivy.md), [2026-05-26-trivy-quickstart.md](../trivy/notes/2026-05-26-trivy-quickstart.md)
-- **scripts** (5): [container-vuln-scan.sh](../trivy/scripts/container-vuln-scan.sh), [image-vuln-pipeline.sh](../trivy/scripts/image-vuln-pipeline.sh), [multi-target-scanner.sh](../trivy/scripts/multi-target-scanner.sh), [compose-multi-scan.sh](../trivy/scripts/compose-multi-scan.sh), [custom-trivy-check-conftest.sh](../trivy/scripts/custom-trivy-check-conftest.sh)
+- **scripts** (5): [container-vuln-scan.sh](../trivy/scripts/container-vuln-scan.sh), [image-vuln-pipeline.sh](../trivy/scripts/image-vuln-pipeline.sh), [multi-target-scanner.sh](../trivy/scripts/multi-target-scanner.sh)
 - **configs** (2): [.trivy.yaml](../trivy/configs/.trivy.yaml), [trivy-scan-config.yaml](../trivy/configs/trivy-scan-config.yaml)
 - **snippets** (1): [scan-docker-image.sh](../trivy/snippets/scan-docker-image.sh)
 - **docs** (3): [ci-pipeline-sarif-output.md](../trivy/docs/ci-pipeline-sarif-output.md), [ci-cd-pipeline-recipes.md](../trivy/docs/ci-cd-pipeline-recipes.md), [sbom-scanning-reference-guide.md](../trivy/docs/sbom-scanning-reference-guide.md)
@@ -22,16 +22,16 @@
 - **snippets** (2): [fake-secrets-test.sh](../trufflehog/snippets/fake-secrets-test.sh), [scan-github-repo-for-secrets.sh](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
 - **docs** (2): [comparing-scan-modes-git-filesystem-s3.md](../trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md), [trufflehog-output-formats-json-sarif-csv.md](../trufflehog/docs/trufflehog-output-formats-json-sarif-csv.md)
 - **manifests** (1): [trufflehog-pr-secret-scan-reusable.yaml](../trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml)
-- **templates** (19): [secret-scanning-pipeline](../trufflehog/templates/secret-scanning-pipeline/), [multi-repo-secret-scan](../trufflehog/templates/multi-repo-secret-scan/), [github-secret-scanning-integration](../trufflehog/templates/github-secret-scanning-integration/)
+- **templates** (21): [secret-scanning-pipeline](../trufflehog/templates/secret-scanning-pipeline/), [multi-repo-secret-scan](../trufflehog/templates/multi-repo-secret-scan/), [github-secret-scanning-integration](../trufflehog/templates/github-secret-scanning-integration/)
 - **notebooks** (2): [analyzing-trufflehog-false-positives.ipynb](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb), [trufflehog-scan-modes-comparison.ipynb](../trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb)
 - **dockerfiles** (1): [pre-commit-scanner.Dockerfile](../trufflehog/dockerfiles/pre-commit-scanner.Dockerfile)
 
-## ZAP · 31 files
+## ZAP · 32 files
 - **primer:** [0000-primer-zap.md](../zap/notes/0000-primer-zap.md)
 - **notes** (4): [0000-primer-zap.md](../zap/notes/0000-primer-zap.md), [2026-06-06-install-zap-desktop-ui.md](../zap/notes/2026-06-06-install-zap-desktop-ui.md), [2026-06-06-zap-quickstart-ui-gotchas.md](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md), [2026-06-13-spider-scan-test-app.md](../zap/notes/2026-06-13-spider-scan-test-app.md)
-- **scripts** (3): [dast-workflow-from-scratch.sh](../zap/scripts/dast-workflow-from-scratch.sh), [zap-dast-sarif-code-scanning.sh](../zap/scripts/zap-dast-sarif-code-scanning.sh)
+- **scripts** (2): [dast-workflow-from-scratch.sh](../zap/scripts/dast-workflow-from-scratch.sh), [zap-dast-sarif-code-scanning.sh](../zap/scripts/zap-dast-sarif-code-scanning.sh)
 - **configs** (2): [zap-authenticated-scan-context.yaml](../zap/configs/zap-authenticated-scan-context.yaml), [ci-dast-automation-framework-plan.yaml](../zap/configs/ci-dast-automation-framework-plan.yaml)
-- **snippets** (4): [my-first-zap-baseline-scan.sh](../zap/snippets/my-first-zap-baseline-scan.sh), [my-first-zap-spider-scan.sh](../zap/snippets/my-first-zap-spider-scan.sh), [authenticated-scan-with-context.sh](../zap/snippets/authenticated-scan-with-context.sh), [2026-07-16-zap-docker-quickstart-json-export.sh](../zap/snippets/2026-07-16-zap-docker-quickstart-json-export.sh)
+- **snippets** (4): [my-first-zap-baseline-scan.sh](../zap/snippets/my-first-zap-baseline-scan.sh), [my-first-zap-spider-scan.sh](../zap/snippets/my-first-zap-spider-scan.sh), [authenticated-scan-with-context.sh](../zap/snippets/authenticated-scan-with-context.sh), [zap-docker-quickstart-json-export.sh](../zap/snippets/2026-07-16-zap-docker-quickstart-json-export.sh)
 - **docs** (3): [zap-integration-patterns.md](../zap/docs/zap-integration-patterns.md), [passive-vs-active-scanning-zap.md](../zap/docs/passive-vs-active-scanning-zap.md), [zap-automation-plan-structure.md](../zap/docs/zap-automation-plan-structure.md)
 - **templates** (16): [zap-dast-integration-scaffold](../zap/templates/zap-dast-integration-scaffold/), [zap-dast-integration](../zap/templates/zap-dast-integration/)
 - **dockerfiles** (1): [custom-zap-automation.Dockerfile](../zap/dockerfiles/custom-zap-automation.Dockerfile)
@@ -42,7 +42,7 @@
 - **scripts** (3): [gen-multi-format-sboms.sh](../syft/scripts/gen-multi-format-sboms.sh), [multi-image-sbom-pipeline.sh](../syft/scripts/multi-image-sbom-pipeline.sh), [sbom-vuln-pipeline.sh](../syft/scripts/sbom-vuln-pipeline.sh)
 - **configs** (1): [.syft.yaml](../syft/configs/.syft.yaml)
 - **snippets** (1): [tried-sbom-formats.sh](../syft/snippets/tried-sbom-formats.sh)
-- **docs** (5): [sbom-formats-comparison.md](../syft/docs/sbom-formats-comparison.md), [sbom-output-formats-reference.md](../syft/docs/sbom-output-formats-reference.md), [enterprise-registry-auth-caching-patterns.md](../syft/docs/enterprise-registry-auth-caching-patterns.md), [enterprise-registry-auth-caching.md](../syft/docs/enterprise-registry-auth-caching.md), [registry-auth-caching-patterns.md](../syft/docs/registry-auth-caching-patterns.md)
+- **docs** (5): [sbom-formats-comparison.md](../syft/docs/sbom-formats-comparison.md), [sbom-output-formats-reference.md](../syft/docs/sbom-output-formats-reference.md), [enterprise-registry-auth-caching-patterns.md](../syft/docs/enterprise-registry-auth-caching-patterns.md)
 - **templates** (7): [sbom-pipeline-scaffold](../syft/templates/sbom-pipeline-scaffold/)
 - **notebooks** (1): [sbom-layer-package-analysis.ipynb](../syft/notebooks/sbom-layer-package-analysis.ipynb)
 - **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
@@ -77,10 +77,10 @@
 - **notebooks** (1): [semgrep-scan-vs-ci-comparison.ipynb](../semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb)
 - **dockerfiles** (2): [ci-entrypoint.sh](../semgrep/dockerfiles/ci-entrypoint.sh), [custom-scanning-image.Dockerfile](../semgrep/dockerfiles/custom-scanning-image.Dockerfile)
 
-## Grype · 18 files
+## Grype · 19 files
 - **primer:** [0000-primer-grype.md](../grype/notes/0000-primer-grype.md)
 - **notes** (4): [0000-primer-grype.md](../grype/notes/0000-primer-grype.md), [2026-05-31-install-grype.md](../grype/notes/2026-05-31-install-grype.md), [2026-06-04-grype-quickstart-trip-ups.md](../grype/notes/2026-06-04-grype-quickstart-trip-ups.md), [2026-06-08-first-grype-scan.md](../grype/notes/2026-06-08-first-grype-scan.md)
-- **scripts** (6): [minimal-grype-scan.sh](../grype/scripts/minimal-grype-scan.sh), [ci-ready-grype-scan.sh](../grype/scripts/ci-ready-grype-scan.sh), [vuln-diff-two-images.sh](../grype/scripts/vuln-diff-two-images.sh), [grype-vuln-pipeline.sh](../grype/scripts/grype-vuln-pipeline.sh), [grype-results-to-sarif.py](../grype/scripts/grype-results-to-sarif.py), [grype-end-to-end-scan-pipeline.sh](../grype/scripts/grype-end-to-end-scan-pipeline.sh)
+- **scripts** (7): [minimal-grype-scan.sh](../grype/scripts/minimal-grype-scan.sh), [ci-ready-grype-scan.sh](../grype/scripts/ci-ready-grype-scan.sh), [vuln-diff-two-images.sh](../grype/scripts/vuln-diff-two-images.sh), [grype-vuln-pipeline.sh](../grype/scripts/grype-vuln-pipeline.sh), [grype-results-to-sarif.py](../grype/scripts/grype-results-to-sarif.py), [grype-end-to-end-scan-pipeline.sh](../grype/scripts/grype-end-to-end-scan-pipeline.sh), [grype-scan-pipeline-end-to-end.sh](../grype/scripts/grype-scan-pipeline-end-to-end.sh)
 - **configs** (1): [grype-ci-github-actions.yaml](../grype/configs/grype-ci-github-actions.yaml)
 - **snippets** (2): [my-first-grype-commands.sh](../grype/snippets/my-first-grype-commands.sh), [minimal-grype-scan.go](../grype/snippets/minimal-grype-scan.go)
 - **docs** (1): [grype-syft-integration-guide.md](../grype/docs/grype-syft-integration-guide.md)
@@ -108,7 +108,7 @@
 - **primer:** [0000-primer-falco.md](../falco/notes/0000-primer-falco.md)
 - **notes** (3): [0000-primer-falco.md](../falco/notes/0000-primer-falco.md), [2026-06-10-install-falco-first-detection.md](../falco/notes/2026-06-10-install-falco-first-detection.md), [2026-06-15-falco-rules-macros-lists.md](../falco/notes/2026-06-15-falco-rules-macros-lists.md)
 - **scripts** (3): [deploy-falco-ruleset.sh](../falco/scripts/deploy-falco-ruleset.sh), [tried-falco-k8s-alert-forwarding.sh](../falco/scripts/tried-falco-k8s-alert-forwarding.sh), [tried-falco-k8s-deploy-alert-forwarding.sh](../falco/scripts/tried-falco-k8s-deploy-alert-forwarding.sh)
-- **configs** (3): [container-drift-detection.yaml](../falco/configs/container-drift-detection.yaml), [first-custom-rule-detect-shell-in-container.yaml](../falco/configs/first-custom-rule-detect-shell-in-container.yaml), [2026-06-10-first-custom-rule-detect-shell-in-container.yaml](../falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml)
+- **configs** (3): [container-drift-detection.yaml](../falco/configs/container-drift-detection.yaml), [first-custom-rule-detect-shell-in-container.yaml](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
 - **snippets** (1): [tried-file-access-detector.go](../falco/snippets/tried-file-access-detector.go)
 - **docs** (2): [syscall-vs-tracepoint-rules.md](../falco/docs/syscall-vs-tracepoint-rules.md), [tuned-falco-rules-noise-reduction.md](../falco/docs/tuned-falco-rules-noise-reduction.md)
 
@@ -137,7 +137,7 @@
 
 ## Tetragon · 3 files
 - **primer:** [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md)
-- **notes** (2): [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md), [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
+- **notes** (1): [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
 - **configs** (1): [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml)
 
 ## Dependabot · 7 files
@@ -169,11 +169,12 @@
 - **manifests** (1): [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml)
 
 ## Docker · 4 files
+- **primer:** [0000-primer-docker.md](../docker/notes/0000-primer-docker.md)
 - **notes** (2): [0000-primer-docker.md](../docker/notes/0000-primer-docker.md), [2026-07-12-explore-docker-cli.md](../docker/notes/2026-07-12-explore-docker-cli.md)
 - **dockerfiles** (2): [2026-07-10-first-custom-image.Dockerfile](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile), [2026-07-12-first-custom-docker-image.Dockerfile](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile)
 
 ## Helm · 2 files
-- **notes** (1): [0000-primer-helm.md](../helm/notes/0000-primer-helm.md)
+- **primer:** [0000-primer-helm.md](../helm/notes/0000-primer-helm.md)
 - **manifests** (1): [2026-07-15-first-chart-values.yaml](../helm/manifests/2026-07-15-first-chart-values.yaml)
 
 ## Kubernetes · 3 files
@@ -192,8 +193,8 @@
 - **configs** (1): [2026-07-14-first-github-actions-workflow.yaml](../github-actions/configs/2026-07-14-first-github-actions-workflow.yaml)
 
 ## SonarQube · 2 files
-- **notes** (1): [0000-primer-sonarqube.md](../sonarqube/notes/0000-primer-sonarqube.md)
-- **snippets** (1): [first-sonarscanner-run.sh](../sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh)
+- **primer:** [0000-primer-sonarqube.md](../sonarqube/notes/0000-primer-sonarqube.md)
+- **snippets** (1): [2026-07-16-first-sonarscanner-run.sh](../sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh)
 
 ## OpenTofu · 1 file
 - **notes** (1): [0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md)
@@ -216,19 +217,18 @@
 - **docs** (1): [wired-custom-queries-into-ci.md](../codeql/docs/wired-custom-queries-into-ci.md)
 - **manifests** (1): [multi-language-codeql-analysis.yaml](../codeql/manifests/multi-language-codeql-analysis.yaml)
 
-
 ---
 
 ## Cross-cutting content
 
 These directories cut across every tool above. Browse the folders for the full set.
 
-## Docs · 169 files
-- **concepts** (17): foundational primers — [application-security-testing](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md), [ci-cd-pipeline](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md), [configuration-management](../docs/concepts/configuration-management/0000-primer-configuration-management.md), [infrastructure-as-code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) … _and more under `docs/concepts/`._
-- **how-to** (many): [kubernetes toolkit](../docs/how-to/k8s_toolkit.md), [linux toolkit](../docs/how-to/linux_toolkit.md), [jenkins toolkit](../docs/how-to/jenkins_toolkit.md), [ansible toolkit](../docs/how-to/ansible_toolkit.md), [vault toolkit](../docs/how-to/vault_toolkit.md) … _browse `docs/how-to/`._
-- **reference** (git & jenkins commands), **runbooks**, **security**, **troubleshooting**, **setup-guides** — _browse `docs/`._
+## Docs · 170 files
+- **concepts** (22): foundational primers — [application-security-testing](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md), [ci-cd-pipeline](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md), [configuration-management](../docs/concepts/configuration-management/0000-primer-configuration-management.md), [infrastructure-as-code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) … _and more under `docs/concepts/`._
+- **how-to** (121): [kubernetes toolkit](../docs/how-to/k8s_toolkit.md), [linux toolkit](../docs/how-to/linux_toolkit.md), [jenkins toolkit](../docs/how-to/jenkins_toolkit.md), [ansible toolkit](../docs/how-to/ansible_toolkit.md), [vault toolkit](../docs/how-to/vault_toolkit.md) … _browse `docs/how-to/`._
+- **reference** (git & jenkins commands), **runbooks**, **security**, **setup-guides**, **troubleshooting** — _browse `docs/`._
 
-## Scripts · 185 files
+## Scripts · 190 files
 - **bash toolkits**: [ansible](../scripts/bash/ansible_toolkit/), [docker](../scripts/bash/docker_toolkit/), [k8s](../scripts/bash/k8s_toolkit/), [linux](../scripts/bash/linux_toolkit/), [terraform](../scripts/bash/terraform_toolkit/), [vault](../scripts/bash/vault_toolkit/), [jenkins](../scripts/bash/jenkins_toolkit/), [git](../scripts/bash/git/), [observability](../scripts/bash/observability_toolkit/), [helm](../scripts/bash/helm_toolkit/), [kafka](../scripts/bash/kafka_toolkit/), [oci-registry](../scripts/bash/oci_registry_toolkit/), [ci-cd](../scripts/bash/ci_cd_toolkit/), [harbor](../scripts/bash/harbor/), [argo](../scripts/bash/argo_toolkit/), [flux](../scripts/bash/flux_toolkit/), [azure](../scripts/bash/azure_toolkit/) … _browse `scripts/bash/`._
 
 ## Snippets · 17 files

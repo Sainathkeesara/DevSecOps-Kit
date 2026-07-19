@@ -22,11 +22,11 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Quick links
 
-- [SonarQube first SonarScanner run](sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh) — Run your first project analysis with the SonarScanner CLI
-- [ZAP Docker quickstart JSON export](zap/snippets/2026-07-16-zap-docker-quickstart-json-export.sh) — Spin up ZAP in Docker and export a baseline scan as JSON
-- [Ansible bootstrap](scripts/ansible/bootstrap.sh) — Provision a host with the Ansible toolkit baseline
-- [Pipeline deploy](scripts/pipeline/deploy.sh) — Deploy step used by the kit's pipeline scripts
-- [Bump version](scripts/bump-version.sh) — Version-bump helper used across the kit
+- [Grype end-to-end scan pipeline](grype/scripts/grype-scan-pipeline-end-to-end.sh) — Full SBOM generation to SARIF output in one script
+- [CI/CD Pipeline Concepts practice exercises](docs/concepts/ci-cd-pipeline-concepts/scripts/2026-07-17-practice-ci-cd-exercises.sh) — Hands-on pipeline simulation with stages, gates, and rollbacks
+- [Explore Kubernetes](kubernetes/notes/2026-07-15-explore-kubernetes.md) — First look at Kubernetes objects and the kubectl CLI
+- [First pod and service manifest](kubernetes/manifests/2026-07-15-first-pod-service.yaml) — Minimal Kubernetes deployment starting point
+- [Explore GitHub Actions](github-actions/notes/2026-07-14-explore-github-actions.md) — First workflow and CI trigger walkthrough
 
 ---
 
@@ -73,7 +73,7 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 | Syft | 4 | 3 | 1 | 1 | 5 | — | 7 | 1 | 1 | — |
 | Checkov | 4 | 2 | 2 | 4 | 3 | 2 | 10 | 1 | — | 1 |
 | Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — |
-| Grype | 4 | 6 | 1 | 2 | 1 | 2 | — | 1 | 1 | — |
+| Grype | 4 | 7 | 1 | 2 | 1 | 2 | — | 1 | 1 | — |
 | Falco | 3 | 3 | 3 | 1 | 2 | — | — | — | — | — |
 | Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | — | — |
 | GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — | — |
@@ -90,7 +90,7 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 | Kustomize | 2 | — | 1 | — | — | — | — | — | — | — |
 | Docker | 2 | — | — | — | — | — | — | — | 2 | — |
 | Helm | 1 | — | — | — | — | 1 | — | — | — | — |
-| Kubernetes | 2 | — | — | — | — | 1 | — | — | — | — | — |
+| Kubernetes | 2 | — | — | — | — | 1 | — | — | — | — |
 | GitHub Actions | 2 | — | 1 | — | — | — | — | — | — | — |
 | SonarQube | 1 | — | — | 1 | — | — | — | — | — | — |
 | OpenTofu | 1 | — | — | — | — | — | — | — | — | — |
@@ -105,8 +105,8 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Status
 
-Currently fleshing out the Kubernetes ecosystem (first pod/service manifest, first Helm chart values) and rounding out the scanner set — most recently a SonarQube first-scan run and a ZAP Docker quickstart. Foundational concept docs and per-tool primers are in good shape; next focus is deeper how-to coverage and cross-tool CI/CD recipes.
+Currently expanding foundational concept docs — CI/CD Pipeline Concepts practice exercises, Kubernetes primers and first manifests, and GitHub Actions exploration. Recently added: Grype end-to-end scanning pipeline from SBOM generation to SARIF output.
 
 ---
 
-_Last updated: 2026-07-17_
+_Last updated: 2026-07-18_
