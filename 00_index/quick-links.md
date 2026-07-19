@@ -53,6 +53,7 @@
 - [Grafana primer](../grafana/notes/0000-primer-grafana.md)
 - [Observability primer](../observability/notes/0000-primer-observability.md)
 - [Prometheus primer](../prometheus/notes/0000-primer-prometheus.md)
+- [Checkov v3 migration guide](../checkov/docs/checkov-v3-migration-guide.md) — Migrate Checkov configs from v2 to v3
 
 ### Scan for vulnerabilities
 - [Scan Docker images with Trivy](../trivy/scripts/container-vuln-scan.sh)
@@ -76,6 +77,7 @@
 - [DAST workflow from spider to active scan](../zap/scripts/dast-workflow-from-scratch.sh)
 - [ZAP DAST SARIF code scanning](../zap/scripts/zap-dast-sarif-code-scanning.sh)
 - [Snyk vulnerability scanning pipeline](../snyk/scripts/snyk-vuln-scan-pipeline.sh)
+- [Grype end-to-end scan pipeline](../grype/scripts/grype-scan-pipeline-end-to-end.sh) — Full SBOM generation to SARIF output in one script
 
 ### Scan for secrets
 - [Test fake secrets scan with TruffleHog](../trufflehog/snippets/fake-secrets-test.sh)
@@ -90,6 +92,7 @@
 - [Dependabot npm version strategy config](../dependabot/configs/2026-07-10-npm-version-strategy.yaml)
 - [Dependabot alerts and security updates](../dependabot/notes/dependabot-alerts-security-updates.md)
 - [Enabling Dependabot alerts on a repository](../dependabot/notes/2026-07-10-enabling-dependabot-alerts.md)
+- [Dependabot Python project config](../dependabot/configs/2026-07-18-python-project-version-update.yaml) — Weekly pip dependency updates with Dependabot
 
 ### Sign and verify images
 - [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh)
@@ -99,8 +102,9 @@
 
 ### Build container images
 - [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
-- [Custom Dockerfile](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile)
+- [Custom Dockerfile (this cycle)](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile)
 - [Explore the Docker CLI](../docker/notes/2026-07-12-explore-docker-cli.md)
+- [Docker custom networking and volumes](../docker/scripts/2026-07-18-custom-network-volume-mounts.sh) — Run a container with bridge networking and named volumes
 
 ### Set up CI/CD
 - [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md)
@@ -137,6 +141,8 @@
 - [AKS privilege escalation hardening](../scripts/bash/k8s_toolkit/security/aks-privilege-escalation-hardening.sh)
 - [Samba file-share setup](../scripts/bash/linux_toolkit/samba-setup.sh)
 - [OS patch report](../scripts/patch-report.sh)
+- [Terraform deploy script](../terraform/scripts/2026-07-18-deploy.sh) — Init, plan, and apply Terraform for Secrets Manager environments
+- [Terraform cleanup script](../terraform/scripts/2026-07-18-cleanup.sh) — Destroy infrastructure across Terraform workspaces
 
 ### Troubleshoot issues
 - [Kubernetes CrashLoopBackOff](../docs/troubleshooting/k8s-crashloopbackoff.md)

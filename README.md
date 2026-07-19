@@ -2,7 +2,7 @@
 
 > A working engineer's devops and devsecops reference — notes, snippets, configs, and templates for vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and infrastructure automation.
 
-[![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Repo size](https://img.shields.io/github/repo-size/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Top language](https://img.shields.io/github/languages/top/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Languages](https://img.shields.io/github/languages/count/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
+[![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Repo size](https://img.shields.io/github/repo-size/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Top language](https://img.shields.io/github/languages/top/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Languages](https://img.shields.io/github/languages/count/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![License](https://img.shields.io/github/license/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 
 > **New here? Start at [the learning path](00_index/learning-path.md).** It walks you from first-contact to confident in a sensible order — read that before the table below.
 
@@ -22,11 +22,11 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Quick links
 
-- [Grype end-to-end scan pipeline](grype/scripts/grype-scan-pipeline-end-to-end.sh) — Full SBOM generation to SARIF output in one script
-- [CI/CD Pipeline Concepts practice exercises](docs/concepts/ci-cd-pipeline-concepts/scripts/2026-07-17-practice-ci-cd-exercises.sh) — Hands-on pipeline simulation with stages, gates, and rollbacks
-- [Explore Kubernetes](kubernetes/notes/2026-07-15-explore-kubernetes.md) — First look at Kubernetes objects and the kubectl CLI
-- [First pod and service manifest](kubernetes/manifests/2026-07-15-first-pod-service.yaml) — Minimal Kubernetes deployment starting point
-- [Explore GitHub Actions](github-actions/notes/2026-07-14-explore-github-actions.md) — First workflow and CI trigger walkthrough
+- [Checkov v3 migration guide](checkov/docs/checkov-v3-migration-guide.md) — Migrating Checkov configurations from v2 to v3
+- [AppSec + secrets integration exercise](docs/concepts/application-security-testing-concepts/snippets/2026-07-19-appsec-secrets-integration.py) — Crossing security testing and secrets management
+- [Dependabot Python project config](dependabot/configs/2026-07-18-python-project-version-update.yaml) — Weekly pip dependency updates with Dependabot
+- [Docker custom networking and volumes](docker/scripts/2026-07-18-custom-network-volume-mounts.sh) — Run a container with bridge networking and named volumes
+- [Terraform cleanup script](terraform/scripts/2026-07-18-cleanup.sh) — Destroy infrastructure across Terraform workspaces
 
 ---
 
@@ -70,10 +70,10 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 | Trivy | 3 | 5 | 2 | 1 | 3 | 2 | 6 | 2 | 1 | — |
 | TruffleHog | 3 | 3 | 2 | 2 | 2 | 1 | 21 | 2 | 1 | — |
 | ZAP | 4 | 2 | 2 | 4 | 3 | — | 16 | — | 1 | — |
+| Checkov | 4 | 2 | 2 | 4 | 4 | 2 | 10 | 1 | — | 1 |
 | Syft | 4 | 3 | 1 | 1 | 5 | — | 7 | 1 | 1 | — |
-| Checkov | 4 | 2 | 2 | 4 | 3 | 2 | 10 | 1 | — | 1 |
-| Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — |
 | Grype | 4 | 7 | 1 | 2 | 1 | 2 | — | 1 | 1 | — |
+| Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — |
 | Falco | 3 | 3 | 3 | 1 | 2 | — | — | — | — | — |
 | Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | — | — |
 | GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — | — |
@@ -83,12 +83,12 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 | Terrascan | 5 | 1 | 1 | 2 | — | — | — | — | — | — |
 | Cosign | 4 | 2 | 1 | 1 | — | 1 | — | — | — | — |
 | Tetragon | 2 | — | 1 | — | — | — | — | — | — | — |
-| Dependabot | 5 | — | 2 | — | — | — | — | — | — | — |
+| Dependabot | 5 | — | 3 | — | — | — | — | — | — | — |
 | DefectDojo | 1 | — | — | 1 | — | — | — | — | — | — |
 | Git | 3 | 2 | — | 1 | — | — | — | — | — | — |
 | ArgoCD | 2 | — | — | — | — | 1 | — | — | — | — |
 | Kustomize | 2 | — | 1 | — | — | — | — | — | — | — |
-| Docker | 2 | — | — | — | — | — | — | — | 2 | — |
+| Docker | 2 | 1 | — | — | — | — | — | — | 2 | — |
 | Helm | 1 | — | — | — | — | 1 | — | — | — | — |
 | Kubernetes | 2 | — | — | — | — | 1 | — | — | — | — |
 | GitHub Actions | 2 | — | 1 | — | — | — | — | — | — | — |
@@ -97,7 +97,7 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 | Grafana | 1 | — | — | — | — | — | — | — | — | — |
 | Observability | 1 | — | — | — | — | — | — | — | — | — |
 | Prometheus | 1 | — | — | — | — | — | — | — | — | — |
-| Terraform | 2 | 1 | 1 | — | — | — | — | — | — | — |
+| Terraform | 2 | 3 | 1 | — | — | — | — | — | — | — |
 
 </details>
 
@@ -105,8 +105,8 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Status
 
-Currently expanding foundational concept docs — CI/CD Pipeline Concepts practice exercises, Kubernetes primers and first manifests, and GitHub Actions exploration. Recently added: Grype end-to-end scanning pipeline from SBOM generation to SARIF output.
+The kit has 764 files across 31 tool directories plus docs, scripts, templates, and lab content. Most recently added: a Checkov v3 migration guide, an AppSec + secrets integration exercise, a Python project Dependabot config, Docker networking/volume scripts, and Terraform deploy/cleanup scripts. The next focus areas are cross-tool CI/CD recipes and expanding the Kubernetes ecosystem coverage.
 
 ---
 
-_Last updated: 2026-07-18_
+_Last updated: 2026-07-19_
