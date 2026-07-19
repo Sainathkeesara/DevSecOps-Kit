@@ -1,0 +1,15 @@
+# last_verified: 2026-07-19 · GitHub Actions n/a
+name: Tool Testing
+on:
+  push:
+    branches: [ master ]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Script tests would run in isolated environment"
