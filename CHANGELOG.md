@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - helm-003: `helm/notes/2026-07-19-explore-helm-charts-releases-values-repos.md` — Exploring Helm: charts, releases, values, and repositories after the primer (L1)
 - sonarqube-003: `sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md` — Exploring SonarQube: Quality Gates, profiles, and issues via the web UI (L1)
 - falco-008: `falco/notes/2026-07-19-explore-falco-cli-rules-events-output.md` — Exploring the Falco CLI: list rules, capture events, and inspect output formats (L1)
+- k8s-001: `scripts/bash/k8s_toolkit/security/aks-privilege-escalation-hardening.sh` — L1 rework: removed forbidden `--dry-run`/DRY_RUN; minimal AKS CVE-2026-33105 detection script (L1)
 
 ## 2026-07-18
 
