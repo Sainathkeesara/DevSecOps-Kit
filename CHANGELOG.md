@@ -13,6 +13,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - sonarqube-003: `sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md` — Exploring SonarQube: Quality Gates, profiles, and issues via the web UI (L1)
 - falco-008: `falco/notes/2026-07-19-explore-falco-cli-rules-events-output.md` — Exploring the Falco CLI: list rules, capture events, and inspect output formats (L1)
 - k8s-001: `scripts/bash/k8s_toolkit/security/aks-privilege-escalation-hardening.sh` — L1 rework: removed forbidden `--dry-run`/DRY_RUN; minimal AKS CVE-2026-33105 detection script (L1)
+- gh-002: `.github/workflows/pr-validation.yml` — PR validation workflow: lint and type checks on PRs (L1)
+- gh-002: `.github/workflows/auto-merge.yml` — Auto-merge workflow for trivial changes labeled auto-merge (L1)
+- gh-002: `.github/workflows/tool-testing.yml` — Tool testing workflow: script tests on master push (L1)
+- con-046: `docs/concepts/container-runtime-security/snippets/2026-07-19-container-runtime-security-exercises.py` — Practice: inspect running containers for privileged mode and writable root filesystem (L2)
+- con-047: `docs/concepts/container-runtime-security/2026-07-19-container-runtime-security-common-patterns.md` — Container runtime security common patterns: capabilities, read-only root, seccomp, and non-root users (L2)
 
 ## 2026-07-18
 
