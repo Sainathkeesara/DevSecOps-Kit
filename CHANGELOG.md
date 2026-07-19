@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-19
+
+### Added
+- checkov-017: `checkov/docs/checkov-v3-migration-guide.md` — Checkov v3 migration guide: removed flags, custom-check API changes, and CI updates (L6)
+- con-063: `docs/concepts/application-security-testing-concepts/snippets/2026-07-19-appsec-secrets-integration.py` — AppSec + Secrets & Access Management integration exercise (L3)
+
 ## 2026-07-18
 
 ### Added
