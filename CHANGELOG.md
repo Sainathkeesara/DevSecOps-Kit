@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - checkov-017: `checkov/docs/checkov-v3-migration-guide.md` — Checkov v3 migration guide: removed flags, custom-check API changes, and CI updates (L6)
 - con-063: `docs/concepts/application-security-testing-concepts/snippets/2026-07-19-appsec-secrets-integration.py` — AppSec + Secrets & Access Management integration exercise (L3)
+- helm-003: `helm/notes/2026-07-19-explore-helm-charts-releases-values-repos.md` — Exploring Helm: charts, releases, values, and repositories after the primer (L1)
+- sonarqube-003: `sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md` — Exploring SonarQube: Quality Gates, profiles, and issues via the web UI (L1)
+- falco-008: `falco/notes/2026-07-19-explore-falco-cli-rules-events-output.md` — Exploring the Falco CLI: list rules, capture events, and inspect output formats (L1)
 
 ## 2026-07-18
 
