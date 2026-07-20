@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-20
+
+### Added
+- checkov-008: `checkov/docs/multi-cloud-policy-management.md` — Checkov multi-cloud IaC policy management: AWS/Azure/GCP drift detection patterns (L5)
+- checkov-009: `checkov/notebooks/compare-builtin-vs-custom-k8s.ipynb` — Comparing Checkov built-in vs custom policies for Kubernetes security enforcement (L5)
+- codeql-005: `codeql/snippets/hardcoded-secret-from-scratch.ql` — Custom CodeQL query for hardcoded secrets detection from scratch (L3)
+
 ## 2026-07-19
 
 ### Added
