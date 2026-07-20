@@ -71,5 +71,5 @@ chmod +x scripts/bash/<tool_name>/*.sh
 
 Run with `--help` to see options:
 ```bash
-./scripts/bash/k8s_toolkit/node/drain-node.sh --help
+bash/k8s_toolkit/node/drain-node.sh --help
 ```

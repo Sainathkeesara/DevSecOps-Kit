@@ -61,7 +61,7 @@ rules:
 
 ## Prerequisites
 
-- Semgrep installed (see primer at `semgrep/notes/0000-primer-semgrep.md`)
+- Semgrep installed (see primer at `../notes/0000-primer-semgrep.md`)
 - Basic understanding of metavariables (`$X`, `$FUNC`, etc.)
 - Familiarity with YAML syntax
 

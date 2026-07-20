@@ -63,13 +63,13 @@ Use the hardening script to detect security gaps:
 
 ```bash
 # Run the check script
-./scripts/bash/docker_toolkit/security/docker-authz-plugin-hardening.sh --check
+../../scripts/bash/docker_toolkit/security/docker-authz-plugin-hardening.sh --check
 
 # Dry-run mode
-./scripts/bash/docker_toolkit/security/docker-authz-plugin-hardening.sh --dry-run
+../../scripts/bash/docker_toolkit/security/docker-authz-plugin-hardening.sh --dry-run
 
 # JSON output for automation
-./scripts/bash/docker_toolkit/security/docker-authz-plugin-hardening.sh --json-output
+../../scripts/bash/docker_toolkit/security/docker-authz-plugin-hardening.sh --json-output
 ```
 
 ### Step 4: Apply hardening
