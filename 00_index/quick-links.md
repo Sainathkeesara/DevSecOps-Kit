@@ -22,12 +22,14 @@
 - [Trivy primer](../trivy/notes/0000-primer-trivy.md)
 - [Semgrep primer](../semgrep/notes/0000-primer-semgrep.md)
 - [Checkov primer](../checkov/notes/0000-primer-checkov.md)
+- [Checkov v3 migration guide](../checkov/docs/checkov-v3-migration-guide.md) — Migrate Checkov configs from v2 to v3
 - [Grype primer](../grype/notes/0000-primer-grype.md)
 - [CodeQL primer](../codeql/notes/0000-primer-codeql.md)
 - [Snyk primer](../snyk/notes/0000-primer-snyk.md)
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
 - [OWASP ZAP primer](../zap/notes/0000-primer-zap.md)
 - [Falco primer](../falco/notes/0000-primer-falco.md)
+- [Explore Falco CLI, rules, events, and output](../falco/notes/2026-07-19-explore-falco-cli-rules-events-output.md) — Walk through Falco's CLI flags, rule syntax, and event output
 - [Cosign primer](../cosign/notes/0000-primer-cosign.md)
 - [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md)
 - [Terrascan primer](../terrascan/notes/0000-primer-terrascan.md)
@@ -41,19 +43,20 @@
 - [ArgoCD primer](../argocd/notes/0000-primer-argocd.md)
 - [Docker primer](../docker/notes/0000-primer-docker.md)
 - [Helm primer](../helm/notes/0000-primer-helm.md)
+- [Explore Helm charts, releases, values, and repos](../helm/notes/2026-07-19-explore-helm-charts-releases-values-repos.md) — First look at Helm chart structure, releases, and repo management
 - [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md)
 - [Explore Kubernetes](../kubernetes/notes/2026-07-15-explore-kubernetes.md) — First look at K8s objects and kubectl
 - [First pod and service manifest](../kubernetes/manifests/2026-07-15-first-pod-service.yaml) — Minimal deployment starting point
 - [Kustomize primer](../kustomize/notes/0000-primer-kustomize.md)
 - [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md)
 - [SonarQube primer](../sonarqube/notes/0000-primer-sonarqube.md)
+- [Explore SonarQube quality gates and profiles](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md) — Quality Gates, Quality Profiles, and project analysis
 - [SonarQube first scan run](../sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh)
 - [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
 - [Terraform primer](../terraform/notes/0000-primer-terraform.md)
 - [Grafana primer](../grafana/notes/0000-primer-grafana.md)
 - [Observability primer](../observability/notes/0000-primer-observability.md)
 - [Prometheus primer](../prometheus/notes/0000-primer-prometheus.md)
-- [Checkov v3 migration guide](../checkov/docs/checkov-v3-migration-guide.md) — Migrate Checkov configs from v2 to v3
 
 ### Scan for vulnerabilities
 - [Scan Docker images with Trivy](../trivy/scripts/container-vuln-scan.sh)
@@ -77,7 +80,6 @@
 - [DAST workflow from spider to active scan](../zap/scripts/dast-workflow-from-scratch.sh)
 - [ZAP DAST SARIF code scanning](../zap/scripts/zap-dast-sarif-code-scanning.sh)
 - [Snyk vulnerability scanning pipeline](../snyk/scripts/snyk-vuln-scan-pipeline.sh)
-- [Grype end-to-end scan pipeline](../grype/scripts/grype-scan-pipeline-end-to-end.sh) — Full SBOM generation to SARIF output in one script
 
 ### Scan for secrets
 - [Test fake secrets scan with TruffleHog](../trufflehog/snippets/fake-secrets-test.sh)
