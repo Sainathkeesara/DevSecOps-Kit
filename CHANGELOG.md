@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2026-07-21
 
+### Added
+- lin-003: `linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md` — Install Linux in a VM and run first commands — what tripped me up (L1)
+
 ### Changed
 - checkov-009: `checkov/notebooks/compare-builtin-vs-custom-k8s.ipynb` — Rework: removed fabricated version claims (3.3.8, 3.2.532, ECDSA-P256 signing requirement); corrected to only reference general Checkov API patterns (L5)
 
