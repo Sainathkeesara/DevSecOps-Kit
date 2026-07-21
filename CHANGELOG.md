@@ -4,11 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-21
+
+### Changed
+- checkov-009: `checkov/notebooks/compare-builtin-vs-custom-k8s.ipynb` — Rework: removed fabricated version claims (3.3.8, 3.2.532, ECDSA-P256 signing requirement); corrected to only reference general Checkov API patterns (L5)
+
 ## 2026-07-20
 
 ### Added
 - checkov-008: `checkov/docs/multi-cloud-policy-management.md` — Checkov multi-cloud IaC policy management: AWS/Azure/GCP drift detection patterns (L5)
-- checkov-009: `checkov/notebooks/compare-builtin-vs-custom-k8s.ipynb` — Comparing Checkov built-in vs custom policies for Kubernetes security enforcement (L5)
 - codeql-005: `codeql/snippets/hardcoded-secret-from-scratch.ql` — Custom CodeQL query for hardcoded secrets detection from scratch (L3)
 - con-049: `docs/concepts/containers-orchestration/2026-07-20-common-patterns.md` — Containers & orchestration common patterns: image tagging, resource limits, probes, secrets, and Helm next steps (L2)
 - terraform-008: `terraform/snippets/2026-07-20-practice-terraform-variables-outputs-datasources.hcl` — Practice Terraform input variables, outputs, and data sources (L1)
