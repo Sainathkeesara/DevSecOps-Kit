@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2026-07-21
 
+### Added
+- grype-002: `grype/scripts/grype-pipeline-ci-scan.sh` — Grype CI scanning pipeline: scan container image, export JSON + SARIF, gate on severity threshold (L3)
+- dependabot-004: `dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md` — Enabling Dependabot alerts and security updates on a sample repo — UI toggles, gotchas, and private repo limitations (L1)
+
 ### Changed
 - checkov-009: `checkov/notebooks/compare-builtin-vs-custom-k8s.ipynb` — Rework: removed fabricated version claims (3.3.8, 3.2.532, ECDSA-P256 signing requirement); corrected to only reference general Checkov API patterns (L5)
 
