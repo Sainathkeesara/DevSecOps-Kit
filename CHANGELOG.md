@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-22
+
+### Added
+- snyk-004: `snyk/dockerfiles/custom-snyk-cli-air-gapped.Dockerfile` — Custom Snyk CLI Docker image pre-installed for air-gapped vulnerability scanning (L4)
+- codeql-008: `codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile` — Custom CodeQL analysis Docker image with preloaded bundle and custom queries (L4)
+- vault-010: `vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile` — Custom Vault Docker image with bundled plugins and TLS configuration (L4)
+
 ## 2026-07-21
 
 ### Changed
