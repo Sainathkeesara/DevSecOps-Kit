@@ -22,11 +22,11 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Quick links
 
-- [Explore Falco CLI, rules, events, and output](falco/notes/2026-07-19-explore-falco-cli-rules-events-output.md) — Walk through Falco's CLI flags, rule syntax, event output, and driver modes
-- [Explore Helm charts, releases, values, and repos](helm/notes/2026-07-19-explore-helm-charts-releases-values-repos.md) — First look at Helm chart structure, releases, values, and repo management
-- [Explore SonarQube quality gates and profiles](sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md) — Quality Gates, Quality Profiles, and project analysis walkthrough
-- [Checkov v3 migration guide](checkov/docs/checkov-v3-migration-guide.md) — Migrate Checkov configs from v2 to v3 with config file changes and policy path updates
-- [AppSec + secrets integration exercise](docs/concepts/application-security-testing-concepts/snippets/2026-07-19-appsec-secrets-integration.py) — Practice connecting AppSec scanning with secret detection in a unified workflow
+- [Custom CodeQL analysis Dockerfile](codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile) — Prebuilt CodeQL CLI image with bundled queries for CI environments
+- [Custom Snyk CLI air-gapped Dockerfile](snyk/dockerfiles/custom-snyk-cli-air-gapped.Dockerfile) — Pre-installed Snyk CLI for environments without outbound network access
+- [Custom Vault Docker image with plugins and TLS](vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile) — Vault image bundling secrets engine plugins and TLS configuration
+- [First commands on a new Linux VM](linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — Notes on the initial setup trip-ups after installing Ubuntu in a VM
+- [Enabling Dependabot alerts and security updates](dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md) — Walkthrough of turning on Dependabot alerts and auto-fix PRs
 
 ---
 
@@ -69,18 +69,18 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 |------|------:|--------:|--------:|---------:|-----:|----------:|----------:|----------:|------------:|---------:|------:|
 | Trivy | 3 | 5 | 2 | 1 | 3 | 2 | 6 | 2 | 1 | — | 25 |
 | TruffleHog | 3 | 3 | 2 | 2 | 2 | 1 | 21 | 2 | 1 | — | 37 |
-| ZAP | 4 | 2 | 2 | 4 | 3 | — | 16 | — | 1 | — | 32 |
+| ZAP | 5 | 2 | 2 | 4 | 3 | — | 16 | — | 1 | — | 33 |
 | Checkov | 4 | 2 | 2 | 4 | 4 | 2 | 10 | 1 | — | 1 | 30 |
 | Syft | 4 | 3 | 1 | 1 | 5 | — | 7 | 1 | 1 | — | 23 |
-| Grype | 4 | 7 | 1 | 2 | 1 | 2 | — | 1 | 1 | — | 19 |
+| Grype | 4 | 8 | 1 | 2 | 1 | 2 | — | 1 | 1 | — | 20 |
 | Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — | 18 |
 | Falco | 4 | 3 | 3 | 1 | 2 | — | — | — | — | — | 13 |
 | Terraform | 2 | 3 | 1 | — | — | — | — | — | — | — | 13 |
 | GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — | — | 11 |
 | CodeQL | 3 | 1 | 1 | 3 | 1 | 1 | — | — | — | — | 10 |
-| Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | — | — | 10 |
+| Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | 1 | — | 11 |
 | OPA | 3 | 1 | 1 | 3 | 1 | — | — | — | — | — | 9 |
-| Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | — | — | 9 |
+| Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | 1 | — | 10 |
 | Cosign | 4 | 2 | 1 | 1 | — | 1 | — | — | — | — | 9 |
 | Terrascan | 5 | 1 | 1 | 2 | — | — | — | — | — | — | 9 |
 | Dependabot | 5 | — | 3 | — | — | — | — | — | — | — | 8 |
@@ -109,4 +109,4 @@ Currently expanding foundational concept docs — Falco CLI exploration, Helm ch
 
 ---
 
-_Last updated: 2026-07-20_
+_Last updated: 2026-07-22_
