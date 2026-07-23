@@ -26,9 +26,9 @@
 - **notebooks** (2): [analyzing-trufflehog-false-positives.ipynb](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb), [trufflehog-scan-modes-comparison.ipynb](../trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb)
 - **dockerfiles** (1): [pre-commit-scanner.Dockerfile](../trufflehog/dockerfiles/pre-commit-scanner.Dockerfile)
 
-## ZAP · 32 files
+## ZAP · 33 files
 - **primer:** [0000-primer-zap.md](../zap/notes/0000-primer-zap.md)
-- **notes** (4): [0000-primer-zap.md](../zap/notes/0000-primer-zap.md), [2026-06-06-install-zap-desktop-ui.md](../zap/notes/2026-06-06-install-zap-desktop-ui.md), [2026-06-06-zap-quickstart-ui-gotchas.md](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md), [2026-06-13-spider-scan-test-app.md](../zap/notes/2026-06-13-spider-scan-test-app.md)
+- **notes** (5): [0000-primer-zap.md](../zap/notes/0000-primer-zap.md), [2026-06-06-install-zap-desktop-ui.md](../zap/notes/2026-06-06-install-zap-desktop-ui.md), [2026-06-06-zap-quickstart-ui-gotchas.md](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md), [2026-06-13-spider-scan-test-app.md](../zap/notes/2026-06-13-spider-scan-test-app.md), [2026-07-20-install-zap-baseline-scan.md](../zap/notes/2026-07-20-install-zap-baseline-scan.md)
 - **scripts** (2): [dast-workflow-from-scratch.sh](../zap/scripts/dast-workflow-from-scratch.sh), [zap-dast-sarif-code-scanning.sh](../zap/scripts/zap-dast-sarif-code-scanning.sh)
 - **configs** (2): [zap-authenticated-scan-context.yaml](../zap/configs/zap-authenticated-scan-context.yaml), [ci-dast-automation-framework-plan.yaml](../zap/configs/ci-dast-automation-framework-plan.yaml)
 - **snippets** (4): [my-first-zap-baseline-scan.sh](../zap/snippets/my-first-zap-baseline-scan.sh), [my-first-zap-spider-scan.sh](../zap/snippets/my-first-zap-spider-scan.sh), [authenticated-scan-with-context.sh](../zap/snippets/authenticated-scan-with-context.sh), [2026-07-16-zap-docker-quickstart-json-export.sh](../zap/snippets/2026-07-16-zap-docker-quickstart-json-export.sh)
@@ -36,16 +36,16 @@
 - **templates** (16): [zap-dast-integration-scaffold](../zap/templates/zap-dast-integration-scaffold/), [zap-dast-integration](../zap/templates/zap-dast-integration/)
 - **dockerfiles** (1): [custom-zap-automation.Dockerfile](../zap/dockerfiles/custom-zap-automation.Dockerfile)
 
-## Checkov · 30 files
+## Checkov · 32 files
 - **primer:** [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md)
 - **notes** (4): [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md), [2026-05-25-scan-terraform-plan.md](../checkov/notes/2026-05-25-scan-terraform-plan.md), [2026-05-26-cli-vs-sdk-comparison.md](../checkov/notes/2026-05-26-cli-vs-sdk-comparison.md), [2026-05-27-checkov-quickstart-trip-ups.md](../checkov/notes/2026-05-27-checkov-quickstart-trip-ups.md)
 - **scripts** (2): [scan-terraform-plan.sh](../checkov/scripts/scan-terraform-plan.sh), [deep-terraform-plan-scan.sh](../checkov/scripts/deep-terraform-plan-scan.sh)
 - **configs** (2): [checkov-ci-config.yaml](../checkov/configs/checkov-ci-config.yaml), [checkov-skip-severity-config.yaml](../checkov/configs/checkov-skip-severity-config.yaml)
 - **snippets** (4): [scan-kubernetes.sh](../checkov/snippets/scan-kubernetes.sh), [scan-terraform-dir.py](../checkov/snippets/scan-terraform-dir.py), [scan-a-terraform-file.py](../checkov/snippets/scan-a-terraform-file.py), [terraform-scan-custom-policies.py](../checkov/snippets/terraform-scan-custom-policies.py)
-- **docs** (4): [checkov-integration-patterns.md](../checkov/docs/checkov-integration-patterns.md), [checkov-ai-infrastructure-checks.md](../checkov/docs/checkov-ai-infrastructure-checks.md), [pre-commit-hook-with-version-pinning.md](../checkov/docs/pre-commit-hook-with-version-pinning.md), [checkov-v3-migration-guide.md](../checkov/docs/checkov-v3-migration-guide.md)
+- **docs** (5): [checkov-integration-patterns.md](../checkov/docs/checkov-integration-patterns.md), [checkov-ai-infrastructure-checks.md](../checkov/docs/checkov-ai-infrastructure-checks.md), [pre-commit-hook-with-version-pinning.md](../checkov/docs/pre-commit-hook-with-version-pinning.md), [checkov-v3-migration-guide.md](../checkov/docs/checkov-v3-migration-guide.md), [multi-cloud-policy-management.md](../checkov/docs/multi-cloud-policy-management.md)
 - **manifests** (2): [checkov-sarif-pr-blocking.yaml](../checkov/manifests/checkov-sarif-pr-blocking.yaml), [layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml](../checkov/manifests/layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml)
 - **templates** (10): [multi-iac-scan-project](../checkov/templates/multi-iac-scan-project/), [reusable-workflow-custom-policies](../checkov/templates/reusable-workflow-custom-policies/)
-- **notebooks** (1): [compare-static-vs-plan-scanning.ipynb](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb)
+- **notebooks** (2): [compare-builtin-vs-custom-k8s.ipynb](../checkov/notebooks/compare-builtin-vs-custom-k8s.ipynb), [compare-static-vs-plan-scanning.ipynb](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb)
 - **policies** (1): [no-public-s3-buckets.yaml](../checkov/policies/no-public-s3-buckets/no_public_s3_buckets.yaml)
 
 ## Syft · 23 files
@@ -59,16 +59,16 @@
 - **notebooks** (1): [sbom-layer-package-analysis.ipynb](../syft/notebooks/sbom-layer-package-analysis.ipynb)
 - **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
 
-## Grype · 19 files
+## Grype · 20 files
 - **primer:** [0000-primer-grype.md](../grype/notes/0000-primer-grype.md)
 - **notes** (4): [0000-primer-grype.md](../grype/notes/0000-primer-grype.md), [2026-05-31-install-grype.md](../grype/notes/2026-05-31-install-grype.md), [2026-06-04-grype-quickstart-trip-ups.md](../grype/notes/2026-06-04-grype-quickstart-trip-ups.md), [2026-06-08-first-grype-scan.md](../grype/notes/2026-06-08-first-grype-scan.md)
-- **scripts** (7): [minimal-grype-scan.sh](../grype/scripts/minimal-grype-scan.sh), [ci-ready-grype-scan.sh](../grype/scripts/ci-ready-grype-scan.sh), [vuln-diff-two-images.sh](../grype/scripts/vuln-diff-two-images.sh), [grype-vuln-pipeline.sh](../grype/scripts/grype-vuln-pipeline.sh), [grype-results-to-sarif.py](../grype/scripts/grype-results-to-sarif.py), [grype-end-to-end-scan-pipeline.sh](../grype/scripts/grype-end-to-end-scan-pipeline.sh), [grype-scan-pipeline-end-to-end.sh](../grype/scripts/grype-scan-pipeline-end-to-end.sh)
+- **scripts** (8): [minimal-grype-scan.sh](../grype/scripts/minimal-grype-scan.sh), [ci-ready-grype-scan.sh](../grype/scripts/ci-ready-grype-scan.sh), [vuln-diff-two-images.sh](../grype/scripts/vuln-diff-two-images.sh), [grype-vuln-pipeline.sh](../grype/scripts/grype-vuln-pipeline.sh), [grype-results-to-sarif.py](../grype/scripts/grype-results-to-sarif.py), [grype-end-to-end-scan-pipeline.sh](../grype/scripts/grype-end-to-end-scan-pipeline.sh), [grype-scan-pipeline-end-to-end.sh](../grype/scripts/grype-scan-pipeline-end-to-end.sh), [grype-pipeline-ci-scan.sh](../grype/scripts/grype-pipeline-ci-scan.sh)
 - **configs** (1): [grype-ci-github-actions.yaml](../grype/configs/grype-ci-github-actions.yaml)
 - **snippets** (2): [my-first-grype-commands.sh](../grype/snippets/my-first-grype-commands.sh), [minimal-grype-scan.go](../grype/snippets/minimal-grype-scan.go)
 - **docs** (1): [grype-syft-integration-guide.md](../grype/docs/grype-syft-integration-guide.md)
 - **manifests** (2): [grype-reusable-sarif-workflow.yaml](../grype/manifests/grype-reusable-sarif-workflow.yaml), [grype-sarif-reusable-workflow.yaml](../grype/manifests/grype-sarif-reusable-workflow.yaml)
-- **dockerfiles** (1): [multi-stage-grype-scan.Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile)
 - **notebooks** (1): [grype-sbom-output-explorer.ipynb](../grype/notebooks/grype-sbom-output-explorer.ipynb)
+- **dockerfiles** (1): [multi-stage-grype-scan.Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile)
 
 ## Semgrep · 18 files
 - **primer:** [0000-primer-semgrep.md](../semgrep/notes/0000-primer-semgrep.md)
@@ -81,13 +81,31 @@
 - **notebooks** (1): [semgrep-scan-vs-ci-comparison.ipynb](../semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb)
 - **dockerfiles** (2): [ci-entrypoint.sh](../semgrep/dockerfiles/ci-entrypoint.sh), [custom-scanning-image.Dockerfile](../semgrep/dockerfiles/custom-scanning-image.Dockerfile)
 
-## Snyk · 9 files
-- **primer:** [0000-primer-snyk.md](../snyk/notes/0000-primer-snyk.md)
-- **notes** (4): [0000-primer-snyk.md](../snyk/notes/0000-primer-snyk.md), [2026-06-07-snyk-quickstart-walkthrough.md](../snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md), [2026-06-08-install-snyk-first-test.md](../snyk/notes/2026-06-08-install-snyk-first-test.md), [2026-06-14-first-vulnerability-scan.md](../snyk/notes/2026-06-14-first-vulnerability-scan.md)
-- **scripts** (1): [snyk-vuln-scan-pipeline.sh](../snyk/scripts/snyk-vuln-scan-pipeline.sh)
-- **configs** (2): [snyk-ci-github-actions.yaml](../snyk/configs/snyk-ci-github-actions.yaml), [snyk-dependency-patch-ignore.yaml](../snyk/configs/snyk-dependency-patch-ignore.yaml)
-- **docs** (1): [multi-project-ci-pipeline.md](../snyk/docs/multi-project-ci-pipeline.md)
-- **snippets** (1): [my-first-snyk-commands.sh](../snyk/snippets/my-first-snyk-commands.sh)
+## Falco · 13 files
+- **primer:** [0000-primer-falco.md](../falco/notes/0000-primer-falco.md)
+- **notes** (4): [0000-primer-falco.md](../falco/notes/0000-primer-falco.md), [2026-06-10-install-falco-first-detection.md](../falco/notes/2026-06-10-install-falco-first-detection.md), [2026-06-15-falco-rules-macros-lists.md](../falco/notes/2026-06-15-falco-rules-macros-lists.md), [2026-07-19-explore-falco-cli-rules-events-output.md](../falco/notes/2026-07-19-explore-falco-cli-rules-events-output.md)
+- **scripts** (3): [deploy-falco-ruleset.sh](../falco/scripts/deploy-falco-ruleset.sh), [tried-falco-k8s-alert-forwarding.sh](../falco/scripts/tried-falco-k8s-alert-forwarding.sh), [tried-falco-k8s-deploy-alert-forwarding.sh](../falco/scripts/tried-falco-k8s-deploy-alert-forwarding.sh)
+- **configs** (3): [container-drift-detection.yaml](../falco/configs/container-drift-detection.yaml), [first-custom-rule-detect-shell-in-container.yaml](../falco/configs/first-custom-rule-detect-shell-in-container.yaml), [2026-06-10-first-custom-rule-detect-shell-in-container.yaml](../falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml)
+- **snippets** (1): [tried-file-access-detector.go](../falco/snippets/tried-file-access-detector.go)
+- **docs** (2): [syscall-vs-tracepoint-rules.md](../falco/docs/syscall-vs-tracepoint-rules.md), [tuned-falco-rules-noise-reduction.md](../falco/docs/tuned-falco-rules-noise-reduction.md)
+
+## Terraform · 14 files
+- **primer:** [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md)
+- **notes** (2): [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md), [2026-07-15-explore-terraform.md](../terraform/notes/2026-07-15-explore-terraform.md)
+- **scripts** (3): [2026-07-13-zip-build.sh](../terraform/scripts/2026-07-13-zip-build.sh), [2026-07-18-cleanup.sh](../terraform/scripts/2026-07-18-cleanup.sh), [2026-07-18-deploy.sh](../terraform/scripts/2026-07-18-deploy.sh)
+- **configs** (1): [2026-07-15-first-config.tf](../terraform/configs/2026-07-15-first-config.tf)
+- **snippets** (1): [2026-07-20-practice-terraform-variables-outputs-datasources.hcl](../terraform/snippets/2026-07-20-practice-terraform-variables-outputs-datasources.hcl)
+- _…and eventbridge-lambda module content under `terraform/` — browse the folder._
+
+## CodeQL · 12 files
+- **primer:** [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md)
+- **notes** (3): [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md), [2026-06-05-install-codeql-first-analysis.md](../codeql/notes/2026-06-05-install-codeql-first-analysis.md), [2026-06-14-codeql-datalog-gotchas.md](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md)
+- **scripts** (1): [first-codeql-analysis.sh](../codeql/scripts/first-codeql-analysis.sh)
+- **configs** (1): [first-codeql-analysis.yml](../codeql/configs/first-codeql-analysis.yml)
+- **snippets** (4): [find-hardcoded-creds.ql](../codeql/snippets/find-hardcoded-creds.ql), [my-first-codeql-commands.sh](../codeql/snippets/my-first-codeql-commands.sh), [hardcoded-creds-local-flow.ql](../codeql/snippets/hardcoded-creds-local-flow.ql), [hardcoded-secret-from-scratch.ql](../codeql/snippets/hardcoded-secret-from-scratch.ql)
+- **docs** (1): [wired-custom-queries-into-ci.md](../codeql/docs/wired-custom-queries-into-ci.md)
+- **manifests** (1): [multi-language-codeql-analysis.yaml](../codeql/manifests/multi-language-codeql-analysis.yaml)
+- **dockerfiles** (1): [custom-codeql-analysis-image.Dockerfile](../codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile)
 
 ## GitGuardian · 11 files
 - **primer:** [0000-primer-gitguardian.md](../gitguardian/notes/0000-primer-gitguardian.md)
@@ -97,21 +115,23 @@
 - **snippets** (2): [my-first-ggshield-commands.sh](../gitguardian/snippets/my-first-ggshield-commands.sh), [custom-policy-engine-ggshield.sh](../gitguardian/snippets/custom-policy-engine-ggshield.sh)
 - **docs** (1): [monorepo-ci-per-team-exclusions.md](../gitguardian/docs/monorepo-ci-per-team-exclusions.md)
 
-## Falco · 13 files
-- **primer:** [0000-primer-falco.md](../falco/notes/0000-primer-falco.md)
-- **notes** (4): [0000-primer-falco.md](../falco/notes/0000-primer-falco.md), [2026-06-10-install-falco-first-detection.md](../falco/notes/2026-06-10-install-falco-first-detection.md), [2026-06-15-falco-rules-macros-lists.md](../falco/notes/2026-06-15-falco-rules-macros-lists.md), [2026-07-19-explore-falco-cli-rules-events-output.md](../falco/notes/2026-07-19-explore-falco-cli-rules-events-output.md)
-- **scripts** (3): [deploy-falco-ruleset.sh](../falco/scripts/deploy-falco-ruleset.sh), [tried-falco-k8s-alert-forwarding.sh](../falco/scripts/tried-falco-k8s-alert-forwarding.sh), [tried-falco-k8s-deploy-alert-forwarding.sh](../falco/scripts/tried-falco-k8s-deploy-alert-forwarding.sh)
-- **configs** (3): [container-drift-detection.yaml](../falco/configs/container-drift-detection.yaml), [first-custom-rule-detect-shell-in-container.yaml](../falco/configs/first-custom-rule-detect-shell-in-container.yaml), [2026-06-10-first-custom-rule-detect-shell-in-container.yaml](../falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml)
-- **snippets** (1): [tried-file-access-detector.go](../falco/snippets/tried-file-access-detector.go)
-- **docs** (2): [syscall-vs-tracepoint-rules.md](../falco/docs/syscall-vs-tracepoint-rules.md), [tuned-falco-rules-noise-reduction.md](../falco/docs/tuned-falco-rules-noise-reduction.md)
+## Vault · 11 files
+- **primer:** [0000-primer-vault.md](../vault/notes/0000-primer-vault.md)
+- **notes** (3): [0000-primer-vault.md](../vault/notes/0000-primer-vault.md), [2026-06-05-install-vault-and-explore-cli.md](../vault/notes/2026-06-05-install-vault-and-explore-cli.md), [2026-06-15-vault-getting-started-trip-ups.md](../vault/notes/2026-06-15-vault-getting-started-trip-ups.md)
+- **scripts** (2): [vault-kv-crud.sh](../vault/scripts/vault-kv-crud.sh), [vault-db-dynamic-secrets.sh](../vault/scripts/vault-db-dynamic-secrets.sh)
+- **configs** (2): [2026-06-26-dev-test-policies.hcl](../vault/configs/2026-06-26-dev-test-policies.hcl), [multi-environment-access-control.hcl](../vault/configs/multi-environment-access-control.hcl)
+- **snippets** (1): [vault-read-write.go](../vault/snippets/vault-read-write.go)
+- **docs** (2): [configuring-vault-dev-server.md](../vault/docs/configuring-vault-dev-server.md), [vault-agent-auto-auth-kubernetes.md](../vault/docs/vault-agent-auto-auth-kubernetes.md)
+- **dockerfiles** (1): [custom-vault-image-with-plugins-tls.Dockerfile](../vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile)
 
-## Cosign · 9 files
-- **primer:** [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md)
-- **notes** (4): [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md), [2026-06-13-install-cosign-sign-first-image.md](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md), [2026-06-14-install-cosign-generate-first-keypair.md](../cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md), [2026-06-22-cosign-getting-started-trip-ups.md](../cosign/notes/2026-06-22-cosign-getting-started-trip-ups.md)
-- **scripts** (2): [minimal-sign-verify.sh](../cosign/scripts/minimal-sign-verify.sh), [verify-signed-image.sh](../cosign/scripts/verify-signed-image.sh)
-- **configs** (1): [keyless-signing-github-actions.yaml](../cosign/configs/keyless-signing-github-actions.yaml)
-- **snippets** (1): [first-cosign-sign-verify-image.sh](../cosign/snippets/first-cosign-sign-verify-image.sh)
-- **manifests** (1): [2026-07-10-keyless-oidc-ci.yaml](../cosign/manifests/2026-07-10-keyless-oidc-ci.yaml)
+## Snyk · 10 files
+- **primer:** [0000-primer-snyk.md](../snyk/notes/0000-primer-snyk.md)
+- **notes** (4): [0000-primer-snyk.md](../snyk/notes/0000-primer-snyk.md), [2026-06-07-snyk-quickstart-walkthrough.md](../snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md), [2026-06-08-install-snyk-first-test.md](../snyk/notes/2026-06-08-install-snyk-first-test.md), [2026-06-14-first-vulnerability-scan.md](../snyk/notes/2026-06-14-first-vulnerability-scan.md)
+- **scripts** (1): [snyk-vuln-scan-pipeline.sh](../snyk/scripts/snyk-vuln-scan-pipeline.sh)
+- **configs** (2): [snyk-ci-github-actions.yaml](../snyk/configs/snyk-ci-github-actions.yaml), [snyk-dependency-patch-ignore.yaml](../snyk/configs/snyk-dependency-patch-ignore.yaml)
+- **snippets** (1): [my-first-snyk-commands.sh](../snyk/snippets/my-first-snyk-commands.sh)
+- **docs** (1): [multi-project-ci-pipeline.md](../snyk/docs/multi-project-ci-pipeline.md)
+- **dockerfiles** (1): [custom-snyk-cli-air-gapped.Dockerfile](../snyk/dockerfiles/custom-snyk-cli-air-gapped.Dockerfile)
 
 ## OPA · 9 files
 - **primer:** [0000-primer-opa.md](../opa/notes/0000-primer-opa.md)
@@ -121,6 +141,14 @@
 - **snippets** (3): [my-first-opa-policy-eval.sh](../opa/snippets/my-first-opa-policy-eval.sh), [enforce-image-registry-constraints.rego](../opa/snippets/enforce-image-registry-constraints.rego), [deny-privileged-hostnetwork.rego](../opa/snippets/deny-privileged-hostnetwork.rego)
 - **docs** (1): [wired-opa-admission-control.md](../opa/docs/wired-opa-admission-control.md)
 
+## Cosign · 9 files
+- **primer:** [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md)
+- **notes** (4): [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md), [2026-06-13-install-cosign-sign-first-image.md](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md), [2026-06-14-install-cosign-generate-first-keypair.md](../cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md), [2026-06-22-cosign-getting-started-trip-ups.md](../cosign/notes/2026-06-22-cosign-getting-started-trip-ups.md)
+- **scripts** (2): [minimal-sign-verify.sh](../cosign/scripts/minimal-sign-verify.sh), [verify-signed-image.sh](../cosign/scripts/verify-signed-image.sh)
+- **configs** (1): [keyless-signing-github-actions.yaml](../cosign/configs/keyless-signing-github-actions.yaml)
+- **snippets** (1): [first-cosign-sign-verify-image.sh](../cosign/snippets/first-cosign-sign-verify-image.sh)
+- **manifests** (1): [2026-07-10-keyless-oidc-ci.yaml](../cosign/manifests/2026-07-10-keyless-oidc-ci.yaml)
+
 ## Terrascan · 9 files
 - **primer:** [0000-primer-terrascan.md](../terrascan/notes/0000-primer-terrascan.md)
 - **notes** (5): [0000-primer-terrascan.md](../terrascan/notes/0000-primer-terrascan.md), [2026-06-13-first-scan.md](../terrascan/notes/2026-06-13-first-scan.md), [2026-06-19-install-terrascan-tiny-tf.md](../terrascan/notes/2026-06-19-install-terrascan-tiny-tf.md), [2026-06-29-terrascan-getting-started-trip-ups.md](../terrascan/notes/2026-06-29-terrascan-getting-started-trip-ups.md), [2026-07-10-terrascan-getting-started-trip-ups.md](../terrascan/notes/2026-07-10-terrascan-getting-started-trip-ups.md)
@@ -128,27 +156,19 @@
 - **configs** (1): [tried-custom-s3-rule.yaml](../terrascan/configs/tried-custom-s3-rule.yaml)
 - **snippets** (2): [insecure-terraform.tf](../terrascan/snippets/insecure-terraform.tf), [tiny-tf-with-findings.tf](../terrascan/snippets/tiny-tf-with-findings.tf)
 
-## Tetragon · 3 files
-- **primer:** [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md)
-- **notes** (2): [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md), [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
-- **configs** (1): [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml)
-
-## Dependabot · 8 files
+## Dependabot · 9 files
 - **primer:** [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md)
-- **notes** (5): [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md), [2026-06-22-first-time-dependabot-setup.md](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md), [2026-06-15-dependabot-first-repo-bump-pr.md](../dependabot/notes/2026-06-15-dependabot-first-repo-bump-pr.md), [2026-07-10-enabling-dependabot-alerts.md](../dependabot/notes/2026-07-10-enabling-dependabot-alerts.md), [dependabot-alerts-security-updates.md](../dependabot/notes/dependabot-alerts-security-updates.md)
+- **notes** (6): [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md), [2026-06-22-first-time-dependabot-setup.md](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md), [2026-06-15-dependabot-first-repo-bump-pr.md](../dependabot/notes/2026-06-15-dependabot-first-repo-bump-pr.md), [2026-07-10-enabling-dependabot-alerts.md](../dependabot/notes/2026-07-10-enabling-dependabot-alerts.md), [2026-07-21-enabling-dependabot-alerts-security-updates.md](../dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md), [dependabot-alerts-security-updates.md](../dependabot/notes/dependabot-alerts-security-updates.md)
 - **configs** (3): [tried-npm-dependabot.yaml](../dependabot/configs/tried-npm-dependabot.yaml), [2026-07-10-npm-version-strategy.yaml](../dependabot/configs/2026-07-10-npm-version-strategy.yaml), [2026-07-18-python-project-version-update.yaml](../dependabot/configs/2026-07-18-python-project-version-update.yaml)
 
 ## DefectDojo · 2 files
 - **primer:** [0000-primer-defectdojo.md](../defectdojo/notes/0000-primer-defectdojo.md)
 - **snippets** (1): [install-defectdojo-first-scan-report.sh](../defectdojo/snippets/install-defectdojo-first-scan-report.sh)
 
-## Vault · 10 files
-- **primer:** [0000-primer-vault.md](../vault/notes/0000-primer-vault.md)
-- **notes** (3): [0000-primer-vault.md](../vault/notes/0000-primer-vault.md), [2026-06-05-install-vault-and-explore-cli.md](../vault/notes/2026-06-05-install-vault-and-explore-cli.md), [2026-06-15-vault-getting-started-trip-ups.md](../vault/notes/2026-06-15-vault-getting-started-trip-ups.md)
-- **scripts** (2): [vault-kv-crud.sh](../vault/scripts/vault-kv-crud.sh), [vault-db-dynamic-secrets.sh](../vault/scripts/vault-db-dynamic-secrets.sh)
-- **configs** (2): [2026-06-26-dev-test-policies.hcl](../vault/configs/2026-06-26-dev-test-policies.hcl), [multi-environment-access-control.hcl](../vault/configs/multi-environment-access-control.hcl)
-- **snippets** (1): [vault-read-write.go](../vault/snippets/vault-read-write.go)
-- **docs** (2): [configuring-vault-dev-server.md](../vault/docs/configuring-vault-dev-server.md), [vault-agent-auto-auth-kubernetes.md](../vault/docs/vault-agent-auto-auth-kubernetes.md)
+## Tetragon · 3 files
+- **primer:** [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md)
+- **notes** (2): [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md), [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
+- **configs** (1): [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml)
 
 ## Git · 6 files
 - **primer:** [0000-primer-git.md](../git/notes/0000-primer-git.md)
@@ -191,11 +211,13 @@
 - **notes** (2): [0000-primer-sonarqube.md](../sonarqube/notes/0000-primer-sonarqube.md), [2026-07-19-explore-sonarqube-quality-gates-profiles.md](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md)
 - **snippets** (1): [2026-07-16-first-sonarscanner-run.sh](../sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh)
 
+## OpenTofu · 3 files
+- **primer:** [0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md)
+- **notes** (2): [0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md), [2026-07-20-explore-open-tofu.md](../opentofu/notes/2026-07-20-explore-open-tofu.md)
+- **configs** (1): [2026-07-20-first-open-tofu-config.hcl](../opentofu/configs/2026-07-20-first-open-tofu-config.hcl)
+
 ## Linux · 1 file
 - **notes** (1): [2026-07-21-install-linux-vm-terminal-first-commands.md](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md)
-
-## OpenTofu · 1 file
-- **notes** (1): [0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md)
 
 ## Grafana · 1 file
 - **notes** (1): [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md)
@@ -206,29 +228,13 @@
 ## Prometheus · 1 file
 - **notes** (1): [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md)
 
-## CodeQL · 10 files
-- **primer:** [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md)
-- **notes** (3): [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md), [2026-06-05-install-codeql-first-analysis.md](../codeql/notes/2026-06-05-install-codeql-first-analysis.md), [2026-06-14-codeql-datalog-gotchas.md](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md)
-- **scripts** (1): [first-codeql-analysis.sh](../codeql/scripts/first-codeql-analysis.sh)
-- **configs** (1): [first-codeql-analysis.yml](../codeql/configs/first-codeql-analysis.yml)
-- **snippets** (3): [find-hardcoded-creds.ql](../codeql/snippets/find-hardcoded-creds.ql), [my-first-codeql-commands.sh](../codeql/snippets/my-first-codeql-commands.sh), [hardcoded-creds-local-flow.ql](../codeql/snippets/hardcoded-creds-local-flow.ql)
-- **docs** (1): [wired-custom-queries-into-ci.md](../codeql/docs/wired-custom-queries-into-ci.md)
-- **manifests** (1): [multi-language-codeql-analysis.yaml](../codeql/manifests/multi-language-codeql-analysis.yaml)
-
-## Terraform · 13 files
-- **primer:** [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md)
-- **notes** (2): [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md), [2026-07-15-explore-terraform.md](../terraform/notes/2026-07-15-explore-terraform.md)
-- **scripts** (3): [2026-07-13-zip-build.sh](../terraform/scripts/2026-07-13-zip-build.sh), [2026-07-18-cleanup.sh](../terraform/scripts/2026-07-18-cleanup.sh), [2026-07-18-deploy.sh](../terraform/scripts/2026-07-18-deploy.sh)
-- **configs** (1): [2026-07-15-first-config.tf](../terraform/configs/2026-07-15-first-config.tf)
-- _…and eventbridge-lambda module content under `terraform/` — browse the folder._
-
 ---
 
 ## Cross-cutting content
 
 These directories cut across every tool above. Browse the folders for the full set.
 
-## Docs · 171 files
+## Docs · 175 files
 - **concepts** (17): foundational primers — [application-security-testing](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md), [ci-cd-pipeline](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md), [configuration-management](../docs/concepts/configuration-management/0000-primer-configuration-management.md), [infrastructure-as-code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) … _and more under `docs/concepts/`._
 - **how-to** (many): [kubernetes toolkit](../docs/how-to/k8s_toolkit.md), [linux toolkit](../docs/how-to/linux_toolkit.md), [jenkins toolkit](../docs/how-to/jenkins_toolkit.md), [ansible toolkit](../docs/how-to/ansible_toolkit.md), [vault toolkit](../docs/how-to/vault_toolkit.md) … _browse `docs/how-to/`._
 - **reference** (git & jenkins commands), **runbooks**, **security**, **troubleshooting**, **setup-guides** — _browse `docs/`._
