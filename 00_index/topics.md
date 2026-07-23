@@ -191,6 +191,9 @@
 - **notes** (2): [0000-primer-sonarqube.md](../sonarqube/notes/0000-primer-sonarqube.md), [2026-07-19-explore-sonarqube-quality-gates-profiles.md](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md)
 - **snippets** (1): [2026-07-16-first-sonarscanner-run.sh](../sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh)
 
+## Linux · 1 file
+- **notes** (1): [2026-07-21-install-linux-vm-terminal-first-commands.md](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md)
+
 ## OpenTofu · 1 file
 - **notes** (1): [0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md)
 
