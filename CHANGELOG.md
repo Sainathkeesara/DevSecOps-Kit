@@ -11,6 +11,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - con-052: `docs/concepts/linux-shell-fundamentals/scripts/2026-07-23-practice-exercises.sh` — Practice Linux & Shell Fundamentals: variables, conditionals, loops, functions, and cleanup (L2)
 - con-056: `docs/concepts/software-supply-chain-security/snippets/2026-07-23-practice-exercises.sh` — Practice software supply chain checksum verification loop (L2)
 
+## 2026-07-24
+
+### Added
+- con-054: `docs/concepts/secrets-access-management/snippets/2026-07-24-practice-exercises.py` — Practice Secrets & Access Management exercises: reading secrets from the environment and simulating a rotation call (L2)
+- con-058: `docs/concepts/version-control-with-git/scripts/2026-07-24-practice-exercises.sh` — Practice Version Control with Git exercises: init, commit, branch, merge, and diff in a throwaway repo (L2)
+
+### Passed
+- Passed ([x]) con-052 — Linux & Shell Fundamentals: script(bash) — Practice: Linux & Shell Fundamentals exercises · Level: L2 · 2026-07-24
+- Passed ([x]) con-056 — Software Supply Chain Security: snippet(bash) — Practice: Software Supply Chain Security exercises · Level: L2 · 2026-07-24
+
 ## 2026-07-22
 
 ### Added
