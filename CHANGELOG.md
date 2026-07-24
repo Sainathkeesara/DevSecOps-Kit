@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-23
+
+### Added
+- con-050: `docs/concepts/infrastructure-as-code/snippets/2026-07-23-practice-exercises.hcl` — Practice Infrastructure as Code: variable, resource, and output blocks in HCL (L2)
+- con-052: `docs/concepts/linux-shell-fundamentals/scripts/2026-07-23-practice-exercises.sh` — Practice Linux & Shell Fundamentals: variables, conditionals, loops, functions, and cleanup (L2)
+- con-056: `docs/concepts/software-supply-chain-security/snippets/2026-07-23-practice-exercises.sh` — Practice software supply chain checksum verification loop (L2)
+
 ## 2026-07-22
 
 ### Added
