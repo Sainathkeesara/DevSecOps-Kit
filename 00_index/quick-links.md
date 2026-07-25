@@ -28,12 +28,14 @@
 - [Snyk primer](../snyk/notes/0000-primer-snyk.md)
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
 - [OWASP ZAP primer](../zap/notes/0000-primer-zap.md)
+- [ZAP baseline scan](../zap/notes/2026-07-20-install-zap-baseline-scan.md) — Non-intrusive ZAP spider and passive scan for CI
 - [Falco primer](../falco/notes/0000-primer-falco.md)
 - [Explore Falco CLI, rules, events, and output](../falco/notes/2026-07-19-explore-falco-cli-rules-events-output.md) — Walk through Falco's CLI flags, rule syntax, and event output
 - [Cosign primer](../cosign/notes/0000-primer-cosign.md)
 - [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md)
 - [Terrascan primer](../terrascan/notes/0000-primer-terrascan.md)
 - [Dependabot primer](../dependabot/notes/0000-primer-dependabot.md)
+- [Dependabot alerts and security updates](../dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md) — Enable vulnerability alerts and automatic security fix PRs
 - [Tetragon primer](../tetragon/notes/0000-primer-tetragon.md)
 - [HashiCorp Vault primer](../vault/notes/0000-primer-vault.md)
 - [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md)
@@ -53,7 +55,11 @@
 - [Explore SonarQube quality gates and profiles](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md) — Quality Gates, Quality Profiles, and project analysis
 - [SonarQube first scan run](../sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh)
 - [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
+- [Explore OpenTofu](../opentofu/notes/2026-07-20-explore-open-tofu.md) — First look at OpenTofu CLI, init, plan, apply workflow
+- [OpenTofu first config](../opentofu/configs/2026-07-20-first-open-tofu-config.hcl) — Minimal OpenTofu HCL configuration to deploy a local file resource
 - [Terraform primer](../terraform/notes/0000-primer-terraform.md)
+- [Terraform variables, outputs, data sources practice](../terraform/snippets/2026-07-20-practice-terraform-variables-outputs-datasources.hcl) — Hands-on Terraform HCL exercises
+- [Linux fundamentals first steps](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — First terminal commands, directory layout, and package management
 - [Grafana primer](../grafana/notes/0000-primer-grafana.md)
 - [Observability primer](../observability/notes/0000-primer-observability.md)
 - [Prometheus primer](../prometheus/notes/0000-primer-prometheus.md)
@@ -89,6 +95,9 @@
 - [Minimal ggshield pre-commit hook integration](../gitguardian/scripts/pre-commit-hook-ggshield.sh)
 - [ggshield scheduled scanning config](../gitguardian/configs/.ggshield.yaml)
 
+### Get started with Linux
+- [Linux fundamentals first steps](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — First terminal commands, directory structure, package management, and file operations
+
 ### Manage dependencies
 - [Minimal Dependabot npm update config](../dependabot/configs/tried-npm-dependabot.yaml)
 - [Dependabot npm version strategy config](../dependabot/configs/2026-07-10-npm-version-strategy.yaml)
@@ -107,6 +116,9 @@
 - [Custom Dockerfile (this cycle)](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile)
 - [Explore the Docker CLI](../docker/notes/2026-07-12-explore-docker-cli.md)
 - [Docker custom networking and volumes](../docker/scripts/2026-07-18-custom-network-volume-mounts.sh) — Run a container with bridge networking and named volumes
+- [Custom CodeQL analysis image](../codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile) — Docker image with pre-installed CodeQL CLI and queries for CI
+- [Air-gapped Snyk CLI image](../snyk/dockerfiles/custom-snyk-cli-air-gapped.Dockerfile) — Custom Docker image for Snyk scanning in offline environments
+- [Custom Vault image with plugins and TLS](../vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile) — Production-ready Vault image with plugins and TLS
 
 ### Set up CI/CD
 - [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md)

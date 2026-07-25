@@ -1,5 +1,4 @@
 # DevSecOps-Kit
-
 > A working engineer's devops and devsecops reference — notes, snippets, configs, and templates for vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and infrastructure automation.
 
 [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Repo size](https://img.shields.io/github/repo-size/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Top language](https://img.shields.io/github/languages/top/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Languages](https://img.shields.io/github/languages/count/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
@@ -22,11 +21,11 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Quick links
 
-- [Custom CodeQL analysis Dockerfile](codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile) — Prebuilt CodeQL CLI image with bundled queries for CI environments
-- [Custom Snyk CLI air-gapped Dockerfile](snyk/dockerfiles/custom-snyk-cli-air-gapped.Dockerfile) — Pre-installed Snyk CLI for environments without outbound network access
-- [Custom Vault Docker image with plugins and TLS](vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile) — Vault image bundling secrets engine plugins and TLS configuration
-- [First commands on a new Linux VM](linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — Notes on the initial setup trip-ups after installing Ubuntu in a VM
-- [Enabling Dependabot alerts and security updates](dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md) — Walkthrough of turning on Dependabot alerts and auto-fix PRs
+- [Custom CodeQL analysis image](codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile) — Docker image with pre-installed CodeQL queries and CLI for CI use
+- [Air-gapped Snyk CLI image](snyk/dockerfiles/custom-snyk-cli-air-gapped.Dockerfile) — Custom Docker image for Snyk scanning in offline environments
+- [Custom Vault image with plugins and TLS](vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile) — Production-ready Vault image with plugins and TLS configuration
+- [Linux VM first steps](linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — First terminal commands, directory layout, package management, and file operations
+- [Dependabot alerts and security updates](dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md) — Enable Dependabot alerts and automatic security update PRs
 
 ---
 
@@ -45,6 +44,7 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 - **`docker/`** — Docker image authoring, CLI, and container security
 - **`github-actions/`** — GitHub Actions CI/CD workflows and runners
 - **`helm/` / `kubernetes/` / `kustomize/`** — Kubernetes ecosystem notes
+- **`linux/`** — Linux fundamentals, CLI, system administration, and security hardening
 - **`sonarqube/` / `opentofu/`** — Static analysis and IaC tool primers
 - **`grafana/` / `observability/` / `prometheus/`** — Metrics, logs, traces, dashboards
 - **`docs/`** — How-to guides, concepts, reference, runbooks, security docs, troubleshooting, setup guides
@@ -70,20 +70,20 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 | Trivy | 3 | 5 | 2 | 1 | 3 | 2 | 6 | 2 | 1 | — | 25 |
 | TruffleHog | 3 | 3 | 2 | 2 | 2 | 1 | 21 | 2 | 1 | — | 37 |
 | ZAP | 5 | 2 | 2 | 4 | 3 | — | 16 | — | 1 | — | 33 |
-| Checkov | 4 | 2 | 2 | 4 | 4 | 2 | 10 | 1 | — | 1 | 30 |
+| Checkov | 4 | 2 | 2 | 4 | 5 | 2 | 10 | 2 | — | 1 | 32 |
 | Syft | 4 | 3 | 1 | 1 | 5 | — | 7 | 1 | 1 | — | 23 |
 | Grype | 4 | 8 | 1 | 2 | 1 | 2 | — | 1 | 1 | — | 20 |
 | Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — | 18 |
+| Terraform | 2 | 3 | 1 | 1 | — | — | — | — | — | — | 14 |
 | Falco | 4 | 3 | 3 | 1 | 2 | — | — | — | — | — | 13 |
-| Terraform | 2 | 3 | 1 | — | — | — | — | — | — | — | 13 |
+| CodeQL | 3 | 1 | 1 | 4 | 1 | 1 | — | — | 1 | — | 12 |
 | GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — | — | 11 |
-| CodeQL | 3 | 1 | 1 | 3 | 1 | 1 | — | — | — | — | 10 |
 | Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | 1 | — | 11 |
-| OPA | 3 | 1 | 1 | 3 | 1 | — | — | — | — | — | 9 |
 | Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | 1 | — | 10 |
+| OPA | 3 | 1 | 1 | 3 | 1 | — | — | — | — | — | 9 |
 | Cosign | 4 | 2 | 1 | 1 | — | 1 | — | — | — | — | 9 |
 | Terrascan | 5 | 1 | 1 | 2 | — | — | — | — | — | — | 9 |
-| Dependabot | 5 | — | 3 | — | — | — | — | — | — | — | 8 |
+| Dependabot | 6 | — | 3 | — | — | — | — | — | — | — | 9 |
 | Git | 3 | 2 | — | 1 | — | — | — | — | — | — | 6 |
 | Docker | 2 | 1 | — | — | — | — | — | — | 2 | — | 5 |
 | ArgoCD | 2 | — | — | — | — | 1 | — | — | — | — | 3 |
@@ -93,11 +93,12 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 | GitHub Actions | 2 | — | 1 | — | — | — | — | — | — | — | 3 |
 | SonarQube | 2 | — | — | 1 | — | — | — | — | — | — | 3 |
 | Tetragon | 2 | — | 1 | — | — | — | — | — | — | — | 3 |
+| OpenTofu | 2 | — | 1 | — | — | — | — | — | — | — | 3 |
 | DefectDojo | 1 | — | — | 1 | — | — | — | — | — | — | 2 |
-| OpenTofu | 1 | — | — | — | — | — | — | — | — | — | 1 |
 | Grafana | 1 | — | — | — | — | — | — | — | — | — | 1 |
 | Observability | 1 | — | — | — | — | — | — | — | — | — | 1 |
 | Prometheus | 1 | — | — | — | — | — | — | — | — | — | 1 |
+| Linux | 1 | — | — | — | — | — | — | — | — | — | 1 |
 
 </details>
 
@@ -105,7 +106,7 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Status
 
-Currently expanding foundational concept docs — Falco CLI exploration, Helm chart management, SonarQube quality gates and profiles, Checkov v3 migration guide, and AppSec secrets integration exercises.
+Currently expanding tool coverage with custom Dockerfiles for CodeQL, Snyk, and Vault; Linux fundamentals primer; and Dependabot alert configuration guides.
 
 ---
 
