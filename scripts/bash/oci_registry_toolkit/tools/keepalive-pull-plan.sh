@@ -146,7 +146,6 @@ generate_pull_script() {
 
     script_content="#!/usr/bin/env bash
 #
-# AUTO-GENERATED keepalive pull plan
 # Repository: $repo
 # Generated: $(date -u +%Y-%m-%d\ %H:%M:%S\ UTC)
 # Target directory: $target_dir
