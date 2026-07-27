@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - assets-001: `assets/devsecops-pipeline.png` — DevSecOps pipeline flow diagram showing code repo through scan stages to deploy
 - assets-001: `assets/architecture-overview.png` — Architecture overview diagram showing all DevSecOps tools and their integration points
 - assets-001: `assets/cicd-workflow.png` — CI/CD GitOps workflow illustration showing the trigger-to-deploy pipeline with feedback loop
+## 2026-07-25
+
+### Added
+- argocd-004: `argocd/notes/2026-07-25-readme-layout.md` — Document argocd/ root folder in README Layout
 
 ## 2026-07-23
 
