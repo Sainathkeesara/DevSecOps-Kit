@@ -21,11 +21,11 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Quick links
 
-- [Custom CodeQL analysis image](codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile) — Docker image with pre-installed CodeQL queries and CLI for CI use
-- [Air-gapped Snyk CLI image](snyk/dockerfiles/custom-snyk-cli-air-gapped.Dockerfile) — Custom Docker image for Snyk scanning in offline environments
-- [Custom Vault image with plugins and TLS](vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile) — Production-ready Vault image with plugins and TLS configuration
-- [Linux VM first steps](linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — First terminal commands, directory layout, package management, and file operations
-- [Dependabot alerts and security updates](dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md) — Enable Dependabot alerts and automatic security update PRs
+- [Secrets access management practice exercises](docs/concepts/secrets-access-management/snippets/2026-07-24-practice-exercises.py) — Python exercises for secret handling and access management
+- [Version control with Git practice exercises](docs/concepts/version-control-with-git/scripts/2026-07-24-practice-exercises.sh) — Hands-on Git exercises for branching, merging, and collaboration
+- [Infrastructure as Code practice exercises](docs/concepts/infrastructure-as-code/snippets/2026-07-23-practice-exercises.hcl) — HCL exercises for Terraform resource composition
+- [Linux & Shell practice exercises](docs/concepts/linux-shell-fundamentals/scripts/2026-07-23-practice-exercises.sh) — Shell scripting and command-line exercises
+- [Supply chain security practice exercises](docs/concepts/software-supply-chain-security/snippets/2026-07-23-practice-exercises.sh) — SBOM and dependency verification exercises
 
 ---
 
@@ -74,7 +74,7 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 | Syft | 4 | 3 | 1 | 1 | 5 | — | 7 | 1 | 1 | — | 23 |
 | Grype | 4 | 8 | 1 | 2 | 1 | 2 | — | 1 | 1 | — | 20 |
 | Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — | 18 |
-| Terraform | 2 | 3 | 1 | 1 | — | — | — | — | — | — | 14 |
+| Terraform | 2 | 3 | 1 | 1 | — | — | — | — | — | — | 7 |
 | Falco | 4 | 3 | 3 | 1 | 2 | — | — | — | — | — | 13 |
 | CodeQL | 3 | 1 | 1 | 4 | 1 | 1 | — | — | 1 | — | 12 |
 | GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — | — | 11 |
@@ -106,8 +106,8 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Status
 
-Currently expanding tool coverage with custom Dockerfiles for CodeQL, Snyk, and Vault; Linux fundamentals primer; and Dependabot alert configuration guides.
+Currently expanding tool coverage with foundational concept primers for secrets management, version control, infrastructure as code, and Linux/shell fundamentals; practice exercises across multiple domains; and ongoing CVE remediation guides for the security toolchain.
 
 ---
 
-_Last updated: 2026-07-22_
+_Last updated: 2026-07-25_

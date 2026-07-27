@@ -17,6 +17,11 @@
 - [Observability & Monitoring](../docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md) — Metrics, logs, traces, SLOs, and telemetry fundamentals
 - [Secrets & Access Management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md) — Controlling access and handling credentials securely
 - [OWASP Top 10 SAST rule mapping](../docs/concepts/application-security-testing-concepts/snippets/2026-07-10-owasp-top10-sast.sh) — SAST rule snippets mapped to OWASP Top 10 categories
+- [Secrets & Access Management practice exercises](../docs/concepts/secrets-access-management/snippets/2026-07-24-practice-exercises.py) — Hands-on exercises for secret handling and access patterns
+- [Version Control with Git practice exercises](../docs/concepts/version-control-with-git/scripts/2026-07-24-practice-exercises.sh) — Git branching, merging, and collaboration exercises
+- [Infrastructure as Code practice exercises](../docs/concepts/infrastructure-as-code/snippets/2026-07-23-practice-exercises.hcl) — HCL resource composition exercises
+- [Linux & Shell practice exercises](../docs/concepts/linux-shell-fundamentals/scripts/2026-07-23-practice-exercises.sh) — Shell scripting and command-line exercises
+- [Software Supply Chain Security practice exercises](../docs/concepts/software-supply-chain-security/snippets/2026-07-23-practice-exercises.sh) — SBOM and dependency verification exercises
 
 ### Learn a specific tool
 - [Trivy primer](../trivy/notes/0000-primer-trivy.md)
