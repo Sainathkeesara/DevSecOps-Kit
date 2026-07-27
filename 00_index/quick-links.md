@@ -5,9 +5,7 @@
 ### Get started with a new concept
 - [Application Security Testing Concepts](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md) — SAST, DAST, SCA, and key security testing terminology
 - [CI/CD Pipeline Concepts](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md) — Stages, gates, triggers, and pipeline fundamentals
-- [CI/CD Pipeline Concepts practice exercises](../docs/concepts/ci-cd-pipeline-concepts/scripts/2026-07-17-practice-ci-cd-exercises.sh) — Hands-on pipeline simulation with stages, gates, and rollbacks
 - [Configuration Management](../docs/concepts/configuration-management/0000-primer-configuration-management.md) — Desired state, idempotency, drift, and config management fundamentals
-- [Configuration Management in DevSecOps](../docs/concepts/configuration-management/2026-07-14-devsecops-patterns.md) — Patterns: desired state as source of truth, drift, GitOps, and pairing CM with scanners
 - [Container & Runtime Security](../docs/concepts/container-runtime-security/0000-primer-container-runtime-security.md) — Image vs runtime security, syscalls, eBPF
 - [Software Supply Chain Security](../docs/concepts/software-supply-chain-security/0000-primer-software-supply-chain-security.md) — Supply chain attacks, SBOM, signing, and dependency verification
 - [Version Control with Git](../docs/concepts/version-control-with-git/0000-primer-version-control-with-git.md) — Repos, commits, branches, and collaboration workflows
@@ -16,7 +14,7 @@
 - [Linux & Shell Fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) — What Linux and the shell are, why they matter, and core terminology
 - [Observability & Monitoring](../docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md) — Metrics, logs, traces, SLOs, and telemetry fundamentals
 - [Secrets & Access Management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md) — Controlling access and handling credentials securely
-- [OWASP Top 10 SAST rule mapping](../docs/concepts/application-security-testing-concepts/snippets/2026-07-10-owasp-top10-sast.sh) — SAST rule snippets mapped to OWASP Top 10 categories
+- [AppSec + secrets integration exercise](../docs/concepts/application-security-testing-concepts/snippets/2026-07-19-appsec-secrets-integration.py) — Hands-on secrets integration with AppSec scanners
 - [Secrets & Access Management practice exercises](../docs/concepts/secrets-access-management/snippets/2026-07-24-practice-exercises.py) — Hands-on exercises for secret handling and access patterns
 - [Version Control with Git practice exercises](../docs/concepts/version-control-with-git/scripts/2026-07-24-practice-exercises.sh) — Git branching, merging, and collaboration exercises
 - [Infrastructure as Code practice exercises](../docs/concepts/infrastructure-as-code/snippets/2026-07-23-practice-exercises.hcl) — HCL resource composition exercises
