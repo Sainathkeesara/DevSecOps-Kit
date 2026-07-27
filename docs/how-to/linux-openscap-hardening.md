@@ -37,7 +37,7 @@ sudo apt-get install -y openscap-scanner
 Always preview changes before applying:
 
 ```bash
-sudo ./scripts/bash/linux_toolkit/security/openscap-hardening.sh \
+sudo ../../scripts/bash/linux_toolkit/security/openscap-hardening.sh \
     --dry-run \
     --profile xccdf_org.ssgproject.content_profile_stig-rhel8-draft
 ```
@@ -52,7 +52,7 @@ This shows:
 Generate detailed XML and HTML reports:
 
 ```bash
-sudo ./scripts/bash/linux_toolkit/security/openscap-hardening.sh \
+sudo ../../scripts/bash/linux_toolkit/security/openscap-hardening.sh \
     --profile xccdf_org.ssgproject.content_profile_stig-rhel8-draft \
     --report
 ```
@@ -79,7 +79,7 @@ Create a bash script with fixes for all failed controls:
 
 ```bash
 # Generate (not apply) remediation script
-sudo ./scripts/bash/linux_toolkit/security/openscap-hardening.sh \
+sudo ../../scripts/bash/linux_toolkit/security/openscap-hardening.sh \
     --profile xccdf_org.ssgproject.content_profile_stig-rhel8-draft
 ```
 
@@ -102,7 +102,7 @@ When ready, apply fixes with backup:
 
 ```bash
 # Auto-remediate with backup (recommended)
-sudo ./scripts/bash/linux_toolkit/security/openscap-hardening.sh \
+sudo ../../scripts/bash/linux_toolkit/security/openscap-hardening.sh \
     --profile xccdf_org.ssgproject.content_profile_stig-rhel8-draft \
     --auto-remediate
 ```
