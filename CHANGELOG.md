@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-27
+
+### Added
+- assets-001: `assets/devsecops-pipeline.png` — DevSecOps pipeline flow diagram showing code repo through scan stages to deploy
+- assets-001: `assets/architecture-overview.png` — Architecture overview diagram showing all DevSecOps tools and their integration points
+- assets-001: `assets/cicd-workflow.png` — CI/CD GitOps workflow illustration showing the trigger-to-deploy pipeline with feedback loop
 ## 2026-07-25
 
 ### Added
@@ -1780,7 +1786,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - ter-011: AWS VPC with public/private subnets
 - lin-017: Samba file sharing server setup
   - Script: scripts/bash/terraform_toolkit/networking/vpc-setup.sh
-  - Terraform: scripts/bash/terraform_toolkit/networks/terraform/
+  - Terraform: scripts/bash/terraform_toolkit/networking/terraform/
   - Doc: docs/how-to/terraform-aws-vpc.md
 - lin-016: DNS server with BIND9
   - Script: scripts/bash/linux_toolkit/dns/bind9-server-setup.sh
