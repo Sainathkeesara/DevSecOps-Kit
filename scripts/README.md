@@ -66,7 +66,7 @@ Common functionality is extracted to `scripts/lib/`:
 
 Make scripts executable:
 ```bash
-chmod +x scripts/bash/<tool_name>/*.sh
+chmod +x bash/<tool_name>/*.sh
 ```
 
 Run with `--help` to see options:

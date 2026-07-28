@@ -326,6 +326,80 @@
 
 **Loki** — Grafana Labs' log aggregation system inspired by Prometheus, using a similar label-based indexing approach for log data.
 
+**Repository (repo)** — A folder that Git is tracking, including the full change history.
+
+**Commit** — A snapshot of the project at a point in time, saved with a message explaining why.
+
+**Branch** — A parallel version of the code for isolated development.
+
+**Merge** — Combining changes from one branch into another.
+
+**Pull request (PR)** — A proposal to merge changes from one branch into another, usually with code review.
+
+**Diff** — The difference between two versions of a file, showing added and removed lines.
+
+**Remote** — A copy of a Git repository hosted on another server (GitHub, GitLab, etc.).
+
+**Clone / Fork** — Clone: download a remote repo locally. Fork: create a copy of someone else's repo under your own account.
+
+**Kernel** — The core of an operating system that manages hardware resources and system calls.
+
+**Distribution (distro)** — A packaged version of the Linux kernel plus utilities and package manager (e.g., Ubuntu, Alpine).
+
+**Shell** — The command-line interpreter that reads input and executes programs (e.g., Bash).
+
+**Pipeline (`|`)** — A shell mechanism to pass the output of one command as input to another.
+
+**Redirection (`>`, `>>`, `<`)** — Sending command output to a file or reading input from a file.
+
+**Exit code** — A numeric value a process returns on completion (0 = success, non-zero = failure).
+
+**Shebang (`#!/bin/bash`)** — The `#!` sequence at the top of a script that tells the system which interpreter to use.
+
+**Variable** — A named container for data in a shell script.
+
+**Process** — A running instance of a program.
+
+**Declarative configuration** — You describe the desired end state, and the tool figures out how to get there.
+
+**Imperative configuration** — You specify exact steps to achieve the desired state.
+
+**Immutable infrastructure** — Infrastructure that is replaced rather than modified.
+
+**Mutable infrastructure** — Infrastructure that is updated in place (e.g., patching a running server).
+
+**Provisioning** — The act of creating and configuring infrastructure resources.
+
+**State file** — A file tracking the current state of provisioned infrastructure so the IaC tool knows what exists and needs to change.
+
+**Authentication** — Proving who you are (e.g., presenting a username and password).
+
+**Authorization** — Determining what an authenticated identity is allowed to do.
+
+**Principal** — An identity that can request access to a resource (user, service account, IAM role).
+
+**Bearer token** — A credential that grants access to whoever possesses it.
+
+**Least privilege** — The principle of granting only the minimum permissions necessary.
+
+**Rotation** — Regularly changing a secret to reduce the window of exposure if compromised.
+
+**Service account** — An identity assigned to a non-human process or application.
+
+**SLSA (Supply-chain Levels for Software Artifacts)** — A security framework that grades build pipeline trustworthiness (Level 1–4).
+
+**Provenance** — Metadata about who or what produced an artifact and how.
+
+**Signing** — Cryptographically proving that an artifact came from a specific source.
+
+**Dependency confusion** — An attack where a malicious package with the same name as a private package is published to a public registry.
+
+**Typosquatting** — Publishing a package with a name that looks like a popular one to trick users.
+
+**Registry** — A server storing and serving packages or container images.
+
+**Attestation** — A signed statement about something in the supply chain.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment
