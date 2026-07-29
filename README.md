@@ -1,9 +1,9 @@
 # DevSecOps-Kit
-> A working engineer's devops and devsecops reference — notes, snippets, configs, and templates for vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and infrastructure automation.
+> A working engineer's devops and devsecops reference for Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, Cosign, OPA, Falco, Vault, and Terraform.
 
 [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Repo size](https://img.shields.io/github/repo-size/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Top language](https://img.shields.io/github/languages/top/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Languages](https://img.shields.io/github/languages/count/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 
-> **New here? Start at [the learning path](00_index/learning-path.md).** It walks you from first-contact to confident in a sensible order — read that before the table below.
+> **New here? Start at [the learning path](00_index/learning-path.md).** It walks you from first-contact to confident in a sensible order — read that before this table.
 
 ---
 
@@ -11,9 +11,11 @@
 
 A working DevSecOps engineer's quick-reference for Trivy, Semgrep, Checkov, Grype, TruffleHog, Syft, Cosign, OPA, Falco, and HashiCorp Vault. Use it as a shelf you grab from, not a tutorial site. It deliberately does not try to replace each tool's official docs.
 
+---
+
 ## What's in here
 
-A curated collection of notes, scripts, snippets, and templates covering vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and secrets management. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+A curated collection of notes, scripts, snippets, and templates covering vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and infrastructure automation. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terrascan, TruffleHog, GitGuardian, Syft, Cosign, Dependabot, Falco, Tetragon, OPA, Vault, ZAP, DefectDojo, SonarQube, Docker, Kubernetes, Helm, Kustomize, ArgoCD, GitHub Actions, Terraform, OpenTofu, Git, Prometheus, Grafana, and observability — with CVE-specific remediation guidance, Linux system administration, and CI/CD pipeline toolkits.
 
@@ -21,11 +23,11 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 
 ## Quick links
 
-- [Secrets access management practice exercises](docs/concepts/secrets-access-management/snippets/2026-07-24-practice-exercises.py) — Python exercises for secret handling and access management
-- [Version control with Git practice exercises](docs/concepts/version-control-with-git/scripts/2026-07-24-practice-exercises.sh) — Hands-on Git exercises for branching, merging, and collaboration
-- [Infrastructure as Code practice exercises](docs/concepts/infrastructure-as-code/snippets/2026-07-23-practice-exercises.hcl) — HCL exercises for Terraform resource composition
-- [Linux & Shell practice exercises](docs/concepts/linux-shell-fundamentals/scripts/2026-07-23-practice-exercises.sh) — Shell scripting and command-line exercises
-- [Supply chain security practice exercises](docs/concepts/software-supply-chain-security/snippets/2026-07-23-practice-exercises.sh) — SBOM and dependency verification exercises
+- [Architecture overview](assets/architecture-overview.png) — DevSecOps pipeline architecture diagram
+- [CI/CD workflow diagram](assets/cicd-workflow.png) — CI/CD pipeline workflow illustration
+- [DevSecOps pipeline illustration](assets/devsecops-pipeline.png) — End-to-end DevSecOps pipeline overview
+- [ArgoCD README layout note](argocd/notes/2026-07-25-readme-layout.md) — Documenting the ArgoCD root folder in README Layout
+- [Git notes primer](git/notes/0000-primer-git.md) — What is Git? — quick primer
 
 ---
 
@@ -110,4 +112,4 @@ Currently expanding tool coverage with foundational concept primers for secrets 
 
 ---
 
-_Last updated: 2026-07-25_
+_Last updated: 2026-07-28_
