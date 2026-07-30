@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-30
+
+### Added
+- con-040: `docs/concepts/configuration-management/0000-primer-configuration-management.md` — Configuration Management (L1) — quick primer with YAML front-matter
+- con-041: `docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md` — Observability & Monitoring (L1) — quick primer with YAML front-matter
+
 ## 2026-07-26
 
 ### Added

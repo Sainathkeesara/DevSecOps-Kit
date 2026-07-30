@@ -1,3 +1,8 @@
+---
+last_verified: 2026-07-30
+tool_version: n/a
+---
+
 # Observability & Monitoring — quick primer
 
 > First-day notes on Observability & Monitoring. What it is, why it matters, and the key ideas to know.
