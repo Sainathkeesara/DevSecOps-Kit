@@ -1,3 +1,8 @@
+---
+last_verified: 2026-07-30
+tool_version: n/a
+---
+
 # Configuration Management — quick primer
 
 > First-day notes on Configuration Management. What it is, why it matters, and the key ideas to know.
