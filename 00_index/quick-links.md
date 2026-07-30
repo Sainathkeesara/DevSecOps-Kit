@@ -2,170 +2,85 @@
 
 ## I need to...
 
-### Get started with a new concept
-- [Application Security Testing Concepts](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md) — SAST, DAST, SCA, and key security testing terminology
-- [CI/CD Pipeline Concepts](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md) — Stages, gates, triggers, and pipeline fundamentals
-- [CI/CD Pipeline Concepts practice exercises](../docs/concepts/ci-cd-pipeline-concepts/scripts/2026-07-17-practice-ci-cd-exercises.sh) — Hands-on pipeline simulation with stages, gates, and rollbacks
-- [Configuration Management](../docs/concepts/configuration-management/0000-primer-configuration-management.md) — Desired state, idempotency, drift, and config management fundamentals
-- [Configuration Management in DevSecOps](../docs/concepts/configuration-management/2026-07-14-devsecops-patterns.md) — Patterns: desired state as source of truth, drift, GitOps, and pairing CM with scanners
-- [Container & Runtime Security](../docs/concepts/container-runtime-security/0000-primer-container-runtime-security.md) — Image vs runtime security, syscalls, eBPF
-- [Software Supply Chain Security](../docs/concepts/software-supply-chain-security/0000-primer-software-supply-chain-security.md) — Supply chain attacks, SBOM, signing, and dependency verification
-- [Version Control with Git](../docs/concepts/version-control-with-git/0000-primer-version-control-with-git.md) — Repos, commits, branches, and collaboration workflows
-- [Containers & Orchestration](../docs/concepts/containers-orchestration/0000-primer-containers-orchestration.md) — Images, containers, registries, and Kubernetes fundamentals
-- [Infrastructure as Code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) — What IaC is, why it matters, and key terminology
-- [Linux & Shell Fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) — What Linux and the shell are, why they matter, and core terminology
-- [Observability & Monitoring](../docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md) — Metrics, logs, traces, SLOs, and telemetry fundamentals
-- [Secrets & Access Management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md) — Controlling access and handling credentials securely
-- [OWASP Top 10 SAST rule mapping](../docs/concepts/application-security-testing-concepts/snippets/2026-07-10-owasp-top10-sast.sh) — SAST rule snippets mapped to OWASP Top 10 categories
-- [Secrets & Access Management practice exercises](../docs/concepts/secrets-access-management/snippets/2026-07-24-practice-exercises.py) — Hands-on exercises for secret handling and access patterns
-- [Version Control with Git practice exercises](../docs/concepts/version-control-with-git/scripts/2026-07-24-practice-exercises.sh) — Git branching, merging, and collaboration exercises
-- [Infrastructure as Code practice exercises](../docs/concepts/infrastructure-as-code/snippets/2026-07-23-practice-exercises.hcl) — HCL resource composition exercises
-- [Linux & Shell practice exercises](../docs/concepts/linux-shell-fundamentals/scripts/2026-07-23-practice-exercises.sh) — Shell scripting and command-line exercises
-- [Software Supply Chain Security practice exercises](../docs/concepts/software-supply-chain-security/snippets/2026-07-23-practice-exercises.sh) — SBOM and dependency verification exercises
-
-### Learn a specific tool
-- [Trivy primer](../trivy/notes/0000-primer-trivy.md)
-- [Semgrep primer](../semgrep/notes/0000-primer-semgrep.md)
-- [Checkov primer](../checkov/notes/0000-primer-checkov.md)
-- [Checkov v3 migration guide](../checkov/docs/checkov-v3-migration-guide.md) — Migrate Checkov configs from v2 to v3
-- [Grype primer](../grype/notes/0000-primer-grype.md)
-- [CodeQL primer](../codeql/notes/0000-primer-codeql.md)
-- [Snyk primer](../snyk/notes/0000-primer-snyk.md)
-- [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
-- [OWASP ZAP primer](../zap/notes/0000-primer-zap.md)
-- [ZAP baseline scan](../zap/notes/2026-07-20-install-zap-baseline-scan.md) — Non-intrusive ZAP spider and passive scan for CI
-- [Falco primer](../falco/notes/0000-primer-falco.md)
-- [Explore Falco CLI, rules, events, and output](../falco/notes/2026-07-19-explore-falco-cli-rules-events-output.md) — Walk through Falco's CLI flags, rule syntax, and event output
-- [Cosign primer](../cosign/notes/0000-primer-cosign.md)
-- [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md)
-- [Terrascan primer](../terrascan/notes/0000-primer-terrascan.md)
-- [Dependabot primer](../dependabot/notes/0000-primer-dependabot.md)
-- [Dependabot alerts and security updates](../dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md) — Enable vulnerability alerts and automatic security fix PRs
-- [Tetragon primer](../tetragon/notes/0000-primer-tetragon.md)
-- [HashiCorp Vault primer](../vault/notes/0000-primer-vault.md)
-- [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md)
-- [DefectDojo primer](../defectdojo/notes/0000-primer-defectdojo.md)
-- [Git primer](../git/notes/0000-primer-git.md)
-- [Simulate CI locally with Git](../git/scripts/2026-07-10-local-ci-simulation.sh)
-- [ArgoCD primer](../argocd/notes/0000-primer-argocd.md)
-- [Docker primer](../docker/notes/0000-primer-docker.md)
-- [Helm primer](../helm/notes/0000-primer-helm.md)
-- [Explore Helm charts, releases, values, and repos](../helm/notes/2026-07-19-explore-helm-charts-releases-values-repos.md) — First look at Helm chart structure, releases, and repo management
-- [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md)
-- [Explore Kubernetes](../kubernetes/notes/2026-07-15-explore-kubernetes.md) — First look at K8s objects and kubectl
-- [First pod and service manifest](../kubernetes/manifests/2026-07-15-first-pod-service.yaml) — Minimal deployment starting point
-- [Kustomize primer](../kustomize/notes/0000-primer-kustomize.md)
-- [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md)
-- [SonarQube primer](../sonarqube/notes/0000-primer-sonarqube.md)
-- [Explore SonarQube quality gates and profiles](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md) — Quality Gates, Quality Profiles, and project analysis
-- [SonarQube first scan run](../sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh)
-- [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
-- [Explore OpenTofu](../opentofu/notes/2026-07-20-explore-open-tofu.md) — First look at OpenTofu CLI, init, plan, apply workflow
-- [OpenTofu first config](../opentofu/configs/2026-07-20-first-open-tofu-config.hcl) — Minimal OpenTofu HCL configuration to deploy a local file resource
-- [Terraform primer](../terraform/notes/0000-primer-terraform.md)
-- [Terraform variables, outputs, data sources practice](../terraform/snippets/2026-07-20-practice-terraform-variables-outputs-datasources.hcl) — Hands-on Terraform HCL exercises
-- [Linux fundamentals first steps](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — First terminal commands, directory layout, and package management
-- [Grafana primer](../grafana/notes/0000-primer-grafana.md)
-- [Observability primer](../observability/notes/0000-primer-observability.md)
-- [Prometheus primer](../prometheus/notes/0000-primer-prometheus.md)
-
-### Scan for vulnerabilities
-- [Scan Docker images with Trivy](../trivy/scripts/container-vuln-scan.sh)
-- [Scan multi-service Docker Compose with Trivy](../trivy/scripts/compose-multi-scan.sh)
-- [Automated image vulnerability scanning pipeline](../trivy/scripts/image-vuln-pipeline.sh)
-- [Scan Python codebase with Semgrep](../semgrep/scripts/scan-python-codebase.sh)
-- [Detect hardcoded secrets with Semgrep](../semgrep/scripts/detect-hardcoded-secrets.py)
-- [Scan Terraform plan with Checkov](../checkov/scripts/scan-terraform-plan.sh)
-- [Deep Terraform plan scan with Checkov](../checkov/scripts/deep-terraform-plan-scan.sh)
-- [Scan Kubernetes manifests with Checkov](../checkov/snippets/scan-kubernetes.sh)
-- [Scan Terraform directory with Checkov SDK](../checkov/snippets/scan-terraform-dir.py)
-- [Scan single Terraform file with Checkov SDK](../checkov/snippets/scan-a-terraform-file.py)
-- [Minimal Grype scan script](../grype/scripts/minimal-grype-scan.sh)
-- [CI-ready Grype scanning wrapper](../grype/scripts/ci-ready-grype-scan.sh)
-- [Vulnerability diff across two image versions](../grype/scripts/vuln-diff-two-images.sh)
-- [Grype results to SARIF converter](../grype/scripts/grype-results-to-sarif.py)
-- [Grype end-to-end scan pipeline](../grype/scripts/grype-end-to-end-scan-pipeline.sh) — Full SBOM generation to SARIF output in one script
-- [Grype scan pipeline end-to-end (new)](../grype/scripts/grype-scan-pipeline-end-to-end.sh) — Complete SBOM-to-SARIF pipeline with vulnerability correlation
-- [ZAP baseline scan script](../zap/snippets/my-first-zap-baseline-scan.sh)
-- [ZAP Docker quickstart with JSON export](../zap/snippets/2026-07-16-zap-docker-quickstart-json-export.sh) — Run ZAP in Docker and export results as JSON
-- [DAST workflow from spider to active scan](../zap/scripts/dast-workflow-from-scratch.sh)
-- [ZAP DAST SARIF code scanning](../zap/scripts/zap-dast-sarif-code-scanning.sh)
-- [Snyk vulnerability scanning pipeline](../snyk/scripts/snyk-vuln-scan-pipeline.sh)
+### Get started with security scanning
+- [Trivy primer](../trivy/notes/0000-primer-trivy.md) — Universal vulnerability scanner for containers and Kubernetes
+- [Grype primer](../grype/notes/0000-primer-grype.md) — Vulnerability scanner for container images and filesystems
+- [Syft primer](../syft/notes/0000-primer-syft.md) — SBOM generation for containers and filesystems
+- [Minimal Grype scan](../grype/scripts/minimal-grype-scan.sh) — Quick Grype scan with minimal setup
+- [Container vulnerability scan with Trivy](../trivy/scripts/container-vuln-scan.sh) — Scan Docker images for vulnerabilities
+- [CI-ready Grype scanning](../grype/scripts/ci-ready-grype-scan.sh) — Grype wrapper for CI pipelines
+- [SBOM generation with Syft](../syft/scripts/gen-multi-format-sboms.sh) — Generate SBOMs in multiple formats
 
 ### Scan for secrets
-- [Test fake secrets scan with TruffleHog](../trufflehog/snippets/fake-secrets-test.sh)
-- [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
-- [Pre-commit secret scanning pipeline](../trufflehog/scripts/pre-commit-scan-pipeline.sh)
-- [Multi-repo secret scanning pipeline](../trufflehog/scripts/multi-repo-scan-pipeline.sh)
-- [Minimal ggshield pre-commit hook integration](../gitguardian/scripts/pre-commit-hook-ggshield.sh)
-- [ggshield scheduled scanning config](../gitguardian/configs/.ggshield.yaml)
+- [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md) — Secret scanning with regex patterns and entropy analysis
+- [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md) — Secrets detection with ggshield CLI
+- [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh) — Quick TruffleHog repo scan
+- [Minimal ggshield pre-commit hook](../gitguardian/scripts/pre-commit-hook-ggshield.sh) — Set up pre-commit secret scanning
+- [Custom policy engine for ggshield](../gitguardian/snippets/custom-policy-engine-ggshield.sh) — Extend gitguardian detection rules
 
-### Get started with Linux
-- [Linux fundamentals first steps](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — First terminal commands, directory structure, package management, and file operations
+### Run static analysis
+- [Semgrep primer](../semgrep/notes/0000-primer-semgrep.md) — Static analysis with custom rules across multiple languages
+- [Scan Python codebase with Semgrep](../semgrep/scripts/scan-python-codebase.sh) — Python-specific Semgrep scan
+- [Checkov primer](../checkov/notes/0000-primer-checkov.md) — IaC security scanner for Terraform, Kubernetes, CloudFormation
+- [Scan Terraform plan with Checkov](../checkov/scripts/scan-terraform-plan.sh) — Plan-level IaC security scanning
+- [CodeQL primer](../codeql/notes/0000-primer-codeql.md) — Semantic code analysis with custom QL queries
+- [Custom Semgrep rule example](../semgrep/snippets/first-custom-rule.yaml) — Write your first Semgrep rule
 
-### Manage dependencies
-- [Minimal Dependabot npm update config](../dependabot/configs/tried-npm-dependabot.yaml)
-- [Dependabot npm version strategy config](../dependabot/configs/2026-07-10-npm-version-strategy.yaml)
-- [Dependabot alerts and security updates](../dependabot/notes/dependabot-alerts-security-updates.md)
-- [Enabling Dependabot alerts on a repository](../dependabot/notes/2026-07-10-enabling-dependabot-alerts.md)
-- [Dependabot Python project config](../dependabot/configs/2026-07-18-python-project-version-update.yaml) — Weekly pip dependency updates with Dependabot
+### Set up CI/CD pipelines
+- [Trivy CI pipeline with SARIF output](../trivy/docs/ci-pipeline-sarif-output.md) — SARIF integration for GitHub Code Scanning
+- [Trivy CI/CD pipeline recipes](../trivy/docs/ci-cd-pipeline-recipes.md) — Multi-pattern Trivy scanning recipes
+- [ZAP baseline scan for CI](../zap/notes/2026-07-20-install-zap-baseline-scan.md) — Non-intrusive DAST in CI
+- [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md) — Get started with GitHub Actions
+- [First GitHub Actions workflow config](../github-actions/configs/2026-07-14-first-github-actions-workflow.yaml) — Minimal CI trigger
+- [Checkov multi-iac scan project template](../checkov/templates/multi-iac-scan-project/) — Reusable Checkov CI scaffolding
 
-### Sign and verify images
-- [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh)
-- [Verify a signed image](../cosign/scripts/verify-signed-image.sh)
-- [Cosign keyless GitHub Actions CI signing config](../cosign/configs/keyless-signing-github-actions.yaml)
-- [Cosign keyless OIDC CI workflow](../cosign/manifests/2026-07-10-keyless-oidc-ci.yaml)
+### Build and sign container images
+- [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile) — Minimal Dockerfile to get started
+- [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh) — Cosign quickstart for image signing
+- [Verify a signed image](../cosign/scripts/verify-signed-image.sh) — Cosign verification workflow
+- [Cosign keyless signing config](../cosign/configs/keyless-signing-github-actions.yaml) — OIDC-based keyless signing
+- [Multi-stage SBOM Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile) — SBOM generation in CI images
 
-### Build container images
-- [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
-- [Custom Dockerfile (this cycle)](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile)
-- [Explore the Docker CLI](../docker/notes/2026-07-12-explore-docker-cli.md)
-- [Docker custom networking and volumes](../docker/scripts/2026-07-18-custom-network-volume-mounts.sh) — Run a container with bridge networking and named volumes
-- [Custom CodeQL analysis image](../codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile) — Docker image with pre-installed CodeQL CLI and queries for CI
-- [Air-gapped Snyk CLI image](../snyk/dockerfiles/custom-snyk-cli-air-gapped.Dockerfile) — Custom Docker image for Snyk scanning in offline environments
-- [Custom Vault image with plugins and TLS](../vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile) — Production-ready Vault image with plugins and TLS
+### Manage infrastructure as code
+- [Terraform primer](../terraform/notes/0000-primer-terraform.md) — Declarative infrastructure provisioning
+- [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md) — Open-source Terraform fork with same HCL syntax
+- [Terraform variables, outputs practice](../terraform/snippets/2026-07-20-practice-terraform-variables-outputs-datasources.hcl) — Hands-on HCL exercises
+- [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md) — K8s objects and kubectl basics
+- [Helm primer](../helm/notes/0000-primer-helm.md) — Package manager for Kubernetes charts
+- [Kustomize primer](../kustomize/notes/0000-primer-kustomize.md) — Kubernetes YAML customization without templating
+- [ArgoCD primer](../argocd/notes/0000-primer-argocd.md) — Declarative GitOps continuous delivery
 
-### Set up CI/CD
-- [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md)
-- [Explore GitHub Actions](../github-actions/notes/2026-07-14-explore-github-actions.md) — First workflow and CI trigger walkthrough
-- [First GitHub Actions workflow config](../github-actions/configs/2026-07-14-first-github-actions-workflow.yaml) — Minimal CI trigger on push and PR
+### Manage secrets and access
+- [HashiCorp Vault primer](../vault/notes/0000-primer-vault.md) — Secrets management and dynamic secrets
+- [Vault KV CRUD operations](../vault/scripts/vault-kv-crud.sh) — Key-value secret read/write operations
+- [Vault multi-environment access control](../vault/configs/multi-environment-access-control.hcl) — HCL policies for env-based access
+- [Secrets access management concepts](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md) — Controlling access and handling credentials securely
+- [Dependabot alerts and security updates](../dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md) — Enable automatic dependency fix PRs
 
-### Manage policies
-- [My first OPA policy evaluation](../opa/snippets/my-first-opa-policy-eval.sh)
-- [Enforce image registry constraints](../opa/snippets/enforce-image-registry-constraints.rego)
-- [Deny privileged containers and hostNetwork](../opa/snippets/deny-privileged-hostnetwork.rego)
-- [Gatekeeper admission policy — block host network](../opa/configs/tried-a-gatekeeper-constraint.yaml)
-- [How I test OPA policies locally](../opa/scripts/how-i-test-policies-locally.sh)
-- [Custom S3 bucket policy rule (config)](../terrascan/configs/tried-custom-s3-rule.yaml)
-- [Multi-rule Semgrep pack with combinators](../semgrep/configs/multi-rule-pack.yaml)
+### Manage policies and compliance
+- [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md) — Policy engine for Kubernetes admission control
+- [My first OPA policy evaluation](../opa/snippets/my-first-opa-policy-eval.sh) — Write a basic Rego policy
+- [Enforce image registry constraints](../opa/snippets/enforce-image-registry-constraints.rego) — Rego rule to restrict container registries
+- [Terrascan primer](../terrascan/notes/0000-primer-terrascan.md) — IaC static analysis with custom Rego rules
+- [Multi-rule Semgrep pack](../semgrep/configs/multi-rule-pack.yaml) — Compose multiple Semgrep rules with logical operators
 
 ### Run infrastructure tasks
-- [k8s_toolkit usage guide](../docs/how-to/k8s_toolkit.md)
-- [Context switcher](../scripts/bash/k8s_toolkit/context/context-manager.sh)
-- [Drain a node](../scripts/bash/k8s_toolkit/node/drain-node.sh)
-- [Rollout restart](../scripts/bash/k8s_toolkit/rollout-restart.sh)
-- [Debug pod](../scripts/bash/k8s_toolkit/debug/debug-pod.sh)
-- [Decode K8s secret](../scripts/bash/k8s_toolkit/secret/decode-secret.sh)
-- [Linux toolkit usage guide](../docs/how-to/linux_toolkit.md)
-- [System health check](../scripts/bash/linux_toolkit/system/health-check.sh)
-- [Network diagnostics](../scripts/bash/linux_toolkit/network/net-diag.sh)
-- [User create](../scripts/bash/linux_toolkit/sysadmin/user-create.sh)
-- [Terraform workflow script](../scripts/bash/terraform_toolkit/terraform-workflow.sh)
-- [First Terraform config (HCL)](../terraform/configs/2026-07-15-first-config.tf)
-- [Explore Terraform](../terraform/notes/2026-07-15-explore-terraform.md)
-- [Terraform zip build helper](../terraform/scripts/2026-07-13-zip-build.sh)
-- [Multi-environment setup](../scripts/bash/terraform_toolkit/multi-env/multi-env-setup.sh)
-- [Deploy EKS cluster](../scripts/bash/terraform_toolkit/eks/eks-deploy.sh)
-- [Set up Atlantis](../scripts/bash/terraform_toolkit/atlantis/setup-atlantis.sh)
-- [AKS privilege escalation hardening](../scripts/bash/k8s_toolkit/security/aks-privilege-escalation-hardening.sh)
-- [Samba file-share setup](../scripts/bash/linux_toolkit/samba-setup.sh)
-- [OS patch report](../scripts/patch-report.sh)
-- [Terraform deploy script](../terraform/scripts/2026-07-18-deploy.sh) — Init, plan, and apply Terraform for Secrets Manager environments
-- [Terraform cleanup script](../terraform/scripts/2026-07-18-cleanup.sh) — Destroy infrastructure across Terraform workspaces
+- [k8s_toolkit usage guide](../docs/how-to/k8s_toolkit.md) — Kubernetes admin scripts for context, pods, nodes
+- [Linux toolkit usage guide](../docs/how-to/linux_toolkit.md) — System admin scripts for security, networking, DNS
+- [Context switcher](../scripts/bash/k8s_toolkit/context/context-manager.sh) — Switch between K8s contexts
+- [Rollout restart](../scripts/bash/k8s_toolkit/rollout-restart.sh) — Restart Kubernetes deployments
+- [Debug pod](../scripts/bash/k8s_toolkit/debug/debug-pod.sh) — Inspect running pod logs and exec
 
-### Troubleshoot issues
-- [Kubernetes CrashLoopBackOff](../docs/troubleshooting/k8s-crashloopbackoff.md)
-- [Kafka consumer lag](../docs/troubleshooting/kafka-consumer-lag.md)
-- [Vault seal/unseal](../docs/troubleshooting/vault-seal-unseal.md)
-- [Jenkins failures](../docs/troubleshooting/jenkins-troubleshooting.md)
-- [Terraform errors](../docs/how-to/terraform-troubleshooting.md)
+### Diagnose failures
+- [Kubernetes CrashLoopBackOff](../docs/troubleshooting/k8s-crashloopbackoff.md) — Debug crashing pods
+- [Terraform errors](../docs/how-to/terraform-troubleshooting.md) — Common Terraform issue resolution
+- [Vault seal/unseal troubleshooting](../docs/troubleshooting/vault-seal-unseal.md) — Recover access to sealed Vault
+- [Jenkins failures](../docs/troubleshooting/jenkins-troubleshooting.md) — CI pipeline debugging
+
+### Practice and learn
+- [Linux fundamentals first steps](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — First terminal commands and directory layout
+- [Version control with Git primer](../git/notes/0000-primer-git.md) — Git concepts, commits, branches
+- [CI/CD pipeline concepts](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md) — Stages, gates, triggers
+- [Application Security Testing concepts](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md) — SAST, DAST, SCA overview
+- [Infrastructure as Code fundamentals](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) — What IaC is and why it matters
+- [Software Supply Chain Security concepts](../docs/concepts/software-supply-chain-security/0000-primer-software-supply-chain-security.md) — SBOMs, signing, dependency verification
