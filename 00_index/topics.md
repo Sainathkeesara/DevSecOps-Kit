@@ -204,4 +204,4 @@ These directories cut across every tool above. Browse the folders for the full s
 - **mini-projects**: [terraform-project](../lab/mini-projects/terraform-project/README.md), [postgresql-database-server](../lab/mini-projects/postgresql-database-server/README.md), [samba-enterprise-file-sharing](../lab/mini-projects/samba-enterprise-file-sharing/README.md)
 
 ## Assets · 4 files
-- Architecture diagrams and workflow illustrations: [architecture-overview](assets/architecture-overview.png), [cicd-workflow](assets/cicd-workflow.png), [devsecops-pipeline](assets/devsecops-pipeline.png)
+- Architecture diagrams and workflow illustrations: [architecture-overview](../assets/architecture-overview.png), [cicd-workflow](../assets/cicd-workflow.png), [devsecops-pipeline](../assets/devsecops-pipeline.png)

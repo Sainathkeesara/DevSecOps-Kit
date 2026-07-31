@@ -1,15 +1,13 @@
 # DevSecOps-Kit
-> A working engineer's devops and devsecops reference for Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, Cosign, OPA, Falco, Vault, and Terraform.
+> A working-engineer's devops and devsecops reference for Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, Cosign, OPA, Falco, Vault, and Terraform.
 
 [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Repo size](https://img.shields.io/github/repo-size/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Top language](https://img.shields.io/github/languages/top/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Languages](https://img.shields.io/github/languages/count/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 
 > **New here? Start at [the learning path](00_index/learning-path.md).** It walks you from first-contact to confident in a sensible order — read that before this table.
 
----
-
 ## Who this is for
 
-A working DevSecOps engineer's quick-reference for Trivy, Semgrep, Checkov, Grype, TruffleHog, Syft, Cosign, OPA, Falco, and HashiCorp Vault. Use it as a shelf you grab from, not a tutorial site. It deliberately does not try to replace each tool's official docs.
+A working devops and devsecops engineer's quick-reference for vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and infrastructure automation. Use it as a shelf you grab from, not a tutorial site. It deliberately does not try to replace each tool's official docs.
 
 ---
 
@@ -17,7 +15,7 @@ A working DevSecOps engineer's quick-reference for Trivy, Semgrep, Checkov, Gryp
 
 A curated collection of notes, scripts, snippets, and templates covering vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and infrastructure automation. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
-The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terrascan, TruffleHog, GitGuardian, Syft, Cosign, Dependabot, Falco, Tetragon, OPA, Vault, ZAP, DefectDojo, SonarQube, Docker, Kubernetes, Helm, Kustomize, ArgoCD, GitHub Actions, Terraform, OpenTofu, Git, Prometheus, Grafana, and observability — with CVE-specific remediation guidance, Linux system administration, and CI/CD pipeline toolkits.
+The kit spans security scanners (Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, ZAP), runtime and supply-chain tools (Cosign, Falco, Tetragon, OPA, Vault), CI/CD and orchestration (Docker, Kubernetes, Helm, Kustomize, ArgoCD, GitHub Actions, Terraform, OpenTofu), and supporting platforms (Git, Prometheus, Grafana, observability, SonarQube, DefectDojo, Dependabot).
 
 ---
 
@@ -67,40 +65,40 @@ The kit spans tools including Trivy, Semgrep, Checkov, Grype, CodeQL, Snyk, Terr
 <details>
 <summary>Coverage table</summary>
 
-| Tool | Notes | Scripts | Configs | Snippets | Docs | Manifests | Templates | Notebooks | Dockerfiles | Policies | Total |
-|------|------:|--------:|--------:|---------:|-----:|----------:|----------:|----------:|------------:|---------:|------:|
-| Trivy | 3 | 5 | 2 | 1 | 3 | 2 | 6 | 2 | 1 | — | 25 |
-| TruffleHog | 3 | 3 | 2 | 2 | 2 | 1 | 21 | 2 | 1 | — | 37 |
-| ZAP | 5 | 2 | 2 | 4 | 3 | — | 16 | — | 1 | — | 33 |
-| Checkov | 4 | 2 | 2 | 4 | 5 | 2 | 10 | 2 | — | 1 | 32 |
-| Syft | 4 | 3 | 1 | 1 | 5 | — | 7 | 1 | 1 | — | 23 |
-| Grype | 4 | 8 | 1 | 2 | 1 | 2 | — | 1 | 1 | — | 20 |
-| Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — | 18 |
-| Terraform | 2 | 3 | 1 | 1 | — | — | — | — | — | — | 7 |
-| Falco | 4 | 3 | 3 | 1 | 2 | — | — | — | — | — | 13 |
-| CodeQL | 3 | 1 | 1 | 4 | 1 | 1 | — | — | 1 | — | 12 |
-| GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — | — | 11 |
-| Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | 1 | — | 11 |
-| Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | 1 | — | 10 |
-| OPA | 3 | 1 | 1 | 3 | 1 | — | — | — | — | — | 9 |
-| Cosign | 4 | 2 | 1 | 1 | — | 1 | — | — | — | — | 9 |
-| Terrascan | 5 | 1 | 1 | 2 | — | — | — | — | — | — | 9 |
-| Dependabot | 6 | — | 3 | — | — | — | — | — | — | — | 9 |
-| Git | 3 | 2 | — | 1 | — | — | — | — | — | — | 6 |
-| Docker | 2 | 1 | — | — | — | — | — | — | 2 | — | 5 |
-| ArgoCD | 2 | — | — | — | — | 1 | — | — | — | — | 3 |
-| Helm | 2 | — | — | — | — | 1 | — | — | — | — | 3 |
-| Kubernetes | 2 | — | — | — | — | 1 | — | — | — | — | 3 |
-| Kustomize | 2 | — | 1 | — | — | — | — | — | — | — | 3 |
-| GitHub Actions | 2 | — | 1 | — | — | — | — | — | — | — | 3 |
-| SonarQube | 2 | — | — | 1 | — | — | — | — | — | — | 3 |
-| Tetragon | 2 | — | 1 | — | — | — | — | — | — | — | 3 |
-| OpenTofu | 2 | — | 1 | — | — | — | — | — | — | — | 3 |
-| DefectDojo | 1 | — | — | 1 | — | — | — | — | — | — | 2 |
-| Grafana | 1 | — | — | — | — | — | — | — | — | — | 1 |
-| Observability | 1 | — | — | — | — | — | — | — | — | — | 1 |
-| Prometheus | 1 | — | — | — | — | — | — | — | — | — | 1 |
-| Linux | 1 | — | — | — | — | — | — | — | — | — | 1 |
+| Tool | Notes | Scripts | Configs | Snippets | Docs | Manifests | Templates | Notebooks | Dockerfiles | Policies | Last verified | Total |
+|------|------:|--------:|--------:|---------:|-----:|----------:|----------:|----------:|------------:|---------:|:-------------:|------:|
+| Trivy | 3 | 5 | 2 | 1 | 3 | 2 | 6 | 2 | 1 | — | 2026-07-06 | 25 |
+| TruffleHog | 3 | 3 | 2 | 2 | 2 | 1 | 21 | 2 | 1 | — | 2026-07-06 | 37 |
+| ZAP | 5 | 2 | 2 | 4 | 3 | — | 16 | — | 1 | — | 2026-07-20 | 33 |
+| Checkov | 4 | 2 | 2 | 4 | 5 | 2 | 10 | 2 | — | 1 | 2026-07-20 | 32 |
+| Syft | 4 | 3 | 1 | 1 | 5 | — | 7 | 1 | 1 | — | 2026-07-06 | 23 |
+| Grype | 4 | 8 | 1 | 2 | 1 | 2 | — | 1 | 1 | — | — | 20 |
+| Semgrep | 3 | 3 | 1 | 2 | 4 | 2 | — | 1 | 2 | — | — | 18 |
+| Terraform | 2 | 3 | 1 | 1 | — | — | — | — | — | — | 2026-07-15 | 7 |
+| Falco | 4 | 3 | 3 | 1 | 2 | — | — | — | — | — | 2026-07-19 | 13 |
+| CodeQL | 3 | 1 | 1 | 4 | 1 | 1 | — | — | 1 | — | — | 12 |
+| GitGuardian | 4 | 2 | 2 | 2 | 1 | — | — | — | — | — | — | 11 |
+| Vault | 3 | 2 | 2 | 1 | 2 | — | — | — | 1 | — | — | 11 |
+| Snyk | 4 | 1 | 2 | 1 | 1 | — | — | — | 1 | — | — | 10 |
+| OPA | 3 | 1 | 1 | 3 | 1 | — | — | — | — | — | — | 9 |
+| Cosign | 4 | 2 | 1 | 1 | — | 1 | — | — | — | — | — | 9 |
+| Terrascan | 5 | 1 | 1 | 2 | — | — | — | — | — | — | 2026-07-10 | 9 |
+| Dependabot | 6 | — | 3 | — | — | — | — | — | — | — | 2026-07-21 | 9 |
+| Git | 3 | 2 | — | 1 | — | — | — | — | — | — | 2026-07-26 | 6 |
+| Docker | 2 | 1 | — | — | — | — | — | — | 2 | — | 2026-07-12 | 5 |
+| ArgoCD | 3 | — | — | — | — | 1 | — | — | — | — | 2026-07-25 | 4 |
+| Helm | 2 | — | — | — | — | 1 | — | — | — | — | 2026-07-19 | 3 |
+| Kubernetes | 2 | — | — | — | — | 1 | — | — | — | — | 2026-07-15 | 3 |
+| Kustomize | 2 | — | 1 | — | — | — | — | — | — | — | 2026-07-08 | 3 |
+| GitHub Actions | 2 | — | 1 | — | — | — | — | — | — | — | 2026-07-14 | 3 |
+| SonarQube | 2 | — | — | 1 | — | — | — | — | — | — | 2026-07-19 | 3 |
+| Tetragon | 2 | — | 1 | — | — | — | — | — | — | — | — | 3 |
+| OpenTofu | 2 | — | 1 | — | — | — | — | — | — | — | 2026-07-20 | 3 |
+| DefectDojo | 1 | — | — | 1 | — | — | — | — | — | — | — | 2 |
+| Grafana | 1 | — | — | — | — | — | — | — | — | — | 2026-07-13 | 1 |
+| Observability | 1 | — | — | — | — | — | — | — | — | — | 2026-07-13 | 1 |
+| Prometheus | 1 | — | — | — | — | — | — | — | — | — | 2026-07-13 | 1 |
+| Linux | 1 | — | — | — | — | — | — | — | — | — | — | 1 |
 
 </details>
 
@@ -112,4 +110,4 @@ Currently expanding tool coverage with foundational concept primers for secrets 
 
 ---
 
-_Last updated: 2026-07-28_
+_Last updated: 2026-07-30_
