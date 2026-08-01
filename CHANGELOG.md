@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-08-01
 
 ### Added
-- argocd-004: `argocd/notes/2026-08-01-verify-readme-layout.md` — Re-verification note confirming the README Layout section still lists the argocd/ root folder after the upstream fix (L1)
+- syft-015: `syft/manifests/syft-gha-multi-arch-sbom-registry-auth.yaml` — Syft GitHub Actions workflow for multi-architecture image SBOM with registry authentication (L5)
 
 ## 2026-07-31
 
