@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-07-31
+
+### Added
+- argocd-004: `argocd/notes/2026-07-31-verify-readme-layout.md` — Verification note confirming the README Layout still lists the argocd/ folder after the UF fix (L1)
+
 ## 2026-07-30
 
 ### Added
