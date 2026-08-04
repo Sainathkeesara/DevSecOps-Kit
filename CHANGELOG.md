@@ -18,6 +18,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Passed ([x]) github-actions-002 — GitHub Actions: config — My first GitHub Actions workflow — trigger on push and run a job · Level: L1 · 2026-08-04
 - Passed ([x]) github-actions-003 — GitHub Actions: notes — Explore GitHub Actions — workflows, runners, events, and marketplace · Level: L1 · 2026-08-04
 - Passed ([x]) defectdojo-003 — DefectDojo: notes — Explore the DefectDojo UI — products, engagements, and findings · Level: L1 · 2026-08-04
+- Passed ([x]) dependabot-008 — Dependabot: script — Dependabot alert analysis and triage script from GitHub API · Level: L2 · 2026-08-04
+- Passed ([x]) con-038 — Observability & Monitoring: snippet — Observability practice: basic metrics collection with Prometheus · Level: L2 · 2026-08-04
 
 ## 2026-08-01
 
