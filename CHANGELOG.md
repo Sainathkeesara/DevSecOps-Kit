@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - github-actions-002: `github-actions/configs/2026-08-04-first-workflow.yaml` — My first GitHub Actions workflow — trigger on push and run a job (L1)
 - github-actions-003: `github-actions/notes/2026-08-04-explore-github-actions.md` — Explore GitHub Actions — workflows, runners, events, and marketplace (L1)
 - github-actions-004: `github-actions/manifests/2026-08-04-pr-validation.yml` — PR validation workflow with linting and type checking (L1)
+- defectdojo-003: `defectdojo/notes/2026-08-04-explore-defectdojo-ui.md` — Explore the DefectDojo UI — products, engagements, and findings (L1)
+
+### Passed
+- Passed ([x]) github-actions-002 — GitHub Actions: config — My first GitHub Actions workflow — trigger on push and run a job · Level: L1 · 2026-08-04
+- Passed ([x]) github-actions-003 — GitHub Actions: notes — Explore GitHub Actions — workflows, runners, events, and marketplace · Level: L1 · 2026-08-04
+- Passed ([x]) defectdojo-003 — DefectDojo: notes — Explore the DefectDojo UI — products, engagements, and findings · Level: L1 · 2026-08-04
 
 ## 2026-08-01
 
