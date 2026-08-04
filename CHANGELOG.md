@@ -1800,6 +1800,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added (2026-08-04)
+- github-actions-001: GitHub Actions quickstart workflow manifest
+  - File: github-actions/manifests/2026-08-04-what-is-github-actions.yaml
+
 ### Added (2026-04-28)
 - lin-068: Log aggregation with Loki and Promtail — hardened production deployment guide
   - Doc: docs/how-to/linux-log-aggregation-loki-promtail.md
