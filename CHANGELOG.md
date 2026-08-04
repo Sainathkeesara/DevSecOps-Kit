@@ -234,6 +234,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     - Bash snippet creating a disposable repo and walking through merge vs rebase on the same conflicting edit
     - Demonstrates conflict markers and the difference in post-conflict history shape
     - shellcheck passed (clean)
+## 2026-07-04
+
+### Added
+- ansible-001: `ansible/scripts/bootstrap-target-node.sh` — Bootstrap script for target node preparation referenced in linux-iac-pipeline-workflows.md (L1)
+    - Prepares Linux nodes for Ansible automation with Python 3 and required packages
+    - Creates passwordless sudo entry for automation user
 
 ## 2026-07-03
 
