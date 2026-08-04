@@ -1,0 +1,19 @@
+# last_verified: 2026-08-04 · prometheus n/a
+# A tiny scrape config plus a basic counter metric
+# to confirm Prometheus is actually collecting data.
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  # I added a second job for the app I want to monitor.
+  # The target will fail until the app exposes /metrics,
+  # but the Up metric in Prometheus will show 0 instead
+  # of crashing the scrape loop.
+  - job_name: "sample-app"
+    static_configs:
+      - targets: ["localhost:8000"]
