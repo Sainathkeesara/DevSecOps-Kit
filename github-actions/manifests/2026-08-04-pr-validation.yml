@@ -1,0 +1,23 @@
+# last_verified: 2026-08-04 · GitHub Actions n/a
+name: PR validation
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint workflow files
+        uses: rhysd/actionlint@v1
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Type check
+        run: python -m mypy .

@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-04
+
+### Added
+- github-actions-004: `github-actions/manifests/2026-08-04-pr-validation.yml` — PR validation workflow with linting and type checking (L1)
+
 ## 2026-08-01
 
 ### Added
