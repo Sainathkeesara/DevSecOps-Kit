@@ -1,0 +1,16 @@
+# last_verified: 2026-08-04 · github-actions n/a
+name: GitHub Actions quickstart
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Say hello
+        run: echo "Hello from GitHub Actions!"
