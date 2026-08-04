@@ -1,0 +1,12 @@
+# last_verified: 2026-08-04 · GitHub Actions n/a
+
+name: my-first-workflow
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Workflow ran successfully"
