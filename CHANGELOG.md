@@ -4,6 +4,14 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-05
+
+### Added
+- docker-009: `docker/scripts/build-multi-service-compose-app.sh` — Build a multi-service Docker Compose app from scratch (L3)
+
+### Passed
+- Passed ([x]) docker-009 — Docker: script — Build a multi-service Docker Compose app from scratch · Level: L3 · 2026-08-05
+
 ## 2026-08-04
 
 ### Added
