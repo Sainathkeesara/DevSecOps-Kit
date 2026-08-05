@@ -1,0 +1,22 @@
+# last_verified: 2026-08-05 · tetragon n/a
+# Minimal TracingPolicy for monitoring network connections
+# I'm tracing connect() and accept() syscalls to see what pods
+# are reaching out to — useful for spotting unexpected egress.
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: network-connection-monitor
+spec:
+  tracepoints:
+  - name: connect
+    selectors:
+    - matchArgs:
+      - index: 0
+        type: "file"
+        operator: "Exists"
+  - name: accept
+    selectors:
+    - matchArgs:
+      - index: 0
+        type: "file"
+        operator: "Exists"
