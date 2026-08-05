@@ -53,10 +53,11 @@
 - **notebooks** (1): [semgrep-scan-vs-ci-comparison.ipynb](../semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb)
 - _…and more under `semgrep/` — browse the folder._
 
-## Terraform · 14 files
+## Terraform · 16 files
 - **primer:** [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md)
-- **notes** (2): [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md), [2026-07-15-explore-terraform.md](../terraform/notes/2026-07-15-explore-terraform.md)
+- **notes** (3): most recent → [2026-08-04-install-terraform-first-vm.md](../terraform/notes/2026-08-04-install-terraform-first-vm.md), [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md), [2026-07-15-explore-terraform.md](../terraform/notes/2026-07-15-explore-terraform.md)
 - **scripts** (3): [2026-07-13-zip-build.sh](../terraform/scripts/2026-07-13-zip-build.sh), [2026-07-18-cleanup.sh](../terraform/scripts/2026-07-18-cleanup.sh), [2026-07-18-deploy.sh](../terraform/scripts/2026-07-18-deploy.sh)
+- **configs** (2): [2026-08-04-first-configuration.hcl](../terraform/configs/2026-08-04-first-configuration.hcl), [2026-07-15-first-config.tf](../terraform/configs/2026-07-15-first-config.tf)
 - **snippets** (1): [2026-07-20-practice-terraform-variables-outputs-datasources.hcl](../terraform/snippets/2026-07-20-practice-terraform-variables-outputs-datasources.hcl)
 - _…and eventbridge-lambda module content under `terraform/` — browse the folder._
 
@@ -130,9 +131,9 @@
 - **notes** (2): [0000-primer-argocd.md](../argocd/notes/0000-primer-argocd.md), [2026-07-25-readme-layout.md](../argocd/notes/2026-07-25-readme-layout.md)
 - **manifests** (1): [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml)
 
-## Docker · 5 files
+## Docker · 6 files
 - **notes** (2): [0000-primer-docker.md](../docker/notes/0000-primer-docker.md), [2026-07-12-explore-docker-cli.md](../docker/notes/2026-07-12-explore-docker-cli.md)
-- **scripts** (1): [2026-07-18-custom-network-volume-mounts.sh](../docker/scripts/2026-07-18-custom-network-volume-mounts.sh)
+- **scripts** (2): [build-multi-service-compose-app.sh](../docker/scripts/build-multi-service-compose-app.sh), [2026-07-18-custom-network-volume-mounts.sh](../docker/scripts/2026-07-18-custom-network-volume-mounts.sh)
 - **dockerfiles** (2): [2026-07-10-first-custom-image.Dockerfile](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile), [2026-07-12-first-custom-docker-image.Dockerfile](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile)
 
 ## Helm · 3 files
@@ -176,6 +177,10 @@
 
 ## Prometheus · 1 file
 - **notes** (1): [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md)
+
+## Ansible · 2 files
+- **scripts** (2): [2026-08-04-bootstrap-node.sh](../ansible/scripts/2026-08-04-bootstrap-node.sh), [bootstrap-target-node.sh](../ansible/scripts/bootstrap-target-node.sh)
+- _browse `ansible/` for more._
 
 ---
 

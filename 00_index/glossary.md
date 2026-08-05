@@ -310,6 +310,8 @@
 
 **Plan (OpenTofu/Terraform)** — Diff showing what changes OpenTofu will make. Example: `tofu plan`.
 
+**Init (Terraform)** — The `terraform init` command that downloads provider plugins and sets up the working directory before other Terraform commands can run.
+
 **SonarQube** — Static analysis platform inspecting code for bugs, code smells, and security issues with Quality Gates enforced in CI.
 
 **OpenTofu** — Open-source infrastructure-as-code tool forked from Terraform, using the same HCL syntax under an MPL 2.0 license.
