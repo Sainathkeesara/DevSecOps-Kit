@@ -13,11 +13,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - defectdojo-003: `defectdojo/notes/2026-08-04-explore-defectdojo-ui.md` — Explore the DefectDojo UI — products, engagements, and findings (L1)
 - dependabot-008: `dependabot/scripts/2026-08-04-dependabot-alert-triage.py` — Dependabot alert analysis and triage script from GitHub API (L2)
 - con-038: `docs/concepts/observability-monitoring/snippets/2026-08-04-basic-prometheus-metrics.yaml` — Observability practice: basic metrics collection with Prometheus (L2)
+- ansible-001: `ansible/scripts/2026-08-04-bootstrap-node.sh` — Bootstrap script for target node preparation (L1)
+- terraform-006: `terraform/notes/2026-08-04-install-terraform-first-vm.md` — Install Terraform, run `terraform init`, and deploy my first VM — what tripped me up (L1)
+- terraform-007: `terraform/configs/2026-08-04-first-configuration.hcl` — My first Terraform configuration — define a resource, run plan, and review the diff (L1)
 
 ### Passed
 - Passed ([x]) github-actions-002 — GitHub Actions: config — My first GitHub Actions workflow — trigger on push and run a job · Level: L1 · 2026-08-04
 - Passed ([x]) github-actions-003 — GitHub Actions: notes — Explore GitHub Actions — workflows, runners, events, and marketplace · Level: L1 · 2026-08-04
 - Passed ([x]) defectdojo-003 — DefectDojo: notes — Explore the DefectDojo UI — products, engagements, and findings · Level: L1 · 2026-08-04
+- Passed ([x]) dependabot-008 — Dependabot: script — Dependabot alert analysis and triage script from GitHub API · Level: L2 · 2026-08-04
+- Passed ([x]) con-038 — Observability & Monitoring: snippet — Observability practice: basic metrics collection with Prometheus · Level: L2 · 2026-08-04
+- Passed ([x]) ansible-001 — Ansible: script — Bootstrap script for target node preparation · Level: L1 · 2026-08-04
+- Passed ([x]) terraform-006 — Terraform: notes — Install Terraform, run `terraform init`, and deploy my first virtual machine — what tripped me up · Level: L1 · 2026-08-04
+- Passed ([x]) terraform-007 — Terraform: config — My first Terraform configuration — define a resource, run plan, and review the diff · Level: L1 · 2026-08-04
 
 ## 2026-08-01
 
@@ -226,6 +234,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     - Bash snippet creating a disposable repo and walking through merge vs rebase on the same conflicting edit
     - Demonstrates conflict markers and the difference in post-conflict history shape
     - shellcheck passed (clean)
+## 2026-07-04
+
+### Added
+- ansible-001: `ansible/scripts/bootstrap-target-node.sh` — Bootstrap script for target node preparation referenced in linux-iac-pipeline-workflows.md (L1)
+    - Prepares Linux nodes for Ansible automation with Python 3 and required packages
+    - Creates passwordless sudo entry for automation user
 
 ## 2026-07-03
 
