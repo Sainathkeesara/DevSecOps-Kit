@@ -1828,6 +1828,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added (2026-08-05)
+- terraform-012: Terraform state management workflow — remote backend with state locking and migration
+  - File: terraform/scripts/state-management-workflow.sh
+
 ### Added (2026-08-04)
 - github-actions-001: GitHub Actions quickstart workflow manifest
   - File: github-actions/manifests/2026-08-04-what-is-github-actions.yaml
