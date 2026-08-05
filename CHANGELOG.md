@@ -8,9 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - docker-009: `docker/scripts/build-multi-service-compose-app.sh` — Build a multi-service Docker Compose app from scratch (L3)
+- docker-010: `docker/docs/dockerfile-optimization-patterns.md` — Dockerfile optimization patterns for CI — layer caching and multi-stage builds (L3)
+- con-039: `docs/concepts/observability-monitoring/notebooks/2026-08-05-monitoring-stack-exploration.ipynb` — Monitoring stack exploration: Grafana dashboard with Prometheus data (L2)
 
 ### Passed
-- Passed ([x]) docker-009 — Docker: script — Build a multi-service Docker Compose app from scratch · Level: L3 · 2026-08-05
+- Passed ([x]) docker-010 — Docker: docs — Dockerfile optimization patterns for CI — layer caching and multi-stage builds · Level: L3 · 2026-08-05
+- Passed ([x]) con-039 — Observability & Monitoring: notebook — Monitoring stack exploration: Grafana dashboard with Prometheus data · Level: L2 · 2026-08-05
 
 ## 2026-08-04
 
