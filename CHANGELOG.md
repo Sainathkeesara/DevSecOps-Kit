@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - tetragon-006: `tetragon/notes/2026-08-06-tetragon-observability-tutorial.md` — Tetragon: notes — Follow the official Tetragon observability tutorial and write up what tripped me up (L2)
+- lin-005: `lin/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md` — Linux: notes — Follow the official Linux shell scripting tutorial and write up what tripped me up (L2)
+- lin-007: `lin/configs/2026-08-06-cron-job-configuration.ini` — Linux: config — Linux cron job configuration for automated system maintenance tasks (L2)
 
 ### Passed
 - Passed ([x]) tetragon-004 — Tetragon: script — Tetragon event collection pipeline with JSON export and external forwarding · Level: L2 · 2026-08-06
