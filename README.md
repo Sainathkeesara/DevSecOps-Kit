@@ -15,11 +15,11 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 ## Quick links
 
-- [Terraform state management workflow](terraform/scripts/state-management-workflow.sh) — Terraform state management and workflow automation
-- [Docker Compose dev environment](docker/configs/docker-compose-dev-environment.yaml) — Multi-service Docker Compose dev config
-- [Dockerfile optimization patterns](docker/docs/dockerfile-optimization-patterns.md) — Dockerfile best practices and optimization patterns
-- [Monitoring stack exploration notebook](docs/concepts/observability-monitoring/notebooks/2026-08-05-monitoring-stack-exploration.ipynb) — Explore Prometheus, Grafana, and Loki metrics and dashboards
-- [Build a multi-service Docker Compose app](docker/scripts/build-multi-service-compose-app.sh) — Docker Compose app from scratch
+- [Linux shell scripting tutorial confusions notes](lin/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md) — Common confusions and pitfalls when learning Linux shell scripting
+- [Cron job configuration](lin/configs/2026-08-06-cron-job-configuration.ini) — Sample cron job configuration for scheduled automation
+- [Tetragon observability tutorial](tetragon/notes/2026-08-06-tetragon-observability-tutorial.md) — eBPF-based runtime observability with Tetragon
+- [Minimal network tracing policy](tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml) — Tetragon eBPF tracing policy for network events
+- [Tetragon event collection pipeline](tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh) — Pipeline for collecting and forwarding Tetragon events
 
 ## Layout
 
@@ -58,11 +58,11 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Last verified | Total |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|---------:|:-------------:|------:|
-| Trivy | 3 | 3 | 5 | 2 | 1 | — | 2 | 1 | 2 | — | 2026-07-06 | 25 |
-| TruffleHog | 3 | 2 | 3 | 2 | 2 | — | 1 | 1 | 2 | — | 2026-07-06 | 37 |
-| ZAP | 5 | 3 | 2 | 2 | 4 | — | — | 1 | — | — | 2026-07-20 | 33 |
-| Checkov | 4 | 5 | 2 | 2 | 4 | — | 2 | — | 2 | — | 2026-07-20 | 32 |
-| Syft | 4 | 5 | 3 | 1 | 1 | — | 1 | 1 | 1 | — | 2026-07-06 | 24 |
+| Trivy | 3 | 3 | 5 | 2 | 1 | 6 | 2 | 1 | 2 | — | 2026-07-06 | 25 |
+| TruffleHog | 3 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | — | 2026-07-06 | 37 |
+| ZAP | 5 | 3 | 2 | 2 | 4 | 16 | — | 1 | — | — | 2026-07-20 | 33 |
+| Checkov | 4 | 5 | 2 | 2 | 4 | 10 | 2 | — | 2 | 1 | 2026-07-20 | 32 |
+| Syft | 4 | 5 | 3 | 1 | 1 | 7 | 1 | 1 | 1 | — | 2026-07-06 | 24 |
 | Grype | 4 | 1 | 8 | 1 | 2 | — | 2 | 1 | 1 | — | — | 20 |
 | Semgrep | 3 | 4 | 3 | 1 | 2 | — | 2 | 2 | 1 | — | — | 18 |
 | Terraform | 3 | — | 4 | 2 | 1 | — | — | — | — | — | 2026-08-05 | 17 |
@@ -84,7 +84,7 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 | GitHub Actions | 3 | — | — | 2 | — | — | 2 | — | — | — | 2026-07-14 | 7 |
 | SonarQube | 2 | — | — | — | 1 | — | — | — | — | — | 2026-07-09 | 3 |
 | OpenTofu | 2 | — | — | 1 | — | — | — | — | — | — | 2026-07-09 | 3 |
-| Tetragon | 2 | — | — | 1 | — | — | — | — | — | — | — | 3 |
+| Tetragon | 3 | — | 1 | 2 | — | — | — | — | — | — | — | 6 |
 | Grafana | 1 | — | — | — | — | — | — | — | — | — | 2026-07-13 | 1 |
 | Observability | 1 | — | — | — | — | — | — | — | — | — | 2026-07-13 | 1 |
 | Prometheus | 1 | — | — | — | — | — | — | — | — | — | 2026-07-13 | 1 |
@@ -97,7 +97,7 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 ## Status
 
-Currently expanding tool coverage with foundational concept primers for secrets management, version control, infrastructure as code, and Linux/shell fundamentals; practice exercises across multiple domains; and ongoing CVE remediation guides for the security toolchain. Terraform state management workflow and Docker Compose dev environment are the newest additions.
+Currently expanding tool coverage with foundational concept primers for secrets management, version control, infrastructure as code, and Linux/shell fundamentals; practice exercises across multiple domains; and ongoing CVE remediation guides for the security toolchain. The newest additions are Linux shell scripting tutorials, Tetragon observability notes, and cron job configurations.
 
 ---
-_Last updated: 2026-08-05_
+_Last updated: 2026-08-06_
