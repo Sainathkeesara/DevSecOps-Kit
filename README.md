@@ -11,15 +11,15 @@ A working devops and devsecops engineer's quick-reference for vulnerability scan
 
 ## What's in here
 
-A curated collection of notes, scripts, snippets, and templates covering vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and infrastructure automation. Every entry is scenario-grounded and designed to be adapted for real infrastructure work. The kit spans 35+ tools across security scanning, runtime protection, supply chain, policy enforcement, and infrastructure automation — all organised for quick lookup and hands-on practice.
+A curated collection of notes, scripts, snippets, and templates covering vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and infrastructure automation. Every entry is scenario-grounded and designed to be adapted for real infrastructure work. The kit spans 30+ tools across security scanning, runtime protection, supply chain, policy enforcement, and infrastructure automation — all organised for quick lookup and hands-on practice.
 
 ## Quick links
 
+- [Terraform state management workflow](terraform/scripts/state-management-workflow.sh) — Terraform state management and workflow automation
+- [Docker Compose dev environment](docker/configs/docker-compose-dev-environment.yaml) — Multi-service Docker Compose dev config
+- [Dockerfile optimization patterns](docker/docs/dockerfile-optimization-patterns.md) — Dockerfile best practices and optimization patterns
+- [Monitoring stack exploration notebook](docs/concepts/observability-monitoring/notebooks/2026-08-05-monitoring-stack-exploration.ipynb) — Explore Prometheus, Grafana, and Loki metrics and dashboards
 - [Build a multi-service Docker Compose app](docker/scripts/build-multi-service-compose-app.sh) — Docker Compose app from scratch
-- [Bootstrap a node with Ansible](ansible/scripts/2026-08-04-bootstrap-node.sh) — First Ansible bootstrap script
-- [Bootstrap target node for Ansible](ansible/scripts/bootstrap-target-node.sh) — Target-node setup script
-- [First Terraform configuration](terraform/configs/2026-08-04-first-configuration.hcl) — Initial Terraform config
-- [Install Terraform on a first VM](terraform/notes/2026-08-04-install-terraform-first-vm.md) — Terraform first-install guide
 
 ## Layout
 
@@ -58,14 +58,14 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Last verified | Total |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|---------:|:-------------:|------:|
-| Trivy | 3 | 3 | 5 | 2 | 1 | 4 | 2 | 1 | 2 | — | 2026-07-06 | 25 |
-| TruffleHog | 3 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | — | 2026-07-06 | 37 |
-| ZAP | 5 | 3 | 2 | 2 | 4 | 16 | — | 1 | — | — | 2026-07-20 | 33 |
-| Checkov | 4 | 5 | 2 | 2 | 4 | 10 | 2 | — | 2 | 1 | 2026-07-20 | 32 |
-| Syft | 4 | 5 | 3 | 1 | 1 | 7 | 1 | 1 | 1 | — | 2026-07-06 | 24 |
+| Trivy | 3 | 3 | 5 | 2 | 1 | — | 2 | 1 | 2 | — | 2026-07-06 | 25 |
+| TruffleHog | 3 | 2 | 3 | 2 | 2 | — | 1 | 1 | 2 | — | 2026-07-06 | 37 |
+| ZAP | 5 | 3 | 2 | 2 | 4 | — | — | 1 | — | — | 2026-07-20 | 33 |
+| Checkov | 4 | 5 | 2 | 2 | 4 | — | 2 | — | 2 | — | 2026-07-20 | 32 |
+| Syft | 4 | 5 | 3 | 1 | 1 | — | 1 | 1 | 1 | — | 2026-07-06 | 24 |
 | Grype | 4 | 1 | 8 | 1 | 2 | — | 2 | 1 | 1 | — | — | 20 |
 | Semgrep | 3 | 4 | 3 | 1 | 2 | — | 2 | 2 | 1 | — | — | 18 |
-| Terraform | 3 | — | 3 | 2 | 1 | — | — | — | — | — | 2026-08-04 | 16 |
+| Terraform | 3 | — | 4 | 2 | 1 | — | — | — | — | — | 2026-08-05 | 17 |
 | Falco | 4 | 2 | 3 | 3 | 1 | — | — | — | — | — | 2026-07-19 | 13 |
 | CodeQL | 3 | 1 | 1 | 1 | 4 | — | 1 | 1 | — | — | — | 12 |
 | GitGuardian | 4 | 1 | 2 | 2 | 2 | — | — | — | — | — | — | 11 |
@@ -76,7 +76,7 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 | Terrascan | 5 | — | 1 | 1 | 2 | — | — | — | — | — | 2026-07-10 | 9 |
 | Dependabot | 6 | — | 1 | 3 | — | — | — | — | — | — | 2026-07-21 | 10 |
 | Git | 3 | — | 2 | — | 1 | — | — | — | — | — | 2026-07-26 | 6 |
-| Docker | 2 | — | 2 | — | — | — | — | 2 | — | — | 2026-07-12 | 6 |
+| Docker | 2 | 1 | 2 | 1 | — | — | — | 2 | — | — | 2026-07-12 | 8 |
 | ArgoCD | 5 | — | — | — | — | — | 1 | — | — | — | 2026-07-25 | 6 |
 | Helm | 2 | — | — | — | — | — | 1 | — | — | — | 2026-07-09 | 3 |
 | Kubernetes | 2 | — | — | — | — | — | 1 | — | — | — | 2026-07-15 | 3 |
@@ -90,12 +90,14 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 | Prometheus | 1 | — | — | — | — | — | — | — | — | — | 2026-07-13 | 1 |
 | Linux | 1 | — | — | — | — | — | — | — | — | — | — | 1 |
 | Ansible | — | — | 2 | — | — | — | — | — | — | — | — | 2 |
+| DefectDojo | 2 | — | 1 | — | 1 | — | — | — | — | — | — | 3 |
+| Lab | — | — | — | — | — | — | — | — | — | — | — | 10 |
 
 </details>
 
 ## Status
 
-Currently expanding tool coverage with foundational concept primers for secrets management, version control, infrastructure as code, and Linux/shell fundamentals; practice exercises across multiple domains; and ongoing CVE remediation guides for the security toolchain. Ansible toolkit scripts and Terraform first-configuration notes are the newest additions.
+Currently expanding tool coverage with foundational concept primers for secrets management, version control, infrastructure as code, and Linux/shell fundamentals; practice exercises across multiple domains; and ongoing CVE remediation guides for the security toolchain. Terraform state management workflow and Docker Compose dev environment are the newest additions.
 
 ---
 _Last updated: 2026-08-05_
