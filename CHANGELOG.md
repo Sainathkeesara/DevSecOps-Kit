@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-06
+
+### Added
+- tetragon-006: `tetragon/notes/2026-08-06-tetragon-observability-tutorial.md` — Tetragon: notes — Follow the official Tetragon observability tutorial and write up what tripped me up (L2)
+
+### Passed
+- Passed ([x]) tetragon-004 — Tetragon: script — Tetragon event collection pipeline with JSON export and external forwarding · Level: L2 · 2026-08-06
+- Passed ([x]) tetragon-005 — Tetragon: config — Minimal TracingPolicy for network connection monitoring · Level: L2 · 2026-08-06
+
 ## 2026-08-05
 
 ### Added
