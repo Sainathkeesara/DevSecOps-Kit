@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - lin-005: `lin/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md` — Linux: notes — Follow the official Linux shell scripting tutorial and write up what tripped me up (L2)
 - lin-007: `lin/configs/2026-08-06-cron-job-configuration.ini` — Linux: config — Linux cron job configuration for automated system maintenance tasks (L2)
 - semgrep-023: `semgrep/notebooks/comparing-community-vs-custom-rules.ipynb` — Semgrep: notebook — Comparing Semgrep community rules vs custom rules for Python security scanning (L5)
+- semgrep-022: `semgrep/docs/semgrep-rule-performance-optimization.md` — Semgrep: docs — Semgrep rule performance optimization — combining patterns for efficient scanning (L5)
 
 ### Passed
 - Passed ([x]) tetragon-004 — Tetragon: script — Tetragon event collection pipeline with JSON export and external forwarding · Level: L2 · 2026-08-06
