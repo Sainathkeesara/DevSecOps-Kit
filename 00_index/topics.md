@@ -170,6 +170,10 @@
 ## Linux · 1 file
 - **notes** (1): [2026-07-21-install-linux-vm-terminal-first-commands.md](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md)
 
+## lin · 2 files
+- **notes** (1): [2026-08-06-linux-shell-scripting-tutorial-confusions.md](../lin/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md)
+- **configs** (1): [2026-08-06-cron-job-configuration.ini](../lin/configs/2026-08-06-cron-job-configuration.ini)
+
 ## Grafana · 1 file
 - **notes** (1): [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md)
 
@@ -189,10 +193,12 @@
 - **notes** (2): [0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md), [2026-07-20-explore-open-tofu.md](../opentofu/notes/2026-07-20-explore-open-tofu.md)
 - **configs** (1): [2026-07-20-first-open-tofu-config.hcl](../opentofu/configs/2026-07-20-first-open-tofu-config.hcl)
 
-## Tetragon · 3 files
+## Tetragon · 6 files
 - **primer:** [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md)
-- **notes** (2): [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md), [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
-- **configs** (1): [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml)
+- **notes** (3): most recent → [2026-08-06-tetragon-observability-tutorial.md](../tetragon/notes/2026-08-06-tetragon-observability-tutorial.md), [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md), [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md)
+- **configs** (2): [2026-08-05-minimal-network-tracing-policy.yaml](../tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml), [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml)
+- **scripts** (1): [2026-08-05-tetragon-event-collection-pipeline.sh](../tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh)
+- _…and more under `tetragon/` — browse the folder._
 
 ## Lab · 10 files
 - **mini-projects**: [terraform-project](../lab/mini-projects/terraform-project/README.md), [postgresql-database-server](../lab/mini-projects/postgresql-database-server/README.md), [samba-enterprise-file-sharing](../lab/mini-projects/samba-enterprise-file-sharing/README.md)

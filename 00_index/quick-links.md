@@ -68,6 +68,11 @@
 - [Application Security Testing concepts](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md) — SAST, DAST, SCA overview
 - [Infrastructure as Code fundamentals](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) — What IaC is and why it matters
 
-### Bootstrap infrastructure with Ansible
-- [Bootstrap a node](../ansible/scripts/2026-08-04-bootstrap-node.sh) — First Ansible bootstrap script
-- [Bootstrap target node](../ansible/scripts/bootstrap-target-node.sh) — Target-node setup script
+### Learn Linux shell scripting
+- [Linux shell scripting tutorial confusions](../lin/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md) — Common pitfalls and clarifications for shell scripting
+- [Cron job configuration](../lin/configs/2026-08-06-cron-job-configuration.ini) — Sample cron job for scheduled automation
+
+### Explore Tetragon observability
+- [Tetragon observability tutorial](../tetragon/notes/2026-08-06-tetragon-observability-tutorial.md) — eBPF-based runtime observability with Tetragon
+- [Minimal network tracing policy](../tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml) — Tetragon eBPF tracing policy for network events
+- [Tetragon event collection pipeline](../tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh) — Pipeline for collecting and forwarding Tetragon events
