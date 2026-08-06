@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - docker-010: `docker/docs/dockerfile-optimization-patterns.md` — Dockerfile optimization patterns for CI — layer caching and multi-stage builds (L3)
 - docker-011: `docker/configs/docker-compose-dev-environment.yaml` — Docker Compose development environment with volumes, networks, and health checks (L3)
 - con-039: `docs/concepts/observability-monitoring/notebooks/2026-08-05-monitoring-stack-exploration.ipynb` — Monitoring stack exploration: Grafana dashboard with Prometheus data (L2)
+- tetragon-004: `tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh` — Tetragon event collection pipeline with JSON export and external forwarding (L2)
+- tetragon-005: `tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml` — Minimal TracingPolicy for network connection monitoring (L2)
 
 ### Passed
 - Passed ([x]) docker-010 — Docker: docs — Dockerfile optimization patterns for CI — layer caching and multi-stage builds · Level: L3 · 2026-08-05
