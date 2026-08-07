@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-07
+
+### Added
+- con-098: `docs/concepts/software-supply-chain-security/supply-chain-security-in-practice.md` — Software Supply Chain Security: docs — Software supply chain security in practice — SBOM, signing, and vulnerability management (L3)
+
 ## 2026-08-06
 
 ### Added
