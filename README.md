@@ -15,11 +15,11 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 ## Quick links
 
-- [Linux shell scripting tutorial confusions notes](lin/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md) — Common confusions and pitfalls when learning Linux shell scripting
-- [Cron job configuration](lin/configs/2026-08-06-cron-job-configuration.ini) — Sample cron job configuration for scheduled automation
-- [Tetragon observability tutorial](tetragon/notes/2026-08-06-tetragon-observability-tutorial.md) — eBPF-based runtime observability with Tetragon
-- [Minimal network tracing policy](tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml) — Tetragon eBPF tracing policy for network events
-- [Tetragon event collection pipeline](tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh) — Pipeline for collecting and forwarding Tetragon events
+- [Secrets detection and remediation workflow analysis](docs/concepts/secrets-access-management/notebooks/secrets-detection-remediation-workflow-analysis.ipynb) — Notebook exploring detect, alert, and remediate stages for leaked secrets
+- [Semgrep rule performance optimization](semgrep/docs/semgrep-rule-performance-optimization.md) — Combining patterns for efficient scanning in large codebases
+- [Linux shell scripting tutorial confusions](lin/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md) — Common pitfalls and clarifications for shell scripting learners
+- [Cron job configuration](lin/configs/2026-08-06-cron-job-configuration.ini) — Sample cron job for scheduled automation
+- [Comparing community vs custom Semgrep rules](semgrep/notebooks/comparing-community-vs-custom-rules.ipynb) — Notebook comparing built-in and custom rule approaches
 
 ## Layout
 
@@ -38,6 +38,7 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 - **`github-actions/`** — GitHub Actions CI/CD workflows and runners
 - **`helm/` / `kubernetes/` / `kustomize/`** — Kubernetes ecosystem notes
 - **`linux/`** — Linux fundamentals, CLI, system administration, and security hardening
+- **`lin/`** — Linux shell scripting tutorials and cron configurations
 - **`sonarqube/` / `opentofu/`** — Static analysis and IaC tool primers
 - **`grafana/` / `observability/` / `prometheus/`** — Metrics, logs, traces, dashboards
 - **`docs/`** — How-to guides, concepts, reference, runbooks, security docs, troubleshooting, setup guides
@@ -47,9 +48,6 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 - **`snippets/`** — Copy-paste ready one-liners and cheatsheets
 - **`templates/`** — Starter configs for Kubernetes, Terraform, Linux, Jenkins, Logstash, syslog-ng
 - **`terraform/`** — Terraform primers, configs, scripts, and EventBridge Lambda modules
-- **`.github/`** — GitHub templates (PR template, CODEOWNERS)
-- **`CHANGELOG.md`** — Release history and version tracking
-- **`CONTRIBUTING.md`** — Contribution guidelines and workflow
 
 ## Coverage
 
@@ -58,46 +56,45 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Last verified | Total |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|---------:|:-------------:|------:|
-| Trivy | 3 | 3 | 5 | 2 | 1 | 6 | 2 | 1 | 2 | — | 2026-07-06 | 25 |
-| TruffleHog | 3 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | — | 2026-07-06 | 37 |
-| ZAP | 5 | 3 | 2 | 2 | 4 | 16 | — | 1 | — | — | 2026-07-20 | 33 |
-| Checkov | 4 | 5 | 2 | 2 | 4 | 10 | 2 | — | 2 | 1 | 2026-07-20 | 32 |
-| Syft | 4 | 5 | 3 | 1 | 1 | 7 | 1 | 1 | 1 | — | 2026-07-06 | 24 |
+| TruffleHog | 3 | 2 | 3 | 2 | 2 | 16 | 1 | 1 | 2 | — | — | 32 |
+| ZAP | 5 | 3 | 2 | 2 | 4 | 14 | — | 1 | — | — | 2026-07-20 | 31 |
+| Checkov | 4 | 5 | 2 | 2 | 4 | 8 | 2 | — | 2 | 1 | 2026-07-20 | 30 |
+| Trivy | 3 | 3 | 5 | 2 | 1 | 5 | 2 | 1 | 2 | — | — | 24 |
+| Syft | 4 | 5 | 3 | 1 | 1 | 6 | 1 | 1 | 1 | — | 2026-07-06 | 23 |
 | Grype | 4 | 1 | 8 | 1 | 2 | — | 2 | 1 | 1 | — | — | 20 |
-| Semgrep | 3 | 4 | 3 | 1 | 2 | — | 2 | 2 | 1 | — | — | 18 |
-| Terraform | 3 | — | 4 | 2 | 1 | — | — | — | — | — | 2026-08-05 | 17 |
+| Semgrep | 3 | 5 | 3 | 1 | 2 | — | 2 | 2 | 2 | — | 2026-08-06 | 20 |
+| Terraform | 3 | — | 4 | 10 | 1 | — | — | — | — | — | 2026-08-04 | 18 |
 | Falco | 4 | 2 | 3 | 3 | 1 | — | — | — | — | — | 2026-07-19 | 13 |
 | CodeQL | 3 | 1 | 1 | 1 | 4 | — | 1 | 1 | — | — | — | 12 |
 | GitGuardian | 4 | 1 | 2 | 2 | 2 | — | — | — | — | — | — | 11 |
 | Vault | 3 | 2 | 2 | 2 | 1 | — | — | 1 | — | — | — | 11 |
-| Snyk | 4 | 1 | 1 | 2 | 1 | — | — | 1 | — | — | — | 10 |
-| OPA | 3 | 1 | 1 | 1 | 3 | — | — | — | — | — | — | 9 |
-| Cosign | 4 | — | 2 | 1 | 1 | — | 1 | — | — | — | — | 9 |
-| Terrascan | 5 | — | 1 | 1 | 2 | — | — | — | — | — | 2026-07-10 | 9 |
 | Dependabot | 6 | — | 1 | 3 | — | — | — | — | — | — | 2026-07-21 | 10 |
+| Snyk | 4 | 1 | 1 | 2 | 1 | — | — | 1 | — | — | — | 10 |
+| Cosign | 4 | — | 2 | 1 | 1 | — | 1 | — | — | — | — | 9 |
+| OPA | 3 | 1 | 1 | 1 | 3 | — | — | — | — | — | — | 9 |
+| Terrascan | 5 | — | 1 | 1 | 2 | — | — | — | — | — | 2026-07-10 | 9 |
+| Docker | 2 | 1 | 2 | 1 | — | — | — | 2 | — | — | 2026-08-05 | 8 |
+| GitHub Actions | 3 | — | — | 2 | — | — | 2 | — | — | — | 2026-08-04 | 7 |
+| Tetragon | 3 | — | 1 | 2 | — | — | — | — | — | — | 2026-08-06 | 6 |
 | Git | 3 | — | 2 | — | 1 | — | — | — | — | — | 2026-07-26 | 6 |
-| Docker | 2 | 1 | 2 | 1 | — | — | — | 2 | — | — | 2026-07-12 | 8 |
-| ArgoCD | 5 | — | — | — | — | — | 1 | — | — | — | 2026-07-25 | 6 |
-| Helm | 2 | — | — | — | — | — | 1 | — | — | — | 2026-07-09 | 3 |
+| ArgoCD | 5 | — | — | — | — | — | 1 | — | — | — | 2026-08-01 | 6 |
+| Ansible | — | — | 2 | — | — | — | — | — | — | — | — | 2 |
+| DefectDojo | 2 | — | 1 | — | 1 | — | — | — | — | — | 2026-08-04 | 3 |
+| Helm | 2 | — | — | — | — | — | 1 | — | — | — | 2026-07-19 | 3 |
 | Kubernetes | 2 | — | — | — | — | — | 1 | — | — | — | 2026-07-15 | 3 |
 | Kustomize | 2 | — | — | 1 | — | — | — | — | — | — | 2026-07-08 | 3 |
-| GitHub Actions | 3 | — | — | 2 | — | — | 2 | — | — | — | 2026-07-14 | 7 |
-| SonarQube | 2 | — | — | — | 1 | — | — | — | — | — | 2026-07-09 | 3 |
-| OpenTofu | 2 | — | — | 1 | — | — | — | — | — | — | 2026-07-09 | 3 |
-| Tetragon | 3 | — | 1 | 2 | — | — | — | — | — | — | — | 6 |
+| OpenTofu | 2 | — | — | 1 | — | — | — | — | — | — | 2026-07-20 | 3 |
+| SonarQube | 2 | — | — | — | 1 | — | — | — | — | — | 2026-07-19 | 3 |
 | Grafana | 1 | — | — | — | — | — | — | — | — | — | 2026-07-13 | 1 |
+| Linux | 1 | — | — | — | — | — | — | — | — | — | — | 1 |
 | Observability | 1 | — | — | — | — | — | — | — | — | — | 2026-07-13 | 1 |
 | Prometheus | 1 | — | — | — | — | — | — | — | — | — | 2026-07-13 | 1 |
-| Linux | 1 | — | — | — | — | — | — | — | — | — | — | 1 |
-| Ansible | — | — | 2 | — | — | — | — | — | — | — | — | 2 |
-| DefectDojo | 2 | — | 1 | — | 1 | — | — | — | — | — | — | 3 |
-| Lab | — | — | — | — | — | — | — | — | — | — | — | 10 |
 
 </details>
 
 ## Status
 
-Currently expanding tool coverage with foundational concept primers for secrets management, version control, infrastructure as code, and Linux/shell fundamentals; practice exercises across multiple domains; and ongoing CVE remediation guides for the security toolchain. The newest additions are Linux shell scripting tutorials, Tetragon observability notes, and cron job configurations.
+Currently expanding tool coverage with foundational concept primers for secrets management, version control, infrastructure as code, and Linux/shell fundamentals; practice exercises across multiple domains; and ongoing CVE remediation guides for the security toolchain. The newest additions are secrets detection workflow analysis, Semgrep rule performance notes, Linux shell scripting tutorials, and Tetragon observability content.
 
 ---
-_Last updated: 2026-08-06_
+_Last updated: 2026-08-07_
