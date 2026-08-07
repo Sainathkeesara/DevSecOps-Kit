@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-07
+
+### Added
+- terrascan-014: `terrascan/scripts/policy-as-code-workflow.sh` — Terrascan policy-as-code workflow: scan IaC with custom Rego policies, per-severity breakdown, and a severity-threshold CI gate (L4)
+- terrascan-015: `terrascan/manifests/terrascan-gha-ci-multi-iac.yaml` — Terrascan GitHub Actions CI workflow for multi-IaC scanning with custom policies and severity gating (L4)
+- terrascan-016: `terrascan/docs/terrascan-vs-checkov-terraform-iac-scanning.md` — Terrascan vs Checkov comparison for Terraform IaC scanning: config vs plan scanning, custom policies, and build gating (L4)
+
 ## 2026-08-06
 
 ### Added

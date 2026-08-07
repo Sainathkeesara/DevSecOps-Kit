@@ -1,0 +1,84 @@
+# last_verified: 2026-08-07 · terrascan n/a
+#
+# Terrascan GitHub Actions CI workflow for multi-IaC scanning.
+#
+# Scans the repository (Terrascan auto-detects supported IaC formats — Terraform,
+# CloudFormation, Kubernetes, Dockerfile, etc.) with custom policies loaded from
+# a version-controlled policy directory, emits JSON results, and fails the build
+# when findings reach the configured severity threshold.
+#
+# Custom policies live in .terrascan-policies/ and use Terrascan's Rego policy
+# format (apiVersion: v1, kind: policy). See terrascan/configs/ for examples.
+name: Terrascan IaC scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - "**/*.tf"
+      - "**/*.tf.json"
+      - "**/*.yaml"
+      - "**/*.yml"
+      - "**/*.json"
+      - ".terrascan-policies/**"
+
+permissions:
+  contents: read
+  security-events: write
+
+env:
+  # Lowest severity that fails the build. Adjust per repo risk appetite.
+  FAIL_ON_SEVERITY: high
+  POLICY_DIR: .terrascan-policies
+
+jobs:
+  terrascan:
+    name: IaC security scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Terrascan
+        run: |
+          curl -sL https://github.com/tenable/terrascan/releases/latest/download/terrascan_linux_amd64.tar.gz | tar xz
+          sudo install ./terrascan /usr/local/bin
+          terrascan version
+
+      - name: Run Terrascan scan
+        id: scan
+        continue-on-error: true
+        run: |
+          mkdir -p ./results
+          # Single scan with custom policies (--config-path) and JSON output.
+          terrascan scan -d . --config-path "$POLICY_DIR" -o json \
+            > ./results/terrascan.json 2> ./results/scan.log || true
+          echo "violations=$(jq '.results.violations | length' ./results/terrascan.json 2>/dev/null || echo 0)" >> $GITHUB_OUTPUT
+
+      - name: Upload scan results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: terrascan-results
+          path: ./results/
+
+      - name: Enforce severity gate
+        if: always()
+        run: |
+          # Ordering: critical > high > medium > low. The gate fails when a
+          # finding's rank is <= the threshold rank. Severity values from the
+          # JSON output are normalized to lower case before comparison.
+          fail_count=$(jq --arg failon "$FAIL_ON_SEVERITY" '
+            def rank(s): {"critical":0,"high":1,"medium":2,"low":3}[(s|ascii_downcase)] // 9;
+            [ (.results.violations // [])[] | select(rank(.severity) <= rank($failon)) ] | length
+          ' ./results/terrascan.json 2>/dev/null || echo 0)
+
+          echo "Findings at/above $FAIL_ON_SEVERITY: $fail_count"
+          if [ "$fail_count" -gt 0 ]; then
+            echo "CRITICAL: $(jq '[(.results.violations // [])[] | select((.severity|ascii_downcase)=="critical")] | length' ./results/terrascan.json)"
+            echo "HIGH: $(jq '[(.results.violations // [])[] | select((.severity|ascii_downcase)=="high")] | length' ./results/terrascan.json)"
+            echo "::error::Terrascan gate failed — $fail_count finding(s) at or above $FAIL_ON_SEVERITY severity"
+            exit 1
+          fi
+          echo "Terrascan gate passed — no findings at or above $FAIL_ON_SEVERITY."
