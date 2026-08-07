@@ -76,6 +76,12 @@
 
 **Semgrep**: Static analysis tool for finding code patterns and security vulnerabilities using customizable rules, supporting multiple languages.
 
+**pattern-inside (Semgrep)**: A Semgrep combinator that restricts matches to code within a specific surrounding structure, reducing false positives by requiring context. Example: matching SQL injection only inside Django view functions.
+
+**pattern-either (Semgrep)**: A Semgrep combinator that matches any one of several alternative code patterns. Example: detecting either `subprocess.call` or `os.system` with a single rule.
+
+**pattern combinators (Semgrep)**: Semgrep features (`pattern-inside`, `pattern-either`, `pattern-not`, etc.) that combine multiple patterns to narrow scan scope and reduce noise in large codebases.
+
 **SAST (Static Application Security Testing)**: Security testing methodology that analyzes source code for vulnerabilities without executing the program.
 
 **Checkov**: Infrastructure as Code security scanner that checks Terraform, CloudFormation, Kubernetes, and other IaC frameworks for misconfigurations.
@@ -169,6 +175,14 @@
 **IAST (Interactive Application Security Testing)**: Security testing methodology that instruments running applications to identify vulnerabilities in real time during functional testing, combining aspects of SAST and DAST.
 
 **Secrets scanning**: Automated process of detecting hardcoded credentials, API keys, tokens, and passwords in source code, configuration files, and git history before they reach production.
+
+**Detection**: The act of scanning code, commits, or runtime environments for secret patterns. Example: a scanner reviewing Git history for high-entropy strings that resemble generated tokens.
+
+**Entropy**: A measure of randomness in a string. High-entropy strings often indicate generated secrets rather than natural language. Example: `xQ7kP9mR2vL5` has higher entropy than `password123`.
+
+**Remediation**: The process of invalidating a compromised secret and replacing it with a new one. Example: rotating an AWS access key after a leak is detected.
+
+**Blast radius**: The scope of systems or data exposed by a single compromised secret. Example: a leaked database password may expose all schemas, while a leaked read-only token may expose only metadata.
 
 **Dashboard (Grafana)** — A named collection of panels on a single screen, usually sharing a time range. Example: a "Web API Overview" dashboard with panels for request rate, error rate, p99 latency, and active connections.
 
