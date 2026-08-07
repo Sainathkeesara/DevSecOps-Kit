@@ -2522,3 +2522,7 @@ Added: k8s-cluster-autoscaler-grpc-hardening.sh and k8s-cluster-autoscaler-cve-2
 ---
 lin-066: Linux network traffic analysis project and monitoring script
 ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
+## 2026-08-07
+
+### Added
+- con-097: `docs/concepts/secrets-access-management/notebooks/secrets-detection-remediation-workflow-analysis.ipynb` — Secrets & Access Management: notebook — Secrets detection and remediation workflow analysis (L3)
