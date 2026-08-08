@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - dependabot-009: `dependabot/notes/2026-08-08-dependabot-custom-registry-tutorial.md` — Dependabot: notes — Follow the official Dependabot custom registry tutorial and write up what tripped me up (L2)
 
+### Reworked
+- terrascan-016: `terrascan/docs/terrascan-vs-checkov-terraform-iac-scanning.md` — rework: replaced unbacked URLs with research-backed sources, condensed L5 full-structure to L4 shape (Purpose → Steps → Verify), transitional third-person voice
+
 ## 2026-08-07
 
 ### Added
