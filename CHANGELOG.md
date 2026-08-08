@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-08
+
+### Added
+- dependabot-009: `dependabot/notes/2026-08-08-dependabot-custom-registry-tutorial.md` — Dependabot: notes — Follow the official Dependabot custom registry tutorial and write up what tripped me up (L2)
+
 ## 2026-08-07
 
 ### Added
