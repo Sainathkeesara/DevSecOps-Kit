@@ -1,0 +1,13 @@
+# Placeholder for PR validation workflow — lint and type checks on PRs
+name: PR Validation
+on:
+  pull_request:
+    branches: [ master ]
+permissions:
+  contents: read
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Lint and type checks would run here"

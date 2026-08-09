@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-09
+
+### Added
+- con-096: `docs/concepts/linux-shell-fundamentals/scripts/ci-cd-pipeline-security-scanner-wrapper.sh` — CI/CD pipeline shell script wrapper for security scanner orchestration (L3)
+
 ## 2026-08-08
 
 ### Added
