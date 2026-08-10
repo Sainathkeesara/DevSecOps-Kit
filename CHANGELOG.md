@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-10
+
+### Added
+- terraform-013: `terraform/configs/workspace-variable-precedence.hcl` — Terraform multi-environment configuration with workspaces and variable precedence (L3)
+
 ## 2026-08-09
 
 ### Added
