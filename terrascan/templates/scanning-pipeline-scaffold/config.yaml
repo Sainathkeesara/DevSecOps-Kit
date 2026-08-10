@@ -1,0 +1,13 @@
+# last_verified: 2026-08-09 · terrascan n/a
+
+# Terrascan scan configuration scaffold.
+# Points Terrascan at the local directory as the scan target and
+# loads custom policies from the policies/ folder alongside built-in rules.
+---
+scan:
+  target:
+    type: terraform
+    values: ["./"]
+  policy:
+    include:
+      - path: "./policies"

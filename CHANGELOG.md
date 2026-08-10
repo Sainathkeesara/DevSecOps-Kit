@@ -8,6 +8,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - con-096: `docs/concepts/linux-shell-fundamentals/scripts/ci-cd-pipeline-security-scanner-wrapper.sh` — CI/CD pipeline shell script wrapper for security scanner orchestration (L3)
+- terrascan-017: `terrascan/templates/scanning-pipeline-scaffold/` — Terrascan scanning pipeline scaffold with custom policy integration (L4)
+    - Terrascan config loading custom policies from policies/
+    - Two sample Rego policies: block public S3 ACLs and require S3 encryption
+    - Scan runner script with JSON output and per-severity breakdown
+    - README and .gitignore
+
+### Passed
+
+- Passed ([x]) terrascan-016 — Terrascan: docs — Terrascan vs Checkov — comparing IaC scanning approaches for Terraform · Level: L4 · 2026-08-09
 
 ## 2026-08-08
 
