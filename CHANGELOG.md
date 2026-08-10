@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - terraform-013: `terraform/configs/workspace-variable-precedence.hcl` — Terraform multi-environment configuration with workspaces and variable precedence (L3)
+- terraform-014: `terraform/docs/terraform-module-composition.md` — Terraform module composition patterns — reusing and versioning shared modules (L3)
 
 ## 2026-08-09
 
