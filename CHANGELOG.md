@@ -2556,3 +2556,4 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 
 ### Added
 - con-097: `docs/concepts/secrets-access-management/notebooks/secrets-detection-remediation-workflow-analysis.ipynb` — Secrets & Access Management: notebook — Secrets detection and remediation workflow analysis (L3)
+- con-099: docs/concepts/version-control-with-git/scripts/git-hooks-devsecops-security-checks.sh — Git hooks for DevSecOps (L3)
