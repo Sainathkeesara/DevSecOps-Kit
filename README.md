@@ -83,7 +83,7 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 
 ## Status
 
-Foundational concept primers and practice exercises are complete for the full tool chain. The kit is now in active refinement: recent additions include Terraform module composition and workspace variable precedence, Dependabot custom-registry configuration, Tetragon eBPF observability, Git-hook security checks, and a Terrascan scanning pipeline scaffold. Next focus is deepening CI/CD integration recipes and CVE remediation runbooks for the security toolchain.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions cover Terraform module composition and workspace variable precedence, Dependabot custom-registry setup, Tetragon eBPF observability, and Git-hook security checks. Current focus is first-contact install notes for the remaining L1 toolchain (Checkov, Cosign, Falco, GitGuardian, Grype) and expanding the Terraform multi-environment workspace configuration.
 
 ---
-_Last updated: 2026-08-10_
+_Last updated: 2026-08-11_

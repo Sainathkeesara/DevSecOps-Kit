@@ -278,6 +278,26 @@
 
 **Private registry**: A container or package registry that is not publicly reachable and requires authentication (tokens, service accounts, or credential helpers). Referenced via a `registries` block in tooling config such as Dependabot, or via a credential helper in CI.
 
+**Module (Terraform)**: A self-contained folder of `.tf` files exposing `variable` and `output` blocks, callable from environment configs by relative path or published version. The unit of reuse that makes infrastructure composable across environments.
+
+**Version constraint (Terraform)**: A semantic-version range (e.g. `~> 2.3`) that pins a module or provider to an acceptable release line. Upgrading to a new minor version requires editing the constraint, making the change visible in a pull-request diff.
+
+**Environment-container pattern (Terraform)**: A thin wrapper configuration that composes versioned service modules into a deployable environment (dev/staging/prod), passing environment-specific values through variables while sharing the same module sources.
+
+**Dependency lock file (`.terraform.lock.hcl`)**: The committed Terraform lockfile that pins exact provider and module versions and checksums, so CI and local runs use the same revisions. Updated deliberately via `terraform init -upgrade`.
+
+**Workspace (Terraform)**: A named state instance within a single configuration, often mapped one-to-one with an environment. `terraform.workspace` exposes the active workspace name for use in locals and resources.
+
+**Backend (Terraform)**: Where Terraform stores state — local or remote (S3, GCS, etc.). Separate backends or workspaces per environment keep a state lock or corruption in one environment from blocking the others.
+
+**Variable precedence (Terraform)**: The order in which variable values win: defaults < `terraform.tfvars` < `*.auto.tfvars` < `-var`/`-var-file` on the command line (and environment variables) — later sources override earlier ones.
+
+**registries block (Dependabot)**: A top-level `registries:` key in `dependabot.yml` (a sibling of `updates:`, not nested inside it) that defines private package and container registries referenced by name from each update entry.
+
+**Registry type (Dependabot)**: The schema-validated `type` value for a Dependabot registry entry (e.g. `npm_registry`, `docker_registry`, `maven_repository`). Values are specific, not free-form — a wrong type is rejected by Dependabot's schema validator.
+
+**replaces-base (Dependabot)**: A flag on a Dependabot registry entry used when a private registry proxies and also hosts the same packages as a public base registry, so updates aren't duplicated against both sources.
+
 ## DefectDojo
 
 - **Product** — An application or service tracked in DefectDojo.
