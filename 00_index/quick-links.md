@@ -8,12 +8,15 @@
 - [SBOM generation with Syft](../syft/scripts/gen-multi-format-sboms.sh) — Generate SBOMs in multiple formats
 - [CI-ready Grype scanning](../grype/scripts/ci-ready-grype-scan.sh) — Grype wrapper for CI pipelines
 - [Container vulnerability scan with Trivy](../trivy/scripts/container-vuln-scan.sh) — Scan Docker images for vulnerabilities
+- [Trivy SARIF code-scanning output](../trivy/docs/ci-pipeline-sarif-output.md) — Feed Trivy results into GitHub Code Scanning
 
 ### Scan for secrets
 - [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md) — Secret scanning with regex patterns and entropy analysis
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md) — Secrets detection with ggshield CLI
 - [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh) — Quick TruffleHog repo scan
 - [Secrets detection workflow analysis](../docs/concepts/secrets-access-management/notebooks/secrets-detection-remediation-workflow-analysis.ipynb) — Notebook exploring detect, alert, and remediate stages for leaked secrets
+- [Configure Dependabot for private registries](../dependabot/notes/2026-08-08-dependabot-custom-registry-tutorial.md) — Pointing Dependabot at registries GitHub can't reach by default
+- [Dependabot alerts and security updates](../dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md) — Enable automatic dependency fix PRs
 
 ### Run static analysis
 - [Semgrep primer](../semgrep/notes/0000-primer-semgrep.md) — Static analysis with custom rules across multiple languages
@@ -23,11 +26,10 @@
 - [Semgrep rule performance optimization](../semgrep/docs/semgrep-rule-performance-optimization.md) — Combining patterns for efficient scanning in large codebases
 
 ### Set up CI/CD pipelines
-- [Trivy CI pipeline with SARIF output](../trivy/docs/ci-pipeline-sarif-output.md) — SARIF integration for GitHub Code Scanning
-- [Trivy CI/CD pipeline recipes](../trivy/docs/ci-cd-pipeline-recipes.md) — Multi-pattern Trivy scanning recipes
-- [ZAP baseline scan for CI](../zap/notes/2026-07-20-install-zap-baseline-scan.md) — Non-intrusive DAST in CI
 - [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md) — Get started with GitHub Actions
-- [GitHub Actions explore](../github-actions/notes/2026-08-04-explore-github-actions.md) — Latest GitHub Actions workflows and patterns
+- [Explore GitHub Actions](../github-actions/notes/2026-08-04-explore-github-actions.md) — Latest GitHub Actions workflows and patterns
+- [ZAP baseline scan for CI](../zap/notes/2026-07-20-install-zap-baseline-scan.md) — Non-intrusive DAST in CI
+- [Trivy CI/CD pipeline recipes](../trivy/docs/ci-cd-pipeline-recipes.md) — Multi-pattern Trivy scanning recipes
 
 ### Build and sign container images
 - [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile) — Minimal Dockerfile to get started
@@ -37,6 +39,8 @@
 
 ### Manage infrastructure as code
 - [Terraform primer](../terraform/notes/0000-primer-terraform.md) — Declarative infrastructure provisioning
+- [Composing Terraform modules](../terraform/docs/terraform-module-composition.md) — Reusable module structure, cross-environment composition, and workspace patterns
+- [Terraform workspace variable precedence](../terraform/configs/workspace-variable-precedence.hcl) — Which values win when workspaces, tfvars, and CLI overlap
 - [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md) — Open-source Terraform fork with same HCL syntax
 - [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md) — K8s objects and kubectl basics
 - [Helm primer](../helm/notes/0000-primer-helm.md) — Package manager for Kubernetes charts
@@ -47,7 +51,6 @@
 - [HashiCorp Vault primer](../vault/notes/0000-primer-vault.md) — Secrets management and dynamic secrets
 - [Vault KV CRUD operations](../vault/scripts/vault-kv-crud.sh) — Key-value secret read/write operations
 - [Vault multi-environment access control](../vault/configs/multi-environment-access-control.hcl) — HCL policies for env-based access
-- [Dependabot alerts and security updates](../dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md) — Enable automatic dependency fix PRs
 
 ### Manage policies and compliance
 - [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md) — Policy engine for Kubernetes admission control
@@ -59,6 +62,10 @@
 - [Rollout restart](../scripts/bash/k8s_toolkit/rollout-restart.sh) — Restart Kubernetes deployments
 - [Debug pod](../scripts/bash/k8s_toolkit/debug/debug-pod.sh) — Inspect running pod logs and exec
 
+### Secure version control
+- [Git primer](../git/notes/0000-primer-git.md) — Git concepts, commits, branches
+- [Git hooks for security checks](../docs/concepts/version-control-with-git/scripts/git-hooks-devsecops-security-checks.sh) — Pre-commit hooks that run scans and secret checks in the dev loop
+
 ### Diagnose failures
 - [Kubernetes CrashLoopBackOff](../docs/troubleshooting/k8s-crashloopbackoff.md) — Debugging crashing pods
 - [Terraform errors](../docs/how-to/terraform-troubleshooting.md) — Common Terraform issue resolution
@@ -66,7 +73,7 @@
 
 ### Practice and learn
 - [Linux fundamentals first steps](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — First terminal commands and directory layout
-- [Version control with Git primer](../git/notes/0000-primer-git.md) — Git concepts, commits, branches
+- [Version control with Git fundamentals](../docs/concepts/git-001-version-control-fundamentals.md) — Git concepts, commits, branches
 - [CI/CD pipeline concepts](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md) — Stages, gates, triggers
 - [Application Security Testing concepts](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md) — SAST, DAST, SCA overview
 - [Infrastructure as Code fundamentals](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) — What IaC is and why it matters

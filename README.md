@@ -7,47 +7,35 @@
 
 ## Who this is for
 
-A working devops and devsecops engineer's quick-reference for vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and infrastructure automation. Use it as a shelf you grab from, not a tutorial site. It deliberately does not try to replace each tool's official docs. The kit covers scanners (Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, ZAP), runtime and supply-chain tools (Cosign, Falco, Tetragon, OPA, Vault), CI/CD and orchestration (Docker, Kubernetes, Helm, Kustomize, ArgoCD, GitHub Actions, Terraform, OpenTofu), and supporting platforms (Git, Prometheus, Grafana, observability, SonarQube, DefectDojo, Dependabot).
+A working devops and devsecops engineer's quick-reference: first-contact notes, runnable snippets, and configs for the tools you reach for every day. Use it as a shelf you grab from, not a tutorial site. It deliberately does not try to replace each tool's official docs.
 
 ## What's in here
 
-A curated collection of notes, scripts, snippets, and templates covering vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and infrastructure automation. Every entry is scenario-grounded and designed to be adapted for real infrastructure work. The kit spans 30+ tools across security scanning, runtime protection, supply chain, policy enforcement, and infrastructure automation — all organised for quick lookup and hands-on practice.
+A curated collection of notes, scripts, snippets, and templates covering vulnerability scanning, secret detection, supply chain security, runtime security, policy engines, and infrastructure automation. Every entry is scenario-grounded and designed to be adapted for real infrastructure work. The kit spans 34 tools across security scanning, runtime protection, supply chain, policy enforcement, and infrastructure automation — all organised for quick lookup and hands-on practice.
 
 ## Quick links
 
-- [Secrets detection and remediation workflow analysis](docs/concepts/secrets-access-management/notebooks/secrets-detection-remediation-workflow-analysis.ipynb) — Notebook exploring detect, alert, and remediate stages for leaked secrets
-- [Semgrep rule performance optimization](semgrep/docs/semgrep-rule-performance-optimization.md) — Combining patterns for efficient scanning in large codebases
-- [Linux shell scripting tutorial confusions](lin/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md) — Common pitfalls and clarifications for shell scripting learners
-- [Cron job configuration](lin/configs/2026-08-06-cron-job-configuration.ini) — Sample cron job for scheduled automation
-- [Comparing community vs custom Semgrep rules](semgrep/notebooks/comparing-community-vs-custom-rules.ipynb) — Notebook comparing built-in and custom rule approaches
+- [Composing Terraform modules across environments](terraform/docs/terraform-module-composition.md) — Reusable module structure, cross-environment composition, and workspace patterns
+- [Terraform workspace variable precedence](terraform/configs/workspace-variable-precedence.hcl) — Which values win when workspaces, tfvars, and CLI overlap
+- [Git hooks for devsecops security checks](docs/concepts/version-control-with-git/scripts/git-hooks-devsecops-security-checks.sh) — Pre-commit hooks that run scans and secret checks in the dev loop
+- [Dependabot for custom/private registries](dependabot/notes/2026-08-08-dependabot-custom-registry-tutorial.md) — Pointing Dependabot at registries GitHub can't reach by default
+- [Tetragon eBPF observability tutorial](tetragon/notes/2026-08-06-tetragon-observability-tutorial.md) — Watching container process and network events at the kernel level
 
 ## Layout
 
-- **`00_index/`** — Navigation: topic index, quick links, glossary, learning path
+- **`00_index/`** — Navigation: topic map, quick links, glossary, learning path
 - **`assets/`** — Architecture diagrams and workflow illustrations
-- **`ansible/`** — Ansible bootstrap and target-node scripts
-- **`argocd/`** — ArgoCD GitOps delivery notes, manifests, and first-app deployments
-- **`checkov/` / `semgrep/` / `trivy/` / `trufflehog/` / `syft/`** — Security scanner notes, scripts, configs
-- **`grype/` / `codeql/` / `zap/` / `snyk/` / `gitguardian/` / `falco/` / `cosign/` / `tetragon/`** — Vulnerability scanner and runtime security tool content
-- **`terrascan/` / `opa/`** — IaC compliance and policy engine primers
-- **`defectdojo/`** — Vulnerability management platform notes
-- **`dependabot/`** — Dependency update configs and alerts
-- **`vault/`** — HashiCorp Vault primers, configs, and scripts
-- **`git/`** — Git primers, branching, and version control
-- **`docker/`** — Docker image authoring, CLI, and container security
-- **`github-actions/`** — GitHub Actions CI/CD workflows and runners
-- **`helm/` / `kubernetes/` / `kustomize/`** — Kubernetes ecosystem notes
-- **`linux/`** — Linux fundamentals, CLI, system administration, and security hardening
-- **`lin/`** — Linux shell scripting tutorials and cron configurations
-- **`sonarqube/` / `opentofu/`** — Static analysis and IaC tool primers
-- **`grafana/` / `observability/` / `prometheus/`** — Metrics, logs, traces, dashboards
-- **`docs/`** — How-to guides, concepts, reference, runbooks, security docs, troubleshooting, setup guides
-- **`environments/`** — Terraform environment configs (dev / staging / prod)
-- **`lab/`** — Mini-projects and sandboxes
-- **`scripts/`** — Shell scripts organised by tool (bash toolkit directories)
-- **`snippets/`** — Copy-paste ready one-liners and cheatsheets
+- **`docs/`** — Concepts, how-to guides, reference, runbooks, security docs, troubleshooting, and setup guides
+- **`snippets/`** — Copy-paste ready cheatsheets and one-liners
 - **`templates/`** — Starter configs for Kubernetes, Terraform, Linux, Jenkins, Logstash, syslog-ng
-- **`terraform/`** — Terraform primers, configs, scripts, and EventBridge Lambda modules
+- **`scripts/bash/`** — Shell toolkit scripts organised by tool (ansible, docker, k8s, linux, terraform, vault, jenkins, kafka, observability, etc.)
+- **`environments/`** — Terraform environment configs (dev / staging / prod)
+- **`lab/`** — Mini-projects and learning sandboxes
+- **`.github/`** — Repo hygiene (CODEOWNERS, PR template, Dependabot config)
+
+Per-tool content folders, each with `notes/`, `scripts/`, `configs/`, `snippets/`, and wherever useful `docs/`, `manifests/`, `dockerfiles/`, `notebooks/`, `policies/`, or `templates/`:
+
+Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, CodeQL, ZAP, Cosign, Falco, Tetragon, OPA, Vault, Ansible, ArgoCD, Dependabot, Docker, Git, GitHub Actions, Helm, Kubernetes, Kustomize, OpenTofu, Prometheus, Grafana, DefectDojo, SonarQube, and Lin.
 
 ## Coverage
 
@@ -56,45 +44,46 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Last verified | Total |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|---------:|:-------------:|------:|
-| TruffleHog | 3 | 2 | 3 | 2 | 2 | 16 | 1 | 1 | 2 | — | — | 32 |
-| ZAP | 5 | 3 | 2 | 2 | 4 | 14 | — | 1 | — | — | 2026-07-20 | 31 |
-| Checkov | 4 | 5 | 2 | 2 | 4 | 8 | 2 | — | 2 | 1 | 2026-07-20 | 30 |
-| Trivy | 3 | 3 | 5 | 2 | 1 | 5 | 2 | 1 | 2 | — | — | 24 |
-| Syft | 4 | 5 | 3 | 1 | 1 | 6 | 1 | 1 | 1 | — | 2026-07-06 | 23 |
-| Grype | 4 | 1 | 8 | 1 | 2 | — | 2 | 1 | 1 | — | — | 20 |
-| Semgrep | 3 | 5 | 3 | 1 | 2 | — | 2 | 2 | 2 | — | 2026-08-06 | 20 |
-| Terraform | 3 | — | 4 | 10 | 1 | — | — | — | — | — | 2026-08-04 | 18 |
-| Falco | 4 | 2 | 3 | 3 | 1 | — | — | — | — | — | 2026-07-19 | 13 |
-| CodeQL | 3 | 1 | 1 | 1 | 4 | — | 1 | 1 | — | — | — | 12 |
-| GitGuardian | 4 | 1 | 2 | 2 | 2 | — | — | — | — | — | — | 11 |
-| Vault | 3 | 2 | 2 | 2 | 1 | — | — | 1 | — | — | — | 11 |
-| Dependabot | 6 | — | 1 | 3 | — | — | — | — | — | — | 2026-07-21 | 10 |
-| Snyk | 4 | 1 | 1 | 2 | 1 | — | — | 1 | — | — | — | 10 |
-| Cosign | 4 | — | 2 | 1 | 1 | — | 1 | — | — | — | — | 9 |
-| OPA | 3 | 1 | 1 | 1 | 3 | — | — | — | — | — | — | 9 |
-| Terrascan | 5 | — | 1 | 1 | 2 | — | — | — | — | — | 2026-07-10 | 9 |
-| Docker | 2 | 1 | 2 | 1 | — | — | — | 2 | — | — | 2026-08-05 | 8 |
-| GitHub Actions | 3 | — | — | 2 | — | — | 2 | — | — | — | 2026-08-04 | 7 |
-| Tetragon | 3 | — | 1 | 2 | — | — | — | — | — | — | 2026-08-06 | 6 |
-| Git | 3 | — | 2 | — | 1 | — | — | — | — | — | 2026-07-26 | 6 |
-| ArgoCD | 5 | — | — | — | — | — | 1 | — | — | — | 2026-08-01 | 6 |
-| Ansible | — | — | 2 | — | — | — | — | — | — | — | — | 2 |
-| DefectDojo | 2 | — | 1 | — | 1 | — | — | — | — | — | 2026-08-04 | 3 |
-| Helm | 2 | — | — | — | — | — | 1 | — | — | — | 2026-07-19 | 3 |
-| Kubernetes | 2 | — | — | — | — | — | 1 | — | — | — | 2026-07-15 | 3 |
-| Kustomize | 2 | — | — | 1 | — | — | — | — | — | — | 2026-07-08 | 3 |
-| OpenTofu | 2 | — | — | 1 | — | — | — | — | — | — | 2026-07-20 | 3 |
-| SonarQube | 2 | — | — | — | 1 | — | — | — | — | — | 2026-07-19 | 3 |
-| Grafana | 1 | — | — | — | — | — | — | — | — | — | 2026-07-13 | 1 |
-| Linux | 1 | — | — | — | — | — | — | — | — | — | — | 1 |
-| Observability | 1 | — | — | — | — | — | — | — | — | — | 2026-07-13 | 1 |
-| Prometheus | 1 | — | — | — | — | — | — | — | — | — | 2026-07-13 | 1 |
+| trufflehog | 3 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | — | 37 |
+| zap | 5 | 3 | 2 | 2 | 4 | 16 | 0 | 1 | 0 | 0 | 2026-07-20 | 33 |
+| checkov | 4 | 5 | 2 | 2 | 4 | 10 | 2 | 0 | 2 | 1 | 2026-07-20 | 32 |
+| trivy | 3 | 3 | 5 | 2 | 1 | 6 | 2 | 1 | 2 | 0 | — | 25 |
+| syft | 4 | 5 | 3 | 1 | 1 | 7 | 1 | 1 | 1 | 0 | 2026-07-06 | 24 |
+| terraform | 3 | 1 | 4 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-08-10 | 20 |
+| semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 2026-08-06 | 20 |
+| grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | — | 20 |
+| terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 2026-08-09 | 18 |
+| falco | 4 | 2 | 3 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-07-19 | 13 |
+| codeql | 3 | 1 | 1 | 1 | 4 | 0 | 1 | 1 | 0 | 0 | — | 12 |
+| vault | 3 | 2 | 2 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | — | 11 |
+| gitguardian | 4 | 1 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 0 | — | 11 |
+| dependabot | 7 | 0 | 1 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-08-08 | 11 |
+| snyk | 4 | 1 | 1 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | — | 10 |
+| opa | 3 | 1 | 1 | 1 | 3 | 0 | 0 | 0 | 0 | 0 | — | 9 |
+| cosign | 4 | 0 | 2 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | — | 9 |
+| docker | 2 | 1 | 2 | 1 | 0 | 0 | 0 | 2 | 0 | 0 | 2026-08-05 | 8 |
+| GitHub Actions | 3 | 0 | 0 | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 2026-08-04 | 7 |
+| tetragon | 3 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-08-06 | 6 |
+| git | 3 | 0 | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-07-26 | 6 |
+| argocd | 5 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 2026-08-01 | 6 |
+| sonarqube | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-07-19 | 3 |
+| opentofu | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-20 | 3 |
+| kustomize | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-08 | 3 |
+| kubernetes | 2 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 2026-07-15 | 3 |
+| helm | 2 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 2026-07-19 | 3 |
+| defectdojo | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-08-04 | 3 |
+| lin | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-08-06 | 2 |
+| ansible | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — | 2 |
+| prometheus | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-13 | 1 |
+| observability | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-13 | 1 |
+| linux | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-21 | 1 |
+| grafana | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-13 | 1 |
 
 </details>
 
 ## Status
 
-Currently expanding tool coverage with foundational concept primers for secrets management, version control, infrastructure as code, and Linux/shell fundamentals; practice exercises across multiple domains; and ongoing CVE remediation guides for the security toolchain. The newest additions are secrets detection workflow analysis, Semgrep rule performance notes, Linux shell scripting tutorials, and Tetragon observability content.
+Foundational concept primers and practice exercises are complete for the full tool chain. The kit is now in active refinement: recent additions include Terraform module composition and workspace variable precedence, Dependabot custom-registry configuration, Tetragon eBPF observability, Git-hook security checks, and a Terrascan scanning pipeline scaffold. Next focus is deepening CI/CD integration recipes and CVE remediation runbooks for the security toolchain.
 
 ---
-_Last updated: 2026-08-07_
+_Last updated: 2026-08-10_

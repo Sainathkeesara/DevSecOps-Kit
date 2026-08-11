@@ -270,6 +270,14 @@
 
 **SLA (Service Level Agreement)**: A contractual commitment based on SLOs, often with financial penalties for breaches.
 
+**Git hooks**: Scripts that Git runs automatically on events such as pre-commit, pre-push, and commit-msg, used to validate or gate changes before they are committed or pushed.
+
+**Conventional Commits**: A lightweight commit-message convention (`<type>: <description>`, e.g. `feat:`, `fix:`) that makes history readable and machine-parseable for changelogs and release tooling.
+
+**Personal access token (PAT)**: A long-lived credential used for Git over HTTPS or API authentication in place of a password; should be scoped to the minimum required permissions and rotated regularly.
+
+**Private registry**: A container or package registry that is not publicly reachable and requires authentication (tokens, service accounts, or credential helpers). Referenced via a `registries` block in tooling config such as Dependabot, or via a credential helper in CI.
+
 ## DefectDojo
 
 - **Product** — An application or service tracked in DefectDojo.
