@@ -28,6 +28,7 @@
 ### Set up CI/CD pipelines
 - [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md) — Get started with GitHub Actions
 - [Explore GitHub Actions](../github-actions/notes/2026-08-04-explore-github-actions.md) — Latest GitHub Actions workflows and patterns
+- [CI/CD security scanner wrapper](../docs/concepts/linux-shell-fundamentals/scripts/ci-cd-pipeline-security-scanner-wrapper.sh) — Single entry point that chains multiple scanner stages
 - [ZAP baseline scan for CI](../zap/notes/2026-07-20-install-zap-baseline-scan.md) — Non-intrusive DAST in CI
 - [Trivy CI/CD pipeline recipes](../trivy/docs/ci-cd-pipeline-recipes.md) — Multi-pattern Trivy scanning recipes
 

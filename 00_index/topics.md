@@ -268,7 +268,7 @@ These directories cut across every tool above. Browse the folders for the full s
 ## Snippets · 17 files
 - cheatsheets: [terraform-commands](../snippets/terraform-commands.md), [kubectl-cheatsheet](../snippets/kubectl-cheatsheet.md), [git-commands](../snippets/git-commands.md), [docker-commands](../snippets/docker-commands.md), [jenkins-cheatsheet](../snippets/jenkins-cheatsheet.md), [linux-cheatsheet](../snippets/linux-cheatsheet.md), [kafka-cheatsheet](../snippets/kafka-cheatsheet.md), [observability-cheatsheet](../snippets/observability-cheatsheet.md), [oci-registry-cheatsheet](../snippets/oci-registry-cheatsheet.md), [vault-commands](../snippets/vault-commands.md), [ci-cd-cheatsheet](../snippets/ci-cd-cheatsheet.md) … _browse `snippets/`._
 
-## Templates · 32 files
+## Templates · 33 files
 - [k8s](../templates/k8s/), [terraform](../templates/terraform/), [jenkins](../templates/jenkins/), [linux-automation](../templates/linux-automation/), [logstash](../templates/logstash/), [syslog-ng](../templates/syslog-ng/) … _browse `templates/`._
 
 ## Environments · 12 files
