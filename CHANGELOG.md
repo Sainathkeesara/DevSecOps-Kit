@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-11
+
+### Added
+- terraform-024: `terraform/configs/multi-environment-workspaces-variables.hcl` — Terraform remote backend with per-environment workspace variables (L1)
+
 ## 2026-08-10
 
 ### Added
