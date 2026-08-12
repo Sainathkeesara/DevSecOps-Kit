@@ -9,6 +9,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - argocd-005: `argocd/notes/2026-08-12-quickstart-tripups.md` — Following the official ArgoCD quickstart write-up: what tripped me up (L2)
 - argocd-006: `argocd/manifests/2026-08-12-gitops-sync-sample-web-app.yaml` — Minimal ArgoCD Application manifest for a sample web app with GitOps sync (L2)
+## 2026-08-11
+
+### Added
+- terraform-024: `terraform/configs/multi-environment-workspaces-variables.hcl` — Terraform remote backend with per-environment workspace variables (L1)
 
 ## 2026-08-10
 
