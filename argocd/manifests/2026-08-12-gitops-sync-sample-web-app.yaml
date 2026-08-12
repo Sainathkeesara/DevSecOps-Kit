@@ -1,0 +1,32 @@
+# last_verified: 2026-08-12 · ArgoCD 3.5.0
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sample-web-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: HEAD
+    path: guestbook
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  # GitOps sync: keep the cluster matching Git, self-heal manual edits, prune removals.
+  # Note: automated sync only reconciles on ArgoCD's 3-minute Git poll - use
+  # `argocd app sync` (or webhooks) if you want it faster than that.
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
+  # Right after a successful sync the app can still report OutOfSync because
+  # Kubernetes normalizes fields (e.g. 1000m -> 1, 3072Mi -> 3Gi). Ignoring
+  # those differences stops ArgoCD from showing permanent drift.
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
