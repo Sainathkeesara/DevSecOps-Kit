@@ -1,0 +1,25 @@
+# last_verified: 2026-08-13 · syft n/a
+# Syft configuration — control which package managers are cataloered.
+#
+# Tune this list to match the ecosystems your workload images ship.
+# Adding catalogers you don't use slows scans without adding signal.
+
+catalogers:
+  - python-package
+  - javascript-package
+  - ruby-gemfile
+  - java-pom
+  - java-gradle
+  - go-module
+  - rust-cargo
+  - dpkg
+  - rpm
+  - apk
+
+exclude:
+  - "**/node_modules/**"
+  - "**/__pycache__/**"
+  - "**/.git/**"
+  - "**/.venv/**"
+
+quiet: true

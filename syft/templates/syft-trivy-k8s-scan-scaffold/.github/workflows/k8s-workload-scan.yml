@@ -1,0 +1,50 @@
+# last_verified: 2026-08-13 · syft n/a · trivy n/a
+# CI workflow — generate a Syft SBOM and run a Trivy scan for every workload image.
+name: K8s Workload Image Scan
+
+on:
+  pull_request:
+    branches: [main, master]
+    paths:
+      - "images.txt"
+      - "syft.yaml"
+      - "trivy.yaml"
+      - ".github/workflows/k8s-workload-scan.yml"
+      - "scripts/**"
+  push:
+    branches: [main, master]
+    paths:
+      - "images.txt"
+      - "syft.yaml"
+      - "trivy.yaml"
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "stable"
+
+      - name: Install Syft and Trivy
+        run: |
+          go install github.com/anchore/syft/cmd/syft@latest
+          go install github.com/aquasecurity/trivy/cmd/trivy@latest
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+
+      - name: Generate SBOMs and scan workload images
+        run: ./scripts/scan-workload-images.sh
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: workload-scan-reports
+          path: reports/
