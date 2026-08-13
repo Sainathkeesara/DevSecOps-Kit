@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-13
+
+### Added
+- syft-017: `syft/notebooks/output-format-comparison.ipynb` — Comparing Syft output formats: SPDX vs CycloneDX vs GitHub vs native JSON (L5)
+
 ## 2026-08-12
 
 ### Added
