@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - syft-017: `syft/notebooks/output-format-comparison.ipynb` — Comparing Syft output formats: SPDX vs CycloneDX vs GitHub vs native JSON (L5)
+- syft-016: `syft/templates/syft-trivy-k8s-scan-scaffold/` — Syft + Trivy integrated scanning pipeline scaffold for Kubernetes workloads (L5)
+    - `images.txt` inventory of workload images, Syft → CycloneDX SBOM per image
+    - Trivy severity gate config and scan script with `make scan`
+    - GitHub Actions workflow installing both CLIs via `go install`
 
 ## 2026-08-12
 
