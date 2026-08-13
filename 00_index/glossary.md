@@ -404,6 +404,12 @@
 
 **Process** — A running instance of a program.
 
+**Command substitution** — Replacing a command's output inline in a script using backticks or `$(...)`. Example: `tar czf backup-$(date +%F).tar.gz /data` embeds today's date in the archive name at run time.
+
+**Globbing** — The shell's wildcard expansion of patterns like `*.txt` into matching filenames before a command runs. Differs from regex: `*` matches any sequence, not a repeat-count quantifier.
+
+**Quoting (single vs double)** — Single quotes (`'$HOME'`) preserve literal text; double quotes (`"$HOME"`) allow variable expansion and command substitution. Mixing them up is a common first-script footgun.
+
 **Declarative configuration** — You describe the desired end state, and the tool figures out how to get there.
 
 **Imperative configuration** — You specify exact steps to achieve the desired state.
