@@ -1,0 +1,7 @@
+# last_verified: 2026-08-13
+# One container image per line. Comments start with '#'.
+# These are the images your Kubernetes workloads run — the scaffold generates
+# a Syft SBOM and runs a Trivy scan for each one.
+nginx
+redis
+postgres

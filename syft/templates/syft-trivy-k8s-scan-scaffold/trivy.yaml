@@ -1,0 +1,22 @@
+# last_verified: 2026-08-13 · trivy n/a
+# Trivy configuration — severity gate for workload image scanning.
+#
+# Used by the scan script and the CI workflow via `trivy image --config trivy.yaml`.
+
+severity:
+  - CRITICAL
+  - HIGH
+
+scan:
+  skip-db-update: false
+
+vulnerability:
+  only-fixed: true
+
+misconfiguration:
+  include-policies: []
+  checks: []
+
+format: table
+
+exit-code: 1
