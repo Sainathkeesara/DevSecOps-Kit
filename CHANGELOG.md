@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     - `images.txt` inventory of workload images, Syft → CycloneDX SBOM per image
     - Trivy severity gate config and scan script with `make scan`
     - GitHub Actions workflow installing both CLIs via `go install`
+- trivy-016: `trivy/docs/multi-arch-vulnerability-scanning.md` — Trivy vulnerability scanning patterns for multi-arch container images (L5)
 
 ## 2026-08-12
 
