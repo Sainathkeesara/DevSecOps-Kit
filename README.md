@@ -15,11 +15,11 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 ## Quick links
 
+- [Trivy ignore-rules pipeline](trivy/scripts/ignore-rules-pipeline.sh) — Trivy vulnerability scanning pipeline with custom ignore rules
+- [Verifying Trivy paths after restructure](docs/notes/2026-08-14-verify-trivy-paths.md) — Confirming Trivy how-to guide paths after directory changes
+- [Multi-arch vulnerability scanning with Trivy](trivy/docs/multi-arch-vulnerability-scanning.md) — Scanning multi-architecture images and manifests
 - [Syft output format comparison notebook](syft/notebooks/output-format-comparison.ipynb) — SPDX vs CycloneDX vs GitHub vs native JSON side by side
 - [Syft + Trivy Kubernetes scan scaffold](syft/templates/syft-trivy-k8s-scan-scaffold/README.md) — SBOM generation and vulnerability gating for workload images
-- [ArgoCD quickstart trip-ups](argocd/notes/2026-08-12-quickstart-tripups.md) — What tripped me up following the official ArgoCD quickstart
-- [ArgoCD GitOps sync sample app](argocd/manifests/2026-08-12-gitops-sync-sample-web-app.yaml) — Minimal Application manifest with sync options
-- [Terraform module composition guide](terraform/docs/terraform-module-composition.md) — Reusable module structure across environments
 
 ## Layout
 
@@ -72,7 +72,7 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 | kubernetes | 2 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 2026-07-15 | 3 |
 | helm | 2 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 2026-07-19 | 3 |
 | defectdojo | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-08-04 | 3 |
-| linux | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-08-06 | 3 |
+| linux | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-08-06 | 2 |
 | ansible | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — | 2 |
 | prometheus | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — | 1 |
 | grafana | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — | 1 |
@@ -84,4 +84,4 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions cover the Syft output format comparison notebook, a Syft + Trivy Kubernetes scan scaffold, ArgoCD GitOps sync setup, and further Terraform module composition patterns. Current focus is rounding out the remaining tool notes and expanding cross-tool integration scaffolds.
 
 ---
-_Last updated: 2026-08-13_
+_Last updated: 2026-08-15_

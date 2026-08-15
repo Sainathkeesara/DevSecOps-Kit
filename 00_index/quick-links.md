@@ -76,7 +76,6 @@
 - [Vault seal/unseal troubleshooting](../docs/troubleshooting/vault-seal-unseal.md) — Recover access to sealed Vault
 
 ### Practice and learn
-- [Linux fundamentals first steps](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — First terminal commands and directory layout
 - [Version control with Git fundamentals](../docs/concepts/git-001-version-control-fundamentals.md) — Git concepts, commits, branches
 - [CI/CD pipeline concepts](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md) — Stages, gates, triggers
 - [Application Security Testing concepts](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md) — SAST, DAST, SCA overview
