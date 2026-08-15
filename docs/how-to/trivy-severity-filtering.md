@@ -234,7 +234,7 @@ echo "Exit code: $?"
 
 ```bash
 # Dry-run in CI environment
-./scripts/triage-vulnerabilities.sh myapp:dev
+../../scripts/triage-vulnerabilities.sh myapp:dev
 
 # Check artifact generation
 ls -la trivy-*.json trivy-*.sarif 2>/dev/null || echo "No artifacts generated"

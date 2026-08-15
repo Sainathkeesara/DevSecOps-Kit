@@ -44,7 +44,7 @@ This guide provides steps to integrate Aqua Security Trivy vulnerability scannin
 **Via CLI (Automated):**
 ```bash
 # Use the integration script
-./scripts/bash/ci_cd_toolkit/jenkins/trivy-jenkins-integration.sh \
+../../scripts/bash/ci_cd_toolkit/jenkins/trivy-jenkins-integration.sh \
   --install \
   --jenkins-url http://jenkins.example.com:8080 \
   --plugin-ver 1.0.0
