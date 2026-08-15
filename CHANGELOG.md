@@ -4,6 +4,10 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-15
+
+### Added
+- trivy-017: `trivy/scripts/ignore-rules-pipeline.sh` — Trivy vulnerability scanning pipeline with custom ignore rules (L5)
 ## 2026-08-14
 
 ### Added
