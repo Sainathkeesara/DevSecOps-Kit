@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - trivy-017: `trivy/scripts/ignore-rules-pipeline.sh` — Trivy vulnerability scanning pipeline with custom ignore rules (L5)
+- trivy-017: reworked `trivy/scripts/ignore-rules-pipeline.sh` — fixed broken severity gate by normalizing FAIL_ON to uppercase and matching `.Severity` case-insensitively in jq (L5)
 ## 2026-08-14
 
 ### Added

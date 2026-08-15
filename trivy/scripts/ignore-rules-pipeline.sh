@@ -7,7 +7,7 @@ scan_target() {
   SEVERITY="$3"
   IGNOREFILE="$4"
   OUTDIR="$5"
-  FAIL_ON="$6"
+  FAIL_ON=$(echo "$6" | tr '[:lower:]' '[:upper:]')
 
   SAFE_NAME=$(echo "${TARGET_TYPE}_${TARGET_VALUE}" | tr '/:.' '___' | tr -d '[:space:]')
   JSON_OUT="$OUTDIR/${SAFE_NAME}-vulns.json"
@@ -33,15 +33,17 @@ scan_target() {
   fi
 
   FAIL_COUNT=$(jq --arg sev "$FAIL_ON" '
-    [.Results[]? | .Vulnerabilities[]? | select(.Severity == $sev)] | length
+    [.Results[]? | .Vulnerabilities[]? | select((.Severity | ascii_upcase) == $sev)] | length
   ' "$JSON_OUT" 2>/dev/null || echo 0)
 
   echo "$FAIL_COUNT" > "$OUTDIR/${SAFE_NAME}-count.txt"
 
-  echo "=== $TARGET_VALUE ===" > "$SUMMARY_OUT"
-  echo "Fail-threshold: $FAIL_ON" >> "$SUMMARY_OUT"
-  echo "Findings: $FAIL_COUNT" >> "$SUMMARY_OUT"
-  echo "Exit code: $TRIVY_EXIT" >> "$SUMMARY_OUT"
+  {
+    echo "=== $TARGET_VALUE ==="
+    echo "Fail-threshold: $FAIL_ON"
+    echo "Findings: $FAIL_COUNT"
+    echo "Exit code: $TRIVY_EXIT"
+  } > "$SUMMARY_OUT"
 
   if [ "$FAIL_COUNT" -gt 0 ]; then
     return 1
@@ -51,7 +53,7 @@ scan_target() {
 
 main() {
   SEVERITY="CRITICAL,HIGH"
-  FAIL_ON="critical"
+  FAIL_ON="CRITICAL"
   IGNOREFILE=".trivyignore"
   OUTDIR="./trivy-ignore-reports"
   TARGETS=""
