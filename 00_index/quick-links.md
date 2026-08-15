@@ -6,6 +6,7 @@
 - [Trivy primer](../trivy/notes/0000-primer-trivy.md) — Universal vulnerability scanner for containers and Kubernetes
 - [Minimal Grype scan](../grype/scripts/minimal-grype-scan.sh) — Quick Grype scan with minimal setup
 - [SBOM generation with Syft](../syft/scripts/gen-multi-format-sboms.sh) — Generate SBOMs in multiple formats
+- [Syft output format comparison](../syft/notebooks/output-format-comparison.ipynb) — SPDX vs CycloneDX vs GitHub vs native JSON, side by side
 - [CI-ready Grype scanning](../grype/scripts/ci-ready-grype-scan.sh) — Grype wrapper for CI pipelines
 - [Container vulnerability scan with Trivy](../trivy/scripts/container-vuln-scan.sh) — Scan Docker images for vulnerabilities
 - [Trivy SARIF code-scanning output](../trivy/docs/ci-pipeline-sarif-output.md) — Feed Trivy results into GitHub Code Scanning
@@ -36,7 +37,9 @@
 - [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile) — Minimal Dockerfile to get started
 - [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh) — Cosign quickstart for image signing
 - [Multi-stage SBOM Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile) — SBOM generation in CI images
+- [Multi-stage Grype scan Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile) — Scanning images during the build
 - [Build a multi-service Docker Compose app](../docker/scripts/build-multi-service-compose-app.sh) — Docker Compose app from scratch
+- [Syft + Trivy Kubernetes scan scaffold](../syft/templates/syft-trivy-k8s-scan-scaffold/README.md) — SBOM and vulnerability gating for workload images
 
 ### Manage infrastructure as code
 - [Terraform primer](../terraform/notes/0000-primer-terraform.md) — Declarative infrastructure provisioning
@@ -80,8 +83,8 @@
 - [Infrastructure as Code fundamentals](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) — What IaC is and why it matters
 
 ### Learn Linux shell scripting
-- [Linux shell scripting tutorial confusions](../lin/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md) — Common pitfalls and clarifications for shell scripting
-- [Cron job configuration](../lin/configs/2026-08-06-cron-job-configuration.ini) — Sample cron job for scheduled automation
+- [Linux shell scripting tutorial confusions](../linux/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md) — Common pitfalls and clarifications for shell scripting
+- [Cron job configuration](../linux/configs/2026-08-06-cron-job-configuration.ini) — Sample cron job for scheduled automation
 
 ### Explore Tetragon observability
 - [Tetragon observability tutorial](../tetragon/notes/2026-08-06-tetragon-observability-tutorial.md) — eBPF-based runtime observability with Tetragon

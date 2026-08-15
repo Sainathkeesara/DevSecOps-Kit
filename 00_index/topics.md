@@ -2,7 +2,6 @@
 
 > A map of what's here. For a beginner-to-advanced reading order, see [learning-path.md](learning-path.md).
 
-
 ## trufflehog · 37 files
 - **primer:** [0000-primer-trufflehog.md](../trufflehog/notes/0000-primer-trufflehog.md)
 - **notes** (3): [2026-05-27-install-trufflehog.md](../trufflehog/notes/2026-05-27-install-trufflehog.md), [2026-05-27-following-trufflehog-quickstart.md](../trufflehog/notes/2026-05-27-following-trufflehog-quickstart.md), [0000-primer-trufflehog.md](../trufflehog/notes/0000-primer-trufflehog.md)
@@ -24,6 +23,18 @@
 - **snippets** (4): [my-first-zap-spider-scan.sh](../zap/snippets/my-first-zap-spider-scan.sh), [my-first-zap-baseline-scan.sh](../zap/snippets/my-first-zap-baseline-scan.sh), [authenticated-scan-with-context.sh](../zap/snippets/authenticated-scan-with-context.sh) — _…and 1 more under `zap/snippets/`._
 - **templates** (16): [zap-automation-plan.yaml](../zap/templates/zap-dast-integration/zap-automation-plan.yaml), [run-zap-dast.sh](../zap/templates/zap-dast-integration/scripts/run-zap-dast.sh), [quick-scan.yaml](../zap/templates/zap-dast-integration/plans/quick-scan.yaml) — _…and 13 more under `zap/templates/`._
 - **dockerfiles** (1): [custom-zap-automation.Dockerfile](../zap/dockerfiles/custom-zap-automation.Dockerfile)
+
+## syft · 33 files
+- **primer:** [0000-primer-syft.md](../syft/notes/0000-primer-syft.md)
+- **notes** (4): [2026-05-30-sbom-format-comparison.md](../syft/notes/2026-05-30-sbom-format-comparison.md), [2026-05-29-syft-quickstart-trip-ups.md](../syft/notes/2026-05-29-syft-quickstart-trip-ups.md), [2026-05-27-install-syft-first-sbom.md](../syft/notes/2026-05-27-install-syft-first-sbom.md) — _…and 1 more under `syft/notes/`._
+- **docs** (5): [sbom-output-formats-reference.md](../syft/docs/sbom-output-formats-reference.md), [sbom-formats-comparison.md](../syft/docs/sbom-formats-comparison.md), [registry-auth-caching-patterns.md](../syft/docs/registry-auth-caching-patterns.md) — _…and 2 more under `syft/docs/`._
+- **scripts** (3): [sbom-vuln-pipeline.sh](../syft/scripts/sbom-vuln-pipeline.sh), [multi-image-sbom-pipeline.sh](../syft/scripts/multi-image-sbom-pipeline.sh), [gen-multi-format-sboms.sh](../syft/scripts/gen-multi-format-sboms.sh)
+- **configs** (1): [.syft.yaml](../syft/configs/.syft.yaml)
+- **snippets** (1): [tried-sbom-formats.sh](../syft/snippets/tried-sbom-formats.sh)
+- **templates** (15): [k8s-workload-scan.yml](../syft/templates/syft-trivy-k8s-scan-scaffold/.github/workflows/k8s-workload-scan.yml), [scan-workload-images.sh](../syft/templates/syft-trivy-k8s-scan-scaffold/scripts/scan-workload-images.sh), [README.md](../syft/templates/syft-trivy-k8s-scan-scaffold/README.md) — _…and 12 more under `syft/templates/`._
+- **manifests** (1): [syft-gha-multi-arch-sbom-registry-auth.yaml](../syft/manifests/syft-gha-multi-arch-sbom-registry-auth.yaml)
+- **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
+- **notebooks** (2): [output-format-comparison.ipynb](../syft/notebooks/output-format-comparison.ipynb), [sbom-layer-package-analysis.ipynb](../syft/notebooks/sbom-layer-package-analysis.ipynb)
 
 ## checkov · 32 files
 - **primer:** [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md)
@@ -48,18 +59,6 @@
 - **manifests** (2): [trivy-sarif-code-scanning.yaml](../trivy/manifests/trivy-sarif-code-scanning.yaml), [trivy-operator-deployment.yaml](../trivy/manifests/trivy-operator-deployment.yaml)
 - **dockerfiles** (1): [custom-policies.Dockerfile](../trivy/dockerfiles/custom-policies.Dockerfile)
 - **notebooks** (2): [trivy-scan-mode-comparison.ipynb](../trivy/notebooks/trivy-scan-mode-comparison.ipynb), [trivy-sarif-output-processing.ipynb](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
-
-## syft · 24 files
-- **primer:** [0000-primer-syft.md](../syft/notes/0000-primer-syft.md)
-- **notes** (4): [2026-05-30-sbom-format-comparison.md](../syft/notes/2026-05-30-sbom-format-comparison.md), [2026-05-29-syft-quickstart-trip-ups.md](../syft/notes/2026-05-29-syft-quickstart-trip-ups.md), [2026-05-27-install-syft-first-sbom.md](../syft/notes/2026-05-27-install-syft-first-sbom.md) — _…and 1 more under `syft/notes/`._
-- **docs** (5): [sbom-output-formats-reference.md](../syft/docs/sbom-output-formats-reference.md), [sbom-formats-comparison.md](../syft/docs/sbom-formats-comparison.md), [registry-auth-caching-patterns.md](../syft/docs/registry-auth-caching-patterns.md) — _…and 2 more under `syft/docs/`._
-- **scripts** (3): [sbom-vuln-pipeline.sh](../syft/scripts/sbom-vuln-pipeline.sh), [multi-image-sbom-pipeline.sh](../syft/scripts/multi-image-sbom-pipeline.sh), [gen-multi-format-sboms.sh](../syft/scripts/gen-multi-format-sboms.sh)
-- **configs** (1): [.syft.yaml](../syft/configs/.syft.yaml)
-- **snippets** (1): [tried-sbom-formats.sh](../syft/snippets/tried-sbom-formats.sh)
-- **templates** (7): [syft.yaml](../syft/templates/sbom-pipeline-scaffold/syft.yaml), [scan-sbom.sh](../syft/templates/sbom-pipeline-scaffold/scripts/scan-sbom.sh), [grype.yaml](../syft/templates/sbom-pipeline-scaffold/grype.yaml) — _…and 4 more under `syft/templates/`._
-- **manifests** (1): [syft-gha-multi-arch-sbom-registry-auth.yaml](../syft/manifests/syft-gha-multi-arch-sbom-registry-auth.yaml)
-- **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
-- **notebooks** (1): [sbom-layer-package-analysis.ipynb](../syft/notebooks/sbom-layer-package-analysis.ipynb)
 
 ## terraform · 20 files
 - **primer:** [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md)
@@ -175,6 +174,11 @@
 - **configs** (1): [docker-compose-dev-environment.yaml](../docker/configs/docker-compose-dev-environment.yaml)
 - **dockerfiles** (2): [2026-07-12-first-custom-docker-image.Dockerfile](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile), [2026-07-10-first-custom-image.Dockerfile](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
 
+## argocd · 8 files
+- **primer:** [0000-primer-argocd.md](../argocd/notes/0000-primer-argocd.md)
+- **notes** (6): [2026-08-12-quickstart-tripups.md](../argocd/notes/2026-08-12-quickstart-tripups.md), [2026-08-01-verify-readme-layout.md](../argocd/notes/2026-08-01-verify-readme-layout.md), [2026-07-31-verify-readme-layout.md](../argocd/notes/2026-07-31-verify-readme-layout.md) — _…and 3 more under `argocd/notes/`._
+- **manifests** (2): [2026-08-12-gitops-sync-sample-web-app.yaml](../argocd/manifests/2026-08-12-gitops-sync-sample-web-app.yaml), [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml)
+
 ## GitHub Actions · 7 files
 - **primer:** [0000-primer-github-actions.md](../github-actions/notes/0000-primer-github-actions.md)
 - **notes** (3): [2026-08-04-explore-github-actions.md](../github-actions/notes/2026-08-04-explore-github-actions.md), [2026-07-14-explore-github-actions.md](../github-actions/notes/2026-07-14-explore-github-actions.md), [0000-primer-github-actions.md](../github-actions/notes/0000-primer-github-actions.md)
@@ -192,11 +196,6 @@
 - **notes** (3): [2026-07-12-install-git-identity-first-commit.md](../git/notes/2026-07-12-install-git-identity-first-commit.md), [2026-07-04-git-branching-merge-confusions.md](../git/notes/2026-07-04-git-branching-merge-confusions.md), [0000-primer-git.md](../git/notes/0000-primer-git.md)
 - **scripts** (2): [2026-07-12-bump-version.sh](../git/scripts/2026-07-12-bump-version.sh), [2026-07-10-local-ci-simulation.sh](../git/scripts/2026-07-10-local-ci-simulation.sh)
 - **snippets** (1): [2026-07-04-git-rebase-vs-merge-conflict-patterns.sh](../git/snippets/2026-07-04-git-rebase-vs-merge-conflict-patterns.sh)
-
-## argocd · 6 files
-- **primer:** [0000-primer-argocd.md](../argocd/notes/0000-primer-argocd.md)
-- **notes** (5): [2026-08-01-verify-readme-layout.md](../argocd/notes/2026-08-01-verify-readme-layout.md), [2026-07-31-verify-readme-layout.md](../argocd/notes/2026-07-31-verify-readme-layout.md), [2026-07-25-readme-layout.md](../argocd/notes/2026-07-25-readme-layout.md) — _…and 2 more under `argocd/notes/`._
-- **manifests** (1): [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml)
 
 ## sonarqube · 3 files
 - **primer:** [0000-primer-sonarqube.md](../sonarqube/notes/0000-primer-sonarqube.md)
@@ -228,9 +227,9 @@
 - **notes** (2): [2026-08-04-explore-defectdojo-ui.md](../defectdojo/notes/2026-08-04-explore-defectdojo-ui.md), [0000-primer-defectdojo.md](../defectdojo/notes/0000-primer-defectdojo.md)
 - **snippets** (1): [install-defectdojo-first-scan-report.sh](../defectdojo/snippets/install-defectdojo-first-scan-report.sh)
 
-## lin · 2 files
-- **notes** (1): [2026-08-06-linux-shell-scripting-tutorial-confusions.md](../lin/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md)
-- **configs** (1): [2026-08-06-cron-job-configuration.ini](../lin/configs/2026-08-06-cron-job-configuration.ini)
+## linux · 3 files
+- **notes** (2): [2026-08-06-linux-shell-scripting-tutorial-confusions.md](../linux/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md), [2026-07-21-install-linux-vm-terminal-first-commands.md](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md)
+- **configs** (1): [2026-08-06-cron-job-configuration.ini](../linux/configs/2026-08-06-cron-job-configuration.ini)
 
 ## ansible · 2 files
 - **scripts** (2): [bootstrap-target-node.sh](../ansible/scripts/bootstrap-target-node.sh), [2026-08-04-bootstrap-node.sh](../ansible/scripts/2026-08-04-bootstrap-node.sh)
@@ -238,13 +237,6 @@
 ## prometheus · 1 files
 - **primer:** [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md)
 - **notes** (1): [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md)
-
-## observability · 1 files
-- **primer:** [0000-primer-observability.md](../observability/notes/0000-primer-observability.md)
-- **notes** (1): [0000-primer-observability.md](../observability/notes/0000-primer-observability.md)
-
-## linux · 1 files
-- **notes** (1): [2026-07-21-install-linux-vm-terminal-first-commands.md](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md)
 
 ## grafana · 1 files
 - **primer:** [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md)
@@ -257,7 +249,7 @@
 These directories cut across every tool above. Browse the folders for the full set.
 
 
-## Docs · 186 files
+## Docs · 187 files
 - **concepts** (38): foundational primers — [application-security-testing](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md), [ci-cd-pipeline](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md), [configuration-management](../docs/concepts/configuration-management/0000-primer-configuration-management.md), [infrastructure-as-code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md), [secrets-access-management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md), [linux-shell-fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) … _and more under `docs/concepts/`._
 - **how-to** — [kubernetes toolkit](../docs/how-to/k8s_toolkit.md), [linux toolkit](../docs/how-to/linux_toolkit.md), [jenkins toolkit](../docs/how-to/jenkins_toolkit.md), [ansible toolkit](../docs/how-to/ansible_toolkit.md), [vault toolkit](../docs/how-to/vault_toolkit.md) … _browse `docs/how-to/`._
 - **reference**, **runbooks**, **security**, **troubleshooting**, **setup-guides** — _browse `docs/`._
@@ -268,7 +260,7 @@ These directories cut across every tool above. Browse the folders for the full s
 ## Snippets · 17 files
 - cheatsheets: [terraform-commands](../snippets/terraform-commands.md), [kubectl-cheatsheet](../snippets/kubectl-cheatsheet.md), [git-commands](../snippets/git-commands.md), [docker-commands](../snippets/docker-commands.md), [jenkins-cheatsheet](../snippets/jenkins-cheatsheet.md), [linux-cheatsheet](../snippets/linux-cheatsheet.md), [kafka-cheatsheet](../snippets/kafka-cheatsheet.md), [observability-cheatsheet](../snippets/observability-cheatsheet.md), [oci-registry-cheatsheet](../snippets/oci-registry-cheatsheet.md), [vault-commands](../snippets/vault-commands.md), [ci-cd-cheatsheet](../snippets/ci-cd-cheatsheet.md) … _browse `snippets/`._
 
-## Templates · 33 files
+## Templates · 34 files
 - [k8s](../templates/k8s/), [terraform](../templates/terraform/), [jenkins](../templates/jenkins/), [linux-automation](../templates/linux-automation/), [logstash](../templates/logstash/), [syslog-ng](../templates/syslog-ng/) … _browse `templates/`._
 
 ## Environments · 12 files
