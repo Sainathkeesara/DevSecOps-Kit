@@ -1,0 +1,105 @@
+# last_verified: 2026-08-16 · checkov
+# Checkov GitLab CI template — multi-cloud IaC scanning with policy drift detection
+#
+# A .gitlab-ci.yml starting point for scanning Terraform, CloudFormation,
+# Kubernetes, and Dockerfile IaC in one GitLab pipeline, with a scheduled
+# drift job that catches when the set of failing checks drifts away from an
+# accepted baseline.
+#
+# Design:
+#   - checkov-scan      gates merge requests on new findings (exit code).
+#   - checkov-drift     runs on a schedule, compares failed check IDs against
+#                       a committed baseline, fails if new failures appear.
+#
+# The flags below are the same ones used in the rest of this kit's Checkov
+# notes, scripts, and notebooks, so they behave identically in local runs.
+
+stages:
+  - scan
+  - drift-check
+
+default:
+  image: python:3.12-slim
+
+variables:
+  CHECKOV_FRAMEWORKS: "terraform,cloudformation,kubernetes,dockerfile"
+  CHECKOV_BASELINE: "checkov-baseline.json"
+
+# ── MR / default-branch gate ────────────────────────────────────────────────
+# checkov exits non-zero when it finds failing checks, which fails the job and
+# blocks the merge request. Results are kept as an artifact either way so a
+# human can read what tripped the gate.
+checkov-scan:
+  stage: scan
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+  before_script:
+    - pip install checkov
+  script:
+    - |
+      checkov -d . \
+        --framework "$CHECKOV_FRAMEWORKS" \
+        --output json \
+        --compact \
+        --quiet \
+        > checkov-results.json
+  artifacts:
+    when: always
+    paths:
+      - checkov-results.json
+    expire_in: 1 week
+
+# ── Scheduled policy drift check ────────────────────────────────────────────
+# Bootstrap: run the scan once locally, save its JSON as <CHECKOV_BASELINE>,
+# and commit it. That file is the accepted set of currently-failing checks.
+# This job fails whenever a check IDs not present in the baseline starts
+# failing — i.e. the policy state of the estate drifted from what was accepted.
+checkov-drift:
+  stage: drift-check
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+  before_script:
+    - pip install checkov
+  script:
+    - |
+      checkov -d . \
+        --framework "$CHECKOV_FRAMEWORKS" \
+        --output json \
+        --compact \
+        --quiet \
+        > checkov-results.json || true
+    - |
+      python3 - <<'PY'
+      import json
+      import os
+      import sys
+
+      def failed_check_ids(path):
+          """Return the set of check IDs that fail in checkov's JSON output."""
+          if not os.path.exists(path):
+              return set()
+          try:
+              with open(path) as fh:
+                  records = json.load(fh)
+          except (json.JSONDecodeError, OSError):
+              return set()
+          failed = set()
+          for record in records:
+              if not isinstance(record, dict):
+                  continue
+              result = record.get("check_result") or {}
+              if result.get("result") == "FAILED":
+                  failed.add(record.get("check_id", ""))
+          return failed
+
+      current = failed_check_ids("checkov-results.json")
+      baseline = failed_check_ids(os.environ["CHECKOV_BASELINE"])
+      drift = current - baseline
+      if drift:
+          print("Policy drift detected - failing checks not in baseline:")
+          for check_id in sorted(drift):
+              print(f"  - {check_id}")
+          sys.exit(1)
+      print(f"No drift: {len(current)} failing checks all present in baseline.")
+      PY

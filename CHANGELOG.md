@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-08-16
 
 ### Added
+- checkov-019: `checkov/manifests/checkov-gitlab-ci-multi-cloud-drift.yaml` — Checkov GitLab CI template for multi-cloud IaC scanning with policy drift detection (L5)
 - trivy-018: `trivy/notes/scanning-performance-optimization.md` — Trivy scanning performance optimization: cache strategies and parallel execution (L5)
 
 ## 2026-08-15
