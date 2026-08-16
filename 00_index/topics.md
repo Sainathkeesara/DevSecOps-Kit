@@ -48,11 +48,11 @@
 - **notebooks** (2): [compare-static-vs-plan-scanning.ipynb](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb), [compare-builtin-vs-custom-k8s.ipynb](../checkov/notebooks/compare-builtin-vs-custom-k8s.ipynb)
 - **policies** (1): [no_public_s3_buckets.yaml](../checkov/policies/no-public-s3-buckets/no_public_s3_buckets.yaml)
 
-## trivy · 25 files
+## trivy · 28 files
 - **primer:** [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md)
-- **notes** (3): [2026-05-26-trivy-quickstart.md](../trivy/notes/2026-05-26-trivy-quickstart.md), [2026-05-24-install-trivy.md](../trivy/notes/2026-05-24-install-trivy.md), [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md)
-- **docs** (3): [sbom-scanning-reference-guide.md](../trivy/docs/sbom-scanning-reference-guide.md), [ci-pipeline-sarif-output.md](../trivy/docs/ci-pipeline-sarif-output.md), [ci-cd-pipeline-recipes.md](../trivy/docs/ci-cd-pipeline-recipes.md)
-- **scripts** (5): [multi-target-scanner.sh](../trivy/scripts/multi-target-scanner.sh), [image-vuln-pipeline.sh](../trivy/scripts/image-vuln-pipeline.sh), [custom-trivy-check-conftest.sh](../trivy/scripts/custom-trivy-check-conftest.sh) — _…and 2 more under `trivy/scripts/`._
+- **notes** (4): [scanning-performance-optimization.md](../trivy/notes/scanning-performance-optimization.md), [2026-05-26-trivy-quickstart.md](../trivy/notes/2026-05-26-trivy-quickstart.md), [2026-05-24-install-trivy.md](../trivy/notes/2026-05-24-install-trivy.md) — _…and 1 more under `trivy/notes/`._
+- **docs** (4): [multi-arch-vulnerability-scanning.md](../trivy/docs/multi-arch-vulnerability-scanning.md), [sbom-scanning-reference-guide.md](../trivy/docs/sbom-scanning-reference-guide.md), [ci-pipeline-sarif-output.md](../trivy/docs/ci-pipeline-sarif-output.md) — _…and 1 more under `trivy/docs/`._
+- **scripts** (6): [ignore-rules-pipeline.sh](../trivy/scripts/ignore-rules-pipeline.sh), [multi-target-scanner.sh](../trivy/scripts/multi-target-scanner.sh), [image-vuln-pipeline.sh](../trivy/scripts/image-vuln-pipeline.sh) — _…and 3 more under `trivy/scripts/`._
 - **configs** (2): [trivy-scan-config.yaml](../trivy/configs/trivy-scan-config.yaml), [.trivy.yaml](../trivy/configs/.trivy.yaml)
 - **snippets** (1): [scan-docker-image.sh](../trivy/snippets/scan-docker-image.sh)
 - **templates** (6): [trivy.yaml](../trivy/templates/trivy-monorepo-scanner/trivy.yaml), [scan-all.sh](../trivy/templates/trivy-monorepo-scanner/scripts/scan-all.sh), [README.md](../trivy/templates/trivy-monorepo-scanner/README.md) — _…and 3 more under `trivy/templates/`._
@@ -234,9 +234,9 @@
 ## ansible · 2 files
 - **scripts** (2): [bootstrap-target-node.sh](../ansible/scripts/bootstrap-target-node.sh), [2026-08-04-bootstrap-node.sh](../ansible/scripts/2026-08-04-bootstrap-node.sh)
 
-## prometheus · 1 files
+## prometheus · 2 files
 - **primer:** [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md)
-- **notes** (1): [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md)
+- **notes** (2): [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md), [0000-primer-observability.md](../prometheus/notes/0000-primer-observability.md)
 
 ## grafana · 1 files
 - **primer:** [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md)
@@ -249,8 +249,8 @@
 These directories cut across every tool above. Browse the folders for the full set.
 
 
-## Docs · 187 files
-- **concepts** (38): foundational primers — [application-security-testing](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md), [ci-cd-pipeline](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md), [configuration-management](../docs/concepts/configuration-management/0000-primer-configuration-management.md), [infrastructure-as-code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md), [secrets-access-management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md), [linux-shell-fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) … _and more under `docs/concepts/`._
+## Docs · 188 files
+- **concepts** (39): foundational primers — [application-security-testing](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md), [ci-cd-pipeline](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md), [configuration-management](../docs/concepts/configuration-management/0000-primer-configuration-management.md), [infrastructure-as-code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md), [secrets-access-management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md), [linux-shell-fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) … _and more under `docs/concepts/`._
 - **how-to** — [kubernetes toolkit](../docs/how-to/k8s_toolkit.md), [linux toolkit](../docs/how-to/linux_toolkit.md), [jenkins toolkit](../docs/how-to/jenkins_toolkit.md), [ansible toolkit](../docs/how-to/ansible_toolkit.md), [vault toolkit](../docs/how-to/vault_toolkit.md) … _browse `docs/how-to/`._
 - **reference**, **runbooks**, **security**, **troubleshooting**, **setup-guides** — _browse `docs/`._
 

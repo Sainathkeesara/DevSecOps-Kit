@@ -48,6 +48,18 @@
 
 **Trivy**: Open-source vulnerability scanner for containers and Kubernetes.
 
+**Trivy offline scan**: Running Trivy with `--offline-scan` so it never reaches the network, using a pre-populated local vulnerability database cache. Used in air-gapped pipelines or to make scans fast and deterministic.
+
+**Trivy cache**: The local store of vulnerability databases and scan metadata. Reused across runs and pruned (`trivy cache clean`) to bound disk usage and control when DB refresh happens.
+
+**Parallel scanning (Trivy)**: Splitting a scan workload across multiple targets or raised-internal parallelism to cut wall-clock time on large repositories, at the cost of more memory and CPU.
+
+**Multi-arch scanning (Trivy)**: Scanning images and manifests for multiple CPU architectures (e.g. amd64, arm64) through a single registry reference. Trivy resolves the per-architecture manifest list so each platform's packages are checked against the vulnerability database.
+
+**Manifest list (container registry)**: A registry object that points a single image tag to platform-specific image manifests. Tools like Trivy read it to discover every architecture behind one tag.
+
+**Trivy ignorefile (`.trivyignore`)**: A file listing vulnerabilities to suppress from a Trivy scan, referenced via the `--ignorefile` flag. Kept separate from scan config so temporary suppressions live with the project rather than in the scanner config.
+
 **Kubescape**: Kubernetes security platform for scanning clusters and manifests.
 
 **Checkov**: Infrastructure as Code security scanner that checks Terraform, CloudFormation, and Kubernetes manifests.
