@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-16
+
+### Added
+- trivy-018: `trivy/notes/scanning-performance-optimization.md` — Trivy scanning performance optimization: cache strategies and parallel execution (L5)
+
 ## 2026-08-15
 
 ### Added
