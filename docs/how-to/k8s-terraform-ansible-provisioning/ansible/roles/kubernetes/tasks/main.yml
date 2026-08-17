@@ -1,0 +1,4 @@
+---
+- name: Kubernetes component installation tasks
+  debug:
+    msg: "This role is a stub — real tasks not yet written."

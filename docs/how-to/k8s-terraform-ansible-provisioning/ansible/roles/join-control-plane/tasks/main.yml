@@ -1,0 +1,4 @@
+---
+- name: Join remaining control plane nodes
+  debug:
+    msg: "This role is a stub — real tasks not yet written."
