@@ -15,11 +15,11 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 ## Quick links
 
+- [Spurious placeholder file reference cleanup](docs/notes/2026-08-17-spurious-placeholder-cleanup.md) — Audit of file references in training docs that don't correspond to real files
+- [Linux VM terminal first commands](linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — First commands and common trip-ups after installing Linux in a VM
+- [Checkov GitLab CI multi-cloud drift manifest](checkov/manifests/checkov-gitlab-ci-multi-cloud-drift.yaml) — GitLab CI template for multi-cloud IaC scanning with policy drift detection
 - [Trivy scanning performance optimization](trivy/notes/scanning-performance-optimization.md) — Tuning scan time and resource use on large targets
 - [Trivy ignore-rules pipeline](trivy/scripts/ignore-rules-pipeline.sh) — Trivy vulnerability scanning pipeline with custom ignore rules
-- [Verifying Trivy paths after restructure](docs/notes/2026-08-14-verify-trivy-paths.md) — Confirming Trivy how-to guide paths after directory changes
-- [Multi-arch vulnerability scanning with Trivy](trivy/docs/multi-arch-vulnerability-scanning.md) — Scanning multi-architecture images and manifests
-- [Syft output format comparison notebook](syft/notebooks/output-format-comparison.ipynb) — SPDX vs CycloneDX vs GitHub vs native JSON side by side
 
 ## Layout
 
@@ -47,7 +47,7 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 | trufflehog | 3 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | — | 37 |
 | zap | 5 | 3 | 2 | 2 | 4 | 16 | 0 | 1 | 0 | 0 | 2026-07-20 | 33 |
 | syft | 4 | 5 | 3 | 1 | 1 | 15 | 1 | 1 | 2 | 0 | 2026-08-13 | 33 |
-| checkov | 4 | 5 | 2 | 2 | 4 | 10 | 2 | 0 | 2 | 1 | 2026-07-20 | 32 |
+| checkov | 4 | 5 | 2 | 2 | 4 | 10 | 2 | 0 | 2 | 1 | 2026-08-16 | 33 |
 | trivy | 4 | 4 | 6 | 2 | 1 | 6 | 2 | 1 | 2 | 0 | 2026-08-16 | 28 |
 | terraform | 3 | 1 | 4 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-08-10 | 20 |
 | semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 2026-08-06 | 20 |
@@ -73,7 +73,7 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 | opentofu | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-20 | 3 |
 | sonarqube | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-07-19 | 3 |
 | ansible | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — | 2 |
-| linux | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-08-06 | 2 |
+| linux | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-08-17 | 3 |
 | prometheus | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-13 | 2 |
 | grafana | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-13 | 1 |
 
@@ -81,7 +81,7 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions round out Trivy with a scanning performance optimization guide, an ignore-rules pipeline, and multi-architecture scanning coverage, alongside the Syft output format comparison notebook. Current focus is expanding cross-tool integration scaffolds and finishing the remaining per-tool notes.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include a Linux first-commands note, a Checkov GitLab CI multi-cloud drift manifest, and continued Trivy expansion with scanning performance optimization and ignore-rules pipeline coverage. Current focus is expanding cross-tool integration scaffolds and finishing the remaining per-tool notes.
 
 ---
-_Last updated: 2026-08-16_
+_Last updated: 2026-08-17_

@@ -85,6 +85,7 @@
 - [Infrastructure as Code fundamentals](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) — What IaC is and why it matters
 
 ### Learn Linux shell scripting
+- [Linux VM terminal first commands](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — First commands and common trip-ups after installing Linux in a VM
 - [Linux shell scripting tutorial confusions](../linux/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md) — Common pitfalls and clarifications for shell scripting
 - [Cron job configuration](../linux/configs/2026-08-06-cron-job-configuration.ini) — Sample cron job for scheduled automation
 
