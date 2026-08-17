@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-17
+
+### Added
+- linux-004: `linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md` — Install Linux in a VM and run my first terminal commands — what tripped me up (L1)
+
 ## 2026-08-16
 
 ### Added
