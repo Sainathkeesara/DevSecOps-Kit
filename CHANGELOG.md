@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - docs-004: `docs/notes/2026-08-17-spurious-placeholder-cleanup.md` — Audited training docs for spurious placeholder file references: `zap.sh` and `semmp.yml` are genuinely spurious (no corresponding files in the repo); `checkov -f plan.json` is valid CLI syntax; `.github/workflows/ci.yml`, `semgrep-ci.yml`, and `trivy-scan.yml` are legitimate user-creation examples (L1)
 ### Added
 - linux-004: `linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md` — Install Linux in a VM and run my first terminal commands — what tripped me up (L1)
+- ansible-002: `ansible/notes/2026-08-17-verify-ansible-cve-2026-33228-paths.md` — Verified corrected relative paths in the Ansible CVE-2026-33228 runbook (L1)
 
 ## 2026-08-16
 

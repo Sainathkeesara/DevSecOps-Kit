@@ -1,0 +1,4 @@
+---
+- name: Calico CNI installation tasks
+  debug:
+    msg: "This role is a stub — real tasks not yet written."

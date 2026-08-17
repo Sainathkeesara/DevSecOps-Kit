@@ -1,0 +1,4 @@
+---
+- name: Control plane bootstrap tasks
+  debug:
+    msg: "This role is a stub — real tasks not yet written."
