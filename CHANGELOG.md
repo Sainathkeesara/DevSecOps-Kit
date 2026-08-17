@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - DK: deduplicated `scripts/bash/terraform/` → `scripts/bash/terraform_toolkit/` (moved `ter-019-deploy.sh`, `terraform-ecs-service-discovery-deploy.sh`, `terraform-iam-roles-deploy.sh`; removed empty `terraform/`).
 - docs-004: `docs/notes/2026-08-17-spurious-placeholder-cleanup.md` — Audited training docs for spurious placeholder file references: `zap.sh` and `semmp.yml` are genuinely spurious (no corresponding files in the repo); `checkov -f plan.json` is valid CLI syntax; `.github/workflows/ci.yml`, `semgrep-ci.yml`, and `trivy-scan.yml` are legitimate user-creation examples (L1)
 ### Added
+- argocd-007: `argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml` — Repository credentials Secret + argocd-rbac-cm RBAC policy for a private Git repo (L2)
 - linux-004: `linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md` — Install Linux in a VM and run my first terminal commands — what tripped me up (L1)
 - ansible-002: `ansible/notes/2026-08-17-verify-ansible-cve-2026-33228-paths.md` — Verified corrected relative paths in the Ansible CVE-2026-33228 runbook (L1)
 
