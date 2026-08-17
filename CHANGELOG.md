@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-17
+
+### Fixed
+- DK: deduplicated `scripts/bash/vault/` → `scripts/bash/vault_toolkit/` (moved `vault-audit-log-analysis.sh` + `security/vault-go-getter-hardening.sh`; removed empty `vault/`).
+- DK: deduplicated `scripts/bash/terraform/` → `scripts/bash/terraform_toolkit/` (moved `ter-019-deploy.sh`, `terraform-ecs-service-discovery-deploy.sh`, `terraform-iam-roles-deploy.sh`; removed empty `terraform/`).
+- docs-004: `docs/notes/2026-08-17-spurious-placeholder-cleanup.md` — Audited training docs for spurious placeholder file references: `zap.sh` and `semmp.yml` are genuinely spurious (no corresponding files in the repo); `checkov -f plan.json` is valid CLI syntax; `.github/workflows/ci.yml`, `semgrep-ci.yml`, and `trivy-scan.yml` are legitimate user-creation examples (L1)
+
 ## 2026-08-16
 
 ### Added
