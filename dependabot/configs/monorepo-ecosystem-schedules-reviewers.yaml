@@ -1,0 +1,51 @@
+---
+last_verified: 2026-08-18
+tool_version: n/a
+sources: []
+---
+# last_verified: 2026-08-18 · Dependabot n/a
+
+# Purpose
+# This config shows one dependabot.yml for a monorepo that hosts more than
+# one ecosystem. Each ecosystem gets its own schedule and reviewers so the
+# right team sees the PR when it opens.
+#
+# The layout below is the pattern I settled on after trying a single shared
+# weekly schedule — npm updates would pile up with pip updates and the
+# backend team would review frontend PRs they couldn't easily validate.
+
+version: 2
+
+updates:
+  - package-ecosystem: "pip"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "backend-team"
+    allow:
+      - dependency-type: "direct"
+
+  - package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "frontend-team"
+    allow:
+      - dependency-type: "direct"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+    open-pull-requests-limit: 3
+    reviewers:
+      - "devops-team"
+    allow:
+      - dependency-type: "direct"

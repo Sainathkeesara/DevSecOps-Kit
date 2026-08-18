@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - dependabot-014: `dependabot/docs/dependabot-security-update-auto-merge.md` — Dependabot security update workflow: auto-merge strategy for patch versions (L3)
+- dependabot-015: `dependabot/configs/monorepo-ecosystem-schedules-reviewers.yaml` — Dependabot monorepo configuration with ecosystem-specific schedules and reviewers (L3)
 
 ## 2026-08-17
 
