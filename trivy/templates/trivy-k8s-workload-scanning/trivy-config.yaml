@@ -1,0 +1,15 @@
+# Trivy configuration for Kubernetes workload scanning
+# last_verified: 2026-08-18 · Trivy n/a
+
+severity: HIGH,CRITICAL
+ignore-unfixed: true
+format: sarif
+cache-dir: /root/.cache/trivy
+
+k8s:
+  scan-all-namespaces: true
+  exclude-namespaces:
+    - kube-system
+    - kube-public
+    - kube-node-lease
+  report-unexposed: true

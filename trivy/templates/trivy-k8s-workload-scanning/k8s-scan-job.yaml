@@ -1,0 +1,42 @@
+# Kubernetes Job manifest for on-demand Trivy workload scanning
+# last_verified: 2026-08-18 · Trivy n/a
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: trivy-k8s-workload-scan
+  namespace: security-tools
+  labels:
+    app: trivy-scanner
+spec:
+  backoffLimit: 2
+  ttlSecondsAfterFinished: 3600
+  template:
+    metadata:
+      labels:
+        app: trivy-scanner
+    spec:
+      serviceAccountName: trivy-scanner
+      restartPolicy: Never
+      containers:
+      - name: trivy
+        image: aquasec/trivy
+        command:
+        - trivy
+        - k8s
+        - cluster
+        - --severity
+        - HIGH,CRITICAL
+        - --ignore-unfixed
+        - --format
+        - sarif
+        - --output
+        - /results/workload-scan.sarif
+        securityContext:
+          readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: false
+        volumeMounts:
+        - name: results
+          mountPath: /results
+      volumes:
+      - name: results
+        emptyDir: {}
