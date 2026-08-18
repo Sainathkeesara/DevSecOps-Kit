@@ -15,11 +15,11 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 ## Quick links
 
-- [Spurious placeholder file reference cleanup](docs/notes/2026-08-17-spurious-placeholder-cleanup.md) — Audit of file references in training docs that don't correspond to real files
+- [ArgoCD private repo credentials and RBAC](argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml) — Point ArgoCD at a private Git repository with scoped access
+- [Ansible CVE-2026-33228 path verification](ansible/notes/2026-08-17-verify-ansible-cve-2026-33228-paths.md) — Confirm the audit and remediation paths for the Ansible flatted CVE
+- [Provision a Kubernetes cluster with Terraform + Ansible](docs/how-to/k8s-terraform-ansible-provisioning.md) — Terraform/Ansible project for standing up a multi-node cluster
 - [Linux VM terminal first commands](linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — First commands and common trip-ups after installing Linux in a VM
 - [Checkov GitLab CI multi-cloud drift manifest](checkov/manifests/checkov-gitlab-ci-multi-cloud-drift.yaml) — GitLab CI template for multi-cloud IaC scanning with policy drift detection
-- [Trivy scanning performance optimization](trivy/notes/scanning-performance-optimization.md) — Tuning scan time and resource use on large targets
-- [Trivy ignore-rules pipeline](trivy/scripts/ignore-rules-pipeline.sh) — Trivy vulnerability scanning pipeline with custom ignore rules
 
 ## Layout
 
@@ -47,21 +47,21 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 | trufflehog | 3 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | — | 37 |
 | zap | 5 | 3 | 2 | 2 | 4 | 16 | 0 | 1 | 0 | 0 | 2026-07-20 | 33 |
 | syft | 4 | 5 | 3 | 1 | 1 | 15 | 1 | 1 | 2 | 0 | 2026-08-13 | 33 |
-| checkov | 4 | 5 | 2 | 2 | 4 | 10 | 2 | 0 | 2 | 1 | 2026-08-16 | 33 |
+| checkov | 4 | 5 | 2 | 2 | 4 | 10 | 3 | 0 | 2 | 1 | 2026-08-16 | 33 |
 | trivy | 4 | 4 | 6 | 2 | 1 | 6 | 2 | 1 | 2 | 0 | 2026-08-16 | 28 |
-| terraform | 3 | 1 | 4 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-08-10 | 20 |
+| terraform | 3 | 1 | 4 | 11 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-08-11 | 20 |
 | semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 2026-08-06 | 20 |
-| grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | — | 20 |
+| grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 2026-07-21 | 20 |
 | terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 2026-08-09 | 18 |
 | falco | 4 | 2 | 3 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-07-19 | 13 |
-| codeql | 3 | 1 | 1 | 1 | 4 | 0 | 1 | 1 | 0 | 0 | — | 12 |
+| codeql | 3 | 1 | 1 | 1 | 4 | 0 | 1 | 1 | 0 | 0 | 2026-07-22 | 12 |
 | dependabot | 7 | 0 | 1 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-08-08 | 11 |
 | gitguardian | 4 | 1 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 0 | — | 11 |
-| vault | 3 | 2 | 2 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | — | 11 |
-| snyk | 4 | 1 | 1 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | — | 10 |
-| cosign | 4 | 0 | 2 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | — | 9 |
+| vault | 3 | 2 | 2 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | 2026-07-22 | 11 |
+| snyk | 4 | 1 | 1 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | 2026-07-22 | 10 |
+| cosign | 4 | 0 | 2 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 2026-07-10 | 9 |
 | opa | 3 | 1 | 1 | 1 | 3 | 0 | 0 | 0 | 0 | 0 | — | 9 |
-| argocd | 6 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 2026-08-12 | 8 |
+| argocd | 6 | 0 | 0 | 1 | 0 | 0 | 2 | 0 | 0 | 0 | 2026-08-17 | 9 |
 | docker | 2 | 1 | 2 | 1 | 0 | 0 | 0 | 2 | 0 | 0 | 2026-08-05 | 8 |
 | github-actions | 3 | 0 | 0 | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 2026-08-04 | 7 |
 | git | 3 | 0 | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-07-26 | 6 |
@@ -72,7 +72,7 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 | kustomize | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-08 | 3 |
 | opentofu | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-20 | 3 |
 | sonarqube | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-07-19 | 3 |
-| ansible | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — | 2 |
+| ansible | 1 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-08-17 | 3 |
 | linux | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-08-17 | 3 |
 | prometheus | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-13 | 2 |
 | grafana | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-13 | 1 |
@@ -81,7 +81,7 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include a Linux first-commands note, a Checkov GitLab CI multi-cloud drift manifest, and continued Trivy expansion with scanning performance optimization and ignore-rules pipeline coverage. Current focus is expanding cross-tool integration scaffolds and finishing the remaining per-tool notes.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include ArgoCD private-repo credentials with scoped RBAC, a path-verification walkthrough for the Ansible flatted CVE, and a full Terraform + Ansible Kubernetes provisioning project. Current focus is finishing the remaining per-tool notes and the Dependabot security-update and monorepo configs.
 
 ---
 _Last updated: 2026-08-17_

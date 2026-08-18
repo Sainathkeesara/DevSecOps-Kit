@@ -106,6 +106,10 @@
 
 **ArgoCD**: Declarative GitOps continuous delivery tool for Kubernetes that automates application deployment and synchronization.
 
+**Repository Secret (ArgoCD)**: A Kubernetes Secret labelled `argocd.argoproj.io/secret-type: repository` that ArgoCD auto-discovers to register a private Git repository — no `argocd repo add` needed. Credentials must still be kept out of Git.
+
+**policy.csv (ArgoCD RBAC)**: ArgoCD's CSV-based RBAC policy. `p` lines grant a subject a resource+action on a project-scoped object; `g` lines bind users to roles. First-match-wins, so named roles can be scoped tighter than `policy.default`.
+
 **Vulnerability database**: A curated collection of known security vulnerabilities (e.g., Trivy's vulnerability database) used by scanners to identify affected software versions.
 
 **Alertmanager HA clustering**: Running multiple Alertmanager instances that use a gossip protocol to share alert state, providing high availability and alert deduplication across instances.

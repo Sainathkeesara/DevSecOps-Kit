@@ -36,7 +36,7 @@
 - **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
 - **notebooks** (2): [output-format-comparison.ipynb](../syft/notebooks/output-format-comparison.ipynb), [sbom-layer-package-analysis.ipynb](../syft/notebooks/sbom-layer-package-analysis.ipynb)
 
-## checkov · 32 files
+## checkov · 33 files
 - **primer:** [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md)
 - **notes** (4): [2026-05-27-checkov-quickstart-trip-ups.md](../checkov/notes/2026-05-27-checkov-quickstart-trip-ups.md), [2026-05-26-cli-vs-sdk-comparison.md](../checkov/notes/2026-05-26-cli-vs-sdk-comparison.md), [2026-05-25-scan-terraform-plan.md](../checkov/notes/2026-05-25-scan-terraform-plan.md) — _…and 1 more under `checkov/notes/`._
 - **docs** (5): [pre-commit-hook-with-version-pinning.md](../checkov/docs/pre-commit-hook-with-version-pinning.md), [multi-cloud-policy-management.md](../checkov/docs/multi-cloud-policy-management.md), [checkov-v3-migration-guide.md](../checkov/docs/checkov-v3-migration-guide.md) — _…and 2 more under `checkov/docs/`._
@@ -44,7 +44,7 @@
 - **configs** (2): [checkov-skip-severity-config.yaml](../checkov/configs/checkov-skip-severity-config.yaml), [checkov-ci-config.yaml](../checkov/configs/checkov-ci-config.yaml)
 - **snippets** (4): [terraform-scan-custom-policies.py](../checkov/snippets/terraform-scan-custom-policies.py), [scan-terraform-dir.py](../checkov/snippets/scan-terraform-dir.py), [scan-kubernetes.sh](../checkov/snippets/scan-kubernetes.sh) — _…and 1 more under `checkov/snippets/`._
 - **templates** (10): [example-caller-workflow.yml](../checkov/templates/reusable-workflow-custom-policies/example-caller-workflow.yml), [restrict_ec2_public_ip.yaml](../checkov/templates/reusable-workflow-custom-policies/custom-policies/restrict_ec2_public_ip.yaml), [no_public_s3_buckets.yaml](../checkov/templates/reusable-workflow-custom-policies/custom-policies/no_public_s3_buckets.yaml) — _…and 7 more under `checkov/templates/`._
-- **manifests** (2): [layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml](../checkov/manifests/layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml), [checkov-sarif-pr-blocking.yaml](../checkov/manifests/checkov-sarif-pr-blocking.yaml)
+- **manifests** (3): [checkov-gitlab-ci-multi-cloud-drift.yaml](../checkov/manifests/checkov-gitlab-ci-multi-cloud-drift.yaml), [layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml](../checkov/manifests/layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml), [checkov-sarif-pr-blocking.yaml](../checkov/manifests/checkov-sarif-pr-blocking.yaml)
 - **notebooks** (2): [compare-static-vs-plan-scanning.ipynb](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb), [compare-builtin-vs-custom-k8s.ipynb](../checkov/notebooks/compare-builtin-vs-custom-k8s.ipynb)
 - **policies** (1): [no_public_s3_buckets.yaml](../checkov/policies/no-public-s3-buckets/no_public_s3_buckets.yaml)
 
@@ -174,9 +174,10 @@
 - **configs** (1): [docker-compose-dev-environment.yaml](../docker/configs/docker-compose-dev-environment.yaml)
 - **dockerfiles** (2): [2026-07-12-first-custom-docker-image.Dockerfile](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile), [2026-07-10-first-custom-image.Dockerfile](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
 
-## argocd · 8 files
+## argocd · 9 files
 - **primer:** [0000-primer-argocd.md](../argocd/notes/0000-primer-argocd.md)
 - **notes** (6): [2026-08-12-quickstart-tripups.md](../argocd/notes/2026-08-12-quickstart-tripups.md), [2026-08-01-verify-readme-layout.md](../argocd/notes/2026-08-01-verify-readme-layout.md), [2026-07-31-verify-readme-layout.md](../argocd/notes/2026-07-31-verify-readme-layout.md) — _…and 3 more under `argocd/notes/`._
+- **configs** (1): [private-repo-credentials-rbac.yaml](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml)
 - **manifests** (2): [2026-08-12-gitops-sync-sample-web-app.yaml](../argocd/manifests/2026-08-12-gitops-sync-sample-web-app.yaml), [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml)
 
 ## GitHub Actions · 7 files
@@ -231,7 +232,8 @@
 - **notes** (2): [2026-07-21-install-linux-vm-terminal-first-commands.md](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md), [2026-08-06-linux-shell-scripting-tutorial-confusions.md](../linux/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md)
 - **configs** (1): [2026-08-06-cron-job-configuration.ini](../linux/configs/2026-08-06-cron-job-configuration.ini)
 
-## ansible · 2 files
+## ansible · 3 files
+- **notes** (1): [2026-08-17-verify-ansible-cve-2026-33228-paths.md](../ansible/notes/2026-08-17-verify-ansible-cve-2026-33228-paths.md)
 - **scripts** (2): [bootstrap-target-node.sh](../ansible/scripts/bootstrap-target-node.sh), [2026-08-04-bootstrap-node.sh](../ansible/scripts/2026-08-04-bootstrap-node.sh)
 
 ## prometheus · 2 files
@@ -249,7 +251,7 @@
 These directories cut across every tool above. Browse the folders for the full set.
 
 
-## Docs · 188 files
+## Docs · 195 files
 - **concepts** (39): foundational primers — [application-security-testing](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md), [ci-cd-pipeline](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md), [configuration-management](../docs/concepts/configuration-management/0000-primer-configuration-management.md), [infrastructure-as-code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md), [secrets-access-management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md), [linux-shell-fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) … _and more under `docs/concepts/`._
 - **how-to** — [kubernetes toolkit](../docs/how-to/k8s_toolkit.md), [linux toolkit](../docs/how-to/linux_toolkit.md), [jenkins toolkit](../docs/how-to/jenkins_toolkit.md), [ansible toolkit](../docs/how-to/ansible_toolkit.md), [vault toolkit](../docs/how-to/vault_toolkit.md) … _browse `docs/how-to/`._
 - **reference**, **runbooks**, **security**, **troubleshooting**, **setup-guides** — _browse `docs/`._
