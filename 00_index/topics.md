@@ -21,7 +21,7 @@
 - **scripts** (2): [zap-dast-sarif-code-scanning.sh](../zap/scripts/zap-dast-sarif-code-scanning.sh), [dast-workflow-from-scratch.sh](../zap/scripts/dast-workflow-from-scratch.sh)
 - **configs** (2): [zap-authenticated-scan-context.yaml](../zap/configs/zap-authenticated-scan-context.yaml), [ci-dast-automation-framework-plan.yaml](../zap/configs/ci-dast-automation-framework-plan.yaml)
 - **snippets** (4): [my-first-zap-spider-scan.sh](../zap/snippets/my-first-zap-spider-scan.sh), [my-first-zap-baseline-scan.sh](../zap/snippets/my-first-zap-baseline-scan.sh), [authenticated-scan-with-context.sh](../zap/snippets/authenticated-scan-with-context.sh) — _…and 1 more under `zap/snippets/`._
-- **templates** (16): [zap-automation-plan.yaml](../zap/templates/zap-dast-integration/zap-automation-plan.yaml), [run-zap-dast.sh](../zap/templates/zap-dast-integration/scripts/run-zap-dast.sh), [quick-scan.yaml](../zap/templates/zap-dast-integration/plans/quick-scan.yaml) — _…and 13 more under `zap/templates/`._
+- **templates** (8): [zap-automation-plan.yaml](../zap/templates/zap-dast-integration-scaffold/zap-automation-plan.yaml), [run-zap-dast.sh](../zap/templates/zap-dast-integration-scaffold/scripts/run-zap-dast.sh), [quick-scan.yaml](../zap/templates/zap-dast-integration-scaffold/plans/quick-scan.yaml) — _…and 5 more under `zap/templates/zap-dast-integration-scaffold/`._
 - **dockerfiles** (1): [custom-zap-automation.Dockerfile](../zap/dockerfiles/custom-zap-automation.Dockerfile)
 
 ## syft · 33 files
