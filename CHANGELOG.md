@@ -7,6 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-08-19
 
 ### Added
+- gitguardian-011: `gitguardian/templates/gitguardian-multi-repo-scanning-scaffold/` — GitGuardian multi-repo scanning scaffold with centralized allowlist (L4)
+    - `README.md` with Purpose → When to use → Prerequisites → Steps → Verify
+    - Root `ggshield.yaml` config with ignored paths, detectors, and version header
+    - `.ggshield/allowlist.yaml` for centralized false-positive management
+    - `repos.txt` target repository list
+    - `scripts/scan-multi-repo.sh` runner with per-repo JSON output and error isolation
+    - `scripts/aggregate-report.sh` merger normalizing raw array and `secrets_scan` object shapes
+    - `.github/workflows/org-secret-scan.yml` scheduled weekly GitHub Actions workflow
+    - `Makefile` with `scan`, `report`, and `clean` targets
 - opa-015: `opa/manifests/` — Gatekeeper constraint template library for a Kubernetes security baseline: 4 ConstraintTemplates (drop ALL caps, runAsNonRoot, no privilege escalation, required labels) + matching Constraint instances (L3)
 
 ## 2026-08-18

@@ -1,0 +1,5 @@
+# last_verified: 2026-08-19 · GitGuardian ggshield
+
+https://github.com/org/service-a
+https://github.com/org/service-b
+https://github.com/org/service-c

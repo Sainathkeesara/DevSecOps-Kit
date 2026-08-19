@@ -1,0 +1,15 @@
+# last_verified: 2026-08-19 · GitGuardian ggshield
+
+version: "2"
+ignore-known-paths:
+  - "node_modules/"
+  - "vendor/"
+  - "dist/"
+  - "build/"
+  - ".terraform/"
+ignored-detectors:
+  - "generic_api_key"
+ignored-paths:
+  - "*.generated.go"
+  - "*.min.js"
+  - "**/__pycache__/**"
