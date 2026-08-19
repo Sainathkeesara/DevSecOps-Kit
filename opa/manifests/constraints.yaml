@@ -1,0 +1,65 @@
+# last_verified: 2026-08-19 · OPA/Gatekeeper n/a
+#
+# Constraint instances that instantiate the templates in
+# constraint-templates.yaml against the whole cluster.
+# Match scopes the resources the constraint audits; excludedNamespaces keeps
+# system components (kube-proxy, CNI, Gatekeeper itself) out of enforcement.
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sDisallowCapabilities
+metadata:
+  name: disallow-all-capabilities
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    excludedNamespaces:
+      - kube-system
+      - gatekeeper-system
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRunAsNonRoot
+metadata:
+  name: run-as-non-root
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    excludedNamespaces:
+      - kube-system
+      - gatekeeper-system
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sDisallowPrivilegeEscalation
+metadata:
+  name: no-privilege-escalation
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    excludedNamespaces:
+      - kube-system
+      - gatekeeper-system
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredLabels
+metadata:
+  name: require-environment-team-labels
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Namespace"]
+  parameters:
+    labels:
+      - key: environment
+        value: production
+      - key: team
+        value: platform

@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     - `scripts/aggregate-report.sh` merger normalizing raw array and `secrets_scan` object shapes
     - `.github/workflows/org-secret-scan.yml` scheduled weekly GitHub Actions workflow
     - `Makefile` with `scan`, `report`, and `clean` targets
+- opa-015: `opa/manifests/` — Gatekeeper constraint template library for a Kubernetes security baseline: 4 ConstraintTemplates (drop ALL caps, runAsNonRoot, no privilege escalation, required labels) + matching Constraint instances (L3)
 
 ## 2026-08-18
 
