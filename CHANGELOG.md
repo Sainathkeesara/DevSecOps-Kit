@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     - `.github/workflows/org-secret-scan.yml` scheduled weekly GitHub Actions workflow
     - `Makefile` with `scan`, `report`, and `clean` targets
 - opa-015: `opa/manifests/` — Gatekeeper constraint template library for a Kubernetes security baseline: 4 ConstraintTemplates (drop ALL caps, runAsNonRoot, no privilege escalation, required labels) + matching Constraint instances (L3)
+- docs-012: `docs/notes/2026-08-19-workflow-stubs-review.md` — Confirmed `.github/workflows/trivy-scan.yml`, `ci.yml`, and `semgrep-ci.yml` are legitimate user-creation examples; `semmp.yml` is spurious (no stubs needed)
 
 ## 2026-08-18
 
