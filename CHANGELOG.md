@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-19
+
+### Added
+- opa-015: `opa/manifests/` — Gatekeeper constraint template library for a Kubernetes security baseline: 4 ConstraintTemplates (drop ALL caps, runAsNonRoot, no privilege escalation, required labels) + matching Constraint instances (L3)
+
 ## 2026-08-18
 
 ### Added

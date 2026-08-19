@@ -1,0 +1,91 @@
+# last_verified: 2026-08-19 · OPA/Gatekeeper n/a
+#
+# ConstraintTemplate library for a basic Kubernetes security baseline.
+# Each template is a CRD that wraps a Rego policy; the matching Constraint
+# instances live in constraints.yaml. In Gatekeeper the reviewed object sits
+# under input.review.object, not at the top level like plain `opa eval --input`.
+---
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8sdisallowcapabilities
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sDisallowCapabilities
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8sdisallowcapabilities
+
+        violation[{"msg": msg}] {
+          container := input.review.object.spec.containers[_]
+          not all_capabilities_dropped(container)
+          msg := sprintf("Container %v must drop ALL capabilities", [container.name])
+        }
+
+        all_capabilities_dropped(container) {
+          container.securityContext.capabilities.drop[_] == "ALL"
+        }
+---
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8srunasnonroot
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sRunAsNonRoot
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8srunasnonroot
+
+        violation[{"msg": msg}] {
+          container := input.review.object.spec.containers[_]
+          not container.securityContext.runAsNonRoot == true
+          msg := sprintf("Container %v must run as non-root (runAsNonRoot: true)", [container.name])
+        }
+---
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8sdisallowprivilegeescalation
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sDisallowPrivilegeEscalation
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8sdisallowprivilegeescalation
+
+        violation[{"msg": msg}] {
+          container := input.review.object.spec.containers[_]
+          not container.securityContext.allowPrivilegeEscalation == false
+          msg := sprintf("Container %v must set allowPrivilegeEscalation: false", [container.name])
+        }
+---
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8srequiredlabels
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sRequiredLabels
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8srequiredlabels
+
+        violation[{"msg": msg}] {
+          required := input.parameters.labels[_]
+          provided := input.review.object.metadata.labels
+          not provided[required.key] == required.value
+          msg := sprintf("must have label %v set to %v", [required.key, required.value])
+        }
