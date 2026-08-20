@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-20
+
+### Added
+- dependabot-016: `dependabot/scripts/dependabot-alert-aggregation.py` — GitHub API Dependabot alert aggregation for compliance reporting (L3): multi-repo rollup, severity + per-package summary, optional CSV detail dump
+
 ## 2026-08-19
 
 ### Added
