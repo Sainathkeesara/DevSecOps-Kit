@@ -30,6 +30,7 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 - **`templates/`** — Starter configs for Kubernetes, Terraform, Linux, Jenkins, Logstash, syslog-ng
 - **`environments/`** — Terraform environment configs (dev / staging / prod)
 - **`lab/`** — Mini-projects and learning sandboxes
+- **`scripts/`** — General repository scripts and utilities
 - **`scripts/bash/`** — Shell toolkit scripts organised by tool (ansible, docker, k8s, linux, terraform, vault, jenkins, kafka, observability, and more)
 - **`.github/`** — Repo hygiene (CODEOWNERS, PR template, Dependabot config)
 
