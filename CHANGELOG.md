@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - dependabot-016: `dependabot/scripts/dependabot-alert-aggregation.py` — GitHub API Dependabot alert aggregation for compliance reporting (L3): multi-repo rollup, severity + per-package summary, optional CSV detail dump
+- cosign-012: `cosign/manifests/signed-container-build-oidc.yaml` — Cosign GitHub Actions reusable workflow for signed container build with OIDC (L4)
 
 ## 2026-08-19
 
