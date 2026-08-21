@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-21
+
+### Changed
+- cosign-011: `cosign/scripts/cosign-key-management-workflow.sh` — Rework: removed hardcoded `ghcr.io/myorg/myapp:latest` from `rotate_key`; image is now a required positional argument for the `rotate` action (L4)
+
 ## 2026-08-20
 
 ### Added

@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# last_verified: 2026-08-20 · cosign n/a
+# last_verified: 2026-08-21 · cosign n/a
 set -euo pipefail
 
 KEY_DIR="${1:-.}"
 ACTION="${2:-}"
+IMAGE="${3:-}"
 
 generate_key() {
   local keydir="$1"
@@ -52,16 +53,25 @@ revoke_key() {
 
 case "${ACTION}" in
   generate) generate_key "${KEY_DIR}" ;;
-  rotate)   rotate_key   "${KEY_DIR}" "ghcr.io/myorg/myapp:latest" ;;
+  rotate)
+    if [ -z "${IMAGE}" ]; then
+      echo "Error: rotate requires an image argument." >&2
+      echo "Usage: $0 <key-dir> rotate <image>" >&2
+      exit 1
+    fi
+    rotate_key "${KEY_DIR}" "${IMAGE}"
+    ;;
   revoke)   revoke_key   "${KEY_DIR}" ;;
   *)
     cat <<EOF
 Cosign key management workflow
-Usage: $0 <key-dir> <generate|rotate|revoke>
+Usage: $0 <key-dir> <generate|rotate|revoke> [image]
 
   generate  Create a new cosign key pair
   rotate    New key -> re-sign image -> delete old key files
   revoke    Delete key files (re-sign to fully replace)
+
+  image     Required for rotate: the container image to re-sign
 EOF
     exit 1
     ;;
