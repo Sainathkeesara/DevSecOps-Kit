@@ -17,6 +17,8 @@
 ### Scan for secrets
 - [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md) — Secret scanning with regex patterns and entropy analysis
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md) — Secrets detection with ggshield CLI
+- [GitGuardian incident response workflow](../gitguardian/docs/gitguardian-incident-response-workflow.md) — Walk through a secrets incident from detection to remediation
+- [GitGuardian API integration](../gitguardian/scripts/gitguardian-api-integration.py) — Scripted secret scanning via the GitGuardian API
 - [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh) — Quick TruffleHog repo scan
 - [Secrets detection workflow analysis](../docs/concepts/secrets-access-management/notebooks/secrets-detection-remediation-workflow-analysis.ipynb) — Notebook exploring detect, alert, and remediate stages for leaked secrets
 - [Configure Dependabot for private registries](../dependabot/notes/2026-08-08-dependabot-custom-registry-tutorial.md) — Pointing Dependabot at registries GitHub can't reach by default
@@ -39,6 +41,7 @@
 ### Build and sign container images
 - [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile) — Minimal Dockerfile to get started
 - [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh) — Cosign quickstart for image signing
+- [Cosign key management workflow](../cosign/scripts/cosign-key-management-workflow.sh) — Rotate signing keys without breaking existing attestations
 - [Multi-stage SBOM Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile) — SBOM generation in CI images
 - [Multi-stage Grype scan Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile) — Scanning images during the build
 - [Build a multi-service Docker Compose app](../docker/scripts/build-multi-service-compose-app.sh) — Docker Compose app from scratch

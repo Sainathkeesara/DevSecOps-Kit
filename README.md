@@ -15,11 +15,11 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 ## Quick links
 
-- [ArgoCD private repo credentials and RBAC](argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml) — Point ArgoCD at a private Git repository with scoped access
+- [GitGuardian incident response workflow](gitguardian/docs/gitguardian-incident-response-workflow.md) — Walk through a secrets incident from detection to remediation
+- [GitGuardian API integration](gitguardian/scripts/gitguardian-api-integration.py) — Scripted secret scanning via the GitGuardian API
+- [Cosign key management workflow](cosign/scripts/cosign-key-management-workflow.sh) — Rotate signing keys without breaking existing attestations
+- [Dependabot alert aggregation](dependabot/scripts/dependabot-alert-aggregation.py) — Pull Dependabot alerts across repos into a single report
 - [Ansible CVE-2026-33228 path verification](ansible/notes/2026-08-17-verify-ansible-cve-2026-33228-paths.md) — Confirm the audit and remediation paths for the Ansible flatted CVE
-- [Provision a Kubernetes cluster with Terraform + Ansible](docs/how-to/k8s-terraform-ansible-provisioning.md) — Terraform/Ansible project for standing up a multi-node cluster
-- [Linux VM terminal first commands](linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) — First commands and common trip-ups after installing Linux in a VM
-- [Checkov GitLab CI multi-cloud drift manifest](checkov/manifests/checkov-gitlab-ci-multi-cloud-drift.yaml) — GitLab CI template for multi-cloud IaC scanning with policy drift detection
 
 ## Layout
 
@@ -43,46 +43,46 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 <details>
 <summary>Coverage table</summary>
 
-| Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Last verified | Total |
-|------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|---------:|:-------------:|------:|
-| trufflehog | 3 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | — | 37 |
-| zap | 5 | 3 | 2 | 2 | 4 | 8 | 0 | 1 | 0 | 0 | 2026-07-20 | 25 |
-| syft | 4 | 5 | 3 | 1 | 1 | 15 | 1 | 1 | 2 | 0 | 2026-08-13 | 33 |
-| checkov | 4 | 5 | 2 | 2 | 4 | 10 | 3 | 0 | 2 | 1 | 2026-08-16 | 33 |
-| trivy | 4 | 4 | 6 | 2 | 1 | 6 | 2 | 1 | 2 | 0 | 2026-08-16 | 28 |
-| terraform | 3 | 1 | 4 | 11 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-08-11 | 20 |
-| semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 2026-08-06 | 20 |
-| grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 2026-07-21 | 20 |
-| terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 2026-08-09 | 18 |
-| falco | 4 | 2 | 3 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-07-19 | 13 |
-| codeql | 3 | 1 | 1 | 1 | 4 | 0 | 1 | 1 | 0 | 0 | 2026-07-22 | 12 |
-| dependabot | 7 | 0 | 1 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-08-08 | 11 |
-| gitguardian | 4 | 1 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 0 | — | 11 |
-| vault | 3 | 2 | 2 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | 2026-07-22 | 11 |
-| snyk | 4 | 1 | 1 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | 2026-07-22 | 10 |
-| cosign | 4 | 0 | 2 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 2026-07-10 | 9 |
-| opa | 3 | 1 | 1 | 1 | 3 | 0 | 0 | 0 | 0 | 0 | — | 9 |
-| argocd | 6 | 0 | 0 | 1 | 0 | 0 | 2 | 0 | 0 | 0 | 2026-08-17 | 9 |
-| docker | 2 | 1 | 2 | 1 | 0 | 0 | 0 | 2 | 0 | 0 | 2026-08-05 | 8 |
-| github-actions | 3 | 0 | 0 | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 2026-08-04 | 7 |
-| git | 3 | 0 | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-07-26 | 6 |
-| tetragon | 3 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-08-06 | 6 |
-| defectdojo | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-08-04 | 3 |
-| helm | 2 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 2026-07-19 | 3 |
-| kubernetes | 2 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 2026-07-15 | 3 |
-| kustomize | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-08 | 3 |
-| opentofu | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-20 | 3 |
-| sonarqube | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 2026-07-19 | 3 |
-| ansible | 1 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-08-17 | 3 |
-| linux | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-08-17 | 3 |
-| prometheus | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-13 | 2 |
-| grafana | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2026-07-13 | 1 |
+| Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total |
+|------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|---------:|------:|
+| trufflehog | 3 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 37 |
+| syft | 4 | 5 | 3 | 1 | 1 | 15 | 1 | 1 | 2 | 0 | 33 |
+| checkov | 4 | 5 | 2 | 2 | 4 | 10 | 3 | 0 | 2 | 1 | 33 |
+| trivy | 4 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 33 |
+| zap | 5 | 3 | 2 | 2 | 4 | 8 | 0 | 1 | 0 | 0 | 25 |
+| gitguardian | 4 | 2 | 3 | 2 | 2 | 9 | 0 | 0 | 0 | 0 | 22 |
+| semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 20 |
+| grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 20 |
+| terraform | 3 | 1 | 4 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 13 |
+| terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 18 |
+| dependabot | 7 | 1 | 2 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 14 |
+| falco | 4 | 2 | 3 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 13 |
+| opa | 3 | 1 | 1 | 1 | 3 | 0 | 3 | 0 | 0 | 0 | 12 |
+| codeql | 3 | 1 | 1 | 1 | 4 | 0 | 1 | 1 | 0 | 0 | 12 |
+| vault | 3 | 2 | 2 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | 11 |
+| cosign | 4 | 0 | 3 | 1 | 1 | 0 | 2 | 0 | 0 | 0 | 11 |
+| snyk | 4 | 1 | 1 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | 10 |
+| argocd | 6 | 0 | 0 | 1 | 0 | 0 | 2 | 0 | 0 | 0 | 9 |
+| docker | 2 | 1 | 2 | 1 | 0 | 0 | 0 | 2 | 0 | 0 | 8 |
+| github-actions | 3 | 0 | 0 | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 7 |
+| git | 3 | 0 | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 6 |
+| tetragon | 3 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 6 |
+| ansible | 1 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 |
+| defectdojo | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 3 |
+| helm | 2 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 3 |
+| kubernetes | 2 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 3 |
+| kustomize | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 |
+| linux | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 |
+| opentofu | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 |
+| sonarqube | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 3 |
+| prometheus | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 |
+| grafana | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
 
 </details>
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include ArgoCD private-repo credentials with scoped RBAC, a path-verification walkthrough for the Ansible flatted CVE, and a full Terraform + Ansible Kubernetes provisioning project. Current focus is finishing the remaining per-tool notes and the Dependabot security-update and monorepo configs.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include a GitGuardian incident-response workflow, Cosign key rotation scripting, and Dependabot alert aggregation. Current focus is finishing the remaining per-tool notes and expanding Dependabot and GitGuardian coverage.
 
 ---
-_Last updated: 2026-08-17_
+_Last updated: 2026-08-21_
