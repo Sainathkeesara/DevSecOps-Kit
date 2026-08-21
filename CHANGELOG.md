@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 - cosign-011: `cosign/scripts/cosign-key-management-workflow.sh` — Rework: removed hardcoded `ghcr.io/myorg/myapp:latest` from `rotate_key`; image is now a required positional argument for the `rotate` action (L4)
+### Added
+- gitguardian-012: `gitguardian/docs/gitguardian-incident-response-workflow.md` — GitGuardian incident response workflow from alert triage to remediation (L4)
+- gitguardian-013: `gitguardian/scripts/gitguardian-api-integration.py` — GitGuardian API integration for scan export, dashboard retrieval, and Slack notification (L4)
 
 ## 2026-08-20
 
