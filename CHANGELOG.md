@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-21
+
+### Added
+- gitguardian-012: `gitguardian/docs/gitguardian-incident-response-workflow.md` — GitGuardian incident response workflow from alert triage to remediation (L4)
+- gitguardian-013: `gitguardian/scripts/gitguardian-api-integration.py` — GitGuardian API integration for scan export, dashboard retrieval, and Slack notification (L4)
+
 ## 2026-08-20
 
 ### Added
