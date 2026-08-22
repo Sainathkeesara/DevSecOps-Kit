@@ -2658,3 +2658,4 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 
 ### Added
 - trivy-019: `trivy/templates/trivy-k8s-workload-scanning/` — Trivy Kubernetes workload scanning pipeline scaffold (L5)
+- 2026-08-22 — docs-007: re-audit training docs for spurious placeholder file references after doc rework (`docs/notes/2026-08-22-placeholder-reference-reaudit.md`)
