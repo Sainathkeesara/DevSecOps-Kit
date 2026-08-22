@@ -19,7 +19,7 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 - [GitGuardian API integration](gitguardian/scripts/gitguardian-api-integration.py) — Scripted secret scanning via the GitGuardian API
 - [Cosign key management workflow](cosign/scripts/cosign-key-management-workflow.sh) — Rotate signing keys without breaking existing attestations
 - [Dependabot alert aggregation](dependabot/scripts/dependabot-alert-aggregation.py) — Pull Dependabot alerts across repos into a single report
-- [Ansible CVE-2026-33228 path verification](ansible/notes/2026-08-17-verify-ansible-cve-2026-33228-paths.md) — Confirm the audit and remediation paths for the Ansible flatted CVE
+- [Vault cloud IAM dynamic secrets](vault/scripts/cloud-iam-dynamic-secrets.sh) — Generate short-lived cloud credentials via Vault
 
 ## Layout
 
@@ -53,13 +53,13 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 | gitguardian | 4 | 2 | 3 | 2 | 2 | 9 | 0 | 0 | 0 | 0 | 22 |
 | semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 20 |
 | grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 20 |
-| terraform | 3 | 1 | 4 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 13 |
-| terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 18 |
+| terraform | 3 | 1 | 4 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 20 |
+| terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 2 | 18 |
 | dependabot | 7 | 1 | 2 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 14 |
 | falco | 4 | 2 | 3 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 13 |
 | opa | 3 | 1 | 1 | 1 | 3 | 0 | 3 | 0 | 0 | 0 | 12 |
+| vault | 3 | 2 | 3 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | 12 |
 | codeql | 3 | 1 | 1 | 1 | 4 | 0 | 1 | 1 | 0 | 0 | 12 |
-| vault | 3 | 2 | 2 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | 11 |
 | cosign | 4 | 0 | 3 | 1 | 1 | 0 | 2 | 0 | 0 | 0 | 11 |
 | snyk | 4 | 1 | 1 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | 10 |
 | argocd | 6 | 0 | 0 | 1 | 0 | 0 | 2 | 0 | 0 | 0 | 9 |
@@ -82,7 +82,7 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include a GitGuardian incident-response workflow, Cosign key rotation scripting, and Dependabot alert aggregation. Current focus is finishing the remaining per-tool notes and expanding Dependabot and GitGuardian coverage.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include a GitGuardian multi-repo scanning scaffold, Vault cloud IAM dynamic secrets, Trivy K8s workload scanning templates, and Terraform + Ansible provisioning roles. Current focus is finishing per-tool notes and expanding GitGuardian and Dependabot coverage.
 
 ---
-_Last updated: 2026-08-21_
+_Last updated: 2026-08-22_
