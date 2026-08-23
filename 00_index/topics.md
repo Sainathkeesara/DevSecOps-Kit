@@ -18,7 +18,7 @@
 - **primer:** [0000-primer-syft.md](../syft/notes/0000-primer-syft.md)
 - **notes** (4): [2026-05-30-sbom-format-comparison.md](../syft/notes/2026-05-30-sbom-format-comparison.md), [2026-05-29-syft-quickstart-trip-ups.md](../syft/notes/2026-05-29-syft-quickstart-trip-ups.md), [2026-05-27-install-syft-first-sbom.md](../syft/notes/2026-05-27-install-syft-first-sbom.md) — _…and 1 more under `syft/notes/`._
 - **docs** (5): [sbom-output-formats-reference.md](../syft/docs/sbom-output-formats-reference.md), [sbom-formats-comparison.md](../syft/docs/sbom-formats-comparison.md), [registry-auth-caching-patterns.md](../syft/docs/registry-auth-caching-patterns.md) — _…and 2 more under `syft/docs/`._
-- **scripts** (3): [sbom-vuln-pipeline.sh](../syft/scripts/sbom-vuln-pipeline.sh), [multi-image-sbom-pipeline.sh](../syft/scripts/multi-image-sbom-pipeline.sh), [gen-multi-format-sboms.sh](../syft/scripts/gen-multi-format-sboms.sh)
+- **scripts** (5): [sbom-vuln-pipeline.sh](../syft/scripts/sbom-vuln-pipeline.sh), [multi-image-sbom-pipeline.sh](../syft/scripts/multi-image-sbom-pipeline.sh), [gen-multi-format-sboms.sh](../syft/scripts/gen-multi-format-sboms.sh) — _…and 2 more under `syft/scripts/`._
 - **configs** (1): [.syft.yaml](../syft/configs/.syft.yaml)
 - **snippets** (1): [tried-sbom-formats.sh](../syft/snippets/tried-sbom-formats.sh)
 - **templates** (15): [k8s-workload-scan.yml](../syft/templates/syft-trivy-k8s-scan-scaffold/.github/workflows/k8s-workload-scan.yml), [scan-workload-images.sh](../syft/templates/syft-trivy-k8s-scan-scaffold/scripts/scan-workload-images.sh), [README.md](../syft/templates/syft-trivy-k8s-scan-scaffold/README.md) — _…and 12 more under `syft/templates/`._
@@ -42,7 +42,7 @@
 - **primer:** [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md)
 - **notes** (4): [scanning-performance-optimization.md](../trivy/notes/scanning-performance-optimization.md), [2026-05-26-trivy-quickstart.md](../trivy/notes/2026-05-26-trivy-quickstart.md), [2026-05-24-install-trivy.md](../trivy/notes/2026-05-24-install-trivy.md) — _…and 1 more under `trivy/notes/`._
 - **docs** (4): [multi-arch-vulnerability-scanning.md](../trivy/docs/multi-arch-vulnerability-scanning.md), [sbom-scanning-reference-guide.md](../trivy/docs/sbom-scanning-reference-guide.md), [ci-pipeline-sarif-output.md](../trivy/docs/ci-pipeline-sarif-output.md) — _…and 1 more under `trivy/docs/`._
-- **scripts** (6): [ignore-rules-pipeline.sh](../trivy/scripts/ignore-rules-pipeline.sh), [multi-target-scanner.sh](../trivy/scripts/multi-target-scanner.sh), [image-vuln-pipeline.sh](../trivy/scripts/image-vuln-pipeline.sh) — _…and 3 more under `trivy/scripts/`._
+- **scripts** (8): [ignore-rules-pipeline.sh](../trivy/scripts/ignore-rules-pipeline.sh), [multi-target-scanner.sh](../trivy/scripts/multi-target-scanner.sh), [image-vuln-pipeline.sh](../trivy/scripts/image-vuln-pipeline.sh) — _…and 5 more under `trivy/scripts/`._
 - **configs** (2): [trivy-scan-config.yaml](../trivy/configs/trivy-scan-config.yaml), [.trivy.yaml](../trivy/configs/.trivy.yaml)
 - **snippets** (1): [scan-docker-image.sh](../trivy/snippets/scan-docker-image.sh)
 - **templates** (11): [trivy.yaml](../trivy/templates/trivy-monorepo-scanner/trivy.yaml), [scan-all.sh](../trivy/templates/trivy-monorepo-scanner/scripts/scan-all.sh), [README.md](../trivy/templates/trivy-monorepo-scanner/README.md) — _…and 8 more under `trivy/templates/`._
@@ -64,7 +64,7 @@
 - **primer:** [0000-primer-gitguardian.md](../gitguardian/notes/0000-primer-gitguardian.md)
 - **notes** (4): [2026-06-14-first-secrets-scan-repo.md](../gitguardian/notes/2026-06-14-first-secrets-scan-repo.md), [2026-06-13-ggshield-quickstart-trip-ups.md](../gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md), [2026-06-07-first-ggshield-scan.md](../gitguardian/notes/2026-06-07-first-ggshield-scan.md) — _…and 1 more under `gitguardian/notes/`._
 - **docs** (2): [gitguardian-incident-response-workflow.md](../gitguardian/docs/gitguardian-incident-response-workflow.md), [monorepo-ci-per-team-exclusions.md](../gitguardian/docs/monorepo-ci-per-team-exclusions.md)
-- **scripts** (3): [gitguardian-api-integration.py](../gitguardian/scripts/gitguardian-api-integration.py), [pre-commit-hook-ggshield.sh](../gitguardian/scripts/pre-commit-hook-ggshield.sh), [gg-incident-response-pipeline.sh](../gitguardian/scripts/gg-incident-response-pipeline.sh)
+- **scripts** (5): [gitguardian-api-integration.py](../gitguardian/scripts/gitguardian-api-integration.py), [pre-commit-hook-ggshield.sh](../gitguardian/scripts/pre-commit-hook-ggshield.sh), [gg-incident-response-pipeline.sh](../gitguardian/scripts/gg-incident-response-pipeline.sh)
 - **configs** (2): [monorepo-allowlists.yaml](../gitguardian/configs/monorepo-allowlists.yaml), [.ggshield.yaml](../gitguardian/configs/.ggshield.yaml)
 - **snippets** (2): [my-first-ggshield-commands.sh](../gitguardian/snippets/my-first-ggshield-commands.sh), [custom-policy-engine-ggshield.sh](../gitguardian/snippets/custom-policy-engine-ggshield.sh)
 - **templates** (9): [gitguardian-multi-repo-scanning-scaffold/README.md](../gitguardian/templates/gitguardian-multi-repo-scanning-scaffold/README.md) — _…and 8 more under `gitguardian/templates/`._
@@ -100,6 +100,7 @@
 - **snippets** (2): [tiny-tf-with-findings.tf](../terrascan/snippets/tiny-tf-with-findings.tf), [insecure-terraform.tf](../terrascan/snippets/insecure-terraform.tf)
 - **templates** (6): [run-scan.sh](../terrascan/templates/scanning-pipeline-scaffold/scripts/run-scan.sh), [require-encryption.rego](../terrascan/templates/scanning-pipeline-scaffold/policies/require-encryption.rego), [block-public-s3-buckets.rego](../terrascan/templates/scanning-pipeline-scaffold/policies/block-public-s3-buckets.rego) — _…and 3 more under `terrascan/templates/`._
 - **manifests** (1): [terrascan-gha-ci-multi-iac.yaml](../terrascan/manifests/terrascan-gha-ci-multi-iac.yaml)
+- **policies** (2): [require-encryption.rego](../terrascan/templates/scanning-pipeline-scaffold/policies/require-encryption.rego), [block-public-s3-buckets.rego](../terrascan/templates/scanning-pipeline-scaffold/policies/block-public-s3-buckets.rego)
 
 ## dependabot · 14 files
 - **primer:** [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md)
@@ -107,6 +108,15 @@
 - **docs** (1): [dependabot-security-update-auto-merge.md](../dependabot/docs/dependabot-security-update-auto-merge.md)
 - **scripts** (2): [dependabot-alert-aggregation.py](../dependabot/scripts/dependabot-alert-aggregation.py), [2026-08-04-dependabot-alert-triage.py](../dependabot/scripts/2026-08-04-dependabot-alert-triage.py)
 - **configs** (4): [monorepo-ecosystem-schedules-reviewers.yaml](../dependabot/configs/monorepo-ecosystem-schedules-reviewers.yaml), [tried-npm-dependabot.yaml](../dependabot/configs/tried-npm-dependabot.yaml), [2026-07-18-python-project-version-update.yaml](../dependabot/configs/2026-07-18-python-project-version-update.yaml) — _…and 1 more under `dependabot/configs/`._
+
+## terraform · 20 files
+- **primer:** [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md)
+- **notes** (3): [2026-08-04-install-terraform-first-vm.md](../terraform/notes/2026-08-04-install-terraform-first-vm.md), [2026-07-15-explore-terraform.md](../terraform/notes/2026-07-15-explore-terraform.md)
+- **docs** (1): [terraform-module-composition.md](../terraform/docs/terraform-module-composition.md)
+- **scripts** (4): [state-management-workflow.sh](../terraform/scripts/state-management-workflow.sh), [2026-07-18-deploy.sh](../terraform/scripts/2026-07-18-deploy.sh), [2026-07-18-cleanup.sh](../terraform/scripts/2026-07-18-cleanup.sh) — _…and 1 more under `terraform/scripts/`._
+- **configs** (4): [workspace-variable-precedence.hcl](../terraform/configs/workspace-variable-precedence.hcl), [multi-environment-workspaces-variables.hcl](../terraform/configs/multi-environment-workspaces-variables.hcl), [2026-08-04-first-configuration.hcl](../terraform/configs/2026-08-04-first-configuration.hcl) — _…and 1 more under `terraform/configs/`._
+- **snippets** (1): [2026-07-20-practice-terraform-variables-outputs-datasources.hcl](../terraform/snippets/2026-07-20-practice-terraform-variables-outputs-datasources.hcl)
+- _…and 7 more under `terraform/eventbridge-lambda/`._
 
 ## falco · 13 files
 - **primer:** [0000-primer-falco.md](../falco/notes/0000-primer-falco.md)
@@ -125,6 +135,15 @@
 - **snippets** (3): [my-first-opa-policy-eval.sh](../opa/snippets/my-first-opa-policy-eval.sh), [enforce-image-registry-constraints.rego](../opa/snippets/enforce-image-registry-constraints.rego), [deny-privileged-hostnetwork.rego](../opa/snippets/deny-privileged-hostnetwork.rego)
 - **manifests** (3): [README.md](../opa/manifests/README.md), [constraint-templates.yaml](../opa/manifests/constraint-templates.yaml), [constraints.yaml](../opa/manifests/constraints.yaml)
 
+## vault · 12 files
+- **primer:** [0000-primer-vault.md](../vault/notes/0000-primer-vault.md)
+- **notes** (3): [2026-06-15-vault-getting-started-trip-ups.md](../vault/notes/2026-06-15-vault-getting-started-trip-ups.md), [2026-06-05-install-vault-and-explore-cli.md](../vault/notes/2026-06-05-install-vault-and-explore-cli.md)
+- **docs** (2): [vault-agent-auto-auth-kubernetes.md](../vault/docs/vault-agent-auto-auth-kubernetes.md), [configuring-vault-dev-server.md](../vault/docs/configuring-vault-dev-server.md)
+- **scripts** (3): [vault-kv-crud.sh](../vault/scripts/vault-kv-crud.sh), [vault-db-dynamic-secrets.sh](../vault/scripts/vault-db-dynamic-secrets.sh), [cloud-iam-dynamic-secrets.sh](../vault/scripts/cloud-iam-dynamic-secrets.sh)
+- **configs** (2): [multi-environment-access-control.hcl](../vault/configs/multi-environment-access-control.hcl), [2026-06-26-dev-test-policies.hcl](../vault/configs/2026-06-26-dev-test-policies.hcl)
+- **snippets** (1): [vault-read-write.go](../vault/snippets/vault-read-write.go)
+- **dockerfiles** (1): [custom-vault-image-with-plugins-tls.Dockerfile](../vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile)
+
 ## codeql · 12 files
 - **primer:** [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md)
 - **notes** (3): [2026-06-14-codeql-datalog-gotchas.md](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md), [2026-06-05-install-codeql-first-analysis.md](../codeql/notes/2026-06-05-install-codeql-first-analysis.md)
@@ -134,23 +153,6 @@
 - **snippets** (4): [my-first-codeql-commands.sh](../codeql/snippets/my-first-codeql-commands.sh), [hardcoded-secret-from-scratch.ql](../codeql/snippets/hardcoded-secret-from-scratch.ql), [hardcoded-creds-local-flow.ql](../codeql/snippets/hardcoded-creds-local-flow.ql) — _…and 1 more under `codeql/snippets/`._
 - **manifests** (1): [multi-language-codeql-analysis.yaml](../codeql/manifests/multi-language-codeql-analysis.yaml)
 - **dockerfiles** (1): [custom-codeql-analysis-image.Dockerfile](../codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile)
-
-## terraform · 20 files
-- **primer:** [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md)
-- **notes** (3): [2026-08-04-install-terraform-first-vm.md](../terraform/notes/2026-08-04-install-terraform-first-vm.md), [2026-07-15-explore-terraform.md](../terraform/notes/2026-07-15-explore-terraform.md)
-- **docs** (1): [terraform-module-composition.md](../terraform/docs/terraform-module-composition.md)
-- **scripts** (4): [state-management-workflow.sh](../terraform/scripts/state-management-workflow.sh), [2026-07-18-deploy.sh](../terraform/scripts/2026-07-18-deploy.sh), [2026-07-18-cleanup.sh](../terraform/scripts/2026-07-18-cleanup.sh) — _…and 1 more under `terraform/scripts/`._
-- **configs** (4): [workspace-variable-precedence.hcl](../terraform/configs/workspace-variable-precedence.hcl), [multi-environment-workspaces-variables.hcl](../terraform/configs/multi-environment-workspaces-variables.hcl), [2026-08-04-first-configuration.hcl](../terraform/configs/2026-08-04-first-configuration.hcl) — _…and 1 more under `terraform/configs/`._
-- **snippets** (1): [2026-07-20-practice-terraform-variables-outputs-datasources.hcl](../terraform/snippets/2026-07-20-practice-terraform-variables-outputs-datasources.hcl)
-
-## vault · 11 files
-- **primer:** [0000-primer-vault.md](../vault/notes/0000-primer-vault.md)
-- **notes** (3): [2026-06-15-vault-getting-started-trip-ups.md](../vault/notes/2026-06-15-vault-getting-started-trip-ups.md), [2026-06-05-install-vault-and-explore-cli.md](../vault/notes/2026-06-05-install-vault-and-explore-cli.md)
-- **docs** (2): [vault-agent-auto-auth-kubernetes.md](../vault/docs/vault-agent-auto-auth-kubernetes.md), [configuring-vault-dev-server.md](../vault/docs/configuring-vault-dev-server.md)
-- **scripts** (2): [vault-kv-crud.sh](../vault/scripts/vault-kv-crud.sh), [vault-db-dynamic-secrets.sh](../vault/scripts/vault-db-dynamic-secrets.sh)
-- **configs** (2): [multi-environment-access-control.hcl](../vault/configs/multi-environment-access-control.hcl), [2026-06-26-dev-test-policies.hcl](../vault/configs/2026-06-26-dev-test-policies.hcl)
-- **snippets** (1): [vault-read-write.go](../vault/snippets/vault-read-write.go)
-- **dockerfiles** (1): [custom-vault-image-with-plugins-tls.Dockerfile](../vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile)
 
 ## cosign · 11 files
 - **primer:** [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md)
