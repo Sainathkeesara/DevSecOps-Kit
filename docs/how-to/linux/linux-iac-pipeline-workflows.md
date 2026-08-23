@@ -699,7 +699,7 @@ terraform apply
 ansible all -i inventory/prod.yml -m apt -a "name=python3" --become
 
 # Or use bootstrap script
-./scripts/ansible/bootstrap.sh
+ansible/scripts/bootstrap.sh
 ```
 
 ## References
