@@ -338,7 +338,7 @@ terraform destroy
 Or use the cleanup script:
 
 ```bash
-./scripts/cleanup.sh
+scripts/bash/terraform_toolkit/eks/eks-cleanup.sh
 ```
 
 ## Common errors

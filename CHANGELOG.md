@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-23
+
+### Fixed
+- docs-007: fixed 2 spurious placeholder file references in training docs — `terraform-eks-cluster.md` (`./scripts/cleanup.sh` → real `scripts/bash/terraform_toolkit/eks/eks-cleanup.sh`) and `linux-iac-pipeline-workflows.md` (`./scripts/ansible/bootstrap.sh` → real `ansible/scripts/bootstrap.sh`)
+
 ## 2026-08-22
 
 ### Added
