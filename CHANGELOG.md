@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - git-014: `git/scripts/2026-08-24-first-repo-stage-log.sh` — Create a new Git repository, stage a file, and run git log (L1)
+- scripts-001: `scripts/notes/2026-08-24-reorganize-scripts.md` — Audited root-level scripts and documented intended layout in `scripts/README.md` (L1)
 
 ## 2026-08-23
 

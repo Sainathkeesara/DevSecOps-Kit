@@ -6,12 +6,37 @@ This directory contains production-ready scripts for DevOps workflows. Scripts a
 
 ```
 scripts/
-├── bash/          # Shell scripts (Linux/macOS)
-├── python/        # Python utilities (cross-platform)
-├── powershell/    # PowerShell scripts (Windows)
-├── lib/           # Shared helper libraries
-└── examples/      # Example usage and demonstration scripts
+├── README.md                      # This file
+├── bump-version.sh                # Version bumper (root-level)
+├── patch-report.sh                # Patch management report generator (root-level)
+├── triage-vulnerabilities.sh      # Vulnerability triage helper (root-level)
+├── pipeline/                      # Deployment pipeline wrappers
+│   ├── deploy.sh
+│   └── rollback.sh
+└── bash/                          # Shell scripts by tool domain
+    ├── ansible_toolkit/
+    ├── argo_toolkit/
+    ├── azure_toolkit/
+    ├── ci_cd_toolkit/
+    ├── docker_toolkit/
+    ├── flux_toolkit/
+    ├── git_toolkit/
+    ├── harbor/
+    ├── helm_toolkit/
+    ├── jenkins_toolkit/
+    ├── k8s_toolkit/
+    ├── kafka_toolkit/
+    ├── linux_toolkit/
+    ├── observability_toolkit/
+    ├── oci_registry_toolkit/
+    ├── terraform_toolkit/
+    ├── trivy_toolkit/
+    └── vault_toolkit/
 ```
+
+### Root-level scripts
+
+The root-level scripts (`bump-version.sh`, `patch-report.sh`, `triage-vulnerabilities.sh`, and `pipeline/`) are intentionally kept at the repo root because multiple docs reference them with relative paths like `./scripts/pipeline/deploy.sh`. Moving them into a toolkit subdirectory would break those references. If you reorganize, update the referencing docs at the same time.
 
 ## Standards
 
