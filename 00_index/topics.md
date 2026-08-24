@@ -257,10 +257,13 @@ These directories cut across every tool above. Browse the folders for the full s
 ## Docs · 197 files
 - **concepts** (39): foundational primers — [application-security-testing](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md), [ci-cd-pipeline](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md), [configuration-management](../docs/concepts/configuration-management/0000-primer-configuration-management.md), [infrastructure-as-code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md), [secrets-access-management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md), [linux-shell-fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) … _and more under `docs/concepts/`._
 - **how-to** (127) — [kubernetes toolkit](../docs/how-to/k8s_toolkit.md), [linux toolkit](../docs/how-to/linux_toolkit.md), [jenkins toolkit](../docs/how-to/jenkins_toolkit.md), [ansible toolkit](../docs/how-to/ansible_toolkit.md), [vault toolkit](../docs/how-to/vault_toolkit.md) … _browse `docs/how-to/`._
-- **reference** (9), **runbooks** (2), **security** (6), **troubleshooting** (6), **setup-guides** (4) — _browse `docs/`._
+- **reference** (9), **runbooks** (2), **security** (6), **troubleshooting** (6), **setup-guides** (4), **notes** (4) — _browse `docs/`._
 
-## Scripts · 189 files
+## Scripts · 190 files
 - **bash toolkits**: [linux](../scripts/bash/linux_toolkit/) (51), [k8s](../scripts/bash/k8s_toolkit/) (18), [kafka](../scripts/bash/kafka_toolkit/) (17), [terraform](../scripts/bash/terraform_toolkit/) (15), [ci-cd](../scripts/bash/ci_cd_toolkit/) (14), [observability](../scripts/bash/observability_toolkit/) (14), [ansible](../scripts/bash/ansible_toolkit/) (11), [git](../scripts/bash/git/) (8), [docker](../scripts/bash/docker_toolkit/) (7), [vault](../scripts/bash/vault_toolkit/) (7), [oci-registry](../scripts/bash/oci_registry_toolkit/) (7), [jenkins](../scripts/bash/jenkins_toolkit/) (4), [helm](../scripts/bash/helm_toolkit/) (3), [harbor](../scripts/bash/harbor/) (3), [argo](../scripts/bash/argo_toolkit/) (1), [flux](../scripts/bash/flux_toolkit/) (1), [azure](../scripts/bash/azure_toolkit/) (1), [trivy](../scripts/bash/trivy_toolkit/) (1) … _browse `scripts/bash/`._
+- **pipeline** (2): [deploy.sh](../scripts/pipeline/deploy.sh), [rollback.sh](../scripts/pipeline/rollback.sh)
+- **root utilities** (3): [bump-version.sh](../scripts/bump-version.sh), [patch-report.sh](../scripts/patch-report.sh), [triage-vulnerabilities.sh](../scripts/triage-vulnerabilities.sh)
+- **notes** (1): [2026-08-24-reorganize-scripts.md](../scripts/notes/2026-08-24-reorganize-scripts.md)
 
 ## Snippets · 17 files
 - cheatsheets: [terraform-commands](../snippets/terraform-commands.md), [kubectl-cheatsheet](../snippets/kubectl-cheatsheet.md), [git-commands](../snippets/git-commands.md), [docker-commands](../snippets/docker-commands.md), [jenkins-cheatsheet](../snippets/jenkins-cheatsheet.md), [linux-cheatsheet](../snippets/linux-cheatsheet.md), [kafka-cheatsheet](../snippets/kafka-cheatsheet.md), [observability-cheatsheet](../snippets/observability-cheatsheet.md), [oci-registry-cheatsheet](../snippets/oci-registry-cheatsheet.md), [vault-commands](../snippets/vault-commands.md), [ci-cd-cheatsheet](../snippets/ci-cd-cheatsheet.md) … _browse `snippets/`._
@@ -272,7 +275,7 @@ These directories cut across every tool above. Browse the folders for the full s
 - Terraform environment configs: [dev](../environments/dev/), [staging](../environments/staging/), [prod](../environments/prod/)
 
 ## Assets · 4 files
-- Architecture diagrams: [architecture-overview](../assets/architecture-overview.png), [cicd-workflow](../assets/cicd-workflow.png), [devsecops-pipeline](../assets/devsecops-pipeline.png)
+- [Layout overview](../assets/README.md) and architecture diagrams: [architecture-overview](../assets/architecture-overview.png), [cicd-workflow](../assets/cicd-workflow.png), [devsecops-pipeline](../assets/devsecops-pipeline.png)
 
 ## Lab · 10 files
 - Mini-projects: [terraform-project](../lab/mini-projects/terraform-project/README.md), [postgresql-database-server](../lab/mini-projects/postgresql-database-server/README.md), [samba-enterprise-file-sharing](../lab/mini-projects/samba-enterprise-file-sharing/README.md)
