@@ -15,11 +15,11 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 ## Quick links
 
+- [Git first repo stage and log](git/scripts/2026-08-24-first-repo-stage-log.sh) — Script for staging and logging changes in a first Git repo
 - [Spurious script reference cleanup](docs/notes/2026-08-23-spurious-script-reference-cleanup.md) — Cleanup pass for incorrect script references across docs
 - [Vault dynamic secrets for cloud IAM](vault/scripts/cloud-iam-dynamic-secrets.sh) — Vault dynamic secrets workflow for cloud IAM credentials
 - [GitGuardian incident response workflow](gitguardian/docs/gitguardian-incident-response-workflow.md) — Walk through a secrets incident from detection to remediation
 - [GitGuardian API integration](gitguardian/scripts/gitguardian-api-integration.py) — Scripted secret scanning via the GitGuardian API
-- [Cosign signed container build with OIDC](cosign/manifests/signed-container-build-oidc.yaml) — Reusable workflow for keyless container image signing
 
 ## Layout
 
@@ -64,8 +64,8 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 | argocd | 6 | 0 | 0 | 1 | 0 | 0 | 2 | 0 | 0 | 0 | 9 | 2026-08-12 |
 | docker | 2 | 1 | 2 | 1 | 0 | 0 | 0 | 2 | 0 | 0 | 8 | 2026-08-05 |
 | github-actions | 3 | 0 | 0 | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 7 | 2026-08-04 |
+| git | 3 | 0 | 3 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-08-24 |
 | tetragon | 3 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-08-06 |
-| git | 3 | 0 | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-07-26 |
 | ansible | 1 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-08-17 |
 | sonarqube | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-07-19 |
 | opentofu | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-07-20 |
@@ -81,7 +81,7 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include spurious script reference cleanup, Vault cloud IAM dynamic secrets, and GitGuardian incident-response workflow documentation. Current focus is finishing the remaining per-tool notes and expanding coverage across the toolchain.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include Git repo staging and logging, Vault cloud IAM dynamic secrets, and GitGuardian incident-response workflow documentation. Current focus is finishing the remaining per-tool notes and expanding coverage across the toolchain.
 
 ---
-_Last updated: 2026-08-23_
+_Last updated: 2026-08-24_
