@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-24
+
+### Added
+- git-014: `git/scripts/2026-08-24-first-repo-stage-log.sh` — Create a new Git repository, stage a file, and run git log (L1)
+
 ## 2026-08-23
 
 ### Fixed
