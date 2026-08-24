@@ -15,11 +15,11 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 ## Quick links
 
+- [Scripts directory reorganisation notes](scripts/notes/2026-08-24-reorganize-scripts.md) — What I found when auditing the scripts/ layout
 - [Git first repo stage and log](git/scripts/2026-08-24-first-repo-stage-log.sh) — Script for staging and logging changes in a first Git repo
 - [Spurious script reference cleanup](docs/notes/2026-08-23-spurious-script-reference-cleanup.md) — Cleanup pass for incorrect script references across docs
 - [Vault dynamic secrets for cloud IAM](vault/scripts/cloud-iam-dynamic-secrets.sh) — Vault dynamic secrets workflow for cloud IAM credentials
 - [GitGuardian incident response workflow](gitguardian/docs/gitguardian-incident-response-workflow.md) — Walk through a secrets incident from detection to remediation
-- [GitGuardian API integration](gitguardian/scripts/gitguardian-api-integration.py) — Scripted secret scanning via the GitGuardian API
 
 ## Layout
 
@@ -32,10 +32,12 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 - **`lab/`** — Mini-projects and learning sandboxes
 - **`scripts/`** — General repository scripts and utilities
 - **`scripts/bash/`** — Shell toolkit scripts organised by tool (ansible, docker, k8s, linux, terraform, vault, jenkins, kafka, observability, and more)
+- **`scripts/pipeline/`** — Deployment and rollback wrappers
+- **`scripts/notes/`** — Maintenance notes and script-reorganisation observations
 
 Per-tool content folders follow a consistent shape — `notes/`, `scripts/`, `configs/`, `snippets/`, plus wherever useful `docs/`, `manifests/`, `dockerfiles/`, `notebooks/`, `policies/`, or `templates/`:
 
-Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, CodeQL, ZAP, Cosign, Falco, Tetragon, OPA, Vault, Ansible, ArgoCD, Dependabot, Docker, Git, GitHub Actions, Helm, Kubernetes, Kustomize, OpenTofu, Prometheus, Grafana, DefectDojo, SonarQube, and Linux.
+Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, Terraform, CodeQL, ZAP, Cosign, Falco, Tetragon, OPA, Vault, Ansible, ArgoCD, Dependabot, Docker, Git, GitHub Actions, Helm, Kubernetes, Kustomize, OpenTofu, Prometheus, Grafana, DefectDojo, SonarQube, and Linux.
 
 ## Coverage
 

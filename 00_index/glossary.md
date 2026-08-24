@@ -46,6 +46,8 @@
 
 **Recovery mode (Vault)**: Vault operation mode used for recovery when standard unseal is not possible.
 
+**Dynamic secrets (Vault)**: Short-lived credentials generated on demand by Vault for a specific lease duration. Unlike static secrets stored in the KV store, dynamic secrets are created when read and automatically revoked when the lease expires, minimizing the blast radius of a leaked credential.
+
 **Trivy**: Open-source vulnerability scanner for containers and Kubernetes.
 
 **Trivy offline scan**: Running Trivy with `--offline-scan` so it never reaches the network, using a pre-populated local vulnerability database cache. Used in air-gapped pipelines or to make scans fast and deterministic.
@@ -197,6 +199,8 @@
 **Entropy**: A measure of randomness in a string. High-entropy strings often indicate generated secrets rather than natural language. Example: `xQ7kP9mR2vL5` has higher entropy than `password123`.
 
 **Remediation**: The process of invalidating a compromised secret and replacing it with a new one. Example: rotating an AWS access key after a leak is detected.
+
+**Incident response**: A structured process for detecting, containing, investigating, and remediating security incidents. In the secrets context it moves from alert (a scanner flags a leaked key) to verified remediation (the credential is revoked and access is confirmed cut) without leaving loose ends.
 
 **Blast radius**: The scope of systems or data exposed by a single compromised secret. Example: a leaked database password may expose all schemas, while a leaked read-only token may expose only metadata.
 
@@ -389,6 +393,8 @@
 **Repository (repo)** — A folder that Git is tracking, including the full change history.
 
 **Commit** — A snapshot of the project at a point in time, saved with a message explaining why.
+
+**Stage (Git)** — The act of adding changes from the working directory to the staging area (index) with `git add`, preparing them for the next commit. Only staged changes are included in `git commit`.
 
 **Branch** — A parallel version of the code for isolated development.
 
