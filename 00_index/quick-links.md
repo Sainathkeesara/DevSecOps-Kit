@@ -57,12 +57,14 @@
 - [Kustomize primer](../kustomize/notes/0000-primer-kustomize.md) — Kubernetes YAML customization without templating
 - [ArgoCD primer](../argocd/notes/0000-primer-argocd.md) — Declarative GitOps continuous delivery
 - [ArgoCD private repo credentials and RBAC](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml) — Point ArgoCD at a private Git repository with scoped access
+- [ArgoCD quickstart trip-ups](../argocd/notes/2026-08-12-quickstart-tripups.md) — Common first-run pitfalls and fixes
 - [Provision a Kubernetes cluster with Terraform + Ansible](../docs/how-to/k8s-terraform-ansible-provisioning.md) — Full Terraform/Ansible provisioning project for a multi-node cluster
 
 ### Manage secrets and access
 - [HashiCorp Vault primer](../vault/notes/0000-primer-vault.md) — Secrets management and dynamic secrets
 - [Vault KV CRUD operations](../vault/scripts/vault-kv-crud.sh) — Key-value secret read/write operations
 - [Vault multi-environment access control](../vault/configs/multi-environment-access-control.hcl) — HCL policies for env-based access
+- [Vault dynamic secrets for cloud IAM](../vault/scripts/cloud-iam-dynamic-secrets.sh) — Vault dynamic secrets workflow for cloud IAM credentials
 
 ### Manage policies and compliance
 - [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md) — Policy engine for Kubernetes admission control
