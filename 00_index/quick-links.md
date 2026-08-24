@@ -83,6 +83,7 @@
 
 ### Secure version control
 - [Git primer](../git/notes/0000-primer-git.md) — Git concepts, commits, branches
+- [Git first repo stage and log](../git/scripts/2026-08-24-first-repo-stage-log.sh) — Script for staging and logging changes in a first Git repo
 - [Git hooks for security checks](../docs/concepts/version-control-with-git/scripts/git-hooks-devsecops-security-checks.sh) — Pre-commit hooks that run scans and secret checks in the dev loop
 
 ### Diagnose failures
