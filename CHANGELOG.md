@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-25
+
+### Added
+- con-119: `docs/concepts/secrets-access-management/snippets/2026-08-25-applying-secrets-access-management.py` — Applying Secrets & Access Management in DevSecOps (L2 snippet)
+- con-122: `docs/concepts/version-control-with-git/snippets/2026-08-25-applying-version-control-in-devsecops.py` — Applying Version Control with Git in DevSecOps (L2 snippet)
+
 ## 2026-08-24
 
 ### Added
