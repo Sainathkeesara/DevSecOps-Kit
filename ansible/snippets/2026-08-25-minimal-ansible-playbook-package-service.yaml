@@ -1,0 +1,25 @@
+# last_verified: 2026-08-25 · ansible
+# Minimal playbook: install a package and start a service
+# L2 — comments explain why each section exists
+
+- name: Install and start nginx
+  hosts: webservers
+  become: true
+  # become: true is needed because apt requires root on Debian/Ubuntu targets
+  gather_facts: false
+  # Skipping fact gathering keeps the first run fast; turn it on once you trust your inventory
+
+  tasks:
+    - name: Ensure nginx is present
+      apt:
+        name: nginx
+        state: present
+        update_cache: true
+      # update_cache: true avoids stale index errors on fresh VMs
+
+    - name: Ensure nginx is running and enabled
+      service:
+        name: nginx
+        state: started
+        enabled: true
+      # enabled: true so the service survives a reboot

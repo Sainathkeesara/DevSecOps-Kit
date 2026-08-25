@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - con-119: `docs/concepts/secrets-access-management/snippets/2026-08-25-applying-secrets-access-management.py` — Applying Secrets & Access Management in DevSecOps (L2 snippet)
 - con-122: `docs/concepts/version-control-with-git/snippets/2026-08-25-applying-version-control-in-devsecops.py` — Applying Version Control with Git in DevSecOps (L2 snippet)
+- ansible-006: `ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md` — Followed the official Ansible quickstart and documented the gotchas the docs skip (L2)
+- ansible-007: `ansible/snippets/2026-08-25-minimal-ansible-playbook-package-service.yaml` — Minimal Ansible playbook for package installation and service management (L2)
 
 ## 2026-08-24
 
