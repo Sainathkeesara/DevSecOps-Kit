@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-25
+
+### Added
+- ansible-006: `ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md` — Followed the official Ansible quickstart and documented the gotchas the docs skip (L2)
+- ansible-007: `ansible/snippets/2026-08-25-minimal-ansible-playbook-package-service.yaml` — Minimal Ansible playbook for package installation and service management (L2)
+
 ## 2026-08-24
 
 ### Added
