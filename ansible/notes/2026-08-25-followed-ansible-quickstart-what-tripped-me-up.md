@@ -27,7 +27,7 @@ Once YAML was fixed, `ansible all -m ping` returned `UNREACHABLE! => {"msg": "Ho
 My first task tried to install `htop` with `apt` and got `Missing sudo password`. I forgot `become: true` at the task level. Adding that made it work — or it would have, once I also passed `--ask-become-pass` on the command line because the target user has no NOPASSWD sudoers entry.
 
 **4. Inventory group typo**
-I wrote `[production:children]` in my inventory but targeted the `webservers` group in my playbook. Ansible silently ran against zero hosts. `ansible-inventory --graph` revealed the mismatch immediately.
+I wrote `[prod:children]` in my inventory but targeted the `webservers` group in my playbook. Ansible silently ran against zero hosts. `ansible-inventory --graph` revealed the mismatch immediately.
 
 **5. Variable precedence surprise**
 I set a variable in `group_vars/all.yml` but `ansible-playbook` with `--extra-vars` overrode it without warning. The docs say `--extra-vars` wins over everything, but seeing it in practice is different from accepting it in theory.
