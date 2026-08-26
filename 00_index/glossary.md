@@ -36,6 +36,16 @@
 
 **no_log (Ansible)**: Ansible directive that prevents task output from being logged for security.
 
+**become (Ansible)**: Ansible directive that escalates privileges for a task or play (e.g., `become: true` to run as root via sudo). Requires `--ask-become-pass` or a NOPASSWD sudoers entry on the target.
+
+**ansible.cfg**: Ansible's configuration file, which controls defaults such as `host_key_checking`, inventory path, and remote user. Searched for in the current directory, then `~/.ansible.cfg`, then `/etc/ansible/ansible.cfg`.
+
+**group_vars / host_vars (Ansible)**: Directories holding variable files automatically loaded by Ansible for groups (`group_vars/`) or individual hosts (`host_vars/`). A file named `all.yml` inside `group_vars/` applies to every host.
+
+**serial (Ansible)**: A play keyword that limits how many hosts run the task at once (e.g., `serial: 1` for a rolling update, one host at a time).
+
+**throttle (Ansible)**: A task-level keyword that caps concurrent execution on a per-task basis, useful for limiting simultaneous SSH connections or API calls.
+
 **Shamir key (Vault)**: Vault's default seal mechanism that splits the unseal key into multiple shares using Shamir's secret sharing algorithm.
 
 **Auto-unseal (Vault)**: Vault feature that automatically unseals using a trusted cloud KMS (AWS KMS, Azure Key Vault, GCP Cloud KMS) or HSM.
