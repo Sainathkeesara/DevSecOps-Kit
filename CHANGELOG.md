@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - github-actions-012: `github-actions/notes/2026-08-26-install-gh-cli-first-command.md` — Install GitHub CLI and run my first `gh` command, what tripped me up (L1 notes)
 - github-actions-013: `github-actions/snippets/2026-08-26-first-workflow.yaml` — My first GitHub Actions workflow YAML from scratch (L1 snippet)
 - github-actions-016: `github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml` — Minimal composite action with input parameters and step reuse (L2 snippet)
+- con-112: `docs/concepts/application-security-testing-concepts/snippets/2026-08-26-appsec-sca-dependency-exercises.py` — SCA dependency scanning and SBOM generation practice exercises (L2 snippet)
 
 ## 2026-08-25
 
