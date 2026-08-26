@@ -1,0 +1,9 @@
+# last_verified: 2026-08-26 · GitHub Actions n/a
+
+name: first-workflow
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "First workflow ran"

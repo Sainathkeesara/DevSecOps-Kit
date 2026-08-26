@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-26
+
+### Added
+- github-actions-012: `github-actions/notes/2026-08-26-install-gh-cli-first-command.md` — Install GitHub CLI and run my first `gh` command, what tripped me up (L1 notes)
+- github-actions-013: `github-actions/snippets/2026-08-26-first-workflow.yaml` — My first GitHub Actions workflow YAML from scratch (L1 snippet)
+- github-actions-016: `github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml` — Minimal composite action with input parameters and step reuse (L2 snippet)
+
 ## 2026-08-25
 
 ### Added
@@ -93,7 +100,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - docs-017: `docs/notes/2026-08-14-verify-trivy-paths.md` — Verified corrected relative paths in trivy-jenkins-integration.md and trivy-severity-filtering.md (L1)
 - docs/how-to/trivy-jenkins-integration.md — Fixed relative script path from `./scripts/bash/...` to `../../scripts/bash/...`
-- docs/how-to/trivy-severity-filtering.md — Fixed relative script path from `./scripts/triage-vulnerabilities.sh` to `../../scripts/triage-vulnerabilities.sh`
+- docs/how-to/trivy-severity-filtering.md — Fixed relative script path from `./scripts/triage-vulnerabilities.sh` to `../scripts/triage-vulnerabilities.sh`
 
 ## 2026-08-13
 
