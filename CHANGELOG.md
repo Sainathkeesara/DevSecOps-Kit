@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-08-25
 
 ### Added
+- cosign-013: `cosign/docs/cosign-verification-patterns.md` — Cosign verification patterns with policy-based verification and custom OCI rules (L4)
+- cosign-014: `cosign/dockerfiles/custom-cosign-image.Dockerfile` — Custom Cosign image with pre-loaded signing keys and verification entrypoint (L4)
 - con-119: `docs/concepts/secrets-access-management/snippets/2026-08-25-applying-secrets-access-management.py` — Applying Secrets & Access Management in DevSecOps (L2 snippet)
 - con-122: `docs/concepts/version-control-with-git/snippets/2026-08-25-applying-version-control-in-devsecops.py` — Applying Version Control with Git in DevSecOps (L2 snippet)
 - ansible-006: `ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md` — Followed the official Ansible quickstart and documented the gotchas the docs skip (L2)
