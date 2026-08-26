@@ -1,0 +1,18 @@
+# last_verified: 2026-08-26 · GitHub Actions n/a
+
+# Composite action that wraps a greeting command and accepts a name input.
+# Using composite actions lets me reuse the same greeting step across
+# multiple workflows without duplicating the run block.
+
+name: Greet
+description: Greet a person or team
+inputs:
+  name:
+    description: Name to greet
+    required: true
+    default: World
+runs:
+  using: composite
+  steps:
+    - run: echo "Hello, ${{ inputs.name }}"
+      shell: bash
