@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-27
+
+### Added
+- opa-007: `opa/templates/gatekeeper-policy-library-scaffold/` — OPA Gatekeeper policy library scaffold with CI test harness (L4 template)
+- opa-008: `opa/docs/constraint-template-design-patterns.md` — OPA Gatekeeper constraint template design patterns for pod security (L4 docs)
+- opa-009: `opa/scripts/export-audit-results.sh` — OPA Gatekeeper audit results export and compliance reporting script (L4 script)
+
 ## 2026-08-26
 
 ### Added

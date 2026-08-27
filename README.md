@@ -23,6 +23,7 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 ## Layout
 
+- **`.github/`** — GitHub Actions workflows, PR templates, and repository automation
 - **`00_index/`** — Navigation: topic map, quick links, glossary, learning path
 - **`assets/`** — Architecture diagrams and workflow illustrations
 - **`docs/`** — Concepts, how-to guides, reference, runbooks, security docs, troubleshooting, and setup guides
