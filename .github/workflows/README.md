@@ -2,12 +2,6 @@
 
 This directory contains GitHub Actions workflow definitions for the DevOps-Kit repository.
 
-## Workflows
-
-- **pr-validation.yml** - Runs linting and type checking on PRs
-- **auto-merge.yml** - Automated merging for trivial changes (docs, typos)
-- **tool-testing.yml** - Executes script tests in isolated environments
-
 ## Standards
 
 - All workflows must specify `permissions: read-all`

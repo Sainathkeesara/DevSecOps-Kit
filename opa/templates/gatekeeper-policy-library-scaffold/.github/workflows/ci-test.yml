@@ -1,0 +1,25 @@
+# last_verified: 2026-08-27 · OPA Gatekeeper
+
+name: Gatekeeper policy CI
+
+on:
+  pull_request:
+    paths:
+      - 'policies/**'
+      - 'constraint-templates/**'
+      - 'tests/**'
+  push:
+    branches: [main]
+
+jobs:
+  policy-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: open-policy-agent/setup-opa@v2
+        with:
+          version: latest
+      - name: Run policy tests
+        run: |
+          chmod +x tests/test-policies.sh
+          ./tests/test-policies.sh

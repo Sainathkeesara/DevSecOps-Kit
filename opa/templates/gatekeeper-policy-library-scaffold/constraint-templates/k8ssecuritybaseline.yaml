@@ -1,0 +1,42 @@
+# last_verified: 2026-08-27 · OPA Gatekeeper
+
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8ssecuritybaseline
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sSecurityBaseline
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8s.security_baseline
+
+        # Deny privileged containers
+        deny[msg] {
+          container := input.review.object.spec.containers[_]
+          container.securityContext.privileged == true
+          msg := sprintf("Container %v is privileged -- not allowed", [container.name])
+        }
+
+        # Deny hostNetwork usage
+        deny[msg] {
+          input.review.object.spec.hostNetwork == true
+          msg := "Pod uses hostNetwork -- not allowed"
+        }
+
+        # Deny hostPath volume mounts
+        deny[msg] {
+          volume := input.review.object.spec.volumes[_]
+          volume.hostPath
+          msg := sprintf("Pod mounts hostPath volume %v -- not allowed", [volume.name])
+        }
+
+        # Require readOnlyRootFilesystem
+        deny[msg] {
+          container := input.review.object.spec.containers[_]
+          not container.securityContext.readOnlyRootFilesystem == true
+          msg := sprintf("Container %v must set readOnlyRootFilesystem=true", [container.name])
+        }
