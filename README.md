@@ -15,26 +15,23 @@ A curated collection of notes, scripts, snippets, and templates covering vulnera
 
 ## Quick links
 
-- [Applying secrets & access management in DevSecOps](docs/concepts/secrets-access-management/snippets/2026-08-25-applying-secrets-access-management.py) — Practice exercise: keeping secrets out of source and the pipeline
-- [Applying version control in DevSecOps](docs/concepts/version-control-with-git/snippets/2026-08-25-applying-version-control-in-devsecops.py) — Practice exercise: how VCS metadata feeds a security gate
-- [Scripts directory reorganisation notes](scripts/notes/2026-08-24-reorganize-scripts.md) — What I found when auditing the scripts/ layout
-- [Git first repo stage and log](git/scripts/2026-08-24-first-repo-stage-log.sh) — Script for staging and logging changes in a first Git repo
-- [Spurious script reference cleanup](docs/notes/2026-08-23-spurious-script-reference-cleanup.md) — Cleanup pass for incorrect script references across docs
+- [Gatekeeper constraint template design patterns](opa/docs/constraint-template-design-patterns.md) — Structuring reusable ConstraintTemplates for pod security baselines
+- [Gatekeeper policy library scaffold](opa/templates/gatekeeper-policy-library-scaffold/README.md) — Starter layout for a versioned, tested Rego policy library
+- [Export Gatekeeper audit results](opa/scripts/export-audit-results.sh) — Dump constraint violations to JSON with a compliance summary
+- [Install CodeQL and run a first query](codeql/notes/2026-08-26-install-codeql-first-query.md) — Building a database and writing the first QL query end to end
+- [Install Vault and run a first command](vault/notes/2026-08-26-install-vault-first-command.md) — Dev-server startup and the first KV read/write
 
 ## Layout
 
-- **`.github/`** — GitHub Actions workflows, PR templates, and repository automation
 - **`00_index/`** — Navigation: topic map, quick links, glossary, learning path
-- **`assets/`** — Architecture diagrams and workflow illustrations
 - **`docs/`** — Concepts, how-to guides, reference, runbooks, security docs, troubleshooting, and setup guides
+- **`scripts/`** — Shell toolkits organised by tool (`scripts/bash/`), deployment and rollback wrappers (`scripts/pipeline/`), and repository utilities
 - **`snippets/`** — Copy-paste ready cheatsheets and one-liners
 - **`templates/`** — Starter configs for Kubernetes, Terraform, Linux, Jenkins, Logstash, syslog-ng
 - **`environments/`** — Terraform environment configs (dev / staging / prod)
 - **`lab/`** — Mini-projects and learning sandboxes
-- **`scripts/`** — General repository scripts and utilities
-- **`scripts/bash/`** — Shell toolkit scripts organised by tool (ansible, docker, k8s, linux, terraform, vault, jenkins, kafka, observability, and more)
-- **`scripts/pipeline/`** — Deployment and rollback wrappers
-- **`scripts/notes/`** — Maintenance notes and script-reorganisation observations
+- **`assets/`** — Architecture diagrams and workflow illustrations
+- **`.github/`** — CODEOWNERS, PR template, and Dependabot config
 
 Per-tool content folders follow a consistent shape — `notes/`, `scripts/`, `configs/`, `snippets/`, plus wherever useful `docs/`, `manifests/`, `dockerfiles/`, `notebooks/`, `policies/`, or `templates/`:
 
@@ -48,35 +45,35 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total | Last verified |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|---------:|------:|---------------|
 | trufflehog | 3 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 37 | — |
+| checkov | 4 | 5 | 2 | 2 | 4 | 10 | 3 | 0 | 2 | 1 | 33 | 2026-08-16 |
 | syft | 4 | 5 | 3 | 1 | 1 | 15 | 1 | 1 | 2 | 0 | 33 | 2026-08-13 |
 | trivy | 4 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 33 | 2026-08-18 |
-| checkov | 4 | 5 | 2 | 2 | 4 | 10 | 3 | 0 | 2 | 1 | 33 | 2026-08-16 |
 | zap | 5 | 3 | 2 | 2 | 4 | 8 | 0 | 1 | 0 | 0 | 25 | 2026-07-20 |
+| opa | 3 | 2 | 2 | 1 | 3 | 9 | 3 | 0 | 0 | 0 | 23 | 2026-08-27 |
 | gitguardian | 4 | 2 | 3 | 2 | 2 | 9 | 0 | 0 | 0 | 0 | 22 | 2026-08-21 |
-| semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 20 | 2026-08-06 |
 | grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-07-21 |
+| semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 20 | 2026-08-06 |
 | terraform | 3 | 1 | 4 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 20 | 2026-08-11 |
 | terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 18 | 2026-08-09 |
+| cosign | 4 | 1 | 3 | 1 | 1 | 0 | 2 | 2 | 0 | 0 | 14 | 2026-08-25 |
 | dependabot | 7 | 1 | 2 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 2026-08-20 |
+| codeql | 4 | 1 | 1 | 1 | 4 | 0 | 1 | 1 | 0 | 0 | 13 | 2026-08-26 |
 | falco | 4 | 2 | 3 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-07-19 |
-| vault | 3 | 2 | 3 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | 12 | 2026-08-22 |
-| opa | 3 | 1 | 1 | 1 | 3 | 0 | 3 | 0 | 0 | 0 | 12 | 2026-08-19 |
-| codeql | 3 | 1 | 1 | 1 | 4 | 0 | 1 | 1 | 0 | 0 | 12 | 2026-07-22 |
-| cosign | 4 | 0 | 3 | 1 | 1 | 0 | 2 | 0 | 0 | 0 | 11 | 2026-08-21 |
+| vault | 4 | 2 | 3 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | 13 | 2026-08-26 |
+| github-actions | 4 | 0 | 0 | 2 | 2 | 0 | 2 | 0 | 0 | 0 | 10 | 2026-08-26 |
 | snyk | 4 | 1 | 1 | 2 | 1 | 0 | 0 | 1 | 0 | 0 | 10 | 2026-07-22 |
 | argocd | 6 | 0 | 0 | 1 | 0 | 0 | 2 | 0 | 0 | 0 | 9 | 2026-08-17 |
 | docker | 2 | 1 | 2 | 1 | 0 | 0 | 0 | 2 | 0 | 0 | 8 | 2026-08-05 |
-| github-actions | 3 | 0 | 0 | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 7 | 2026-08-04 |
 | git | 3 | 0 | 3 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-08-24 |
 | ansible | 2 | 0 | 3 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-08-25 |
 | tetragon | 3 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-08-06 |
-| sonarqube | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-07-19 |
-| opentofu | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-07-20 |
-| kustomize | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-07-08 |
-| kubernetes | 2 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 3 | 2026-07-15 |
-| helm | 2 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 3 | 2026-07-19 |
 | defectdojo | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-08-04 |
+| helm | 2 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 3 | 2026-07-19 |
+| kubernetes | 2 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 3 | 2026-07-15 |
+| kustomize | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-07-08 |
 | linux | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-08-17 |
+| opentofu | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-07-20 |
+| sonarqube | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-07-19 |
 | prometheus | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-07-13 |
 | grafana | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2026-07-13 |
 
@@ -84,7 +81,7 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include Ansible quickstart trip-ups and a minimal playbook snippet, plus applied practice exercises for secrets management and version control with Git. Current focus is finishing the remaining per-tool notes and expanding coverage across the toolchain.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent work has focused on OPA/Gatekeeper — constraint template design patterns, a versioned policy library scaffold, and an audit export helper — plus first-contact notes for CodeQL, Vault, and the GitHub CLI. Current focus is finishing the remaining per-tool notes and deepening policy-as-code and supply-chain coverage.
 
 ---
-_Last updated: 2026-08-25_
+_Last updated: 2026-08-27_

@@ -482,6 +482,34 @@
 
 **Attestation** — A signed statement about something in the supply chain.
 
+**Gatekeeper** — The Kubernetes admission controller that runs OPA as a validating (and optionally mutating) webhook, so Rego policies are evaluated against resources before the API server persists them.
+
+**ConstraintTemplate (Gatekeeper)** — A reusable CRD that pairs a Rego policy with an input schema, defining a new Constraint kind. One template can back many Constraints with different parameters — the unit of reuse in a policy library.
+
+**Constraint (Gatekeeper)** — An instance of a ConstraintTemplate that says where the policy applies (`match` on kinds, namespaces, labels) and with what parameters (e.g. the list of allowed image registries).
+
+**enforcementAction (Gatekeeper)** — The per-Constraint field controlling what a violation does: `deny` rejects the request, `warn` admits it with a message, and `dryrun` records the violation only. Rolling a new policy out as `dryrun` first avoids breaking existing workloads.
+
+**Audit (Gatekeeper)** — The periodic background scan that re-evaluates every Constraint against resources already in the cluster, surfacing pre-existing violations in each Constraint's `status.violations` rather than at admission time.
+
+**Pod Security baseline** — A set of minimum container guardrails commonly enforced together: no privileged containers, no host namespaces, a read-only root filesystem, and images restricted to approved registries.
+
+**CodeQL database** — The extracted, queryable representation of a codebase (source plus a relational model of its syntax and data flow) that `codeql database create` produces. Queries run against the database, not the raw files, so it must be rebuilt after code changes.
+
+**Data flow analysis (CodeQL)** — Tracking how a value moves from a *source* (untrusted input) to a *sink* (a dangerous operation) through assignments and calls. Local flow stays inside one function; global (taint) flow crosses function boundaries.
+
+**Source and sink** — In code analysis, the origin of untrusted data (request parameter, environment variable, file read) and the sensitive operation that must not consume it unsanitised (SQL execution, shell command, deserialization).
+
+**Abstract Syntax Tree (AST)** — The tree representation of source code's grammatical structure. Analysing the AST instead of raw text lets a scanner match code shape rather than string patterns, which is the foundation both Semgrep and CodeQL build on.
+
+**Dev server (Vault)** — Vault started with `vault server -dev`: in-memory storage, automatically initialised and unsealed, with a printed root token. Convenient for learning and local testing, and unsuitable for anything persistent.
+
+**KV v2 (Vault)** — The versioned key-value secrets engine. Reads and writes go through a `data/` path segment and older versions are retained, so `vault kv get secret/foo` maps to the API path `secret/data/foo`.
+
+**Sink file (Vault Agent)** — The file Vault Agent writes its acquired token to, so other processes in the pod can read it. Distinct from a rendered template, which contains the resolved secret values rather than the token.
+
+**Composite action (GitHub Actions)** — A reusable action defined in YAML with `runs.using: composite`, bundling several steps behind a single `uses:` reference with its own `inputs`. Reduces copy-paste across workflows without needing a separate container or JavaScript action.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment
