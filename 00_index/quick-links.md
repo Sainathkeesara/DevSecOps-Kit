@@ -28,12 +28,16 @@
 - [Semgrep primer](../semgrep/notes/0000-primer-semgrep.md) — Static analysis with custom rules across multiple languages
 - [Checkov primer](../checkov/notes/0000-primer-checkov.md) — IaC security scanner for Terraform, Kubernetes, CloudFormation
 - [CodeQL primer](../codeql/notes/0000-primer-codeql.md) — Semantic code analysis with custom QL queries
+- [Install CodeQL and run a first query](../codeql/notes/2026-08-26-install-codeql-first-query.md) — Build a database and write your first QL query end to end
 - [Custom Semgrep rule example](../semgrep/snippets/first-custom-rule.yaml) — Write your first Semgrep rule
 - [Semgrep rule performance optimization](../semgrep/docs/semgrep-rule-performance-optimization.md) — Combining patterns for efficient scanning in large codebases
+- [AST-based security pattern checker](../docs/concepts/application-security-testing-concepts/scripts/2026-08-26-ast-devsecops.py) — How syntax-tree analysis underpins tools like Semgrep and CodeQL
 
 ### Set up CI/CD pipelines
 - [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md) — Get started with GitHub Actions
-- [Explore GitHub Actions](../github-actions/notes/2026-08-04-explore-github-actions.md) — Latest GitHub Actions workflows and patterns
+- [Install the GitHub CLI and run a first command](../github-actions/notes/2026-08-26-install-gh-cli-first-command.md) — Authenticating `gh` and driving Actions from the terminal
+- [My first GitHub Actions workflow](../github-actions/snippets/2026-08-26-first-workflow.yaml) — Minimal push-triggered workflow to build on
+- [Reusing inputs with a composite action](../github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml) — Factor repeated steps into a composite action
 - [CI/CD security scanner wrapper](../docs/concepts/linux-shell-fundamentals/scripts/ci-cd-pipeline-security-scanner-wrapper.sh) — Single entry point that chains multiple scanner stages
 - [ZAP baseline scan for CI](../zap/notes/2026-07-20-install-zap-baseline-scan.md) — Non-intrusive DAST in CI
 - [Trivy CI/CD pipeline recipes](../trivy/docs/ci-cd-pipeline-recipes.md) — Multi-pattern Trivy scanning recipes
@@ -41,7 +45,9 @@
 ### Build and sign container images
 - [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile) — Minimal Dockerfile to get started
 - [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh) — Cosign quickstart for image signing
+- [Cosign verification patterns](../cosign/docs/cosign-verification-patterns.md) — Keyed, keyless, and policy-driven verification compared
 - [Cosign key management workflow](../cosign/scripts/cosign-key-management-workflow.sh) — Rotate signing keys without breaking existing attestations
+- [Custom Cosign image](../cosign/dockerfiles/custom-cosign-image.Dockerfile) — Pin Cosign into a reusable signing image
 - [Multi-stage SBOM Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile) — SBOM generation in CI images
 - [Multi-stage Grype scan Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile) — Scanning images during the build
 - [Build a multi-service Docker Compose app](../docker/scripts/build-multi-service-compose-app.sh) — Docker Compose app from scratch
@@ -62,13 +68,19 @@
 
 ### Manage secrets and access
 - [HashiCorp Vault primer](../vault/notes/0000-primer-vault.md) — Secrets management and dynamic secrets
+- [Install Vault and run a first command](../vault/notes/2026-08-26-install-vault-first-command.md) — Dev-server startup and the first KV read/write
 - [Vault KV CRUD operations](../vault/scripts/vault-kv-crud.sh) — Key-value secret read/write operations
 - [Vault multi-environment access control](../vault/configs/multi-environment-access-control.hcl) — HCL policies for env-based access
 - [Vault dynamic secrets for cloud IAM](../vault/scripts/cloud-iam-dynamic-secrets.sh) — Vault dynamic secrets workflow for cloud IAM credentials
+- [Vault Agent auto-auth on Kubernetes](../vault/docs/vault-agent-auto-auth-kubernetes.md) — Let pods authenticate with their service account instead of a static token
 
 ### Manage policies and compliance
 - [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md) — Policy engine for Kubernetes admission control
 - [My first OPA policy evaluation](../opa/snippets/my-first-opa-policy-eval.sh) — Write a basic Rego policy
+- [Gatekeeper constraint template design patterns](../opa/docs/constraint-template-design-patterns.md) — Structuring reusable ConstraintTemplates for pod security baselines
+- [Gatekeeper policy library scaffold](../opa/templates/gatekeeper-policy-library-scaffold/README.md) — Starter layout for a versioned, tested Rego policy library
+- [Test Gatekeeper policies locally](../opa/templates/gatekeeper-policy-library-scaffold/tests/test-policies.sh) — Run the policy suite before it reaches a cluster
+- [Export Gatekeeper audit results](../opa/scripts/export-audit-results.sh) — Dump constraint violations to JSON with a compliance summary
 - [Terrascan primer](../terrascan/notes/0000-primer-terrascan.md) — IaC static analysis with custom Rego rules
 
 ### Run infrastructure tasks
@@ -97,6 +109,7 @@
 - [Version control with Git fundamentals](../docs/concepts/git-001-version-control-fundamentals.md) — Git concepts, commits, branches
 - [CI/CD pipeline concepts](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md) — Stages, gates, triggers
 - [Application Security Testing concepts](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md) — SAST, DAST, SCA overview
+- [SCA and dependency exercises](../docs/concepts/application-security-testing-concepts/snippets/2026-08-26-appsec-sca-dependency-exercises.py) — Practice reasoning about dependency risk and transitive vulnerabilities
 - [Infrastructure as Code fundamentals](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) — What IaC is and why it matters
 - [Applying secrets & access management](../docs/concepts/secrets-access-management/snippets/2026-08-25-applying-secrets-access-management.py) — Practice keeping secrets out of source and the pipeline
 - [Applying version control in DevSecOps](../docs/concepts/version-control-with-git/snippets/2026-08-25-applying-version-control-in-devsecops.py) — Practice how VCS metadata feeds a security gate

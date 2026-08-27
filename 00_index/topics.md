@@ -60,6 +60,16 @@
 - **templates** (8): [zap-automation-plan.yaml](../zap/templates/zap-dast-integration-scaffold/zap-automation-plan.yaml), [run-zap-dast.sh](../zap/templates/zap-dast-integration-scaffold/scripts/run-zap-dast.sh), [quick-scan.yaml](../zap/templates/zap-dast-integration-scaffold/plans/quick-scan.yaml) — _…and 5 more under `zap/templates/zap-dast-integration-scaffold/`._
 - **dockerfiles** (1): [custom-zap-automation.Dockerfile](../zap/dockerfiles/custom-zap-automation.Dockerfile)
 
+## opa · 23 files
+- **primer:** [0000-primer-opa.md](../opa/notes/0000-primer-opa.md)
+- **notes** (3): [2026-06-15-opa-getting-started-trip-ups.md](../opa/notes/2026-06-15-opa-getting-started-trip-ups.md), [2026-06-06-install-opa-repl.md](../opa/notes/2026-06-06-install-opa-repl.md)
+- **docs** (2): [constraint-template-design-patterns.md](../opa/docs/constraint-template-design-patterns.md), [wired-opa-admission-control.md](../opa/docs/wired-opa-admission-control.md)
+- **scripts** (2): [export-audit-results.sh](../opa/scripts/export-audit-results.sh), [how-i-test-policies-locally.sh](../opa/scripts/how-i-test-policies-locally.sh)
+- **configs** (1): [tried-a-gatekeeper-constraint.yaml](../opa/configs/tried-a-gatekeeper-constraint.yaml)
+- **snippets** (3): [my-first-opa-policy-eval.sh](../opa/snippets/my-first-opa-policy-eval.sh), [enforce-image-registry-constraints.rego](../opa/snippets/enforce-image-registry-constraints.rego), [deny-privileged-hostnetwork.rego](../opa/snippets/deny-privileged-hostnetwork.rego)
+- **templates** (9): [gatekeeper-policy-library-scaffold/README.md](../opa/templates/gatekeeper-policy-library-scaffold/README.md), [k8ssecuritybaseline.yaml](../opa/templates/gatekeeper-policy-library-scaffold/constraint-templates/k8ssecuritybaseline.yaml), [test-policies.sh](../opa/templates/gatekeeper-policy-library-scaffold/tests/test-policies.sh) — _…and 6 more under `opa/templates/gatekeeper-policy-library-scaffold/`._
+- **manifests** (3): [README.md](../opa/manifests/README.md), [constraint-templates.yaml](../opa/manifests/constraint-templates.yaml), [constraints.yaml](../opa/manifests/constraints.yaml)
+
 ## gitguardian · 22 files
 - **primer:** [0000-primer-gitguardian.md](../gitguardian/notes/0000-primer-gitguardian.md)
 - **notes** (4): [2026-06-14-first-secrets-scan-repo.md](../gitguardian/notes/2026-06-14-first-secrets-scan-repo.md), [2026-06-13-ggshield-quickstart-trip-ups.md](../gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md), [2026-06-07-first-ggshield-scan.md](../gitguardian/notes/2026-06-07-first-ggshield-scan.md) — _…and 1 more under `gitguardian/notes/`._
@@ -109,7 +119,16 @@
 - **snippets** (2): [tiny-tf-with-findings.tf](../terrascan/snippets/tiny-tf-with-findings.tf), [insecure-terraform.tf](../terrascan/snippets/insecure-terraform.tf)
 - **templates** (6): [run-scan.sh](../terrascan/templates/scanning-pipeline-scaffold/scripts/run-scan.sh), [require-encryption.rego](../terrascan/templates/scanning-pipeline-scaffold/policies/require-encryption.rego), [block-public-s3-buckets.rego](../terrascan/templates/scanning-pipeline-scaffold/policies/block-public-s3-buckets.rego) — _…and 3 more under `terrascan/templates/`._
 - **manifests** (1): [terrascan-gha-ci-multi-iac.yaml](../terrascan/manifests/terrascan-gha-ci-multi-iac.yaml)
-- **policies** (2): [require-encryption.rego](../terrascan/templates/scanning-pipeline-scaffold/policies/require-encryption.rego), [block-public-s3-buckets.rego](../terrascan/templates/scanning-pipeline-scaffold/policies/block-public-s3-buckets.rego)
+
+## cosign · 14 files
+- **primer:** [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md)
+- **notes** (4): [2026-06-22-cosign-getting-started-trip-ups.md](../cosign/notes/2026-06-22-cosign-getting-started-trip-ups.md), [2026-06-14-install-cosign-generate-first-keypair.md](../cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md), [2026-06-13-install-cosign-sign-first-image.md](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md) — _…and 1 more under `cosign/notes/`._
+- **docs** (1): [cosign-verification-patterns.md](../cosign/docs/cosign-verification-patterns.md)
+- **scripts** (3): [cosign-key-management-workflow.sh](../cosign/scripts/cosign-key-management-workflow.sh), [verify-signed-image.sh](../cosign/scripts/verify-signed-image.sh), [minimal-sign-verify.sh](../cosign/scripts/minimal-sign-verify.sh)
+- **configs** (1): [keyless-signing-github-actions.yaml](../cosign/configs/keyless-signing-github-actions.yaml)
+- **snippets** (1): [first-cosign-sign-verify-image.sh](../cosign/snippets/first-cosign-sign-verify-image.sh)
+- **manifests** (2): [signed-container-build-oidc.yaml](../cosign/manifests/signed-container-build-oidc.yaml), [2026-07-10-keyless-oidc-ci.yaml](../cosign/manifests/2026-07-10-keyless-oidc-ci.yaml)
+- **dockerfiles** (2): [custom-cosign-image.Dockerfile](../cosign/dockerfiles/custom-cosign-image.Dockerfile), [entrypoint.sh](../cosign/dockerfiles/entrypoint.sh)
 
 ## dependabot · 14 files
 - **primer:** [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md)
@@ -126,27 +145,18 @@
 - **configs** (3): [first-custom-rule-detect-shell-in-container.yaml](../falco/configs/first-custom-rule-detect-shell-in-container.yaml), [container-drift-detection.yaml](../falco/configs/container-drift-detection.yaml), [2026-06-10-first-custom-rule-detect-shell-in-container.yaml](../falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml)
 - **snippets** (1): [tried-file-access-detector.go](../falco/snippets/tried-file-access-detector.go)
 
-## vault · 12 files
+## vault · 13 files
 - **primer:** [0000-primer-vault.md](../vault/notes/0000-primer-vault.md)
-- **notes** (3): [2026-06-15-vault-getting-started-trip-ups.md](../vault/notes/2026-06-15-vault-getting-started-trip-ups.md), [2026-06-05-install-vault-and-explore-cli.md](../vault/notes/2026-06-05-install-vault-and-explore-cli.md)
+- **notes** (4): [2026-08-26-install-vault-first-command.md](../vault/notes/2026-08-26-install-vault-first-command.md), [2026-06-15-vault-getting-started-trip-ups.md](../vault/notes/2026-06-15-vault-getting-started-trip-ups.md), [2026-06-05-install-vault-and-explore-cli.md](../vault/notes/2026-06-05-install-vault-and-explore-cli.md)
 - **docs** (2): [vault-agent-auto-auth-kubernetes.md](../vault/docs/vault-agent-auto-auth-kubernetes.md), [configuring-vault-dev-server.md](../vault/docs/configuring-vault-dev-server.md)
 - **scripts** (3): [vault-kv-crud.sh](../vault/scripts/vault-kv-crud.sh), [vault-db-dynamic-secrets.sh](../vault/scripts/vault-db-dynamic-secrets.sh), [cloud-iam-dynamic-secrets.sh](../vault/scripts/cloud-iam-dynamic-secrets.sh)
 - **configs** (2): [multi-environment-access-control.hcl](../vault/configs/multi-environment-access-control.hcl), [2026-06-26-dev-test-policies.hcl](../vault/configs/2026-06-26-dev-test-policies.hcl)
 - **snippets** (1): [vault-read-write.go](../vault/snippets/vault-read-write.go)
 - **dockerfiles** (1): [custom-vault-image-with-plugins-tls.Dockerfile](../vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile)
 
-## opa · 12 files
-- **primer:** [0000-primer-opa.md](../opa/notes/0000-primer-opa.md)
-- **notes** (3): [2026-06-15-opa-getting-started-trip-ups.md](../opa/notes/2026-06-15-opa-getting-started-trip-ups.md), [2026-06-06-install-opa-repl.md](../opa/notes/2026-06-06-install-opa-repl.md)
-- **docs** (1): [wired-opa-admission-control.md](../opa/docs/wired-opa-admission-control.md)
-- **scripts** (1): [how-i-test-policies-locally.sh](../opa/scripts/how-i-test-policies-locally.sh)
-- **configs** (1): [tried-a-gatekeeper-constraint.yaml](../opa/configs/tried-a-gatekeeper-constraint.yaml)
-- **snippets** (3): [my-first-opa-policy-eval.sh](../opa/snippets/my-first-opa-policy-eval.sh), [enforce-image-registry-constraints.rego](../opa/snippets/enforce-image-registry-constraints.rego), [deny-privileged-hostnetwork.rego](../opa/snippets/deny-privileged-hostnetwork.rego)
-- **manifests** (3): [README.md](../opa/manifests/README.md), [constraint-templates.yaml](../opa/manifests/constraint-templates.yaml), [constraints.yaml](../opa/manifests/constraints.yaml)
-
-## codeql · 12 files
+## codeql · 13 files
 - **primer:** [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md)
-- **notes** (3): [2026-06-14-codeql-datalog-gotchas.md](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md), [2026-06-05-install-codeql-first-analysis.md](../codeql/notes/2026-06-05-install-codeql-first-analysis.md)
+- **notes** (4): [2026-08-26-install-codeql-first-query.md](../codeql/notes/2026-08-26-install-codeql-first-query.md), [2026-06-14-codeql-datalog-gotchas.md](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md), [2026-06-05-install-codeql-first-analysis.md](../codeql/notes/2026-06-05-install-codeql-first-analysis.md)
 - **docs** (1): [wired-custom-queries-into-ci.md](../codeql/docs/wired-custom-queries-into-ci.md)
 - **scripts** (1): [first-codeql-analysis.sh](../codeql/scripts/first-codeql-analysis.sh)
 - **configs** (1): [first-codeql-analysis.yml](../codeql/configs/first-codeql-analysis.yml)
@@ -154,13 +164,12 @@
 - **manifests** (1): [multi-language-codeql-analysis.yaml](../codeql/manifests/multi-language-codeql-analysis.yaml)
 - **dockerfiles** (1): [custom-codeql-analysis-image.Dockerfile](../codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile)
 
-## cosign · 11 files
-- **primer:** [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md)
-- **notes** (4): [2026-06-22-cosign-getting-started-trip-ups.md](../cosign/notes/2026-06-22-cosign-getting-started-trip-ups.md), [2026-06-14-install-cosign-generate-first-keypair.md](../cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md), [2026-06-13-install-cosign-sign-first-image.md](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md) — _…and 1 more under `cosign/notes/`._
-- **scripts** (3): [cosign-key-management-workflow.sh](../cosign/scripts/cosign-key-management-workflow.sh), [verify-signed-image.sh](../cosign/scripts/verify-signed-image.sh), [minimal-sign-verify.sh](../cosign/scripts/minimal-sign-verify.sh)
-- **configs** (1): [keyless-signing-github-actions.yaml](../cosign/configs/keyless-signing-github-actions.yaml)
-- **snippets** (1): [first-cosign-sign-verify-image.sh](../cosign/snippets/first-cosign-sign-verify-image.sh)
-- **manifests** (2): [signed-container-build-oidc.yaml](../cosign/manifests/signed-container-build-oidc.yaml), [2026-07-10-keyless-oidc-ci.yaml](../cosign/manifests/2026-07-10-keyless-oidc-ci.yaml)
+## github-actions · 10 files
+- **primer:** [0000-primer-github-actions.md](../github-actions/notes/0000-primer-github-actions.md)
+- **notes** (4): [2026-08-26-install-gh-cli-first-command.md](../github-actions/notes/2026-08-26-install-gh-cli-first-command.md), [2026-08-04-explore-github-actions.md](../github-actions/notes/2026-08-04-explore-github-actions.md), [2026-07-14-explore-github-actions.md](../github-actions/notes/2026-07-14-explore-github-actions.md)
+- **snippets** (2): [2026-08-26-first-workflow.yaml](../github-actions/snippets/2026-08-26-first-workflow.yaml), [2026-08-26-composite-action-input-reuse.yaml](../github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml)
+- **configs** (2): [2026-08-04-first-workflow.yaml](../github-actions/configs/2026-08-04-first-workflow.yaml), [2026-07-14-first-github-actions-workflow.yaml](../github-actions/configs/2026-07-14-first-github-actions-workflow.yaml)
+- **manifests** (2): [2026-08-04-what-is-github-actions.yaml](../github-actions/manifests/2026-08-04-what-is-github-actions.yaml), [2026-08-04-pr-validation.yml](../github-actions/manifests/2026-08-04-pr-validation.yml)
 
 ## snyk · 10 files
 - **primer:** [0000-primer-snyk.md](../snyk/notes/0000-primer-snyk.md)
@@ -184,12 +193,6 @@
 - **scripts** (2): [build-multi-service-compose-app.sh](../docker/scripts/build-multi-service-compose-app.sh), [2026-07-18-custom-network-volume-mounts.sh](../docker/scripts/2026-07-18-custom-network-volume-mounts.sh)
 - **configs** (1): [docker-compose-dev-environment.yaml](../docker/configs/docker-compose-dev-environment.yaml)
 - **dockerfiles** (2): [2026-07-12-first-custom-docker-image.Dockerfile](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile), [2026-07-10-first-custom-image.Dockerfile](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
-
-## GitHub Actions · 7 files
-- **primer:** [0000-primer-github-actions.md](../github-actions/notes/0000-primer-github-actions.md)
-- **notes** (3): [2026-08-04-explore-github-actions.md](../github-actions/notes/2026-08-04-explore-github-actions.md), [2026-07-14-explore-github-actions.md](../github-actions/notes/2026-07-14-explore-github-actions.md)
-- **configs** (2): [2026-08-04-first-workflow.yaml](../github-actions/configs/2026-08-04-first-workflow.yaml), [2026-07-14-first-github-actions-workflow.yaml](../github-actions/configs/2026-07-14-first-github-actions-workflow.yaml)
-- **manifests** (2): [2026-08-04-what-is-github-actions.yaml](../github-actions/manifests/2026-08-04-what-is-github-actions.yaml), [2026-08-04-pr-validation.yml](../github-actions/manifests/2026-08-04-pr-validation.yml)
 
 ## git · 7 files
 - **primer:** [0000-primer-git.md](../git/notes/0000-primer-git.md)
@@ -255,15 +258,15 @@
 
 These directories cut across every tool above. Browse the folders for the full set.
 
-## Docs · 199 files
-- **concepts** (41): foundational primers — [application-security-testing](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md), [ci-cd-pipeline](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md), [configuration-management](../docs/concepts/configuration-management/0000-primer-configuration-management.md), [infrastructure-as-code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md), [secrets-access-management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md), [linux-shell-fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) … _and more under `docs/concepts/`._
+## Docs · 201 files
+- **concepts** (43): foundational primers — [application-security-testing](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md), [ci-cd-pipeline](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md), [configuration-management](../docs/concepts/configuration-management/0000-primer-configuration-management.md), [infrastructure-as-code](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md), [secrets-access-management](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md), [linux-shell-fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md) … _and more under `docs/concepts/`._
 - **how-to** (127) — [kubernetes toolkit](../docs/how-to/k8s_toolkit.md), [linux toolkit](../docs/how-to/linux_toolkit.md), [jenkins toolkit](../docs/how-to/jenkins_toolkit.md), [ansible toolkit](../docs/how-to/ansible_toolkit.md), [vault toolkit](../docs/how-to/vault_toolkit.md) … _browse `docs/how-to/`._
 - **reference** (9), **runbooks** (2), **security** (6), **troubleshooting** (6), **setup-guides** (4), **notes** (4) — _browse `docs/`._
 
 ## Scripts · 190 files
 - **bash toolkits**: [linux](../scripts/bash/linux_toolkit/) (51), [k8s](../scripts/bash/k8s_toolkit/) (18), [kafka](../scripts/bash/kafka_toolkit/) (17), [terraform](../scripts/bash/terraform_toolkit/) (15), [ci-cd](../scripts/bash/ci_cd_toolkit/) (14), [observability](../scripts/bash/observability_toolkit/) (14), [ansible](../scripts/bash/ansible_toolkit/) (11), [git](../scripts/bash/git/) (8), [docker](../scripts/bash/docker_toolkit/) (7), [vault](../scripts/bash/vault_toolkit/) (7), [oci-registry](../scripts/bash/oci_registry_toolkit/) (7), [jenkins](../scripts/bash/jenkins_toolkit/) (4), [helm](../scripts/bash/helm_toolkit/) (3), [harbor](../scripts/bash/harbor/) (3), [argo](../scripts/bash/argo_toolkit/) (1), [flux](../scripts/bash/flux_toolkit/) (1), [azure](../scripts/bash/azure_toolkit/) (1), [trivy](../scripts/bash/trivy_toolkit/) (1) … _browse `scripts/bash/`._
 - **pipeline** (2): [deploy.sh](../scripts/pipeline/deploy.sh), [rollback.sh](../scripts/pipeline/rollback.sh)
-- **root utilities** (3): [bump-version.sh](../scripts/bump-version.sh), [patch-report.sh](../scripts/patch-report.sh), [triage-vulnerabilities.sh](../scripts/triage-vulnerabilities.sh)
+- **root utilities** (4): [README.md](../scripts/README.md), [bump-version.sh](../scripts/bump-version.sh), [patch-report.sh](../scripts/patch-report.sh), [triage-vulnerabilities.sh](../scripts/triage-vulnerabilities.sh)
 - **notes** (1): [2026-08-24-reorganize-scripts.md](../scripts/notes/2026-08-24-reorganize-scripts.md)
 
 ## Snippets · 17 files
