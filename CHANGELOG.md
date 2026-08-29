@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-29
+
+### Added
+- checkov-020: `checkov/configs/platform-config.yaml` — Checkov platform-level configuration for self-hosted runner, VCS integration, and suppression policies (L5)
+
 ## 2026-08-27
 
 ### Added
