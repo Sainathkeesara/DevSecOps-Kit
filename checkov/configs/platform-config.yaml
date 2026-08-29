@@ -1,0 +1,41 @@
+# last_verified: 2026-08-29 · checkov
+
+# Checkov platform-level configuration
+# Self-hosted runner, VCS integration, and suppression policies
+# Usage: pass via --config or save as .checkov.yaml in project root
+
+# ── Runner / execution context ─────────────────────────────
+# Settings for self-hosted or containerized execution environments.
+runner:
+  environment: self-hosted
+  working_directory: /workspace
+  cache:
+    enabled: true
+    path: /tmp/checkov-cache
+
+# ── VCS integration ────────────────────────────────────────
+# Bridges Checkov to your version-control provider for
+# pull-request annotations and drift detection.
+vcs:
+  provider: github
+  repo_id: ""
+  branch: main
+  pr_annotations: true
+
+# ── Suppression policies ───────────────────────────────────
+# Centralized rules that override individual skip directives.
+suppression:
+  # Resource-level: exempt legacy assets from specific checks
+  - resource: "legacy_bucket_*"
+    check: "<check-id>"
+    comment: "Legacy resources managed by separate team"
+
+  # Check-level: disable check families handled by other tools
+  - check: "<check-id>"
+    comment: "Delegated to dedicated scanner"
+
+# ── Output & reporting ─────────────────────────────────────
+output:
+  format: json
+  compact: true
+  # soft_fail: false
