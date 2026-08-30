@@ -1,3 +1,9 @@
+---
+last_verified: 2026-08-30
+tool_version: n/a
+sources: []
+---
+
 # Checkov Multi-Repository Drift Detection and Auto-PR Remediation Scaffold
 
 A project scaffold for detecting infrastructure drift across multiple repositories using Checkov and automatically opening pull requests with remediation. Designed for organizations managing Infrastructure-as-Code across many repositories who need consistent drift detection and automated remediation workflows.
@@ -159,7 +165,7 @@ multi-repo-drift-auto-pr-remediation/
 
 ## References
 
-- [Checkov custom policies documentation](https://www.checkov.io/7.Scan%20Configuration/Custom%20Policies.html)
-- [GitHub reusable workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows)
-- [Uploading SARIF data to GitHub Code Scanning](https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)
-- [GitHub REST API for pull requests](https://docs.github.com/en/rest/pulls/pulls)
+- Checkov custom policies documentation
+- GitHub reusable workflows documentation
+- GitHub Code Scanning SARIF upload documentation
+- GitHub REST API for pull requests documentation

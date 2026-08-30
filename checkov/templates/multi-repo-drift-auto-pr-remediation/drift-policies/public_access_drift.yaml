@@ -1,3 +1,4 @@
+# last_verified: 2026-08-30 · checkov 3.x
 # Drift policy: Detect public access configuration drift
 # Triggers when storage buckets, databases, or services become publicly accessible
 

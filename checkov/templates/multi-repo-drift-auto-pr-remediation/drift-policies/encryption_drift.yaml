@@ -1,3 +1,4 @@
+# last_verified: 2026-08-30 · checkov 3.x
 # Drift policy: Detect encryption configuration drift
 # Triggers when encryption at rest or in transit is disabled or weakened
 

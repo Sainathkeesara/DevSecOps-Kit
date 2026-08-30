@@ -1,3 +1,4 @@
+# last_verified: 2026-08-30 · checkov 3.x
 # Example caller workflow for a repository that wants to run drift detection
 # against its own baseline on a schedule.
 #

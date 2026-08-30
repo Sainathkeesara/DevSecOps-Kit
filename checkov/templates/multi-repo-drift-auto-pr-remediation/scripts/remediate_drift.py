@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# last_verified: 2026-08-30 · checkov 3.x
 """
 remediate_drift.py — Automated remediation for common Checkov drift findings.
 

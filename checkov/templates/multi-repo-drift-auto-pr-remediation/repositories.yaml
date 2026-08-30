@@ -1,3 +1,4 @@
+# last_verified: 2026-08-30 · checkov 3.x
 # Repository configuration for multi-repo drift detection
 # Copy this file and adjust the repository list, baseline refs, and policy assignments per organization.
 

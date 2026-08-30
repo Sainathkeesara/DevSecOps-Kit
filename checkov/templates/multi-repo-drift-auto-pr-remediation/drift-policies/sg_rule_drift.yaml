@@ -1,3 +1,4 @@
+# last_verified: 2026-08-30 · checkov 3.x
 # Drift policy: Detect security group rule changes from baseline
 # Triggers when ingress/egress rules are added, removed, or modified
 

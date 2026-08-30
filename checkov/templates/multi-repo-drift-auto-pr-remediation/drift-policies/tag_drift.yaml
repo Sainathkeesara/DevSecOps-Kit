@@ -1,3 +1,4 @@
+# last_verified: 2026-08-30 · checkov 3.x
 # Drift policy: Detect missing required tags on cloud resources
 # Triggers when resources lack organization-mandated tags (Environment, Owner, CostCenter, Project)
 
