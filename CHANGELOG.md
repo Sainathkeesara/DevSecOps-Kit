@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-30
+
+### Added
+- vault-017: `vault/docs/vault-secrets-engine-selection-guide.md` — Vault secrets engine selection guide comparing KV, database, and cloud secrets engines (L5)
+- vault-023: `vault/snippets/2026-08-30-first-vault-secret.sh` — Write my first Vault secret and read it back using the Vault CLI (L1)
+
 ## 2026-08-29
 
 ### Added
