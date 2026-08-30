@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-08-30
 
 ### Added
+- vault-017: `vault/docs/vault-secrets-engine-selection-guide.md` — Vault secrets engine selection guide comparing KV, database, and cloud secrets engines (L5)
+- vault-023: `vault/snippets/2026-08-30-first-vault-secret.sh` — Write my first Vault secret and read it back using the Vault CLI (L1)
 - checkov-021: `checkov/templates/multi-repo-drift-auto-pr-remediation/` — Checkov multi-repo drift detection and auto-PR remediation scaffold with reusable GitHub Actions workflow, custom drift policies (tag, SG, public access, encryption), and regex-based remediation script (L5 template)
 
 ## 2026-08-29
