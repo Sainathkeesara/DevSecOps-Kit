@@ -1,0 +1,217 @@
+# last_verified: 2026-08-30 · checkov 3.x
+name: Reusable Checkov Drift Detection
+
+on:
+  workflow_call:
+    inputs:
+      repository:
+        description: "Repository to scan (org/repo)"
+        required: true
+        type: string
+      baseline_ref:
+        description: "Baseline branch/tag to compare against"
+        required: true
+        type: string
+      frameworks:
+        description: "Comma-separated list of Checkov frameworks"
+        required: false
+        type: string
+        default: "terraform,kubernetes,cloudformation,arm,dockerfile,helm"
+      drift_policies:
+        description: "Comma-separated list of drift policy names to enable"
+        required: false
+        type: string
+        default: "tag_drift,sg_rule_drift,public_access_drift,encryption_drift"
+      auto_remediate:
+        description: "Whether to attempt auto-remediation and create PR"
+        required: false
+        type: boolean
+        default: true
+      severity_threshold:
+        description: "Minimum severity to fail the build"
+        required: false
+        type: string
+        default: "MEDIUM"
+    outputs:
+      drift_detected:
+        description: "Whether drift was detected"
+        value: ${{ jobs.drift-detection.outputs.drift_detected }}
+      sarif_file:
+        description: "Path to SARIF output file"
+        value: ${{ jobs.drift-detection.outputs.sarif_file }}
+      pr_created:
+        description: "Whether a remediation PR was created"
+        value: ${{ jobs.drift-detection.outputs.pr_created }}
+      pr_url:
+        description: "URL of the created PR"
+        value: ${{ jobs.drift-detection.outputs.pr_url }}
+
+permissions:
+  contents: read
+  security-events: write
+  pull-requests: write
+
+jobs:
+  drift-detection:
+    name: Checkov Drift Detection
+    runs-on: ubuntu-latest
+    outputs:
+      drift_detected: ${{ steps.checkov.outputs.drift_detected }}
+      sarif_file: ${{ steps.checkov.outputs.sarif_file }}
+      pr_created: ${{ steps.remediate.outputs.pr_created }}
+      pr_url: ${{ steps.remediate.outputs.pr_url }}
+    timeout-minutes: 30
+    steps:
+      - name: Checkout target repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ inputs.repository }}
+          ref: ${{ inputs.baseline_ref }}
+          token: ${{ secrets.DRIFT_DETECTION_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Checkov
+        run: |
+          pip install --upgrade pip
+          pip install checkov==3.2.302
+
+      - name: Checkout drift detection policies
+        uses: actions/checkout@v4
+        with:
+          repository: your-org/iac-drift-detection
+          path: drift-policies
+          token: ${{ secrets.DRIFT_DETECTION_TOKEN }}
+
+      - name: Run Checkov with drift policies
+        id: checkov
+        run: |
+          FRAMEWORKS="${{ inputs.frameworks }}"
+          POLICIES="${{ inputs.drift_policies }}"
+          SEVERITY="${{ inputs.severity_threshold }}"
+
+          # Build policy directory list
+          POLICY_DIRS=""
+          IFS=',' read -ra POLICY_ARRAY <<< "$POLICIES"
+          for policy in "${POLICY_ARRAY[@]}"; do
+            if [ -d "drift-policies/$policy.yaml" ] || [ -f "drift-policies/$policy.yaml" ]; then
+              POLICY_DIRS="$POLICY_DIRS --external-checks-dir drift-policies"
+              break
+            fi
+          done
+
+          # Run checkov with SARIF output
+          SARIF_FILE="checkov-drift-results.sarif"
+          checkov \
+            --directory . \
+            --framework $(echo $FRAMEWORKS | tr ',' ' ') \
+            --external-checks-dir drift-policies \
+            --output sarif \
+            --output-file-path "$SARIF_FILE" \
+            --compact \
+            --soft-fail || true
+
+          # Check if any drift findings exist
+          DRIFT_COUNT=$(jq '[.runs[].results[] | select(.ruleId | startswith("CKV_DRIFT_"))] | length' "$SARIF_FILE")
+          echo "drift_detected=$([ "$DRIFT_COUNT" -gt 0 ] && echo "true" || echo "false")" >> $GITHUB_OUTPUT
+          echo "sarif_file=$SARIF_FILE" >> $GITHUB_OUTPUT
+
+          # Also output CLI for logs
+          checkov \
+            --directory . \
+            --framework $(echo $FRAMEWORKS | tr ',' ' ') \
+            --external-checks-dir drift-policies \
+            --compact \
+            --quiet || true
+
+      - name: Upload SARIF to GitHub Code Scanning
+        if: steps.checkov.outputs.drift_detected == 'true'
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: ${{ steps.checkov.outputs.sarif_file }}
+          category: checkov-drift-detection
+
+      - name: Setup remediation
+        if: steps.checkov.outputs.drift_detected == 'true' && inputs.auto_remediate == true
+        id: remediate
+        run: |
+          # Checkout drift detection repo again for remediation script
+          git clone --depth 1 https://${{ secrets.DRIFT_DETECTION_TOKEN }}@github.com/your-org/iac-drift-detection.git drift-detection-repo
+
+          # Run remediation script
+          python3 drift-detection-repo/scripts/remediate_drift.py \
+            --sarif ${{ steps.checkov.outputs.sarif_file }} \
+            --repo-root . \
+            --output remediation.diff
+
+          # Check if diff has changes
+          if [ ! -s remediation.diff ]; then
+            echo "pr_created=false" >> $GITHUB_OUTPUT
+            echo "pr_url=" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Create branch and apply diff
+          BRANCH_NAME="drift-remediation-$(date +%s)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH_NAME"
+          git apply remediation.diff
+          git add -A
+          git commit -m "chore: auto-remediate Checkov drift findings
+
+          This PR was automatically generated by the drift detection workflow.
+          Review the changes carefully before merging.
+
+          Drift policies triggered:
+          $(jq -r '.runs[].results[] | select(.ruleId | startswith(\"CKV_DRIFT_\")) | \"- \" + .ruleId + \": \" + .message.text' ${{ steps.checkov.outputs.sarif_file }} | sort -u)
+
+          See Security > Code Scanning for full SARIF results.
+          "
+          git push origin "$BRANCH_NAME"
+
+          # Create PR
+          PR_TITLE="chore: Auto-remediate Checkov drift findings ($(date +%Y-%m-%d))"
+          PR_BODY="## Automated Drift Remediation
+
+          This PR contains automated fixes for Checkov drift findings detected against the baseline \`${{ inputs.baseline_ref }}\`.
+
+          **Repository:** ${{ inputs.repository }}
+          **Baseline:** ${{ inputs.baseline_ref }}
+          **Frameworks:** ${{ inputs.frameworks }}
+
+          ### Changes
+          \`\`\`diff
+          $(cat remediation.diff)
+          \`\`\`
+
+          ### Review Checklist
+          - [ ] Verify each change addresses the drift finding correctly
+          - [ ] Ensure no unintended modifications
+          - [ ] Run \`terraform plan\` / \`kubectl diff\` to validate
+          - [ ] Confirm required tags use appropriate variable references
+
+          ### Limitations
+          - Fixes are regex-based and may not handle all syntax variations
+          - Complex drift requires manual intervention
+          - Tag values use variable references (\`var.environment\`, \`var.owner\`, \`var.cost_center\`) — ensure these variables exist
+
+          See Security > Code Scanning for full SARIF results.
+          "
+
+          PR_URL=$(gh pr create \
+            --repo "${{ inputs.repository }}" \
+            --title "$PR_TITLE" \
+            --body "$PR_BODY" \
+            --head "$BRANCH_NAME" \
+            --base "${{ inputs.baseline_ref }}" \
+            --label "${{ secrets.REMEDIATION_PR_LABELS || 'drift,auto-remediation' }}")
+
+          echo "pr_created=true" >> $GITHUB_OUTPUT
+          echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.DRIFT_DETECTION_TOKEN }}

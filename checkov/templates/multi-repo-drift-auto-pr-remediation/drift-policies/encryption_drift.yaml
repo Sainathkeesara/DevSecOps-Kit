@@ -1,0 +1,130 @@
+# last_verified: 2026-08-30 · checkov 3.x
+# Drift policy: Detect encryption configuration drift
+# Triggers when encryption at rest or in transit is disabled or weakened
+
+metadata:
+  id: CKV_DRIFT_ENCRYPT_001
+  name: "Detect EBS volumes without encryption"
+  category: "DRIFT"
+  severity: HIGH
+scope:
+  provider: aws
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_ebs_volume
+    - aws_ec2_volume_attachment
+  attribute: encrypted
+  operator: equals
+  value: false
+---
+metadata:
+  id: CKV_DRIFT_ENCRYPT_002
+  name: "Detect RDS instances without storage encryption"
+  category: "DRIFT"
+  severity: HIGH
+scope:
+  provider: aws
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_rds_instance
+    - aws_rds_cluster
+  attribute: storage_encrypted
+  operator: equals
+  value: false
+---
+metadata:
+  id: CKV_DRIFT_ENCRYPT_003
+  name: "Detect S3 buckets without default encryption"
+  category: "DRIFT"
+  severity: MEDIUM
+scope:
+  provider: aws
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_s3_bucket_server_side_encryption_configuration
+  attribute: rule
+  operator: not_contains
+  value:
+    apply_server_side_encryption_by_default:
+      sse_algorithm: "AES256"
+---
+metadata:
+  id: CKV_DRIFT_ENCRYPT_004
+  name: "Detect Azure disks without encryption"
+  category: "DRIFT"
+  severity: HIGH
+scope:
+  provider: azure
+definition:
+  cond_type: attribute
+  resource_types:
+    - azurerm_managed_disk
+  attribute: encryption_settings
+  operator: equals
+  value: null
+---
+metadata:
+  id: CKV_DRIFT_ENCRYPT_005
+  name: "Detect Azure storage accounts without encryption"
+  category: "DRIFT"
+  severity: MEDIUM
+scope:
+  provider: azure
+definition:
+  cond_type: attribute
+  resource_types:
+    - azurerm_storage_account
+  attribute: encryption
+  operator: equals
+  value: null
+---
+metadata:
+  id: CKV_DRIFT_ENCRYPT_006
+  name: "Detect GCP disks without CMEK encryption"
+  category: "DRIFT"
+  severity: HIGH
+scope:
+  provider: gcp
+definition:
+  cond_type: attribute
+  resource_types:
+    - google_compute_disk
+  attribute: disk_encryption_key
+  operator: equals
+  value: null
+---
+metadata:
+  id: CKV_DRIFT_ENCRYPT_007
+  name: "Detect Kubernetes Secrets not encrypted at rest"
+  category: "DRIFT"
+  severity: HIGH
+scope:
+  provider: kubernetes
+definition:
+  cond_type: attribute
+  resource_types:
+    - Secret
+  attribute: metadata.annotations
+  operator: not_contains
+  value:
+    "secrets.encryption.kubernetes.io/encrypted": "true"
+---
+metadata:
+  id: CKV_DRIFT_ENCRYPT_008
+  name: "Detect ALB/NLB listeners without TLS"
+  category: "DRIFT"
+  severity: MEDIUM
+scope:
+  provider: aws
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_lb_listener
+  attribute: protocol
+  operator: in
+  value:
+    - "HTTP"
+    - "TCP"
