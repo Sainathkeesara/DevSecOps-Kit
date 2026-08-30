@@ -1,0 +1,103 @@
+# Drift policy: Detect security group rule changes from baseline
+# Triggers when ingress/egress rules are added, removed, or modified
+
+metadata:
+  id: CKV_DRIFT_SG_001
+  name: "Detect ingress rules allowing 0.0.0.0/0 on sensitive ports"
+  category: "DRIFT"
+  severity: CRITICAL
+scope:
+  provider: aws
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_security_group
+    - aws_security_group_rule
+  attribute: ingress
+  operator: contains
+  value:
+    cidr_blocks:
+      - "0.0.0.0/0"
+    from_port: 22
+    to_port: 22
+---
+metadata:
+  id: CKV_DRIFT_SG_002
+  name: "Detect ingress rules allowing 0.0.0.0/0 on RDP port"
+  category: "DRIFT"
+  severity: CRITICAL
+scope:
+  provider: azure
+definition:
+  cond_type: attribute
+  resource_types:
+    - azurerm_network_security_group
+    - azurerm_network_security_rule
+  attribute: security_rules
+  operator: contains
+  value:
+    access: "Allow"
+    direction: "Inbound"
+    source_address_prefix: "*"
+    destination_port_range: "3389"
+---
+metadata:
+  id: CKV_DRIFT_SG_003
+  name: "Detect ingress rules allowing 0.0.0.0/0 on database ports"
+  category: "DRIFT"
+  severity: HIGH
+scope:
+  provider: aws
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_security_group
+    - aws_security_group_rule
+  attribute: ingress
+  operator: contains
+  value:
+    cidr_blocks:
+      - "0.0.0.0/0"
+    from_port: 3306
+    to_port: 3306
+---
+metadata:
+  id: CKV_DRIFT_SG_004
+  name: "Detect ingress rules allowing 0.0.0.0/0 on PostgreSQL port"
+  category: "DRIFT"
+  severity: HIGH
+scope:
+  provider: aws
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_security_group
+    - aws_security_group_rule
+  attribute: ingress
+  operator: contains
+  value:
+    cidr_blocks:
+      - "0.0.0.0/0"
+    from_port: 5432
+    to_port: 5432
+---
+metadata:
+  id: CKV_DRIFT_SG_005
+  name: "Detect egress rules allowing all traffic to 0.0.0.0/0"
+  category: "DRIFT"
+  severity: MEDIUM
+scope:
+  provider: aws
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_security_group
+    - aws_security_group_rule
+  attribute: egress
+  operator: contains
+  value:
+    cidr_blocks:
+      - "0.0.0.0/0"
+    from_port: 0
+    to_port: 0
+    protocol: "-1"

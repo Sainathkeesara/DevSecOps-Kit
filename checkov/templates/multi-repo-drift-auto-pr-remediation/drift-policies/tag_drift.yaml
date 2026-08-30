@@ -1,0 +1,103 @@
+# Drift policy: Detect missing required tags on cloud resources
+# Triggers when resources lack organization-mandated tags (Environment, Owner, CostCenter, Project)
+
+metadata:
+  id: CKV_DRIFT_TAG_001
+  name: "Ensure required tags are present on AWS resources"
+  category: "DRIFT"
+  severity: HIGH
+scope:
+  provider: aws
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_instance
+    - aws_s3_bucket
+    - aws_ebs_volume
+    - aws_rds_instance
+    - aws_lambda_function
+    - aws_ecs_service
+    - aws_eks_cluster
+    - aws_elb
+    - aws_alb
+    - aws_nat_gateway
+  attribute: tags
+  operator: has_key
+  value: "Environment"
+---
+metadata:
+  id: CKV_DRIFT_TAG_002
+  name: "Ensure Owner tag is present on AWS resources"
+  category: "DRIFT"
+  severity: MEDIUM
+scope:
+  provider: aws
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_instance
+    - aws_s3_bucket
+    - aws_ebs_volume
+    - aws_rds_instance
+    - aws_lambda_function
+  attribute: tags
+  operator: has_key
+  value: "Owner"
+---
+metadata:
+  id: CKV_DRIFT_TAG_003
+  name: "Ensure CostCenter tag is present on AWS resources"
+  category: "DRIFT"
+  severity: MEDIUM
+scope:
+  provider: aws
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_instance
+    - aws_s3_bucket
+    - aws_ebs_volume
+    - aws_rds_instance
+  attribute: tags
+  operator: has_key
+  value: "CostCenter"
+---
+metadata:
+  id: CKV_DRIFT_TAG_004
+  name: "Ensure required tags are present on Azure resources"
+  category: "DRIFT"
+  severity: HIGH
+scope:
+  provider: azure
+definition:
+  cond_type: attribute
+  resource_types:
+    - azurerm_resource_group
+    - azurerm_virtual_machine
+    - azurerm_storage_account
+    - azurerm_kubernetes_cluster
+    - azurerm_postgresql_server
+  attribute: tags
+  operator: has_key
+  value: "Environment"
+---
+metadata:
+  id: CKV_DRIFT_TAG_005
+  name: "Ensure required labels are present on Kubernetes resources"
+  category: "DRIFT"
+  severity: HIGH
+scope:
+  provider: kubernetes
+definition:
+  cond_type: attribute
+  resource_types:
+    - Pod
+    - Deployment
+    - StatefulSet
+    - DaemonSet
+    - Service
+    - Ingress
+    - PersistentVolumeClaim
+  attribute: metadata.labels
+  operator: has_key
+  value: "app.kubernetes.io/managed-by"

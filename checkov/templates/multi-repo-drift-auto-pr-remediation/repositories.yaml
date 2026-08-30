@@ -1,0 +1,73 @@
+# Repository configuration for multi-repo drift detection
+# Copy this file and adjust the repository list, baseline refs, and policy assignments per organization.
+
+repositories:
+  - name: your-org/infra-aws-prod
+    baseline_ref: main
+    frameworks:
+      - terraform
+      - kubernetes
+      - dockerfile
+    drift_policies:
+      - tag_drift
+      - sg_rule_drift
+      - public_access_drift
+      - encryption_drift
+    auto_remediate: true
+    pr_reviewers:
+      - team:infra-aws
+    pr_assignees:
+      - infra-lead
+
+  - name: your-org/infra-aws-staging
+    baseline_ref: main
+    frameworks:
+      - terraform
+      - kubernetes
+      - helm
+    drift_policies:
+      - tag_drift
+      - public_access_drift
+      - encryption_drift
+    auto_remediate: true
+    pr_reviewers:
+      - team:infra-aws
+
+  - name: your-org/infra-azure-prod
+    baseline_ref: main
+    frameworks:
+      - terraform
+      - arm
+      - bicep
+    drift_policies:
+      - tag_drift
+      - public_access_drift
+      - encryption_drift
+    auto_remediate: false
+    pr_reviewers:
+      - team:infra-azure
+
+  - name: your-org/infra-gcp-prod
+    baseline_ref: main
+    frameworks:
+      - terraform
+      - kubernetes
+    drift_policies:
+      - tag_drift
+      - public_access_drift
+      - encryption_drift
+    auto_remediate: true
+    pr_reviewers:
+      - team:infra-gcp
+
+  - name: your-org/platform-k8s-clusters
+    baseline_ref: main
+    frameworks:
+      - kubernetes
+      - helm
+    drift_policies:
+      - public_access_drift
+      - encryption_drift
+    auto_remediate: false
+    pr_reviewers:
+      - team:platform

@@ -1,0 +1,112 @@
+name: Multi-Repository Drift Detection
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # Daily at 02:00 UTC
+  workflow_dispatch:
+    inputs:
+      repositories:
+        description: "Comma-separated list of repositories to scan (overrides repositories.yaml)"
+        required: false
+        type: string
+      dry_run:
+        description: "Run detection only, skip remediation PR creation"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  security-events: write
+  pull-requests: write
+
+jobs:
+  parse-repositories:
+    name: Parse Repository Configuration
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.parse.outputs.matrix }}
+    steps:
+      - name: Checkout drift detection repository
+        uses: actions/checkout@v4
+        with:
+          repository: your-org/iac-drift-detection
+          token: ${{ secrets.DRIFT_DETECTION_TOKEN }}
+
+      - name: Parse repositories.yaml
+        id: parse
+        run: |
+          if [ -n "${{ github.event.inputs.repositories }}" ]; then
+            # Use manual input
+            REPOS="${{ github.event.inputs.repositories }}"
+            echo "matrix={\"include\":[" > matrix.json
+            IFS=',' read -ra REPO_ARRAY <<< "$REPOS"
+            for repo in "${REPO_ARRAY[@]}"; do
+              echo "{\"repository\":\"$repo\",\"baseline_ref\":\"main\",\"frameworks\":\"terraform,kubernetes\",\"drift_policies\":\"tag_drift,public_access_drift\",\"auto_remediate\":true}," >> matrix.json
+            done
+            # Remove trailing comma and close
+            sed -i '$ s/,$//' matrix.json
+            echo "]}" >> matrix.json
+          else
+            # Use repositories.yaml
+            python3 << 'EOF'
+import yaml, json, sys
+
+with open('repositories.yaml') as f:
+    config = yaml.safe_load(f)
+
+matrix = {"include": []}
+for repo in config.get("repositories", []):
+    matrix["include"].append({
+        "repository": repo["name"],
+        "baseline_ref": repo["baseline_ref"],
+        "frameworks": ",".join(repo["frameworks"]),
+        "drift_policies": ",".join(repo["drift_policies"]),
+        "auto_remediate": repo.get("auto_remediate", True),
+        "severity_threshold": "MEDIUM"
+    })
+
+with open('matrix.json', 'w') as f:
+    json.dump(matrix, f)
+EOF
+          fi
+
+          cat matrix.json
+          echo "matrix=$(cat matrix.json)" >> $GITHUB_OUTPUT
+
+  drift-detection:
+    name: Drift Detection - ${{ matrix.repository }}
+    needs: parse-repositories
+    uses: your-org/iac-drift-detection/.github/workflows/reusable-checkov-drift.yml
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.parse-repositories.outputs.matrix) }}
+    with:
+      repository: ${{ matrix.repository }}
+      baseline_ref: ${{ matrix.baseline_ref }}
+      frameworks: ${{ matrix.frameworks }}
+      drift_policies: ${{ matrix.drift_policies }}
+      auto_remediate: ${{ matrix.auto_remediate && github.event.inputs.dry_run != 'true' }}
+      severity_threshold: ${{ matrix.severity_threshold }}
+    secrets:
+      DRIFT_DETECTION_TOKEN: ${{ secrets.DRIFT_DETECTION_TOKEN }}
+      REMEDIATION_PR_LABELS: ${{ secrets.REMEDIATION_PR_LABELS }}
+
+  summary:
+    name: Drift Detection Summary
+    needs: [parse-repositories, drift-detection]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Generate summary
+        run: |
+          echo "## Drift Detection Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Repository | Drift Detected | PR Created |" >> $GITHUB_STEP_SUMMARY
+          echo "|------------|----------------|------------|" >> $GITHUB_STEP_SUMMARY
+
+          # This would be populated from job outputs in a real implementation
+          # For now, we note the structure
+          echo "| (see individual job logs) | | |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Check individual job logs and Security > Code Scanning for details." >> $GITHUB_STEP_SUMMARY

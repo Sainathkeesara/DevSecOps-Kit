@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-08-30
+
+### Added
+- checkov-021: `checkov/templates/multi-repo-drift-auto-pr-remediation/` — Checkov multi-repo drift detection and auto-PR remediation scaffold with reusable GitHub Actions workflow, custom drift policies (tag, SG, public access, encryption), and regex-based remediation script (L5 template)
+
 ## 2026-08-29
 
 ### Added

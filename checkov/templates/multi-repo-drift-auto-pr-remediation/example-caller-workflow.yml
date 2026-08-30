@@ -1,0 +1,31 @@
+# Example caller workflow for a repository that wants to run drift detection
+# against its own baseline on a schedule.
+#
+# Copy this to .github/workflows/drift-detection.yml in each target repository,
+# or use the centralized workflow in iac-drift-detection repo (preferred).
+
+name: IaC Drift Detection
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # Daily at 03:00 UTC (offset from central to avoid API limits)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  drift-detection:
+    name: Checkov Drift Detection
+    uses: your-org/iac-drift-detection/.github/workflows/reusable-checkov-drift.yml@main
+    with:
+      repository: ${{ github.repository }}
+      baseline_ref: main
+      frameworks: terraform,kubernetes,dockerfile,helm
+      drift_policies: tag_drift,sg_rule_drift,public_access_drift,encryption_drift
+      auto_remediate: true
+      severity_threshold: MEDIUM
+    secrets:
+      DRIFT_DETECTION_TOKEN: ${{ secrets.DRIFT_DETECTION_TOKEN }}
+      REMEDIATION_PR_LABELS: drift,auto-remediation

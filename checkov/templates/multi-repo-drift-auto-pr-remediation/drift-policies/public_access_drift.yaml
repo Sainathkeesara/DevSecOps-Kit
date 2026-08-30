@@ -1,0 +1,125 @@
+# Drift policy: Detect public access configuration drift
+# Triggers when storage buckets, databases, or services become publicly accessible
+
+metadata:
+  id: CKV_DRIFT_PUBLIC_001
+  name: "Detect S3 buckets with public ACL or policy"
+  category: "DRIFT"
+  severity: CRITICAL
+scope:
+  provider: aws
+definition:
+  cond_type: or
+  conditions:
+    - cond_type: attribute
+      resource_types:
+        - aws_s3_bucket
+      attribute: acl
+      operator: in
+      value:
+        - "public-read"
+        - "public-read-write"
+        - "authenticated-read"
+    - cond_type: attribute
+      resource_types:
+        - aws_s3_bucket_policy
+      attribute: policy
+      operator: contains
+      value:
+        Principal: "*"
+        Effect: "Allow"
+---
+metadata:
+  id: CKV_DRIFT_PUBLIC_002
+  name: "Detect S3 buckets with public access block disabled"
+  category: "DRIFT"
+  severity: HIGH
+scope:
+  provider: aws
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_s3_bucket_public_access_block
+  attribute: block_public_acls
+  operator: equals
+  value: false
+---
+metadata:
+  id: CKV_DRIFT_PUBLIC_003
+  name: "Detect Azure storage accounts with public blob access"
+  category: "DRIFT"
+  severity: CRITICAL
+scope:
+  provider: azure
+definition:
+  cond_type: attribute
+  resource_types:
+    - azurerm_storage_account
+  attribute: allow_blob_public_access
+  operator: equals
+  value: true
+---
+metadata:
+  id: CKV_DRIFT_PUBLIC_004
+  name: "Detect Azure storage containers with public access"
+  category: "DRIFT"
+  severity: HIGH
+scope:
+  provider: azure
+definition:
+  cond_type: attribute
+  resource_types:
+    - azurerm_storage_container
+  attribute: container_access_type
+  operator: in
+  value:
+    - "blob"
+    - "container"
+---
+metadata:
+  id: CKV_DRIFT_PUBLIC_005
+  name: "Detect GCS buckets with public IAM bindings"
+  category: "DRIFT"
+  severity: CRITICAL
+scope:
+  provider: gcp
+definition:
+  cond_type: attribute
+  resource_types:
+    - google_storage_bucket_iam_binding
+    - google_storage_bucket_iam_member
+  attribute: members
+  operator: contains
+  value:
+    - "allUsers"
+    - "allAuthenticatedUsers"
+---
+metadata:
+  id: CKV_DRIFT_PUBLIC_006
+  name: "Detect Kubernetes Services with LoadBalancer exposing public IPs"
+  category: "DRIFT"
+  severity: MEDIUM
+scope:
+  provider: kubernetes
+definition:
+  cond_type: attribute
+  resource_types:
+    - Service
+  attribute: spec.type
+  operator: equals
+  value: "LoadBalancer"
+---
+metadata:
+  id: CKV_DRIFT_PUBLIC_007
+  name: "Detect Kubernetes Ingress with no TLS configuration"
+  category: "DRIFT"
+  severity: MEDIUM
+scope:
+  provider: kubernetes
+definition:
+  cond_type: attribute
+  resource_types:
+    - Ingress
+  attribute: spec.tls
+  operator: equals
+  value: null
