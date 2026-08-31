@@ -27,6 +27,7 @@
 ### Run static analysis
 - [Semgrep primer](../semgrep/notes/0000-primer-semgrep.md) — Static analysis with custom rules across multiple languages
 - [Checkov primer](../checkov/notes/0000-primer-checkov.md) — IaC security scanner for Terraform, Kubernetes, CloudFormation
+- [Checkov platform config](../checkov/configs/platform-config.yaml) — Self-hosted runner, VCS integration, and suppression policies
 - [CodeQL primer](../codeql/notes/0000-primer-codeql.md) — Semantic code analysis with custom QL queries
 - [Install CodeQL and run a first query](../codeql/notes/2026-08-26-install-codeql-first-query.md) — Build a database and write your first QL query end to end
 - [Custom Semgrep rule example](../semgrep/snippets/first-custom-rule.yaml) — Write your first Semgrep rule
