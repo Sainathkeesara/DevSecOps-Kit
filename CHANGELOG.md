@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-02
+
+### Added
+- snyk-009: `snyk/templates/snyk-multilang-scan-scaffold/` — Snyk multi-language project scanning scaffold with shared `.snyk` policy, per-language subscan scripts (Node, Python, Java, Go, Ruby), Makefile, severity policy JSON, and CI workflow (L4 template)
+
 ## 2026-08-30
 
 ### Added

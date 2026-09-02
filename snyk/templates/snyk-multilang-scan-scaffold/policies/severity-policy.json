@@ -1,0 +1,32 @@
+{
+  "_comment": "last_verified: 2026-09-02 · snyk (template scaffold)",
+  "policy_version": 1,
+  "default_threshold": "high",
+  "languages": {
+    "node": {
+      "threshold": "high",
+      "manifests": ["package.json", "package-lock.json"],
+      "args": ["--all-projects"]
+    },
+    "python": {
+      "threshold": "high",
+      "manifests": ["requirements.txt", "Pipfile", "pyproject.toml"],
+      "args": []
+    },
+    "java": {
+      "threshold": "medium",
+      "manifests": ["pom.xml", "build.gradle"],
+      "args": ["--all-projects"]
+    },
+    "go": {
+      "threshold": "high",
+      "manifests": ["go.mod"],
+      "args": []
+    },
+    "ruby": {
+      "threshold": "high",
+      "manifests": ["Gemfile", "Gemfile.lock"],
+      "args": []
+    }
+  }
+}
