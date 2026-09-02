@@ -1,0 +1,248 @@
+# last_verified: 2026-09-02 · gatekeeper n/a
+# OPA Gatekeeper admission controller — production deployment overlay
+# Purpose: HA controller + audit + monitoring for a production cluster.
+# When to use: when you have already tested ConstraintTemplates/Constraints
+#   in dryrun and now need enforcement with audit, metrics, and safe rollout.
+# Prerequisites: Kubernetes cluster with Gatekeeper CRDs available; kubectl
+#   with cluster-admin; Prometheus operator optional for ServiceMonitor.
+# Steps: 1) kubectl apply -f this file, 2) verify pods ready, 3) apply Config,
+#   4) test with a violating pod, 5) check audit results.
+# Verify: kubectl -n gatekeeper-system get pods, kubectl get config -n gatekeeper-system,
+#   kubectl get validatingwebhookconfigurations.
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gatekeeper-system
+  labels:
+    name: gatekeeper-system
+    gatekeeper.sh/system: "yes"
+    pod-security.kubernetes.io/enforce: restricted
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gatekeeper-controller-manager
+  namespace: gatekeeper-system
+  labels:
+    app: gatekeeper
+    control-plane: controller-manager
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: gatekeeper
+      control-plane: controller-manager
+  template:
+    metadata:
+      labels:
+        app: gatekeeper
+        control-plane: controller-manager
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8888"
+    spec:
+      serviceAccountName: gatekeeper-admin
+      terminationGracePeriodSeconds: 60
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app: gatekeeper
+                    control-plane: controller-manager
+                topologyKey: kubernetes.io/hostname
+      containers:
+        - name: manager
+          # Pin to a tested release in your registry — replace the placeholder
+          # tag with the version you have validated.
+          image: openpolicyagent/gatekeeper
+          imagePullPolicy: IfNotPresent
+          args:
+            - --operation=webhook
+            - --operation=audit
+            - --enable-leader-election
+            - --logtostderr
+            - --exempt-namespace=gatekeeper-system
+            - --exempt-namespace=kube-system
+          ports:
+            - containerPort: 8443
+              name: webhook-server
+              protocol: TCP
+            - containerPort: 8888
+              name: metrics
+              protocol: TCP
+            - containerPort: 9090
+              name: health
+              protocol: TCP
+          env:
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 1000m
+              memory: 512Mi
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 9090
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: 9090
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 3
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 1000
+            seccompProfile:
+              type: RuntimeDefault
+          volumeMounts:
+            - mountPath: /certs
+              name: cert
+              readOnly: true
+      volumes:
+        - name: cert
+          secret:
+            secretName: gatekeeper-webhook-server-cert
+            defaultMode: 420
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: gatekeeper-controller-pdb
+  namespace: gatekeeper-system
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: gatekeeper
+      control-plane: controller-manager
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gatekeeper-webhook-service
+  namespace: gatekeeper-system
+  labels:
+    app: gatekeeper
+spec:
+  ports:
+    - port: 443
+      targetPort: 8443
+      protocol: TCP
+  selector:
+    app: gatekeeper
+    control-plane: controller-manager
+---
+apiVersion: config.gatekeeper.sh/v1alpha1
+kind: Config
+metadata:
+  name: config
+  namespace: gatekeeper-system
+spec:
+  sync:
+    syncOnly:
+      - group: ""
+        version: v1
+        kind: Namespace
+      - group: ""
+        version: v1
+        kind: Pod
+  validation:
+    traces:
+      - user:
+          kind:
+            group: ""
+            kind: ServiceAccount
+          name: gatekeeper-admin
+  match:
+    - kinds:
+        - apiGroups:
+            - ""
+          kinds:
+            - Pod
+            - Namespace
+      scope: Namespaced
+  readiness:
+    statsEnabled: true
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gatekeeper-audit-config
+  namespace: gatekeeper-system
+data:
+  auditInterval: "60"
+  constraintViolationLimit: "20"
+  auditChunkSize: "500"
+  auditFromCache: "false"
+  auditMatchKindOnly: "false"
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: gatekeeper-metrics
+  namespace: gatekeeper-system
+  labels:
+    app: gatekeeper
+spec:
+  selector:
+    matchLabels:
+      app: gatekeeper
+      control-plane: controller-manager
+  endpoints:
+    - port: metrics
+      interval: 30s
+      path: /metrics
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: gatekeeper-controller-hpa
+  namespace: gatekeeper-system
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: gatekeeper-controller-manager
+  minReplicas: 3
+  maxReplicas: 6
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
