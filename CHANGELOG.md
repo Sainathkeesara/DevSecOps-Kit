@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - snyk-009: `snyk/templates/snyk-multilang-scan-scaffold/` — Snyk multi-language project scanning scaffold with shared `.snyk` policy, per-language subscan scripts (Node, Python, Java, Go, Ruby), Makefile, severity policy JSON, and CI workflow (L4 template)
 - opa-010: `opa/manifests/gatekeeper-production-deployment.yaml` — OPA Gatekeeper admission controller production deployment with HA (3 replicas, PDB, anti-affinity), audit Config, ServiceMonitor, and HPA (L4)
+- snyk-010: `snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md` — Snyk vulnerability prioritization workflow combining reachability filtering, auto-opened Fix PRs, and license-compliance rollup into one triage queue (L4 docs)
 
 ## 2026-08-30
 
