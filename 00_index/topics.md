@@ -14,6 +14,16 @@
 - **notebooks** (2): [compare-static-vs-plan-scanning.ipynb](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb), [compare-builtin-vs-custom-k8s.ipynb](../checkov/notebooks/compare-builtin-vs-custom-k8s.ipynb)
 - **policies** (1): [no_public_s3_buckets.yaml](../checkov/policies/no-public-s3-buckets/no_public_s3_buckets.yaml)
 
+## snyk  ·  21 files
+- **primer:** [0000-primer-snyk.md](../snyk/notes/0000-primer-snyk.md)
+- **notes** (4): [2026-06-14-first-vulnerability-scan.md](../snyk/notes/2026-06-14-first-vulnerability-scan.md), [2026-06-08-install-snyk-first-test.md](../snyk/notes/2026-06-08-install-snyk-first-test.md), [2026-06-07-snyk-quickstart-walkthrough.md](../snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md) — _…and 1 more under `snyk/notes/`._
+- **docs** (1): [multi-project-ci-pipeline.md](../snyk/docs/multi-project-ci-pipeline.md)
+- **scripts** (1): [snyk-vuln-scan-pipeline.sh](../snyk/scripts/snyk-vuln-scan-pipeline.sh)
+- **configs** (2): [snyk-dependency-patch-ignore.yaml](../snyk/configs/snyk-dependency-patch-ignore.yaml), [snyk-ci-github-actions.yaml](../snyk/configs/snyk-ci-github-actions.yaml)
+- **snippets** (1): [my-first-snyk-commands.sh](../snyk/snippets/my-first-snyk-commands.sh)
+- **templates** (11): [README.md](../snyk/templates/snyk-multilang-scan-scaffold/README.md), [Makefile](../snyk/templates/snyk-multilang-scan-scaffold/Makefile), [snyk-multilang-ci.yml](../snyk/templates/snyk-multilang-scan-scaffold/.github/workflows/snyk-multilang-ci.yml) — _…and 8 more under `snyk/templates/`._
+- **dockerfiles** (1): [custom-snyk-cli-air-gapped.Dockerfile](../snyk/dockerfiles/custom-snyk-cli-air-gapped.Dockerfile)
+
 ## trufflehog  ·  37 files
 - **primer:** [0000-primer-trufflehog.md](../trufflehog/notes/0000-primer-trufflehog.md)
 - **notes** (3): [2026-05-27-following-trufflehog-quickstart.md](../trufflehog/notes/2026-05-27-following-trufflehog-quickstart.md), [2026-05-27-install-trufflehog.md](../trufflehog/notes/2026-05-27-install-trufflehog.md), [0000-primer-trufflehog.md](../trufflehog/notes/0000-primer-trufflehog.md)
@@ -25,6 +35,16 @@
 - **manifests** (1): [trufflehog-pr-secret-scan-reusable.yaml](../trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml)
 - **dockerfiles** (1): [pre-commit-scanner.Dockerfile](../trufflehog/dockerfiles/pre-commit-scanner.Dockerfile)
 - **notebooks** (2): [analyzing-trufflehog-false-positives.ipynb](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb), [trufflehog-scan-modes-comparison.ipynb](../trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb)
+
+## opa  ·  24 files
+- **primer:** [0000-primer-opa.md](../opa/notes/0000-primer-opa.md)
+- **notes** (3): [2026-06-15-opa-getting-started-trip-ups.md](../opa/notes/2026-06-15-opa-getting-started-trip-ups.md), [2026-06-06-install-opa-repl.md](../opa/notes/2026-06-06-install-opa-repl.md), [0000-primer-opa.md](../opa/notes/0000-primer-opa.md)
+- **docs** (2): [wired-opa-admission-control.md](../opa/docs/wired-opa-admission-control.md), [constraint-template-design-patterns.md](../opa/docs/constraint-template-design-patterns.md)
+- **scripts** (2): [how-i-test-policies-locally.sh](../opa/scripts/how-i-test-policies-locally.sh), [export-audit-results.sh](../opa/scripts/export-audit-results.sh)
+- **configs** (1): [tried-a-gatekeeper-constraint.yaml](../opa/configs/tried-a-gatekeeper-constraint.yaml)
+- **snippets** (3): [my-first-opa-policy-eval.sh](../opa/snippets/my-first-opa-policy-eval.sh), [enforce-image-registry-constraints.rego](../opa/snippets/enforce-image-registry-constraints.rego), [deny-privileged-hostnetwork.rego](../opa/snippets/deny-privileged-hostnetwork.rego)
+- **templates** (9): [README.md](../opa/templates/gatekeeper-policy-library-scaffold/README.md), [k8sallowedregistries.yaml](../opa/templates/gatekeeper-policy-library-scaffold/constraint-templates/k8sallowedregistries.yaml), [k8ssecuritybaseline.yaml](../opa/templates/gatekeeper-policy-library-scaffold/constraint-templates/k8ssecuritybaseline.yaml) — _…and 6 more under `opa/templates/`._
+- **manifests** (4): [constraint-templates.yaml](../opa/manifests/constraint-templates.yaml), [constraints.yaml](../opa/manifests/constraints.yaml), [gatekeeper-production-deployment.yaml](../opa/manifests/gatekeeper-production-deployment.yaml), [README.md](../opa/manifests/README.md)
 
 ## syft  ·  33 files
 - **primer:** [0000-primer-syft.md](../syft/notes/0000-primer-syft.md)
@@ -60,16 +80,6 @@
 - **templates** (8): [zap-automation-plan.yaml](../zap/templates/zap-dast-integration-scaffold/zap-automation-plan.yaml), [.gitignore](../zap/templates/zap-dast-integration-scaffold/.gitignore), [Makefile](../zap/templates/zap-dast-integration-scaffold/Makefile) — _…and 5 more under `zap/templates/`._
 - **dockerfiles** (1): [custom-zap-automation.Dockerfile](../zap/dockerfiles/custom-zap-automation.Dockerfile)
 
-## opa  ·  23 files
-- **primer:** [0000-primer-opa.md](../opa/notes/0000-primer-opa.md)
-- **notes** (3): [2026-06-15-opa-getting-started-trip-ups.md](../opa/notes/2026-06-15-opa-getting-started-trip-ups.md), [2026-06-06-install-opa-repl.md](../opa/notes/2026-06-06-install-opa-repl.md), [0000-primer-opa.md](../opa/notes/0000-primer-opa.md)
-- **docs** (2): [wired-opa-admission-control.md](../opa/docs/wired-opa-admission-control.md), [constraint-template-design-patterns.md](../opa/docs/constraint-template-design-patterns.md)
-- **scripts** (2): [how-i-test-policies-locally.sh](../opa/scripts/how-i-test-policies-locally.sh), [export-audit-results.sh](../opa/scripts/export-audit-results.sh)
-- **configs** (1): [tried-a-gatekeeper-constraint.yaml](../opa/configs/tried-a-gatekeeper-constraint.yaml)
-- **snippets** (3): [my-first-opa-policy-eval.sh](../opa/snippets/my-first-opa-policy-eval.sh), [enforce-image-registry-constraints.rego](../opa/snippets/enforce-image-registry-constraints.rego), [deny-privileged-hostnetwork.rego](../opa/snippets/deny-privileged-hostnetwork.rego)
-- **templates** (9): [README.md](../opa/templates/gatekeeper-policy-library-scaffold/README.md), [k8sallowedregistries.yaml](../opa/templates/gatekeeper-policy-library-scaffold/constraint-templates/k8sallowedregistries.yaml), [k8ssecuritybaseline.yaml](../opa/templates/gatekeeper-policy-library-scaffold/constraint-templates/k8ssecuritybaseline.yaml) — _…and 6 more under `opa/templates/`._
-- **manifests** (3): [constraint-templates.yaml](../opa/manifests/constraint-templates.yaml), [constraints.yaml](../opa/manifests/constraints.yaml), [README.md](../opa/manifests/README.md)
-
 ## gitguardian  ·  22 files
 - **primer:** [0000-primer-gitguardian.md](../gitguardian/notes/0000-primer-gitguardian.md)
 - **notes** (4): [2026-06-14-first-secrets-scan-repo.md](../gitguardian/notes/2026-06-14-first-secrets-scan-repo.md), [2026-06-13-ggshield-quickstart-trip-ups.md](../gitguardian/notes/2026-06-13-ggshield-quickstart-trip-ups.md), [2026-06-07-first-ggshield-scan.md](../gitguardian/notes/2026-06-07-first-ggshield-scan.md) — _…and 1 more under `gitguardian/notes/`._
@@ -95,7 +105,7 @@
 - **notes** (3): [2026-08-04-install-terraform-first-vm.md](../terraform/notes/2026-08-04-install-terraform-first-vm.md), [2026-07-15-explore-terraform.md](../terraform/notes/2026-07-15-explore-terraform.md), [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md)
 - **docs** (1): [terraform-module-composition.md](../terraform/docs/terraform-module-composition.md)
 - **scripts** (4): [2026-07-18-deploy.sh](../terraform/scripts/2026-07-18-deploy.sh), [2026-07-18-cleanup.sh](../terraform/scripts/2026-07-18-cleanup.sh), [2026-07-13-zip-build.sh](../terraform/scripts/2026-07-13-zip-build.sh) — _…and 1 more under `terraform/scripts/`._
-- **configs** (11): [2026-08-04-first-configuration.hcl](../terraform/configs/2026-08-04-first-configuration.hcl), [2026-07-15-first-config.tf](../terraform/configs/2026-07-15-first-config.tf), [main.tf](../terraform/eventbridge-lambda/main.tf) — _…and 8 more under `terraform/configs/`._
+- **configs** (4): [2026-08-04-first-configuration.hcl](../terraform/configs/2026-08-04-first-configuration.hcl), [2026-07-15-first-config.tf](../terraform/configs/2026-07-15-first-config.tf), [workspace-variable-precedence.hcl](../terraform/configs/workspace-variable-precedence.hcl) — _…and 1 more under `terraform/configs/`._
 - **snippets** (1): [2026-07-20-practice-terraform-variables-outputs-datasources.hcl](../terraform/snippets/2026-07-20-practice-terraform-variables-outputs-datasources.hcl)
 
 ## semgrep  ·  20 files
@@ -162,15 +172,6 @@
 - **snippets** (4): [find-hardcoded-creds.ql](../codeql/snippets/find-hardcoded-creds.ql), [my-first-codeql-commands.sh](../codeql/snippets/my-first-codeql-commands.sh), [hardcoded-creds-local-flow.ql](../codeql/snippets/hardcoded-creds-local-flow.ql) — _…and 1 more under `codeql/snippets/`._
 - **manifests** (1): [multi-language-codeql-analysis.yaml](../codeql/manifests/multi-language-codeql-analysis.yaml)
 - **dockerfiles** (1): [custom-codeql-analysis-image.Dockerfile](../codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile)
-
-## snyk  ·  10 files
-- **primer:** [0000-primer-snyk.md](../snyk/notes/0000-primer-snyk.md)
-- **notes** (4): [2026-06-14-first-vulnerability-scan.md](../snyk/notes/2026-06-14-first-vulnerability-scan.md), [2026-06-08-install-snyk-first-test.md](../snyk/notes/2026-06-08-install-snyk-first-test.md), [2026-06-07-snyk-quickstart-walkthrough.md](../snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md) — _…and 1 more under `snyk/notes/`._
-- **docs** (1): [multi-project-ci-pipeline.md](../snyk/docs/multi-project-ci-pipeline.md)
-- **scripts** (1): [snyk-vuln-scan-pipeline.sh](../snyk/scripts/snyk-vuln-scan-pipeline.sh)
-- **configs** (2): [snyk-dependency-patch-ignore.yaml](../snyk/configs/snyk-dependency-patch-ignore.yaml), [snyk-ci-github-actions.yaml](../snyk/configs/snyk-ci-github-actions.yaml)
-- **snippets** (1): [my-first-snyk-commands.sh](../snyk/snippets/my-first-snyk-commands.sh)
-- **dockerfiles** (1): [custom-snyk-cli-air-gapped.Dockerfile](../snyk/dockerfiles/custom-snyk-cli-air-gapped.Dockerfile)
 
 ## github-actions  ·  10 files
 - **primer:** [0000-primer-github-actions.md](../github-actions/notes/0000-primer-github-actions.md)
@@ -251,4 +252,3 @@
 ## grafana  ·  1 files
 - **primer:** [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md)
 - **notes** (1): [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md)
-

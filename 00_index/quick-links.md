@@ -39,6 +39,7 @@
 - [CI-ready Grype scanning](../grype/scripts/ci-ready-grype-scan.sh)
 - [SBOM generation with Syft](../syft/scripts/gen-multi-format-sboms.sh)
 - [Syft output format comparison](../syft/notebooks/output-format-comparison.ipynb)
+- [Snyk multi-language scan scaffold](../snyk/templates/snyk-multilang-scan-scaffold/README.md)
 
 ### Learn Linux shell scripting
 - [Linux VM terminal first commands](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md)
@@ -63,6 +64,7 @@
 - [My first OPA policy evaluation](../opa/snippets/my-first-opa-policy-eval.sh)
 - [Gatekeeper constraint template design patterns](../opa/docs/constraint-template-design-patterns.md)
 - [Gatekeeper policy library scaffold](../opa/templates/gatekeeper-policy-library-scaffold/README.md)
+- [Gatekeeper production deployment manifest](../opa/manifests/gatekeeper-production-deployment.yaml)
 - [Test Gatekeeper policies locally](../opa/templates/gatekeeper-policy-library-scaffold/tests/test-policies.sh)
 - [Export Gatekeeper audit results](../opa/scripts/export-audit-results.sh)
 - [Terrascan primer](../terrascan/notes/0000-primer-terrascan.md)
