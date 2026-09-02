@@ -1,0 +1,25 @@
+# last_verified: 2026-09-02 · snyk (template scaffold)
+# Snyk policy file — applies to every Snyk scan invoked from this directory.
+# See Snyk's policy-file documentation for field details.
+
+version: v1.25.0
+# Patch deprecated — prefer upgrades. Left empty as a placeholder.
+patch: {}
+
+# Per-vulnerability ignores. Each entry must include a reason and an expiry.
+ignore:
+  # 'example-id':  # Snyk vulnerability id
+  #   reason: 'No upgrade path; tracked in JIRA-1234'
+  #   expires: '2026-12-31T00:00:00.000Z'
+  #   path:
+  #     - '> /path/to/affected/file'
+
+# Severity threshold used by `snyk test` when --severity-flag isn't supplied.
+# CI overrides this per-language via scripts/scan-*.sh.
+severity-threshold: high
+
+# Exclude language ecosystems that aren't present in this repo. Snyk auto-
+# detects from manifest files, so this section is typically empty.
+exclude-rules:
+  # language: javascript
+  #   reason: 'Frontend uses a separate scan pipeline'
