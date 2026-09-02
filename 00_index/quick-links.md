@@ -39,6 +39,7 @@
 - [CI-ready Grype scanning](../grype/scripts/ci-ready-grype-scan.sh)
 - [SBOM generation with Syft](../syft/scripts/gen-multi-format-sboms.sh)
 - [Syft output format comparison](../syft/notebooks/output-format-comparison.ipynb)
+- [Snyk vulnerability prioritization with reachability and Fix PRs](../snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md)
 - [Snyk multi-language scan scaffold](../snyk/templates/snyk-multilang-scan-scaffold/README.md)
 
 ### Learn Linux shell scripting
@@ -96,6 +97,7 @@
 ### Run static analysis
 - [Semgrep primer](../semgrep/notes/0000-primer-semgrep.md)
 - [Checkov primer](../checkov/notes/0000-primer-checkov.md)
+- [Checkov platform config](../checkov/configs/platform-config.yaml)
 - [CodeQL primer](../codeql/notes/0000-primer-codeql.md)
 - [Install CodeQL and run a first query](../codeql/notes/2026-08-26-install-codeql-first-query.md)
 - [Custom Semgrep rule example](../semgrep/snippets/first-custom-rule.yaml)
@@ -125,4 +127,3 @@
 - [CI/CD security scanner wrapper](../docs/concepts/linux-shell-fundamentals/scripts/ci-cd-pipeline-security-scanner-wrapper.sh)
 - [ZAP baseline scan for CI](../zap/notes/2026-07-20-install-zap-baseline-scan.md)
 - [Trivy CI/CD pipeline recipes](../trivy/docs/ci-cd-pipeline-recipes.md)
-
