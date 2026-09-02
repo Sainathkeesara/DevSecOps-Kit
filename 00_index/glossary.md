@@ -182,6 +182,14 @@
 
 **Snyk**: Developer security platform for finding and fixing vulnerabilities in open-source dependencies, container images, and infrastructure as code configurations.
 
+**reachability** — Snyk's signal indicating whether code in a project actually calls a vulnerable function. A finding marked `reachable` is in scope; `no-path` means the vulnerable code is not exercised and can be deprioritized.
+
+**Fix PR (Snyk)** — An automated pull request opened by Snyk that bumps a dependency to a non-vulnerable version, reducing the manual effort required to remediate SCA findings.
+
+**EPSS** — Exploit Prediction Scoring System, a probability score (0–1) estimating the likelihood that a CVE will be exploited in the wild. Used alongside CVSS to prioritize remediation.
+
+**ASPM** — Application Security Posture Management, a discipline that aggregates and correlates security findings across SAST, DAST, SCA, and secret scanners to provide a unified risk view.
+
 **GitGuardian**: Security platform for detecting secrets and sensitive data in source code repositories, known for its custom policy engine and ggshield CLI for pre-commit scanning.
 
 **ggshield**: GitGuardian's CLI tool for scanning git repositories, files, and CI/CD pipelines for exposed secrets and sensitive data.
@@ -513,6 +521,14 @@
 **Database Secrets Engine (Vault)** — Vault engine that generates dynamic database credentials on demand for PostgreSQL, MySQL, Oracle, MSSQL, MongoDB, Cassandra, and other databases. Vault connects with a privileged account, creates unique user/password pairs with a configurable TTL, and drops them on expiry so the requesting client never holds long-lived credentials.
 
 **Cloud Secrets Engine (Vault)** — Vault engine that issues short-lived cloud IAM credentials — AWS STS assume-role tokens, Azure service principal credentials, GCP service account keys. Configured with privileged cloud credentials, it assumes roles or creates service credentials on demand and revokes them automatically, removing the need for static IAM keys in workloads.
+
+**reachability** — Snyk's signal indicating whether code in a project actually calls a vulnerable function. A finding marked `reachable` is in scope; `no-path` means the vulnerable code is not exercised and can be deprioritized.
+
+**Fix PR (Snyk)** — An automated pull request opened by Snyk that bumps a dependency to a non-vulnerable version, reducing the manual effort required to remediate SCA findings.
+
+**EPSS** — Exploit Prediction Scoring System, a probability score (0–1) estimating the likelihood that a CVE will be exploited in the wild. Used alongside CVSS to prioritize remediation.
+
+**ASPM** — Application Security Posture Management, a discipline that aggregates and correlates security findings across SAST, DAST, SCA, and secret scanners to provide a unified risk view.
 
 ## Acronyms
 
