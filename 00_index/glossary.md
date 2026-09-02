@@ -510,6 +510,10 @@
 
 **Composite action (GitHub Actions)** — A reusable action defined in YAML with `runs.using: composite`, bundling several steps behind a single `uses:` reference with its own `inputs`. Reduces copy-paste across workflows without needing a separate container or JavaScript action.
 
+**Database Secrets Engine (Vault)** — Vault engine that generates dynamic database credentials on demand for PostgreSQL, MySQL, Oracle, MSSQL, MongoDB, Cassandra, and other databases. Vault connects with a privileged account, creates unique user/password pairs with a configurable TTL, and drops them on expiry so the requesting client never holds long-lived credentials.
+
+**Cloud Secrets Engine (Vault)** — Vault engine that issues short-lived cloud IAM credentials — AWS STS assume-role tokens, Azure service principal credentials, GCP service account keys. Configured with privileged cloud credentials, it assumes roles or creates service credentials on demand and revokes them automatically, removing the need for static IAM keys in workloads.
+
 ## Acronyms
 
 **CI/CD** - Continuous Integration/Continuous Deployment
