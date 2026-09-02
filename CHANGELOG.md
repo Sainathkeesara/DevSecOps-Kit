@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-02
+
+### Added
+- opa-010: `opa/manifests/gatekeeper-production-deployment.yaml` — OPA Gatekeeper admission controller production deployment with HA (3 replicas, PDB, anti-affinity), audit Config, ServiceMonitor, and HPA (L4)
+
 ## 2026-08-30
 
 ### Added
