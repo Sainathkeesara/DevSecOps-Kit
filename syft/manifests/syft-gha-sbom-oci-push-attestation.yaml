@@ -1,0 +1,83 @@
+# last_verified: 2026-09-03 · syft n/a
+# Syft SBOM generation with OCI registry push and attestation
+# Generates SPDX and CycloneDX SBOMs from a container image,
+# packages them into an OCI artifact, pushes to a registry, and
+# attests the artifact with cosign keyless signing.
+name: Syft SBOM OCI push + attest
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      image_ref:
+        description: Container image reference to scan
+        required: true
+        default: ''
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
+jobs:
+  sbom-generate-push-attest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to OCI registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ secrets.REGISTRY_HOST }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Install Syft
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh \
+            | sh -s -- -b /usr/local/bin
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3
+
+      - name: Set image reference
+        id: image
+        run: |
+          echo "ref=${{ github.event.inputs.image_ref || secrets.IMAGE_REF }}" >> "$GITHUB_OUTPUT"
+
+      - name: Pull target image
+        run: docker pull "${{ steps.image.outputs.ref }}"
+
+      - name: Generate SBOMs
+        run: |
+          IMAGE="${{ steps.image.outputs.ref }}"
+          mkdir -p sbom-out
+          syft "$IMAGE" -o spdx-json > sbom-out/sbom.spdx.json
+          syft "$IMAGE" -o cyclonedx-json > sbom-out/sbom.cdx.json
+
+      - name: Package SBOMs into OCI image
+        run: |
+          cat > Dockerfile.sbom <<'EOF'
+          FROM scratch
+          COPY sbom-out/ /sboms/
+          LABEL org.opencontainers.image.title="SBOMs"
+          EOF
+          IMAGE="${{ steps.image.outputs.ref }}"
+          SAFE=$(echo "$IMAGE" | tr '/:' '_')
+          docker build -t "${{ secrets.REGISTRY_HOST }}/sboms:${SAFE}" -f Dockerfile.sbom .
+          docker push "${{ secrets.REGISTRY_HOST }}/sboms:${SAFE}"
+          echo "sbom_image=${{ secrets.REGISTRY_HOST }}/sboms:${SAFE}" >> "$GITHUB_ENV"
+
+      - name: Attest SBOM image with Cosign
+        run: cosign sign "${{ env.sbom_image }}" --yes
+
+      - name: Upload SBOM artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom-artifacts
+          path: sbom-out/
+          retention-days: 30
