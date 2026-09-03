@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-03
+
+### Added
+- snyk-011: `snyk/manifests/snyk-github-actions-cicd-workflow.yaml` — Snyk GitHub Actions CI/CD workflow with `snyk test` on PR/push, weekly `snyk monitor` for project registration, and SARIF/JSON artifact upload (L4 manifest)
+
 ## 2026-09-02
 
 ### Added
