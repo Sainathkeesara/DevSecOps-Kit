@@ -532,6 +532,12 @@
 
 ## Acronyms
 
+**OCI (Open Container Initiative)** — A set of open-source standards for container image formats and distribution, used by registries like Docker Hub, GitHub Container Registry, and AWS ECR.
+
+**OCI attestation** — A signed statement about a container artifact stored in an OCI registry, used to establish supply chain provenance for images and SBOMs.
+
+**OCI push** — The act of uploading a container image or artifact to an OCI-compliant registry.
+
 **CI/CD** - Continuous Integration/Continuous Deployment
 **IaaS** - Infrastructure as a Service
 **PaaS** - Platform as a Service
