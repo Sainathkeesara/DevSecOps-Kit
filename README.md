@@ -11,7 +11,7 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-938 files across 32 tool-specific folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+939 files across 32 tool-specific folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
@@ -19,7 +19,7 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 - [Gatekeeper production deployment manifest](opa/manifests/gatekeeper-production-deployment.yaml) — Production-ready Gatekeeper constraints and templates
 - [Vault Secrets Engine Selection Guide](vault/docs/vault-secrets-engine-selection-guide.md) — Comparing KV, database, and cloud secrets engines for common workloads
 - [First Vault secret CLI snippet](vault/snippets/2026-08-30-first-vault-secret.sh) — Write and read back a secret using the Vault dev server
-- [Checkov platform config](checkov/configs/platform-config.yaml) — Platform configuration for Checkov CI scanning
+- [Snyk multi-language scanning scaffold](snyk/templates/snyk-multilang-scan-scaffold/README.md) — Reusable CI scaffold for scanning polyglot codebases with a shared policy
 
 ## Layout
 
@@ -83,4 +83,4 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent work has focused on Snyk vulnerability prioritization, multi-language scanning scaffolds, and Gatekeeper production deployment manifests. Current focus is finishing the remaining per-tool notes and deepening policy-as-code and supply-chain coverage.
 
 ---
-_Last updated: 2026-09-02_
+_Last updated: 2026-09-03_
