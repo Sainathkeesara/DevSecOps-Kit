@@ -1,0 +1,72 @@
+# last_verified: 2026-09-03 · snyk (GitHub Actions workflow)
+name: snyk-ci-cd
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Weekly continuous monitoring — runs `snyk monitor` against the default branch
+    - cron: '0 6 * * 1'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  snyk-test:
+    name: Snyk test (PR + push)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Snyk CLI
+        run: npm install -g snyk
+
+      - name: Authenticate Snyk
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: snyk auth "${SNYK_TOKEN}"
+
+      - name: Run snyk test
+        # Per-project SCA scan; non-zero exit on vulnerabilities above threshold
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: snyk test --severity-threshold=medium --fail-on=upgradable
+
+      - name: Upload SARIF
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: snyk-test-sarif
+          path: snyk-test.sarif
+
+  snyk-monitor:
+    name: Snyk monitor (continuous)
+    runs-on: ubuntu-latest
+    # Continuous monitoring only on push to main + weekly schedule
+    if: github.event_name == 'push' || github.event_name == 'schedule'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Snyk CLI
+        run: npm install -g snyk
+
+      - name: Authenticate Snyk
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: snyk auth "${SNYK_TOKEN}"
+
+      - name: Run snyk monitor
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        # Registers the project on the Snyk dashboard for continuous monitoring;
+        # does not fail the build on vulnerabilities found.
+        run: snyk monitor --all-projects
+
+      - name: Upload monitor results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: snyk-monitor-results
+          path: snyk-monitor.json
