@@ -76,11 +76,12 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 | defectdojo | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-08-04 |
 | prometheus | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-07-13 |
 | grafana | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2026-07-13 |
+
 </details>
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent work has focused on Snyk vulnerability prioritization, multi-language scanning scaffolds, and Gatekeeper production deployment manifests. Current focus is finishing the remaining per-tool notes and deepening policy-as-code and supply-chain coverage.
+The Snyk feature set is now complete: vulnerability prioritization with reachability/Fix PRs/license compliance, plus a reusable multi-language scanning scaffold. Vault's first-command coverage and a secrets-engine selection guide landed alongside it. Current focus is rounding out the remaining per-tool primers and deepening policy-as-code and runtime-security coverage.
 
 ---
 _Last updated: 2026-09-03_
