@@ -54,7 +54,7 @@
 - **configs** (1): [.syft.yaml](../syft/configs/.syft.yaml)
 - **snippets** (1): [tried-sbom-formats.sh](../syft/snippets/tried-sbom-formats.sh)
 - **templates** (15): [.gitignore](../syft/templates/syft-trivy-k8s-scan-scaffold/.gitignore), [syft.yaml](../syft/templates/syft-trivy-k8s-scan-scaffold/syft.yaml), [trivy.yaml](../syft/templates/syft-trivy-k8s-scan-scaffold/trivy.yaml) — _…and 12 more under `syft/templates/`._
-- **manifests** (1): [syft-gha-multi-arch-sbom-registry-auth.yaml](../syft/manifests/syft-gha-multi-arch-sbom-registry-auth.yaml)
+- **manifests** (2): [syft-gha-multi-arch-sbom-registry-auth.yaml](../syft/manifests/syft-gha-multi-arch-sbom-registry-auth.yaml), [syft-gha-sbom-oci-push-attestation.yaml](../syft/manifests/syft-gha-sbom-oci-push-attestation.yaml)
 - **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
 - **notebooks** (2): [sbom-layer-package-analysis.ipynb](../syft/notebooks/sbom-layer-package-analysis.ipynb), [output-format-comparison.ipynb](../syft/notebooks/output-format-comparison.ipynb)
 

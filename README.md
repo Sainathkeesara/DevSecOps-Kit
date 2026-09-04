@@ -1,4 +1,5 @@
 # DevSecOps-Kit
+
 > A working engineer's devops and devsecops reference for 32 tools covering vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability.
 
 [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Repo size](https://img.shields.io/github/repo-size/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Top language](https://img.shields.io/github/languages/top/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Languages](https://img.shields.io/github/languages/count/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
@@ -15,11 +16,11 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## Quick links
 
+- [Syft GHA SBOM OCI push attestation](syft/manifests/syft-gha-sbom-oci-push-attestation.yaml) — GitHub Actions workflow for generating and attesting SBOMs with OCI push
 - [Snyk vulnerability prioritization doc](snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md) — Reachability analysis, Fix PRs, and license compliance for Snyk SCA findings
-- [Gatekeeper production deployment manifest](opa/manifests/gatekeeper-production-deployment.yaml) — Production-ready Gatekeeper constraints and templates
-- [Vault Secrets Engine Selection Guide](vault/docs/vault-secrets-engine-selection-guide.md) — Comparing KV, database, and cloud secrets engines for common workloads
-- [First Vault secret CLI snippet](vault/snippets/2026-08-30-first-vault-secret.sh) — Write and read back a secret using the Vault dev server
 - [Snyk multi-language scanning scaffold](snyk/templates/snyk-multilang-scan-scaffold/README.md) — Reusable CI scaffold for scanning polyglot codebases with a shared policy
+- [Gatekeeper production deployment manifest](opa/manifests/gatekeeper-production-deployment.yaml) — Production-ready Gatekeeper constraints and templates
+- [First Vault secret CLI snippet](vault/snippets/2026-08-30-first-vault-secret.sh) — Write and read back a secret using the Vault dev server
 
 ## Layout
 
@@ -76,12 +77,11 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 | defectdojo | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-08-04 |
 | prometheus | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-07-13 |
 | grafana | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2026-07-13 |
-
 </details>
 
 ## Status
 
-The Snyk feature set is now complete: vulnerability prioritization with reachability/Fix PRs/license compliance, plus a reusable multi-language scanning scaffold. Vault's first-command coverage and a secrets-engine selection guide landed alongside it. Current focus is rounding out the remaining per-tool primers and deepening policy-as-code and runtime-security coverage.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent work has focused on Syft SBOM attestation workflows, Snyk vulnerability prioritization, and multi-language scanning scaffolds. Current focus is finishing the remaining per-tool notes and deepening policy-as-code and supply-chain coverage.
 
 ---
 _Last updated: 2026-09-03_
