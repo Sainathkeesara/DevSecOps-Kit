@@ -522,6 +522,8 @@
 
 **Cloud Secrets Engine (Vault)** — Vault engine that issues short-lived cloud IAM credentials — AWS STS assume-role tokens, Azure service principal credentials, GCP service account keys. Configured with privileged cloud credentials, it assumes roles or creates service credentials on demand and revokes them automatically, removing the need for static IAM keys in workloads.
 
+**AWS Secrets Engine (Vault)** — A Vault secrets engine that generates dynamic AWS IAM credentials (access keys + STS tokens) by calling `sts:AssumeRole` against a configured IAM role. Clients read short-lived credentials from a Vault path; Vault rotates them automatically, eliminating long-lived AWS keys in workload configuration.
+
 **reachability** — Snyk's signal indicating whether code in a project actually calls a vulnerable function. A finding marked `reachable` is in scope; `no-path` means the vulnerable code is not exercised and can be deprioritized.
 
 **Fix PR (Snyk)** — An automated pull request opened by Snyk that bumps a dependency to a non-vulnerable version, reducing the manual effort required to remediate SCA findings.

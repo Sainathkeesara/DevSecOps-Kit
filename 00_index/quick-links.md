@@ -75,6 +75,7 @@
 - [Install Vault and run a first command](../vault/notes/2026-08-26-install-vault-first-command.md)
 - [Vault KV CRUD operations](../vault/scripts/vault-kv-crud.sh)
 - [Vault multi-environment access control](../vault/configs/multi-environment-access-control.hcl)
+- [Vault AWS secrets engine policy](../vault/configs/2026-09-04-aws-secrets-engine-policy.hcl)
 - [Vault dynamic secrets for cloud IAM](../vault/scripts/cloud-iam-dynamic-secrets.sh)
 - [Vault Agent auto-auth on Kubernetes](../vault/docs/vault-agent-auto-auth-kubernetes.md)
 
