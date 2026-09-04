@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - snyk-011: `snyk/manifests/snyk-github-actions-cicd-workflow.yaml` — Snyk GitHub Actions CI/CD workflow with `snyk test` on PR/push, weekly `snyk monitor` for project registration, and SARIF/JSON artifact upload (L4 manifest)
+- syft-009: `syft/docs/output-format-selection-guide.md` — Syft output format selection guide mapping SPDX, CycloneDX, GitHub JSON, and table outputs to integration targets (L5 docs)
 
 ## 2026-09-02
 
