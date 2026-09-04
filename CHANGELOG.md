@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-09-04
 
 ### Added
+- vault-024: `vault/configs/2026-09-04-aws-secrets-engine-policy.hcl` — Vault AWS secrets engine policy (path-scoped credentials, role listing, root rotation) with inline CLI test steps (L2 config)
 - trivy-020: `trivy/notes/2026-07-27-first-container-scan.md` — Install Trivy and scan my first container image (L1 notes)
 - trufflehog-020: `trufflehog/notes/2026-07-27-explore-cli.md` — Explore the TruffleHog CLI — what's there (L1 notes)
 
