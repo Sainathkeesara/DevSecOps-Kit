@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-05
+
+### Added
+- zap-027: `zap/notes/2026-09-05-install-zap-first-baseline-scan.md` — Install OWASP ZAP and launch my first baseline scan — what tripped me up (L1 notes)
+- trivy-021: `trivy/notes/2026-09-05-install-trivy-first-container-scan.md` — Install Trivy and scan my first container image — what tripped me up (L1 notes)
+
 ## 2026-09-04
 
 ### Added
