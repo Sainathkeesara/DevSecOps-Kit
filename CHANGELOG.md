@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - zap-027: `zap/notes/2026-09-05-install-zap-first-baseline-scan.md` — Install OWASP ZAP and launch my first baseline scan — what tripped me up (L1 notes)
 - trivy-021: `trivy/notes/2026-09-05-install-trivy-first-container-scan.md` — Install Trivy and scan my first container image — what tripped me up (L1 notes)
+- docs-023: `scripts/ansible/bootstrap.sh` — Companion bootstrap script referenced by docs/how-to/linux/linux-iac-pipeline-workflows.md — installs python3 + sshd on a fresh target so subsequent Ansible playbooks run cleanly
 
 ## 2026-09-04
 
