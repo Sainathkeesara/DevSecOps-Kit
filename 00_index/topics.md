@@ -14,7 +14,7 @@
 - **notebooks** (2): [compare-static-vs-plan-scanning.ipynb](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb), [compare-builtin-vs-custom-k8s.ipynb](../checkov/notebooks/compare-builtin-vs-custom-k8s.ipynb)
 - **policies** (1): [no_public_s3_buckets.yaml](../checkov/policies/no-public-s3-buckets/no_public_s3_buckets.yaml)
 
-## snyk  ·  22 files
+## snyk  ·  23 files
 - **primer:** [0000-primer-snyk.md](../snyk/notes/0000-primer-snyk.md)
 - **notes** (4): [2026-06-14-first-vulnerability-scan.md](../snyk/notes/2026-06-14-first-vulnerability-scan.md), [2026-06-08-install-snyk-first-test.md](../snyk/notes/2026-06-08-install-snyk-first-test.md), [2026-06-07-snyk-quickstart-walkthrough.md](../snyk/notes/2026-06-07-snyk-quickstart-walkthrough.md) — _…and 1 more under `snyk/notes/`._
 - **docs** (2): [vulnerability-prioritization-reachability-fix-prs-license-compliance.md](../snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md), [multi-project-ci-pipeline.md](../snyk/docs/multi-project-ci-pipeline.md)
@@ -22,11 +22,12 @@
 - **configs** (2): [snyk-dependency-patch-ignore.yaml](../snyk/configs/snyk-dependency-patch-ignore.yaml), [snyk-ci-github-actions.yaml](../snyk/configs/snyk-ci-github-actions.yaml)
 - **snippets** (1): [my-first-snyk-commands.sh](../snyk/snippets/my-first-snyk-commands.sh)
 - **templates** (11): [README.md](../snyk/templates/snyk-multilang-scan-scaffold/README.md), [Makefile](../snyk/templates/snyk-multilang-scan-scaffold/Makefile), [snyk-multilang-ci.yml](../snyk/templates/snyk-multilang-scan-scaffold/.github/workflows/snyk-multilang-ci.yml) — _…and 8 more under `snyk/templates/`._
+- **manifests** (1): [snyk-github-actions-cicd-workflow.yaml](../snyk/manifests/snyk-github-actions-cicd-workflow.yaml)
 - **dockerfiles** (1): [custom-snyk-cli-air-gapped.Dockerfile](../snyk/dockerfiles/custom-snyk-cli-air-gapped.Dockerfile)
 
-## trufflehog  ·  37 files
+## trufflehog  ·  38 files
 - **primer:** [0000-primer-trufflehog.md](../trufflehog/notes/0000-primer-trufflehog.md)
-- **notes** (3): [2026-05-27-following-trufflehog-quickstart.md](../trufflehog/notes/2026-05-27-following-trufflehog-quickstart.md), [2026-05-27-install-trufflehog.md](../trufflehog/notes/2026-05-27-install-trufflehog.md), [0000-primer-trufflehog.md](../trufflehog/notes/0000-primer-trufflehog.md)
+- **notes** (4): [2026-07-27-explore-cli.md](../trufflehog/notes/2026-07-27-explore-cli.md), [2026-05-27-following-trufflehog-quickstart.md](../trufflehog/notes/2026-05-27-following-trufflehog-quickstart.md), [2026-05-27-install-trufflehog.md](../trufflehog/notes/2026-05-27-install-trufflehog.md) — _…and 1 more under `trufflehog/notes/`._
 - **docs** (2): [trufflehog-output-formats-json-sarif-csv.md](../trufflehog/docs/trufflehog-output-formats-json-sarif-csv.md), [comparing-scan-modes-git-filesystem-s3.md](../trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md)
 - **scripts** (3): [multi-repo-scan-pipeline.sh](../trufflehog/scripts/multi-repo-scan-pipeline.sh), [analyze-trufflehog-results.py](../trufflehog/scripts/analyze-trufflehog-results.py), [pre-commit-scan-pipeline.sh](../trufflehog/scripts/pre-commit-scan-pipeline.sh)
 - **configs** (2): [custom-detector-rules.yaml](../trufflehog/configs/custom-detector-rules.yaml), [trufflehog-custom-regex-config.yaml](../trufflehog/configs/trufflehog-custom-regex-config.yaml)
@@ -46,10 +47,10 @@
 - **templates** (9): [README.md](../opa/templates/gatekeeper-policy-library-scaffold/README.md), [k8sallowedregistries.yaml](../opa/templates/gatekeeper-policy-library-scaffold/constraint-templates/k8sallowedregistries.yaml), [k8ssecuritybaseline.yaml](../opa/templates/gatekeeper-policy-library-scaffold/constraint-templates/k8ssecuritybaseline.yaml) — _…and 6 more under `opa/templates/`._
 - **manifests** (4): [constraint-templates.yaml](../opa/manifests/constraint-templates.yaml), [constraints.yaml](../opa/manifests/constraints.yaml), [gatekeeper-production-deployment.yaml](../opa/manifests/gatekeeper-production-deployment.yaml), [README.md](../opa/manifests/README.md)
 
-## syft  ·  33 files
+## syft  ·  35 files
 - **primer:** [0000-primer-syft.md](../syft/notes/0000-primer-syft.md)
 - **notes** (4): [2026-05-30-sbom-format-comparison.md](../syft/notes/2026-05-30-sbom-format-comparison.md), [2026-05-29-syft-quickstart-trip-ups.md](../syft/notes/2026-05-29-syft-quickstart-trip-ups.md), [2026-05-27-install-syft-first-sbom.md](../syft/notes/2026-05-27-install-syft-first-sbom.md) — _…and 1 more under `syft/notes/`._
-- **docs** (5): [enterprise-registry-auth-caching.md](../syft/docs/enterprise-registry-auth-caching.md), [sbom-output-formats-reference.md](../syft/docs/sbom-output-formats-reference.md), [enterprise-registry-auth-caching-patterns.md](../syft/docs/enterprise-registry-auth-caching-patterns.md) — _…and 2 more under `syft/docs/`._
+- **docs** (6): [output-format-selection-guide.md](../syft/docs/output-format-selection-guide.md), [enterprise-registry-auth-caching.md](../syft/docs/enterprise-registry-auth-caching.md), [sbom-output-formats-reference.md](../syft/docs/sbom-output-formats-reference.md) — _…and 3 more under `syft/docs/`._
 - **scripts** (3): [gen-multi-format-sboms.sh](../syft/scripts/gen-multi-format-sboms.sh), [multi-image-sbom-pipeline.sh](../syft/scripts/multi-image-sbom-pipeline.sh), [sbom-vuln-pipeline.sh](../syft/scripts/sbom-vuln-pipeline.sh)
 - **configs** (1): [.syft.yaml](../syft/configs/.syft.yaml)
 - **snippets** (1): [tried-sbom-formats.sh](../syft/snippets/tried-sbom-formats.sh)
@@ -58,9 +59,9 @@
 - **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
 - **notebooks** (2): [sbom-layer-package-analysis.ipynb](../syft/notebooks/sbom-layer-package-analysis.ipynb), [output-format-comparison.ipynb](../syft/notebooks/output-format-comparison.ipynb)
 
-## trivy  ·  33 files
+## trivy  ·  34 files
 - **primer:** [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md)
-- **notes** (4): [2026-05-26-trivy-quickstart.md](../trivy/notes/2026-05-26-trivy-quickstart.md), [2026-05-24-install-trivy.md](../trivy/notes/2026-05-24-install-trivy.md), [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md) — _…and 1 more under `trivy/notes/`._
+- **notes** (5): [2026-07-27-first-container-scan.md](../trivy/notes/2026-07-27-first-container-scan.md), [2026-05-26-trivy-quickstart.md](../trivy/notes/2026-05-26-trivy-quickstart.md), [2026-05-24-install-trivy.md](../trivy/notes/2026-05-24-install-trivy.md) — _…and 2 more under `trivy/notes/`._
 - **docs** (4): [multi-arch-vulnerability-scanning.md](../trivy/docs/multi-arch-vulnerability-scanning.md), [ci-cd-pipeline-recipes.md](../trivy/docs/ci-cd-pipeline-recipes.md), [sbom-scanning-reference-guide.md](../trivy/docs/sbom-scanning-reference-guide.md) — _…and 1 more under `trivy/docs/`._
 - **scripts** (6): [compose-multi-scan.sh](../trivy/scripts/compose-multi-scan.sh), [multi-target-scanner.sh](../trivy/scripts/multi-target-scanner.sh), [container-vuln-scan.sh](../trivy/scripts/container-vuln-scan.sh) — _…and 3 more under `trivy/scripts/`._
 - **configs** (2): [trivy-scan-config.yaml](../trivy/configs/trivy-scan-config.yaml), [.trivy.yaml](../trivy/configs/.trivy.yaml)
@@ -129,12 +130,12 @@
 - **templates** (6): [.gitignore](../terrascan/templates/scanning-pipeline-scaffold/.gitignore), [config.yaml](../terrascan/templates/scanning-pipeline-scaffold/config.yaml), [README.md](../terrascan/templates/scanning-pipeline-scaffold/README.md) — _…and 3 more under `terrascan/templates/`._
 - **manifests** (1): [terrascan-gha-ci-multi-iac.yaml](../terrascan/manifests/terrascan-gha-ci-multi-iac.yaml)
 
-## vault  ·  15 files
+## vault  ·  16 files
 - **primer:** [0000-primer-vault.md](../vault/notes/0000-primer-vault.md)
 - **notes** (4): [2026-08-26-install-vault-first-command.md](../vault/notes/2026-08-26-install-vault-first-command.md), [2026-06-15-vault-getting-started-trip-ups.md](../vault/notes/2026-06-15-vault-getting-started-trip-ups.md), [2026-06-05-install-vault-and-explore-cli.md](../vault/notes/2026-06-05-install-vault-and-explore-cli.md) — _…and 1 more under `vault/notes/`._
 - **docs** (3): [vault-secrets-engine-selection-guide.md](../vault/docs/vault-secrets-engine-selection-guide.md), [vault-agent-auto-auth-kubernetes.md](../vault/docs/vault-agent-auto-auth-kubernetes.md), [configuring-vault-dev-server.md](../vault/docs/configuring-vault-dev-server.md)
 - **scripts** (3): [vault-kv-crud.sh](../vault/scripts/vault-kv-crud.sh), [vault-db-dynamic-secrets.sh](../vault/scripts/vault-db-dynamic-secrets.sh), [cloud-iam-dynamic-secrets.sh](../vault/scripts/cloud-iam-dynamic-secrets.sh)
-- **configs** (2): [2026-06-26-dev-test-policies.hcl](../vault/configs/2026-06-26-dev-test-policies.hcl), [multi-environment-access-control.hcl](../vault/configs/multi-environment-access-control.hcl)
+- **configs** (3): [2026-09-04-aws-secrets-engine-policy.hcl](../vault/configs/2026-09-04-aws-secrets-engine-policy.hcl), [2026-06-26-dev-test-policies.hcl](../vault/configs/2026-06-26-dev-test-policies.hcl), [multi-environment-access-control.hcl](../vault/configs/multi-environment-access-control.hcl)
 - **snippets** (2): [2026-08-30-first-vault-secret.sh](../vault/snippets/2026-08-30-first-vault-secret.sh), [vault-read-write.go](../vault/snippets/vault-read-write.go)
 - **dockerfiles** (1): [custom-vault-image-with-plugins-tls.Dockerfile](../vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile)
 

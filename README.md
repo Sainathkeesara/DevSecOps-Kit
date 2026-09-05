@@ -1,6 +1,6 @@
 # DevSecOps-Kit
 
-> A working engineer's devops and devsecops reference for 32 tools covering vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability.
+> A working engineer's devops and devsecops reference for vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability.
 
 [![Last commit](https://img.shields.io/github/last-commit/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Repo size](https://img.shields.io/github/repo-size/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Top language](https://img.shields.io/github/languages/top/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit) [![Languages](https://img.shields.io/github/languages/count/Sainathkeesara/DevSecOps-Kit)](https://github.com/Sainathkeesara/DevSecOps-Kit)
 
@@ -12,15 +12,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-939 files across 32 tool-specific folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+Notes, scripts, configs, manifests, scaffolds, and how-to guides across the major scanner, secret-detection, SBOM, supply-chain, runtime-security, policy, IaC, and observability tools. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
+- [AWS secrets engine policy for Vault](vault/configs/2026-09-04-aws-secrets-engine-policy.hcl) — HCL policy wiring Vault's AWS secrets engine with scoped IAM roles
+- [First Vault secret via the CLI](vault/snippets/2026-08-30-first-vault-secret.sh) — Write and read back a secret using the Vault dev server
 - [Syft GHA SBOM OCI push attestation](syft/manifests/syft-gha-sbom-oci-push-attestation.yaml) — GitHub Actions workflow for generating and attesting SBOMs with OCI push
-- [Snyk vulnerability prioritization doc](snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md) — Reachability analysis, Fix PRs, and license compliance for Snyk SCA findings
+- [Snyk vulnerability prioritization](snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md) — Reachability analysis, Fix PRs, and license compliance for Snyk SCA findings
 - [Snyk multi-language scanning scaffold](snyk/templates/snyk-multilang-scan-scaffold/README.md) — Reusable CI scaffold for scanning polyglot codebases with a shared policy
-- [Gatekeeper production deployment manifest](opa/manifests/gatekeeper-production-deployment.yaml) — Production-ready Gatekeeper constraints and templates
-- [First Vault secret CLI snippet](vault/snippets/2026-08-30-first-vault-secret.sh) — Write and read back a secret using the Vault dev server
 
 ## Layout
 
@@ -28,7 +28,7 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 - **`docs/`** — Concepts, how-to guides, reference, runbooks, security docs, troubleshooting, and setup guides
 - **`scripts/`** — Shell toolkits organised by tool (`scripts/bash/`), deployment and rollback wrappers (`scripts/pipeline/`), and repository utilities
 - **`snippets/`** — Copy-paste ready cheatsheets and one-liners
-- **`templates/`** — Starter configs for Kubernetes, Terraform, Linux, Jenkins, Logstash, syslog-ng
+- **`templates/`** — Starter configs for Kubernetes, Terraform, Linux, Jenkins, Logstash, syslog-ng, and per-tool scaffolds
 - **`environments/`** — Terraform environment configs (dev / staging / prod)
 - **`lab/`** — Mini-projects and learning sandboxes
 - **`assets/`** — Architecture diagrams and workflow illustrations
@@ -46,18 +46,18 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total | Last verified |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|---------:|------:|---------------|
 | checkov | 4 | 5 | 2 | 3 | 4 | 20 | 3 | 0 | 2 | 1 | 44 | 2026-08-30 |
-| snyk | 4 | 2 | 1 | 2 | 1 | 11 | 0 | 1 | 0 | 0 | 22 | 2026-09-02 |
-| trufflehog | 3 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 37 | — |
-| opa | 3 | 2 | 2 | 1 | 3 | 9 | 4 | 0 | 0 | 0 | 24 | 2026-08-27 |
-| syft | 4 | 5 | 3 | 1 | 1 | 15 | 1 | 1 | 2 | 0 | 33 | 2026-08-13 |
-| trivy | 4 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 33 | 2026-08-18 |
+| trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 38 | — |
+| syft | 4 | 6 | 3 | 1 | 1 | 15 | 2 | 1 | 2 | 0 | 35 | 2026-08-13 |
+| trivy | 5 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 34 | 2026-07-27 |
 | zap | 5 | 3 | 2 | 2 | 4 | 8 | 0 | 1 | 0 | 0 | 25 | 2026-07-20 |
+| opa | 3 | 2 | 2 | 1 | 3 | 9 | 4 | 0 | 0 | 0 | 24 | 2026-08-27 |
+| snyk | 4 | 2 | 1 | 2 | 1 | 11 | 1 | 1 | 0 | 0 | 23 | 2026-09-02 |
 | gitguardian | 4 | 2 | 3 | 2 | 2 | 9 | 0 | 0 | 0 | 0 | 22 | 2026-08-21 |
 | grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | — |
 | terraform | 3 | 1 | 4 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 20 | 2026-08-10 |
 | semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 20 | 2026-08-06 |
 | terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 18 | 2026-08-09 |
-| vault | 4 | 3 | 3 | 2 | 2 | 0 | 0 | 1 | 0 | 0 | 15 | 2026-08-30 |
+| vault | 4 | 3 | 3 | 3 | 2 | 0 | 0 | 1 | 0 | 0 | 16 | 2026-09-04 |
 | cosign | 4 | 1 | 3 | 1 | 1 | 0 | 2 | 2 | 0 | 0 | 14 | 2026-08-25 |
 | dependabot | 7 | 1 | 2 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 2026-08-18 |
 | falco | 4 | 2 | 3 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-07-19 |
@@ -81,7 +81,7 @@ Trivy, Semgrep, Checkov, Grype, Syft, TruffleHog, GitGuardian, Snyk, Terrascan, 
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent work has focused on Syft SBOM attestation workflows, Snyk vulnerability prioritization, and multi-language scanning scaffolds. Current focus is finishing the remaining per-tool notes and deepening policy-as-code and supply-chain coverage.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent work has focused on Vault AWS secrets engine policy, Syft SBOM attestation workflows, Snyk vulnerability prioritization, and multi-language scanning scaffolds. Current focus is finishing the remaining per-tool notes and deepening policy-as-code and supply-chain coverage.
 
 ---
-_Last updated: 2026-09-03_
+_Last updated: 2026-09-04_
