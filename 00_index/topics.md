@@ -86,16 +86,28 @@
 - **snippets** (2): [custom-policy-engine-ggshield.sh](../gitguardian/snippets/custom-policy-engine-ggshield.sh), [my-first-ggshield-commands.sh](../gitguardian/snippets/my-first-ggshield-commands.sh)
 - **templates** (9): [allowlist.yaml](../gitguardian/templates/gitguardian-multi-repo-scanning-scaffold/.ggshield/allowlist.yaml), [org-secret-scan.yml](../gitguardian/templates/gitguardian-multi-repo-scanning-scaffold/.github/workflows/org-secret-scan.yml), [.gitignore](../gitguardian/templates/gitguardian-multi-repo-scanning-scaffold/.gitignore) — _…and 6 more under `gitguardian/templates/`._
 
-## github-actions  ·  10 files
+## github-actions  ·  11 files
 - **primer:** [0000-primer-github-actions.md](../github-actions/notes/0000-primer-github-actions.md)
 - **notes** (4): [0000-primer-github-actions.md](../github-actions/notes/0000-primer-github-actions.md), [2026-07-14-explore-github-actions.md](../github-actions/notes/2026-07-14-explore-github-actions.md), [2026-08-04-explore-github-actions.md](../github-actions/notes/2026-08-04-explore-github-actions.md) — _…and 1 more under `github-actions/notes/`._
-- **configs** (2): [2026-07-14-first-github-actions-workflow.yaml](../github-actions/configs/2026-07-14-first-github-actions-workflow.yaml), [2026-08-04-first-workflow.yaml](../github-actions/configs/2026-08-04-first-workflow.yaml)
+- **configs** (3): [2026-07-14-first-github-actions-workflow.yaml](../github-actions/configs/2026-07-14-first-github-actions-workflow.yaml), [2026-08-04-first-workflow.yaml](../github-actions/configs/2026-08-04-first-workflow.yaml), [2026-09-10-minimal-ci-workflow.yaml](../github-actions/configs/2026-09-10-minimal-ci-workflow.yaml)
 - **snippets** (2): [2026-08-26-composite-action-input-reuse.yaml](../github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml), [2026-08-26-first-workflow.yaml](../github-actions/snippets/2026-08-26-first-workflow.yaml)
 - **manifests** (2): [2026-08-04-pr-validation.yml](../github-actions/manifests/2026-08-04-pr-validation.yml), [2026-08-04-what-is-github-actions.yaml](../github-actions/manifests/2026-08-04-what-is-github-actions.yaml)
 
 ## grafana  ·  1 files
 - **primer:** [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md)
 - **notes** (1): [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md)
+
+## gitleaks  ·  1 files
+- **primer:** [0000-primer-gitleaks.md](../gitleaks/notes/0000-primer-gitleaks.md)
+- **notes** (1): [0000-primer-gitleaks.md](../gitleaks/notes/0000-primer-gitleaks.md)
+
+## nuclei  ·  1 files
+- **primer:** [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md)
+- **notes** (1): [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md)
+
+## tfsec  ·  1 files
+- **primer:** [0000-primer-tfsec.md](../tfsec/notes/0000-primer-tfsec.md)
+- **notes** (1): [0000-primer-tfsec.md](../tfsec/notes/0000-primer-tfsec.md)
 
 ## grype  ·  20 files
 - **primer:** [0000-primer-grype.md](../grype/notes/0000-primer-grype.md)
@@ -113,10 +125,10 @@
 - **notes** (2): [0000-primer-helm.md](../helm/notes/0000-primer-helm.md), [2026-07-19-explore-helm-charts-releases-values-repos.md](../helm/notes/2026-07-19-explore-helm-charts-releases-values-repos.md)
 - **manifests** (1): [2026-07-15-first-chart-values.yaml](../helm/manifests/2026-07-15-first-chart-values.yaml)
 
-## kubernetes  ·  3 files
+## kubernetes  ·  4 files
 - **primer:** [0000-primer-kubernetes.md](../kubernetes/notes/0000-primer-kubernetes.md)
 - **notes** (2): [0000-primer-kubernetes.md](../kubernetes/notes/0000-primer-kubernetes.md), [2026-07-15-explore-kubernetes.md](../kubernetes/notes/2026-07-15-explore-kubernetes.md)
-- **manifests** (1): [2026-07-15-first-pod-service.yaml](../kubernetes/manifests/2026-07-15-first-pod-service.yaml)
+- **manifests** (2): [2026-07-15-first-pod-service.yaml](../kubernetes/manifests/2026-07-15-first-pod-service.yaml), [2026-09-10-first-pod.yaml](../kubernetes/manifests/2026-09-10-first-pod.yaml)
 
 ## kustomize  ·  3 files
 - **primer:** [0000-primer-kustomize.md](../kustomize/notes/0000-primer-kustomize.md)
@@ -137,10 +149,10 @@
 - **templates** (9): [ci-test.yml](../opa/templates/gatekeeper-policy-library-scaffold/.github/workflows/ci-test.yml), [README.md](../opa/templates/gatekeeper-policy-library-scaffold/README.md), [k8sallowedregistries.yaml](../opa/templates/gatekeeper-policy-library-scaffold/constraint-templates/k8sallowedregistries.yaml) — _…and 6 more under `opa/templates/`._
 - **manifests** (4): [README.md](../opa/manifests/README.md), [constraint-templates.yaml](../opa/manifests/constraint-templates.yaml), [constraints.yaml](../opa/manifests/constraints.yaml) — _…and 1 more under `opa/manifests/`._
 
-## opentofu  ·  3 files
+## opentofu  ·  4 files
 - **primer:** [0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md)
 - **notes** (2): [0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md), [2026-07-20-explore-open-tofu.md](../opentofu/notes/2026-07-20-explore-open-tofu.md)
-- **configs** (1): [2026-07-20-first-open-tofu-config.hcl](../opentofu/configs/2026-07-20-first-open-tofu-config.hcl)
+- **configs** (2): [2026-07-20-first-open-tofu-config.hcl](../opentofu/configs/2026-07-20-first-open-tofu-config.hcl), [2026-09-10-minimal-opentofu-config.hcl](../opentofu/configs/2026-09-10-minimal-opentofu-config.hcl)
 
 ## prometheus  ·  2 files
 - **primer:** [0000-primer-observability.md](../prometheus/notes/0000-primer-observability.md)

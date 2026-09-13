@@ -31,6 +31,7 @@
 ### Get started with vulnerability scanning
 - [Install Trivy and run a first container scan](../trivy/notes/2026-09-05-install-trivy-first-container-scan.md)
 - [Install ZAP and run a baseline scan](../zap/notes/2026-09-05-install-zap-first-baseline-scan.md)
+- [Nuclei primer](../nuclei/notes/0000-primer-nuclei.md)
 - [Trivy primer](../trivy/notes/0000-primer-trivy.md)
 - [Trivy scanning performance optimization](../trivy/notes/scanning-performance-optimization.md)
 - [Trivy ignore-rules pipeline](../trivy/scripts/ignore-rules-pipeline.sh)
@@ -100,6 +101,7 @@
 ### Run static analysis
 - [Semgrep primer](../semgrep/notes/0000-primer-semgrep.md)
 - [Checkov primer](../checkov/notes/0000-primer-checkov.md)
+- [tfsec primer](../tfsec/notes/0000-primer-tfsec.md)
 - [Checkov platform config](../checkov/configs/platform-config.yaml)
 - [CodeQL primer](../codeql/notes/0000-primer-codeql.md)
 - [Install CodeQL and run a first query](../codeql/notes/2026-08-26-install-codeql-first-query.md)
@@ -109,6 +111,7 @@
 
 ### Scan for secrets
 - [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md)
+- [Gitleaks primer](../gitleaks/notes/0000-primer-gitleaks.md)
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
 - [GitGuardian incident response workflow](../gitguardian/docs/gitguardian-incident-response-workflow.md)
 - [GitGuardian API integration](../gitguardian/scripts/gitguardian-api-integration.py)

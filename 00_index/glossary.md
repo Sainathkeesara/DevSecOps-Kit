@@ -110,6 +110,8 @@
 
 **Checkov**: Infrastructure as Code security scanner that checks Terraform, CloudFormation, Kubernetes, and other IaC frameworks for misconfigurations.
 
+**tfsec**: Static analysis tool for scanning Terraform code for security misconfigurations using HCL parsing, before infrastructure is deployed. Uses Rego-based custom checks and supports SARIF output for CI integration.
+
 **Atlantis**: Terraform CI/CD tool that automates plan/apply workflows triggered by pull request comments.
 
 **Flux**: GitOps operator for Kubernetes that reconciles cluster state with configuration stored in Git repositories.
@@ -142,6 +144,8 @@
 
 **TruffleHog**: Open-source secret scanning tool that detects exposed credentials, API keys, and sensitive data in git repositories using regex patterns and entropy analysis.
 
+**Gitleaks**: Open-source secret scanner that detects exposed credentials and API keys in git repositories using configurable pattern-matching rules (TOML-defined), with pre-commit, pre-push, and CI scan modes.
+
 **SBOM (Software Bill of Materials)**: A machine-readable inventory of software components and dependencies used in an application, commonly generated in CycloneDX or SPDX formats by tools like Syft.
 
 **CycloneDX**: OWASP standard lightweight SBOM format for software component identification and dependency analysis, commonly used for supply chain security.
@@ -157,6 +161,8 @@
 **SARIF (Static Analysis Results Interchange Format)**: OASIS standard JSON format for exchanging static analysis results, enabling scanners like Semgrep to integrate with platforms such as GitHub Code Scanning.
 
 **ZAP (Zed Attack Proxy)**: OWASP's open-source DAST tool for finding security vulnerabilities in web applications during dynamic testing.
+
+**Nuclei**: Template-based vulnerability scanner from ProjectDiscovery that runs YAML-defined checks against web applications, network services, and cloud APIs, with severity-based filtering and rate limiting for CI and continuous monitoring.
 
 **DAST (Dynamic Application Security Testing)**: Security testing methodology that analyzes running applications by simulating attacks, complementing SAST by finding runtime vulnerabilities.
 
