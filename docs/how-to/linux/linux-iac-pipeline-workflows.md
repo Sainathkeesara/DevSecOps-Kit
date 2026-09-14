@@ -502,7 +502,7 @@ main
 # Verify project structure
 ls -la terraform/environments/
 ls -la ansible/playbooks/
-ls -la scripts/pipeline/
+ls -la ../../../scripts/pipeline/
 
 # Verify scripts are executable
 find scripts/ -type f -name "*.sh" -exec ls -l {} \;
@@ -525,7 +525,7 @@ ansible-playbook --syntax-check ansible/playbooks/site.yml
 
 ```bash
 # Test with dry-run
-DRY_RUN=true ./scripts/pipeline/deploy.sh --environment dev
+DRY_RUN=true ../../../../scripts/pipeline/deploy.sh --environment dev
 
 # Verify plan output
 terraform show tfplan | head -50
@@ -588,7 +588,7 @@ terraform destroy -target=<resource> --auto-approve
 git checkout "$BACKUP_TAG" -- terraform/ ansible/
 
 # Redeploy previous version
-./scripts/pipeline/deploy.sh --environment "$ROLLBACK_ENV" --version "$BACKUP_TAG"
+../../../../scripts/pipeline/deploy.sh --environment "$ROLLBACK_ENV" --version "$BACKUP_TAG"
 ```
 
 ### 4. Automated Rollback Triggers
@@ -612,7 +612,7 @@ check_rollback_conditions() {
 }
 
 if check_rollback_conditions; then
-    ./scripts/pipeline/rollback.sh production
+    ../../../../scripts/pipeline/rollback.sh production
 fi
 ```
 
@@ -699,7 +699,7 @@ terraform apply
 ansible all -i inventory/prod.yml -m apt -a "name=python3" --become
 
 # Or use bootstrap script
-ansible/scripts/bootstrap.sh
+../../../ansible/scripts/bootstrap.sh
 ```
 
 ## References
@@ -707,7 +707,7 @@ ansible/scripts/bootstrap.sh
 - [Terraform Documentation](https://developer.hashicorp.com/terraform/docs)
 - [Ansible Documentation](https://docs.ansible.com/ansible/latest/user_guide/index.html)
 - [iac-operations.sh Library](../../../scripts/bash/linux_toolkit/lib/iac-operations.sh)
-- [Linux Automation Template](../../../templates/linux-automation/)
+- [Linux Automation Template](../../../templates/linux-automation)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
 - [Jenkins Pipeline Documentation](https://www.jenkins.io/doc/book/pipeline/)
 - [Terraform Backend Configuration](https://developer.hashicorp.com/terraform/language/settings/backends/configuration)

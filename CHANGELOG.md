@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-14
+
+### Fixed
+- docs-023: `docs/how-to/linux/linux-iac-pipeline-workflows.md` — Corrected the stale `ansible/../../../scripts/bootstrap.sh` reference to the current `../../../ansible/scripts/bootstrap.sh` path (the script was moved by ansible-005); deploy.sh and rollback.sh references already pointed at the correct `scripts/pipeline/` location.
+
 ## 2026-09-10
 
 ### Added
@@ -160,8 +165,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - docs-017: `docs/notes/2026-08-14-verify-trivy-paths.md` — Verified corrected relative paths in trivy-jenkins-integration.md and trivy-severity-filtering.md (L1)
-- docs/how-to/trivy-jenkins-integration.md — Fixed relative script path from `./scripts/bash/...` to `../../scripts/bash/...`
-- docs/how-to/trivy-severity-filtering.md — Fixed relative script path from `./scripts/triage-vulnerabilities.sh` to `../scripts/triage-vulnerabilities.sh`
+- docs/how-to/trivy-jenkins-integration.md — Fixed relative script path from `./scripts/bash/...` to `scripts/bash/...`
+- docs/how-to/trivy-severity-filtering.md — Fixed relative script path from `./scripts/triage-vulnerabilities.sh` to `scripts/triage-vulnerabilities.sh`
 
 ## 2026-08-13
 
