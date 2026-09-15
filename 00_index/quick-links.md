@@ -81,6 +81,7 @@
 - [Vault AWS secrets engine policy](../vault/configs/2026-09-04-aws-secrets-engine-policy.hcl)
 - [Vault dynamic secrets for cloud IAM](../vault/scripts/cloud-iam-dynamic-secrets.sh)
 - [Vault Agent auto-auth on Kubernetes](../vault/docs/vault-agent-auto-auth-kubernetes.md)
+- [Vault Agent sidecar for secret refresh](../vault/manifests/vault-sidecar-secrets-refresh.yaml)
 
 ### Practice and learn
 - [Version control with Git fundamentals](../docs/concepts/git-001-version-control-fundamentals.md)
@@ -93,6 +94,7 @@
 
 ### Run infrastructure tasks
 - [Ansible quickstart trip-ups](../ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md)
+- [Ansible inventory with group and host vars](../ansible/configs/2026-09-15-inventory-groups-host-vars.yaml)
 - [Minimal Ansible playbook: package and service](../ansible/snippets/2026-08-25-minimal-ansible-playbook-package-service.yaml)
 - [Context switcher](../scripts/bash/k8s_toolkit/context/context-manager.sh)
 - [Rollout restart](../scripts/bash/k8s_toolkit/rollout-restart.sh)

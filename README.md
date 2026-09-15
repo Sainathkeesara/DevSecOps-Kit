@@ -12,15 +12,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-954 files across 35 tool-specific folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+956 files across 35 tool-specific folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
+- [Ansible inventory with group and host vars](ansible/configs/2026-09-15-inventory-groups-host-vars.yaml) — A YAML inventory showing shared group vars with per-host overrides
+- [Vault Agent sidecar for secret refresh](vault/manifests/vault-sidecar-secrets-refresh.yaml) — Inject a Vault Agent sidecar so pods pick up rotated secrets without restarts
 - [Gitleaks quick primer](gitleaks/notes/0000-primer-gitleaks.md) — First-contact notes for Gitleaks secret scanning via pattern matching and configurable rules
 - [Nuclei quick primer](nuclei/notes/0000-primer-nuclei.md) — Getting started with Nuclei template-based vulnerability scanning for web and infrastructure targets
 - [tfsec quick primer](tfsec/notes/0000-primer-tfsec.md) — First-contact notes for tfsec Terraform security scanning at write time
-- [Minimal CI workflow](github-actions/configs/2026-09-10-minimal-ci-workflow.yaml) — A minimal GitHub Actions workflow triggered on push and pull requests
-- [First nginx pod manifest](kubernetes/manifests/2026-09-10-first-pod.yaml) — A first pod manifest for testing cluster workload scheduling
 
 ## Layout
 
@@ -57,7 +57,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | terraform | 3 | 1 | 4 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 20 | 2026-08-10 |
 | semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 20 | 2026-08-06 |
 | terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 18 | 2026-08-09 |
-| vault | 4 | 3 | 3 | 3 | 2 | 0 | 0 | 1 | 0 | 0 | 16 | 2026-08-30 |
+| vault | 4 | 3 | 3 | 3 | 2 | 0 | 1 | 1 | 0 | 0 | 17 | 2026-09-15 |
 | cosign | 4 | 1 | 3 | 1 | 1 | 0 | 2 | 2 | 0 | 0 | 14 | 2026-08-25 |
 | dependabot | 7 | 1 | 2 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 2026-08-18 |
 | falco | 4 | 2 | 3 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-07-19 |
@@ -66,7 +66,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | argocd | 6 | 0 | 0 | 1 | 0 | 0 | 2 | 0 | 0 | 0 | 9 | 2026-08-12 |
 | docker | 2 | 1 | 2 | 1 | 0 | 0 | 0 | 2 | 0 | 0 | 8 | 2026-08-05 |
 | git | 3 | 0 | 3 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-07-26 |
-| ansible | 2 | 0 | 3 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-08-25 |
+| ansible | 2 | 0 | 3 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-09-15 |
 | tetragon | 3 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-08-06 |
 | opentofu | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-07-20 |
 | kubernetes | 2 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 4 | 2026-07-15 |
@@ -84,7 +84,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent work has focused on Trivy and ZAP first-install walkthroughs, Vault AWS secrets engine policy, SBOM attestation workflows, and first-contact primers for Gitleaks, Nuclei, and tfsec. Current focus is finishing per-tool notes and deepening policy-as-code and supply-chain coverage.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include an Ansible YAML inventory with group and host vars and a Vault Agent sidecar manifest for secret refresh without pod restarts. Current focus is finishing per-tool notes and deepening policy-as-code and supply-chain coverage.
 
 ---
-_Last updated: 2026-09-11_
+_Last updated: 2026-09-15_
