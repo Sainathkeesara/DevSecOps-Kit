@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-15
+
+### Added
+- vault-018: `vault/manifests/vault-sidecar-secrets-refresh.yaml` — Vault Kubernetes sidecar injection manifest for secrets refresh without pod restart (L5 manifest)
+- ansible-008: `ansible/configs/2026-09-15-inventory-groups-host-vars.yaml` — Ansible inventory file with group and host variables (L2 config)
+
 ## 2026-09-10
 
 ### Added

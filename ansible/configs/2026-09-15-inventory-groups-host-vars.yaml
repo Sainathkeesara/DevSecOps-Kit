@@ -1,0 +1,24 @@
+# last_verified: 2026-09-15 · ansible-core 2.21.4
+# My first YAML inventory. I kept mixing up INI and YAML syntax from the
+# getting-started guide, so I rewrote the example in YAML to make the
+# structure explicit. Group vars carry the shared connection settings and
+# each host overrides only what differs (doing it this way because the guide
+# example put everything at the top level and I couldn't tell what applied
+# where).
+all:
+  vars:
+    ansible_user: deploy
+    ansible_ssh_private_key_file: ~/.ssh/id_ed25519
+  children:
+    web:
+      vars:
+        http_port: 80
+      hosts:
+        web-01.example.com:
+        web-02.example.com:
+          http_port: 8080
+    db:
+      hosts:
+        db-01.example.com:
+          vars:
+            ansible_user: dbadmin
