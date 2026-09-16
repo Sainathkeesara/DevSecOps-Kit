@@ -296,6 +296,8 @@
 
 **Vault Agent auto-auth** — Vault Agent sidecar feature that automatically authenticates with a trusted identity source (Kubernetes service account, AWS IAM, etc.) and renews tokens without manual intervention.
 
+**Sidecar (Vault Agent injector)** — A Vault Agent container injected alongside the application container in the same pod (via the injector webhook annotations). It renders secrets to a shared volume and re-renders the file when the source secret changes, so the app picks up rotated values without a redeploy — though the app itself must re-read the file.
+
 **Automation Framework (ZAP)** — ZAP's structured, scriptable scanning workflow engine that defines contexts, users, and scan sequences for repeatable DAST pipelines in CI environments.
 
 **Idempotency**: A property of configuration management operations where running the same operation multiple times produces the same result as running it once — subsequent runs only make changes if the current state differs from the desired state.
