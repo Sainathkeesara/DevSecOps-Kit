@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-16
+
+### Added
+- vault-019: `vault/scripts/vault-pki-workflow.sh` — Vault PKI secrets engine workflow: root CA, role, issuance, re-issue rotation, revocation with CRL verification (L5 script, rework)
+
 ## 2026-09-15
 
 ### Added
