@@ -12,15 +12,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-956 files across 35 tool-specific folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+957 files across 35 tool-specific folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
+- [Vault PKI workflow: issue, rotate, and revoke certificates](vault/scripts/vault-pki-workflow.sh) — End-to-end PKI secrets engine run-through against a self-signed root CA, verified with openssl
 - [Ansible inventory with group and host vars](ansible/configs/2026-09-15-inventory-groups-host-vars.yaml) — A YAML inventory showing shared group vars with per-host overrides
 - [Vault Agent sidecar for secret refresh](vault/manifests/vault-sidecar-secrets-refresh.yaml) — Inject a Vault Agent sidecar so pods pick up rotated secrets without restarts
 - [Gitleaks quick primer](gitleaks/notes/0000-primer-gitleaks.md) — First-contact notes for Gitleaks secret scanning via pattern matching and configurable rules
 - [Nuclei quick primer](nuclei/notes/0000-primer-nuclei.md) — Getting started with Nuclei template-based vulnerability scanning for web and infrastructure targets
-- [tfsec quick primer](tfsec/notes/0000-primer-tfsec.md) — First-contact notes for tfsec Terraform security scanning at write time
 
 ## Layout
 
@@ -57,7 +57,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | terraform | 3 | 1 | 4 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 20 | 2026-08-10 |
 | semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 20 | 2026-08-06 |
 | terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 18 | 2026-08-09 |
-| vault | 4 | 3 | 3 | 3 | 2 | 0 | 1 | 1 | 0 | 0 | 17 | 2026-09-15 |
+| vault | 4 | 3 | 4 | 3 | 2 | 0 | 1 | 1 | 0 | 0 | 18 | 2026-09-16 |
 | cosign | 4 | 1 | 3 | 1 | 1 | 0 | 2 | 2 | 0 | 0 | 14 | 2026-08-25 |
 | dependabot | 7 | 1 | 2 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 2026-08-18 |
 | falco | 4 | 2 | 3 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-07-19 |
@@ -84,7 +84,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include an Ansible YAML inventory with group and host vars and a Vault Agent sidecar manifest for secret refresh without pod restarts. Current focus is finishing per-tool notes and deepening policy-as-code and supply-chain coverage.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include a Vault PKI workflow script covering issue, rotate, and revoke against a self-signed root CA, plus an Ansible YAML inventory with group and host vars and a Vault Agent sidecar manifest for secret refresh without pod restarts. Current focus is finishing per-tool notes and deepening policy-as-code and supply-chain coverage.
 
 ---
-_Last updated: 2026-09-15_
+_Last updated: 2026-09-16_

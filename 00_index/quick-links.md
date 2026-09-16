@@ -82,6 +82,7 @@
 - [Vault dynamic secrets for cloud IAM](../vault/scripts/cloud-iam-dynamic-secrets.sh)
 - [Vault Agent auto-auth on Kubernetes](../vault/docs/vault-agent-auto-auth-kubernetes.md)
 - [Vault Agent sidecar for secret refresh](../vault/manifests/vault-sidecar-secrets-refresh.yaml)
+- [Vault PKI workflow: issue, rotate, and revoke certificates](../vault/scripts/vault-pki-workflow.sh)
 
 ### Practice and learn
 - [Version control with Git fundamentals](../docs/concepts/git-001-version-control-fundamentals.md)
