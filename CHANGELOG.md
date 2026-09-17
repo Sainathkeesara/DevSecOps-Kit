@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-17
+
+### Added
+- syft-010: `syft/notebooks/source-vs-library-multiarch.ipynb` — Syft CLI scan vs library mode: when to use each and how per-architecture results differ for multi-arch images (L5 notebook)
+
 ## 2026-09-16
 
 ### Added
