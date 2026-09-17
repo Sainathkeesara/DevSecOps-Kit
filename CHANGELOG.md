@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - syft-010: `syft/notebooks/source-vs-library-multiarch.ipynb` — Syft CLI scan vs library mode: when to use each and how per-architecture results differ for multi-arch images (L5 notebook)
 - vault-020: `vault/notebooks/static-vs-dynamic-secrets.ipynb` — Comparing Vault static vs dynamic secrets for cloud IAM credential management (L5 notebook, rework)
 
+### Reworked
+- syft-011: `syft/scripts/syft-sbom-generation.py` — rework: fixed SBOM output routing (run Syft once per format with `--output <file>`) and release 422 fallback (return real release object instead of request payload)
+
 ## 2026-09-16
 
 ### Added
