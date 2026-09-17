@@ -25,14 +25,10 @@
 
 ### Explore Syft SBOM capabilities
 - [Syft CLI scan vs library mode](../syft/notebooks/source-vs-library-multiarch.ipynb) — When to use CLI scan mode vs library mode for multi-arch image SBOMs
+- [Multi-language SBOM generation with release upload](../syft/scripts/syft-sbom-generation.py) — Generate SBOMs for every language ecosystem in a repo and attach them to a GitHub release
 
 ### Understand secrets management
 - [Vault static vs dynamic secrets](../vault/notebooks/static-vs-dynamic-secrets.ipynb) — Comparing Vault static vs dynamic secrets for cloud IAM credential management
-
-### Diagnose failures
-- [Kubernetes CrashLoopBackOff](../docs/troubleshooting/k8s-crashloopbackoff.md)
-- [Terraform errors](../docs/how-to/terraform-troubleshooting.md)
-- [Vault seal/unseal troubleshooting](../docs/troubleshooting/vault-seal-unseal.md)
 
 ### Explore Tetragon observability
 - [Tetragon observability tutorial](../tetragon/notes/2026-08-06-tetragon-observability-tutorial.md)
@@ -94,7 +90,6 @@
 - [Vault dynamic secrets for cloud IAM](../vault/scripts/cloud-iam-dynamic-secrets.sh)
 - [Vault Agent auto-auth on Kubernetes](../vault/docs/vault-agent-auto-auth-kubernetes.md)
 - [Vault Agent sidecar for secret refresh](../vault/manifests/vault-sidecar-secrets-refresh.yaml)
-- [Vault PKI workflow: issue, rotate, and revoke certificates](../vault/scripts/vault-pki-workflow.sh)
 
 ### Practice and learn
 - [Version control with Git fundamentals](../docs/concepts/git-001-version-control-fundamentals.md)
@@ -116,6 +111,7 @@
 ### Run static analysis
 - [Semgrep primer](../semgrep/notes/0000-primer-semgrep.md)
 - [Checkov primer](../checkov/notes/0000-primer-checkov.md)
+- [Checkov 2.x to 3.x upgrade checklist](../checkov/docs/checkov-v3-upgrade-checklist.md) — Roll out the major-version upgrade on a trial branch without breaking the CI gate
 - [tfsec primer](../tfsec/notes/0000-primer-tfsec.md)
 - [Checkov platform config](../checkov/configs/platform-config.yaml)
 - [CodeQL primer](../codeql/notes/0000-primer-codeql.md)
