@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-17
+
+### Added
+- vault-020: `vault/notebooks/static-vs-dynamic-secrets.ipynb` — Comparing Vault static vs dynamic secrets for cloud IAM credential management (L5 notebook, rework)
+
 ## 2026-09-16
 
 ### Added
