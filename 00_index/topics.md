@@ -186,7 +186,7 @@
 - **notes** (2): [0000-primer-sonarqube.md](../sonarqube/notes/0000-primer-sonarqube.md), [2026-07-19-explore-sonarqube-quality-gates-profiles.md](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md)
 - **snippets** (1): [2026-07-16-first-sonarscanner-run.sh](../sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh)
 
-## syft  ·  35 files
+## syft  ·  36 files
 - **primer:** [0000-primer-syft.md](../syft/notes/0000-primer-syft.md)
 - **notes** (4): [0000-primer-syft.md](../syft/notes/0000-primer-syft.md), [2026-05-27-install-syft-first-sbom.md](../syft/notes/2026-05-27-install-syft-first-sbom.md), [2026-05-29-syft-quickstart-trip-ups.md](../syft/notes/2026-05-29-syft-quickstart-trip-ups.md) — _…and 1 more under `syft/notes/`._
 - **docs** (6): [enterprise-registry-auth-caching-patterns.md](../syft/docs/enterprise-registry-auth-caching-patterns.md), [enterprise-registry-auth-caching.md](../syft/docs/enterprise-registry-auth-caching.md), [output-format-selection-guide.md](../syft/docs/output-format-selection-guide.md) — _…and 3 more under `syft/docs/`._
@@ -196,7 +196,7 @@
 - **templates** (15): [sbom-scan.yml](../syft/templates/sbom-pipeline-scaffold/.github/workflows/sbom-scan.yml), [.gitignore](../syft/templates/sbom-pipeline-scaffold/.gitignore), [Makefile](../syft/templates/sbom-pipeline-scaffold/Makefile) — _…and 12 more under `syft/templates/`._
 - **manifests** (2): [syft-gha-multi-arch-sbom-registry-auth.yaml](../syft/manifests/syft-gha-multi-arch-sbom-registry-auth.yaml), [syft-gha-sbom-oci-push-attestation.yaml](../syft/manifests/syft-gha-sbom-oci-push-attestation.yaml)
 - **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
-- **notebooks** (2): [output-format-comparison.ipynb](../syft/notebooks/output-format-comparison.ipynb), [sbom-layer-package-analysis.ipynb](../syft/notebooks/sbom-layer-package-analysis.ipynb)
+- **notebooks** (3): [output-format-comparison.ipynb](../syft/notebooks/output-format-comparison.ipynb), [sbom-layer-package-analysis.ipynb](../syft/notebooks/sbom-layer-package-analysis.ipynb) — _…and 1 more under `syft/notebooks/`._
 
 ## terraform  ·  20 files
 - **primer:** [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md)
@@ -246,15 +246,16 @@
 - **dockerfiles** (1): [pre-commit-scanner.Dockerfile](../trufflehog/dockerfiles/pre-commit-scanner.Dockerfile)
 - **notebooks** (2): [analyzing-trufflehog-false-positives.ipynb](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb), [trufflehog-scan-modes-comparison.ipynb](../trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb)
 
-## vault  ·  17 files
+## vault  ·  19 files
 - **primer:** [0000-primer-vault.md](../vault/notes/0000-primer-vault.md)
 - **notes** (4): [0000-primer-vault.md](../vault/notes/0000-primer-vault.md), [2026-06-05-install-vault-and-explore-cli.md](../vault/notes/2026-06-05-install-vault-and-explore-cli.md), [2026-06-15-vault-getting-started-trip-ups.md](../vault/notes/2026-06-15-vault-getting-started-trip-ups.md) — _…and 1 more under `vault/notes/`._
 - **docs** (3): [configuring-vault-dev-server.md](../vault/docs/configuring-vault-dev-server.md), [vault-agent-auto-auth-kubernetes.md](../vault/docs/vault-agent-auto-auth-kubernetes.md), [vault-secrets-engine-selection-guide.md](../vault/docs/vault-secrets-engine-selection-guide.md)
-- **scripts** (3): [cloud-iam-dynamic-secrets.sh](../vault/scripts/cloud-iam-dynamic-secrets.sh), [vault-db-dynamic-secrets.sh](../vault/scripts/vault-db-dynamic-secrets.sh), [vault-kv-crud.sh](../vault/scripts/vault-kv-crud.sh)
+- **scripts** (4): [cloud-iam-dynamic-secrets.sh](../vault/scripts/cloud-iam-dynamic-secrets.sh), [vault-db-dynamic-secrets.sh](../vault/scripts/vault-db-dynamic-secrets.sh), [vault-kv-crud.sh](../vault/scripts/vault-kv-crud.sh) — _…and 1 more under `vault/scripts/`._
 - **configs** (3): [2026-06-26-dev-test-policies.hcl](../vault/configs/2026-06-26-dev-test-policies.hcl), [2026-09-04-aws-secrets-engine-policy.hcl](../vault/configs/2026-09-04-aws-secrets-engine-policy.hcl), [multi-environment-access-control.hcl](../vault/configs/multi-environment-access-control.hcl)
 - **snippets** (2): [2026-08-30-first-vault-secret.sh](../vault/snippets/2026-08-30-first-vault-secret.sh), [vault-read-write.go](../vault/snippets/vault-read-write.go)
 - **manifests** (1): [vault-sidecar-secrets-refresh.yaml](../vault/manifests/vault-sidecar-secrets-refresh.yaml)
 - **dockerfiles** (1): [custom-vault-image-with-plugins-tls.Dockerfile](../vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile)
+- **notebooks** (1): [static-vs-dynamic-secrets.ipynb](../vault/notebooks/static-vs-dynamic-secrets.ipynb)
 
 ## zap  ·  26 files
 - **primer:** [0000-primer-zap.md](../zap/notes/0000-primer-zap.md)
