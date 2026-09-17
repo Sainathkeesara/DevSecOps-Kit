@@ -538,6 +538,8 @@
 
 **AWS Secrets Engine (Vault)** — A Vault secrets engine that generates dynamic AWS IAM credentials (access keys + STS tokens) by calling `sts:AssumeRole` against a configured IAM role. Clients read short-lived credentials from a Vault path; Vault rotates them automatically, eliminating long-lived AWS keys in workload configuration.
 
+**PKI Secrets Engine (Vault)** — A Vault secrets engine that acts as an internal certificate authority. It generates a self-signed root (or intermediate) CA, issues short-lived leaf certificates from configured roles, and tracks revocations on a CRL. Clients fetch fresh certificates instead of managing long-lived files by hand.
+
 **reachability** — Snyk's signal indicating whether code in a project actually calls a vulnerable function. A finding marked `reachable` is in scope; `no-path` means the vulnerable code is not exercised and can be deprioritized.
 
 **Fix PR (Snyk)** — An automated pull request opened by Snyk that bumps a dependency to a non-vulnerable version, reducing the manual effort required to remediate SCA findings.
