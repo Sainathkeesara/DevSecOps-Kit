@@ -23,6 +23,17 @@
 - [Terraform errors](../docs/how-to/terraform-troubleshooting.md)
 - [Vault seal/unseal troubleshooting](../docs/troubleshooting/vault-seal-unseal.md)
 
+### Explore Syft SBOM capabilities
+- [Syft CLI scan vs library mode](../syft/notebooks/source-vs-library-multiarch.ipynb) — When to use CLI scan mode vs library mode for multi-arch image SBOMs
+
+### Understand secrets management
+- [Vault static vs dynamic secrets](../vault/notebooks/static-vs-dynamic-secrets.ipynb) — Comparing Vault static vs dynamic secrets for cloud IAM credential management
+
+### Diagnose failures
+- [Kubernetes CrashLoopBackOff](../docs/troubleshooting/k8s-crashloopbackoff.md)
+- [Terraform errors](../docs/how-to/terraform-troubleshooting.md)
+- [Vault seal/unseal troubleshooting](../docs/troubleshooting/vault-seal-unseal.md)
+
 ### Explore Tetragon observability
 - [Tetragon observability tutorial](../tetragon/notes/2026-08-06-tetragon-observability-tutorial.md)
 - [Minimal network tracing policy](../tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml)
@@ -76,6 +87,7 @@
 ### Manage secrets and access
 - [HashiCorp Vault primer](../vault/notes/0000-primer-vault.md)
 - [Install Vault and run a first command](../vault/notes/2026-08-26-install-vault-first-command.md)
+- [Vault PKI workflow](../vault/scripts/vault-pki-workflow.sh) — Vault PKI secrets engine: root CA, role, issuance, rotation, revocation with CRL verification
 - [Vault KV CRUD operations](../vault/scripts/vault-kv-crud.sh)
 - [Vault multi-environment access control](../vault/configs/multi-environment-access-control.hcl)
 - [Vault AWS secrets engine policy](../vault/configs/2026-09-04-aws-secrets-engine-policy.hcl)

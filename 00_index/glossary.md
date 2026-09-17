@@ -90,6 +90,10 @@
 
 **Seal (Vault)**: The action of encrypting Vault's data store, making all stored information inaccessible until the vault is unsealed with the appropriate keys or mechanism.
 
+- **PKI (Vault)** — Vault's PKI secrets engine that functions as an internal certificate authority, issuing, rotating, and revoking TLS certificates. Used for service-to-service authentication.
+- **CRL (Vault)** — Certificate Revocation List published by Vault's PKI engine containing serial numbers of certificates that have been revoked before their expiration. Clients check the CRL to verify a certificate hasn't been revoked.
+- **Leaf certificate** — An end-entity TLS certificate issued by a CA for a specific hostname or service, as opposed to intermediate or root CA certificates.
+
 **go-getter (Vault)**: A Go-based utility used by Vault's Terraform provider to download remote configuration files, vulnerable to arbitrary file read when fetching untrusted sources.
 
 **Flatted**: A JavaScript library for serializing and deserializing circular JSON structures, vulnerable to prototype pollution when processing untrusted input (CVE-2026-33228).
@@ -147,6 +151,8 @@
 **Gitleaks**: Open-source secret scanner that detects exposed credentials and API keys in git repositories using configurable pattern-matching rules (TOML-defined), with pre-commit, pre-push, and CI scan modes.
 
 **SBOM (Software Bill of Materials)**: A machine-readable inventory of software components and dependencies used in an application, commonly generated in CycloneDX or SPDX formats by tools like Syft.
+
+**Multi-arch image** — A container image that ships platform-specific manifests for multiple CPU architectures, referenced through a single image tag via a manifest list. Scanning without selecting a specific architecture gives a misleading package list.
 
 **CycloneDX**: OWASP standard lightweight SBOM format for software component identification and dependency analysis, commonly used for supply chain security.
 
