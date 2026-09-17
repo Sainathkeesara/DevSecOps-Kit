@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - syft-011: `syft/scripts/syft-sbom-generation.py` — Automate Syft SBOM generation across a multi-language repository and attach results to GitHub releases (L5 script)
 - syft-010: `syft/notebooks/source-vs-library-multiarch.ipynb` — Syft CLI scan vs library mode: when to use each and how per-architecture results differ for multi-arch images (L5 notebook)
 - vault-020: `vault/notebooks/static-vs-dynamic-secrets.ipynb` — Comparing Vault static vs dynamic secrets for cloud IAM credential management (L5 notebook, rework)
+- checkov-022: `checkov/docs/checkov-v3-upgrade-checklist.md` — Checkov 2.x to 3.x upgrade checklist: invocation inventory, trial-branch staging, before/after finding comparison, and rollback (L6 docs)
 
 ### Reworked
 - syft-011: `syft/scripts/syft-sbom-generation.py` — rework: fixed SBOM output routing (run Syft once per format with `--output <file>`) and release 422 fallback (return real release object instead of request payload)
