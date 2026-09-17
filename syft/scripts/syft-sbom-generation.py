@@ -17,7 +17,7 @@ Usage:
     python syft-sbom-generation.py /path/to/repo --owner org --repo myapp --tag v1.0.0 \
         --config .syft.yaml --format cyclonedx-json
 
-Environment variables:
+ Environment variables:
     GITHUB_TOKEN   - GitHub personal access token with repo scope (required for upload)
     GITHUB_API     - Override default API URL (defaults to https://api.github.com)
 """
@@ -79,24 +79,24 @@ def detect_languages(repo_path: Path) -> list[str]:
 
 def build_syft_command(
     target: str,
-    formats: list[str],
+    format: str,
     config: Path | None = None,
-    output_dir: Path | None = None,
+    output_file: Path | None = None,
 ) -> list[str]:
-    """Build the Syft CLI argument list."""
+    """Build the Syft CLI argument list for a single output format."""
     cmd = ["syft", "packages", target]
-    for fmt in formats:
-        cmd.extend(["-o", fmt])
+    if output_file:
+        cmd.extend(["--output", str(output_file)])
+    else:
+        cmd.extend(["-o", format])
     if config:
         cmd.extend(["--config", str(config)])
-    if output_dir:
-        cmd.extend(["--output", str(output_dir)])
     cmd.extend(["--quiet"])
     return cmd
 
 
 def run_syft(repo_path: Path, formats: list[str], config: Path | None, dry_run: bool = False) -> dict[str, Path]:
-    """Run Syft for each detected ecosystem and return output file paths."""
+    """Run Syft for each detected ecosystem and each format, returning output file paths."""
     results: dict[str, Path] = {}
     languages = detect_languages(repo_path)
 
@@ -104,40 +104,44 @@ def run_syft(repo_path: Path, formats: list[str], config: Path | None, dry_run: 
         print("No language markers detected. Scanning entire repo as default.")
         languages = ["default"]
 
+    report_dir = repo_path / REPORT_DIR
+    report_dir.mkdir(parents=True, exist_ok=True)
+
     for lang in languages:
         print(f"[syft] Scanning {lang} ecosystem in {repo_path.name}")
-        cmd = build_syft_command(
-            target=str(repo_path),
-            formats=formats,
-            config=config,
-        )
-
-        if dry_run:
-            print(f"  [dry-run] {' '.join(cmd)}")
-            continue
-
-        try:
-            proc = subprocess.run(
-                cmd,
-                capture_output=True,
-                text=True,
-                timeout=600,
-                cwd=repo_path,
-            )
-            if proc.returncode != 0:
-                print(f"  [warn] Syft scan failed for {lang}: {proc.stderr.strip()}", file=sys.stderr)
-                continue
-        except subprocess.TimeoutExpired:
-            print(f"  [warn] Syft scan timed out for {lang}", file=sys.stderr)
-            continue
-        except FileNotFoundError:
-            print("ERROR: syft command not found", file=sys.stderr)
-            sys.exit(2)
-
         for fmt in formats:
-            ext = fmt.replace("-json", "").replace("-", "-")
             safe_lang = lang.replace(" ", "-").lower()
-            output_file = repo_path / REPORT_DIR / f"{safe_lang}.{fmt}"
+            output_file = report_dir / f"{safe_lang}.{fmt}"
+            cmd = build_syft_command(
+                target=str(repo_path),
+                format=fmt,
+                config=config,
+                output_file=output_file,
+            )
+
+            if dry_run:
+                print(f"  [dry-run] {' '.join(cmd)}")
+                results[f"{lang}/{fmt}"] = output_file
+                continue
+
+            try:
+                proc = subprocess.run(
+                    cmd,
+                    capture_output=True,
+                    text=True,
+                    timeout=600,
+                    cwd=repo_path,
+                )
+                if proc.returncode != 0:
+                    print(f"  [warn] Syft scan failed for {lang}/{fmt}: {proc.stderr.strip()}", file=sys.stderr)
+                    continue
+            except subprocess.TimeoutExpired:
+                print(f"  [warn] Syft scan timed out for {lang}/{fmt}", file=sys.stderr)
+                continue
+            except FileNotFoundError:
+                print("ERROR: syft command not found", file=sys.stderr)
+                sys.exit(2)
+
             if output_file.exists():
                 results[f"{lang}/{fmt}"] = output_file
 
@@ -173,8 +177,8 @@ def create_github_release(
     api_url: str,
     draft: bool = False,
     prerelease: bool = False,
-) -> dict[str, Any]:
-    """Create a GitHub release."""
+) -> dict[str, Any] | None:
+    """Create a GitHub release. Returns None if creation fails."""
     url = f"{api_url}/repos/{owner}/{repo}/releases"
     headers = {
         "Authorization": f"Bearer {github_token}",
@@ -192,7 +196,7 @@ def create_github_release(
     except urllib.error.HTTPError as e:
         if e.code == 422:
             print(f"  [info] Release {tag} already exists — reusing it for asset upload", file=sys.stderr)
-            return get_latest_release(owner, repo, github_token, api_url) or payload
+            return get_latest_release(owner, repo, github_token, api_url)
         print(f"ERROR: GitHub API error {e.code}: {e.reason}", file=sys.stderr)
         sys.exit(1)
     except Exception as e:
@@ -329,6 +333,9 @@ def main() -> None:
                 api_url=api_url,
                 prerelease=args.prerelease,
             )
+            if release is None:
+                print("[warn] Failed to create release — cannot upload assets", file=sys.stderr)
+                return
             print(f"[info] Created release: {release.get('html_url', 'unknown')}")
         else:
             print("[info] No existing release found. Use --create-release to create one.", file=sys.stderr)
