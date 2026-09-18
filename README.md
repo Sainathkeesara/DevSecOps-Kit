@@ -11,15 +11,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-961 files across 35 tool-specific folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+968 files across 35 tool-specific folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
-- [Checkov 2.x to 3.x upgrade checklist](checkov/docs/checkov-v3-upgrade-checklist.md) — Roll out a Checkov major-version upgrade as a repeatable trial-branch change without breaking the CI gate
-- [Syft SBOM generation script](syft/scripts/syft-sbom-generation.py) — Generate Syft SBOMs for every language ecosystem in a repo and attach them to a GitHub release
-- [Syft source vs library multiarch notebook](syft/notebooks/source-vs-library-multiarch.ipynb) — Syft CLI scan vs library mode: when to use each and how per-architecture results differ for multi-arch images
-- [Vault static vs dynamic secrets notebook](vault/notebooks/static-vs-dynamic-secrets.ipynb) — Comparing Vault static vs dynamic secrets for cloud IAM credential management
-- [Vault PKI workflow script](vault/scripts/vault-pki-workflow.sh) — Vault PKI secrets engine workflow: root CA, role, issuance, re-issue rotation, revocation with CRL verification
+- [CodeQL CLI vs GitHub Actions scan modes](codeql/notebooks/compare-cli-vs-actions-scan-modes.ipynb) — When to run CodeQL locally via the CLI versus declaratively in GitHub Actions for CI
+- [Pipeline artifact promotion practice](docs/concepts/ci-cd-pipeline-concepts/scripts/2026-09-18-practice-pipeline-artifact-promotion.sh) — Build once, then promote the same artifact staging → prod only when checks pass
+- [Terraform validate-then-plan loop](docs/concepts/infrastructure-as-code/snippets/2026-09-18-validate-and-plan-terraform.sh) — fmt, init, validate, and plan before ever running apply
+- [Common Linux scripting patterns in Python](docs/concepts/linux-shell-fundamentals/snippets/2026-09-18-common-linux-scripting-patterns.py) — Subprocess, env defaults, file iteration, and loud failure for scripting practice
+- [Supply-chain CI verification gate](docs/concepts/software-supply-chain-security/scripts/ci-pipeline-verification.py) — Prevention, reachability triage, and SBOM governance gates for a pipeline step
 
 ## Layout
 
@@ -44,7 +44,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total | Last verified |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|---------:|------:|---------------|
-| checkov | 4 | 6 | 2 | 3 | 4 | 20 | 3 | 0 | 2 | 1 | 45 | 2026-09-17 |
+| checkov | 4 | 6 | 2 | 3 | 4 | 20 | 3 | 0 | 3 | 1 | 46 | 2026-09-17 |
 | trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 38 | 2026-09-04 |
 | syft | 4 | 6 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 37 | 2026-09-03 |
 | trivy | 6 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 35 | 2026-09-05 |
@@ -55,12 +55,12 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | — |
 | terraform | 3 | 1 | 4 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 20 | 2026-08-10 |
 | semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 20 | 2026-08-06 |
-| terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 18 | 2026-08-08 |
+| terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 18 | 2026-08-09 |
 | vault | 4 | 3 | 4 | 3 | 2 | 0 | 1 | 1 | 1 | 0 | 19 | 2026-08-30 |
 | cosign | 4 | 1 | 3 | 1 | 1 | 0 | 2 | 2 | 0 | 0 | 14 | 2026-08-25 |
 | dependabot | 7 | 1 | 2 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 2026-08-18 |
 | falco | 4 | 2 | 3 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-07-19 |
-| codeql | 4 | 1 | 1 | 1 | 4 | 0 | 1 | 1 | 0 | 0 | 13 | 2026-08-26 |
+| codeql | 4 | 2 | 1 | 1 | 4 | 0 | 1 | 1 | 1 | 0 | 15 | 2026-09-18 |
 | github-actions | 4 | 0 | 0 | 3 | 2 | 0 | 2 | 0 | 0 | 0 | 11 | 2026-08-26 |
 | argocd | 6 | 0 | 0 | 1 | 0 | 0 | 2 | 0 | 0 | 0 | 9 | 2026-08-12 |
 | docker | 2 | 1 | 2 | 1 | 0 | 0 | 0 | 2 | 0 | 0 | 8 | 2026-08-05 |
@@ -84,7 +84,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include a Checkov 2.x to 3.x upgrade checklist, a Syft multi-language SBOM generation script, and Syft multi-arch comparison notebooks. Current focus is finishing per-tool notes and deepening policy-as-code and supply-chain coverage.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include a CodeQL CLI-vs-Actions comparison notebook, a CodeQL data-flow query patterns guide, and a Checkov cross-module scanning notebook. Current focus is finishing per-tool notes and deepening policy-as-code and supply-chain coverage.
 
 ---
-_Last updated: 2026-09-17_
+_Last updated: 2026-09-19_

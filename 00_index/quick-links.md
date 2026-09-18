@@ -94,9 +94,13 @@
 ### Practice and learn
 - [Version control with Git fundamentals](../docs/concepts/git-001-version-control-fundamentals.md)
 - [CI/CD pipeline concepts](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md)
+- [Pipeline artifact promotion practice](../docs/concepts/ci-cd-pipeline-concepts/scripts/2026-09-18-practice-pipeline-artifact-promotion.sh) — Build once, then promote the same artifact staging → prod only when checks pass
 - [Application Security Testing concepts](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md)
 - [SCA and dependency exercises](../docs/concepts/application-security-testing-concepts/snippets/2026-08-26-appsec-sca-dependency-exercises.py)
 - [Infrastructure as Code fundamentals](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md)
+- [Terraform validate-then-plan loop](../docs/concepts/infrastructure-as-code/snippets/2026-09-18-validate-and-plan-terraform.sh) — fmt, init, validate, and plan before ever running apply
+- [Common Linux scripting patterns in Python](../docs/concepts/linux-shell-fundamentals/snippets/2026-09-18-common-linux-scripting-patterns.py) — Subprocess, env defaults, file iteration, and loud failure for scripting practice
+- [Supply-chain CI verification gate](../docs/concepts/software-supply-chain-security/scripts/ci-pipeline-verification.py) — Prevention, reachability triage, and SBOM governance gates for a pipeline step
 - [Applying secrets & access management](../docs/concepts/secrets-access-management/snippets/2026-08-25-applying-secrets-access-management.py)
 - [Applying version control in DevSecOps](../docs/concepts/version-control-with-git/snippets/2026-08-25-applying-version-control-in-devsecops.py)
 
@@ -112,10 +116,13 @@
 - [Semgrep primer](../semgrep/notes/0000-primer-semgrep.md)
 - [Checkov primer](../checkov/notes/0000-primer-checkov.md)
 - [Checkov 2.x to 3.x upgrade checklist](../checkov/docs/checkov-v3-upgrade-checklist.md) — Roll out the major-version upgrade on a trial branch without breaking the CI gate
+- [Checkov cross-module scanning limitations](../checkov/notebooks/compare-cross-module-scanning-limitations.ipynb) — Static directory scan vs plan JSON scan for cross-module IaC
 - [tfsec primer](../tfsec/notes/0000-primer-tfsec.md)
 - [Checkov platform config](../checkov/configs/platform-config.yaml)
 - [CodeQL primer](../codeql/notes/0000-primer-codeql.md)
 - [Install CodeQL and run a first query](../codeql/notes/2026-08-26-install-codeql-first-query.md)
+- [CodeQL query-writing patterns for JavaScript/TypeScript](../codeql/docs/query-writing-patterns-dataflow-javascript-typescript.md) — Source, sink, and sanitizer patterns for custom data-flow queries
+- [CodeQL CLI vs GitHub Actions scan modes](../codeql/notebooks/compare-cli-vs-actions-scan-modes.ipynb) — When to run CodeQL locally via the CLI versus declaratively in Actions
 - [Custom Semgrep rule example](../semgrep/snippets/first-custom-rule.yaml)
 - [Semgrep rule performance optimization](../semgrep/docs/semgrep-rule-performance-optimization.md)
 - [AST-based security pattern checker](../docs/concepts/application-security-testing-concepts/scripts/2026-08-26-ast-devsecops.py)

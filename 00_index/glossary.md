@@ -350,6 +350,8 @@
 
 **replaces-base (Dependabot)**: A flag on a Dependabot registry entry used when a private registry proxies and also hosts the same packages as a public base registry, so updates aren't duplicated against both sources.
 
+**Artifact promotion**: A CI/CD practice where a single build artifact moves through environments (e.g. staging → prod) only when checks pass, instead of rebuilding per environment. The promotion gate compares the staged artifact against the build output so what was tested is exactly what ships.
+
 ## DefectDojo
 
 - **Product** — An application or service tracked in DefectDojo.
@@ -553,6 +555,11 @@
 - **Version pin (Checkov)** — A fixed scanner version recorded in the install step (package requirement, image tag, or pre-commit revision) so the CI gate runs a known release. Unpinned installs are the most common source of surprise upgrades.
 - **Fail-closed gate** — A CI scan step that blocks merges or releases when the scanner errors or finds violations, rather than passing silently. After a scanner upgrade, the gate must still block a known-bad fixture.
 - **Before/after finding diff** — Comparing the full finding list from the old scanner version against the upgraded one on the same test corpus. Every difference should trace to a catalogued breaking change; an unexplained new pass means a check silently stopped running.
+
+## CodeQL
+
+- **Sanitizer** — The data-flow role that neutralizes untrusted input between a source and a sink (e.g. an escaping helper before HTML rendering). Naming the sanitizer explicitly keeps a custom query to one flow path instead of flagging every downstream use.
+- **CLI vs Actions scan mode** — The two ways to run CodeQL in CI: the CLI runs database creation and query analysis as local commands under operator control, while the GitHub Actions mode stays declarative (checkout, init, autobuild, analyze) with results uploaded as repository alerts.
 
 ## Acronyms
 
