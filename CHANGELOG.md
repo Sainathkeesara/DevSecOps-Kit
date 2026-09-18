@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-18
+
+### Added
+- checkov-023: `checkov/notebooks/compare-cross-module-scanning-limitations.ipynb` — Checkov cross-module scanning limitations comparing static directory vs plan JSON approaches (L6 notebook)
+
 ## 2026-09-17
 
 ### Added
