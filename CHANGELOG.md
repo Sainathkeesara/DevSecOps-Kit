@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - con-110: `docs/concepts/software-supply-chain-security/scripts/ci-pipeline-verification.py` — SCS + CI pipeline verification gate: prevention, reachability triage, and SBOM governance (concept L3 script)
 - con-115: `docs/concepts/infrastructure-as-code/snippets/2026-09-18-validate-and-plan-terraform.sh` — Practicing the fmt, init, validate, and plan loop before apply (concept L2 snippet)
 - con-118: `docs/concepts/linux-shell-fundamentals/snippets/2026-09-18-common-linux-scripting-patterns.py` — Common Linux scripting patterns reworked in Python with stdlib only (concept L2 snippet)
+- codeql-014: `codeql/templates/custom-query-pack-ci-harness/` — CodeQL custom query pack scaffold with CI integration harness (L5 template)
 
 ## 2026-09-17
 

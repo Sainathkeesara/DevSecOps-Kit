@@ -1,0 +1,43 @@
+# last_verified: 2026-09-18 · codeql n/a
+name: CodeQL custom queries
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions: read-all
+
+jobs:
+  analyze:
+    name: Analyze with custom query pack
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Initialize CodeQL with custom pack
+        uses: github/codeql-action/init@v3
+        with:
+          languages: python
+          packs: ./codeql-custom
+          source-root: .
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:python"
+          output: sarif-results
