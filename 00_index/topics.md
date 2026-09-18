@@ -12,10 +12,10 @@
 - **configs** (1): [2026-08-17-private-repo-credentials-rbac.yaml](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml)
 - **manifests** (2): [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml), [2026-08-12-gitops-sync-sample-web-app.yaml](../argocd/manifests/2026-08-12-gitops-sync-sample-web-app.yaml)
 
-## checkov  ·  44 files
+## checkov  ·  45 files
 - **primer:** [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md)
 - **notes** (4): [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md), [2026-05-25-scan-terraform-plan.md](../checkov/notes/2026-05-25-scan-terraform-plan.md), [2026-05-26-cli-vs-sdk-comparison.md](../checkov/notes/2026-05-26-cli-vs-sdk-comparison.md) — _…and 1 more under `checkov/notes/`._
-- **docs** (5): [checkov-ai-infrastructure-checks.md](../checkov/docs/checkov-ai-infrastructure-checks.md), [checkov-integration-patterns.md](../checkov/docs/checkov-integration-patterns.md), [checkov-v3-migration-guide.md](../checkov/docs/checkov-v3-migration-guide.md) — _…and 2 more under `checkov/docs/`._
+- **docs** (6): [checkov-v3-upgrade-checklist.md](../checkov/docs/checkov-v3-upgrade-checklist.md), [checkov-ai-infrastructure-checks.md](../checkov/docs/checkov-ai-infrastructure-checks.md), [checkov-integration-patterns.md](../checkov/docs/checkov-integration-patterns.md) — _…and 3 more under `checkov/docs/`._
 - **scripts** (2): [deep-terraform-plan-scan.sh](../checkov/scripts/deep-terraform-plan-scan.sh), [scan-terraform-plan.sh](../checkov/scripts/scan-terraform-plan.sh)
 - **configs** (3): [checkov-ci-config.yaml](../checkov/configs/checkov-ci-config.yaml), [checkov-skip-severity-config.yaml](../checkov/configs/checkov-skip-severity-config.yaml), [platform-config.yaml](../checkov/configs/platform-config.yaml)
 - **snippets** (4): [scan-a-terraform-file.py](../checkov/snippets/scan-a-terraform-file.py), [scan-kubernetes.sh](../checkov/snippets/scan-kubernetes.sh), [scan-terraform-dir.py](../checkov/snippets/scan-terraform-dir.py) — _…and 1 more under `checkov/snippets/`._
@@ -186,11 +186,11 @@
 - **notes** (2): [0000-primer-sonarqube.md](../sonarqube/notes/0000-primer-sonarqube.md), [2026-07-19-explore-sonarqube-quality-gates-profiles.md](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md)
 - **snippets** (1): [2026-07-16-first-sonarscanner-run.sh](../sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh)
 
-## syft  ·  36 files
+## syft  ·  37 files
 - **primer:** [0000-primer-syft.md](../syft/notes/0000-primer-syft.md)
 - **notes** (4): [0000-primer-syft.md](../syft/notes/0000-primer-syft.md), [2026-05-27-install-syft-first-sbom.md](../syft/notes/2026-05-27-install-syft-first-sbom.md), [2026-05-29-syft-quickstart-trip-ups.md](../syft/notes/2026-05-29-syft-quickstart-trip-ups.md) — _…and 1 more under `syft/notes/`._
 - **docs** (6): [enterprise-registry-auth-caching-patterns.md](../syft/docs/enterprise-registry-auth-caching-patterns.md), [enterprise-registry-auth-caching.md](../syft/docs/enterprise-registry-auth-caching.md), [output-format-selection-guide.md](../syft/docs/output-format-selection-guide.md) — _…and 3 more under `syft/docs/`._
-- **scripts** (3): [gen-multi-format-sboms.sh](../syft/scripts/gen-multi-format-sboms.sh), [multi-image-sbom-pipeline.sh](../syft/scripts/multi-image-sbom-pipeline.sh), [sbom-vuln-pipeline.sh](../syft/scripts/sbom-vuln-pipeline.sh)
+- **scripts** (4): [syft-sbom-generation.py](../syft/scripts/syft-sbom-generation.py), [gen-multi-format-sboms.sh](../syft/scripts/gen-multi-format-sboms.sh), [multi-image-sbom-pipeline.sh](../syft/scripts/multi-image-sbom-pipeline.sh) — _…and 1 more under `syft/scripts/`._
 - **configs** (1): [.syft.yaml](../syft/configs/.syft.yaml)
 - **snippets** (1): [tried-sbom-formats.sh](../syft/snippets/tried-sbom-formats.sh)
 - **templates** (15): [sbom-scan.yml](../syft/templates/sbom-pipeline-scaffold/.github/workflows/sbom-scan.yml), [.gitignore](../syft/templates/sbom-pipeline-scaffold/.gitignore), [Makefile](../syft/templates/sbom-pipeline-scaffold/Makefile) — _…and 12 more under `syft/templates/`._

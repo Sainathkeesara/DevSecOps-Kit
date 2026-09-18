@@ -548,6 +548,12 @@
 
 **ASPM** — Application Security Posture Management, a discipline that aggregates and correlates security findings across SAST, DAST, SCA, and secret scanners to provide a unified risk view.
 
+## Checkov
+
+- **Version pin (Checkov)** — A fixed scanner version recorded in the install step (package requirement, image tag, or pre-commit revision) so the CI gate runs a known release. Unpinned installs are the most common source of surprise upgrades.
+- **Fail-closed gate** — A CI scan step that blocks merges or releases when the scanner errors or finds violations, rather than passing silently. After a scanner upgrade, the gate must still block a known-bad fixture.
+- **Before/after finding diff** — Comparing the full finding list from the old scanner version against the upgraded one on the same test corpus. Every difference should trace to a catalogued breaking change; an unexplained new pass means a check silently stopped running.
+
 ## Acronyms
 
 **OCI (Open Container Initiative)** — A set of open-source standards for container image formats and distribution, used by registries like Docker Hub, GitHub Container Registry, and AWS ECR.
