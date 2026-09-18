@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-09-18
 
 ### Added
+- codeql-013: `codeql/notebooks/compare-cli-vs-actions-scan-modes.ipynb` — Comparing CodeQL CLI vs GitHub Actions scan modes for CI integration (L5 notebook)
 - con-114: `docs/concepts/ci-cd-pipeline-concepts/scripts/2026-09-18-practice-pipeline-artifact-promotion.sh` — CI/CD artifact promotion practice: build once, check, promote staging to prod (L2 script)
 - checkov-023: `checkov/notebooks/compare-cross-module-scanning-limitations.ipynb` — Checkov cross-module scanning limitations comparing static directory vs plan JSON approaches (L6 notebook)
 - con-110: `docs/concepts/software-supply-chain-security/scripts/ci-pipeline-verification.py` — SCS + CI pipeline verification gate: prevention, reachability triage, and SBOM governance (concept L3 script)
