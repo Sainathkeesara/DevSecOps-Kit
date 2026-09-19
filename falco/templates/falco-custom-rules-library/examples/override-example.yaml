@@ -1,0 +1,12 @@
+# last_verified: 2026-09-19 · falco n/a
+# Override pattern: copy this file, rename it for the environment, and load
+# it AFTER rules/custom-rules.yaml. Settings here win over the library.
+# This example lowers the noise of one library rule for a build fleet whose
+# base images legitimately run a package tool at startup.
+
+- rule: Package tool launched inside container
+  desc: Build fleet base images run a package tool at startup, so only alert when the parent process is not the image entrypoint
+  condition: spawned_process and in_container and proc.name in (package_binaries) and proc.pname != entrypoint
+  output: Package tool run in container (user=%user.name proc=%proc.name cmdline=%proc.cmdline container=%container.name image=%container.image)
+  priority: WARNING
+  tags: [container, persistence, software-management]
