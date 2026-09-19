@@ -1,0 +1,49 @@
+# last_verified: 2026-09-19 · falco n/a
+# Team-owned Falco detection library. Loaded AFTER the default ruleset so
+# these definitions take precedence. Shared lists and macros live at the
+# top; rules below reuse them instead of repeating conditions inline.
+
+- list: sensitive_host_files
+  items:
+    - /etc/shadow
+    - /etc/passwd
+    - /etc/sudoers
+    - /root/.ssh/authorized_keys
+
+- list: package_binaries
+  items:
+    - apt
+    - apt-get
+    - dpkg
+    - yum
+    - dnf
+    - apk
+    - pip
+    - npm
+
+- macro: in_container
+  condition: container.id != host
+
+- macro: spawned_process
+  condition: evt.type = execve and proc.name exists
+
+- rule: Package tool launched inside container
+  desc: Detect package manager or installer activity in a running container, which usually means unexpected software changes
+  condition: spawned_process and in_container and proc.name in (package_binaries)
+  output: Package tool run in container (user=%user.name proc=%proc.name cmdline=%proc.cmdline container=%container.name image=%container.image)
+  priority: WARNING
+  tags: [container, persistence, software-management]
+
+- rule: Sensitive host file read from container
+  desc: Detect reads of sensitive host authentication files from inside a container
+  condition: in_container and fd.name in (sensitive_host_files) and evt.type = open
+  output: Sensitive file accessed from container (file=%fd.name proc=%proc.name container=%container.name image=%container.image)
+  priority: CRITICAL
+  tags: [container, credential-access, host]
+
+- rule: Unexpected outbound connection from container
+  desc: Detect new outbound network connections initiated by short-lived processes in a container
+  condition: in_container and evt.type = connect and proc.duration <= 50000000
+  output: Short-lived process opened outbound connection (proc=%proc.name cmdline=%proc.cmdline dest=%fd.sip container=%container.name)
+  priority: NOTICE
+  tags: [container, exfiltration, network]

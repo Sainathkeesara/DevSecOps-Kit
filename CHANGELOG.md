@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - codeql-012: `codeql/manifests/codeql-multi-language-scan.yaml` — CodeQL GitHub Actions workflow for multi-language repository scanning in a single job (L5 manifest)
 - falco-014: `falco/manifests/falco-k8s-admission-control.yaml` — Falco CI/CD pipeline integration for Kubernetes admission control (L5 manifest)
 - argocd-028: `argocd/docs/multi-environment-gitops-delivery.md` — Wiring ArgoCD into a multi-environment GitOps delivery workflow: per-env Applications, auto-sync dev/staging with manual prod promotion, and conservative prune/self-heal defaults (L3 docs)
+- falco-016: `falco/templates/falco-custom-rules-library/` — Falco custom rules library scaffold with test harness: shared lists/macros, three starter rules, override pattern, and validation script (L5 template)
 
 ## 2026-09-18
 
