@@ -560,6 +560,13 @@
 
 - **Sanitizer** — The data-flow role that neutralizes untrusted input between a source and a sink (e.g. an escaping helper before HTML rendering). Naming the sanitizer explicitly keeps a custom query to one flow path instead of flagging every downstream use.
 - **CLI vs Actions scan mode** — The two ways to run CodeQL in CI: the CLI runs database creation and query analysis as local commands under operator control, while the GitHub Actions mode stays declarative (checkout, init, autobuild, analyze) with results uploaded as repository alerts.
+- **Query pack (qlpack.yml)** — A versioned directory of `.ql` query files plus a pack manifest, kept beside the code it scans so project-specific checks travel with the repo. A local test script and a CI workflow exercise the same pack, so a query that passes locally behaves the same on a pull request.
+- **Query suite (.qls)** — A named list of queries run together as one unit. Suites let a team curate which checks block a PR versus which only report, without editing the queries themselves.
+
+## Falco
+
+- **Rule priority** — The severity tier Falco attaches to each rule firing (from Emergency down to Informational/Debug). Tuning starts by ranking rules on volume, then routing by tier: page on Warning and above while lower tiers stay searchable in logs.
+- **Priority override** — Changing a rule's priority in a custom rules layer instead of copying and editing the vendor default. Overrides keep the custom layer small and survive upstream ruleset updates.
 
 ## Acronyms
 

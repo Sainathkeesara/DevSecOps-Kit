@@ -35,6 +35,11 @@
 - [Minimal network tracing policy](../tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml)
 - [Tetragon event collection pipeline](../tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh)
 
+### Tune runtime detection
+- [Falco primer](../falco/notes/0000-primer-falco.md)
+- [Falco rule optimization with priority-based filtering](../falco/docs/rule-optimization-priority-filtering.md) — Rank the noisiest rules first, then cut volume with lists, macros, and priority-tiered routing
+- [First custom Falco rule](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
+
 ### Get started with vulnerability scanning
 - [Install Trivy and run a first container scan](../trivy/notes/2026-09-05-install-trivy-first-container-scan.md)
 - [Install ZAP and run a baseline scan](../zap/notes/2026-09-05-install-zap-first-baseline-scan.md)
@@ -123,6 +128,8 @@
 - [Install CodeQL and run a first query](../codeql/notes/2026-08-26-install-codeql-first-query.md)
 - [CodeQL query-writing patterns for JavaScript/TypeScript](../codeql/docs/query-writing-patterns-dataflow-javascript-typescript.md) — Source, sink, and sanitizer patterns for custom data-flow queries
 - [CodeQL CLI vs GitHub Actions scan modes](../codeql/notebooks/compare-cli-vs-actions-scan-modes.ipynb) — When to run CodeQL locally via the CLI versus declaratively in Actions
+- [CodeQL multi-language repository scan](../codeql/manifests/codeql-multi-language-scan.yaml) — One workflow that analyses every language in a repo with a single status check
+- [CodeQL custom query-pack scaffold](../codeql/templates/custom-query-pack-ci-harness/README.md) — Reusable layout for project-specific queries with CI and local test harness
 - [Custom Semgrep rule example](../semgrep/snippets/first-custom-rule.yaml)
 - [Semgrep rule performance optimization](../semgrep/docs/semgrep-rule-performance-optimization.md)
 - [AST-based security pattern checker](../docs/concepts/application-security-testing-concepts/scripts/2026-08-26-ast-devsecops.py)
