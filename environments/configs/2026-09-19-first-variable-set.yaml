@@ -1,0 +1,11 @@
+# last_verified: 2026-09-19 · environments n/a
+
+environment: dev
+aws_region: us-east-1
+project_name: devsecops-kit
+vpc_cidr: "10.0.0.0/16"
+enable_nat_gateway: true
+tags:
+  Project: devsecops-kit
+  Environment: dev
+  ManagedBy: Terraform
