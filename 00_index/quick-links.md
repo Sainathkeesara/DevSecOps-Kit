@@ -6,6 +6,7 @@
 - [Ansible CVE-2026-33228 path verification](../ansible/notes/2026-08-17-verify-ansible-cve-2026-33228-paths.md)
 - [Trivy CVE severity filtering](../scripts/bash/ci_cd_toolkit/trivy-severity-filter.sh)
 - [TruffleHog PR secret scan reusable workflow](../trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml)
+- [Falco K8s admission control rule](../falco/manifests/falco-k8s-admission-control.yaml)
 
 ### Build and sign container images
 - [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
@@ -39,6 +40,7 @@
 - [Falco primer](../falco/notes/0000-primer-falco.md)
 - [Falco rule optimization with priority-based filtering](../falco/docs/rule-optimization-priority-filtering.md) — Rank the noisiest rules first, then cut volume with lists, macros, and priority-tiered routing
 - [First custom Falco rule](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
+- [Falco K8s admission control rule](../falco/manifests/falco-k8s-admission-control.yaml)
 
 ### Get started with vulnerability scanning
 - [Install Trivy and run a first container scan](../trivy/notes/2026-09-05-install-trivy-first-container-scan.md)
@@ -73,6 +75,7 @@
 - [ArgoCD primer](../argocd/notes/0000-primer-argocd.md)
 - [ArgoCD private repo credentials and RBAC](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml)
 - [ArgoCD quickstart trip-ups](../argocd/notes/2026-08-12-quickstart-tripups.md)
+- [ArgoCD multi-environment GitOps delivery](../argocd/docs/multi-environment-gitops-delivery.md)
 - [Provision a Kubernetes cluster with Terraform + Ansible](../docs/how-to/k8s-terraform-ansible-provisioning.md)
 
 ### Manage policies and compliance
