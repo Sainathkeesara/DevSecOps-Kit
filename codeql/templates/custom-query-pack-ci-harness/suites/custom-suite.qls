@@ -1,0 +1,4 @@
+# last_verified: 2026-09-18 · codeql n/a
+# Custom query suite for the CI and local harness.
+# One line per query, relative to the pack root (the directory holding qlpack.yml).
++ queries/hardcoded-credential-check.ql
