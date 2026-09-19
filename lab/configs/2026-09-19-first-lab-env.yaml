@@ -1,0 +1,16 @@
+# last_verified: 2026-09-19 · lab n/a
+# My first lab environment — just one practice box so I have somewhere
+# harmless to try things. Haven't tried multi-machine setups yet.
+name: my-first-lab
+purpose: practice box for trying kit walkthroughs
+
+machine:
+  os: ubuntu
+  packages:
+    - curl
+    - git
+
+ports:
+  - 8080
+
+notes: rebuild me from this file if the box gets messy
