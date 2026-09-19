@@ -36,6 +36,11 @@
 - [Minimal network tracing policy](../tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml)
 - [Tetragon event collection pipeline](../tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh)
 
+### Visualize metrics
+- [Grafana primer](../grafana/notes/0000-primer-grafana.md)
+- [First Grafana datasource](../grafana/configs/2026-09-19-first-datasource.yaml) — Wire one Prometheus backend into Grafana so a first panel query has something to read
+- [First dashboard browser check](../grafana/notes/2026-09-19-first-dashboard-browser.md) — What to inspect in the dashboard browser once the UI is reachable
+
 ### Tune runtime detection
 - [Falco primer](../falco/notes/0000-primer-falco.md)
 - [Falco rule optimization with priority-based filtering](../falco/docs/rule-optimization-priority-filtering.md) — Rank the noisiest rules first, then cut volume with lists, macros, and priority-tiered routing
@@ -68,6 +73,7 @@
 - [Terraform primer](../terraform/notes/0000-primer-terraform.md)
 - [Composing Terraform modules](../terraform/docs/terraform-module-composition.md)
 - [Terraform workspace variable precedence](../terraform/configs/workspace-variable-precedence.hcl)
+- [First environment comparison](../environments/notes/2026-09-19-first-environment-comparison.md) — Dev vs staging vs prod variable differences worth understanding before changing anything
 - [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
 - [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md)
 - [Helm primer](../helm/notes/0000-primer-helm.md)
@@ -111,6 +117,8 @@
 - [Supply-chain CI verification gate](../docs/concepts/software-supply-chain-security/scripts/ci-pipeline-verification.py) — Prevention, reachability triage, and SBOM governance gates for a pipeline step
 - [Applying secrets & access management](../docs/concepts/secrets-access-management/snippets/2026-08-25-applying-secrets-access-management.py)
 - [Applying version control in DevSecOps](../docs/concepts/version-control-with-git/snippets/2026-08-25-applying-version-control-in-devsecops.py)
+- [Lab primer](../lab/notes/0000-primer-lab.md) — What the lab scratch space is for and how mini-projects are organised
+- [First lab environment](../lab/configs/2026-09-19-first-lab-env.yaml) — A one-machine practice box you can rebuild from when experiments get messy
 
 ### Run infrastructure tasks
 - [Ansible quickstart trip-ups](../ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md)
@@ -140,6 +148,7 @@
 ### Scan for secrets
 - [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md)
 - [Gitleaks primer](../gitleaks/notes/0000-primer-gitleaks.md)
+- [First secret scan with Gitleaks](../gitleaks/notes/2026-09-19-first-secret-scan.md) — What to set up before a first scan, using a fake credential in a test repo
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
 - [GitGuardian incident response workflow](../gitguardian/docs/gitguardian-incident-response-workflow.md)
 - [GitGuardian API integration](../gitguardian/scripts/gitguardian-api-integration.py)

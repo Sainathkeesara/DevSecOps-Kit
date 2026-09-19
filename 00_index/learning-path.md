@@ -30,7 +30,7 @@ These tools are unlocked from the start and cover the most common DevSecOps work
 - **Semgrep** — SAST tool with custom rule writing, multi-language support, and CI/CD integration. [Primer](../semgrep/notes/0000-primer-semgrep.md) | [Rule writing reference](../semgrep/docs/semgrep-rule-writing-reference.md)
 - **Checkov** — IaC security scanner for Terraform, Kubernetes, CloudFormation. Supports custom policies and plan scanning. [Primer](../checkov/notes/0000-primer-checkov.md) | [Plan scanning](../checkov/scripts/deep-terraform-plan-scan.sh) | [v3 migration guide](../checkov/docs/checkov-v3-migration-guide.md) | [2.x to 3.x upgrade checklist](../checkov/docs/checkov-v3-upgrade-checklist.md) | [Cross-module scanning limitations](../checkov/notebooks/compare-cross-module-scanning-limitations.ipynb) | [Multi-repo drift detection scaffold](../checkov/templates/multi-repo-drift-auto-pr-remediation/README.md)
 - **TruffleHog** — Secret scanner with git, filesystem, and S3 scan modes. Custom regex and entropy-based detection. [Primer](../trufflehog/notes/0000-primer-trufflehog.md) | [Scan modes comparison](../trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md)
-- **Gitleaks** — Secret scanner using configurable pattern-matching rules with pre-commit and CI integration. [Primer](../gitleaks/notes/0000-primer-gitleaks.md)
+- **Gitleaks** — Secret scanner using configurable pattern-matching rules with pre-commit and CI integration. [Primer](../gitleaks/notes/0000-primer-gitleaks.md) | [First secret scan](../gitleaks/notes/2026-09-19-first-secret-scan.md)
 - **OWASP ZAP** — DAST tool for web application security testing. Baseline, spider, and active scan modes. [Primer](../zap/notes/0000-primer-zap.md) | [Install and first baseline scan](../zap/notes/2026-09-05-install-zap-first-baseline-scan.md) | [DAST workflow](../zap/scripts/dast-workflow-from-scratch.sh)
 
 ## Stage 3: Building Skills
@@ -49,7 +49,7 @@ Intermediate tools that add SBOM management, software composition analysis, and 
 - **Terrascan** — IaC static analysis for Terraform and Kubernetes with custom Rego rules. [Primer](../terrascan/notes/0000-primer-terrascan.md) | [First scan](../terrascan/notes/2026-06-13-first-scan.md) | [Custom Rego rules](../terrascan/configs/tried-custom-s3-rule.yaml)
 - **tfsec** — Static analysis tool for scanning Terraform code for security misconfigurations at write time. [Primer](../tfsec/notes/0000-primer-tfsec.md)
 - **Prometheus** — Time-series metrics collection and alerting for cloud-native environments. [Primer](../prometheus/notes/0000-primer-prometheus.md)
-- **Grafana** — Dashboard and visualization layer for metrics. [Primer](../grafana/notes/0000-primer-grafana.md)
+- **Grafana** — Dashboard and visualization layer for metrics. [Primer](../grafana/notes/0000-primer-grafana.md) | [First datasource](../grafana/configs/2026-09-19-first-datasource.yaml) | [Dashboard browser check](../grafana/notes/2026-09-19-first-dashboard-browser.md)
 - **Ansible** — Configuration management and automation over SSH, built on the Configuration Management fundamentals. [Provision a Kubernetes cluster](../docs/how-to/k8s-terraform-ansible-provisioning.md) | [Quickstart trip-ups](../ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md) | [Minimal playbook: package and service](../ansible/snippets/2026-08-25-minimal-ansible-playbook-package-service.yaml) | [Inventory with group and host vars](../ansible/configs/2026-09-15-inventory-groups-host-vars.yaml) | [CVE-2026-33228 path verification](../ansible/notes/2026-08-17-verify-ansible-cve-2026-33228-paths.md) | [Bootstrap a node](../ansible/scripts/bootstrap-target-node.sh)
 
 ## Stage 4: Advanced Tools
@@ -74,6 +74,7 @@ Cross-cutting integration and custom tooling.
 - **CVE remediation workflows** — Using the CVE-specific scripts and guides for Ansible, Docker, Jenkins, Kafka, Kubernetes, and Trivy.
 - **Multi-cluster security posture management** — Integrating Falco, OPA, Trivy Operator, and kubescape across multiple Kubernetes clusters.
 - **Observability stack integration** — Wiring Prometheus metrics, Grafana dashboards, Loki logs, and Jaeger traces into a unified SLO-driven alerting pipeline.
+- **Hands-on practice environments** — Rebuilding small setups from saved configs without touching shared infrastructure. [Lab primer](../lab/notes/0000-primer-lab.md) | [First lab environment](../lab/configs/2026-09-19-first-lab-env.yaml) | [Dev/staging/prod comparison](../environments/notes/2026-09-19-first-environment-comparison.md)
 
 ## Progression Map
 
