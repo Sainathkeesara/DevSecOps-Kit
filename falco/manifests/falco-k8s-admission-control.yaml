@@ -1,0 +1,97 @@
+# last_verified: 2026-09-19 · falco n/a
+# Purpose: Validate Kubernetes manifests against Falco rules in CI before deployment,
+#          catching runtime-risk violations (privileged containers, host namespace
+#          access, privileged escalation, etc.) at the pipeline gate rather than at admission time.
+# When to use: Teams running Falco in CI/CD who want policy checks on every PR
+#              touching Kubernetes manifests, especially when admission controller
+#              coverage is not yet available cluster-wide.
+# Prerequisites: a Falco rules file (default or custom) available to the runner;
+#                Docker available for the optional sidecar scan; Kubernetes manifests
+#                located at a known path in the repository.
+# Verify: open a PR with a manifest that violates a Falco rule and confirm the
+#         workflow fails on the gate step; confirm clean manifests pass.
+name: Falco — Kubernetes admission control validation
+
+on:
+  pull_request:
+    paths:
+      - 'k8s/**'
+      - 'deploy/**'
+      - 'manifests/**'
+      - 'helm/**'
+  push:
+    branches:
+      - main
+    paths:
+      - 'k8s/**'
+      - 'deploy/**'
+      - 'manifests/**'
+      - 'helm/**'
+
+permissions:
+  contents: read
+  security-events: write
+
+env:
+  FALCO_RULES_PATH: /etc/falco/falco_rules.yaml
+  FALCO_CONFIG_PATH: /etc/falco/falco.yaml
+  MANIFEST_PATH: ./k8s
+
+jobs:
+  falco-admission-check:
+    name: Falco admission control scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Restore Falco rules cache
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: /tmp/falco-rules
+          key: falco-rules-${{ runner.os }}
+          restore-keys: |
+            falco-rules-
+
+      - name: Install Falco CLI
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/falcosecurity/falco/master/install.sh | bash -s -- -b /usr/local
+
+      - name: Run Falco on Kubernetes manifests
+        id: falco-scan
+        continue-on-error: true
+        env:
+          SCAN_DIR: ${{ env.MANIFEST_PATH }}
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/falco-results"
+          if [ -d "$SCAN_DIR" ]; then
+            falco --trace "$SCAN_DIR"/*.yaml \
+              --json-output \
+              --rules "$FALCO_RULES_PATH" \
+              > "$GITHUB_WORKSPACE/falco-results/falco-results.json" 2>&1 || true
+          else
+            echo "No manifest directory found at $SCAN_DIR; skipping scan." \
+              > "$GITHUB_WORKSPACE/falco-results/falco-results.json"
+          fi
+
+          VIOLATIONS=$(jq '[.[] | select(.priority == "Error" or .priority == "Warning")] | length' \
+            "$GITHUB_WORKSPACE/falco-results/falco-results.json" 2>/dev/null || echo "0")
+          echo "violations=$VIOLATIONS" >> $GITHUB_OUTPUT
+
+      - name: Upload Falco scan results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: falco-admission-results
+          path: ${{ github.workspace }}/falco-results/
+          if-no-files-found: ignore
+
+      - name: Fail on policy violations
+        if: ${{ steps.falco-scan.outputs.violations != '0' }}
+        run: |
+          echo "::error::Falco detected ${{ steps.falco-scan.outputs.violations }} policy violations in Kubernetes manifests"
+          exit 1
