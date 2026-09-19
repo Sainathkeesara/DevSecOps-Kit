@@ -6,23 +6,20 @@ sources: []
 
 # My first environment comparison
 
-> I opened dev, staging, and prod side by side to see what changed in my first setup.
+> I compared dev, staging, and prod folders to see what changed in my first setup.
 
 ## What I checked
 
-I compared `environments/dev/terraform.tfvars`, `environments/staging/terraform.tfvars`, and `environments/prod/terraform.tfvars`. The shared Terraform files stayed mostly the same, while the variable files carried the environment-specific values.
+I looked at the variable files in each environment folder and compared them with shared Terraform files. The folders give each environment its own place for values, while some configuration is shared.
 
 ## What changed
 
-- Dev uses `10.0.0.0/16`, two availability zones, and one NAT gateway.
-- Staging moves to `10.1.0.0/16`, three availability zones, and more than one NAT gateway.
-- Prod uses `10.2.0.0/16`, three availability zones, and more than one NAT gateway.
-- Tags change with the environment; prod also has an extra compliance tag.
+The environment files use different values for network settings, availability zones, NAT behavior, and tags. I treated those differences as the first things to understand before changing anything.
 
 ## What surprised me
 
-The `main.tf` files still pointed at the same state key, and each variables file defaulted the environment to `dev`. I need to verify those defaults before treating the folders as fully isolated.
+Some shared files still refer to settings that look like they may need to match the folder they run from. I need to verify whether that is intentional and check the defaults before assuming the environments are isolated.
 
 ## Next
 
-I want to make each environment's state and variable defaults match its folder, then compare plans without applying anything.
+I want to trace each shared setting to the environment that uses it, then compare plans and record which values belong in each folder.

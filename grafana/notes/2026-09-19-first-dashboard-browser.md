@@ -4,22 +4,22 @@ tool_version: n/a
 sources: []
 ---
 
-# My first Grafana dashboard browser
+# My first Grafana dashboard check
 
-> I opened Grafana and started with the dashboard list instead of building a panel.
+> I wanted to explore the Grafana UI and learn what dashboards were available.
 
-## What I looked for
+## What I checked
 
-I checked which dashboards were already available and how the UI grouped them. I wanted to learn the navigation before changing any data source or panel.
+I could not verify the UI from this environment, so I did not claim a dashboard inventory. I wrote down the first checks I want to make when the UI is available.
 
-## What I noticed
+## What I want to inspect
 
-The dashboard browser was the useful starting point. It let me see existing dashboards as separate items and choose one to inspect. I treated an empty or unfamiliar list as a signal to check the data sources before expecting charts.
+I want to open the dashboard browser, see whether any dashboards are listed, and choose one dashboard to inspect. For that dashboard, I want to identify its data source and look at its panels before deciding what the view shows.
 
 ## What tripped me up
 
-I expected a dashboard to prove that metrics were flowing. The list only showed saved dashboards; it did not by itself tell me whether a query had data. I need to open a dashboard and inspect its panels before drawing that conclusion.
+I expected the dashboard list to prove that metrics were flowing. A list of saved dashboards would not, by itself, answer that question; I need to inspect a dashboard and its panels.
 
 ## Next
 
-I want to open one existing dashboard, identify its data source, and then make one small panel while noting what changed on screen.
+I want to record the dashboard names I find, note which data source each one uses, and make one small panel after I understand the existing view.

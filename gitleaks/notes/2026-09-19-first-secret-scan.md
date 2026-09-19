@@ -10,11 +10,11 @@ sources: []
 
 ## What I found
 
-Gitleaks was not available in the local path, so I did not record an install or scan result I could not verify. I would use a tiny test repo with a fake credential-like string for the first scan. I would keep the value fake so this note would not preserve a real secret.
+Gitleaks was not available in my local PATH, so I did not record an install or scan result I could not verify. I would use a tiny test repo with a fake credential-like string for the first scan. I would keep the value fake so this note would not preserve a real secret.
 
-## What I expect to learn
+## What I want to learn
 
-The scan should point me to the file and line where the test value appears. I want to inspect that location and decide whether the value is real, test data, or an allowed false positive instead of trusting a vague warning.
+I want to see where a test match is reported and learn how to inspect the reported location. Then I can decide whether a match is real, test data, or an allowed false positive.
 
 ## What tripped me up
 
