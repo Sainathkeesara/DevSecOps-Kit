@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-09-19
 
 ### Added
+- grafana-004: `grafana/configs/2026-09-19-first-datasource.yaml` — My first Grafana data source: single Prometheus backend provisioning file (L1 config)
+- lab-001: `lab/notes/0000-primer-lab.md` — What is lab? First-day primer on the kit's practice scratch space (L1 primer)
+- lab-002: `lab/configs/2026-09-19-first-lab-env.yaml` — My first lab environment: single practice box config (L1 config)
 - falco-015: `falco/notebooks/falco-event-output-formats.ipynb` — Exploring Falco event output formats: JSON interchange, streaming delivery, and sidekick-style fan-out forwarding (L5 notebook)
 - falco-013: `falco/docs/rule-optimization-priority-filtering.md` — Falco rule optimization patterns: lists, macros, condition ordering, priority overrides, and tiered output routing (L5 docs)
 - codeql-012: `codeql/manifests/codeql-multi-language-scan.yaml` — CodeQL GitHub Actions workflow for multi-language repository scanning in a single job (L5 manifest)
