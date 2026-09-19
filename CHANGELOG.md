@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - falco-014: `falco/manifests/falco-k8s-admission-control.yaml` — Falco CI/CD pipeline integration for Kubernetes admission control (L5 manifest)
 - argocd-028: `argocd/docs/multi-environment-gitops-delivery.md` — Wiring ArgoCD into a multi-environment GitOps delivery workflow: per-env Applications, auto-sync dev/staging with manual prod promotion, and conservative prune/self-heal defaults (L3 docs)
 - falco-016: `falco/templates/falco-custom-rules-library/` — Falco custom rules library scaffold with test harness: shared lists/macros, three starter rules, override pattern, and validation script (L5 template)
+- assets-002: `assets/notes/2026-09-19-explore-assets-directory.md` — Exploring the assets directory and its architecture diagrams (L1 notes)
+- environments-001: `environments/notes/0000-primer-environments.md` — What is environments? Quick primer (L1 notes(primer))
+- environments-002: `environments/configs/2026-09-19-first-variable-set.yaml` — Configure my first environments variable set (L1 config)
 
 ## 2026-09-18
 
