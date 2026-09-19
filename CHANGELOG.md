@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-09-19
 
 ### Added
+- falco-015: `falco/notebooks/falco-event-output-formats.ipynb` — Exploring Falco event output formats: JSON interchange, streaming delivery, and sidekick-style fan-out forwarding (L5 notebook)
 - falco-013: `falco/docs/rule-optimization-priority-filtering.md` — Falco rule optimization patterns: lists, macros, condition ordering, priority overrides, and tiered output routing (L5 docs)
 - codeql-012: `codeql/manifests/codeql-multi-language-scan.yaml` — CodeQL GitHub Actions workflow for multi-language repository scanning in a single job (L5 manifest)
 - falco-014: `falco/manifests/falco-k8s-admission-control.yaml` — Falco CI/CD pipeline integration for Kubernetes admission control (L5 manifest)
