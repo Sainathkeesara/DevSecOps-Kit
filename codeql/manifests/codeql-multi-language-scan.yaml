@@ -1,0 +1,43 @@
+# last_verified: 2026-09-19 · codeql n/a
+# Purpose: run CodeQL analysis over every language in a multi-language repo in a single workflow run.
+# When to use: repos with two or more supported languages where one status check should cover all of them.
+# Prerequisites: code scanning enabled for the repository; checkout needs full history for autobuild.
+# Verify: push or open a PR, then confirm the Actions run succeeds and findings appear under code scanning alerts.
+name: CodeQL multi-language repository scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  analyze:
+    name: Analyze multi-language checkout
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Initialize CodeQL for multiple languages
+        uses: github/codeql-action/init@v3
+        with:
+          languages: go, java, javascript, python
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL analysis
+        uses: github/codeql-action/analyze@v3
