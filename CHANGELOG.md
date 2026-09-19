@@ -16,6 +16,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - assets-002: `assets/notes/2026-09-19-explore-assets-directory.md` — Exploring the assets directory and its architecture diagrams (L1 notes)
 - environments-001: `environments/notes/0000-primer-environments.md` — What is environments? Quick primer (L1 notes(primer))
 - environments-002: `environments/configs/2026-09-19-first-variable-set.yaml` — Configure my first environments variable set (L1 config)
+- environments-003: `environments/notes/2026-09-19-first-environment-comparison.md` — Comparing dev, staging, and prod values from my first setup (L1 notes)
+- gitleaks-005: `gitleaks/notes/2026-09-19-first-secret-scan.md` — Installing Gitleaks and trying a first secret scan on a tiny test repo (L1 notes)
+- grafana-003: `grafana/notes/2026-09-19-first-dashboard-browser.md` — Exploring the Grafana dashboard browser before building a panel (L1 notes)
 
 ## 2026-09-18
 
