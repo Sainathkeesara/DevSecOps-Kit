@@ -24,14 +24,15 @@
 - **notebooks** (3): [compare-builtin-vs-custom-k8s.ipynb](../checkov/notebooks/compare-builtin-vs-custom-k8s.ipynb), [compare-cross-module-scanning-limitations.ipynb](../checkov/notebooks/compare-cross-module-scanning-limitations.ipynb), [compare-static-vs-plan-scanning.ipynb](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb)
 - **policies** (1): [no_public_s3_buckets.yaml](../checkov/policies/no-public-s3-buckets/no_public_s3_buckets.yaml)
 
-## codeql  ·  15 files
+## codeql  ·  24 files
 - **primer:** [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md)
 - **notes** (4): [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md), [2026-06-05-install-codeql-first-analysis.md](../codeql/notes/2026-06-05-install-codeql-first-analysis.md), [2026-06-14-codeql-datalog-gotchas.md](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md) — _…and 1 more under `codeql/notes/`._
 - **docs** (2): [query-writing-patterns-dataflow-javascript-typescript.md](../codeql/docs/query-writing-patterns-dataflow-javascript-typescript.md), [wired-custom-queries-into-ci.md](../codeql/docs/wired-custom-queries-into-ci.md)
 - **scripts** (1): [first-codeql-analysis.sh](../codeql/scripts/first-codeql-analysis.sh)
 - **configs** (1): [first-codeql-analysis.yml](../codeql/configs/first-codeql-analysis.yml)
 - **snippets** (4): [find-hardcoded-creds.ql](../codeql/snippets/find-hardcoded-creds.ql), [hardcoded-creds-local-flow.ql](../codeql/snippets/hardcoded-creds-local-flow.ql), [hardcoded-secret-from-scratch.ql](../codeql/snippets/hardcoded-secret-from-scratch.ql) — _…and 1 more under `codeql/snippets/`._
-- **manifests** (1): [multi-language-codeql-analysis.yaml](../codeql/manifests/multi-language-codeql-analysis.yaml)
+- **templates** (8): [README.md](../codeql/templates/custom-query-pack-ci-harness/README.md), [codeql-custom-queries.yml](../codeql/templates/custom-query-pack-ci-harness/.github/workflows/codeql-custom-queries.yml), [hardcoded-credential-check.ql](../codeql/templates/custom-query-pack-ci-harness/queries/hardcoded-credential-check.ql) — _…and 5 more under `codeql/templates/`._
+- **manifests** (2): [codeql-multi-language-scan.yaml](../codeql/manifests/codeql-multi-language-scan.yaml), [multi-language-codeql-analysis.yaml](../codeql/manifests/multi-language-codeql-analysis.yaml)
 - **dockerfiles** (1): [custom-codeql-analysis-image.Dockerfile](../codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile)
 - **notebooks** (1): [compare-cli-vs-actions-scan-modes.ipynb](../codeql/notebooks/compare-cli-vs-actions-scan-modes.ipynb)
 
@@ -65,10 +66,10 @@
 - **configs** (1): [docker-compose-dev-environment.yaml](../docker/configs/docker-compose-dev-environment.yaml)
 - **dockerfiles** (2): [2026-07-10-first-custom-image.Dockerfile](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile), [2026-07-12-first-custom-docker-image.Dockerfile](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile)
 
-## falco  ·  13 files
+## falco  ·  14 files
 - **primer:** [0000-primer-falco.md](../falco/notes/0000-primer-falco.md)
 - **notes** (4): [0000-primer-falco.md](../falco/notes/0000-primer-falco.md), [2026-06-10-install-falco-first-detection.md](../falco/notes/2026-06-10-install-falco-first-detection.md), [2026-06-15-falco-rules-macros-lists.md](../falco/notes/2026-06-15-falco-rules-macros-lists.md) — _…and 1 more under `falco/notes/`._
-- **docs** (2): [syscall-vs-tracepoint-rules.md](../falco/docs/syscall-vs-tracepoint-rules.md), [tuned-falco-rules-noise-reduction.md](../falco/docs/tuned-falco-rules-noise-reduction.md)
+- **docs** (3): [rule-optimization-priority-filtering.md](../falco/docs/rule-optimization-priority-filtering.md), [syscall-vs-tracepoint-rules.md](../falco/docs/syscall-vs-tracepoint-rules.md), [tuned-falco-rules-noise-reduction.md](../falco/docs/tuned-falco-rules-noise-reduction.md)
 - **scripts** (3): [deploy-falco-ruleset.sh](../falco/scripts/deploy-falco-ruleset.sh), [tried-falco-k8s-alert-forwarding.sh](../falco/scripts/tried-falco-k8s-alert-forwarding.sh), [tried-falco-k8s-deploy-alert-forwarding.sh](../falco/scripts/tried-falco-k8s-deploy-alert-forwarding.sh)
 - **configs** (3): [2026-06-10-first-custom-rule-detect-shell-in-container.yaml](../falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml), [container-drift-detection.yaml](../falco/configs/container-drift-detection.yaml), [first-custom-rule-detect-shell-in-container.yaml](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
 - **snippets** (1): [tried-file-access-detector.go](../falco/snippets/tried-file-access-detector.go)
