@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-09-19
 
 ### Added
+- falco-013: `falco/docs/rule-optimization-priority-filtering.md` — Falco rule optimization patterns: lists, macros, condition ordering, priority overrides, and tiered output routing (L5 docs)
 - codeql-012: `codeql/manifests/codeql-multi-language-scan.yaml` — CodeQL GitHub Actions workflow for multi-language repository scanning in a single job (L5 manifest)
 
 ## 2026-09-18
