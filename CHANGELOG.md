@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-20
+
+### Added
+- snippets-001: `snippets/notes/0000-primer-snippets.md` — What is snippets? Quick primer on the kit's reference collection (L1 notes(primer))
+- scripts-003: `scripts/notes/2026-09-20-explore-scripts-directory.md` — Exploring the scripts directory and what helpers exist (L1 notes)
+- scripts-004: `scripts/snippets/2026-09-20-first-utility-script.sh` — My first utility script for the kit: lists available toolkits (L1 snippet)
+
 ## 2026-09-19
 
 ### Added
