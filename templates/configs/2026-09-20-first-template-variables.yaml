@@ -1,0 +1,10 @@
+# last_verified: 2026-09-20 · templates n/a
+# My first template variable set — plain defaults I reuse when rendering a starter project.
+project_name: my-service
+project_slug: my-service
+author: me
+description: A tiny starter service
+license: MIT
+python_version: "3.12"
+include_docker: false
+# TODO: not sure yet which of these I'll actually keep per project

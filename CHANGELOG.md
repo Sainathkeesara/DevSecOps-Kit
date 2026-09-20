@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - snippets-001: `snippets/notes/0000-primer-snippets.md` — What is snippets? Quick primer on the kit's reference collection (L1 notes(primer))
 - scripts-003: `scripts/notes/2026-09-20-explore-scripts-directory.md` — Exploring the scripts directory and what helpers exist (L1 notes)
 - scripts-004: `scripts/snippets/2026-09-20-first-utility-script.sh` — My first utility script for the kit: lists available toolkits (L1 snippet)
+- templates-002: `templates/templates/2026-09-20-first-project-template/` — Scaffold my first project template: cookiecutter.json defaults plus starter app (L1 template)
+- templates-003: `templates/configs/2026-09-20-first-template-variables.yaml` — Configure my first template variable set (L1 config)
+- tfsec-005: `tfsec/notes/2026-09-20-first-tfsec-scan.md` — Install tfsec and run my first security check (L1 notes)
 
 ## 2026-09-19
 
