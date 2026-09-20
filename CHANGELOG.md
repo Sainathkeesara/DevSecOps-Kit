@@ -33,6 +33,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-09-20
 
 ### Added
+- templates-001: `templates/notes/0000-primer-templates.md` — What is templates? Quick primer on project scaffolds for DevSecOps (L1 notes(primer))
+- snippets-002: `snippets/snippets/2026-09-20-first-snippet.sh` — My first snippet: a simple timestamped log function in bash (L1 snippet)
+- snippets-003: `snippets/configs/2026-09-20-first-category.yaml` — My first snippet category configuration with five starter categories (L1 config)
 - lab-003: `lab/notes/2026-09-20-setting-up-the-lab-directory.md` — What I learned setting up the lab directory (L1 notes)
 - nuclei-005: `nuclei/notes/2026-09-20-first-template-scan-attempt.md` — My first Nuclei template scan attempt and the missing-tool boundary (L1 notes)
 - prometheus-034: `prometheus/notes/2026-09-20-checking-the-metrics-interface.md` — Exploring the Prometheus metrics interface before a live query (L1 notes)
