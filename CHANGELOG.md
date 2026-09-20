@@ -30,6 +30,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - gitleaks-005: `gitleaks/notes/2026-09-19-first-secret-scan.md` — Installing Gitleaks and trying a first secret scan on a tiny test repo (L1 notes)
 - grafana-003: `grafana/notes/2026-09-19-first-dashboard-browser.md` — Exploring the Grafana dashboard browser before building a panel (L1 notes)
 
+## 2026-09-20
+
+### Added
+- lab-003: `lab/notes/2026-09-20-setting-up-the-lab-directory.md` — What I learned setting up the lab directory (L1 notes)
+- nuclei-005: `nuclei/notes/2026-09-20-first-template-scan-attempt.md` — My first Nuclei template scan attempt and the missing-tool boundary (L1 notes)
+- prometheus-034: `prometheus/notes/2026-09-20-checking-the-metrics-interface.md` — Exploring the Prometheus metrics interface before a live query (L1 notes)
+
 ## 2026-09-18
 
 ### Added
