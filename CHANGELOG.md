@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-09-20
 
 ### Added
+- defectdojo-004: `defectdojo/notes/2026-09-20-quickstart-tripups.md` — Following the DefectDojo quickstart: initializer password, engagement status requirement, API token setup, and scanner format gotchas (L2 notes)
+- defectdojo-005: `defectdojo/configs/2026-09-20-vulnerability-scanner-setup.yaml` — Minimal DefectDojo vulnerability scanner integration config for CI pipelines (L2 config)
+- argocd-036: `argocd/configs/2026-09-20-values-dev.yaml` — Argo CD dev environment Helm values with relaxed resources, faster sync, and dev-friendly defaults (L2 config)
 - snippets-001: `snippets/notes/0000-primer-snippets.md` — What is snippets? Quick primer on the kit's reference collection (L1 notes(primer))
 - scripts-003: `scripts/notes/2026-09-20-explore-scripts-directory.md` — Exploring the scripts directory and what helpers exist (L1 notes)
 - scripts-004: `scripts/snippets/2026-09-20-first-utility-script.sh` — My first utility script for the kit: lists available toolkits (L1 snippet)
