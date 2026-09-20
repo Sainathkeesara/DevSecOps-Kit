@@ -568,6 +568,12 @@
 - **Rule priority** — The severity tier Falco attaches to each rule firing (from Emergency down to Informational/Debug). Tuning starts by ranking rules on volume, then routing by tier: page on Warning and above while lower tiers stay searchable in logs.
 - **Priority override** — Changing a rule's priority in a custom rules layer instead of copying and editing the vendor default. Overrides keep the custom layer small and survive upstream ruleset updates.
 
+## Lab
+
+- **mini-project** — A self-contained practice setup under `lab/mini-projects/`, pairing a short README with the configs needed to rebuild it. Example: the postgres database server walkthrough.
+- **lab environment config** — A small file describing one practice machine or setup (name, what it runs, which ports). Example: the first lab env config in `lab/configs/`.
+- **rebuild** — Tearing a practice setup down and recreating it from the saved config to prove the notes are honest. Example: re-running lab steps on a fresh box after an experiment gets messy.
+
 ## Acronyms
 
 **OCI (Open Container Initiative)** — A set of open-source standards for container image formats and distribution, used by registries like Docker Hub, GitHub Container Registry, and AWS ECR.
