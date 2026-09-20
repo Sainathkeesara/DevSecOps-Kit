@@ -1,0 +1,45 @@
+# last_verified: 2026-09-20 · snippets L1
+
+# My first snippet category configuration
+# Defines categories for organizing snippets in the kit
+
+categories:
+  - name: "bash-scripting"
+    description: "Reusable bash functions and patterns"
+    tags: ["bash", "shell", "scripting", "functions"]
+    examples:
+      - "logging"
+      - "retry-logic"
+      - "arg-parsing"
+
+  - name: "k8s-operations"
+    description: "kubectl snippets for common cluster tasks"
+    tags: ["kubernetes", "kubectl", "cluster", "devops"]
+    examples:
+      - "pod-logs"
+      - "scale-deployment"
+      - "port-forward"
+
+  - name: "terraform-patterns"
+    description: "Terraform module snippets and patterns"
+    tags: ["terraform", "iac", "modules", "aws"]
+    examples:
+      - "s3-bucket"
+      - "security-group"
+      - "iam-role"
+
+  - name: "ci-cd-pipelines"
+    description: "Pipeline snippets for GitHub Actions, Jenkins, GitLab CI"
+    tags: ["ci", "cd", "github-actions", "jenkins", "pipelines"]
+    examples:
+      - "docker-build-push"
+      - "terraform-plan-apply"
+      - "security-scan"
+
+  - name: "observability"
+    description: "Prometheus, Grafana, Loki query snippets"
+    tags: ["prometheus", "grafana", "loki", "metrics", "logs"]
+    examples:
+      - "cpu-usage-query"
+      - "error-rate-alert"
+      - "log-filter"
