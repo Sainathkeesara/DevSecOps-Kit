@@ -21,6 +21,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - kustomize-007: `kustomize/manifests/2026-09-21-kustomize-tutorial.yaml` — Kustomize tutorial resource set: ConfigMap, Deployment, and Service with common labels, name prefix, and config injection (L2 manifest)
 - helm-007: `helm/manifests/2026-09-21-minimal-service-chart.yaml` — Minimal Helm chart resources for a single service: Deployment, Service, and ConfigMap with app labels (L2 manifest)
 - opentofu-007: `opentofu/notes/2026-09-21-follow-open-tofu-quickstart.md` — Followed the official OpenTofu quickstart: what worked and what tripped me up (L2 notes)
+- sonarqube-004: `sonarqube/notes/2026-09-21-follow-sonarqube-quickstart.md` — Followed the SonarQube quickstart: what worked and what tripped me up (L2 notes)
+- sonarqube-005: `sonarqube/configs/2026-09-21-minimal-quality-gate.yaml` — Minimal SonarQube Quality Gate with bug, vulnerability, coverage, and duplication conditions (L2 config)
+- sonarqube-006: `sonarqube/scripts/2026-09-21-sonarqube-scan-setup.sh` — SonarQube scan setup script with server readiness wait and explicit project parameters (L2 script)
 
 
 ### Added
