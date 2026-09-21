@@ -11,15 +11,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-1000 files across 36 tool folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+1020 files across 37 tool folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
-- [First Grafana datasource](grafana/configs/2026-09-19-first-datasource.yaml) — Wire one Prometheus backend into Grafana so a first panel query has something to read
-- [First lab environment](lab/configs/2026-09-19-first-lab-env.yaml) — A one-machine practice box you can rebuild from when experiments get messy
-- [Lab primer](lab/notes/0000-primer-lab.md) — What the lab scratch space is for and how mini-projects are organised
-- [First environment comparison](environments/notes/2026-09-19-first-environment-comparison.md) — Dev vs staging vs prod variable differences worth understanding before changing anything
-- [First secret scan with Gitleaks](gitleaks/notes/2026-09-19-first-secret-scan.md) — What to set up before a first scan, using a fake credential in a test repo
+- [Argocd values-dev config](argocd/configs/2026-09-20-values-dev.yaml) — Multi-env values override for ArgoCD app synchronization
+- [DefectDojo vulnerability scanner setup](defectdojo/configs/2026-09-21-vulnerability-scanner-setup.yaml) — DefectDojo scanner integration scaffold with finding ingestion
+- [DefectDojo quickstart trip-ups](defectdojo/notes/2026-09-21-quickstart-tripups.md) — Common first-time stumbling blocks when onboarding to DefectDojo
+- [Minimal starter GitHub Actions workflow](github-actions/configs/2026-09-21-minimal-starter-workflow.yaml) — A bare minimum CI workflow to validate the pipeline scaffolding pattern
+- [GitHub Actions quickstart tripped-me-up](github-actions/notes/2026-09-21-quickstart-tripped-me-up.md) — Things that caught me off guard walking through a first GitHub Actions setup
 
 ## Layout
 
@@ -44,42 +44,42 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total | Last verified |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|---------:|------:|---------------|
-| checkov | 4 | 6 | 2 | 3 | 4 | 20 | 3 | 0 | 3 | 1 | 46 | 2026-09-18 |
+| checkov | 4 | 6 | 2 | 3 | 4 | 20 | 3 | 0 | 3 | 1 | 46 | 2026-09-17 |
 | trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 38 | 2026-09-04 |
-| syft | 4 | 6 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 37 | 2026-09-17 |
+| syft | 4 | 6 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 37 | 2026-09-03 |
 | trivy | 6 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 35 | 2026-09-05 |
 | zap | 6 | 3 | 2 | 2 | 4 | 8 | 0 | 1 | 0 | 0 | 26 | 2026-09-05 |
 | opa | 3 | 2 | 2 | 1 | 3 | 9 | 4 | 0 | 0 | 0 | 24 | 2026-09-02 |
+| codeql | 4 | 2 | 1 | 1 | 4 | 8 | 2 | 1 | 1 | 0 | 24 | 2026-09-19 |
 | snyk | 4 | 2 | 1 | 2 | 1 | 11 | 1 | 1 | 0 | 0 | 23 | 2026-09-03 |
 | gitguardian | 4 | 2 | 3 | 2 | 2 | 9 | 0 | 0 | 0 | 0 | 22 | 2026-08-21 |
-| grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-07-21 |
-| terraform | 3 | 1 | 4 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 20 | 2026-08-11 |
+| grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-07-05 |
+| terraform | 3 | 1 | 4 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 20 | 2026-08-10 |
 | semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 20 | 2026-08-06 |
-| terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 18 | 2026-08-09 |
-| vault | 4 | 3 | 4 | 3 | 2 | 0 | 1 | 1 | 1 | 0 | 19 | 2026-09-17 |
-| cosign | 4 | 1 | 3 | 1 | 1 | 0 | 2 | 2 | 0 | 0 | 14 | 2026-08-25 |
-| dependabot | 7 | 1 | 2 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 2026-08-20 |
 | falco | 4 | 3 | 3 | 3 | 1 | 4 | 1 | 0 | 1 | 0 | 20 | 2026-09-19 |
-| codeql | 4 | 2 | 1 | 1 | 4 | 8 | 2 | 1 | 1 | 0 | 24 | 2026-09-19 |
-| github-actions | 4 | 0 | 0 | 3 | 2 | 0 | 2 | 0 | 0 | 0 | 11 | 2026-09-10 |
-| argocd | 6 | 5 | 0 | 1 | 0 | 0 | 2 | 0 | 0 | 0 | 14 | 2026-08-17 |
+| terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 18 | 2026-08-09 |
+| vault | 4 | 3 | 4 | 3 | 2 | 0 | 1 | 1 | 1 | 0 | 19 | 2026-09-15 |
+| cosign | 4 | 1 | 3 | 1 | 1 | 0 | 2 | 2 | 0 | 0 | 14 | 2026-08-25 |
+| dependabot | 7 | 1 | 2 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 2026-08-18 |
+| argocd | 6 | 3 | 0 | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 13 | 2026-09-21 |
+| github-actions | 5 | 0 | 0 | 4 | 2 | 0 | 2 | 0 | 0 | 0 | 13 | 2026-09-21 |
+| lab | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-09-20 |
 | docker | 2 | 1 | 2 | 1 | 0 | 0 | 0 | 2 | 0 | 0 | 8 | 2026-08-05 |
 | git | 3 | 0 | 3 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-07-26 |
 | ansible | 2 | 0 | 3 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-09-15 |
 | tetragon | 3 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-08-06 |
-| opentofu | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-09-10 |
+| defectdojo | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
+| kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 2026-09-21 |
+| helm | 3 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 5 | 2026-09-21 |
 | kubernetes | 2 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 4 | 2026-09-10 |
-| kustomize | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-07-08 |
-| helm | 2 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 3 | 2026-07-19 |
+| opentofu | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-07-20 |
 | sonarqube | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-07-19 |
-| linux | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-08-17 |
-| defectdojo | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-08-04 |
-| prometheus | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-07-13 |
+| prometheus | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-20 |
 | grafana | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-19 |
+| linux | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-08-17 |
 | gitleaks | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-19 |
-| nuclei | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2026-09-10 |
-| tfsec | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2026-09-10 |
-| lab | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 12 | 2026-09-19 |
+| nuclei | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
+| tfsec | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 | environments | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 15 | 2026-09-19 |
 
 _Terraform's total includes a 7-file `eventbridge-lambda/` sample project on top of the categorised notes, docs, scripts, configs, and snippets. Lab's total includes 10 files under `lab/mini-projects/` outside the standard categories. Environments' total includes 12 Terraform files under `dev/`, `staging/`, and `prod/` outside the standard categories._
@@ -91,4 +91,4 @@ _Terraform's total includes a 7-file `eventbridge-lambda/` sample project on top
 Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include a lab practice primer with a first environment config, a Grafana Prometheus datasource, a Gitleaks first-scan note, and a dev/staging/prod environment comparison. Current focus is finishing per-tool notes and deepening runtime-detection and supply-chain coverage.
 
 ---
-_Last updated: 2026-09-20_
+_Last updated: 2026-09-21_

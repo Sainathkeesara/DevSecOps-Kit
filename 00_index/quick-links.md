@@ -7,6 +7,7 @@
 - [Trivy CVE severity filtering](../scripts/bash/ci_cd_toolkit/trivy-severity-filter.sh)
 - [TruffleHog PR secret scan reusable workflow](../trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml)
 - [Falco K8s admission control rule](../falco/manifests/falco-k8s-admission-control.yaml)
+- [DefectDojo vulnerability scanner setup](../defectdojo/configs/2026-09-21-vulnerability-scanner-setup.yaml) — DefectDojo scanner integration scaffold with finding ingestion
 
 ### Build and sign container images
 - [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
@@ -77,7 +78,11 @@
 - [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
 - [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md)
 - [Helm primer](../helm/notes/0000-primer-helm.md)
+- [Helm quickstart trip-ups](../helm/notes/2026-09-21-quickstart-tripped-me-up.md) — Things that tripped me up walking through a first Helm setup
+- [Minimal Helm chart](../helm/manifests/2026-09-21-minimal-helm-chart.yaml) — A bare minimum Helm chart to validate the chart scaffolding pattern
 - [Kustomize primer](../kustomize/notes/0000-primer-kustomize.md)
+- [Kustomize quickstart trip-ups](../kustomize/notes/2026-09-21-quickstart-tripped-me-up.md) — Things that tripped me up walking through a first Kustomize setup
+- [Minimal Kustomize config](../kustomize/configs/2026-09-21-minimal-kustomization.yaml) — A bare minimum kustomization.yaml to validate the overlay scaffolding pattern
 - [ArgoCD primer](../argocd/notes/0000-primer-argocd.md)
 - [ArgoCD private repo credentials and RBAC](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml)
 - [ArgoCD quickstart trip-ups](../argocd/notes/2026-08-12-quickstart-tripups.md)
@@ -119,6 +124,7 @@
 - [Applying version control in DevSecOps](../docs/concepts/version-control-with-git/snippets/2026-08-25-applying-version-control-in-devsecops.py)
 - [Lab primer](../lab/notes/0000-primer-lab.md) — What the lab scratch space is for and how mini-projects are organised
 - [First lab environment](../lab/configs/2026-09-19-first-lab-env.yaml) — A one-machine practice box you can rebuild from when experiments get messy
+- [DefectDojo tutorial check](../defectdojo/scripts/2026-09-20-defectdojo-tutorial-check.sh) — Verify DefectDojo setup and tutorial prerequisites before starting
 
 ### Run infrastructure tasks
 - [Ansible quickstart trip-ups](../ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md)

@@ -9,8 +9,8 @@
 ## argocd  ·  14 files
 - **primer:** [0000-primer-argocd.md](../argocd/notes/0000-primer-argocd.md)
 - **notes** (6): [0000-primer-argocd.md](../argocd/notes/0000-primer-argocd.md), [2026-07-06-install-argocd-first-app.md](../argocd/notes/2026-07-06-install-argocd-first-app.md), [2026-08-12-quickstart-tripups.md](../argocd/notes/2026-08-12-quickstart-tripups.md) — _…and 3 more under `argocd/notes/`._
-- **docs** (5): [multi-environment GitOps delivery](../argocd/docs/multi-environment-gitops-delivery.md), [install.yaml](../argocd/docs/install.yaml), [values-dev.yaml](../argocd/docs/values-dev.yaml) — _…and 2 more under `argocd/docs/`._
-- **configs** (1): [2026-08-17-private-repo-credentials-rbac.yaml](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml)
+- **docs** (3): [multi-environment GitOps delivery](../argocd/docs/multi-environment-gitops-delivery.md), [install.yaml](../argocd/docs/install.yaml), [values-dev.yaml](../argocd/docs/values-dev.yaml)
+- **configs** (2): [2026-08-17-private-repo-credentials-rbac.yaml](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml), [2026-09-20-values-dev.yaml](../argocd/configs/2026-09-20-values-dev.yaml)
 - **manifests** (2): [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml), [2026-08-12-gitops-sync-sample-web-app.yaml](../argocd/manifests/2026-08-12-gitops-sync-sample-web-app.yaml)
 
 ## checkov  ·  46 files
@@ -47,9 +47,11 @@
 - **manifests** (2): [2026-07-10-keyless-oidc-ci.yaml](../cosign/manifests/2026-07-10-keyless-oidc-ci.yaml), [signed-container-build-oidc.yaml](../cosign/manifests/signed-container-build-oidc.yaml)
 - **dockerfiles** (2): [custom-cosign-image.Dockerfile](../cosign/dockerfiles/custom-cosign-image.Dockerfile), [entrypoint.sh](../cosign/dockerfiles/entrypoint.sh)
 
-## defectdojo  ·  3 files
+## defectdojo  ·  6 files
 - **primer:** [0000-primer-defectdojo.md](../defectdojo/notes/0000-primer-defectdojo.md)
-- **notes** (2): [0000-primer-defectdojo.md](../defectdojo/notes/0000-primer-defectdojo.md), [2026-08-04-explore-defectdojo-ui.md](../defectdojo/notes/2026-08-04-explore-defectdojo-ui.md)
+- **notes** (3): [0000-primer-defectdojo.md](../defectdojo/notes/0000-primer-defectdojo.md), [2026-08-04-explore-defectdojo-ui.md](../defectdojo/notes/2026-08-04-explore-defectdojo-ui.md), [2026-09-21-quickstart-tripups.md](../defectdojo/notes/2026-09-21-quickstart-tripups.md)
+- **configs** (1): [2026-09-21-vulnerability-scanner-setup.yaml](../defectdojo/configs/2026-09-21-vulnerability-scanner-setup.yaml)
+- **scripts** (1): [2026-09-20-defectdojo-tutorial-check.sh](../defectdojo/scripts/2026-09-20-defectdojo-tutorial-check.sh)
 - **snippets** (1): [install-defectdojo-first-scan-report.sh](../defectdojo/snippets/install-defectdojo-first-scan-report.sh)
 
 ## dependabot  ·  14 files
@@ -99,10 +101,10 @@
 - **snippets** (2): [custom-policy-engine-ggshield.sh](../gitguardian/snippets/custom-policy-engine-ggshield.sh), [my-first-ggshield-commands.sh](../gitguardian/snippets/my-first-ggshield-commands.sh)
 - **templates** (9): [allowlist.yaml](../gitguardian/templates/gitguardian-multi-repo-scanning-scaffold/.ggshield/allowlist.yaml), [org-secret-scan.yml](../gitguardian/templates/gitguardian-multi-repo-scanning-scaffold/.github/workflows/org-secret-scan.yml), [.gitignore](../gitguardian/templates/gitguardian-multi-repo-scanning-scaffold/.gitignore) — _…and 6 more under `gitguardian/templates/`._
 
-## github-actions  ·  11 files
+## github-actions  ·  13 files
 - **primer:** [0000-primer-github-actions.md](../github-actions/notes/0000-primer-github-actions.md)
-- **notes** (4): [0000-primer-github-actions.md](../github-actions/notes/0000-primer-github-actions.md), [2026-07-14-explore-github-actions.md](../github-actions/notes/2026-07-14-explore-github-actions.md), [2026-08-04-explore-github-actions.md](../github-actions/notes/2026-08-04-explore-github-actions.md) — _…and 1 more under `github-actions/notes/`._
-- **configs** (3): [2026-07-14-first-github-actions-workflow.yaml](../github-actions/configs/2026-07-14-first-github-actions-workflow.yaml), [2026-08-04-first-workflow.yaml](../github-actions/configs/2026-08-04-first-workflow.yaml), [2026-09-10-minimal-ci-workflow.yaml](../github-actions/configs/2026-09-10-minimal-ci-workflow.yaml)
+- **notes** (5): [0000-primer-github-actions.md](../github-actions/notes/0000-primer-github-actions.md), [2026-07-14-explore-github-actions.md](../github-actions/notes/2026-07-14-explore-github-actions.md), [2026-08-04-explore-github-actions.md](../github-actions/notes/2026-08-04-explore-github-actions.md) — _…and 2 more under `github-actions/notes/`._
+- **configs** (4): [2026-07-14-first-github-actions-workflow.yaml](../github-actions/configs/2026-07-14-first-github-actions-workflow.yaml), [2026-08-04-first-workflow.yaml](../github-actions/configs/2026-08-04-first-workflow.yaml), [2026-09-10-minimal-ci-workflow.yaml](../github-actions/configs/2026-09-10-minimal-ci-workflow.yaml), [2026-09-21-minimal-starter-workflow.yaml](../github-actions/configs/2026-09-21-minimal-starter-workflow.yaml)
 - **snippets** (2): [2026-08-26-composite-action-input-reuse.yaml](../github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml), [2026-08-26-first-workflow.yaml](../github-actions/snippets/2026-08-26-first-workflow.yaml)
 - **manifests** (2): [2026-08-04-pr-validation.yml](../github-actions/manifests/2026-08-04-pr-validation.yml), [2026-08-04-what-is-github-actions.yaml](../github-actions/manifests/2026-08-04-what-is-github-actions.yaml)
 
@@ -134,20 +136,20 @@
 - **dockerfiles** (1): [multi-stage-grype-scan.Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile)
 - **notebooks** (1): [grype-sbom-output-explorer.ipynb](../grype/notebooks/grype-sbom-output-explorer.ipynb)
 
-## helm  ·  3 files
+## helm  ·  5 files
 - **primer:** [0000-primer-helm.md](../helm/notes/0000-primer-helm.md)
-- **notes** (2): [0000-primer-helm.md](../helm/notes/0000-primer-helm.md), [2026-07-19-explore-helm-charts-releases-values-repos.md](../helm/notes/2026-07-19-explore-helm-charts-releases-values-repos.md)
-- **manifests** (1): [2026-07-15-first-chart-values.yaml](../helm/manifests/2026-07-15-first-chart-values.yaml)
+- **notes** (3): [0000-primer-helm.md](../helm/notes/0000-primer-helm.md), [2026-07-19-explore-helm-charts-releases-values-repos.md](../helm/notes/2026-07-19-explore-helm-charts-releases-values-repos.md), [2026-09-21-quickstart-tripped-me-up.md](../helm/notes/2026-09-21-quickstart-tripped-me-up.md)
+- **manifests** (2): [2026-07-15-first-chart-values.yaml](../helm/manifests/2026-07-15-first-chart-values.yaml), [2026-09-21-minimal-helm-chart.yaml](../helm/manifests/2026-09-21-minimal-helm-chart.yaml)
 
 ## kubernetes  ·  4 files
 - **primer:** [0000-primer-kubernetes.md](../kubernetes/notes/0000-primer-kubernetes.md)
 - **notes** (2): [0000-primer-kubernetes.md](../kubernetes/notes/0000-primer-kubernetes.md), [2026-07-15-explore-kubernetes.md](../kubernetes/notes/2026-07-15-explore-kubernetes.md)
 - **manifests** (2): [2026-07-15-first-pod-service.yaml](../kubernetes/manifests/2026-07-15-first-pod-service.yaml), [2026-09-10-first-pod.yaml](../kubernetes/manifests/2026-09-10-first-pod.yaml)
 
-## kustomize  ·  3 files
+## kustomize  ·  5 files
 - **primer:** [0000-primer-kustomize.md](../kustomize/notes/0000-primer-kustomize.md)
-- **notes** (2): [0000-primer-kustomize.md](../kustomize/notes/0000-primer-kustomize.md), [2026-07-08-install-kustomize-first-overlay.md](../kustomize/notes/2026-07-08-install-kustomize-first-overlay.md)
-- **configs** (1): [2026-07-08-minimal-kustomization.yaml](../kustomize/configs/2026-07-08-minimal-kustomization.yaml)
+- **notes** (3): [0000-primer-kustomize.md](../kustomize/notes/0000-primer-kustomize.md), [2026-07-08-install-kustomize-first-overlay.md](../kustomize/notes/2026-07-08-install-kustomize-first-overlay.md), [2026-09-21-quickstart-tripped-me-up.md](../kustomize/notes/2026-09-21-quickstart-tripped-me-up.md)
+- **configs** (2): [2026-07-08-minimal-kustomization.yaml](../kustomize/configs/2026-07-08-minimal-kustomization.yaml), [2026-09-21-minimal-kustomization.yaml](../kustomize/configs/2026-09-21-minimal-kustomization.yaml)
 
 ## lab  ·  12 files
 - **primer:** [0000-primer-lab.md](../lab/notes/0000-primer-lab.md)
