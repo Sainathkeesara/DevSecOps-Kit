@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - defectdojo-004: `defectdojo/notes/2026-09-21-quickstart-tripups.md` — Following the DefectDojo quickstart: what tripped me up (L2 notes, rework of #593)
+- github-actions-001: `github-actions/notes/2026-09-21-quickstart-tripped-me-up.md` — Followed the quickstart, what worked and what tripped me up (L2 notes)
+- github-actions-002: `github-actions/configs/2026-09-21-minimal-starter-workflow.yaml` — Minimal starter workflow with push plus manual trigger (L2 config)
+- helm-006: `helm/notes/2026-09-21-quickstart-tripped-me-up.md` — Followed the quickstart, what worked and what tripped me up (L2 notes)
 
 ## 2026-09-20
 
