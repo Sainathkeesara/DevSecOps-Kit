@@ -1,0 +1,63 @@
+# last_verified: 2026-09-21 · helm n/a
+# Minimal Helm chart resources for a single service — Deployment, Service,
+# and ConfigMap, with app labels for service discovery.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: web-app-config
+  labels:
+    app: web-app
+    chart: web-app-1.0.0
+data:
+  config_path: "/etc/web-app/config.yaml"
+  log_level: "info"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app
+  labels:
+    app: web-app
+    chart: web-app-1.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-app
+  template:
+    metadata:
+      labels:
+        app: web-app
+        chart: web-app-1.0.0
+    spec:
+      containers:
+        - name: web
+          image: nginx:1.25
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: web-app-config
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "200m"
+              memory: "256Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-app-service
+  labels:
+    app: web-app
+    chart: web-app-1.0.0
+spec:
+  selector:
+    app: web-app
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+  type: ClusterIP

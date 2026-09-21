@@ -1,0 +1,55 @@
+# last_verified: 2026-09-21 · kustomize n/a
+# What I learned doing the Kustomize tutorial: a resource set with
+# common labels, a name prefix, and a configmap injected via a overlay.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  labels:
+    app: my-app
+    managed-by: kustomize
+data:
+  database_host: "db.example.com"
+  log_level: "info"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-web
+  labels:
+    app: my-app
+    managed-by: kustomize
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+        managed-by: kustomize
+    spec:
+      containers:
+        - name: web
+          image: nginx:1.25
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: app-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-service
+  labels:
+    app: my-app
+    managed-by: kustomize
+spec:
+  selector:
+    app: my-app
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP

@@ -12,6 +12,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Passed ([x]) github-actions-001 — GitHub Actions: notes — Follow the official GitHub Actions quickstart and write up what tripped me up · Level: L2 · 2026-09-21
 - Passed ([x]) github-actions-002 — GitHub Actions: config — Minimal workflow file with GitHub Actions · Level: L2 · 2026-09-21
 - Passed ([x]) helm-006 — Helm: notes — Follow the official Helm quickstart and write up what tripped me up · Level: L2 · 2026-09-21
+- Passed ([x]) kustomize-007 — kustomize: manifest — What I learned doing the Kustomize tutorial · Level: L2 · 2026-09-21
+- Passed ([x]) helm-007 — helm: manifest — Minimal Helm chart for a single service · Level: L2 · 2026-09-21
+- Passed ([x]) opentofu-007 — opentofu: notes — Follow the official OpenTofu quickstart and write up what tripped me up · Level: L2 · 2026-09-21
+
+### Added
+
+- kustomize-007: `kustomize/manifests/2026-09-21-kustomize-tutorial.yaml` — Kustomize tutorial resource set: ConfigMap, Deployment, and Service with common labels, name prefix, and config injection (L2 manifest)
+- helm-007: `helm/manifests/2026-09-21-minimal-service-chart.yaml` — Minimal Helm chart resources for a single service: Deployment, Service, and ConfigMap with app labels (L2 manifest)
+- opentofu-007: `opentofu/notes/2026-09-21-follow-open-tofu-quickstart.md` — Followed the official OpenTofu quickstart: what worked and what tripped me up (L2 notes)
 
 
 ### Added
