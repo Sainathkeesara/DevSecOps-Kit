@@ -1,0 +1,202 @@
+# last_verified: 2026-09-21 · argocd v3.5.2
+# source: https://github.com/argoproj/argo-cd/releases/tag/v3.5.2
+# Argo CD dev environment Helm values
+# Fleshed out from the default values for a development cluster
+
+global:
+  # Dev cluster domain — override for your environment
+  domain: argocd.dev.example.com
+
+  # Disable TLS in dev (use ingress controller for termination)
+  tls:
+    enabled: false
+
+  # Image overrides for dev (use specific tags, not latest)
+  image:
+    repository: quay.io/argoproj/argocd
+    tag: v3.5.2
+    pullPolicy: IfNotPresent
+
+  # Resource limits for dev — lower than prod
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+server:
+  # Disable admin password auto-generation; we'll set it via secret
+  authToken:
+    expiry: 24h  # Shorter token expiry for dev
+
+  # Ingress for dev UI access
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hostname: argocd.dev.example.com
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    tls: []
+
+  # Dev UI config — enable resource tree, disable some prod features
+  config:
+    resource.exclusions: |
+      - apiGroups:
+          - cilium.io
+        kinds:
+          - CiliumNetworkPolicy
+    oidc.config: ""  # Empty in dev; configure via secret if needed
+    repositories: |
+      - name: dev-repo
+        url: https://github.com/argoproj/argocd-example-apps.git
+        type: git
+        username: "$ARGOCD_ENV_GIT_USER"
+        password: "$ARGOCD_ENV_GIT_TOKEN"
+
+  # Resource limits for server
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+  # Replica count for dev (1 is enough)
+  replicas: 1
+
+  # Disable HA in dev
+  ha:
+    enabled: false
+
+controller:
+  # Resource limits for controller
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+
+  # Dev controller settings
+  config:
+    # Faster sync polling in dev (default 3m)
+    timeout.reconciliation: 180s
+    # Disable resource health checks that need external APIs
+    resource.healthcheck.ignored: |
+      - apiGroups:
+          - networking.k8s.io
+        kinds:
+          - Ingress
+    # Enable webhook for faster sync triggers
+    controller.enable.webhook: "true"
+
+  # Single replica in dev
+  replicas: 1
+
+  # Disable HA
+  ha:
+    enabled: false
+
+repoServer:
+  # Resource limits for repo server
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+  # Dev repo server settings
+  config:
+    # Allow helm repos without verification in dev
+    helm.allowInsecure: "true"
+    # Enable git submodules
+    git.submodules: "true"
+
+  replicas: 1
+
+  # Disable HA
+  ha:
+    enabled: false
+
+dex:
+  # Disable Dex in dev (use static admin or simple OIDC)
+  enabled: false
+
+redis:
+  # Use single Redis in dev (no HA)
+  enabled: true
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 50m
+      memory: 64Mi
+
+  # Disable persistence in dev (ephemeral)
+  persistence:
+    enabled: false
+
+  # Disable HA
+  ha:
+    enabled: false
+
+# Disable Redis HA
+redis-ha:
+  enabled: false
+
+# ApplicationSet controller (enabled for dev to practice)
+applicationSet:
+  enabled: true
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 50m
+      memory: 64Mi
+
+# Notifications controller (disabled in dev unless needed)
+notifications:
+  enabled: false
+
+# Prometheus metrics (enable for dev observability)
+prometheus:
+  enabled: true
+  service:
+    annotations:
+      prometheus.io/scrape: "true"
+      prometheus.io/port: "8082"
+
+# Grafana dashboards (install if Grafana operator present)
+grafana:
+  enabled: false
+
+# Initial admin secret — create separately with known password for dev
+# kubectl -n argocd create secret generic argocd-initial-admin-secret \
+#   --from-literal=admin.password=$(htpasswd -bnBC 10 "" devpassword | tr -d ':\n') \
+#   --from-literal=admin.password.mtime=$(date +%s)
+#
+# Single merged configs block (secret + params + rbac + cm) — I had these
+# split into two top-level configs: keys before and the second block silently
+# overwrote the first, dropping configs.secret. Merged here so nothing is lost.
+configs:
+  secret:
+    createSecret: false  # We create it manually
+  params:
+    server.insecure: "true"  # Dev uses HTTP behind ingress
+    controller.sync.parallelism: "10"  # Higher parallelism for dev speed
+  rbac:
+    policy.default: role:admin  # Permissive in dev
+  cm:
+    admin.enabled: "true"
+
+# Application CRDs — install with server-side apply
+installCRDs: true

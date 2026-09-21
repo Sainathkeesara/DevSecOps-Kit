@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - github-actions-001: `github-actions/notes/2026-09-21-quickstart-tripped-me-up.md` — Followed the quickstart, what worked and what tripped me up (L2 notes)
 - github-actions-002: `github-actions/configs/2026-09-21-minimal-starter-workflow.yaml` — Minimal starter workflow with push plus manual trigger (L2 config)
 - helm-006: `helm/notes/2026-09-21-quickstart-tripped-me-up.md` — Followed the quickstart, what worked and what tripped me up (L2 notes)
+- argocd-036: `argocd/configs/2026-09-20-values-dev.yaml` — Dev Helm values for ArgoCD, single merged configs block at v3.5.2 (L2 config, rework of #593)
 
 ## 2026-09-19
 
