@@ -18,6 +18,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- ansible-009: `ansible/configs/small-ansible-project.yaml` — Small Ansible playbook project with inventory, site playbook, and nginx/postgres role scaffolds (L3 config)
+- opentofu-008: `opentofu/configs/2026-09-21-minimal-opentofu-config-with-vars.hcl` — Minimal OpenTofu configuration with variables, validation, and outputs using null provider (L2 config)
+- kustomize-005: `kustomize/notes/2026-09-21-kustomize-quickstart-tripped-me-up.md` — Followed the Kustomize quickstart: what worked and what tripped me up (L2 notes)
 - kustomize-007: `kustomize/manifests/2026-09-21-kustomize-tutorial.yaml` — Kustomize tutorial resource set: ConfigMap, Deployment, and Service with common labels, name prefix, and config injection (L2 manifest)
 - helm-007: `helm/manifests/2026-09-21-minimal-service-chart.yaml` — Minimal Helm chart resources for a single service: Deployment, Service, and ConfigMap with app labels (L2 manifest)
 - opentofu-007: `opentofu/notes/2026-09-21-follow-open-tofu-quickstart.md` — Followed the official OpenTofu quickstart: what worked and what tripped me up (L2 notes)

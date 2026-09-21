@@ -1,0 +1,83 @@
+# last_verified: 2026-09-21 · ansible-core 2.21.4
+# Small Ansible playbook project: inventory, site playbook, and one role scaffold.
+# Run with: ansible-playbook -i inventory site.yml --check --diff
+
+all:
+  vars:
+    ansible_user: deploy
+    ansible_ssh_private_key_file: ~/.ssh/id_ed25519
+  children:
+    web:
+      vars:
+        http_port: 80
+        nginx_version: "latest"
+      hosts:
+        web-01.example.com:
+        web-02.example.com:
+          http_port: 8080
+    db:
+      vars:
+        postgres_version: "16"
+      hosts:
+        db-01.example.com:
+          ansible_user: dbadmin
+
+---
+# site.yml - thin entry point that includes role playbooks
+- name: Configure web servers
+  hosts: web
+  become: true
+  roles:
+    - role: nginx
+      tags: [nginx]
+
+- name: Configure database servers
+  hosts: db
+  become: true
+  roles:
+    - role: postgres
+      tags: [postgres]
+
+---
+# roles/nginx/tasks/main.yml
+- name: Ensure nginx is present
+  ansible.builtin.apt:
+    name: "nginx={{ nginx_version }}"
+    state: present
+    update_cache: true
+  notify: restart nginx
+
+- name: Ensure nginx is running and enabled
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: true
+
+---
+# roles/nginx/handlers/main.yml
+- name: restart nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+
+---
+# roles/postgres/tasks/main.yml
+- name: Ensure postgresql is present
+  ansible.builtin.apt:
+    name: "postgresql-{{ postgres_version }}"
+    state: present
+    update_cache: true
+  notify: restart postgres
+
+- name: Ensure postgresql is running and enabled
+  ansible.builtin.service:
+    name: postgresql
+    state: started
+    enabled: true
+
+---
+# roles/postgres/handlers/main.yml
+- name: restart postgres
+  ansible.builtin.service:
+    name: postgresql
+    state: restarted
