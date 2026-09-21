@@ -7,6 +7,8 @@
 - [Trivy CVE severity filtering](../scripts/bash/ci_cd_toolkit/trivy-severity-filter.sh)
 - [TruffleHog PR secret scan reusable workflow](../trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml)
 - [Falco K8s admission control rule](../falco/manifests/falco-k8s-admission-control.yaml)
+- [DefectDojo quickstart trip-ups](../defectdojo/notes/2026-09-21-quickstart-tripups.md) — Give the initializer minutes on first boot and pull the generated admin password from its logs
+- [DefectDojo readiness check](../defectdojo/scripts/2026-09-20-defectdojo-tutorial-check.sh) — Confirm containers are up and API env is set before importing scans
 
 ### Build and sign container images
 - [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
@@ -40,6 +42,7 @@
 - [Grafana primer](../grafana/notes/0000-primer-grafana.md)
 - [First Grafana datasource](../grafana/configs/2026-09-19-first-datasource.yaml) — Wire one Prometheus backend into Grafana so a first panel query has something to read
 - [First dashboard browser check](../grafana/notes/2026-09-19-first-dashboard-browser.md) — What to inspect in the dashboard browser once the UI is reachable
+- [Checking the Prometheus metrics interface](../prometheus/notes/2026-09-20-checking-the-metrics-interface.md) — Finding a metrics view you can actually inspect on a first run
 
 ### Tune runtime detection
 - [Falco primer](../falco/notes/0000-primer-falco.md)
@@ -51,6 +54,7 @@
 - [Install Trivy and run a first container scan](../trivy/notes/2026-09-05-install-trivy-first-container-scan.md)
 - [Install ZAP and run a baseline scan](../zap/notes/2026-09-05-install-zap-first-baseline-scan.md)
 - [Nuclei primer](../nuclei/notes/0000-primer-nuclei.md)
+- [Nuclei first template scan attempt](../nuclei/notes/2026-09-20-first-template-scan-attempt.md) — Check for the binary first and stop rather than inventing a target or finding
 - [Trivy primer](../trivy/notes/0000-primer-trivy.md)
 - [Trivy scanning performance optimization](../trivy/notes/scanning-performance-optimization.md)
 - [Trivy ignore-rules pipeline](../trivy/scripts/ignore-rules-pipeline.sh)
@@ -77,6 +81,7 @@
 - [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
 - [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md)
 - [Helm primer](../helm/notes/0000-primer-helm.md)
+- [Helm quickstart trip-ups](../helm/notes/2026-09-21-quickstart-tripped-me-up.md) — Install creates a release while upgrade changes it, plus values precedence and namespace listing
 - [Kustomize primer](../kustomize/notes/0000-primer-kustomize.md)
 - [ArgoCD primer](../argocd/notes/0000-primer-argocd.md)
 - [ArgoCD private repo credentials and RBAC](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml)
@@ -118,6 +123,7 @@
 - [Applying secrets & access management](../docs/concepts/secrets-access-management/snippets/2026-08-25-applying-secrets-access-management.py)
 - [Applying version control in DevSecOps](../docs/concepts/version-control-with-git/snippets/2026-08-25-applying-version-control-in-devsecops.py)
 - [Lab primer](../lab/notes/0000-primer-lab.md) — What the lab scratch space is for and how mini-projects are organised
+- [Setting up the lab directory](../lab/notes/2026-09-20-setting-up-the-lab-directory.md) — Turn `lab/` into a place you can revisit: primer, one env config, and mini-projects
 - [First lab environment](../lab/configs/2026-09-19-first-lab-env.yaml) — A one-machine practice box you can rebuild from when experiments get messy
 
 ### Run infrastructure tasks
@@ -134,6 +140,7 @@
 - [Checkov 2.x to 3.x upgrade checklist](../checkov/docs/checkov-v3-upgrade-checklist.md) — Roll out the major-version upgrade on a trial branch without breaking the CI gate
 - [Checkov cross-module scanning limitations](../checkov/notebooks/compare-cross-module-scanning-limitations.ipynb) — Static directory scan vs plan JSON scan for cross-module IaC
 - [tfsec primer](../tfsec/notes/0000-primer-tfsec.md)
+- [First tfsec security check](../tfsec/notes/2026-09-20-first-tfsec-scan.md) — Check for the binary first, then keep a one-file Terraform sample ready to scan
 - [Checkov platform config](../checkov/configs/platform-config.yaml)
 - [CodeQL primer](../codeql/notes/0000-primer-codeql.md)
 - [Install CodeQL and run a first query](../codeql/notes/2026-08-26-install-codeql-first-query.md)
@@ -164,6 +171,8 @@
 
 ### Set up CI/CD pipelines
 - [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md)
+- [GitHub Actions quickstart trip-ups](../github-actions/notes/2026-09-21-quickstart-tripped-me-up.md) — Workflow must live under `.github/workflows/`, plus indentation and branch-trigger gotchas
+- [Minimal starter workflow](../github-actions/configs/2026-09-21-minimal-starter-workflow.yaml) — Push plus manual trigger with one job, for re-running without empty commits
 - [Install the GitHub CLI and run a first command](../github-actions/notes/2026-08-26-install-gh-cli-first-command.md)
 - [My first GitHub Actions workflow](../github-actions/snippets/2026-08-26-first-workflow.yaml)
 - [Reusing inputs with a composite action](../github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml)

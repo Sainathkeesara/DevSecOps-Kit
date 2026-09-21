@@ -359,6 +359,7 @@
 - **Finding** — A single vulnerability or issue imported from a security scanner into DefectDojo.
 - **Test** — The result of importing one scan file into a DefectDojo engagement.
 - **Deduplication** — Merging identical findings across scans so one issue doesn't fan out into multiple tickets.
+- **Initializer (DefectDojo)** — The one-shot Docker Compose service that runs database setup on first boot. It takes several minutes and prints the generated admin password to its logs — watch it before assuming the install is broken.
 
 **Quality Gate** — SonarQube's pass/fail conditions for a project (e.g., no new bugs, coverage ≥ 80%). Enforced in CI to block PRs that degrade code quality.
 
@@ -573,6 +574,15 @@
 - **mini-project** — A self-contained practice setup under `lab/mini-projects/`, pairing a short README with the configs needed to rebuild it. Example: the postgres database server walkthrough.
 - **lab environment config** — A small file describing one practice machine or setup (name, what it runs, which ports). Example: the first lab env config in `lab/configs/`.
 - **rebuild** — Tearing a practice setup down and recreating it from the saved config to prove the notes are honest. Example: re-running lab steps on a fresh box after an experiment gets messy.
+
+## Helm
+
+- **Revision (Helm)** — A numbered snapshot of a release created on every install or upgrade. `helm history` lists revisions so you can see what changed and when.
+- **Rollback (Helm)** — Reverting a release to an earlier revision after a bad upgrade, without reinstalling the chart from scratch.
+
+## GitHub Actions
+
+- **workflow_dispatch (GitHub Actions)** — A manual trigger for a workflow, so a run can start from the Actions tab on any branch instead of waiting for a push event. Handy for iterating on a starter workflow.
 
 ## Acronyms
 
