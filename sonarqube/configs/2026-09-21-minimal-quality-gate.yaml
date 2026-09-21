@@ -1,0 +1,17 @@
+# last_verified: 2026-09-21 · sonarqube n/a
+
+projectKey: my-project
+name: Minimal Quality Gate
+conditions:
+  - metric: new_bugs
+    operator: GREATER_THAN
+    value: "0"
+  - metric: new_vulnerabilities
+    operator: GREATER_THAN
+    value: "0"
+  - metric: coverage
+    operator: LESS_THAN
+    value: "80"
+  - metric: duplicated_lines_density
+    operator: GREATER_THAN
+    value: "3"
