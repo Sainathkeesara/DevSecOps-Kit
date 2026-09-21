@@ -4,6 +4,11 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-21
+
+### Added
+- defectdojo-004: `defectdojo/notes/2026-09-21-quickstart-tripups.md` — Following the DefectDojo quickstart: what tripped me up (L2 notes, rework of #593)
+
 ## 2026-09-20
 
 ### Added
