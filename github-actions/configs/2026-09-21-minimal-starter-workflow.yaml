@@ -1,0 +1,20 @@
+# last_verified: 2026-09-21 · GitHub Actions n/a
+# Minimal starter workflow: push + manual trigger, one job, echo steps.
+# I wrote this while working through the quickstart so I could re-run
+# without pushing. Drop it in .github/workflows/ and trigger it by hand
+# from the Actions tab or with a push.
+
+name: minimal-starter
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello
+        run: echo "hello from my first workflow"
+      - name: Show the workspace
+        run: pwd && ls -la
