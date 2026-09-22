@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - git-017: `git/docs/how-i-wired-git-into-my-version-control-workflow.md` — Wiring Git into a version control workflow: Purpose → Steps → Verify (L3 docs)
 - git-016: `git/scripts/git-automation.sh` — Small Git automation script for feature branch creation, conventional commits, and PR creation (L3 script)
 - kustomize-006: `kustomize/configs/2026-09-22-minimal-kustomization-with-overlay.yaml` — Minimal kustomization with base/overlay structure, patches, and configMapGenerator (L2 config)
+- git-018: `git/configs/config-strategy-layered-vs-conditional.yaml` — Comparing Git layered config (system/global/local tiers) and conditional includes (includeIf) strategies (L3 config)
 
 ## 2026-09-21
 

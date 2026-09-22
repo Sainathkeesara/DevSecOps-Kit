@@ -1,0 +1,123 @@
+# last_verified: 2026-09-22 · Git n/a
+
+# git-config-strategies.yaml
+# Comparing two approaches to managing Git configuration across contexts.
+#
+# Approach A: Layered config files (system -> global -> local)
+#   Git reads three tiers of config, with later tiers overriding earlier ones.
+# Approach B: Conditional includes (includeIf on a single global config)
+#   One global config conditionally pulls in context-specific files.
+#
+# These are not mutually exclusive — you can combine includeIf inside a
+# global config that still has local per-repo overrides in .git/config.
+
+# ── Strategy A: Layered config files ──────────────────────────────────────
+# Git resolves config in this order, last-wins:
+#   1. System  — /etc/gitconfig           (all users, every repo)
+#   2. Global  — ~/.gitconfig             (one user, all repos)
+#   3. Local   — <repo>/.git/config       (single repository)
+#
+# A common real-world split:
+#   - /etc/gitconfig     — company-wide defaults (branch = main, pull.rebase = true)
+#   - ~/.gitconfig       — personal identity and aliases
+#   - <repo>/.git/config — repo-specific overrides (e.g. a different branch name)
+#
+# This is Git's default behaviour and requires no configuration flags.
+strategy_a_layered_config:
+  tiers:
+    system:
+      path: /etc/gitconfig
+      scope: all_users_all_repos
+      managed_via: root_sudo_or_package_manager
+    global:
+      path: ~/.gitconfig
+      scope: current_user_all_repos
+      managed_via: git_config --global
+    local:
+      path: .git/config
+      scope: single_repository
+      managed_via: git_config --local
+  precedence: local_wins_over_global_wins_over_system
+  example_system_config:
+    init_default_branch: main
+    pull_rebase: true
+    push_default: simple
+  example_global_config:
+    user_name: "Your Name"
+    user_email: you@example.com
+    aliases:
+      st: status
+      co: checkout
+      br: branch
+      ci: commit
+  example_local_config:
+    branch_main:
+      remote: origin
+      merge: refs/heads/main
+  when_to_use:
+    - "Multi-user machines where system-wide defaults benefit everyone"
+    - "Different repos legitimately need different settings"
+    - "Teams that manage config per-environment (dev/staging/prod)"
+    - "You want the simplest setup with no extra Git feature learning"
+
+# ── Strategy B: Conditional includes (includeIf) ──────────────────────────
+# A single global config can pull in other files conditionally based on:
+#   gitdir    — the repository's filesystem path
+#   onbranch  — the name of the currently checked-out branch
+#   gitdir/i  — case-insensitive gitdir matching
+#
+# This avoids duplicating the same settings across many per-repo config files.
+# A typical use case: different user identity and remotes for work vs personal
+# repos, all driven by which top-level directory the repo lives in.
+strategy_b_conditional_includes:
+  primary_config: ~/.gitconfig
+  includeIf_directives:
+    - condition: gitdir:~/work/
+      include_path: ~/.gitconfig-work
+      applies_to: work_repositories
+    - condition: gitdir:~/personal/
+      include_path: ~/.gitconfig-personal
+      applies_to: personal_repositories
+    - condition: onbranch:main
+      include_path: ~/.gitconfig-main-branch
+      applies_to: main_branch_specific
+  example_primary_config:
+    user_name: "Default Name"
+    user_email: default@example.com
+    aliases:
+      st: status
+      lg: "log --graph --oneline --decorate"
+    includeIf:
+      '"gitdir:~/work/"':
+        path: ~/.gitconfig-work
+      '"gitdir:~/personal/"':
+        path: ~/.gitconfig-personal
+  example_work_config:
+    user_name: "Work Name"
+    user_email: work@example.com
+    signing_key: "0xAABBCCDDEEFF0011"
+  example_personal_config:
+    user_name: "Personal Name"
+    user_email: personal@example.com
+    signing_key: "0x2233445566778899"
+  when_to_use:
+    - "Single machine with multiple Git identities (work vs personal)"
+    - "Most repos share the same settings, with targeted overrides by path"
+    - "Avoiding per-repo config file sprawl"
+    - "Needing different settings based on the branch context"
+  caveats:
+    - "Path matching in gitdir is literal string prefix, not regex"
+    - "Relative paths in includeIf resolve against the config file location"
+    - "Quoting rules: the condition and path need careful quoting in INI syntax"
+
+# ── Choosing between them ─────────────────────────────────────────────────
+# Recommendation: start with Strategy A (layered config). It is Git's
+# default, requires no includeIf syntax, and is easy to debug. Move to
+# Strategy B (conditional includes) when you find yourself editing the
+# same settings in ~/.gitconfig repeatedly across different repos or
+# contexts. Strategy B reduces duplication but adds path-matching rules
+# that can be frustrating to troubleshoot.
+guidance:
+  start_here: strategy_a_layered_config
+  migrate_to: strategy_b_conditional_includes
+  reason: "conditional includes add flexibility at the cost of debuggability"
