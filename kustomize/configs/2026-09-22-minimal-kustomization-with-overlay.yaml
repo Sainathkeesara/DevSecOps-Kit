@@ -1,0 +1,37 @@
+# last_verified: 2026-09-22 · kustomize n/a
+
+# Minimal kustomization.yaml with base + overlay structure.
+# I followed the kustomize quickstart and this is what worked for a dev overlay.
+# Got stuck on: the patch syntax for strategic merge took a few tries — the
+# path needs to match the JSON path in the resource. What I'd try next: add
+# a staging overlay with different replica count and env vars.
+#
+# Usage: kubectl kustomize overlays/dev | kubectl apply -f -
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+
+commonLabels:
+  app: my-app
+  managed-by: kustomize
+
+namePrefix: dev-
+
+namespace: development
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 2
+    target:
+      kind: Deployment
+      name: my-app
+
+configMapGenerator:
+  - name: app-config
+    literals:
+      - ENV=development
+      - LOG_LEVEL=debug
