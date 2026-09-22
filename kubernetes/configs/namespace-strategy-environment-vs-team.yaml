@@ -1,0 +1,173 @@
+# last_verified: 2026-09-22 · kubernetes n/a
+
+# namespace-strategy-environment-vs-team.yaml
+# Comparing two approaches to scoping Kubernetes namespaces for team +
+# environment isolation.
+#
+# Approach A: Environment-scoped namespaces (dev / staging / prod)
+#   One namespace per environment; teams coexist inside it and are
+#   separated by RBAC + resource quotas within that namespace.
+# Approach B: Team-scoped namespaces (team-a / team-b, or per env)
+#   One namespace per team; the namespace *is* the team boundary and
+#   each team administers its own namespace.
+#
+# These are not mutually exclusive — many clusters mix the two models:
+# environment-scoped namespaces for shared platform services, team-scoped
+# for application workloads, with labels/selectors driving promotion.
+
+# ── Approach A: Environment-scoped namespaces ────────────────────────────────
+# The namespace boundaries line up with environments. Promotion moves a
+# workload from dev -> staging -> prod by retargeting it to the next
+# namespace (usually with an updated, immutable image tag).
+#
+#   namespaces:
+#     - dev        <- every team's dev work lives here
+#     - staging    <- shared pre-prod validation
+#     - prod       <- shared production
+#
+# RBAC is role-based *within* each namespace: Role + RoleBinding grant
+# a team access only to its own label/group, so team-a cannot touch
+# team-b's Deployments even though they share the `dev` namespace.
+# ResourceQuota + LimitRange are applied per namespace to cap the whole
+# environment rather than a single team.
+strategy_a_environment_scoped:
+  namespace_pattern: "<env>"                 # dev, staging, prod
+  namespaces:
+    - dev
+    - staging
+    - prod
+  rbac_model: "role_plus_rolebinding_within_namespace"
+  identity_boundary: environment             # isolation is by env, not team
+  quota_granularity: per_environment         # one quota governs the whole env
+  promotion_shape: "same_name_different_namespace"
+  promotion_notes: >
+    Promotion keeps the workload name constant and re-points it at the
+    next environment namespace, relying on an immutable image tag to
+    prove the workload advanced. This is the shape ArgoCD sync-waves
+    lean on (dev -> staging -> prod Applications).
+  pros:
+    - "Clear, visible promotion path from dev to prod"
+    - "Shared platform services (Ingress, monitoring) live once per environment"
+    - "Fewer namespaces to manage"
+    - "Works directly with environment-scoped ArgoCD Applications"
+  cons:
+    - "RBAC must be precise; a misconfigured Role can expose another team's work"
+    - "Noisy-neighbor risk within a shared environment namespace"
+    - "Quota contention: one team can exhaust the whole environment budget"
+    - "Namespace admin = environment admin (broader blast radius per person)"
+  when_to_use:
+    - "A small number of teams share a tight promotion pipeline"
+    - "Platform team centrally owns environment-level concerns"
+    - "You want promotion to mirror the dev/staging/prod mental model in Git"
+  example_resources:                         # Role scoping team-a inside `dev`
+    role:
+      kind: Role
+      metadata:
+        name: team-a-developer
+        namespace: dev
+      rules:
+        - apiGroups: ["", "apps", "batch"]
+          resources: ["pods", "deployments", "jobs"]
+          verbs: ["get", "list", "create", "update", "delete"]
+    role_binding:
+      kind: RoleBinding
+      metadata:
+        name: team-a-developer
+        namespace: dev
+      subjects:
+        - kind: Group
+          name: team-a
+          apiGroup: rbac.authorization.k8s.io
+      roleRef:
+        kind: Role
+        name: team-a-developer
+        apiGroup: rbac.authorization.k8s.io
+
+# ── Approach B: Team-scoped namespaces ────────────────────────────────────────
+# The namespace boundaries line up with teams. Each team owns its
+# namespaces end-to-end, and isolation falls out naturally because the
+# namespace *is* the administrative boundary.
+#
+# Two common sub-shapes:
+#   1. Single namespace per team (team-a, team-b) — environments folded
+#      in via labels + a promotion controller.
+#   2. Namespace per team+environment (team-a-dev, team-a-staging,
+#      team-a-prod) — environments are namespaces, but each team's
+#      environments are separate from every other team's.
+strategy_b_team_scoped:
+  namespace_pattern: "<team>[-<env>]"         # team-a, or team-a-dev
+  namespaces_example:
+    - team-a-dev
+    - team-a-staging
+    - team-a-prod
+    - team-b-dev
+    - team-b-staging
+    - team-b-prod
+  rbac_model: "team_admin_on_own_namespace"
+  identity_boundary: team                     # namespace == team boundary
+  quota_granularity: per_team_per_environment
+  promotion_shape: "retag_and_sync_across_namespaces"
+  promotion_notes: >
+    Promotion moves the workload across the team's environment namespaces
+    (e.g. team-a-dev -> team-a-staging). Because each namespace is a hard
+    boundary, quotas and RBAC are team-owned by default — no cross-team
+    Role fine-grain needed.
+  pros:
+    - "Strong, default isolation: teams cannot see or touch each other"
+    - "Team admin is scoped to that team's namespace (smaller blast radius)"
+    - "Resource quotas map cleanly to a team's budget"
+    - "RBAC is simple: a team gets full control of its own namespace"
+  cons:
+    - "Namespace sprawl: the count grows with teams times environments"
+    - "Promotion tooling must retarget across namespaces"
+    - "Shared platform services need replication or multi-namespace access"
+    - "Higher object count (RoleBindings, Quotas, ...) per team"
+  when_to_use:
+    - "Many autonomous teams that should not share boundaries"
+    - "Teams own their full lifecycle within a namespace"
+    - "You want per-team quota and billing to map directly to namespaces"
+  caveats:
+    - "Namespace is a soft boundary in Kubernetes; for hard multi-tenant
+      isolation add network policies and, where applicable, Pod Security
+      Standards via the namespace labels below."
+  example_resources:
+    namespace:
+      kind: Namespace
+      metadata:
+        name: team-a-staging
+        labels:
+          env: staging
+          team: team-a
+          pod-security.kubernetes.io/enforce: restricted
+    resource_quota:
+      kind: ResourceQuota
+      metadata:
+        name: compute-resources
+        namespace: team-a-staging
+      spec:
+        hard:
+          requests.cpu: "1"
+          requests.memory: 1Gi
+          limits.cpu: "2"
+          limits.memory: 2Gi
+          persistentvolumeclaims: "5"
+
+# ── Choosing between them ────────────────────────────────────────────────────
+# Start here depends on your team topology, not your tooling:
+#   - Few teams, shared promotion pipeline  -> Approach A
+#   - Many autonomous teams, hard separation desired -> Approach B
+# You can also begin with Approach A and migrate toward team-scoped
+# namespaces (or vice-versa) by relabeling and re-pointing — the workload
+# manifests themselves do not need to change, only which namespace they
+# target. Neither model is a prerequisite for the other, so a gradual
+# split (platform services in environment namespaces, apps in team
+# namespaces) is a safe intermediate step.
+guidance:
+  starts_here:
+    if_few_teams_shared_pipeline: strategy_a_environment_scoped
+    if_many_teams_autonomous: strategy_b_team_scoped
+  migration_notes: >
+    Moving between models is a re-pointing exercise: re-tag the image,
+    retarget the namespace, and re-apply the matching RBAC/Quota. Keep
+    the workload manifest identical and vary only the deployment
+    target so the change is reversible.
