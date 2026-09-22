@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - kubernetes-008: `kubernetes/manifests/small-deployment-from-scratch.yaml` — Minimal Kubernetes Deployment (2 replicas) with matching ClusterIP Service (L3 manifest)
 - kubernetes-009: `kubernetes/docs/cluster-workflow-wiring.md` — Wiring Kubernetes into a cluster workflow: namespace-per-env Deployment plus Service, Purpose → Steps → Verify (L3 docs)
 - terraform-025: `terraform/configs/small-module-from-scratch.hcl` — Small Terraform module with validated inputs, naming locals, and outputs (L3 config)
+- ansible-011: `ansible/notes/roles-vs-tasks.md` — Comparing Ansible roles and task lists for reusable concerns, ordering, and small-project structure (L3 notes)
 - kubernetes-010: `kubernetes/configs/namespace-strategy-environment-vs-team.yaml` — Comparing environment-scoped vs team-scoped Kubernetes namespace isolation strategies (L3 config)
 
 ## 2026-09-21
