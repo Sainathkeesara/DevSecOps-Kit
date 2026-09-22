@@ -1,0 +1,37 @@
+# last_verified: 2026-09-22 · argocd v3.5.2
+# Purpose: minimal ArgoCD Application that deploys the Helm variant of the
+#   example guestbook app — one step up the plain-YAML -> Helm -> Kustomize
+#   ladder. This is one way to wire a Helm path into GitOps; the docs also
+#   show plain-manifest and Kustomize paths for the same repo.
+# When to use: learning how a Helm-chart source differs from a plain-YAML
+#   path inside an Application spec.
+# Prerequisites: an ArgoCD instance with the example-apps repo registered;
+#   a cluster reachable as the destination below.
+# Steps: kubectl apply -f helm-guestbook-application.yaml -n argocd
+#   then argocd app get helm-guestbook-demo
+# Verify: Sync Status and Health Status are separate axes — expect the app
+#   to report Synced/Healthy once reconciled; an OutOfSync/Missing pair just
+#   means the destination objects are not there yet, not that the sync failed.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-guestbook-demo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: HEAD
+    path: helm-guestbook
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: helm-guestbook-demo
+  syncPolicy:
+    automated:
+      # Deliberately conservative for a learning app: prune removals but do
+      # not self-heal manual edits, so a kubectl edit stays visible until the
+      # next explicit sync instead of being reverted within minutes.
+      prune: true
+      selfHeal: false
+    syncOptions:
+      - ServerSideApply=true

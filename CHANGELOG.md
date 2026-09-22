@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - git-016: `git/scripts/git-automation.sh` — Small Git automation script for feature branch creation, conventional commits, and PR creation (L3 script)
 - kustomize-006: `kustomize/configs/2026-09-22-minimal-kustomization-with-overlay.yaml` — Minimal kustomization with base/overlay structure, patches, and configMapGenerator (L2 config)
 - git-018: `git/configs/config-strategy-layered-vs-conditional.yaml` — Comparing Git layered config (system/global/local tiers) and conditional includes (includeIf) strategies (L3 config)
+- argocd-034: `argocd/manifests/helm-guestbook-application.yaml` — Minimal ArgoCD Application for the Helm guestbook variant with conservative prune/self-heal sync policy (L3 manifest)
+- kubernetes-008: `kubernetes/manifests/small-deployment-from-scratch.yaml` — Minimal Kubernetes Deployment (2 replicas) with matching ClusterIP Service (L3 manifest)
 
 ## 2026-09-21
 
