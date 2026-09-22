@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-22
+
+### Added
+
+- git-016: `git/scripts/git-automation.sh` — Small Git automation script for feature branch creation, conventional commits, and PR creation (L3 script)
+- kustomize-006: `kustomize/configs/2026-09-22-minimal-kustomization-with-overlay.yaml` — Minimal kustomization with base/overlay structure, patches, and configMapGenerator (L2 config)
+
 ## 2026-09-21
 
 ### Passed
