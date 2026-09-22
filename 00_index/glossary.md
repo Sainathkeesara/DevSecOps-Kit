@@ -584,6 +584,16 @@
 
 - **workflow_dispatch (GitHub Actions)** — A manual trigger for a workflow, so a run can start from the Actions tab on any branch instead of waiting for a push event. Handy for iterating on a starter workflow.
 
+## Kubernetes
+
+- **ReplicaSet** — The controller that keeps a stable set of identical Pods running for a Deployment. A Deployment creates a ReplicaSet, the ReplicaSet creates the Pods, and a Service selects those Pods by label.
+- **ClusterIP Service** — The default Kubernetes Service type: a stable virtual IP reachable only inside the cluster that load-balances to the backing Pods.
+
+## Git
+
+- **includeIf (Git)** — A conditional-include directive in a Git config file that pulls in extra config only when the repository location matches (e.g. work versus personal directories). An alternative to relying purely on layered system, global, and local config tiers.
+- **Layered config (Git)** — Git's default resolution order: system (`/etc/gitconfig`), then global (`~/.gitconfig`), then local (`<repo>/.git/config`), with later tiers winning.
+
 ## Acronyms
 
 **OCI (Open Container Initiative)** — A set of open-source standards for container image formats and distribution, used by registries like Docker Hub, GitHub Container Registry, and AWS ECR.

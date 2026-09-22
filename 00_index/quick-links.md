@@ -72,6 +72,7 @@
 
 ### Manage infrastructure as code
 - [Terraform primer](../terraform/notes/0000-primer-terraform.md)
+- [Small reusable Terraform module](../terraform/configs/small-module-from-scratch.hcl) — Environment-aware naming and tagging with variables, locals, and outputs
 - [Composing Terraform modules](../terraform/docs/terraform-module-composition.md)
 - [Terraform workspace variable precedence](../terraform/configs/workspace-variable-precedence.hcl)
 - [First environment comparison](../environments/notes/2026-09-19-first-environment-comparison.md) — Dev vs staging vs prod variable differences worth understanding before changing anything
@@ -79,14 +80,18 @@
 - [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md)
 - [Helm primer](../helm/notes/0000-primer-helm.md)
 - [Helm quickstart trip-ups](../helm/notes/2026-09-21-quickstart-tripped-me-up.md) — Things that tripped me up walking through a first Helm setup
-- [Minimal Helm chart](../helm/manifests/2026-09-21-minimal-helm-chart.yaml) — A bare minimum Helm chart to validate the chart scaffolding pattern
+- [Minimal Helm chart](../helm/manifests/2026-09-21-minimal-service-chart.yaml) — A bare minimum Helm chart to validate the chart scaffolding pattern
 - [Kustomize primer](../kustomize/notes/0000-primer-kustomize.md)
-- [Kustomize quickstart trip-ups](../kustomize/notes/2026-09-21-quickstart-tripped-me-up.md) — Things that tripped me up walking through a first Kustomize setup
-- [Minimal Kustomize config](../kustomize/configs/2026-09-21-minimal-kustomization.yaml) — A bare minimum kustomization.yaml to validate the overlay scaffolding pattern
+- [Kustomize quickstart trip-ups](../kustomize/notes/2026-09-21-kustomize-quickstart-tripped-me-up.md) — Things that tripped me up walking through a first Kustomize setup
+- [Minimal Kustomize config with overlay](../kustomize/configs/2026-09-22-minimal-kustomization-with-overlay.yaml) — A bare minimum kustomization plus overlay to validate the patching pattern
+- [Kustomize tutorial manifest](../kustomize/manifests/2026-09-21-kustomize-tutorial.yaml)
 - [ArgoCD primer](../argocd/notes/0000-primer-argocd.md)
 - [ArgoCD private repo credentials and RBAC](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml)
 - [ArgoCD quickstart trip-ups](../argocd/notes/2026-08-12-quickstart-tripups.md)
 - [ArgoCD multi-environment GitOps delivery](../argocd/docs/multi-environment-gitops-delivery.md)
+- [ArgoCD Helm guestbook application](../argocd/manifests/helm-guestbook-application.yaml) — Minimal Application spec wiring a Helm chart source into GitOps sync
+- [Kubernetes cluster workflow wiring](../kubernetes/docs/cluster-workflow-wiring.md) — Namespace-per-environment layout with a Deployment plus Service per app
+- [Small Kubernetes Deployment from scratch](../kubernetes/manifests/small-deployment-from-scratch.yaml) — Deployment to ReplicaSet to Pod chain behind a ClusterIP Service
 - [Provision a Kubernetes cluster with Terraform + Ansible](../docs/how-to/k8s-terraform-ansible-provisioning.md)
 
 ### Manage policies and compliance
@@ -165,6 +170,8 @@
 
 ### Secure version control
 - [Git primer](../git/notes/0000-primer-git.md)
+- [How Git fits the version-control workflow](../git/docs/how-i-wired-git-into-my-version-control-workflow.md)
+- [Layered vs conditional Git config](../git/configs/config-strategy-layered-vs-conditional.yaml) — System/global/local tiers compared against includeIf context includes
 - [Git first repo stage and log](../git/scripts/2026-08-24-first-repo-stage-log.sh)
 - [Git hooks for security checks](../docs/concepts/version-control-with-git/scripts/git-hooks-devsecops-security-checks.sh)
 
