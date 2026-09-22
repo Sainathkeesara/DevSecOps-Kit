@@ -594,6 +594,16 @@
 - **includeIf (Git)** — A conditional-include directive in a Git config file that pulls in extra config only when the repository location matches (e.g. work versus personal directories). An alternative to relying purely on layered system, global, and local config tiers.
 - **Layered config (Git)** — Git's default resolution order: system (`/etc/gitconfig`), then global (`~/.gitconfig`), then local (`<repo>/.git/config`), with later tiers winning.
 
+## Ansible
+
+- **Role (Ansible)** — A reusable unit of Ansible content with a conventional directory layout (`tasks/`, `handlers/`, `templates/`, `vars/`, `defaults/`). A role is valid with just one of those directories, so small projects scaffold only what they need and call roles from a `site.yml` entry point.
+- **site.yml (Ansible)** — The conventional entry-point playbook that maps plays to hosts and lists the roles each play runs, keeping the top level readable instead of growing one giant playbook.
+
+## Kubernetes
+
+- **ResourceQuota (Kubernetes)** — A namespace-scoped object that caps aggregate resource consumption (CPU, memory, object counts) for that namespace. Used with environment-scoped namespaces to bound a whole environment rather than a single team.
+- **RoleBinding (Kubernetes)** — A namespace-scoped grant binding a Role's permissions to users or groups within that namespace. The mechanism that lets teams coexist in a shared environment namespace without touching each other's workloads.
+
 ## Acronyms
 
 **OCI (Open Container Initiative)** — A set of open-source standards for container image formats and distribution, used by registries like Docker Hub, GitHub Container Registry, and AWS ECR.
