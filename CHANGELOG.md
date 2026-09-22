@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - git-018: `git/configs/config-strategy-layered-vs-conditional.yaml` — Comparing Git layered config (system/global/local tiers) and conditional includes (includeIf) strategies (L3 config)
 - argocd-034: `argocd/manifests/helm-guestbook-application.yaml` — Minimal ArgoCD Application for the Helm guestbook variant with conservative prune/self-heal sync policy (L3 manifest)
 - kubernetes-008: `kubernetes/manifests/small-deployment-from-scratch.yaml` — Minimal Kubernetes Deployment (2 replicas) with matching ClusterIP Service (L3 manifest)
+- kubernetes-009: `kubernetes/docs/cluster-workflow-wiring.md` — Wiring Kubernetes into a cluster workflow: namespace-per-env Deployment plus Service, Purpose → Steps → Verify (L3 docs)
+- terraform-025: `terraform/configs/small-module-from-scratch.hcl` — Small Terraform module with validated inputs, naming locals, and outputs (L3 config)
 
 ## 2026-09-21
 
