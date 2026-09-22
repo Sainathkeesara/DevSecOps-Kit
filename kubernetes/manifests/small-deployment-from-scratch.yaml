@@ -1,0 +1,44 @@
+# last_verified: 2026-09-22 · kubernetes n/a
+# Purpose: smallest Deployment that shows the Deployment -> ReplicaSet ->
+#   Pod chain working, fronted by a ClusterIP Service. This is one way to
+#   structure it; the docs also show running a bare Pod for a first look.
+# When to use: learning how replicas, selector matchLabels, and the Service
+#   selector fit together before adding probes or resource blocks.
+# Prerequisites: a reachable cluster with kubectl configured.
+# Steps: kubectl apply -f small-deployment-from-scratch.yaml
+# Verify: kubectl rollout status deployment/demo-web
+#   then kubectl get pods -l app=demo-web and curl the Service ClusterIP:80.
+#   If the rollout sticks at 0 available, describe the ReplicaSet first —
+#   the image pull is the usual suspect on a fresh cluster.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-web
+  labels:
+    app: demo-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-web
+  template:
+    metadata:
+      labels:
+        app: demo-web
+    spec:
+      containers:
+        - name: web
+          image: nginx
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-web-svc
+spec:
+  selector:
+    app: demo-web
+  ports:
+    - port: 80
+      targetPort: 80
