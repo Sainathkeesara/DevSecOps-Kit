@@ -11,15 +11,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-1020 files across 37 tool folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+1032 files across 35 tool folders plus lab practice setups and cross-cutting docs, scripts, snippets, templates, and environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
-- [Argocd values-dev config](argocd/configs/2026-09-20-values-dev.yaml) — Multi-env values override for ArgoCD app synchronization
-- [DefectDojo vulnerability scanner setup](defectdojo/configs/2026-09-21-vulnerability-scanner-setup.yaml) — DefectDojo scanner integration scaffold with finding ingestion
-- [DefectDojo quickstart trip-ups](defectdojo/notes/2026-09-21-quickstart-tripups.md) — Common first-time stumbling blocks when onboarding to DefectDojo
-- [Minimal starter GitHub Actions workflow](github-actions/configs/2026-09-21-minimal-starter-workflow.yaml) — A bare minimum CI workflow to validate the pipeline scaffolding pattern
-- [GitHub Actions quickstart tripped-me-up](github-actions/notes/2026-09-21-quickstart-tripped-me-up.md) — Things that caught me off guard walking through a first GitHub Actions setup
+- [How I wired Kubernetes into my cluster workflow](kubernetes/docs/cluster-workflow-wiring.md) — One namespace per environment with a Deployment plus Service per app, applied from versioned manifests
+- [Small reusable Terraform module](terraform/configs/small-module-from-scratch.hcl) — Environment-aware naming and tagging with variables, locals, and outputs
+- [ArgoCD Helm guestbook application](argocd/manifests/helm-guestbook-application.yaml) — Minimal Application spec deploying the Helm variant of the guestbook demo
+- [Small Deployment from scratch](kubernetes/manifests/small-deployment-from-scratch.yaml) — Smallest Deployment showing the Deployment to ReplicaSet to Pod chain behind a ClusterIP Service
+- [Git config strategies compared](git/configs/config-strategy-layered-vs-conditional.yaml) — Layered config tiers versus conditional includes, side by side
 
 ## Layout
 
@@ -44,51 +44,51 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total | Last verified |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|---------:|------:|---------------|
-| checkov | 4 | 6 | 2 | 3 | 4 | 20 | 3 | 0 | 3 | 1 | 46 | 2026-09-17 |
+| checkov | 4 | 6 | 2 | 3 | 4 | 20 | 3 | 0 | 3 | 1 | 46 | 2026-09-18 |
 | trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 38 | 2026-09-04 |
-| syft | 4 | 6 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 37 | 2026-09-03 |
+| syft | 4 | 6 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 37 | 2026-09-17 |
 | trivy | 6 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 35 | 2026-09-05 |
 | zap | 6 | 3 | 2 | 2 | 4 | 8 | 0 | 1 | 0 | 0 | 26 | 2026-09-05 |
 | opa | 3 | 2 | 2 | 1 | 3 | 9 | 4 | 0 | 0 | 0 | 24 | 2026-09-02 |
 | codeql | 4 | 2 | 1 | 1 | 4 | 8 | 2 | 1 | 1 | 0 | 24 | 2026-09-19 |
 | snyk | 4 | 2 | 1 | 2 | 1 | 11 | 1 | 1 | 0 | 0 | 23 | 2026-09-03 |
 | gitguardian | 4 | 2 | 3 | 2 | 2 | 9 | 0 | 0 | 0 | 0 | 22 | 2026-08-21 |
-| grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-07-05 |
-| terraform | 3 | 1 | 4 | 4 | 1 | 0 | 0 | 0 | 0 | 0 | 20 | 2026-08-10 |
+| terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-09-22 |
+| grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-07-21 |
 | semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 20 | 2026-08-06 |
 | falco | 4 | 3 | 3 | 3 | 1 | 4 | 1 | 0 | 1 | 0 | 20 | 2026-09-19 |
+| vault | 4 | 3 | 4 | 3 | 2 | 0 | 1 | 1 | 1 | 0 | 19 | 2026-09-17 |
 | terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 18 | 2026-08-09 |
-| vault | 4 | 3 | 4 | 3 | 2 | 0 | 1 | 1 | 1 | 0 | 19 | 2026-09-15 |
+| environments | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 15 | 2026-09-19 |
 | cosign | 4 | 1 | 3 | 1 | 1 | 0 | 2 | 2 | 0 | 0 | 14 | 2026-08-25 |
-| dependabot | 7 | 1 | 2 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 2026-08-18 |
-| argocd | 6 | 3 | 0 | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 13 | 2026-09-21 |
-| github-actions | 5 | 0 | 0 | 4 | 2 | 0 | 2 | 0 | 0 | 0 | 13 | 2026-09-21 |
+| dependabot | 7 | 1 | 2 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 2026-08-20 |
 | lab | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-09-20 |
+| github-actions | 5 | 0 | 0 | 4 | 2 | 0 | 2 | 0 | 0 | 0 | 13 | 2026-09-21 |
+| argocd | 6 | 1 | 0 | 2 | 0 | 0 | 3 | 0 | 0 | 0 | 12 | 2026-09-22 |
+| git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
+| ansible | 2 | 0 | 3 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 8 | 2026-09-21 |
 | docker | 2 | 1 | 2 | 1 | 0 | 0 | 0 | 2 | 0 | 0 | 8 | 2026-08-05 |
-| git | 3 | 0 | 3 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-07-26 |
-| ansible | 2 | 0 | 3 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-09-15 |
 | tetragon | 3 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-08-06 |
 | defectdojo | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
-| kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 2026-09-21 |
+| kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 6 | 2026-09-22 |
+| kubernetes | 2 | 1 | 0 | 0 | 0 | 0 | 3 | 0 | 0 | 0 | 6 | 2026-09-22 |
+| opentofu | 3 | 0 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
+| sonarqube | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | helm | 3 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 5 | 2026-09-21 |
-| kubernetes | 2 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 4 | 2026-09-10 |
-| opentofu | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-07-20 |
-| sonarqube | 2 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-07-19 |
 | prometheus | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-20 |
 | grafana | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-19 |
 | linux | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-08-17 |
 | gitleaks | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-19 |
 | nuclei | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 | tfsec | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
-| environments | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 15 | 2026-09-19 |
 
-_Terraform's total includes a 7-file `eventbridge-lambda/` sample project on top of the categorised notes, docs, scripts, configs, and snippets. Lab's total includes 10 files under `lab/mini-projects/` outside the standard categories. Environments' total includes 12 Terraform files under `dev/`, `staging/`, and `prod/` outside the standard categories._
+_Kubernetes' total counts 2 notes, 1 doc, and 3 manifests. Terraform's total includes a 7-file `eventbridge-lambda/` sample project on top of the categorised notes, docs, scripts, configs, and snippets. Lab's total includes 10 files under `lab/mini-projects/` outside the standard categories. Environments' total includes 12 Terraform files under `dev/`, `staging/`, and `prod/` outside the standard categories._
 
 </details>
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions include a lab practice primer with a first environment config, a Grafana Prometheus datasource, a Gitleaks first-scan note, and a dev/staging/prod environment comparison. Current focus is finishing per-tool notes and deepening runtime-detection and supply-chain coverage.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions wire Kubernetes into a namespace-per-environment cluster workflow, add a small reusable Terraform module, a Helm-backed ArgoCD guestbook Application, a minimal Deployment-plus-Service manifest, and a layered-versus-conditional Git config comparison. Current focus is rounding out Kubernetes, Terraform, ArgoCD, and Git first-contact notes.
 
 ---
-_Last updated: 2026-09-21_
+_Last updated: 2026-09-22_

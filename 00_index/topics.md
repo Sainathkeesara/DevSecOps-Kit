@@ -1,17 +1,17 @@
 # Topics
 > A map of what's here. For a beginner-to-advanced reading order, see [learning-path.md](learning-path.md).
-## ansible  ·  7 files
+## ansible  ·  8 files
 - **notes** (2): [2026-08-17-verify-ansible-cve-2026-33228-paths.md](../ansible/notes/2026-08-17-verify-ansible-cve-2026-33228-paths.md), [2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md](../ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md)
 - **scripts** (3): [2026-08-04-bootstrap-node.sh](../ansible/scripts/2026-08-04-bootstrap-node.sh), [bootstrap-target-node.sh](../ansible/scripts/bootstrap-target-node.sh), [bootstrap.sh](../ansible/scripts/bootstrap.sh)
-- **configs** (1): [2026-09-15-inventory-groups-host-vars.yaml](../ansible/configs/2026-09-15-inventory-groups-host-vars.yaml)
+- **configs** (2): [2026-09-15-inventory-groups-host-vars.yaml](../ansible/configs/2026-09-15-inventory-groups-host-vars.yaml), [small-ansible-project.yaml](../ansible/configs/small-ansible-project.yaml)
 - **snippets** (1): [2026-08-25-minimal-ansible-playbook-package-service.yaml](../ansible/snippets/2026-08-25-minimal-ansible-playbook-package-service.yaml)
 
-## argocd  ·  14 files
+## argocd  ·  12 files
 - **primer:** [0000-primer-argocd.md](../argocd/notes/0000-primer-argocd.md)
 - **notes** (6): [0000-primer-argocd.md](../argocd/notes/0000-primer-argocd.md), [2026-07-06-install-argocd-first-app.md](../argocd/notes/2026-07-06-install-argocd-first-app.md), [2026-08-12-quickstart-tripups.md](../argocd/notes/2026-08-12-quickstart-tripups.md) — _…and 3 more under `argocd/notes/`._
-- **docs** (3): [multi-environment GitOps delivery](../argocd/docs/multi-environment-gitops-delivery.md), [install.yaml](../argocd/docs/install.yaml), [values-dev.yaml](../argocd/docs/values-dev.yaml)
+- **docs** (1): [multi-environment GitOps delivery](../argocd/docs/multi-environment-gitops-delivery.md)
 - **configs** (2): [2026-08-17-private-repo-credentials-rbac.yaml](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml), [2026-09-20-values-dev.yaml](../argocd/configs/2026-09-20-values-dev.yaml)
-- **manifests** (2): [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml), [2026-08-12-gitops-sync-sample-web-app.yaml](../argocd/manifests/2026-08-12-gitops-sync-sample-web-app.yaml)
+- **manifests** (3): [helm-guestbook-application.yaml](../argocd/manifests/helm-guestbook-application.yaml), [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml), [2026-08-12-gitops-sync-sample-web-app.yaml](../argocd/manifests/2026-08-12-gitops-sync-sample-web-app.yaml)
 
 ## checkov  ·  46 files
 - **primer:** [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md)
@@ -86,10 +86,12 @@
 - **manifests** (1): [falco-k8s-admission-control.yaml](../falco/manifests/falco-k8s-admission-control.yaml)
 - **notebooks** (1): [falco-event-output-formats.ipynb](../falco/notebooks/falco-event-output-formats.ipynb)
 
-## git  ·  7 files
+## git  ·  10 files
 - **primer:** [0000-primer-git.md](../git/notes/0000-primer-git.md)
 - **notes** (3): [0000-primer-git.md](../git/notes/0000-primer-git.md), [2026-07-04-git-branching-merge-confusions.md](../git/notes/2026-07-04-git-branching-merge-confusions.md), [2026-07-12-install-git-identity-first-commit.md](../git/notes/2026-07-12-install-git-identity-first-commit.md)
-- **scripts** (3): [2026-07-10-local-ci-simulation.sh](../git/scripts/2026-07-10-local-ci-simulation.sh), [2026-07-12-bump-version.sh](../git/scripts/2026-07-12-bump-version.sh), [2026-08-24-first-repo-stage-log.sh](../git/scripts/2026-08-24-first-repo-stage-log.sh)
+- **docs** (1): [how-i-wired-git-into-my-version-control-workflow.md](../git/docs/how-i-wired-git-into-my-version-control-workflow.md)
+- **scripts** (4): [2026-07-10-local-ci-simulation.sh](../git/scripts/2026-07-10-local-ci-simulation.sh), [2026-07-12-bump-version.sh](../git/scripts/2026-07-12-bump-version.sh), [2026-08-24-first-repo-stage-log.sh](../git/scripts/2026-08-24-first-repo-stage-log.sh) — _…and 1 more under `git/scripts/`._
+- **configs** (1): [config-strategy-layered-vs-conditional.yaml](../git/configs/config-strategy-layered-vs-conditional.yaml)
 - **snippets** (1): [2026-07-04-git-rebase-vs-merge-conflict-patterns.sh](../git/snippets/2026-07-04-git-rebase-vs-merge-conflict-patterns.sh)
 
 ## gitguardian  ·  22 files
@@ -117,13 +119,13 @@
 - **primer:** [0000-primer-gitleaks.md](../gitleaks/notes/0000-primer-gitleaks.md)
 - **notes** (2): [0000-primer-gitleaks.md](../gitleaks/notes/0000-primer-gitleaks.md), [2026-09-19-first-secret-scan.md](../gitleaks/notes/2026-09-19-first-secret-scan.md)
 
-## nuclei  ·  1 files
+## nuclei  ·  2 files
 - **primer:** [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md)
-- **notes** (1): [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md)
+- **notes** (2): [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md), [2026-09-20-first-template-scan-attempt.md](../nuclei/notes/2026-09-20-first-template-scan-attempt.md)
 
-## tfsec  ·  1 files
+## tfsec  ·  2 files
 - **primer:** [0000-primer-tfsec.md](../tfsec/notes/0000-primer-tfsec.md)
-- **notes** (1): [0000-primer-tfsec.md](../tfsec/notes/0000-primer-tfsec.md)
+- **notes** (2): [0000-primer-tfsec.md](../tfsec/notes/0000-primer-tfsec.md), [2026-09-20-first-tfsec-scan.md](../tfsec/notes/2026-09-20-first-tfsec-scan.md)
 
 ## grype  ·  20 files
 - **primer:** [0000-primer-grype.md](../grype/notes/0000-primer-grype.md)
@@ -139,21 +141,23 @@
 ## helm  ·  5 files
 - **primer:** [0000-primer-helm.md](../helm/notes/0000-primer-helm.md)
 - **notes** (3): [0000-primer-helm.md](../helm/notes/0000-primer-helm.md), [2026-07-19-explore-helm-charts-releases-values-repos.md](../helm/notes/2026-07-19-explore-helm-charts-releases-values-repos.md), [2026-09-21-quickstart-tripped-me-up.md](../helm/notes/2026-09-21-quickstart-tripped-me-up.md)
-- **manifests** (2): [2026-07-15-first-chart-values.yaml](../helm/manifests/2026-07-15-first-chart-values.yaml), [2026-09-21-minimal-helm-chart.yaml](../helm/manifests/2026-09-21-minimal-helm-chart.yaml)
+- **manifests** (2): [2026-07-15-first-chart-values.yaml](../helm/manifests/2026-07-15-first-chart-values.yaml), [2026-09-21-minimal-service-chart.yaml](../helm/manifests/2026-09-21-minimal-service-chart.yaml)
 
-## kubernetes  ·  4 files
+## kubernetes  ·  6 files
 - **primer:** [0000-primer-kubernetes.md](../kubernetes/notes/0000-primer-kubernetes.md)
 - **notes** (2): [0000-primer-kubernetes.md](../kubernetes/notes/0000-primer-kubernetes.md), [2026-07-15-explore-kubernetes.md](../kubernetes/notes/2026-07-15-explore-kubernetes.md)
-- **manifests** (2): [2026-07-15-first-pod-service.yaml](../kubernetes/manifests/2026-07-15-first-pod-service.yaml), [2026-09-10-first-pod.yaml](../kubernetes/manifests/2026-09-10-first-pod.yaml)
+- **docs** (1): [cluster-workflow-wiring.md](../kubernetes/docs/cluster-workflow-wiring.md)
+- **manifests** (3): [small-deployment-from-scratch.yaml](../kubernetes/manifests/small-deployment-from-scratch.yaml), [2026-07-15-first-pod-service.yaml](../kubernetes/manifests/2026-07-15-first-pod-service.yaml), [2026-09-10-first-pod.yaml](../kubernetes/manifests/2026-09-10-first-pod.yaml)
 
-## kustomize  ·  5 files
+## kustomize  ·  6 files
 - **primer:** [0000-primer-kustomize.md](../kustomize/notes/0000-primer-kustomize.md)
-- **notes** (3): [0000-primer-kustomize.md](../kustomize/notes/0000-primer-kustomize.md), [2026-07-08-install-kustomize-first-overlay.md](../kustomize/notes/2026-07-08-install-kustomize-first-overlay.md), [2026-09-21-quickstart-tripped-me-up.md](../kustomize/notes/2026-09-21-quickstart-tripped-me-up.md)
-- **configs** (2): [2026-07-08-minimal-kustomization.yaml](../kustomize/configs/2026-07-08-minimal-kustomization.yaml), [2026-09-21-minimal-kustomization.yaml](../kustomize/configs/2026-09-21-minimal-kustomization.yaml)
+- **notes** (3): [0000-primer-kustomize.md](../kustomize/notes/0000-primer-kustomize.md), [2026-07-08-install-kustomize-first-overlay.md](../kustomize/notes/2026-07-08-install-kustomize-first-overlay.md), [2026-09-21-kustomize-quickstart-tripped-me-up.md](../kustomize/notes/2026-09-21-kustomize-quickstart-tripped-me-up.md)
+- **configs** (2): [2026-07-08-minimal-kustomization.yaml](../kustomize/configs/2026-07-08-minimal-kustomization.yaml), [2026-09-22-minimal-kustomization-with-overlay.yaml](../kustomize/configs/2026-09-22-minimal-kustomization-with-overlay.yaml)
+- **manifests** (1): [2026-09-21-kustomize-tutorial.yaml](../kustomize/manifests/2026-09-21-kustomize-tutorial.yaml)
 
-## lab  ·  12 files
+## lab  ·  13 files
 - **primer:** [0000-primer-lab.md](../lab/notes/0000-primer-lab.md)
-- **notes** (1): [0000-primer-lab.md](../lab/notes/0000-primer-lab.md)
+- **notes** (2): [0000-primer-lab.md](../lab/notes/0000-primer-lab.md), [2026-09-20-setting-up-the-lab-directory.md](../lab/notes/2026-09-20-setting-up-the-lab-directory.md)
 - **configs** (1): [2026-09-19-first-lab-env.yaml](../lab/configs/2026-09-19-first-lab-env.yaml)
 - _…and 10 more files under `lab/mini-projects/` (postgres, samba, and Terraform practice setups) — browse the folder._
 
@@ -171,14 +175,14 @@
 - **templates** (9): [ci-test.yml](../opa/templates/gatekeeper-policy-library-scaffold/.github/workflows/ci-test.yml), [README.md](../opa/templates/gatekeeper-policy-library-scaffold/README.md), [k8sallowedregistries.yaml](../opa/templates/gatekeeper-policy-library-scaffold/constraint-templates/k8sallowedregistries.yaml) — _…and 6 more under `opa/templates/`._
 - **manifests** (4): [README.md](../opa/manifests/README.md), [constraint-templates.yaml](../opa/manifests/constraint-templates.yaml), [constraints.yaml](../opa/manifests/constraints.yaml) — _…and 1 more under `opa/manifests/`._
 
-## opentofu  ·  4 files
+## opentofu  ·  6 files
 - **primer:** [0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md)
-- **notes** (2): [0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md), [2026-07-20-explore-open-tofu.md](../opentofu/notes/2026-07-20-explore-open-tofu.md)
-- **configs** (2): [2026-07-20-first-open-tofu-config.hcl](../opentofu/configs/2026-07-20-first-open-tofu-config.hcl), [2026-09-10-minimal-opentofu-config.hcl](../opentofu/configs/2026-09-10-minimal-opentofu-config.hcl)
+- **notes** (3): [0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md), [2026-07-20-explore-open-tofu.md](../opentofu/notes/2026-07-20-explore-open-tofu.md), [2026-09-21-follow-open-tofu-quickstart.md](../opentofu/notes/2026-09-21-follow-open-tofu-quickstart.md)
+- **configs** (3): [2026-09-21-minimal-opentofu-config-with-vars.hcl](../opentofu/configs/2026-09-21-minimal-opentofu-config-with-vars.hcl), [2026-07-20-first-open-tofu-config.hcl](../opentofu/configs/2026-07-20-first-open-tofu-config.hcl), [2026-09-10-minimal-opentofu-config.hcl](../opentofu/configs/2026-09-10-minimal-opentofu-config.hcl)
 
-## prometheus  ·  2 files
+## prometheus  ·  3 files
 - **primer:** [0000-primer-observability.md](../prometheus/notes/0000-primer-observability.md)
-- **notes** (2): [0000-primer-observability.md](../prometheus/notes/0000-primer-observability.md), [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md)
+- **notes** (3): [0000-primer-observability.md](../prometheus/notes/0000-primer-observability.md), [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md), [2026-09-20-checking-the-metrics-interface.md](../prometheus/notes/2026-09-20-checking-the-metrics-interface.md)
 
 ## semgrep  ·  20 files
 - **primer:** [0000-primer-semgrep.md](../semgrep/notes/0000-primer-semgrep.md)
@@ -202,9 +206,11 @@
 - **manifests** (1): [snyk-github-actions-cicd-workflow.yaml](../snyk/manifests/snyk-github-actions-cicd-workflow.yaml)
 - **dockerfiles** (1): [custom-snyk-cli-air-gapped.Dockerfile](../snyk/dockerfiles/custom-snyk-cli-air-gapped.Dockerfile)
 
-## sonarqube  ·  3 files
+## sonarqube  ·  6 files
 - **primer:** [0000-primer-sonarqube.md](../sonarqube/notes/0000-primer-sonarqube.md)
-- **notes** (2): [0000-primer-sonarqube.md](../sonarqube/notes/0000-primer-sonarqube.md), [2026-07-19-explore-sonarqube-quality-gates-profiles.md](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md)
+- **notes** (3): [0000-primer-sonarqube.md](../sonarqube/notes/0000-primer-sonarqube.md), [2026-07-19-explore-sonarqube-quality-gates-profiles.md](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md), [2026-09-21-follow-sonarqube-quickstart.md](../sonarqube/notes/2026-09-21-follow-sonarqube-quickstart.md)
+- **configs** (1): [2026-09-21-minimal-quality-gate.yaml](../sonarqube/configs/2026-09-21-minimal-quality-gate.yaml)
+- **scripts** (1): [2026-09-21-sonarqube-scan-setup.sh](../sonarqube/scripts/2026-09-21-sonarqube-scan-setup.sh)
 - **snippets** (1): [2026-07-16-first-sonarscanner-run.sh](../sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh)
 
 ## syft  ·  37 files
@@ -219,13 +225,14 @@
 - **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
 - **notebooks** (3): [output-format-comparison.ipynb](../syft/notebooks/output-format-comparison.ipynb), [sbom-layer-package-analysis.ipynb](../syft/notebooks/sbom-layer-package-analysis.ipynb) — _…and 1 more under `syft/notebooks/`._
 
-## terraform  ·  20 files
+## terraform  ·  21 files
 - **primer:** [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md)
 - **notes** (3): [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md), [2026-07-15-explore-terraform.md](../terraform/notes/2026-07-15-explore-terraform.md), [2026-08-04-install-terraform-first-vm.md](../terraform/notes/2026-08-04-install-terraform-first-vm.md)
 - **docs** (1): [terraform-module-composition.md](../terraform/docs/terraform-module-composition.md)
 - **scripts** (4): [2026-07-13-zip-build.sh](../terraform/scripts/2026-07-13-zip-build.sh), [2026-07-18-cleanup.sh](../terraform/scripts/2026-07-18-cleanup.sh), [2026-07-18-deploy.sh](../terraform/scripts/2026-07-18-deploy.sh) — _…and 1 more under `terraform/scripts/`._
-- **configs** (4): [2026-07-15-first-config.tf](../terraform/configs/2026-07-15-first-config.tf), [2026-08-04-first-configuration.hcl](../terraform/configs/2026-08-04-first-configuration.hcl), [multi-environment-workspaces-variables.hcl](../terraform/configs/multi-environment-workspaces-variables.hcl) — _…and 1 more under `terraform/configs/`._
+- **configs** (5): [small-module-from-scratch.hcl](../terraform/configs/small-module-from-scratch.hcl), [2026-07-15-first-config.tf](../terraform/configs/2026-07-15-first-config.tf), [2026-08-04-first-configuration.hcl](../terraform/configs/2026-08-04-first-configuration.hcl) — _…and 2 more under `terraform/configs/`._
 - **snippets** (1): [2026-07-20-practice-terraform-variables-outputs-datasources.hcl](../terraform/snippets/2026-07-20-practice-terraform-variables-outputs-datasources.hcl)
+- _…and 7 more files under `terraform/eventbridge-lambda/` (EventBridge plus Lambda sample project) — browse the folder._
 
 ## terrascan  ·  18 files
 - **primer:** [0000-primer-terrascan.md](../terrascan/notes/0000-primer-terrascan.md)
@@ -287,4 +294,3 @@
 - **snippets** (4): [2026-07-16-zap-docker-quickstart-json-export.sh](../zap/snippets/2026-07-16-zap-docker-quickstart-json-export.sh), [authenticated-scan-with-context.sh](../zap/snippets/authenticated-scan-with-context.sh), [my-first-zap-baseline-scan.sh](../zap/snippets/my-first-zap-baseline-scan.sh) — _…and 1 more under `zap/snippets/`._
 - **templates** (8): [zap-dast.yml](../zap/templates/zap-dast-integration-scaffold/.github/workflows/zap-dast.yml), [.gitignore](../zap/templates/zap-dast-integration-scaffold/.gitignore), [Makefile](../zap/templates/zap-dast-integration-scaffold/Makefile) — _…and 5 more under `zap/templates/`._
 - **dockerfiles** (1): [custom-zap-automation.Dockerfile](../zap/dockerfiles/custom-zap-automation.Dockerfile)
-
