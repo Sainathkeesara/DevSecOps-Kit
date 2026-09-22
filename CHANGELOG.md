@@ -2862,3 +2862,8 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 - trivy-019: `trivy/templates/trivy-k8s-workload-scanning/` — Trivy Kubernetes workload scanning pipeline scaffold (L5)
 
 - codeql-011: `codeql/docs/query-writing-patterns-dataflow-javascript-typescript.md` — CodeQL data flow query writing patterns for JavaScript/TypeScript (L5)
+
+### Added (2026-09-22)
+- tetragon-007: Build a small Tetragon policy from scratch
+  - Script: tetragon/scripts/build-tetragon-policy.sh
+
