@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - argocd-035: `argocd/docs/gitops-workflow-wiring.md` — Wiring ArgoCD into a GitOps workflow: pinned install, separate config repo, plain-YAML to Kustomize/Helm/app-of-apps ladder (L3 docs)
+- docker-012: `docker/templates/multi-service-setup/` — Multi-service Compose scaffold: static web front end + Python API + Postgres with health-gated startup (L4 template)
 
 ## 2026-09-22
 

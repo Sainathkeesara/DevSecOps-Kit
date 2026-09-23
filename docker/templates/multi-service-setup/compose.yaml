@@ -1,0 +1,45 @@
+# last_verified: 2026-09-23 · docker n/a
+# Multi-service Compose setup: static web front end + Python API + Postgres.
+# Copy this directory to start a new project, then adjust service names,
+# ports, and credentials in compose.yaml and .env (see README.md).
+# Pin image tags to versions you have tested before sharing this beyond local use.
+
+services:
+  web:
+    build: ./web
+    ports:
+      - "8080:8080"
+    depends_on:
+      - api
+    environment:
+      - API_URL=http://api:8000/health
+
+  api:
+    build: ./api
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - DATABASE_URL=postgresql://app:${DB_PASSWORD:?set DB_PASSWORD in .env}@db:5432/appdb
+    env_file:
+      - .env
+
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=appdb
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=${DB_PASSWORD:?set DB_PASSWORD in .env}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d appdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db-data:
