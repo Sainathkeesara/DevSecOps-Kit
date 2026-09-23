@@ -11,15 +11,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-1032 files across 35 tool folders plus lab practice setups and cross-cutting docs, scripts, snippets, templates, and environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+1040 files across 41 tool folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
+- [How I wired Ansible into my infrastructure workflow](ansible/docs/wired-ansible-infrastructure-workflow.md) — A site.yml entry point plus roles layout for wiring Ansible into a small infrastructure workflow
+- [Build a small Tetragon policy from scratch](tetragon/scripts/build-tetragon-policy.sh) — Generate a minimal TracingPolicy watching execve calls and verify it applies
+- [Kubernetes namespace strategy: environment vs team](kubernetes/configs/namespace-strategy-environment-vs-team.yaml) — Environment-scoped versus team-scoped namespaces compared side by side
 - [How I wired Kubernetes into my cluster workflow](kubernetes/docs/cluster-workflow-wiring.md) — One namespace per environment with a Deployment plus Service per app, applied from versioned manifests
 - [Small reusable Terraform module](terraform/configs/small-module-from-scratch.hcl) — Environment-aware naming and tagging with variables, locals, and outputs
-- [ArgoCD Helm guestbook application](argocd/manifests/helm-guestbook-application.yaml) — Minimal Application spec deploying the Helm variant of the guestbook demo
-- [Small Deployment from scratch](kubernetes/manifests/small-deployment-from-scratch.yaml) — Smallest Deployment showing the Deployment to ReplicaSet to Pod chain behind a ClusterIP Service
-- [Git config strategies compared](git/configs/config-strategy-layered-vs-conditional.yaml) — Layered config tiers versus conditional includes, side by side
 
 ## Layout
 
@@ -62,19 +62,19 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | environments | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 15 | 2026-09-19 |
 | cosign | 4 | 1 | 3 | 1 | 1 | 0 | 2 | 2 | 0 | 0 | 14 | 2026-08-25 |
 | dependabot | 7 | 1 | 2 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 2026-08-20 |
+| argocd | 6 | 3 | 0 | 2 | 0 | 0 | 3 | 0 | 0 | 0 | 14 | 2026-09-22 |
 | lab | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-09-20 |
 | github-actions | 5 | 0 | 0 | 4 | 2 | 0 | 2 | 0 | 0 | 0 | 13 | 2026-09-21 |
-| argocd | 6 | 1 | 0 | 2 | 0 | 0 | 3 | 0 | 0 | 0 | 12 | 2026-09-22 |
 | git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
-| ansible | 2 | 0 | 3 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 8 | 2026-09-21 |
+| ansible | 2 | 1 | 3 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 9 | 2026-09-22 |
 | docker | 2 | 1 | 2 | 1 | 0 | 0 | 0 | 2 | 0 | 0 | 8 | 2026-08-05 |
-| tetragon | 3 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-08-06 |
+| kustomize | 4 | 0 | 0 | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 8 | 2026-09-22 |
+| kubernetes | 2 | 1 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 0 | 7 | 2026-09-22 |
+| tetragon | 3 | 0 | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-09-22 |
 | defectdojo | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
-| kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 6 | 2026-09-22 |
-| kubernetes | 2 | 1 | 0 | 0 | 0 | 0 | 3 | 0 | 0 | 0 | 6 | 2026-09-22 |
 | opentofu | 3 | 0 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | sonarqube | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
-| helm | 3 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 5 | 2026-09-21 |
+| helm | 3 | 0 | 0 | 0 | 0 | 0 | 3 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | prometheus | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-20 |
 | grafana | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-19 |
 | linux | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-08-17 |
@@ -82,13 +82,13 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | nuclei | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 | tfsec | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 
-_Kubernetes' total counts 2 notes, 1 doc, and 3 manifests. Terraform's total includes a 7-file `eventbridge-lambda/` sample project on top of the categorised notes, docs, scripts, configs, and snippets. Lab's total includes 10 files under `lab/mini-projects/` outside the standard categories. Environments' total includes 12 Terraform files under `dev/`, `staging/`, and `prod/` outside the standard categories._
+_Kubernetes' total counts 2 notes, 1 doc, 1 config, and 3 manifests. Terraform's total includes a 7-file `eventbridge-lambda/` sample project on top of the categorised notes, docs, scripts, configs, and snippets. Lab's total includes 10 files under `lab/mini-projects/` outside the standard categories. Environments' total includes 12 Terraform files under `dev/`, `staging/`, and `prod/` outside the standard categories._
 
 </details>
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions wire Kubernetes into a namespace-per-environment cluster workflow, add a small reusable Terraform module, a Helm-backed ArgoCD guestbook Application, a minimal Deployment-plus-Service manifest, and a layered-versus-conditional Git config comparison. Current focus is rounding out Kubernetes, Terraform, ArgoCD, and Git first-contact notes.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions wire Ansible into a site.yml plus roles workflow, add a from-scratch Tetragon TracingPolicy builder, and compare environment-scoped versus team-scoped Kubernetes namespaces. Current focus is rounding out Kubernetes, Terraform, Ansible, and Tetragon first-contact notes.
 
 ---
-_Last updated: 2026-09-22_
+_Last updated: 2026-09-23_

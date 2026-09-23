@@ -1,15 +1,16 @@
 # Topics
 > A map of what's here. For a beginner-to-advanced reading order, see [learning-path.md](learning-path.md).
-## ansible  ·  8 files
+## ansible  ·  9 files
 - **notes** (2): [2026-08-17-verify-ansible-cve-2026-33228-paths.md](../ansible/notes/2026-08-17-verify-ansible-cve-2026-33228-paths.md), [2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md](../ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md)
+- **docs** (1): [wired-ansible-infrastructure-workflow.md](../ansible/docs/wired-ansible-infrastructure-workflow.md)
 - **scripts** (3): [2026-08-04-bootstrap-node.sh](../ansible/scripts/2026-08-04-bootstrap-node.sh), [bootstrap-target-node.sh](../ansible/scripts/bootstrap-target-node.sh), [bootstrap.sh](../ansible/scripts/bootstrap.sh)
 - **configs** (2): [2026-09-15-inventory-groups-host-vars.yaml](../ansible/configs/2026-09-15-inventory-groups-host-vars.yaml), [small-ansible-project.yaml](../ansible/configs/small-ansible-project.yaml)
 - **snippets** (1): [2026-08-25-minimal-ansible-playbook-package-service.yaml](../ansible/snippets/2026-08-25-minimal-ansible-playbook-package-service.yaml)
 
-## argocd  ·  12 files
+## argocd  ·  14 files
 - **primer:** [0000-primer-argocd.md](../argocd/notes/0000-primer-argocd.md)
 - **notes** (6): [0000-primer-argocd.md](../argocd/notes/0000-primer-argocd.md), [2026-07-06-install-argocd-first-app.md](../argocd/notes/2026-07-06-install-argocd-first-app.md), [2026-08-12-quickstart-tripups.md](../argocd/notes/2026-08-12-quickstart-tripups.md) — _…and 3 more under `argocd/notes/`._
-- **docs** (1): [multi-environment GitOps delivery](../argocd/docs/multi-environment-gitops-delivery.md)
+- **docs** (3): [multi-environment GitOps delivery](../argocd/docs/multi-environment-gitops-delivery.md) — _…and 2 more under `argocd/docs/`._
 - **configs** (2): [2026-08-17-private-repo-credentials-rbac.yaml](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml), [2026-09-20-values-dev.yaml](../argocd/configs/2026-09-20-values-dev.yaml)
 - **manifests** (3): [helm-guestbook-application.yaml](../argocd/manifests/helm-guestbook-application.yaml), [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml), [2026-08-12-gitops-sync-sample-web-app.yaml](../argocd/manifests/2026-08-12-gitops-sync-sample-web-app.yaml)
 
@@ -138,21 +139,22 @@
 - **dockerfiles** (1): [multi-stage-grype-scan.Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile)
 - **notebooks** (1): [grype-sbom-output-explorer.ipynb](../grype/notebooks/grype-sbom-output-explorer.ipynb)
 
-## helm  ·  5 files
+## helm  ·  6 files
 - **primer:** [0000-primer-helm.md](../helm/notes/0000-primer-helm.md)
 - **notes** (3): [0000-primer-helm.md](../helm/notes/0000-primer-helm.md), [2026-07-19-explore-helm-charts-releases-values-repos.md](../helm/notes/2026-07-19-explore-helm-charts-releases-values-repos.md), [2026-09-21-quickstart-tripped-me-up.md](../helm/notes/2026-09-21-quickstart-tripped-me-up.md)
-- **manifests** (2): [2026-07-15-first-chart-values.yaml](../helm/manifests/2026-07-15-first-chart-values.yaml), [2026-09-21-minimal-service-chart.yaml](../helm/manifests/2026-09-21-minimal-service-chart.yaml)
+- **manifests** (3): [2026-07-15-first-chart-values.yaml](../helm/manifests/2026-07-15-first-chart-values.yaml), [2026-09-21-minimal-service-chart.yaml](../helm/manifests/2026-09-21-minimal-service-chart.yaml) — _…and 1 more under `helm/manifests/`._
 
-## kubernetes  ·  6 files
+## kubernetes  ·  7 files
 - **primer:** [0000-primer-kubernetes.md](../kubernetes/notes/0000-primer-kubernetes.md)
 - **notes** (2): [0000-primer-kubernetes.md](../kubernetes/notes/0000-primer-kubernetes.md), [2026-07-15-explore-kubernetes.md](../kubernetes/notes/2026-07-15-explore-kubernetes.md)
 - **docs** (1): [cluster-workflow-wiring.md](../kubernetes/docs/cluster-workflow-wiring.md)
+- **configs** (1): [namespace-strategy-environment-vs-team.yaml](../kubernetes/configs/namespace-strategy-environment-vs-team.yaml)
 - **manifests** (3): [small-deployment-from-scratch.yaml](../kubernetes/manifests/small-deployment-from-scratch.yaml), [2026-07-15-first-pod-service.yaml](../kubernetes/manifests/2026-07-15-first-pod-service.yaml), [2026-09-10-first-pod.yaml](../kubernetes/manifests/2026-09-10-first-pod.yaml)
 
-## kustomize  ·  6 files
+## kustomize  ·  8 files
 - **primer:** [0000-primer-kustomize.md](../kustomize/notes/0000-primer-kustomize.md)
-- **notes** (3): [0000-primer-kustomize.md](../kustomize/notes/0000-primer-kustomize.md), [2026-07-08-install-kustomize-first-overlay.md](../kustomize/notes/2026-07-08-install-kustomize-first-overlay.md), [2026-09-21-kustomize-quickstart-tripped-me-up.md](../kustomize/notes/2026-09-21-kustomize-quickstart-tripped-me-up.md)
-- **configs** (2): [2026-07-08-minimal-kustomization.yaml](../kustomize/configs/2026-07-08-minimal-kustomization.yaml), [2026-09-22-minimal-kustomization-with-overlay.yaml](../kustomize/configs/2026-09-22-minimal-kustomization-with-overlay.yaml)
+- **notes** (4): [0000-primer-kustomize.md](../kustomize/notes/0000-primer-kustomize.md), [2026-07-08-install-kustomize-first-overlay.md](../kustomize/notes/2026-07-08-install-kustomize-first-overlay.md), [2026-09-21-kustomize-quickstart-tripped-me-up.md](../kustomize/notes/2026-09-21-kustomize-quickstart-tripped-me-up.md) — _…and 1 more under `kustomize/notes/`._
+- **configs** (3): [2026-07-08-minimal-kustomization.yaml](../kustomize/configs/2026-07-08-minimal-kustomization.yaml), [2026-09-22-minimal-kustomization-with-overlay.yaml](../kustomize/configs/2026-09-22-minimal-kustomization-with-overlay.yaml) — _…and 1 more under `kustomize/configs/`._
 - **manifests** (1): [2026-09-21-kustomize-tutorial.yaml](../kustomize/manifests/2026-09-21-kustomize-tutorial.yaml)
 
 ## lab  ·  13 files
@@ -244,10 +246,10 @@
 - **templates** (6): [.gitignore](../terrascan/templates/scanning-pipeline-scaffold/.gitignore), [README.md](../terrascan/templates/scanning-pipeline-scaffold/README.md), [config.yaml](../terrascan/templates/scanning-pipeline-scaffold/config.yaml) — _…and 3 more under `terrascan/templates/`._
 - **manifests** (1): [terrascan-gha-ci-multi-iac.yaml](../terrascan/manifests/terrascan-gha-ci-multi-iac.yaml)
 
-## tetragon  ·  6 files
+## tetragon  ·  7 files
 - **primer:** [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md)
 - **notes** (3): [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md), [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md), [2026-08-06-tetragon-observability-tutorial.md](../tetragon/notes/2026-08-06-tetragon-observability-tutorial.md)
-- **scripts** (1): [2026-08-05-tetragon-event-collection-pipeline.sh](../tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh)
+- **scripts** (2): [2026-08-05-tetragon-event-collection-pipeline.sh](../tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh), [build-tetragon-policy.sh](../tetragon/scripts/build-tetragon-policy.sh)
 - **configs** (2): [2026-08-05-minimal-network-tracing-policy.yaml](../tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml), [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml)
 
 ## trivy  ·  35 files

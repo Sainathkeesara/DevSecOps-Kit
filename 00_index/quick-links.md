@@ -36,6 +36,7 @@
 - [Tetragon observability tutorial](../tetragon/notes/2026-08-06-tetragon-observability-tutorial.md)
 - [Minimal network tracing policy](../tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml)
 - [Tetragon event collection pipeline](../tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh)
+- [Build a small Tetragon policy from scratch](../tetragon/scripts/build-tetragon-policy.sh) — Generate a minimal TracingPolicy watching execve calls and verify it applies
 
 ### Visualize metrics
 - [Grafana primer](../grafana/notes/0000-primer-grafana.md)
@@ -91,6 +92,7 @@
 - [ArgoCD multi-environment GitOps delivery](../argocd/docs/multi-environment-gitops-delivery.md)
 - [ArgoCD Helm guestbook application](../argocd/manifests/helm-guestbook-application.yaml) — Minimal Application spec wiring a Helm chart source into GitOps sync
 - [Kubernetes cluster workflow wiring](../kubernetes/docs/cluster-workflow-wiring.md) — Namespace-per-environment layout with a Deployment plus Service per app
+- [Namespace strategy: environment vs team](../kubernetes/configs/namespace-strategy-environment-vs-team.yaml) — Environment-scoped versus team-scoped namespaces compared side by side
 - [Small Kubernetes Deployment from scratch](../kubernetes/manifests/small-deployment-from-scratch.yaml) — Deployment to ReplicaSet to Pod chain behind a ClusterIP Service
 - [Provision a Kubernetes cluster with Terraform + Ansible](../docs/how-to/k8s-terraform-ansible-provisioning.md)
 
@@ -135,6 +137,7 @@
 - [Ansible quickstart trip-ups](../ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md)
 - [Ansible inventory with group and host vars](../ansible/configs/2026-09-15-inventory-groups-host-vars.yaml)
 - [Minimal Ansible playbook: package and service](../ansible/snippets/2026-08-25-minimal-ansible-playbook-package-service.yaml)
+- [How I wired Ansible into my infrastructure workflow](../ansible/docs/wired-ansible-infrastructure-workflow.md) — A site.yml entry point plus roles layout for a small infrastructure workflow
 - [Context switcher](../scripts/bash/k8s_toolkit/context/context-manager.sh)
 - [Rollout restart](../scripts/bash/k8s_toolkit/rollout-restart.sh)
 - [Debug pod](../scripts/bash/k8s_toolkit/debug/debug-pod.sh)
