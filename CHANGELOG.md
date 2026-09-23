@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-23
+
+### Added
+
+- argocd-035: `argocd/docs/gitops-workflow-wiring.md` — Wiring ArgoCD into a GitOps workflow: pinned install, separate config repo, plain-YAML to Kustomize/Helm/app-of-apps ladder (L3 docs)
+
 ## 2026-09-22
 
 ### Added
