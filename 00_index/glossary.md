@@ -604,6 +604,17 @@
 - **ResourceQuota (Kubernetes)** — A namespace-scoped object that caps aggregate resource consumption (CPU, memory, object counts) for that namespace. Used with environment-scoped namespaces to bound a whole environment rather than a single team.
 - **RoleBinding (Kubernetes)** — A namespace-scoped grant binding a Role's permissions to users or groups within that namespace. The mechanism that lets teams coexist in a shared environment namespace without touching each other's workloads.
 
+## Docker
+
+- **Compose file (Docker Compose)** — A YAML document (`compose.yaml`) declaring the services, networks, and volumes of a multi-container app. One file describes what runs, how services find each other by name, and what persists across restarts.
+- **depends_on with health condition (Compose)** — A service dependency that gates startup on another service's health check, so an API only starts once the database reports healthy instead of crash-looping through initialisation.
+- **Named volume (Compose)** — A Docker-managed persistent volume referenced by name in the Compose file. Database data survives container rebuilds because it lives in the named volume, not in the container filesystem.
+
+## ArgoCD
+
+- **app-of-apps (ArgoCD)** — A root Application whose desired state is a directory of further Application manifests, so one sync bootstraps a whole fleet of apps. The last step of the plain-YAML to Kustomize to Helm to app-of-apps ladder.
+- **ApplicationSet (ArgoCD)** — An ArgoCD generator that renders Applications from parameters (list, clusters, Git directories) instead of hand-writing one manifest per app. An alternative to app-of-apps when many similar apps differ only in values.
+
 ## Acronyms
 
 **OCI (Open Container Initiative)** — A set of open-source standards for container image formats and distribution, used by registries like Docker Hub, GitHub Container Registry, and AWS ECR.
