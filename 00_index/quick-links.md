@@ -18,6 +18,8 @@
 - [Multi-stage SBOM Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
 - [Multi-stage Grype scan Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile)
 - [Build a multi-service Docker Compose app](../docker/scripts/build-multi-service-compose-app.sh)
+- [Multi-service Compose scaffold](../docker/templates/multi-service-setup/README.md) — Web plus API plus Postgres with health-gated startup and named volumes
+- [Multi-service Compose file](../docker/templates/multi-service-setup/compose.yaml) — Three services on one Compose network with a health-conditioned database dependency
 - [Syft + Trivy Kubernetes scan scaffold](../syft/templates/syft-trivy-k8s-scan-scaffold/README.md)
 
 ### Diagnose failures
@@ -90,6 +92,7 @@
 - [ArgoCD private repo credentials and RBAC](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml)
 - [ArgoCD quickstart trip-ups](../argocd/notes/2026-08-12-quickstart-tripups.md)
 - [ArgoCD multi-environment GitOps delivery](../argocd/docs/multi-environment-gitops-delivery.md)
+- [How ArgoCD fits the GitOps workflow](../argocd/docs/gitops-workflow-wiring.md) — Pinned install, separate manifests repo, plain YAML to Kustomize to Helm to app-of-apps
 - [ArgoCD Helm guestbook application](../argocd/manifests/helm-guestbook-application.yaml) — Minimal Application spec wiring a Helm chart source into GitOps sync
 - [Kubernetes cluster workflow wiring](../kubernetes/docs/cluster-workflow-wiring.md) — Namespace-per-environment layout with a Deployment plus Service per app
 - [Namespace strategy: environment vs team](../kubernetes/configs/namespace-strategy-environment-vs-team.yaml) — Environment-scoped versus team-scoped namespaces compared side by side
@@ -138,6 +141,7 @@
 - [Ansible inventory with group and host vars](../ansible/configs/2026-09-15-inventory-groups-host-vars.yaml)
 - [Minimal Ansible playbook: package and service](../ansible/snippets/2026-08-25-minimal-ansible-playbook-package-service.yaml)
 - [How I wired Ansible into my infrastructure workflow](../ansible/docs/wired-ansible-infrastructure-workflow.md) — A site.yml entry point plus roles layout for a small infrastructure workflow
+- [Roles vs tasks in Ansible](../ansible/notes/roles-vs-tasks.md) — When a reusable concern earns a role and when a task list stays readable
 - [Context switcher](../scripts/bash/k8s_toolkit/context/context-manager.sh)
 - [Rollout restart](../scripts/bash/k8s_toolkit/rollout-restart.sh)
 - [Debug pod](../scripts/bash/k8s_toolkit/debug/debug-pod.sh)
