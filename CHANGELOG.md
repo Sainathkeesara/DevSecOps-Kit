@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-24
+
+### Added
+
+- cosign-015: `cosign/docs/container-signing-pipeline.md` — Integrating cosign with container signing pipelines: build-push-sign-verify ordering, keyless vs key-based choice, verify gate, rotation planning (L5 docs)
+
 ## 2026-09-23
 
 ### Added
