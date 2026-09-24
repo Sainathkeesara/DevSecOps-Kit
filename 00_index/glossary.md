@@ -609,6 +609,14 @@
 - **Compose file (Docker Compose)** — A YAML document (`compose.yaml`) declaring the services, networks, and volumes of a multi-container app. One file describes what runs, how services find each other by name, and what persists across restarts.
 - **depends_on with health condition (Compose)** — A service dependency that gates startup on another service's health check, so an API only starts once the database reports healthy instead of crash-looping through initialisation.
 - **Named volume (Compose)** — A Docker-managed persistent volume referenced by name in the Compose file. Database data survives container rebuilds because it lives in the named volume, not in the container filesystem.
+- **Smoke test (container image)** — A fast post-build check that starts the freshly built image and runs one command expected to exit zero, catching missing dependencies or a wrong start command before the image is pushed.
+- **Build once, deploy by tag** — A CI pattern where a single image build is verified and pushed under a unique tag (e.g. the commit SHA), and the deploy step pulls that exact tag so what runs is byte-identical to what passed CI.
+
+## Cosign
+
+- **Keyless signing (Cosign)** — Signing where the pipeline mints a short-lived certificate from its OIDC identity at run time, so there is no long-lived private key to store or rotate. Verification pins the expected issuer and workflow identity instead of a public key file.
+- **Image digest** — The content-addressed identifier a registry assigns on push (e.g. `image@sha256:…`). Signing the digest rather than the mutable tag binds the signature to the exact bytes that were built.
+- **Verify gate** — A pipeline or admission stage that fails the run when an image signature does not check out, so unsigned images cannot drift into the environment unnoticed.
 
 ## ArgoCD
 
