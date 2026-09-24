@@ -1,0 +1,80 @@
+# last_verified: 2026-09-24 · tetragon n/a
+#
+# TracingPolicy approaches — comparing Tetragon's two instrumentation mechanisms.
+#
+# A single TracingPolicy can observe kernel activity through two kinds of probes.
+# This file places one policy of each kind side by side so the trade-offs are
+# visible at a glance. Both observe "something happened to a process or file" —
+# they just hook the kernel at different points.
+#
+#   Approach A — tracepoints (the `tracepoints:` section)
+#     Kernel tracepoints: stable, documented hook points the kernel exposes (for
+#     example the execve / connect / accept tracepoints). Tetragon surfaces the
+#     ones you care about under `tracepoints`. Low overhead and decoupled from
+#     internal function names, but you can only observe what the kernel publishes
+#     as a tracepoint.
+#
+#   Approach B — kprobes (the `kprobes:` section)
+#     Kernel function probes: attach to a named kernel function, e.g. an LSM
+#     security hook. You can observe internal decision points that have no
+#     tracepoint equivalent and filter on the function's arguments. More
+#     precise, but the function name is an implementation detail that can move
+#     or vanish across kernel versions.
+#
+# Deploy either policy on its own. `kubectl apply -f this-file.yaml` applies
+# every document, so keep only the mechanism you need active to avoid duplicate
+# events for overlapping checks.
+
+---
+# ── Approach A: tracepoint-based process-execution monitoring ─────────────────
+# Observes the `exec` tracepoint — Tetragon's handle on execve. Catches any
+# process started from /tmp, a common spot for dropped binaries. This is one way
+# to catch suspicious execution; the kernel also exposes `connect` and `accept`
+# tracepoints if you want network-boundary events instead.
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: exec-from-tmp-tracepoint
+spec:
+  tracepoints:
+  - name: exec
+    selectors:
+    - matchArgs:
+      - index: 0
+        type: string
+        operator: "PrefixMatch"
+        values:
+        - "/tmp/"
+
+---
+# ── Approach B: kprobe-based file-permission monitoring ───────────────────────
+# Observes the `security_file_permission` LSM hook — the kernel check run before
+# a file is opened or accessed. Captures every permission decision so you can
+# route denials to a detector. The `args`/`matchArgs` shape mirrors the
+# tracepoint selectors above; kprobe arg index 0 is the file under consideration.
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: file-permission-kprobe
+spec:
+  kprobes:
+  - call: "security_file_permission"
+    syscall: false
+    args:
+    - index: 0
+      type: "file"
+    selectors:
+    - matchArgs:
+      - index: 0
+        type: "file"
+        operator: "Exists"
+
+---
+# ── Choosing between them ───────────────────────────────────────────────────
+# Recommendation: start with tracepoints (Approach A). They stay valid across
+# kernel upgrades and Tetragon already maps the common syscall events for you.
+# Reach for kprobes (Approach B) only when you need to observe a specific kernel
+# function that has no tracepoint — for example an LSM hook or an internal helper
+# — and you are willing to re-validate the function name when you upgrade the
+# kernel. The two are not mutually exclusive: you can mix tracepoints and kprobes
+# in a single TracingPolicy when one alert needs both signals.
