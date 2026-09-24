@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- cosign-016: `cosign/notebooks/key-based-vs-keyless-signing.ipynb` — Choosing between key-based and keyless signing in cosign: comparison matrix plus decision aid (L5 notebook)
 - cosign-015: `cosign/docs/container-signing-pipeline.md` — Integrating cosign with container signing pipelines: build-push-sign-verify ordering, keyless vs key-based choice, verify gate, rotation planning (L5 docs)
 
 ## 2026-09-23
