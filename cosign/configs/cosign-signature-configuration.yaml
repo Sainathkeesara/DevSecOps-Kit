@@ -1,0 +1,76 @@
+name: Cosign signature configuration
+
+# last_verified: 2026-09-24 · cosign n/a
+# This workflow configures Cosign to sign container images
+# as part of a CI/CD pipeline. It supports both keyless
+# (OIDC) and key-based signing modes.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+  packages: write
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE: ${{ github.repository }}
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ github.sha }}
+          push: true
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3
+
+      - name: Sign image with Cosign
+        env:
+          TUF_ROOT: /tmp/cosign
+        run: |
+          cosign sign --yes ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ github.sha }}
+
+      - name: Verify signature
+        env:
+          TUF_ROOT: /tmp/cosign
+        run: |
+          cosign verify --key ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ github.sha }} \
+            || cosign verify --certificate-identity "${{ github.repository_owner }}" \
+            ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ github.sha }}
+
+  policy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3
+
+      - name: Generate key pair
+        env:
+          TUF_ROOT: /tmp/cosign
+        run: |
+          cosign generate-key-pair --kms <key-manager-id>
+
+      - name: Sign with generated key
+        env:
+          TUF_ROOT: /tmp/cosign
+          COSIGN_KEY: <key-path>
+        run: |
+          cosign sign --key ${{ env.COSIGN_KEY }} ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ github.sha }}

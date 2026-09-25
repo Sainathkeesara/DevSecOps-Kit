@@ -13,6 +13,7 @@
 - [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
 - [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh)
 - [Cosign verification patterns](../cosign/docs/cosign-verification-patterns.md)
+- [Container signing pipeline integration](../cosign/docs/container-signing-pipeline.md) — Where signing and verification stages belong in an image pipeline, keyless vs key-based signing, and the verify gate that rejects unsigned images
 - [Cosign key management workflow](../cosign/scripts/cosign-key-management-workflow.sh)
 - [Custom Cosign image](../cosign/dockerfiles/custom-cosign-image.Dockerfile)
 - [Multi-stage SBOM Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
@@ -188,5 +189,7 @@
 - [My first GitHub Actions workflow](../github-actions/snippets/2026-08-26-first-workflow.yaml)
 - [Reusing inputs with a composite action](../github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml)
 - [CI/CD security scanner wrapper](../docs/concepts/linux-shell-fundamentals/scripts/ci-cd-pipeline-security-scanner-wrapper.sh)
+- [Docker CI/CD end-to-end](../docker/docs/cicd-end-to-end.md) — Build once in CI, smoke-test the image, push the verified tag, and deploy that exact tag
+- [Reusable Docker build script](../docker/scripts/reusable-build.sh) — Single and multi-stage image builds with build args and cache-from support
 - [ZAP baseline scan for CI](../zap/notes/2026-07-20-install-zap-baseline-scan.md)
 - [Trivy CI/CD pipeline recipes](../trivy/docs/ci-cd-pipeline-recipes.md)

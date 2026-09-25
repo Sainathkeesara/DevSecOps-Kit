@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - cosign-016: `cosign/notebooks/key-based-vs-keyless-signing.ipynb` — Choosing between key-based and keyless signing in cosign: comparison matrix plus decision aid (L5 notebook)
 - cosign-015: `cosign/docs/container-signing-pipeline.md` — Integrating cosign with container signing pipelines: build-push-sign-verify ordering, keyless vs key-based choice, verify gate, rotation planning (L5 docs)
 - tetragon-009: `tetragon/configs/tracepoint-vs-kprobe-policies.yaml` — Comparing Tetragon tracing-policy approaches: tracepoint-based exec monitoring vs kprobe-based file-permission monitoring with mechanism trade-offs (L3 config)
+- cosign-017: `cosign/configs/cosign-signature-configuration.yaml` — Cosign signature configuration template supporting keyless and key-based signing modes (L5 config)
+- codeql-020: `codeql/snippets/2026-09-24-first-codeql-query.py` — First CodeQL Python snippet detecting hardcoded secrets in source files (L1 snippet)
 
 ## 2026-09-23
 
