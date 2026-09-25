@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- dependabot-018: `dependabot/notebooks/auto-merge-vs-manual-review.ipynb` — Choosing between auto-merge and manual review in Dependabot: posture comparison matrix plus scope/coverage/blast-radius decision aid (L5 notebook)
 - cosign-018: `cosign/docs/key-rotation-and-migration-patterns.md` — Cosign key rotation and migration patterns: key-based rotation, keyless/key-based transitions, registry moves, policy tightening, verification, and rollback (L5 docs)
 - codeql-020: reworked `codeql/snippets/2026-09-24-first-codeql-query.py` — now a Python snippet that embeds and writes a genuine QL query for hardcoded passwords instead of a regex scan (L1 snippet, rework)
 - docker-014: `docker/manifests/docker-compose-production.yaml` — Docker Compose production deployment configuration with resource limits, restart policies, health checks, security hardening, and multi-service topology (L4 manifest)
