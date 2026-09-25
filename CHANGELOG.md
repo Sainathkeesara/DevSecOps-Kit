@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-25
+
+### Added
+
+- cosign-018: `cosign/docs/key-rotation-and-migration-patterns.md` — Cosign key rotation and migration patterns: key-based rotation, keyless/key-based transitions, registry moves, policy tightening, verification, and rollback (L5 docs)
+
 ## 2026-09-24
 
 ### Added
