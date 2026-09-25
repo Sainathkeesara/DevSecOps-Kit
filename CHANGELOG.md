@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - cosign-018: `cosign/docs/key-rotation-and-migration-patterns.md` — Cosign key rotation and migration patterns: key-based rotation, keyless/key-based transitions, registry moves, policy tightening, verification, and rollback (L5 docs)
+- codeql-020: reworked `codeql/snippets/2026-09-24-first-codeql-query.py` — now a Python snippet that embeds and writes a genuine QL query for hardcoded passwords instead of a regex scan (L1 snippet, rework)
 
 ## 2026-09-24
 
