@@ -38,10 +38,10 @@
 - **dockerfiles** (1): [custom-codeql-analysis-image.Dockerfile](../codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile)
 - **notebooks** (1): [compare-cli-vs-actions-scan-modes.ipynb](../codeql/notebooks/compare-cli-vs-actions-scan-modes.ipynb)
 
-## cosign  ·  14 files
+## cosign  ·  15 files
 - **primer:** [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md)
 - **notes** (4): [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md), [2026-06-13-install-cosign-sign-first-image.md](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md), [2026-06-14-install-cosign-generate-first-keypair.md](../cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md) — _…and 1 more under `cosign/notes/`._
-- **docs** (1): [cosign-verification-patterns.md](../cosign/docs/cosign-verification-patterns.md)
+- **docs** (2): [container-signing-pipeline.md](../cosign/docs/container-signing-pipeline.md), [cosign-verification-patterns.md](../cosign/docs/cosign-verification-patterns.md)
 - **scripts** (3): [cosign-key-management-workflow.sh](../cosign/scripts/cosign-key-management-workflow.sh), [minimal-sign-verify.sh](../cosign/scripts/minimal-sign-verify.sh), [verify-signed-image.sh](../cosign/scripts/verify-signed-image.sh)
 - **configs** (1): [keyless-signing-github-actions.yaml](../cosign/configs/keyless-signing-github-actions.yaml)
 - **snippets** (1): [first-cosign-sign-verify-image.sh](../cosign/snippets/first-cosign-sign-verify-image.sh)
@@ -62,11 +62,11 @@
 - **scripts** (2): [2026-08-04-dependabot-alert-triage.py](../dependabot/scripts/2026-08-04-dependabot-alert-triage.py), [dependabot-alert-aggregation.py](../dependabot/scripts/dependabot-alert-aggregation.py)
 - **configs** (4): [2026-07-10-npm-version-strategy.yaml](../dependabot/configs/2026-07-10-npm-version-strategy.yaml), [2026-07-18-python-project-version-update.yaml](../dependabot/configs/2026-07-18-python-project-version-update.yaml), [monorepo-ecosystem-schedules-reviewers.yaml](../dependabot/configs/monorepo-ecosystem-schedules-reviewers.yaml) — _…and 1 more under `dependabot/configs/`._
 
-## docker  ·  15 files
+## docker  ·  17 files
 - **primer:** [0000-primer-docker.md](../docker/notes/0000-primer-docker.md)
 - **notes** (2): [0000-primer-docker.md](../docker/notes/0000-primer-docker.md), [2026-07-12-explore-docker-cli.md](../docker/notes/2026-07-12-explore-docker-cli.md)
-- **docs** (1): [dockerfile-optimization-patterns.md](../docker/docs/dockerfile-optimization-patterns.md)
-- **scripts** (2): [2026-07-18-custom-network-volume-mounts.sh](../docker/scripts/2026-07-18-custom-network-volume-mounts.sh), [build-multi-service-compose-app.sh](../docker/scripts/build-multi-service-compose-app.sh)
+- **docs** (2): [cicd-end-to-end.md](../docker/docs/cicd-end-to-end.md), [dockerfile-optimization-patterns.md](../docker/docs/dockerfile-optimization-patterns.md)
+- **scripts** (3): [2026-07-18-custom-network-volume-mounts.sh](../docker/scripts/2026-07-18-custom-network-volume-mounts.sh), [build-multi-service-compose-app.sh](../docker/scripts/build-multi-service-compose-app.sh), [reusable-build.sh](../docker/scripts/reusable-build.sh)
 - **configs** (1): [docker-compose-dev-environment.yaml](../docker/configs/docker-compose-dev-environment.yaml)
 - **dockerfiles** (2): [2026-07-10-first-custom-image.Dockerfile](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile), [2026-07-12-first-custom-docker-image.Dockerfile](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile)
 - **templates** (7): [multi-service setup scaffold](../docker/templates/multi-service-setup/README.md), [compose.yaml](../docker/templates/multi-service-setup/compose.yaml) — _…and 5 more under `docker/templates/`._
