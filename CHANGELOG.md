@@ -6,10 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2026-09-25
 
+### Passed
+
+- Passed ([x]) codeql-020 — codeql: snippet — Write my first CodeQL query to detect a common vulnerability · Level: L1 · 2026-09-25
+
 ### Added
 
 - cosign-018: `cosign/docs/key-rotation-and-migration-patterns.md` — Cosign key rotation and migration patterns: key-based rotation, keyless/key-based transitions, registry moves, policy tightening, verification, and rollback (L5 docs)
 - codeql-020: reworked `codeql/snippets/2026-09-24-first-codeql-query.py` — now a Python snippet that embeds and writes a genuine QL query for hardcoded passwords instead of a regex scan (L1 snippet, rework)
+- docker-014: `docker/manifests/docker-compose-production.yaml` — Docker Compose production deployment configuration with resource limits, restart policies, health checks, security hardening, and multi-service topology (L4 manifest)
 
 ## 2026-09-24
 
