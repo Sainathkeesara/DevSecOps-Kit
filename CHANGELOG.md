@@ -18,6 +18,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - dependabot-019: `dependabot/configs/dependabot-configuration-template.yaml` — Dependabot configuration template: annotated reference layout covering private registries, per-ecosystem entries, schedules, cooldown, groups, ignore rules, and review routing (L5 config)
 - dependabot-019 (rework): removed invented `vendors:` mapping block, dropped the maven-registry reference from the terraform entry, and reworded the registry-secrets header comment (L5 config)
 - dependabot-020: `dependabot/docs/dependabot-security-alert-migration-patterns.md` — Dependabot security alert migration patterns: repository-to-org promotion, legacy scanner replacement, config-as-code with dependabot.yml, and multi-org synchronization (L5 docs)
+- tetragon-011: `tetragon/configs/tetragon-policy-config-for-k8s-runtime-monitoring.yaml` — Tetragon policy configuration for Kubernetes runtime monitoring: observe-only TracingPolicy widening exec + file-access + network-connect coverage beyond the narrow exec-and-file experiment (L3 config)
+- tetragon-010: `tetragon/scripts/build-tetragon-file-access-tracing-policy.sh` — Small Tetragon file-access tracing policy builder from scratch: renders a kprobe-based TracingPolicy from --policy-name/--path arguments (L3 script)
+- grafana-005: `grafana/notes/2026-09-26-explore-grafana-dashboard-ui.md` — Explore the Grafana dashboard UI: default dashboards, panel/query shape, data sources, Loki log view, and the auto-refresh trip (L1 notes)
+- gitleaks-006: `gitleaks/scripts/run-first-gitleaks-scan.sh` — Run my first gitleaks scan against a sample repo and capture the report to gitleaks-report.json (L1 script)
 
 ## 2026-09-25
 
