@@ -1,0 +1,46 @@
+# last_verified: 2026-09-26 · tetragon n/a
+#
+# Tetragon runtime-monitoring policy for Kubernetes.
+#
+# This is the second policy shape I've applied after the narrow exec-and-file
+# experiment at first-tracing-policy-exec-file.yaml. It widens the watch to the
+# three signal categories a runtime-monitoring loop actually needs: process
+# execution, file access, and network connections. It stays in observe mode
+# (no enforcement) so it can run on a shared test cluster without disrupting
+# workloads.
+
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: runtime-monitoring-observe
+  annotations:
+    tetragon.io/description: "Observe exec, file access, and network connects"
+spec:
+  tracepoints:
+  - name: exec
+    selectors:
+    - matchArgs:
+      - index: 0
+        operator: "Equal"
+        values:
+        - "/usr/bin/curl"
+        - "/usr/bin/wget"
+  - name: sys_enter
+    selectors:
+    - matchArgs:
+      - index: 0
+        operator: "Equal"
+        values:
+        - "42" # __NR_connect — first hop of an outbound network connection
+  kprobes:
+  - call: "security_file_permission"
+    syscall: false
+    args:
+    - index: 0
+      type: "file"
+    selectors:
+    - matchArgs:
+      - index: 0
+        operator: "Equal"
+        values:
+        - "2" # write permission (mode check for O_WRONLY/O_RDWR paths)

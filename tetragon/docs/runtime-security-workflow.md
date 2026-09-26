@@ -1,6 +1,8 @@
 ---
 last_verified: 2026-09-26
 tool_version: n/a
+sources:
+  - https://tetragon.io/docs/
 ---
 
 # How I wired Tetragon into my runtime security workflow
