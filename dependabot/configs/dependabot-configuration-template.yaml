@@ -1,0 +1,169 @@
+# last_verified: 2026-09-26 · dependabot n/a
+#
+# Dependabot configuration template
+#
+# A single `dependabot.yml` covering the options most repositories need to set
+# before turning dependency updates on for real. It is a reference layout, not
+# a drop-in file: the `directory`, reviewer, label, and secret names below are
+# placeholders to be replaced with values that match the target repository.
+#
+# Every entry under `updates` is independent. An entry names one ecosystem and
+# the directory that holds its manifest, and carries the schedule plus the
+# filtering and pull-request policy for that ecosystem only. A repository with
+# one manifest needs one entry; a monorepo needs one entry per manifest
+# location.
+#
+# Order within an entry is not significant. Keys shown here are the ones that
+# change day-to-day behaviour — scope, schedule, grouping, filtering, and
+# review routing.
+
+version: 2
+
+# Private package registries. Omit the whole block for public-only dependencies.
+# Each entry name is referenced from an update entry through `registries`.
+# `credentials-secrets` names repository secrets that hold the login details;
+# it never carries the credential itself.
+registries:
+  private-npm:
+    type: npm-registry
+    url: REGISTRY_HOST_PLACEHOLDER
+    token: PRIVATE_REGISTRY_TOKEN_PLACEHOLDER
+  internal-maven:
+    type: maven-repository
+    url: MAVEN_REPOSITORY_URL_PLACEHOLDER
+    username: MAVEN_USERNAME_PLACEHOLDER
+    password: MAVEN_PASSWORD_PLACEHOLDER
+
+updates:
+  # ── Reference entry: every commonly used option in one place ────────────────
+  # Copy this block as the starting point for a new ecosystem.
+  - package-ecosystem: "npm"
+    # Single-manifest repositories use `directory`. Monorepos that resolve a
+    # lockfile from one place while keeping manifests per package can list
+    # several locations instead.
+    directory: "/"
+    # Registries this entry may resolve against, in addition to the public
+    # index. Names must match the `registries` block above.
+    registries:
+      - "private-npm"
+    schedule:
+      # `interval` is the only required field. `day`, `time`, and `timezone`
+      # narrow the window without changing how often checks run.
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "UTC"
+    # Cap on simultaneously open update pull requests for this entry. Without a
+    # limit, a large manifest with many stale dependencies produces a burst of
+    # pull requests that is hard to review as a queue.
+    open-pull-requests-limit: 5
+    # Hold major-version bumps for longer than the rest. Minor and patch updates
+    # keep the default cadence; majors are the ones that need release notes and
+    # a test pass.
+    cooldown:
+      default-days: 7
+      semver-major-days: 30
+    allow:
+      - dependency-type: "direct"
+    # `groups` collapses many updates into one pull request per group. Keep
+    # groups small: a grouped pull request mixes the changelog of every package
+    # it covers, so reviewers lose the ability to judge blast radius.
+    groups:
+      runtime-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+      lint-and-format:
+        patterns:
+          - "eslint*"
+          - "prettier*"
+        # `exclude-patterns` overrides `patterns` — useful when a group would
+        # otherwise swallow a package that needs independent review.
+        exclude-patterns:
+          - "eslint-plugin-security"
+    ignore:
+      # Skipped entirely: no pull request, ever.
+      - dependency-name: "internal-sdk"
+      # Version-scoped: skipped until the pinned range is reached again.
+      - dependency-name: "legacy-parser"
+        versions: ["1.x", "2.x"]
+        update-types: ["version-update:semver-minor"]
+    # Dependencies published by the same organisation are treated as a single
+    # unit, so an internal breaking change lands as one pull request.
+    vendors:
+      myorg:
+        # Only track the packages this repository actually consumes.
+        only-contains-dependencies: true
+    # Behaviour when an update would need to run code from outside the
+    # repository during install. "allow" permits it; "deny" is the restrictive
+    # default when unset.
+    insecure-external-code-execution: "allow"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    pull-request-branch-name:
+      separator: "-"
+    # Routing. These five keys decide who is asked to review.
+    labels:
+      - "dependencies"
+      - "npm"
+    reviewers:
+      - "frontend-team"
+    assignees:
+      - "dependency-owner"
+    milestone: 5
+    target-branch: "main"
+
+  # ── Minimal entry: the shape to reach for when the options above are not
+  #    needed. Schedule plus ecosystem and directory is the whole requirement. ──
+  - package-ecosystem: "github-actions"
+    directory: "/.github/workflows"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "ci"
+    reviewers:
+      - "devops-team"
+
+  # ── Service and infrastructure dependencies ────────────────────────────────
+  # These ecosystems have no lockfile, so the directory is where the
+  # configuration is declared rather than where versions are resolved.
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 3
+    # Base images track tags, not semver, so the version-update filters that
+    # make sense for language ecosystems do not apply here.
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    labels:
+      - "dependencies"
+      - "containers"
+    reviewers:
+      - "devops-team"
+
+  - package-ecosystem: "terraform"
+    directory: "/"
+    registries:
+      - "internal-maven"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 3
+    # Providers move faster than the modules built on them; weekly provider
+    # updates and monthly module updates keep that split explicit.
+    groups:
+      providers:
+        patterns:
+          - "*/*"
+        exclude-patterns:
+          - "hashicorp/*"
+    labels:
+      - "dependencies"
+      - "iac"
+    reviewers:
+      - "platform-team"
