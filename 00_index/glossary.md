@@ -296,6 +296,8 @@
 
 **TracingPolicy**: Tetragon custom resource that defines which kernel events to observe (exec, file access, network connect) and optional enforcement actions, written in YAML with match criteria for binaries, namespaces, and process ancestry.
 
+**kprobe (Tetragon)**: A kernel probe hook that fires when a specific kernel function runs. A Tetragon TracingPolicy lists kprobes (e.g. `security_file_permission`) with argument selectors so only matching calls produce events — the mechanism behind narrow file-access policies.
+
 **Macro (Falco)** — Reusable rule fragment in Falco that abstracts common condition patterns, allowing rules to share and compose complex detection logic.
 
 **List (Falco)** — Named collection of values in Falco rules that can be referenced across macros and rules for maintainable, ordered pattern matching.
@@ -628,6 +630,8 @@
 
 - **Ecosystem (Dependabot)** — The package manager an update entry watches (e.g. `npm`, `pip`, `docker`, `terraform`). One entry covers one ecosystem in one directory; a monorepo needs one entry per manifest location.
 - **Auto-merge (Dependabot)** — Letting dependency update PRs merge without human review once checks pass, usually limited to patch or minor bumps. Trades review effort against the risk of a bad update landing unattended.
+- **Auto-dismiss (Dependabot)** — A rule that automatically closes Dependabot alerts matching a pattern (e.g. dev-dependency-only scope below a severity threshold), so the alert queue reflects what the team will actually fix.
+- **Policy promotion (Dependabot)** — Moving a proven repository-level alert configuration up to an organization-wide security policy, so new repos inherit the same severity filters, notification routing, and auto-dismiss rules.
 
 ## Acronyms
 
