@@ -44,11 +44,15 @@
 - [Minimal network tracing policy](../tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml)
 - [Tetragon event collection pipeline](../tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh)
 - [Build a small Tetragon policy from scratch](../tetragon/scripts/build-tetragon-policy.sh) — Generate a minimal TracingPolicy watching execve calls and verify it applies
+- [Tetragon runtime security workflow](../tetragon/docs/runtime-security-workflow.md) — Fold Tetragon observations into a review loop: install, apply a narrow policy, read the events back
+- [K8s runtime-monitoring policy](../tetragon/configs/tetragon-policy-config-for-k8s-runtime-monitoring.yaml) — Observe-mode TracingPolicy covering exec, file access, and network connects
+- [File-access policy builder](../tetragon/scripts/build-tetragon-file-access-tracing-policy.sh) — Render a narrow file-access TracingPolicy from flags instead of hand-editing YAML
 
 ### Visualize metrics
 - [Grafana primer](../grafana/notes/0000-primer-grafana.md)
 - [First Grafana datasource](../grafana/configs/2026-09-19-first-datasource.yaml) — Wire one Prometheus backend into Grafana so a first panel query has something to read
 - [First dashboard browser check](../grafana/notes/2026-09-19-first-dashboard-browser.md) — What to inspect in the dashboard browser once the UI is reachable
+- [Grafana dashboard UI walkthrough](../grafana/notes/2026-09-26-explore-grafana-dashboard-ui.md) — Panels, plain-Prometheus queries, and the Loki log view in a default install
 
 ### Tune runtime detection
 - [Falco primer](../falco/notes/0000-primer-falco.md)
@@ -59,6 +63,7 @@
 ### Get started with vulnerability scanning
 - [Install Trivy and run a first container scan](../trivy/notes/2026-09-05-install-trivy-first-container-scan.md)
 - [Install ZAP and run a baseline scan](../zap/notes/2026-09-05-install-zap-first-baseline-scan.md)
+- [ZAP baseline scan script](../zap/scripts/zap-baseline-scan.sh) — Run a containerised ZAP baseline against a target URL and fail on High findings
 - [Nuclei primer](../nuclei/notes/0000-primer-nuclei.md)
 - [Trivy primer](../trivy/notes/0000-primer-trivy.md)
 - [Trivy scanning performance optimization](../trivy/notes/scanning-performance-optimization.md)
@@ -173,6 +178,7 @@
 - [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md)
 - [Gitleaks primer](../gitleaks/notes/0000-primer-gitleaks.md)
 - [First secret scan with Gitleaks](../gitleaks/notes/2026-09-19-first-secret-scan.md) — What to set up before a first scan, using a fake credential in a test repo
+- [First Gitleaks scan script](../gitleaks/scripts/2026-09-26-run-first-gitleaks-scan.sh) — Point Gitleaks at a sample repo and save the findings as JSON
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
 - [GitGuardian incident response workflow](../gitguardian/docs/gitguardian-incident-response-workflow.md)
 - [GitGuardian API integration](../gitguardian/scripts/gitguardian-api-integration.py)
@@ -180,6 +186,7 @@
 - [Secrets detection workflow analysis](../docs/concepts/secrets-access-management/notebooks/secrets-detection-remediation-workflow-analysis.ipynb)
 - [Dependabot configuration template](../dependabot/configs/dependabot-configuration-template.yaml) — A single dependabot.yml covering ecosystems, schedules, grouping, and review routing
 - [Auto-merge vs manual review](../dependabot/notebooks/auto-merge-vs-manual-review.ipynb) — Operational trade-offs between auto-merging Dependabot PRs and reviewing each one by hand
+- [Dependabot alert migration patterns](../dependabot/docs/dependabot-security-alert-migration-patterns.md) — Move alert configs from repo level to org-wide policy when consolidating scanning
 - [Configure Dependabot for private registries](../dependabot/notes/2026-08-08-dependabot-custom-registry-tutorial.md)
 - [Dependabot alerts and security updates](../dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md)
 

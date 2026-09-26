@@ -7,14 +7,14 @@
 - **configs** (2): [2026-09-15-inventory-groups-host-vars.yaml](../ansible/configs/2026-09-15-inventory-groups-host-vars.yaml), [small-ansible-project.yaml](../ansible/configs/small-ansible-project.yaml)
 - **snippets** (1): [2026-08-25-minimal-ansible-playbook-package-service.yaml](../ansible/snippets/2026-08-25-minimal-ansible-playbook-package-service.yaml)
 
-## argocd  ·  13 files
+## argocd  ·  17 files
 - **primer:** [0000-primer-argocd.md](../argocd/notes/0000-primer-argocd.md)
 - **notes** (6): [0000-primer-argocd.md](../argocd/notes/0000-primer-argocd.md), [2026-07-06-install-argocd-first-app.md](../argocd/notes/2026-07-06-install-argocd-first-app.md), [2026-08-12-quickstart-tripups.md](../argocd/notes/2026-08-12-quickstart-tripups.md) — _…and 3 more under `argocd/notes/`._
-- **docs** (2): [multi-environment GitOps delivery](../argocd/docs/multi-environment-gitops-delivery.md), [gitops-workflow-wiring.md](../argocd/docs/gitops-workflow-wiring.md)
+- **docs** (6): [multi-environment GitOps delivery](../argocd/docs/multi-environment-gitops-delivery.md), [gitops-workflow-wiring.md](../argocd/docs/gitops-workflow-wiring.md) — _…and 4 more under `argocd/docs/`._
 - **configs** (2): [2026-08-17-private-repo-credentials-rbac.yaml](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml), [2026-09-20-values-dev.yaml](../argocd/configs/2026-09-20-values-dev.yaml)
 - **manifests** (3): [helm-guestbook-application.yaml](../argocd/manifests/helm-guestbook-application.yaml), [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml), [2026-08-12-gitops-sync-sample-web-app.yaml](../argocd/manifests/2026-08-12-gitops-sync-sample-web-app.yaml)
 
-## checkov  ·  46 files
+## checkov  ·  48 files
 - **primer:** [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md)
 - **notes** (4): [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md), [2026-05-25-scan-terraform-plan.md](../checkov/notes/2026-05-25-scan-terraform-plan.md), [2026-05-26-cli-vs-sdk-comparison.md](../checkov/notes/2026-05-26-cli-vs-sdk-comparison.md) — _…and 1 more under `checkov/notes/`._
 - **docs** (6): [checkov-v3-upgrade-checklist.md](../checkov/docs/checkov-v3-upgrade-checklist.md), [checkov-ai-infrastructure-checks.md](../checkov/docs/checkov-ai-infrastructure-checks.md), [checkov-integration-patterns.md](../checkov/docs/checkov-integration-patterns.md) — _…and 3 more under `checkov/docs/`._
@@ -25,11 +25,12 @@
 - **manifests** (3): [checkov-gitlab-ci-multi-cloud-drift.yaml](../checkov/manifests/checkov-gitlab-ci-multi-cloud-drift.yaml), [checkov-sarif-pr-blocking.yaml](../checkov/manifests/checkov-sarif-pr-blocking.yaml), [layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml](../checkov/manifests/layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml)
 - **notebooks** (3): [compare-builtin-vs-custom-k8s.ipynb](../checkov/notebooks/compare-builtin-vs-custom-k8s.ipynb), [compare-cross-module-scanning-limitations.ipynb](../checkov/notebooks/compare-cross-module-scanning-limitations.ipynb), [compare-static-vs-plan-scanning.ipynb](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb)
 - **policies** (1): [no_public_s3_buckets.yaml](../checkov/policies/no-public-s3-buckets/no_public_s3_buckets.yaml)
+- _…and 2 more at `checkov/` root (`.checkov.yaml`, `.pre-commit-config.yaml`) — browse the folder._
 
-## codeql  ·  25 files
+## codeql  ·  26 files
 - **primer:** [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md)
 - **notes** (4): [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md), [2026-06-05-install-codeql-first-analysis.md](../codeql/notes/2026-06-05-install-codeql-first-analysis.md), [2026-06-14-codeql-datalog-gotchas.md](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md) — _…and 1 more under `codeql/notes/`._
-- **docs** (2): [query-writing-patterns-dataflow-javascript-typescript.md](../codeql/docs/query-writing-patterns-dataflow-javascript-typescript.md), [wired-custom-queries-into-ci.md](../codeql/docs/wired-custom-queries-into-ci.md)
+- **docs** (3): [query-writing-patterns-dataflow-javascript-typescript.md](../codeql/docs/query-writing-patterns-dataflow-javascript-typescript.md), [wired-custom-queries-into-ci.md](../codeql/docs/wired-custom-queries-into-ci.md), [qlpack.yml](../codeql/docs/qlpack.yml)
 - **scripts** (1): [first-codeql-analysis.sh](../codeql/scripts/first-codeql-analysis.sh)
 - **configs** (1): [first-codeql-analysis.yml](../codeql/configs/first-codeql-analysis.yml)
 - **snippets** (5): [find-hardcoded-creds.ql](../codeql/snippets/find-hardcoded-creds.ql), [2026-09-24-first-codeql-query.py](../codeql/snippets/2026-09-24-first-codeql-query.py), [hardcoded-creds-local-flow.ql](../codeql/snippets/hardcoded-creds-local-flow.ql) — _…and 2 more under `codeql/snippets/`._
@@ -56,10 +57,10 @@
 - **scripts** (1): [2026-09-20-defectdojo-tutorial-check.sh](../defectdojo/scripts/2026-09-20-defectdojo-tutorial-check.sh)
 - **snippets** (1): [install-defectdojo-first-scan-report.sh](../defectdojo/snippets/install-defectdojo-first-scan-report.sh)
 
-## dependabot  ·  16 files
+## dependabot  ·  17 files
 - **primer:** [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md)
 - **notes** (7): [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md), [2026-06-15-dependabot-first-repo-bump-pr.md](../dependabot/notes/2026-06-15-dependabot-first-repo-bump-pr.md), [2026-06-22-first-time-dependabot-setup.md](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md) — _…and 4 more under `dependabot/notes/`._
-- **docs** (1): [dependabot-security-update-auto-merge.md](../dependabot/docs/dependabot-security-update-auto-merge.md)
+- **docs** (2): [dependabot-security-update-auto-merge.md](../dependabot/docs/dependabot-security-update-auto-merge.md), [dependabot-security-alert-migration-patterns.md](../dependabot/docs/dependabot-security-alert-migration-patterns.md)
 - **scripts** (2): [2026-08-04-dependabot-alert-triage.py](../dependabot/scripts/2026-08-04-dependabot-alert-triage.py), [dependabot-alert-aggregation.py](../dependabot/scripts/dependabot-alert-aggregation.py)
 - **configs** (5): [2026-07-10-npm-version-strategy.yaml](../dependabot/configs/2026-07-10-npm-version-strategy.yaml), [2026-07-18-python-project-version-update.yaml](../dependabot/configs/2026-07-18-python-project-version-update.yaml), [dependabot-configuration-template.yaml](../dependabot/configs/dependabot-configuration-template.yaml) — _…and 2 more under `dependabot/configs/`._
 - **notebooks** (1): [auto-merge-vs-manual-review.ipynb](../dependabot/notebooks/auto-merge-vs-manual-review.ipynb)
@@ -115,14 +116,15 @@
 - **snippets** (2): [2026-08-26-composite-action-input-reuse.yaml](../github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml), [2026-08-26-first-workflow.yaml](../github-actions/snippets/2026-08-26-first-workflow.yaml)
 - **manifests** (2): [2026-08-04-pr-validation.yml](../github-actions/manifests/2026-08-04-pr-validation.yml), [2026-08-04-what-is-github-actions.yaml](../github-actions/manifests/2026-08-04-what-is-github-actions.yaml)
 
-## grafana  ·  3 files
+## grafana  ·  4 files
 - **primer:** [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md)
-- **notes** (2): [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md), [2026-09-19-first-dashboard-browser.md](../grafana/notes/2026-09-19-first-dashboard-browser.md)
+- **notes** (3): [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md), [2026-09-19-first-dashboard-browser.md](../grafana/notes/2026-09-19-first-dashboard-browser.md), [2026-09-26-explore-grafana-dashboard-ui.md](../grafana/notes/2026-09-26-explore-grafana-dashboard-ui.md)
 - **configs** (1): [2026-09-19-first-datasource.yaml](../grafana/configs/2026-09-19-first-datasource.yaml)
 
-## gitleaks  ·  2 files
+## gitleaks  ·  3 files
 - **primer:** [0000-primer-gitleaks.md](../gitleaks/notes/0000-primer-gitleaks.md)
 - **notes** (2): [0000-primer-gitleaks.md](../gitleaks/notes/0000-primer-gitleaks.md), [2026-09-19-first-secret-scan.md](../gitleaks/notes/2026-09-19-first-secret-scan.md)
+- **scripts** (1): [2026-09-26-run-first-gitleaks-scan.sh](../gitleaks/scripts/2026-09-26-run-first-gitleaks-scan.sh)
 
 ## nuclei  ·  2 files
 - **primer:** [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md)
@@ -143,10 +145,11 @@
 - **dockerfiles** (1): [multi-stage-grype-scan.Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile)
 - **notebooks** (1): [grype-sbom-output-explorer.ipynb](../grype/notebooks/grype-sbom-output-explorer.ipynb)
 
-## helm  ·  5 files
+## helm  ·  6 files
 - **primer:** [0000-primer-helm.md](../helm/notes/0000-primer-helm.md)
 - **notes** (3): [0000-primer-helm.md](../helm/notes/0000-primer-helm.md), [2026-07-19-explore-helm-charts-releases-values-repos.md](../helm/notes/2026-07-19-explore-helm-charts-releases-values-repos.md), [2026-09-21-quickstart-tripped-me-up.md](../helm/notes/2026-09-21-quickstart-tripped-me-up.md)
 - **manifests** (2): [2026-07-15-first-chart-values.yaml](../helm/manifests/2026-07-15-first-chart-values.yaml), [2026-09-21-minimal-service-chart.yaml](../helm/manifests/2026-09-21-minimal-service-chart.yaml)
+- _…and 1 more at `helm/` root ([2026-09-21-minimal-helm-chart.yaml](../helm/2026-09-21-minimal-helm-chart.yaml)) — browse the folder._
 
 ## kubernetes  ·  7 files
 - **primer:** [0000-primer-kubernetes.md](../kubernetes/notes/0000-primer-kubernetes.md)
@@ -155,11 +158,12 @@
 - **configs** (1): [namespace-strategy-environment-vs-team.yaml](../kubernetes/configs/namespace-strategy-environment-vs-team.yaml)
 - **manifests** (3): [small-deployment-from-scratch.yaml](../kubernetes/manifests/small-deployment-from-scratch.yaml), [2026-07-15-first-pod-service.yaml](../kubernetes/manifests/2026-07-15-first-pod-service.yaml), [2026-09-10-first-pod.yaml](../kubernetes/manifests/2026-09-10-first-pod.yaml)
 
-## kustomize  ·  6 files
+## kustomize  ·  8 files
 - **primer:** [0000-primer-kustomize.md](../kustomize/notes/0000-primer-kustomize.md)
 - **notes** (3): [0000-primer-kustomize.md](../kustomize/notes/0000-primer-kustomize.md), [2026-07-08-install-kustomize-first-overlay.md](../kustomize/notes/2026-07-08-install-kustomize-first-overlay.md), [2026-09-21-kustomize-quickstart-tripped-me-up.md](../kustomize/notes/2026-09-21-kustomize-quickstart-tripped-me-up.md)
 - **configs** (2): [2026-07-08-minimal-kustomization.yaml](../kustomize/configs/2026-07-08-minimal-kustomization.yaml), [2026-09-22-minimal-kustomization-with-overlay.yaml](../kustomize/configs/2026-09-22-minimal-kustomization-with-overlay.yaml)
 - **manifests** (1): [2026-09-21-kustomize-tutorial.yaml](../kustomize/manifests/2026-09-21-kustomize-tutorial.yaml)
+- _…and 2 more at `kustomize/` root ([2026-09-21-minimal-kustomization.yaml](../kustomize/2026-09-21-minimal-kustomization.yaml), [2026-09-21-quickstart-tripped-me-up.md](../kustomize/2026-09-21-quickstart-tripped-me-up.md)) — browse the folder._
 
 ## lab  ·  13 files
 - **primer:** [0000-primer-lab.md](../lab/notes/0000-primer-lab.md)
@@ -250,11 +254,12 @@
 - **templates** (6): [.gitignore](../terrascan/templates/scanning-pipeline-scaffold/.gitignore), [README.md](../terrascan/templates/scanning-pipeline-scaffold/README.md), [config.yaml](../terrascan/templates/scanning-pipeline-scaffold/config.yaml) — _…and 3 more under `terrascan/templates/`._
 - **manifests** (1): [terrascan-gha-ci-multi-iac.yaml](../terrascan/manifests/terrascan-gha-ci-multi-iac.yaml)
 
-## tetragon  ·  7 files
+## tetragon  ·  10 files
 - **primer:** [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md)
 - **notes** (3): [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md), [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md), [2026-08-06-tetragon-observability-tutorial.md](../tetragon/notes/2026-08-06-tetragon-observability-tutorial.md)
-- **scripts** (2): [2026-08-05-tetragon-event-collection-pipeline.sh](../tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh), [build-tetragon-policy.sh](../tetragon/scripts/build-tetragon-policy.sh)
-- **configs** (2): [2026-08-05-minimal-network-tracing-policy.yaml](../tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml), [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml)
+- **docs** (1): [runtime-security-workflow.md](../tetragon/docs/runtime-security-workflow.md)
+- **scripts** (3): [2026-08-05-tetragon-event-collection-pipeline.sh](../tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh), [build-tetragon-policy.sh](../tetragon/scripts/build-tetragon-policy.sh), [build-tetragon-file-access-tracing-policy.sh](../tetragon/scripts/build-tetragon-file-access-tracing-policy.sh)
+- **configs** (3): [2026-08-05-minimal-network-tracing-policy.yaml](../tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml), [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml), [tetragon-policy-config-for-k8s-runtime-monitoring.yaml](../tetragon/configs/tetragon-policy-config-for-k8s-runtime-monitoring.yaml)
 
 ## trivy  ·  35 files
 - **primer:** [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md)
@@ -291,11 +296,11 @@
 - **dockerfiles** (1): [custom-vault-image-with-plugins-tls.Dockerfile](../vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile)
 - **notebooks** (1): [static-vs-dynamic-secrets.ipynb](../vault/notebooks/static-vs-dynamic-secrets.ipynb)
 
-## zap  ·  26 files
+## zap  ·  27 files
 - **primer:** [0000-primer-zap.md](../zap/notes/0000-primer-zap.md)
 - **notes** (6): [0000-primer-zap.md](../zap/notes/0000-primer-zap.md), [2026-06-06-install-zap-desktop-ui.md](../zap/notes/2026-06-06-install-zap-desktop-ui.md), [2026-06-06-zap-quickstart-ui-gotchas.md](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md) — _…and 3 more under `zap/notes/`._
 - **docs** (3): [passive-vs-active-scanning-zap.md](../zap/docs/passive-vs-active-scanning-zap.md), [zap-automation-plan-structure.md](../zap/docs/zap-automation-plan-structure.md), [zap-integration-patterns.md](../zap/docs/zap-integration-patterns.md)
-- **scripts** (2): [dast-workflow-from-scratch.sh](../zap/scripts/dast-workflow-from-scratch.sh), [zap-dast-sarif-code-scanning.sh](../zap/scripts/zap-dast-sarif-code-scanning.sh)
+- **scripts** (3): [dast-workflow-from-scratch.sh](../zap/scripts/dast-workflow-from-scratch.sh), [zap-baseline-scan.sh](../zap/scripts/zap-baseline-scan.sh), [zap-dast-sarif-code-scanning.sh](../zap/scripts/zap-dast-sarif-code-scanning.sh)
 - **configs** (2): [ci-dast-automation-framework-plan.yaml](../zap/configs/ci-dast-automation-framework-plan.yaml), [zap-authenticated-scan-context.yaml](../zap/configs/zap-authenticated-scan-context.yaml)
 - **snippets** (4): [2026-07-16-zap-docker-quickstart-json-export.sh](../zap/snippets/2026-07-16-zap-docker-quickstart-json-export.sh), [authenticated-scan-with-context.sh](../zap/snippets/authenticated-scan-with-context.sh), [my-first-zap-baseline-scan.sh](../zap/snippets/my-first-zap-baseline-scan.sh) — _…and 1 more under `zap/snippets/`._
 - **templates** (8): [zap-dast.yml](../zap/templates/zap-dast-integration-scaffold/.github/workflows/zap-dast.yml), [.gitignore](../zap/templates/zap-dast-integration-scaffold/.gitignore), [Makefile](../zap/templates/zap-dast-integration-scaffold/Makefile) — _…and 5 more under `zap/templates/`._
