@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- tetragon-009: `tetragon/configs/policy-approaches-comparison.yaml` — Two TracingPolicies side by side: syscall-boundary exec tracing (cluster-wide tracepoint) vs pod-scoped descriptor tracing (kprobe), with apply/verify guidance (L3 config)
 - tetragon-008: `tetragon/docs/runtime-security-workflow.md` — How Tetragon tracing policies were wired into a runtime security review loop: apply policy, generate activity, read agent events (L3 docs)
 - zap-032: `zap/scripts/zap-baseline-scan.sh` — Small ZAP baseline scan helper from scratch: docker baseline run, alert summary, fail on High findings (L3 script)
 - dependabot-019: `dependabot/configs/dependabot-configuration-template.yaml` — Dependabot configuration template: annotated reference layout covering private registries, per-ecosystem entries, schedules, cooldown, groups, ignore rules, and review routing (L5 config)
