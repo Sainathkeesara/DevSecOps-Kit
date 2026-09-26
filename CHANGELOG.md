@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- tetragon-008: `tetragon/docs/runtime-security-workflow.md` — How Tetragon tracing policies were wired into a runtime security review loop: apply policy, generate activity, read agent events (L3 docs)
+- zap-032: `zap/scripts/zap-baseline-scan.sh` — Small ZAP baseline scan helper from scratch: docker baseline run, alert summary, fail on High findings (L3 script)
 - dependabot-019: `dependabot/configs/dependabot-configuration-template.yaml` — Dependabot configuration template: annotated reference layout covering private registries, per-ecosystem entries, schedules, cooldown, groups, ignore rules, and review routing (L5 config)
 - dependabot-019 (rework): removed invented `vendors:` mapping block, dropped the maven-registry reference from the terraform entry, and reworded the registry-secrets header comment (L5 config)
 
