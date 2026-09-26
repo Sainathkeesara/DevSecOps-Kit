@@ -1,0 +1,70 @@
+# last_verified: 2026-09-26 · tetragon n/a
+#
+# Tetragon policy approaches — comparing two configurations.
+#
+# Purpose: show two different ways to observe workload activity with a
+# TracingPolicy, so the trade-off between signal breadth and overhead is
+# visible side by side. Approach A watches process execution at the syscall
+# boundary (cheap, coarse, cluster-wide). Approach B watches file-descriptor
+# setup through a kprobe, scoped to labelled pods (finer signal, narrower
+# blast radius). Either one is a reasonable starting point; the docs also
+# describe combining both shapes into a single policy once the baseline
+# event rate is understood.
+#
+# When to use which: start with A when the question is "what is being
+# executed out here". Reach for B when the question is narrower, e.g. which
+# pods in one tier are opening new descriptors, and the rest of the fleet
+# should stay out of the event stream.
+#
+# Steps: apply one document at a time with kubectl, generate some activity
+# in the watched scope, then confirm events arrive before trying the other.
+# Verify: the policy object exists after apply and new Tetragon events show
+# up for the watched action; if the stream stays quiet, re-check that the
+# pod labels (Approach B) or the workload actually exercises the hook.
+
+# ── Approach A: execution observed at the syscall boundary ──────────────
+# A single tracepoint on the raw syscall entry path, filtered to the exec
+# family. This is the lowest-overhead way to answer "what ran".
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: approach-a-exec-tracepoint
+spec:
+  tracepoints:
+  - subsystem: raw_syscalls
+    event: sys_enter
+    args:
+    - index: 4
+      type: int64
+    selectors:
+    - matchArgs:
+      - index: 4
+        operator: Equal
+        values:
+        - "59"
+---
+# ── Approach B: descriptor setup observed via kprobe, pod-scoped ─────────
+# A kprobe on descriptor installation, limited to pods carrying the demo
+# label. Narrower than A, but each event carries richer call context, and
+# unrelated namespaces never enter the stream.
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: approach-b-fd-kprobe
+spec:
+  podSelector:
+    matchLabels:
+      app: demo
+  kprobes:
+  - call: "fd_install"
+    syscall: false
+    args:
+    - index: 0
+      type: int
+    selectors:
+    - matchArgs:
+      - index: 0
+        operator: Equal
+        values:
+        - "1"
+        - "2"
