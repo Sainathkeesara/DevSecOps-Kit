@@ -11,15 +11,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-1054 files across 35 tool folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+1078 files across 35 tool folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
-- [Dependabot configuration template](dependabot/configs/dependabot-configuration-template.yaml) — A single dependabot.yml covering ecosystems, schedules, grouping, and review routing for real repositories
-- [Auto-merge vs manual review](dependabot/notebooks/auto-merge-vs-manual-review.ipynb) — Operational trade-offs between auto-merging Dependabot PRs and reviewing each one by hand
-- [Docker Compose production manifest](docker/manifests/docker-compose-production.yaml) — Replicated app service with rolling updates, resource limits, and restart policy
-- [Cosign key rotation and migration patterns](cosign/docs/key-rotation-and-migration-patterns.md) — Rotate signing trust and migrate verification without leaving published images unverifiable
-- [First CodeQL query](codeql/snippets/2026-09-24-first-codeql-query.py) — A minimal hardcoded-password query to save out and run with the CodeQL CLI
+- [First Gitleaks scan](gitleaks/scripts/2026-09-26-run-first-gitleaks-scan.sh) — Point Gitleaks at a sample repo and write the findings to a JSON report to inspect afterwards
+- [Grafana dashboard UI walkthrough](grafana/notes/2026-09-26-explore-grafana-dashboard-ui.md) — What a default install looks like: panels, plain-Prometheus queries, and the Loki log view
+- [Tetragon runtime-monitoring policy](tetragon/configs/tetragon-policy-config-for-k8s-runtime-monitoring.yaml) — Observe-mode TracingPolicy watching exec, file access, and network connects on a shared test cluster
+- [Tetragon file-access policy builder](tetragon/scripts/build-tetragon-file-access-tracing-policy.sh) — Render a narrow file-access TracingPolicy from `--policy-name` and `--path` without hand-editing YAML
+- [Dependabot alert migration patterns](dependabot/docs/dependabot-security-alert-migration-patterns.md) — Promote repo-level alert configs to org-wide policy when consolidating scanning
 
 ## Layout
 
@@ -44,13 +44,13 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total | Last verified |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|---------:|------:|---------------|
-| checkov | 4 | 6 | 2 | 3 | 4 | 20 | 3 | 0 | 3 | 1 | 46 | 2026-09-18 |
+| checkov | 4 | 6 | 2 | 3 | 4 | 20 | 3 | 0 | 3 | 1 | 48 | 2026-09-26 |
 | trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 38 | 2026-09-04 |
 | syft | 4 | 6 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 37 | 2026-09-17 |
 | trivy | 6 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 35 | 2026-09-05 |
-| zap | 6 | 3 | 2 | 2 | 4 | 8 | 0 | 1 | 0 | 0 | 26 | 2026-09-05 |
+| zap | 6 | 3 | 3 | 2 | 4 | 8 | 0 | 1 | 0 | 0 | 27 | 2026-09-26 |
 | opa | 3 | 2 | 2 | 1 | 3 | 9 | 4 | 0 | 0 | 0 | 24 | 2026-09-02 |
-| codeql | 4 | 2 | 1 | 1 | 5 | 8 | 2 | 1 | 1 | 0 | 25 | 2026-09-25 |
+| codeql | 4 | 3 | 1 | 1 | 5 | 8 | 2 | 1 | 1 | 0 | 26 | 2026-09-26 |
 | snyk | 4 | 2 | 1 | 2 | 1 | 11 | 1 | 1 | 0 | 0 | 23 | 2026-09-03 |
 | gitguardian | 4 | 2 | 3 | 2 | 2 | 9 | 0 | 0 | 0 | 0 | 22 | 2026-08-21 |
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-09-22 |
@@ -61,24 +61,24 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 18 | 2026-08-09 |
 | environments | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 15 | 2026-09-19 |
 | cosign | 4 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 18 | 2026-09-25 |
-| dependabot | 7 | 1 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 0 | 16 | 2026-09-26 |
-| argocd | 6 | 2 | 0 | 2 | 0 | 0 | 3 | 0 | 0 | 0 | 13 | 2026-09-23 |
+| dependabot | 7 | 2 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 0 | 17 | 2026-09-26 |
+| argocd | 6 | 6 | 0 | 2 | 0 | 0 | 3 | 0 | 0 | 0 | 17 | 2026-09-26 |
 | lab | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-09-20 |
 | github-actions | 5 | 0 | 0 | 4 | 2 | 0 | 2 | 0 | 0 | 0 | 13 | 2026-09-21 |
 | git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
 | ansible | 3 | 1 | 3 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
 | docker | 2 | 2 | 3 | 1 | 0 | 7 | 1 | 2 | 0 | 0 | 18 | 2026-09-25 |
-| kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 6 | 2026-09-22 |
+| kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 8 | 2026-09-26 |
 | kubernetes | 2 | 1 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 0 | 7 | 2026-09-22 |
-| tetragon | 3 | 0 | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-09-22 |
+| tetragon | 3 | 1 | 3 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-26 |
 | defectdojo | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | opentofu | 3 | 0 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | sonarqube | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
-| helm | 3 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 5 | 2026-09-21 |
+| helm | 3 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 6 | 2026-09-26 |
 | prometheus | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-20 |
-| grafana | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-19 |
+| grafana | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-09-26 |
 | linux | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-08-17 |
-| gitleaks | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-19 |
+| gitleaks | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-26 |
 | nuclei | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 | tfsec | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 
@@ -88,7 +88,7 @@ _Kubernetes' total counts 2 notes, 1 doc, 1 config, and 3 manifests. Terraform's
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions cover Dependabot configuration and auto-merge policy, a production Docker Compose manifest, Cosign key rotation and signing-mode comparisons, and a first CodeQL query example. Current focus is rounding out Docker, Cosign, Dependabot, CodeQL, Ansible, Kubernetes, and Tetragon first-contact notes.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions cover a first Gitleaks scan script, a Grafana dashboard UI walkthrough, Tetragon runtime-monitoring policies and a file-access policy builder, Dependabot alert migration patterns, and a ZAP baseline scan script. Current focus is rounding out Tetragon, Gitleaks, Grafana, Dependabot, and ZAP first-contact notes.
 
 ---
 _Last updated: 2026-09-26_
