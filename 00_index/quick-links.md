@@ -15,12 +15,16 @@
 - [Cosign verification patterns](../cosign/docs/cosign-verification-patterns.md)
 - [Container signing pipeline integration](../cosign/docs/container-signing-pipeline.md) — Where signing and verification stages belong in an image pipeline, keyless vs key-based signing, and the verify gate that rejects unsigned images
 - [Cosign key management workflow](../cosign/scripts/cosign-key-management-workflow.sh)
+- [Cosign signature configuration](../cosign/configs/cosign-signature-configuration.yaml) — CI workflow wiring keyless and key-based signing into an image pipeline
+- [Key-based vs keyless signing](../cosign/notebooks/key-based-vs-keyless-signing.ipynb) — Operational comparison of Cosign signing modes without release-specific syntax
+- [Cosign key rotation and migration patterns](../cosign/docs/key-rotation-and-migration-patterns.md) — Rotate signing trust and migrate verification without leaving published images unverifiable
 - [Custom Cosign image](../cosign/dockerfiles/custom-cosign-image.Dockerfile)
 - [Multi-stage SBOM Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
 - [Multi-stage Grype scan Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile)
 - [Build a multi-service Docker Compose app](../docker/scripts/build-multi-service-compose-app.sh)
 - [Multi-service Compose scaffold](../docker/templates/multi-service-setup/README.md) — Web plus API plus Postgres with health-gated startup and named volumes
 - [Multi-service Compose file](../docker/templates/multi-service-setup/compose.yaml) — Three services on one Compose network with a health-conditioned database dependency
+- [Docker Compose production manifest](../docker/manifests/docker-compose-production.yaml) — Replicated app service with rolling updates, resource limits, and restart policy
 - [Syft + Trivy Kubernetes scan scaffold](../syft/templates/syft-trivy-k8s-scan-scaffold/README.md)
 
 ### Diagnose failures
@@ -156,6 +160,7 @@
 - [Checkov platform config](../checkov/configs/platform-config.yaml)
 - [CodeQL primer](../codeql/notes/0000-primer-codeql.md)
 - [Install CodeQL and run a first query](../codeql/notes/2026-08-26-install-codeql-first-query.md)
+- [First CodeQL query example](../codeql/snippets/2026-09-24-first-codeql-query.py) — A minimal hardcoded-password query to save out and run with the CodeQL CLI
 - [CodeQL query-writing patterns for JavaScript/TypeScript](../codeql/docs/query-writing-patterns-dataflow-javascript-typescript.md) — Source, sink, and sanitizer patterns for custom data-flow queries
 - [CodeQL CLI vs GitHub Actions scan modes](../codeql/notebooks/compare-cli-vs-actions-scan-modes.ipynb) — When to run CodeQL locally via the CLI versus declaratively in Actions
 - [CodeQL multi-language repository scan](../codeql/manifests/codeql-multi-language-scan.yaml) — One workflow that analyses every language in a repo with a single status check
@@ -173,6 +178,8 @@
 - [GitGuardian API integration](../gitguardian/scripts/gitguardian-api-integration.py)
 - [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
 - [Secrets detection workflow analysis](../docs/concepts/secrets-access-management/notebooks/secrets-detection-remediation-workflow-analysis.ipynb)
+- [Dependabot configuration template](../dependabot/configs/dependabot-configuration-template.yaml) — A single dependabot.yml covering ecosystems, schedules, grouping, and review routing
+- [Auto-merge vs manual review](../dependabot/notebooks/auto-merge-vs-manual-review.ipynb) — Operational trade-offs between auto-merging Dependabot PRs and reviewing each one by hand
 - [Configure Dependabot for private registries](../dependabot/notes/2026-08-08-dependabot-custom-registry-tutorial.md)
 - [Dependabot alerts and security updates](../dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md)
 
