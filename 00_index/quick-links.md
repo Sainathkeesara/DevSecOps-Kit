@@ -44,6 +44,8 @@
 - [Minimal network tracing policy](../tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml)
 - [Tetragon event collection pipeline](../tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh)
 - [Build a small Tetragon policy from scratch](../tetragon/scripts/build-tetragon-policy.sh) — Generate a minimal TracingPolicy watching execve calls and verify it applies
+- [Tetragon runtime security workflow](../tetragon/docs/runtime-security-workflow.md) — Observe-first loop: install on a test cluster, apply a narrow tracing policy, review agent events
+- [File-access TracingPolicy builder](../tetragon/scripts/file-access-tracing-policy.sh) — Build a small file-access TracingPolicy watching sensitive directories and verify its shape
 
 ### Visualize metrics
 - [Grafana primer](../grafana/notes/0000-primer-grafana.md)
@@ -180,6 +182,8 @@
 - [Secrets detection workflow analysis](../docs/concepts/secrets-access-management/notebooks/secrets-detection-remediation-workflow-analysis.ipynb)
 - [Dependabot configuration template](../dependabot/configs/dependabot-configuration-template.yaml) — A single dependabot.yml covering ecosystems, schedules, grouping, and review routing
 - [Auto-merge vs manual review](../dependabot/notebooks/auto-merge-vs-manual-review.ipynb) — Operational trade-offs between auto-merging Dependabot PRs and reviewing each one by hand
+- [Dependabot security alert migration patterns](../dependabot/docs/dependabot-security-alert-migration-patterns.md) — Promote repo alert configs to org policy, or migrate off a legacy scanner with a parallel run
+- [Dependabot version-control workflows](../dependabot/docs/dependabot-version-control-workflows.md) — Fit update PRs into branch handling, review routing, CI gating, and merge policy
 - [Configure Dependabot for private registries](../dependabot/notes/2026-08-08-dependabot-custom-registry-tutorial.md)
 - [Dependabot alerts and security updates](../dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md)
 
@@ -199,4 +203,5 @@
 - [Docker CI/CD end-to-end](../docker/docs/cicd-end-to-end.md) — Build once in CI, smoke-test the image, push the verified tag, and deploy that exact tag
 - [Reusable Docker build script](../docker/scripts/reusable-build.sh) — Single and multi-stage image builds with build args and cache-from support
 - [ZAP baseline scan for CI](../zap/notes/2026-07-20-install-zap-baseline-scan.md)
+- [ZAP baseline scan script](../zap/scripts/zap-baseline-scan.sh) — Containerised baseline scan that fails on High findings with an alert-count summary
 - [Trivy CI/CD pipeline recipes](../trivy/docs/ci-cd-pipeline-recipes.md)

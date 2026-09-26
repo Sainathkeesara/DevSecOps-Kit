@@ -628,6 +628,12 @@
 
 - **Ecosystem (Dependabot)** — The package manager an update entry watches (e.g. `npm`, `pip`, `docker`, `terraform`). One entry covers one ecosystem in one directory; a monorepo needs one entry per manifest location.
 - **Auto-merge (Dependabot)** — Letting dependency update PRs merge without human review once checks pass, usually limited to patch or minor bumps. Trades review effort against the risk of a bad update landing unattended.
+- **Security alert (Dependabot)** — A notification raised when a tracked dependency has a known vulnerability, with a severity tier (Critical, High, Medium, Low). Teams set a severity threshold so only alerts at or above it interrupt the workflow.
+- **Update groups (Dependabot)** — Rolling related low-risk bumps, typically patch and minor releases within one ecosystem, into a single pull request to bound PR volume. Major-version bumps stay ungrouped so each breaking change gets its own review.
+
+## ZAP
+
+- **zap-baseline.py (ZAP)** — The baseline scan entry point shipped in the ZAP Docker image. It spiders the target and runs passive checks, writing an alert summary grouped by severity (High, Medium, Low, Informational) so a CI step can fail the run when High findings appear.
 
 ## Acronyms
 
