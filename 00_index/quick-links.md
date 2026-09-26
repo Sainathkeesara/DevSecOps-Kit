@@ -47,6 +47,7 @@
 - [Tetragon runtime security workflow](../tetragon/docs/runtime-security-workflow.md) — Fold Tetragon observations into a review loop: install, apply a narrow policy, read the events back
 - [K8s runtime-monitoring policy](../tetragon/configs/tetragon-policy-config-for-k8s-runtime-monitoring.yaml) — Observe-mode TracingPolicy covering exec, file access, and network connects
 - [File-access policy builder](../tetragon/scripts/build-tetragon-file-access-tracing-policy.sh) — Render a narrow file-access TracingPolicy from flags instead of hand-editing YAML
+- [Policy approaches comparison](../tetragon/configs/policy-approaches-comparison.yaml) — Cheap exec tracepoint vs narrow file-descriptor kprobe side by side; apply one at a time and compare the event stream
 
 ### Visualize metrics
 - [Grafana primer](../grafana/notes/0000-primer-grafana.md)
@@ -185,6 +186,7 @@
 - [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
 - [Secrets detection workflow analysis](../docs/concepts/secrets-access-management/notebooks/secrets-detection-remediation-workflow-analysis.ipynb)
 - [Dependabot configuration template](../dependabot/configs/dependabot-configuration-template.yaml) — A single dependabot.yml covering ecosystems, schedules, grouping, and review routing
+- [Dependabot integration with version control workflows](../dependabot/docs/dependabot-version-control-workflow-integration.md) — Branch targeting, PR queue shape, grouping, review routing, and required checks for dependency updates
 - [Auto-merge vs manual review](../dependabot/notebooks/auto-merge-vs-manual-review.ipynb) — Operational trade-offs between auto-merging Dependabot PRs and reviewing each one by hand
 - [Dependabot alert migration patterns](../dependabot/docs/dependabot-security-alert-migration-patterns.md) — Move alert configs from repo level to org-wide policy when consolidating scanning
 - [Configure Dependabot for private registries](../dependabot/notes/2026-08-08-dependabot-custom-registry-tutorial.md)

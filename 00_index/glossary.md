@@ -632,6 +632,13 @@
 - **Auto-merge (Dependabot)** — Letting dependency update PRs merge without human review once checks pass, usually limited to patch or minor bumps. Trades review effort against the risk of a bad update landing unattended.
 - **Auto-dismiss (Dependabot)** — A rule that automatically closes Dependabot alerts matching a pattern (e.g. dev-dependency-only scope below a severity threshold), so the alert queue reflects what the team will actually fix.
 - **Policy promotion (Dependabot)** — Moving a proven repository-level alert configuration up to an organization-wide security policy, so new repos inherit the same severity filters, notification routing, and auto-dismiss rules.
+- **Grouping (Dependabot)** — Bundling updates for several dependencies into a single pull request instead of one PR per package, so a busy repository gets a reviewable queue rather than dozens of isolated bumps. Configured per update entry with optional patterns scoping which packages travel together.
+- **Branch targeting (Dependabot)** — Choosing which branch an update pull request opens against, so fixes land on a release branch as well as the default one instead of only where Dependabot points by default.
+
+## Tetragon
+
+- **Tracepoint (Tetragon)** — A static instrumentation hook compiled into the kernel that fires when a specific subsystem event runs (e.g. `raw_syscalls:sys_enter`). A TracingPolicy lists tracepoints with argument selectors so only matching calls produce events — the lowest-overhead way to answer "what ran" across a fleet, at the cost of coarser signal than a kprobe.
+- **Observe mode (Tetragon)** — A TracingPolicy posture that records matching events without blocking the underlying action, so a new policy can be validated against live traffic before any enforcement is considered.
 
 ## Acronyms
 
