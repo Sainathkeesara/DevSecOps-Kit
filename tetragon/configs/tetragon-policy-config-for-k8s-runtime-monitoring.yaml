@@ -8,6 +8,12 @@
 # execution, file access, and network connections. It stays in observe mode
 # (no enforcement) so it can run on a shared test cluster without disrupting
 # workloads.
+#
+# Note on tracepoint shape: per the TracingPolicy CRD, a tracepoint entry is
+# identified by `subsystem` + `event` (there is no `name:` field on a
+# tracepoint spec). The earlier draft of this file used `name: exec`, which is
+# not a valid tracepoint spec — the correct entry is `subsystem: syscalls` /
+# `event: sys_enter`, filtered on argument 0 (the syscall ID).
 
 apiVersion: cilium.io/v1alpha1
 kind: TracingPolicy
@@ -17,21 +23,17 @@ metadata:
     tetragon.io/description: "Observe exec, file access, and network connects"
 spec:
   tracepoints:
-  - name: exec
+  - subsystem: "syscalls"
+    event: "sys_enter"
+    args:
+    - index: 0
+      type: "int64"
     selectors:
     - matchArgs:
       - index: 0
         operator: "Equal"
         values:
-        - "/usr/bin/curl"
-        - "/usr/bin/wget"
-  - name: sys_enter
-    selectors:
-    - matchArgs:
-      - index: 0
-        operator: "Equal"
-        values:
-        - "42" # __NR_connect — first hop of an outbound network connection
+        - "59"  # __NR_execve — process execution
   kprobes:
   - call: "security_file_permission"
     syscall: false
@@ -43,4 +45,4 @@ spec:
       - index: 0
         operator: "Equal"
         values:
-        - "2" # write permission (mode check for O_WRONLY/O_RDWR paths)
+        - "2"  # write permission (mode check for O_WRONLY/O_RDWR paths)

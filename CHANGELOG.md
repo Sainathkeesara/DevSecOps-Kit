@@ -4,6 +4,18 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-26 (rework)
+
+### Passed
+
+- Passed ([x]) tetragon-010 — tetragon: script — Build a small Tetragon file-access tracing policy from scratch · Level: L3 · 2026-09-26
+- Passed ([x]) tetragon-011 — tetragon: config — Tetragon policy configuration for Kubernetes runtime monitoring · Level: L3 · 2026-09-26
+
+### Added
+
+- tetragon-010 (rework): `tetragon/scripts/build-tetragon-file-access-tracing-policy.sh` — fixed the `--output` flag so it actually redirects the rendered policy to the specified file instead of only echoing a message (L3 script)
+- tetragon-011 (rework): `tetragon/configs/tetragon-policy-config-for-k8s-runtime-monitoring.yaml` — fixed the tracepoint entry from the schema-invalid `name: exec` to `subsystem: syscalls` / `event: sys_enter` per the TracingPolicy CRD (L3 config)
+
 ## 2026-09-26
 
 ### Passed
