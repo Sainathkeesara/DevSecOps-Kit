@@ -2919,3 +2919,6 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 - tetragon-007: Build a small Tetragon policy from scratch
   - Script: tetragon/scripts/build-tetragon-policy.sh
 
+
+### Added (2026-09-26)
+- dependabot-017: `dependabot/docs/dependabot-version-control-workflow-integration.md` — Dependabot integration with version control workflows (L5)
