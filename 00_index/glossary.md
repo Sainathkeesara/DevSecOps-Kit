@@ -617,11 +617,17 @@
 - **Keyless signing (Cosign)** — Signing where the pipeline mints a short-lived certificate from its OIDC identity at run time, so there is no long-lived private key to store or rotate. Verification pins the expected issuer and workflow identity instead of a public key file.
 - **Image digest** — The content-addressed identifier a registry assigns on push (e.g. `image@sha256:…`). Signing the digest rather than the mutable tag binds the signature to the exact bytes that were built.
 - **Verify gate** — A pipeline or admission stage that fails the run when an image signature does not check out, so unsigned images cannot drift into the environment unnoticed.
+- **Key rotation (Cosign)** — Replacing the signing trust (a key or an OIDC identity) and re-pointing every verifier at the new material. Done as a migration set: change the trust, re-sign images that must stay deployable, update verifiers, and only then remove the old path.
 
 ## ArgoCD
 
 - **app-of-apps (ArgoCD)** — A root Application whose desired state is a directory of further Application manifests, so one sync bootstraps a whole fleet of apps. The last step of the plain-YAML to Kustomize to Helm to app-of-apps ladder.
 - **ApplicationSet (ArgoCD)** — An ArgoCD generator that renders Applications from parameters (list, clusters, Git directories) instead of hand-writing one manifest per app. An alternative to app-of-apps when many similar apps differ only in values.
+
+## Dependabot
+
+- **Ecosystem (Dependabot)** — The package manager an update entry watches (e.g. `npm`, `pip`, `docker`, `terraform`). One entry covers one ecosystem in one directory; a monorepo needs one entry per manifest location.
+- **Auto-merge (Dependabot)** — Letting dependency update PRs merge without human review once checks pass, usually limited to patch or minor bumps. Trades review effort against the risk of a bad update landing unattended.
 
 ## Acronyms
 

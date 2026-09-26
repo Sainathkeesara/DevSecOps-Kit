@@ -11,15 +11,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-1047 files across 35 tool folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+1054 files across 35 tool folders plus cross-cutting docs, scripts, snippets, templates, and lab environments. Covers vulnerability scanning, secret detection, SBOMs, supply chain security, runtime security, policy engines, infrastructure automation, and observability. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
-- [Container signing pipeline integration](cosign/docs/container-signing-pipeline.md) — Where signing and verification stages belong in an image pipeline, keyless versus key-based signing, and the verify gate that rejects unsigned images
-- [Docker CI/CD end-to-end](docker/docs/cicd-end-to-end.md) — Build once in CI, smoke-test the image, push the verified tag, and deploy that exact tag
-- [Reusable Docker build script](docker/scripts/reusable-build.sh) — Single and multi-stage image builds with build args and cache-from support
-- [Multi-service env example](docker/templates/multi-service-setup/.env.example) — Example values for the multi-service Compose scaffold
-- [Multi-service Compose scaffold](docker/templates/multi-service-setup/README.md) — Web front end plus Python API plus Postgres with health-gated startup and named volumes
+- [Dependabot configuration template](dependabot/configs/dependabot-configuration-template.yaml) — A single dependabot.yml covering ecosystems, schedules, grouping, and review routing for real repositories
+- [Auto-merge vs manual review](dependabot/notebooks/auto-merge-vs-manual-review.ipynb) — Operational trade-offs between auto-merging Dependabot PRs and reviewing each one by hand
+- [Docker Compose production manifest](docker/manifests/docker-compose-production.yaml) — Replicated app service with rolling updates, resource limits, and restart policy
+- [Cosign key rotation and migration patterns](cosign/docs/key-rotation-and-migration-patterns.md) — Rotate signing trust and migrate verification without leaving published images unverifiable
+- [First CodeQL query](codeql/snippets/2026-09-24-first-codeql-query.py) — A minimal hardcoded-password query to save out and run with the CodeQL CLI
 
 ## Layout
 
@@ -50,7 +50,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | trivy | 6 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 35 | 2026-09-05 |
 | zap | 6 | 3 | 2 | 2 | 4 | 8 | 0 | 1 | 0 | 0 | 26 | 2026-09-05 |
 | opa | 3 | 2 | 2 | 1 | 3 | 9 | 4 | 0 | 0 | 0 | 24 | 2026-09-02 |
-| codeql | 4 | 2 | 1 | 1 | 4 | 8 | 2 | 1 | 1 | 0 | 24 | 2026-09-19 |
+| codeql | 4 | 2 | 1 | 1 | 5 | 8 | 2 | 1 | 1 | 0 | 25 | 2026-09-25 |
 | snyk | 4 | 2 | 1 | 2 | 1 | 11 | 1 | 1 | 0 | 0 | 23 | 2026-09-03 |
 | gitguardian | 4 | 2 | 3 | 2 | 2 | 9 | 0 | 0 | 0 | 0 | 22 | 2026-08-21 |
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-09-22 |
@@ -60,14 +60,14 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | vault | 4 | 3 | 4 | 3 | 2 | 0 | 1 | 1 | 1 | 0 | 19 | 2026-09-17 |
 | terrascan | 5 | 1 | 2 | 1 | 2 | 6 | 1 | 0 | 0 | 0 | 18 | 2026-08-09 |
 | environments | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 15 | 2026-09-19 |
-| cosign | 4 | 2 | 3 | 1 | 1 | 0 | 2 | 2 | 0 | 0 | 15 | 2026-09-24 |
-| dependabot | 7 | 1 | 2 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 2026-08-20 |
+| cosign | 4 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 18 | 2026-09-25 |
+| dependabot | 7 | 1 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 0 | 16 | 2026-09-26 |
 | argocd | 6 | 2 | 0 | 2 | 0 | 0 | 3 | 0 | 0 | 0 | 13 | 2026-09-23 |
 | lab | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-09-20 |
 | github-actions | 5 | 0 | 0 | 4 | 2 | 0 | 2 | 0 | 0 | 0 | 13 | 2026-09-21 |
 | git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
 | ansible | 3 | 1 | 3 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
-| docker | 2 | 2 | 3 | 1 | 0 | 7 | 0 | 2 | 0 | 0 | 17 | 2026-09-23 |
+| docker | 2 | 2 | 3 | 1 | 0 | 7 | 1 | 2 | 0 | 0 | 18 | 2026-09-25 |
 | kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 6 | 2026-09-22 |
 | kubernetes | 2 | 1 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 0 | 7 | 2026-09-22 |
 | tetragon | 3 | 0 | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-09-22 |
@@ -88,7 +88,7 @@ _Kubernetes' total counts 2 notes, 1 doc, 1 config, and 3 manifests. Terraform's
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions wire Cosign signing and verification into a container pipeline (build, push, sign by digest, verify gate), add a Docker CI/CD end-to-end guide with a reusable build script, and add a multi-service Docker Compose scaffold (web plus API plus Postgres). Current focus is rounding out Docker, Cosign, Ansible, Kubernetes, and Tetragon first-contact notes.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions cover Dependabot configuration and auto-merge policy, a production Docker Compose manifest, Cosign key rotation and signing-mode comparisons, and a first CodeQL query example. Current focus is rounding out Docker, Cosign, Dependabot, CodeQL, Ansible, Kubernetes, and Tetragon first-contact notes.
 
 ---
-_Last updated: 2026-09-24_
+_Last updated: 2026-09-26_
