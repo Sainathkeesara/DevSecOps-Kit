@@ -21,8 +21,9 @@ version: 2
 
 # Private package registries. Omit the whole block for public-only dependencies.
 # Each entry name is referenced from an update entry through `registries`.
-# `credentials-secrets` names repository secrets that hold the login details;
-# it never carries the credential itself.
+# The `token`, `username`, and `password` values below are placeholders:
+# store the real secret values in the repository settings and reference
+# them from this file; the secret itself never lives in version control.
 registries:
   private-npm:
     type: npm-registry
@@ -89,12 +90,6 @@ updates:
       - dependency-name: "legacy-parser"
         versions: ["1.x", "2.x"]
         update-types: ["version-update:semver-minor"]
-    # Dependencies published by the same organisation are treated as a single
-    # unit, so an internal breaking change lands as one pull request.
-    vendors:
-      myorg:
-        # Only track the packages this repository actually consumes.
-        only-contains-dependencies: true
     # Behaviour when an update would need to run code from outside the
     # repository during install. "allow" permits it; "deny" is the restrictive
     # default when unset.
@@ -149,13 +144,11 @@ updates:
 
   - package-ecosystem: "terraform"
     directory: "/"
-    registries:
-      - "internal-maven"
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 3
-    # Providers move faster than the modules built on them; weekly provider
-    # updates and monthly module updates keep that split explicit.
+    # Providers move independently of the modules built on them, so they are
+    # grouped separately to keep provider reviews apart from module reviews.
     groups:
       providers:
         patterns:
