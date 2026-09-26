@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2026-09-26
 
+### Passed
+
+- Passed ([x]) tetragon-008 — tetragon: docs — How I wired Tetragon into my runtime security workflow · Level: L3 · 2026-09-26
+- Passed ([x]) zap-032 — zap: script — Build a small ZAP automation script from scratch · Level: L3 · 2026-09-26
+
 ### Added
 
 - tetragon-008: `tetragon/docs/runtime-security-workflow.md` — How Tetragon tracing policies were wired into a runtime security review loop: apply policy, generate activity, read agent events (L3 docs)
