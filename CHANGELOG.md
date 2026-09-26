@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Passed ([x]) tetragon-008 — tetragon: docs — How I wired Tetragon into my runtime security workflow · Level: L3 · 2026-09-26
 - Passed ([x]) zap-032 — zap: script — Build a small ZAP automation script from scratch · Level: L3 · 2026-09-26
+- Passed ([x]) tetragon-009 — tetragon: config — Tetragon policy approaches — comparing two configurations · Level: L3 · 2026-09-26
 
 ### Added
 
@@ -2935,3 +2936,6 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 
 ### Added (2026-09-26)
 - dependabot-017: `dependabot/docs/dependabot-version-control-workflow-integration.md` — Dependabot integration with version control workflows (L5)
+
+### Added (2026-09-26)
+- terrascan-018: `terrascan/docs/iac-pipeline-integration.md` — Integrating Terrascan with infrastructure as code pipelines (L5)
