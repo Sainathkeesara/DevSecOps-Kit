@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - zap-032: `zap/scripts/zap-baseline-scan.sh` — Small ZAP baseline scan helper from scratch: docker baseline run, alert summary, fail on High findings (L3 script)
 - dependabot-019: `dependabot/configs/dependabot-configuration-template.yaml` — Dependabot configuration template: annotated reference layout covering private registries, per-ecosystem entries, schedules, cooldown, groups, ignore rules, and review routing (L5 config)
 - dependabot-019 (rework): removed invented `vendors:` mapping block, dropped the maven-registry reference from the terraform entry, and reworded the registry-secrets header comment (L5 config)
+- dependabot-020: `dependabot/docs/dependabot-security-alert-migration-patterns.md` — Dependabot security alert migration patterns: repository-to-org promotion, legacy scanner replacement, config-as-code with dependabot.yml, and multi-org synchronization (L5 docs)
 
 ## 2026-09-25
 
