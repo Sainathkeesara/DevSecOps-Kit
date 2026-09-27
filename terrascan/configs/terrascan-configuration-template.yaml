@@ -1,0 +1,136 @@
+# last_verified: 2026-09-27 · terrascan n/a
+#
+# Terrascan configuration template.
+# This file demonstrates the full schema for a Terrascan YAML configuration.
+# Place at .terrascan.yaml in the repository root or pass via --config-file.
+#
+# Terrascan merges this config with CLI flags; CLI flags take precedence.
+# Not all fields are required — only include sections relevant to the use case.
+---
+version: "v1"
+scan:
+  # Target configuration — what to scan and how.
+  # Use one of: "terraform", "cloudformation", "kubernetes", "dockerfile",
+  # "helm", "kustomize", "arm", "bicep". Auto-detection is the default.
+  target:
+    type: terraform
+    # Paths to scan. Can be a single string or a list. Supports glob patterns.
+    # Default: ["."] (current directory).
+    values:
+      - "./infra"
+      - "./modules"
+    # Optional: exclude paths from scanning.
+    exclude:
+      - "./.terraform"
+      - "./vendor"
+      - "**/test/**"
+
+  # Policy configuration — which rules to apply.
+  policy:
+    # Enable or disable built-in rule sets per cloud provider.
+    # Supported: "aws", "azure", "gcp", "k8s", "github".
+    # Default: all enabled.
+    include:
+      - name: aws
+      - name: k8s
+    # Disable specific built-in rule sets.
+    exclude:
+      - name: azure
+      - name: gcp
+
+    # Custom policy directories. Each entry can be a local path or a remote URL.
+    # Local paths are relative to the config file location.
+    custom:
+      - path: "./.terrascan-policies"
+      # - path: "<remote-git-url>//<subdir>"  # Example: remote policy repo
+
+    # Override severity for specific rule IDs.
+    # Useful for tuning noise without forking policies.
+    severity-overrides:
+      - rule-id: "AWS.S3.1"
+        severity: medium
+      - rule-id: "K8S.NETWORK.1"
+        severity: low
+
+  # Output configuration.
+  output:
+    # Format: "json", "yaml", "sarif", "table", "xml".
+    # Default: "table" (human-readable).
+    format: json
+    # Write output to file instead of stdout.
+    # Relative to working directory.
+    path: "./results/terrascan-results.json"
+    # Include passed rules in output (default: false).
+    include-passed: false
+    # Include skipped rules in output (default: false).
+    include-skipped: false
+
+  # Severity threshold for non-zero exit code.
+  # Values: "critical", "high", "medium", "low".
+  # Findings at or above this severity cause exit code 3.
+  # Default: "low" (any finding fails).
+  severity: high
+
+  # Skip rules by ID. Useful for known acceptable patterns.
+  skip-rules:
+    - "AWS.S3.2"  # Example: bucket versioning not required in dev
+
+  # Maximum number of violations to report per rule.
+  # Prevents output explosion on large codebases.
+  # Default: 0 (unlimited).
+  max-violations-per-rule: 50
+
+  # Parallel scan workers.
+  # Default: number of CPU cores.
+  concurrency: 4
+
+# Remote configuration — for Terrascan Cloud / SaaS features.
+# Omit entirely for self-hosted / CLI-only usage.
+remote:
+  # API endpoint for policy sync and result upload.
+  # endpoint: "<terrascan-cloud-api-endpoint>"
+  # Authentication token (use env var in practice).
+  # token: "${TERRASCAN_API_TOKEN}"
+  # Organization / workspace identifiers.
+  # org-id: "<org-id>"
+  # workspace-id: "<workspace-id>"
+
+# Notification configuration — webhook / Slack / email on findings.
+# Optional; only used when remote is configured.
+notifications:
+  - type: webhook
+    # url: "<webhook-url>"
+    on-severity: ["critical", "high"]
+  - type: slack
+    channel: "#security-alerts"
+    on-severity: ["critical"]
+
+# Git integration — for PR annotation and status checks.
+# Requires remote configuration.
+git:
+  # Provider: "github", "gitlab", "bitbucket", "azure-devops".
+  provider: github
+  # Repository in owner/repo format.
+  repository: "org/repo"
+  # Post annotations on pull requests.
+  annotate-pr: true
+  # Fail PR check on severity threshold.
+  fail-pr-on-severity: high
+
+# Cache configuration — speeds up repeated scans.
+cache:
+  # Enable local cache (default: true).
+  enabled: true
+  # Cache directory (default: ~/.cache/terrascan).
+  directory: "./.terrascan-cache"
+  # TTL in hours (default: 168 / 7 days).
+  ttl-hours: 168
+
+# Debug and troubleshooting.
+debug:
+  # Enable verbose logging.
+  verbose: false
+  # Log to file instead of stderr.
+  log-file: "./terrascan-debug.log"
+  # Dry-run: parse config and show resolved settings without scanning.
+  # dry-run: false

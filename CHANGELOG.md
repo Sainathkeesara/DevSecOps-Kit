@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-27
+
+### Added
+
+- terrascan-020: `terrascan/configs/terrascan-configuration-template.yaml` — Terrascan configuration template with full schema for scan targets, policies, output, severity thresholds, remote/cloud features, notifications, git integration, caching, and debug options (L5 config)
+
 ## 2026-09-26 (rework)
 
 ### Passed
