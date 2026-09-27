@@ -640,6 +640,20 @@
 - **Tracepoint (Tetragon)** — A static instrumentation hook compiled into the kernel that fires when a specific subsystem event runs (e.g. `raw_syscalls:sys_enter`). A TracingPolicy lists tracepoints with argument selectors so only matching calls produce events — the lowest-overhead way to answer "what ran" across a fleet, at the cost of coarser signal than a kprobe.
 - **Observe mode (Tetragon)** — A TracingPolicy posture that records matching events without blocking the underlying action, so a new policy can be validated against live traffic before any enforcement is considered.
 
+## Terrascan
+
+- **TerrascanConfig** — The top-level configuration document Terrascan reads, whose recognised keys are `policy`, `notifications`, `rules`, `category`, `severity`, and `k8s-admission-control`. Any other key is silently ignored, so a plausible-looking section such as `scan:` has no effect at all.
+- **Policy envelope vs policy body (Terrascan)** — Terrascan rule definitions are a YAML document wrapped around a Rego body. The envelope carries metadata and match criteria; the body carries the logic. A document whose envelope loads but whose body never fires reports nothing, which reads as "no findings" rather than as a broken rule.
+- **Silent pass** — A scan that runs, finds violations, and still reports success because nothing translates findings into a failure decision. The default failure mode of an ungated IaC scan, and the reason a severity threshold has to be applied by the pipeline rather than assumed from the tool's own output.
+- **Severity gate vs `--severity` filter (Terrascan)** — The `--severity` flag narrows which findings are printed without changing the process exit code, so it cannot express a build-failure threshold on its own. A thresholded gate means parsing the JSON result and failing the step directly.
+- **Scan unit (IaC scanning)** — What a single scan invocation covers. For Terrascan, a raw directory scan catches misconfiguration in files as written, including resources no module references, while a plan-based scan catches what will actually exist after variable and module resolution. The two are complementary, not alternatives.
+
+## Shell automation
+
+- **Per-step wrapping** — Isolating each step of a multi-step script in its own function or subshell so a failure is attributed to a named step and the remaining steps still report. Without it, the first non-zero exit hides everything after it.
+- **Retry with a bound** — Re-running a step that failed for a transient reason (a network call, a registry hiccup) a fixed number of times with a delay, so a flaky dependency doesn't fail the run and an actual fault still surfaces. Retry only on the specific failure, never on every error.
+- **key=value config file** — A flat `KEY=value` file read by the script instead of hardcoded values, so configuration changes never require editing the script body. Pair it with a default applied for any key the file omits.
+
 ## Acronyms
 
 **OCI (Open Container Initiative)** — A set of open-source standards for container image formats and distribution, used by registries like Docker Hub, GitHub Container Registry, and AWS ECR.
