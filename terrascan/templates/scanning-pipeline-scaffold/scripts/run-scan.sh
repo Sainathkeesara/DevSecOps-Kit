@@ -36,9 +36,10 @@ done
 
 mkdir -p "$OUT_DIR"
 
-# Run the scan once. --config-path loads custom policy files alongside
-# the built-in rule set; -o json yields the parseable artifact below.
-terrascan scan -d "$IAC_DIR" --config-path "$POLICY_DIR" -o json \
+# Run the scan once. `-p` loads custom policies from the policies/ folder
+# alongside the built-in rule set; `-c ./config.yaml` applies the scaffold
+# config (severity/category); `-o json` yields the parseable artifact below.
+terrascan scan -d "$IAC_DIR" -p "$POLICY_DIR" -c ./config.yaml -o json \
   > "$JSON_FILE" 2> "$OUT_DIR/scan-${TIMESTAMP}.log" || true
 
 TOTAL="$(jq '.results.violations | length' "$JSON_FILE" 2>/dev/null || echo 0)"

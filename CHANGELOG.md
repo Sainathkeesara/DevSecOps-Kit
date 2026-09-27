@@ -4,6 +4,15 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-27 (rework)
+
+### Added
+
+- terrascan-020 (rework 1): `terrascan/configs/terrascan-config-template.yaml` — Terrascan configuration template rewritten against the real `TerrascanConfig` schema from `tenable/terrascan pkg/config/types.go`. Flat top-level keys only (`policy`, `rules`, `category`, `severity`, `notifications`, `k8s-admission-control`); the invented `scan:` section, `remote:`/`git:`/`cache:`/`debug:` blocks, and `policy.severity-overrides` are gone. `notifications` is a map with a nested `config:` block and no `on-severity` option.
+- terrascan-020 (rework 1): `terrascan/templates/scanning-pipeline-scaffold/config.yaml` — scaffold config rewritten to the same real schema (no `scan.target`/`scan.policy` tree).
+- terrascan-020 (rework 1): `terrascan/templates/scanning-pipeline-scaffold/README.md` — usage notes corrected: config discovery is `terrascan.toml`/`terrascan.yaml` or `TERRASCAN_CONFIG`/`-c --config-path` (no `--config-file`, no `.terrascan.yaml`); output is `-o/--output` (human/json/yaml/xml/sarif/junit-xml/github-sarif, default human); passed rules come from `--show-passed`; rule IDs are `<Resource>.<Category>.<Severity>.<Number>` (e.g. `AWS.S3Bucket.DS.High.1043`).
+- terrascan-020 (rework 1): `terrascan/templates/scanning-pipeline-scaffold/scripts/run-scan.sh` — corrected the scan invocation to use `-p/--policy-path` for custom policies and `-c` for the config file (the prior `--config-path "$POLICY_DIR"` was not a real flag).
+
 ## 2026-09-26 (rework)
 
 ### Passed
