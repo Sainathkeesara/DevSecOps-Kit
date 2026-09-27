@@ -1,13 +1,29 @@
-# last_verified: 2026-08-09 · terrascan n/a
+# last_verified: 2026-09-27 · terrascan n/a
 
 # Terrascan scan configuration scaffold.
-# Points Terrascan at the local directory as the scan target and
-# loads custom policies from the policies/ folder alongside built-in rules.
+#
+# Terrascan reads this file as terrascan.yaml (or terrascan.toml), or via the
+# TERRASCAN_CONFIG env var / `terrascan scan -c <path>`. The recognized
+# top-level keys are policy, notifications, rules, category, severity, and
+# k8s-admission-control — there is no `scan:` section in the schema.
+#
+# This scaffold points Terrascan at the local directory as the scan target
+# (via the `terrascan scan -d .` CLI flag, not in the config file) and loads
+# custom policies from the policies/ folder alongside built-in rules.
 ---
-scan:
-  target:
-    type: terraform
-    values: ["./"]
-  policy:
-    include:
-      - path: "./policies"
+policy:
+  path: "./policies"
+  rego_subdir: "./.terrascan"
+rules:
+  scan-rules: []
+  skip-rules: []
+category:
+  list: []
+severity:
+  level: "low"
+notifications: {}
+k8s-admission-control:
+  dashboard: false
+  denied-severity: "high"
+  denied-categories: []
+  save-requests: false

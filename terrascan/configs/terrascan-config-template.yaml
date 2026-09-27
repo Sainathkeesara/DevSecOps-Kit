@@ -1,0 +1,55 @@
+# last_verified: 2026-09-27 · terrascan n/a
+#
+# Terrascan configuration template.
+#
+# This file follows the real TerrascanConfig schema from
+# tenable/terrascan pkg/config/types.go. The recognized top-level keys are
+# policy, notifications, rules, category, severity, and k8s-admission-control.
+# Any other key (e.g. a `scan:` section) is silently ignored by Terrascan.
+#
+# Discovery: the file is read as terrascan.toml / terrascan.yaml, or via the
+# TERRASCAN_CONFIG env var / `terrascan scan -c <path>`. There is no
+# `--config-file` flag and no `.terrascan.yaml` default name.
+
+# --- policy: where Terrascan looks for rules -------------------------------
+# `path` is a local repo path; `rego_subdir` is the local cache directory.
+# `repo_url` / `branch` point at a remote policy repo; leave blank to use the
+# default policy repo. `environment` and `access_token` authenticate against it.
+policy:
+  path: "./policies"
+  rego_subdir: "./.terrascan"
+  repo_url: ""
+  branch: "master"
+  environment: ""
+  access_token: ""
+
+# --- rules: include or exclude specific rule IDs ---------------------------
+# scan-rules overrides the policy path; skip-rules removes rules globally.
+rules:
+  scan-rules: []
+  skip-rules: []
+
+# --- category: which violation categories to report ------------------------
+category:
+  list: []
+
+# --- severity: minimum severity level to report ----------------------------
+# One of: low, medium, high
+severity:
+  level: "low"
+
+# --- notifications: named notifiers, each with type + config ---------------
+# The notifier key is arbitrary; `type` selects the notifier and `config`
+# carries its parameters. There is no `on-severity` option.
+notifications:
+  webhook:
+    type: "webhook"
+    config:
+      url: "<your-webhook-url>"
+
+# --- k8s-admission-control: deny rules for the webhook ---------------------
+k8s-admission-control:
+  dashboard: false
+  denied-severity: "high"
+  denied-categories: []
+  save-requests: false
