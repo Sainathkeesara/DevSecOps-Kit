@@ -2939,3 +2939,6 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 
 ### Added (2026-09-26)
 - terrascan-018: `terrascan/docs/iac-pipeline-integration.md` — Integrating Terrascan with infrastructure as code pipelines (L5)
+
+### Added (2026-09-27)
+- terrascan-019: `terrascan/notebooks/rego-vs-yaml-rule-authoring.ipynb` — Choosing between Rego and YAML rules in Terrascan (L5)
