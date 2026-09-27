@@ -57,10 +57,10 @@
 - **scripts** (1): [2026-09-20-defectdojo-tutorial-check.sh](../defectdojo/scripts/2026-09-20-defectdojo-tutorial-check.sh)
 - **snippets** (1): [install-defectdojo-first-scan-report.sh](../defectdojo/snippets/install-defectdojo-first-scan-report.sh)
 
-## dependabot  ·  17 files
+## dependabot  ·  18 files
 - **primer:** [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md)
 - **notes** (7): [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md), [2026-06-15-dependabot-first-repo-bump-pr.md](../dependabot/notes/2026-06-15-dependabot-first-repo-bump-pr.md), [2026-06-22-first-time-dependabot-setup.md](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md) — _…and 4 more under `dependabot/notes/`._
-- **docs** (2): [dependabot-security-update-auto-merge.md](../dependabot/docs/dependabot-security-update-auto-merge.md), [dependabot-security-alert-migration-patterns.md](../dependabot/docs/dependabot-security-alert-migration-patterns.md)
+- **docs** (3): [dependabot-version-control-workflow-integration.md](../dependabot/docs/dependabot-version-control-workflow-integration.md), [dependabot-security-update-auto-merge.md](../dependabot/docs/dependabot-security-update-auto-merge.md), [dependabot-security-alert-migration-patterns.md](../dependabot/docs/dependabot-security-alert-migration-patterns.md)
 - **scripts** (2): [2026-08-04-dependabot-alert-triage.py](../dependabot/scripts/2026-08-04-dependabot-alert-triage.py), [dependabot-alert-aggregation.py](../dependabot/scripts/dependabot-alert-aggregation.py)
 - **configs** (5): [2026-07-10-npm-version-strategy.yaml](../dependabot/configs/2026-07-10-npm-version-strategy.yaml), [2026-07-18-python-project-version-update.yaml](../dependabot/configs/2026-07-18-python-project-version-update.yaml), [dependabot-configuration-template.yaml](../dependabot/configs/dependabot-configuration-template.yaml) — _…and 2 more under `dependabot/configs/`._
 - **notebooks** (1): [auto-merge-vs-manual-review.ipynb](../dependabot/notebooks/auto-merge-vs-manual-review.ipynb)
@@ -254,12 +254,12 @@
 - **templates** (6): [.gitignore](../terrascan/templates/scanning-pipeline-scaffold/.gitignore), [README.md](../terrascan/templates/scanning-pipeline-scaffold/README.md), [config.yaml](../terrascan/templates/scanning-pipeline-scaffold/config.yaml) — _…and 3 more under `terrascan/templates/`._
 - **manifests** (1): [terrascan-gha-ci-multi-iac.yaml](../terrascan/manifests/terrascan-gha-ci-multi-iac.yaml)
 
-## tetragon  ·  10 files
+## tetragon  ·  11 files
 - **primer:** [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md)
 - **notes** (3): [0000-primer-tetragon.md](../tetragon/notes/0000-primer-tetragon.md), [2026-06-23-install-tetragon-docker-first-events.md](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md), [2026-08-06-tetragon-observability-tutorial.md](../tetragon/notes/2026-08-06-tetragon-observability-tutorial.md)
 - **docs** (1): [runtime-security-workflow.md](../tetragon/docs/runtime-security-workflow.md)
 - **scripts** (3): [2026-08-05-tetragon-event-collection-pipeline.sh](../tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh), [build-tetragon-policy.sh](../tetragon/scripts/build-tetragon-policy.sh), [build-tetragon-file-access-tracing-policy.sh](../tetragon/scripts/build-tetragon-file-access-tracing-policy.sh)
-- **configs** (3): [2026-08-05-minimal-network-tracing-policy.yaml](../tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml), [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml), [tetragon-policy-config-for-k8s-runtime-monitoring.yaml](../tetragon/configs/tetragon-policy-config-for-k8s-runtime-monitoring.yaml)
+- **configs** (4): [policy-approaches-comparison.yaml](../tetragon/configs/policy-approaches-comparison.yaml), [2026-08-05-minimal-network-tracing-policy.yaml](../tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml), [first-tracing-policy-exec-file.yaml](../tetragon/configs/first-tracing-policy-exec-file.yaml) — _…and 1 more under `tetragon/configs/`._
 
 ## trivy  ·  35 files
 - **primer:** [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md)
