@@ -2942,3 +2942,8 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 
 ### Added (2026-09-27)
 - terrascan-019: `terrascan/notebooks/rego-vs-yaml-rule-authoring.ipynb` — Choosing between Rego and YAML rules in Terrascan (L5)
+
+### Added (2026-09-27)
+- con-140: `docs/concepts/infrastructure-as-code/scripts/2026-09-27-terraform-basics-practice.sh` — Practice: Infrastructure as Code with Terraform basics (L2)
+- con-141: `docs/concepts/infrastructure-as-code/snippets/2026-09-27-reusable-module-hcl-pattern.sh` — Infrastructure as Code: HCL pattern for reusable modules (L2)
+- con-142: `docs/concepts/linux-shell-fundamentals/scripts/2026-09-27-devops-automation-shell-patterns.sh` — Practice: Linux shell patterns for DevOps automation (L2)
