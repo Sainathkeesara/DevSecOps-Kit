@@ -4,6 +4,13 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-28
+
+### Added
+
+- con-154: `docs/concepts/linux-shell-fundamentals/combining-shell-automation-with-git-hooks.md` — Combining shell automation with Git hooks for DevOps workflows: hook event patterns, `core.hooksPath` team sharing, and the subshell-exit pitfall with fixes (L3 docs, concept integration)
+- con-138: `docs/concepts/version-control-with-git/notebooks/version-control-patterns-in-real-projects.ipynb` — Exploring version control patterns (feature-branch merge commits, trunk-based fast-forward, squash-merge) by building sample repositories and inspecting their git history (L3 notebook, concept integration)
+
 ## 2026-09-27 (rework)
 
 ### Added
