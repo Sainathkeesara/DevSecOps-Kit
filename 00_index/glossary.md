@@ -659,6 +659,19 @@
 - **Retry with a bound** — Re-running a step that failed for a transient reason (a network call, a registry hiccup) a fixed number of times with a delay, so a flaky dependency doesn't fail the run and an actual fault still surfaces. Retry only on the specific failure, never on every error.
 - **key=value config file** — A flat `KEY=value` file read by the script instead of hardcoded values, so configuration changes never require editing the script body. Pair it with a default applied for any key the file omits.
 
+## Vault deployment
+
+- **Raft storage backend (Vault)** — Vault's integrated HA storage where each replica keeps a copy of the encrypted data and elects a leader. Replicas need a stable identity (`node_id`) so the cluster can tell them apart after restarts.
+- **Headless Service (Vault on Kubernetes)** — A Kubernetes Service with `clusterIP: None` that returns individual pod addresses instead of one virtual IP, so each Vault replica is reachable for Raft join and peer traffic.
+- **PDB (PodDisruptionBudget)** — A Kubernetes object that limits how many pods of a workload can go down at once during voluntary disruptions, so a 3-replica Vault StatefulSet keeps quorum while nodes drain.
+- **Per-pod ConfigMap render (Vault)** — A pattern where one shared ConfigMap template is rendered per pod with a unique `node_id`, so replicas share configuration shape but keep distinct Raft identities.
+
+## Semgrep rules
+
+- **Rule inventory (Semgrep)** — A complete list of every rule file with its ID, language list, and what it detects, recorded with file paths so duplicates and near-duplicates surface before migration.
+- **Rule envelope normalization (Semgrep)** — Rewriting every rule's metadata wrapper (ID, languages, severity, message) into one consistent shape, so reviews compare detection logic instead of formatting drift.
+- **Severity standardization (Semgrep)** — Mapping ad-hoc severity labels onto one controlled set before CI gating, so a threshold means the same thing across every rule in the migrated set.
+
 ## Acronyms
 
 **OCI (Open Container Initiative)** — A set of open-source standards for container image formats and distribution, used by registries like Docker Hub, GitHub Container Registry, and AWS ECR.

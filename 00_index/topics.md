@@ -18,7 +18,7 @@
 - **configs** (2): [2026-08-17-private-repo-credentials-rbac.yaml](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml), [2026-09-20-values-dev.yaml](../argocd/configs/2026-09-20-values-dev.yaml)
 - **manifests** (3): [helm-guestbook-application.yaml](../argocd/manifests/helm-guestbook-application.yaml), [2026-08-12-gitops-sync-sample-web-app.yaml](../argocd/manifests/2026-08-12-gitops-sync-sample-web-app.yaml), [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml)
 
-## checkov  ·  46 files
+## checkov  ·  48 files
 
 - **primer:** [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md)
 - **notes** (4): [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md), [2026-05-25-scan-terraform-plan.md](../checkov/notes/2026-05-25-scan-terraform-plan.md), [2026-05-26-cli-vs-sdk-comparison.md](../checkov/notes/2026-05-26-cli-vs-sdk-comparison.md) — _…and 1 more under `checkov/notes/`._
@@ -85,10 +85,10 @@
 - **dockerfiles** (2): [2026-07-12-first-custom-docker-image.Dockerfile](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile), [2026-07-10-first-custom-image.Dockerfile](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
 - **templates** (7): [multi-service setup scaffold](../docker/templates/multi-service-setup/README.md), [compose.yaml](../docker/templates/multi-service-setup/compose.yaml), [api/app.py](../docker/templates/multi-service-setup/api/app.py) — _…and 4 more under `docker/templates/`._
 
-## environments  ·  15 files
+## environments  ·  16 files
 
 - **primer:** [0000-primer-environments.md](../environments/notes/0000-primer-environments.md)
-- **notes** (2): [0000-primer-environments.md](../environments/notes/0000-primer-environments.md), [2026-09-19-first-environment-comparison.md](../environments/notes/2026-09-19-first-environment-comparison.md)
+- **notes** (3): [0000-primer-environments.md](../environments/notes/0000-primer-environments.md), [2026-09-29-explore-environments-directory.md](../environments/notes/2026-09-29-explore-environments-directory.md), [2026-09-19-first-environment-comparison.md](../environments/notes/2026-09-19-first-environment-comparison.md)
 - **configs** (1): [2026-09-19-first-variable-set.yaml](../environments/configs/2026-09-19-first-variable-set.yaml)
 - _…and 12 Terraform files under `environments/dev/`, `environments/staging/`, `environments/prod/` — browse the folders._
 
@@ -215,11 +215,11 @@
 - **primer:** [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md)
 - **notes** (3): [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md), [0000-primer-observability.md](../prometheus/notes/0000-primer-observability.md), [2026-09-20-checking-the-metrics-interface.md](../prometheus/notes/2026-09-20-checking-the-metrics-interface.md)
 
-## semgrep  ·  21 files
+## semgrep  ·  23 files
 
 - **primer:** [0000-primer-semgrep.md](../semgrep/notes/0000-primer-semgrep.md)
 - **notes** (3): [0000-primer-semgrep.md](../semgrep/notes/0000-primer-semgrep.md), [2026-05-25-install-semgrep.md](../semgrep/notes/2026-05-25-install-semgrep.md), [2026-05-26-install-semgrep-pitfalls.md](../semgrep/notes/2026-05-26-install-semgrep-pitfalls.md)
-- **docs** (5): [semgrep-rule-writing-reference.md](../semgrep/docs/semgrep-rule-writing-reference.md), [comparing-rule-writing-approaches.md](../semgrep/docs/comparing-rule-writing-approaches.md), [semgrep-rule-performance-optimization.md](../semgrep/docs/semgrep-rule-performance-optimization.md) — _…and 2 more under `semgrep/docs/`._
+- **docs** (7): [semgrep-rules-migration-guide.md](../semgrep/docs/semgrep-rules-migration-guide.md), [semgrep-code-scanning-integration-reference.md](../semgrep/docs/semgrep-code-scanning-integration-reference.md), [semgrep-rule-writing-reference.md](../semgrep/docs/semgrep-rule-writing-reference.md) — _…and 4 more under `semgrep/docs/`._
 - **scripts** (3): [scan-python-codebase.sh](../semgrep/scripts/scan-python-codebase.sh), [detect-hardcoded-secrets.py](../semgrep/scripts/detect-hardcoded-secrets.py), [bulk-scan-helper.py](../semgrep/scripts/bulk-scan-helper.py)
 - **configs** (1): [multi-rule-pack.yaml](../semgrep/configs/multi-rule-pack.yaml)
 - **snippets** (2): [first-custom-rule.yaml](../semgrep/snippets/first-custom-rule.yaml), [catch-privileged-containers.yaml](../semgrep/snippets/catch-privileged-containers.yaml)
@@ -321,7 +321,7 @@
 - **dockerfiles** (1): [pre-commit-scanner.Dockerfile](../trufflehog/dockerfiles/pre-commit-scanner.Dockerfile)
 - **notebooks** (2): [trufflehog-scan-modes-comparison.ipynb](../trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb), [analyzing-trufflehog-false-positives.ipynb](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb)
 
-## vault  ·  19 files
+## vault  ·  20 files
 
 - **primer:** [0000-primer-vault.md](../vault/notes/0000-primer-vault.md)
 - **notes** (4): [0000-primer-vault.md](../vault/notes/0000-primer-vault.md), [2026-08-26-install-vault-first-command.md](../vault/notes/2026-08-26-install-vault-first-command.md), [2026-06-05-install-vault-and-explore-cli.md](../vault/notes/2026-06-05-install-vault-and-explore-cli.md) — _…and 1 more under `vault/notes/`._
@@ -329,7 +329,7 @@
 - **scripts** (4): [vault-pki-workflow.sh](../vault/scripts/vault-pki-workflow.sh), [vault-kv-crud.sh](../vault/scripts/vault-kv-crud.sh), [cloud-iam-dynamic-secrets.sh](../vault/scripts/cloud-iam-dynamic-secrets.sh) — _…and 1 more under `vault/scripts/`._
 - **configs** (3): [2026-09-04-aws-secrets-engine-policy.hcl](../vault/configs/2026-09-04-aws-secrets-engine-policy.hcl), [multi-environment-access-control.hcl](../vault/configs/multi-environment-access-control.hcl), [2026-06-26-dev-test-policies.hcl](../vault/configs/2026-06-26-dev-test-policies.hcl)
 - **snippets** (2): [2026-08-30-first-vault-secret.sh](../vault/snippets/2026-08-30-first-vault-secret.sh), [vault-read-write.go](../vault/snippets/vault-read-write.go)
-- **manifests** (1): [vault-sidecar-secrets-refresh.yaml](../vault/manifests/vault-sidecar-secrets-refresh.yaml)
+- **manifests** (2): [vault-cluster-deployment.yaml](../vault/manifests/vault-cluster-deployment.yaml), [vault-sidecar-secrets-refresh.yaml](../vault/manifests/vault-sidecar-secrets-refresh.yaml)
 - **dockerfiles** (1): [custom-vault-image-with-plugins-tls.Dockerfile](../vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile)
 - **notebooks** (1): [static-vs-dynamic-secrets.ipynb](../vault/notebooks/static-vs-dynamic-secrets.ipynb)
 
@@ -349,7 +349,7 @@
 These sit alongside the per-tool folders and are indexed here rather than given their own section.
 
 - **`docs/`** (212 files) — concept primers under `docs/concepts/`, plus `how-to/`, `reference/`, `runbooks/`, `security/`, `setup-guides/`, and `troubleshooting/`. Start at [the concept primers](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) and [the how-to index](../docs/how-to/ci_cd_toolkit.md).
-- **`scripts/`** (192 files) — shell toolkits by domain under `scripts/bash/`, `scripts/pipeline/` deployment and rollback wrappers, and a few repository utilities at the root ([triage-vulnerabilities.sh](../scripts/triage-vulnerabilities.sh), [patch-report.sh](../scripts/patch-report.sh)).
+- **`scripts/`** (199 files) — shell toolkits by domain under `scripts/bash/`, `scripts/pipeline/` deployment and rollback wrappers, and a few repository utilities at the root ([triage-vulnerabilities.sh](../scripts/triage-vulnerabilities.sh), [patch-report.sh](../scripts/patch-report.sh)).
 - **`snippets/`** (20 files) — copy-paste cheatsheets, one per tool family. [linux-cheatsheet.md](../snippets/linux-cheatsheet.md), [ci-cd-cheatsheet.md](../snippets/ci-cd-cheatsheet.md), [vault-commands.md](../snippets/vault-commands.md).
 - **`templates/`** (39 files) — starter configs for Kubernetes, Terraform, Linux automation, Jenkins, Logstash, and syslog-ng.
 - **`environments/`** and **`lab/`** are covered in their own sections above; `assets/` holds the architecture diagrams referenced from the how-to guides.
