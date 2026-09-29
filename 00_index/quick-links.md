@@ -107,6 +107,7 @@
 - [Cron job configuration](../linux/configs/2026-08-06-cron-job-configuration.ini)
 - [Automation shell patterns that survive failure](../docs/concepts/linux-shell-fundamentals/scripts/2026-09-27-devops-automation-shell-patterns.sh) — Wrap each step so one failure doesn't hide the rest, retry transient errors, read config from a key=value file
 - [Linux shell fundamentals practice exercises](../docs/concepts/linux-shell-fundamentals/scripts/2026-07-23-practice-exercises.sh)
+- [Combining shell automation with Git hooks](../docs/concepts/linux-shell-fundamentals/combining-shell-automation-with-git-hooks.md) — Pipelines, exit-code discipline, and idempotent checks firing at the right point in the commit cycle
 
 ### Manage infrastructure as code
 
@@ -187,6 +188,8 @@
 - [Lab primer](../lab/notes/0000-primer-lab.md) — What the lab scratch space is for and how mini-projects are organised
 - [First lab environment](../lab/configs/2026-09-19-first-lab-env.yaml) — A one-machine practice box you can rebuild from when experiments get messy
 - [DefectDojo tutorial check](../defectdojo/scripts/2026-09-20-defectdojo-tutorial-check.sh) — Verify DefectDojo setup and prerequisites before starting
+- [Version-control patterns in real projects](../docs/concepts/version-control-with-git/notebooks/version-control-patterns-in-real-projects.ipynb) — Feature-branch, trunk-based, and squash-merge histories compared through the same Git queries
+- [Image optimisation trip-ups](../assets/notes/2026-09-29-image-optimization-tripped-me-up.md) — Resizing kit diagrams without squashing them, and relative image links from nested notes
 
 ### Run infrastructure tasks
 
@@ -220,6 +223,7 @@
 - [Semgrep rule performance optimization](../semgrep/docs/semgrep-rule-performance-optimization.md)
 - [AST-based security pattern checker](../docs/concepts/application-security-testing-concepts/scripts/2026-08-26-ast-devsecops.py)
 - [SonarQube quality gates and profiles](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md)
+- [Semgrep rule-design comparison](../semgrep/notebooks/rule-matching-mode-comparison.ipynb) — Search, context-constrained, and taint rules for one injection class scored on a labelled corpus
 
 ### Scan for secrets
 
