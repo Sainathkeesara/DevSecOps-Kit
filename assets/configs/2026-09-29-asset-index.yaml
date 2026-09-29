@@ -1,0 +1,19 @@
+# last_verified: 2026-09-29 · assets n/a
+# Minimal index of the kit diagrams in assets/.
+# I built this by listing the directory, so each entry matches a file on disk.
+assets:
+  - file: architecture-overview.png
+    width: 500
+    height: 350
+    bytes: 5116
+    used_by: README
+  - file: cicd-workflow.png
+    width: 600
+    height: 250
+    bytes: 3267
+    used_by: README
+  - file: devsecops-pipeline.png
+    width: 400
+    height: 300
+    bytes: 3926
+    used_by: README
