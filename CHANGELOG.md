@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-29
+
+### Added
+
+- semgrep-027: `semgrep/notebooks/rule-matching-mode-comparison.ipynb` — Semgrep rule comparison patterns: four rules for the same finding class (broad search, `pattern-not`-narrowed search, taint with a full source list, taint with a narrow source list) scored for precision/recall against one labelled fixture corpus (L6 notebook)
+
 ## 2026-09-28
 
 ### Added
