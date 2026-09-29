@@ -553,6 +553,11 @@
 
 **ASPM** — Application Security Posture Management, a discipline that aggregates and correlates security findings across SAST, DAST, SCA, and secret scanners to provide a unified risk view.
 
+## Semgrep
+
+- **Taint mode (Semgrep)** — A rule design that tracks untrusted values from declared sources (e.g. web-framework entry points) to dangerous sinks (e.g. shell execution) instead of matching the sink shape alone. Costs more to write than a search rule but fires only when tainted data actually reaches the sink, trading recall coverage of the source list against precision.
+- **Context-constrained search (Semgrep)** — A plain pattern rule narrowed with combinators such as `pattern-not` so constant or otherwise safe matches are excluded. Cheaper than a taint rule and quieter than a broad search, at the cost of missing flows the excluded context would have hidden.
+
 ## Checkov
 
 - **Version pin (Checkov)** — A fixed scanner version recorded in the install step (package requirement, image tag, or pre-commit revision) so the CI gate runs a known release. Unpinned installs are the most common source of surprise upgrades.

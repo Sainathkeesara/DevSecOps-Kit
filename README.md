@@ -11,15 +11,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-1069 files across 37 tool folders, plus cross-cutting docs, scripts, snippets, templates, and lab environments. The toolchain runs from Linux and Git fundamentals up through Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, ZAP, Nuclei, SonarQube, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+1074 files across 35 tool folders, plus cross-cutting docs, scripts, snippets, templates, and lab environments. The toolchain runs from Linux and Git fundamentals up through Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, ZAP, Nuclei, SonarQube, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
-- [Terrascan configuration template](terrascan/configs/terrascan-config-template.yaml) — The real `TerrascanConfig` schema: policy, notifications, rules, category, severity, and which keys Terrascan silently ignores
-- [Terraform basics practice loop](docs/concepts/infrastructure-as-code/scripts/2026-09-27-terraform-basics-practice.sh) — Walk `init`/`validate`/`plan`/`apply` once on a provider-free config so you can see which command creates which file
-- [Reusable module HCL pattern](docs/concepts/infrastructure-as-code/snippets/2026-09-27-reusable-module-hcl-pattern.sh) — One module folder owning a resource, every caller passing inputs, and no environment name hardcoded
-- [DevOps automation shell patterns](docs/concepts/linux-shell-fundamentals/scripts/2026-09-27-devops-automation-shell-patterns.sh) — Per-step wrapping so one failure doesn't hide the rest, retry on transient errors, config read from a key=value file
-- [Rego vs YAML rule authoring](terrascan/notebooks/rego-vs-yaml-rule-authoring.ipynb) — When a Terrascan rule needs real logic versus a declarative policy block, side by side
+- [Asset index](assets/configs/2026-09-29-asset-index.yaml) — Which diagram file is which size, and where each one is referenced from
+- [Image optimisation trip-ups](assets/notes/2026-09-29-image-optimization-tripped-me-up.md) — Keeping aspect ratio when resizing diagrams, and getting relative image links right from nested notes
+- [Semgrep rule-design comparison](semgrep/notebooks/rule-matching-mode-comparison.ipynb) — Search, context-constrained, and taint rules for the same injection class scored on one labelled corpus
+- [Shell automation with Git hooks](docs/concepts/linux-shell-fundamentals/combining-shell-automation-with-git-hooks.md) — Per-step wrapping, exit-code discipline, and idempotent checks firing at the right point in the commit cycle
+- [Version-control patterns in real projects](docs/concepts/version-control-with-git/notebooks/version-control-patterns-in-real-projects.ipynb) — Feature-branch, trunk-based, and squash-merge histories compared through the same Git queries
 
 ## Layout
 
@@ -56,7 +56,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-08-10 |
 | terrascan | 5 | 2 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 21 | 2026-09-27 |
 | grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | — |
-| semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 2 | 0 | 20 | 2026-08-06 |
+| semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 3 | 0 | 21 | 2026-09-29 |
 | falco | 4 | 3 | 3 | 3 | 1 | 4 | 1 | 0 | 1 | 0 | 20 | 2026-09-19 |
 | vault | 4 | 3 | 4 | 3 | 2 | 0 | 1 | 1 | 1 | 0 | 19 | 2026-08-30 |
 | dependabot | 7 | 3 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 0 | 18 | 2026-09-26 |
@@ -88,7 +88,7 @@ _Grype's notes carry no `last_verified` front-matter, so its column reads —. T
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions cover a Terrascan config template and its Rego-vs-YAML rule-authoring comparison, a provider-free Terraform practice loop and reusable-module pattern, and a set of automation-oriented shell patterns for the Linux fundamentals concept. Current focus is Terrascan configuration depth and Infrastructure-as-Code practice material.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions cover a Semgrep rule-design comparison (search vs context-constrained vs taint on one labelled corpus), a guide to combining shell automation with Git hooks, a version-control-patterns notebook, and an index plus optimisation notes for the kit's architecture diagrams. Current focus is Semgrep rule-writing depth and Linux/Git fundamentals practice material.
 
 ---
-_Last updated: 2026-09-27_
+_Last updated: 2026-09-29_
