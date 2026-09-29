@@ -15,6 +15,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - vault-027: `vault/manifests/vault-cluster-deployment.yaml` — Vault deployment manifest for cluster environments: 3-replica raft StatefulSet with headless + client Services, shared ConfigMap rendered per pod for a unique raft `node_id`, startup/readiness/liveness probes, PDB, ingress NetworkPolicy, plus a single-replica dev-mode variant in a separate namespace (L6 manifest)
 - semgrep-024: `semgrep/docs/semgrep-code-scanning-integration-reference.md` — Semgrep integration reference for code scanning: CI patterns, SARIF upload, rule sources, severity tuning, and operational rollback (L6 docs)
 - environments-004: `environments/notes/2026-09-29-explore-environments-directory.md` — Explore the environments directory structure and note what's there (L1 notes)
+- environments-005: `environments/notes/2026-09-29-environments-quickstart-trip-ups.md` — Worked through the per-environment quickstart (init/validate/plan) and wrote up what tripped me up: the S3 backend needs an out-of-band bootstrap, `main.tf` and `outputs.tf` declare five duplicate outputs per environment, and `terraform.tfvars` is only auto-loaded from the directory you run in (L2 notes)
+- environments-006: `environments/configs/2026-09-29-minimal-environments-config.yaml` — Minimal per-tier settings matrix for dev/staging/prod (shared defaults, differing CIDRs, AZs, NAT strategy, state key) plus the promotion gate and verification step for each tier (L2 config)
 
 ## 2026-09-29 (rework)
 
