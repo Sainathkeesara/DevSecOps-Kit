@@ -1,0 +1,464 @@
+# last_verified: 2026-09-29 · Vault n/a
+# Vault deployment manifest for cluster environments.
+#
+# Layout: the first block is the shared-service HA deployment (namespace
+# `vault-system`) that a staging or production cluster runs. The second block is
+# the single-replica dev deployment (namespace `vault-dev`) used for local
+# cluster work. They are in one file because the difference between them is
+# worth reading side by side: storage (shared raft vs in-memory dev mode), config
+# source (one ConfigMap vs `-dev` flags), seal posture, and replica count. The
+# service, probe, and security-context shape is otherwise the same, which is
+# what makes the diff between the two blocks a useful review artifact.
+#
+# Nothing in this file asserts a Vault release number. Pin the image reference
+# to a digest in your own environment before applying; `latest` is a learning
+# convenience, not a deployable tag.
+#
+# Apply order: namespace -> serviceaccount -> configmap -> services -> statefulset
+# -> pdb -> networkpolicy. `kubectl apply -f vault-cluster-deployment.yaml` is
+# order-independent because kubectl sends every object in a single stream, but
+# the Vault pod will not pass its readiness probe until the headless Service and
+# the ConfigMap exist.
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vault-system
+  labels:
+    app.kubernetes.io/name: vault
+    app.kubernetes.io/part-of: secrets-management
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: vault
+  namespace: vault-system
+  labels:
+    app.kubernetes.io/name: vault
+# The server itself does not call the Kubernetes API in this layout, so it does
+# not need a projected service account token. Workloads that read secrets from
+# Vault do (see vault-sidecar-secrets-refresh.yaml for that pattern).
+automountServiceAccountToken: false
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vault-server-config
+  namespace: vault-system
+  labels:
+    app.kubernetes.io/name: vault
+data:
+  server.hcl: |
+    ui = true
+
+    # Raft is the integrated storage backend: no separate Consul, and the
+    # voter set is the StatefulSet's own pod list below.
+    storage "raft" {
+      path = "/vault/data"
+      # Rendered per pod: the container command below substitutes the pod name
+      # for the placeholder before Vault starts, because a raft voter id has to
+      # be unique per node and this file is shared by all of them.
+      node_id = "__VAULT_NODE_ID__"
+    }
+
+    cluster_name = "vault-cluster"
+
+    listener "tcp" {
+      address     = "0.0.0.0:8200"
+      cluster_address = "0.0.0.0:8201"
+      tls_disable = 1
+    }
+
+    # TLS is disabled here so the file applies to a cluster with no certificate
+    # pipeline yet. Before this cluster carries real secrets, set tls_disable = 0,
+    # mount a serving certificate, and point every client at https. Note that
+    # disabling TLS also disables the TLS listener on the cluster port, so the
+    # raft peer traffic below travels in cleartext inside the cluster.
+
+    # Containers cannot reliably lock the whole address space, and Vault refuses
+    # to start if mlock is requested but unavailable. If you set disable_mlock =
+    # false, add the IPC_LOCK capability to the container below.
+    disable_mlock = true
+
+    # Telemetry sink for the metrics Service below. Without this block Vault
+    # exposes no /metrics endpoint and the ServiceMonitor has nothing to scrape.
+    telemetry {
+      prometheus_retention_time = "30s"
+      disable_hostname          = true
+    }
+
+    # No api_addr override: the StatefulSet uses a headless Service, so each pod
+    # discovers its peers through per-pod DNS rather than through a
+    # hand-maintained address list. VAULT_API_ADDR in the pod environment below
+    # is the address Vault hands out to clients.
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vault
+  namespace: vault-system
+  labels:
+    app.kubernetes.io/name: vault
+spec:
+  # Headless: the StatefulSet needs stable per-pod DNS (vault-0.vault...) for
+  # raft peer discovery. No cluster IP is allocated.
+  clusterIP: None
+  publishNotReadyAddresses: true
+  selector:
+    app.kubernetes.io/name: vault
+  ports:
+    - name: api
+      port: 8200
+      targetPort: api
+    - name: cluster
+      port: 8201
+      targetPort: cluster
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vault-client
+  namespace: vault-system
+  labels:
+    app.kubernetes.io/name: vault
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: vault
+  ports:
+    - name: api
+      port: 8200
+      targetPort: api
+    - name: metrics
+      port: 9102
+      targetPort: metrics
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: vault
+  namespace: vault-system
+  labels:
+    app.kubernetes.io/name: vault
+spec:
+  serviceName: vault
+  # Three replicas: a raft cluster needs a majority to stay writable, so an even
+  # count buys no extra fault tolerance. Scaling to 4 makes quorum 3 and gives up
+  # one pod's worth of headroom for the same failure budget as 3.
+  replicas: 3
+  podManagementPolicy: Parallel
+  updateStrategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: vault
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: vault
+    spec:
+      serviceAccountName: vault
+      # Spread voters across nodes. Two voters on one node can both be lost in a
+      # single node failure, which is exactly the failure quorum is meant to
+      # survive.
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - topologyKey: kubernetes.io/hostname
+              labelSelector:
+                matchLabels:
+                  app.kubernetes.io/name: vault
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app.kubernetes.io/name: vault
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 100
+        runAsGroup: 1000
+        fsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
+      terminationGracePeriodSeconds: 60
+      containers:
+        - name: vault
+          # Pin to a digest before deploying. Left as :latest so this file
+          # carries no release claim.
+          image: hashicorp/vault:latest
+          imagePullPolicy: IfNotPresent
+          # `command` replaces the image entrypoint entirely, which is why no
+          # capability setup is needed here: the script below renders the config
+          # and execs the server directly as the non-root vault user. Rendering
+          # is what makes a single shared ConfigMap usable by every voter — each
+          # pod gets the same file except for its own raft node_id.
+          command:
+            - /bin/sh
+            - -c
+            - |
+              set -eu
+              mkdir -p /vault/config
+              sed "s/__VAULT_NODE_ID__/${POD_NAME}/" \
+                /vault/config-template/server.hcl > /vault/config/server.hcl
+              exec vault server -config=/vault/config/server.hcl
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: VAULT_ADDR
+              value: http://127.0.0.1:8200
+            - name: VAULT_API_ADDR
+              # Cluster-internal advertisement address. Clients outside the
+              # cluster resolve this name; inside, the headless Service answers.
+              value: http://vault.vault-system.svc.cluster.local:8200
+          ports:
+            - name: api
+              containerPort: 8200
+            - name: cluster
+              containerPort: 8201
+            - name: metrics
+              containerPort: 9102
+          # Raft data is the only state that has to survive a restart, and here
+          # it does not: `data` is an emptyDir, so moving or losing a pod loses
+          # that voter's raft log. That is a deliberate learning-convenience
+          # choice — it keeps the manifest applicable to any cluster with no
+          # StorageClass. Before this cluster holds real secrets, replace it
+          # with a volumeClaimTemplate bound to a replicated StorageClass (one
+          # claim per ordinal, which is what the StatefulSet gives you) or point
+          # `storage` at a shared external backend. Everything else — the
+          # rendered config, /tmp — is disposable by design, which is what lets
+          # the root filesystem stay read-only.
+          volumeMounts:
+            - name: config-template
+              mountPath: /vault/config-template
+              readOnly: true
+            - name: config
+              mountPath: /vault/config
+            - name: data
+              mountPath: /vault/data
+            - name: tmp
+              mountPath: /tmp
+          readinessProbe:
+            httpGet:
+              path: /v1/sys/health?standbyok=true&sealedcode=204&uninitcode=204
+              port: api
+            # standbyok keeps followers Ready while sealed or uninitialised, so
+            # the client Service load-balances to every voter instead of only
+            # the active node.
+            periodSeconds: 5
+            failureThreshold: 2
+          livenessProbe:
+            httpGet:
+              path: /v1/sys/health
+              port: api
+            # The liveness probe deliberately omits standbyok: a sealed or
+            # uninitialised follower is still a running process and must not be
+            # killed and restarted in a loop.
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            failureThreshold: 4
+          startupProbe:
+            httpGet:
+              path: /v1/sys/health
+              port: api
+            # A recovering node can take a while before it answers at all; the
+            # startup probe keeps the kubelet from restarting it meanwhile.
+            periodSeconds: 5
+            failureThreshold: 60
+          lifecycle:
+            preStop:
+              exec:
+                # Give the raft leader time to hand leadership over and let
+                # in-flight requests drain before SIGTERM. Without this, a
+                # rolling update can restart every voter before failover
+                # completes.
+                command:
+                  - /bin/sh
+                  - -c
+                  - sleep 15
+          resources:
+            requests:
+              cpu: 500m
+              memory: 1Gi
+            limits:
+              cpu: "2"
+              memory: 4Gi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+      volumes:
+        - name: config-template
+          configMap:
+            name: vault-server-config
+        - name: config
+          emptyDir: {}
+        - name: data
+          emptyDir: {}
+        - name: tmp
+          emptyDir: {}
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: vault
+  namespace: vault-system
+spec:
+  # maxUnavailable: 1 keeps two of three voters running through a node drain.
+  # A percentage budget would round the same way here, but it silently changes
+  # meaning if the replica count is ever edited.
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: vault
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: vault-ingress
+  namespace: vault-system
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: vault
+  policyTypes:
+    - Ingress
+  ingress:
+    # Only the API port is reachable. The cluster port (8201) is for raft peer
+    # traffic and the metrics port is scraped by the monitoring namespace —
+    # neither is exposed to general application namespaces here.
+    - ports:
+        - port: 8200
+          protocol: TCP
+    - from:
+        # Requires the monitoring namespace to carry
+        # kubernetes.io/metadata.name: monitoring, which every namespace gets
+        # by default from the API server. Replace this if metrics are scraped
+        # from a differently named namespace.
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: monitoring
+      ports:
+        - port: 9102
+          protocol: TCP
+    - from:
+        - podSelector: {}
+      ports:
+        - port: 8201
+          protocol: TCP
+# Dev variant. One replica, in-memory storage, and the seal posture of a
+# throwaway namespace: dev mode initialises and unseals itself, so there is no
+# operator-held key share to manage. A dev-mode deployment is not an HA
+# configuration and must not be promoted as one.
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vault-dev
+  labels:
+    app.kubernetes.io/name: vault
+    app.kubernetes.io/part-of: secrets-management
+    environment: dev
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vault
+  namespace: vault-dev
+  labels:
+    app.kubernetes.io/name: vault
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: vault
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: vault
+    spec:
+      serviceAccountName: default
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 100
+        runAsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: vault
+          image: hashicorp/vault:latest
+          imagePullPolicy: IfNotPresent
+          # -dev is in-memory storage with a fixed root token. Every restart
+          # wipes the secrets, which is the point: nothing in this namespace is
+          # expected to survive.
+          args:
+            - server
+            - -dev
+            - -dev-root-token-id=root
+            - -dev-listen-address=0.0.0.0:8200
+          ports:
+            - name: api
+              containerPort: 8200
+          env:
+            - name: VAULT_ADDR
+              value: http://127.0.0.1:8200
+            - name: VAULT_DEV_ROOT_TOKEN_ID
+              value: root
+            # The image entrypoint tries to give the vault binary the
+            # IPC_LOCK capability on startup, which fails when the container
+            # drops ALL capabilities and runs as uid 100.
+            - name: SKIP_SETCAP
+              value: "true"
+          readinessProbe:
+            httpGet:
+              path: /v1/sys/health
+              port: api
+            periodSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /v1/sys/health
+              port: api
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 1Gi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+      volumes:
+        - name: tmp
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vault
+  namespace: vault-dev
+  labels:
+    app.kubernetes.io/name: vault
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: vault
+  ports:
+    - name: api
+      port: 8200
+      targetPort: api

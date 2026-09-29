@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - assets-003: `assets/notes/2026-09-29-image-optimization-tripped-me-up.md` — Followed an image-optimization walkthrough against the kit PNGs and wrote up what tripped me up (aspect-ratio squash, wrong relative link prefix) (L2 notes)
 - assets-004: `assets/configs/2026-09-29-asset-index.yaml` — Minimal index of the kit diagrams with dimensions and byte sizes (L2 config)
 - semgrep-027: `semgrep/notebooks/rule-matching-mode-comparison.ipynb` — Semgrep rule comparison patterns: four rules for the same finding class (broad search, `pattern-not`-narrowed search, taint with a full source list, taint with a narrow source list) scored for precision/recall against one labelled fixture corpus (L6 notebook)
+- vault-027: `vault/manifests/vault-cluster-deployment.yaml` — Vault deployment manifest for cluster environments: 3-replica raft StatefulSet with headless + client Services, shared ConfigMap rendered per pod for a unique raft `node_id`, startup/readiness/liveness probes, PDB, ingress NetworkPolicy, plus a single-replica dev-mode variant in a separate namespace (L6 manifest)
 
 ## 2026-09-29 (rework)
 
