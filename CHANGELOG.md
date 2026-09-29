@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- assets-003: `assets/notes/2026-09-29-image-optimization-tripped-me-up.md` — Followed an image-optimization walkthrough against the kit PNGs and wrote up what tripped me up (aspect-ratio squash, wrong relative link prefix) (L2 notes)
+- assets-004: `assets/configs/2026-09-29-asset-index.yaml` — Minimal index of the kit diagrams with dimensions and byte sizes (L2 config)
 - semgrep-027: `semgrep/notebooks/rule-matching-mode-comparison.ipynb` — Semgrep rule comparison patterns: four rules for the same finding class (broad search, `pattern-not`-narrowed search, taint with a full source list, taint with a narrow source list) scored for precision/recall against one labelled fixture corpus (L6 notebook)
 
 ## 2026-09-29 (rework)
