@@ -1,0 +1,172 @@
+# last_verified: 2026-09-30 · zap n/a
+# Purpose: Run OWASP ZAP DAST scans as a CI/CD pipeline gate — a fast baseline
+#          scan on every pull request and a full Automation Framework scan on
+#          pushes to the default branch — failing the build on High findings.
+# When to use: Repositories serving HTTP(S) that want DAST coverage in CI without
+#              maintaining a separate scanning host. Use the baseline job as the
+#              everyday PR gate and the full-scan job as the merge-to-main gate
+#              against a staging deployment.
+# Prerequisites: The target application is reachable from the runner (staging URL
+#                in vars.ZAP_TARGET_URL, else a local service on port 8080);
+#                Docker is available on the runner (ubuntu-latest provides it);
+#                the Automation Framework plan lives at
+#                zap/configs/ci-dast-automation-framework-plan.yaml in this repo.
+# Steps: 1. Check out the repo. 2. On pull requests, run zap-baseline.py against
+#           the target and parse the log for High findings. 3. On push to main
+#           (or manual dispatch), run the Automation Framework plan with
+#           zap.sh -cmd -autorun. 4. Upload reports as workflow artifacts and, for
+#           the full scan, to code scanning. 5. Fail the run when High findings
+#           are present.
+# Verify: Open a PR — the zap-baseline job runs and uploads zap-baseline-report.html.
+#         Push to main with a staging target — the zap-full-scan job runs the plan
+#         and uploads zap-report-*.json. Temporarily point vars.ZAP_TARGET_URL at
+#         a target with a known High finding and confirm the gate job exits non-zero.
+# Rollback: To stop the baseline job blocking merges, set vars.ZAP_FAIL_ON to
+#           'Never' (the gate step then reports without failing) or disable the
+#           workflow from the Actions tab. To revert to baseline-only coverage,
+#           delete the zap-full-scan job — the baseline job is self-contained.
+# Common errors: Target unreachable — the job fails fast with a connection error;
+#                confirm the staging service is up and vars.ZAP_TARGET_URL is set.
+#                Empty report glob — the upload steps use if-no-files-found so a
+#                crashed scan still surfaces logs instead of failing on upload.
+#                Plan path mismatch — keep PLAN_FILE pointing at the checked-in
+#                automation plan; the full-scan job fails early if it is missing.
+# References: zap/configs/ci-dast-automation-framework-plan.yaml (scan plan),
+#             zap/docs/zap-integration-reference.md (scan patterns),
+#             zap/docs/zap-automation-plan-structure.md (plan structure),
+#             zap/scripts/zap-baseline-scan.sh (local baseline equivalent).
+name: ZAP — CI/CD pipeline DAST
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      target_url:
+        description: 'Target URL to scan (overrides vars.ZAP_TARGET_URL)'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+env:
+  ZAP_IMAGE: ghcr.io/zaproxy/zaproxy:stable
+  PLAN_FILE: zap/configs/ci-dast-automation-framework-plan.yaml
+  REPORT_DIR: zap-reports
+
+jobs:
+  zap-baseline:
+    name: ZAP baseline scan (PR gate)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Resolve target URL
+        id: target
+        run: |
+          if [ -n "${{ vars.ZAP_TARGET_URL }}" ]; then
+            echo "url=${{ vars.ZAP_TARGET_URL }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "url=http://localhost:8080" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run ZAP baseline scan
+        id: baseline
+        run: |
+          mkdir -p "$REPORT_DIR"
+          docker run --rm \
+            -v "${{ github.workspace }}/$REPORT_DIR:/zap/wrk:rw" \
+            "$ZAP_IMAGE" zap-baseline.py \
+            -t "${{ steps.target.outputs.url }}" \
+            -r zap-baseline-report.html > "$REPORT_DIR/zap-baseline.log" 2>&1 || true
+          HIGH_LINE=$(grep -E "^High +\(" "$REPORT_DIR/zap-baseline.log" | head -1 || true)
+          HIGH_COUNT=$(echo "$HIGH_LINE" | grep -oE "[0-9]+" | head -1)
+          echo "high=${HIGH_COUNT:-0}" >> "$GITHUB_OUTPUT"
+          grep -E "^(High|Medium|Low|Informational) +\(" "$REPORT_DIR/zap-baseline.log" || true
+
+      - name: Upload baseline report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zap-baseline-report
+          path: ${{ github.workspace }}/zap-reports/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Fail on High findings
+        if: ${{ steps.baseline.outputs.high != '0' && vars.ZAP_FAIL_ON != 'Never' }}
+        run: |
+          echo "::error::ZAP baseline found ${{ steps.baseline.outputs.high }} High finding(s) — see the zap-baseline-report artifact"
+          exit 1
+
+  zap-full-scan:
+    name: ZAP full scan (main gate)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Confirm scan plan is present
+        run: |
+          test -f "$PLAN_FILE" || { echo "::error::Scan plan not found at $PLAN_FILE"; exit 1; }
+
+      - name: Resolve target URL
+        id: target
+        run: |
+          if [ -n "${{ inputs.target_url }}" ]; then
+            echo "url=${{ inputs.target_url }}" >> "$GITHUB_OUTPUT"
+          elif [ -n "${{ vars.ZAP_TARGET_URL }}" ]; then
+            echo "url=${{ vars.ZAP_TARGET_URL }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "url=http://localhost:8080" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run ZAP Automation Framework plan
+        run: |
+          mkdir -p "$REPORT_DIR"
+          docker run --rm -v "${{ github.workspace }}:/zap/wrk/:rw" \
+            "$ZAP_IMAGE" \
+            zap.sh -cmd -autorun "/zap/wrk/$PLAN_FILE" \
+            -job TARGET_URL "${{ steps.target.outputs.url }}" \
+            -job REPORT_DIR "/zap/wrk/$REPORT_DIR"
+
+      - name: Upload full scan report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zap-full-report
+          path: ${{ github.workspace }}/zap-reports/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Check for SARIF output
+        id: sarif
+        if: always()
+        run: |
+          if ls "${{ github.workspace }}/$REPORT_DIR"/*.sarif >/dev/null 2>&1; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "No SARIF report in $REPORT_DIR — skipping code-scanning upload (JSON/HTML reports are in the artifact above)."
+          fi
+
+      - name: Upload SARIF to code scanning
+        if: always() && steps.sarif.outputs.present == 'true'
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: ${{ github.workspace }}/zap-reports/
+          category: zap-dast
