@@ -119,6 +119,8 @@
 - [Terraform basics practice loop](../docs/concepts/infrastructure-as-code/scripts/2026-09-27-terraform-basics-practice.sh) — Walk init/validate/plan/apply once on a provider-free config so you can see which command creates which file
 - [Reusable module HCL pattern](../docs/concepts/infrastructure-as-code/snippets/2026-09-27-reusable-module-hcl-pattern.sh) — One module folder owning a resource, callers passing inputs, no environment name hardcoded
 - [First environment comparison](../environments/notes/2026-09-19-first-environment-comparison.md) — Dev vs staging vs prod variable differences worth understanding before changing anything
+- [Environments quickstart trip-ups](../environments/notes/2026-09-30-environments-quickstart-trip-ups.md) — Why a plan run in `staging/` reads dev's state file, and the three other things that stop the per-environment loop
+- [Minimal per-tier environments config](../environments/configs/2026-09-30-minimal-environments-config.yaml) — Only the values that differ between dev, staging, and prod, with the state key as written and as intended
 - [Explore the environments directory](../environments/notes/2026-09-29-explore-environments-directory.md) — Primer, three-environment comparison, and minimal variable-set config on disk today
 - [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
 - [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md)
@@ -192,6 +194,8 @@
 - [DefectDojo tutorial check](../defectdojo/scripts/2026-09-20-defectdojo-tutorial-check.sh) — Verify DefectDojo setup and prerequisites before starting
 - [Version-control patterns in real projects](../docs/concepts/version-control-with-git/notebooks/version-control-patterns-in-real-projects.ipynb) — Feature-branch, trunk-based, and squash-merge histories compared through the same Git queries
 - [Image optimisation trip-ups](../assets/notes/2026-09-29-image-optimization-tripped-me-up.md) — Resizing kit diagrams without squashing them, and relative image links from nested notes
+- [Assets directory walkthrough](../assets/notes/2026-09-30-explore-assets-directory.md) — What the diagram store holds today and how docs reference it
+- [Asset index](../assets/configs/2026-09-29-asset-index.yaml) — Which diagram file is which size, and where each one is referenced from
 
 ### Run infrastructure tasks
 

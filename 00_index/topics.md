@@ -18,7 +18,13 @@
 - **configs** (2): [2026-08-17-private-repo-credentials-rbac.yaml](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml), [2026-09-20-values-dev.yaml](../argocd/configs/2026-09-20-values-dev.yaml)
 - **manifests** (3): [helm-guestbook-application.yaml](../argocd/manifests/helm-guestbook-application.yaml), [2026-08-12-gitops-sync-sample-web-app.yaml](../argocd/manifests/2026-08-12-gitops-sync-sample-web-app.yaml), [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml)
 
-## checkov  ·  48 files
+## assets  ·  8 files
+
+- **notes** (3): [2026-09-30-explore-assets-directory.md](../assets/notes/2026-09-30-explore-assets-directory.md), [2026-09-29-image-optimization-tripped-me-up.md](../assets/notes/2026-09-29-image-optimization-tripped-me-up.md), [2026-09-19-explore-assets-directory.md](../assets/notes/2026-09-19-explore-assets-directory.md)
+- **configs** (1): [2026-09-29-asset-index.yaml](../assets/configs/2026-09-29-asset-index.yaml)
+- _…and 4 diagram files at `assets/` root (`architecture-overview.png`, `cicd-workflow.png`, `devsecops-pipeline.png`, and a README) — browse the folder._
+
+## checkov  ·  46 files
 
 - **primer:** [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md)
 - **notes** (4): [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md), [2026-05-25-scan-terraform-plan.md](../checkov/notes/2026-05-25-scan-terraform-plan.md), [2026-05-26-cli-vs-sdk-comparison.md](../checkov/notes/2026-05-26-cli-vs-sdk-comparison.md) — _…and 1 more under `checkov/notes/`._
@@ -30,7 +36,6 @@
 - **manifests** (3): [layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml](../checkov/manifests/layered-checkov-ci-pr-gate-deep-scan-merge-block.yaml), [checkov-sarif-pr-blocking.yaml](../checkov/manifests/checkov-sarif-pr-blocking.yaml), [checkov-gitlab-ci-multi-cloud-drift.yaml](../checkov/manifests/checkov-gitlab-ci-multi-cloud-drift.yaml)
 - **notebooks** (3): [compare-static-vs-plan-scanning.ipynb](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb), [compare-cross-module-scanning-limitations.ipynb](../checkov/notebooks/compare-cross-module-scanning-limitations.ipynb), [compare-builtin-vs-custom-k8s.ipynb](../checkov/notebooks/compare-builtin-vs-custom-k8s.ipynb)
 - **policies** (1): [no_public_s3_buckets.yaml](../checkov/policies/no-public-s3-buckets/no_public_s3_buckets.yaml)
-- _…and 2 more at `checkov/` root (`.checkov.yaml`, `.pre-commit-config.yaml`) — browse the folder._
 
 ## codeql  ·  25 files
 
@@ -85,11 +90,11 @@
 - **dockerfiles** (2): [2026-07-12-first-custom-docker-image.Dockerfile](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile), [2026-07-10-first-custom-image.Dockerfile](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
 - **templates** (7): [multi-service setup scaffold](../docker/templates/multi-service-setup/README.md), [compose.yaml](../docker/templates/multi-service-setup/compose.yaml), [api/app.py](../docker/templates/multi-service-setup/api/app.py) — _…and 4 more under `docker/templates/`._
 
-## environments  ·  16 files
+## environments  ·  18 files
 
 - **primer:** [0000-primer-environments.md](../environments/notes/0000-primer-environments.md)
-- **notes** (3): [0000-primer-environments.md](../environments/notes/0000-primer-environments.md), [2026-09-29-explore-environments-directory.md](../environments/notes/2026-09-29-explore-environments-directory.md), [2026-09-19-first-environment-comparison.md](../environments/notes/2026-09-19-first-environment-comparison.md)
-- **configs** (1): [2026-09-19-first-variable-set.yaml](../environments/configs/2026-09-19-first-variable-set.yaml)
+- **notes** (4): [2026-09-30-environments-quickstart-trip-ups.md](../environments/notes/2026-09-30-environments-quickstart-trip-ups.md), [2026-09-29-explore-environments-directory.md](../environments/notes/2026-09-29-explore-environments-directory.md), [2026-09-19-first-environment-comparison.md](../environments/notes/2026-09-19-first-environment-comparison.md) — _…and 1 more under `environments/notes/`._
+- **configs** (2): [2026-09-30-minimal-environments-config.yaml](../environments/configs/2026-09-30-minimal-environments-config.yaml), [2026-09-19-first-variable-set.yaml](../environments/configs/2026-09-19-first-variable-set.yaml)
 - _…and 12 Terraform files under `environments/dev/`, `environments/staging/`, `environments/prod/` — browse the folders._
 
 ## falco  ·  20 files
@@ -349,7 +354,7 @@
 These sit alongside the per-tool folders and are indexed here rather than given their own section.
 
 - **`docs/`** (212 files) — concept primers under `docs/concepts/`, plus `how-to/`, `reference/`, `runbooks/`, `security/`, `setup-guides/`, and `troubleshooting/`. Start at [the concept primers](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) and [the how-to index](../docs/how-to/ci_cd_toolkit.md).
-- **`scripts/`** (199 files) — shell toolkits by domain under `scripts/bash/`, `scripts/pipeline/` deployment and rollback wrappers, and a few repository utilities at the root ([triage-vulnerabilities.sh](../scripts/triage-vulnerabilities.sh), [patch-report.sh](../scripts/patch-report.sh)).
+- **`scripts/`** (192 files) — shell toolkits by domain under `scripts/bash/`, `scripts/pipeline/` deployment and rollback wrappers, and a few repository utilities at the root ([triage-vulnerabilities.sh](../scripts/triage-vulnerabilities.sh), [patch-report.sh](../scripts/patch-report.sh)).
 - **`snippets/`** (20 files) — copy-paste cheatsheets, one per tool family. [linux-cheatsheet.md](../snippets/linux-cheatsheet.md), [ci-cd-cheatsheet.md](../snippets/ci-cd-cheatsheet.md), [vault-commands.md](../snippets/vault-commands.md).
-- **`templates/`** (39 files) — starter configs for Kubernetes, Terraform, Linux automation, Jenkins, Logstash, and syslog-ng.
-- **`environments/`** and **`lab/`** are covered in their own sections above; `assets/` holds the architecture diagrams referenced from the how-to guides.
+- **`templates/`** (41 files) — starter configs for Kubernetes, Terraform, Linux automation, Jenkins, Logstash, syslog-ng, and cookiecutter project scaffolds.
+- **`environments/`** and **`lab/`** are covered in their own sections above.

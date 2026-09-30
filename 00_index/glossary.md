@@ -672,6 +672,15 @@
 - **Rule envelope normalization (Semgrep)** — Rewriting every rule's metadata wrapper (ID, languages, severity, message) into one consistent shape, so reviews compare detection logic instead of formatting drift.
 - **Severity standardization (Semgrep)** — Mapping ad-hoc severity labels onto one controlled set before CI gating, so a threshold means the same thing across every rule in the migrated set.
 
+## Environments
+
+- **Environment tier (IaC)** — One of the deployable stages of the same infrastructure (dev, staging, prod), each a self-contained root module calling shared module sources. Switching tiers means changing directory, not editing values.
+- **State key (Terraform backend)** — The `key` inside a `backend "s3"` block that names one state object within the bucket. It is a backend setting, not a variable, so it appears in no `.tfvars` file and is easy to copy between directories by accident.
+- **Shared state key (Terraform)** — The failure mode where two or more root modules declare the same `bucket` and `key`, so a plan in one tier reads another tier's state and plans to destroy its resources. One line per directory fixes it.
+- **Duplicate output block (Terraform)** — The same `output` declared in two files of one root module, which Terraform rejects at `validate` before any module is called.
+- **`terraform.tfvars` scoping** — Values are loaded only from the directory the command runs in, so running `plan` from the repo root silently falls back to the defaults in `variables.tf` — which are usually one environment's values.
+- **Promotion gate (environments)** — Per-tier rules describing what a change must clear before it lands: dev auto-applies and smoke-tests, staging applies once dev passes, prod pauses for a manual approval. Example: the promote-on-pass chain in `environments/configs/`.
+
 ## Acronyms
 
 **OCI (Open Container Initiative)** — A set of open-source standards for container image formats and distribution, used by registries like Docker Hub, GitHub Container Registry, and AWS ECR.
