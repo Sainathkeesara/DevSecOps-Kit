@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- zap-029: `zap/docs/zap-scan-configuration-migration-guide.md` — ZAP scan configuration migration guide, legacy scripts to Automation Framework plan (L6 docs)
 - assets-006: `assets/notes/2026-09-30-explore-assets-directory.md` — Explored the assets directory and cataloged current diagrams, configs, and notes (L1 notes)
 
 ## 2026-09-29
