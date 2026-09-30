@@ -86,6 +86,8 @@
 - [Install Trivy and run a first container scan](../trivy/notes/2026-09-05-install-trivy-first-container-scan.md)
 - [Install ZAP and run a baseline scan](../zap/notes/2026-09-05-install-zap-first-baseline-scan.md)
 - [ZAP baseline scan script](../zap/scripts/zap-baseline-scan.sh) — Run a containerised ZAP baseline against a target URL and fail on High findings
+- [ZAP integration reference](../zap/docs/zap-integration-reference.md) — Baseline, Automation Framework, and REST API patterns for wiring DAST into automated pipelines
+- [ZAP scan configuration migration guide](../zap/docs/zap-scan-configuration-migration-guide.md) — Consolidate scattered scan config into one version-controlled Automation Framework plan
 - [Nuclei primer](../nuclei/notes/0000-primer-nuclei.md)
 - [Trivy primer](../trivy/notes/0000-primer-trivy.md)
 - [Trivy scanning performance optimization](../trivy/notes/scanning-performance-optimization.md)
@@ -273,6 +275,7 @@
 - [Docker CI/CD end-to-end](../docker/docs/cicd-end-to-end.md) — Build once in CI, smoke-test the image, push the verified tag, and deploy that exact tag
 - [Reusable Docker build script](../docker/scripts/reusable-build.sh) — Single and multi-stage image builds with build args and cache-from support
 - [ZAP baseline scan for CI](../zap/notes/2026-07-20-install-zap-baseline-scan.md)
+- [ZAP CI/CD pipeline DAST gate](../zap/manifests/zap-cicd-pipeline.yaml) — Baseline scan on pull requests plus a full plan-driven scan on pushes to main
 - [Trivy CI/CD pipeline recipes](../trivy/docs/ci-cd-pipeline-recipes.md)
 - [Trivy in GitHub Actions](../docs/how-to/trivy-github-actions.md)
 - [Trivy in Jenkins](../docs/how-to/trivy-jenkins-integration.md)

@@ -338,15 +338,16 @@
 - **dockerfiles** (1): [custom-vault-image-with-plugins-tls.Dockerfile](../vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile)
 - **notebooks** (1): [static-vs-dynamic-secrets.ipynb](../vault/notebooks/static-vs-dynamic-secrets.ipynb)
 
-## zap  ·  27 files
+## zap  ·  30 files
 
 - **primer:** [0000-primer-zap.md](../zap/notes/0000-primer-zap.md)
 - **notes** (6): [0000-primer-zap.md](../zap/notes/0000-primer-zap.md), [2026-06-06-install-zap-desktop-ui.md](../zap/notes/2026-06-06-install-zap-desktop-ui.md), [2026-06-06-zap-quickstart-ui-gotchas.md](../zap/notes/2026-06-06-zap-quickstart-ui-gotchas.md) — _…and 3 more under `zap/notes/`._
-- **docs** (3): [zap-automation-plan-structure.md](../zap/docs/zap-automation-plan-structure.md), [zap-integration-patterns.md](../zap/docs/zap-integration-patterns.md), [passive-vs-active-scanning-zap.md](../zap/docs/passive-vs-active-scanning-zap.md)
+- **docs** (5): [zap-integration-reference.md](../zap/docs/zap-integration-reference.md), [zap-scan-configuration-migration-guide.md](../zap/docs/zap-scan-configuration-migration-guide.md), [zap-automation-plan-structure.md](../zap/docs/zap-automation-plan-structure.md) — _…and 2 more under `zap/docs/`._
 - **scripts** (3): [zap-baseline-scan.sh](../zap/scripts/zap-baseline-scan.sh), [dast-workflow-from-scratch.sh](../zap/scripts/dast-workflow-from-scratch.sh), [zap-dast-sarif-code-scanning.sh](../zap/scripts/zap-dast-sarif-code-scanning.sh)
 - **configs** (2): [ci-dast-automation-framework-plan.yaml](../zap/configs/ci-dast-automation-framework-plan.yaml), [zap-authenticated-scan-context.yaml](../zap/configs/zap-authenticated-scan-context.yaml)
 - **snippets** (4): [my-first-zap-baseline-scan.sh](../zap/snippets/my-first-zap-baseline-scan.sh), [authenticated-scan-with-context.sh](../zap/snippets/authenticated-scan-with-context.sh), [2026-07-16-zap-docker-quickstart-json-export.sh](../zap/snippets/2026-07-16-zap-docker-quickstart-json-export.sh) — _…and 1 more under `zap/snippets/`._
 - **templates** (8): [DAST integration scaffold](../zap/templates/zap-dast-integration-scaffold/README.md), [zap-dast.yml](../zap/templates/zap-dast-integration-scaffold/.github/workflows/zap-dast.yml), [Makefile](../zap/templates/zap-dast-integration-scaffold/Makefile) — _…and 5 more under `zap/templates/`._
+- **manifests** (1): [zap-cicd-pipeline.yaml](../zap/manifests/zap-cicd-pipeline.yaml)
 - **dockerfiles** (1): [custom-zap-automation.Dockerfile](../zap/dockerfiles/custom-zap-automation.Dockerfile)
 
 ## Cross-cutting folders

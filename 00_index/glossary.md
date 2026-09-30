@@ -700,3 +700,10 @@
 **OTel** - OpenTelemetry
 **ACR** - Azure Container Registry
 **KRaft** - Kafka Raft (consensus protocol)
+
+## ZAP
+
+- **Spider scan (ZAP)** — ZAP's crawler that follows links, forms, and sitemap entries to discover every reachable page before scanning. A baseline run is spider plus passive scan; an undiscovered page is an unscanned page.
+- **AJAX spider (ZAP)** — The browser-driven crawler for single-page apps whose navigation happens in JavaScript. Needed when the traditional spider sees only the landing page because routes render client-side.
+- **Active scan (ZAP)** — Sending attack payloads at discovered endpoints to confirm exploitability. Finds what passive observation cannot, but mutates state — run only against non-production targets with explicit authorization.
+- **Passive scan (ZAP)** — Inspecting requests and responses in flight (missing headers, cookie flags, information disclosure) without sending any attack traffic. Safe to run against any environment, including production.
