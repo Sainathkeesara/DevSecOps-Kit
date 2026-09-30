@@ -1,0 +1,63 @@
+# last_verified: 2026-09-30 · environments n/a
+#
+# Minimal per-tier settings for environments/ — only the values that actually
+# differ between dev, staging and prod. Shared values sit under defaults.
+#
+# These values mirror what is on disk today: the variable values come from each
+# subdirectory's terraform.tfvars, and `state_key` comes from the
+# `backend "s3"` block in each subdirectory's main.tf (it is a backend setting,
+# not a Terraform variable, so it appears in no tfvars file).
+#
+# Read `state_key` and `state_key_intended` together. All three main.tf files
+# declare `key = "dev/terraform.tfstate"`, so as configured the three tiers
+# share one state object; `state_key_intended` records what each key has to be
+# for the tiers to actually be isolated. See
+# environments/notes/2026-09-30-environments-quickstart-trip-ups.md.
+
+defaults:
+  aws_region: us-east-1
+  project_name: multi-env
+  enable_nat_gateway: true
+  module_source: ../../templates/terraform/multi-env
+  backend_bucket: terraform-state-123456789012-multi-env
+  backend_lock_table: terraform-state-lock
+
+# Promotion gates per tier, mirroring a dev -> staging -> prod promote-on-pass
+# chain: dev auto-applies and runs smoke tests, staging auto-applies once dev
+# passes and runs integration tests, prod pauses for a manual approval before
+# applying and runs post-deploy verification.
+# [source: https://github.com/iamresham/iac-pipeline]
+
+environments:
+  dev:
+    vpc_cidr: "10.0.0.0/16"
+    availability_zones: ["us-east-1a", "us-east-1b"]
+    public_subnet_cidrs: ["10.0.1.0/24", "10.0.2.0/24"]
+    private_subnet_cidrs: ["10.0.11.0/24", "10.0.12.0/24"]
+    single_nat_gateway: true
+    state_key: dev/terraform.tfstate
+    state_key_intended: dev/terraform.tfstate
+    apply: auto
+    verify: smoke tests
+
+  staging:
+    vpc_cidr: "10.1.0.0/16"
+    availability_zones: ["us-east-1a", "us-east-1b", "us-east-1c"]
+    public_subnet_cidrs: ["10.1.1.0/24", "10.1.2.0/24", "10.1.3.0/24"]
+    private_subnet_cidrs: ["10.1.11.0/24", "10.1.12.0/24", "10.1.13.0/24"]
+    single_nat_gateway: false
+    state_key: dev/terraform.tfstate
+    state_key_intended: staging/terraform.tfstate
+    apply: auto
+    verify: integration tests
+
+  prod:
+    vpc_cidr: "10.2.0.0/16"
+    availability_zones: ["us-east-1a", "us-east-1b", "us-east-1c"]
+    public_subnet_cidrs: ["10.2.1.0/24", "10.2.2.0/24", "10.2.3.0/24"]
+    private_subnet_cidrs: ["10.2.11.0/24", "10.2.12.0/24", "10.2.13.0/24"]
+    single_nat_gateway: false
+    state_key: dev/terraform.tfstate
+    state_key_intended: prod/terraform.tfstate
+    apply: manual-approval
+    verify: post-deploy verification

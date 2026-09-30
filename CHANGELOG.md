@@ -15,6 +15,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - vault-027: `vault/manifests/vault-cluster-deployment.yaml` — Vault deployment manifest for cluster environments: 3-replica raft StatefulSet with headless + client Services, shared ConfigMap rendered per pod for a unique raft `node_id`, startup/readiness/liveness probes, PDB, ingress NetworkPolicy, plus a single-replica dev-mode variant in a separate namespace (L6 manifest)
 - semgrep-024: `semgrep/docs/semgrep-code-scanning-integration-reference.md` — Semgrep integration reference for code scanning: CI patterns, SARIF upload, rule sources, severity tuning, and operational rollback (L6 docs)
 - environments-004: `environments/notes/2026-09-29-explore-environments-directory.md` — Explore the environments directory structure and note what's there (L1 notes)
+- environments-005: `environments/notes/2026-09-29-environments-quickstart-trip-ups.md` — Worked through the per-environment quickstart (init/validate/plan) and wrote up what tripped me up: the S3 backend needs an out-of-band bootstrap, `main.tf` and `outputs.tf` declare five duplicate outputs per environment, and `terraform.tfvars` is only auto-loaded from the directory you run in (L2 notes)
+- environments-006: `environments/configs/2026-09-29-minimal-environments-config.yaml` — Minimal per-tier settings matrix for dev/staging/prod (shared defaults, differing CIDRs, AZs, NAT strategy, state key) plus the promotion gate and verification step for each tier (L2 config)
 
 ## 2026-09-29 (rework)
 
@@ -2981,3 +2983,9 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 - con-140: `docs/concepts/infrastructure-as-code/scripts/2026-09-27-terraform-basics-practice.sh` — Practice: Infrastructure as Code with Terraform basics (L2)
 - con-141: `docs/concepts/infrastructure-as-code/snippets/2026-09-27-reusable-module-hcl-pattern.sh` — Infrastructure as Code: HCL pattern for reusable modules (L2)
 - con-142: `docs/concepts/linux-shell-fundamentals/scripts/2026-09-27-devops-automation-shell-patterns.sh` — Practice: Linux shell patterns for DevOps automation (L2)
+
+## 2026-09-30 (rework)
+
+### Added
+- environments-005: `environments/notes/2026-09-30-environments-quickstart-trip-ups.md` — Per-environment quickstart trip-ups: the S3 backend bootstrap requirement, the shared `dev/terraform.tfstate` key across all three tiers, five duplicated output definitions, and tfvars auto-loading only from the running directory (L2 notes, rework 1)
+- environments-006: `environments/configs/2026-09-30-minimal-environments-config.yaml` — Minimal per-tier settings matrix for dev/staging/prod, recording the state key as configured (`dev/terraform.tfstate` for all three) alongside the key each tier needs, plus a promotion gate and verification step per tier (L2 config, rework 1)
