@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - zap-029: `zap/docs/zap-scan-configuration-migration-guide.md` — ZAP scan configuration migration guide, legacy scripts to Automation Framework plan (L6 docs)
 - zap-030: `zap/manifests/zap-cicd-pipeline.yaml` — ZAP CI/CD pipeline DAST workflow, PR baseline gate plus main-branch Automation Framework scan with High-findings gate (L6 manifest)
 - assets-006: `assets/notes/2026-09-30-explore-assets-directory.md` — Explored the assets directory and cataloged current diagrams, configs, and notes (L1 notes)
+- gitguardian-014: `gitguardian/docs/cicd-secret-scanning-integration.md` — GitGuardian CI/CD secret scanning integration: PR-level diff scanning, scheduled full-repo scans, and routing findings to the incident response pipeline (L5 docs)
 
 ## 2026-09-29
 
