@@ -11,15 +11,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-1083 files across 38 tool and content folders, plus cross-cutting docs, scripts, snippets, templates, and lab environments. The toolchain runs from Linux and Git fundamentals up through Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, ZAP, Nuclei, SonarQube, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+1084 files across 38 tool and content folders, plus cross-cutting docs, scripts, snippets, templates, and lab environments. The toolchain runs from Linux and Git fundamentals up through Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, ZAP, Nuclei, SonarQube, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
-- [Environments quickstart trip-ups](environments/notes/2026-09-30-environments-quickstart-trip-ups.md) — Why a plan run in `staging/` reads dev's state file, and the other three things that stop the per-environment loop
-- [Minimal per-tier environments config](environments/configs/2026-09-30-minimal-environments-config.yaml) — Only the values that differ between dev, staging, and prod, with the intended state key per tier
+- [ZAP CI/CD pipeline DAST gate](zap/manifests/zap-cicd-pipeline.yaml) — Baseline scan on every pull request plus a full Automation Framework scan on pushes to main, failing the build on High findings
+- [ZAP scan configuration migration guide](zap/docs/zap-scan-configuration-migration-guide.md) — Move scattered wrapper scripts and context files into one version-controlled Automation Framework plan
+- [ZAP integration reference](zap/docs/zap-integration-reference.md) — Baseline, Automation Framework, and REST API patterns for wiring DAST into automated pipelines
 - [Assets directory walkthrough](assets/notes/2026-09-30-explore-assets-directory.md) — What the diagram store holds today and how docs reference it
-- [Semgrep rules migration guide](semgrep/docs/semgrep-rules-migration-guide.md) — Moving an organically grown ruleset into a consistent layout with normalized envelopes and a CI rollout
-- [Explore the environments directory](environments/notes/2026-09-29-explore-environments-directory.md) — Primer, three-environment comparison, and minimal variable-set config on disk
+- [Minimal per-tier environments config](environments/configs/2026-09-30-minimal-environments-config.yaml) — Only the values that differ between dev, staging, and prod, with the intended state key per tier
 
 ## Layout
 
@@ -48,7 +48,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 38 | 2026-09-04 |
 | syft | 4 | 6 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 37 | 2026-09-03 |
 | trivy | 6 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 35 | 2026-09-05 |
-| zap | 6 | 3 | 3 | 2 | 4 | 8 | 0 | 1 | 0 | 0 | 27 | 2026-09-05 |
+| zap | 6 | 5 | 3 | 2 | 4 | 8 | 1 | 1 | 0 | 0 | 30 | 2026-09-30 |
 | codeql | 4 | 2 | 1 | 1 | 5 | 8 | 2 | 1 | 1 | 0 | 25 | 2026-09-18 |
 | opa | 3 | 2 | 2 | 1 | 3 | 9 | 4 | 0 | 0 | 0 | 24 | 2026-08-27 |
 | semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 2 | 2 | 3 | 0 | 23 | 2026-09-29 |
@@ -89,7 +89,7 @@ _Grype's notes carry no `last_verified` front-matter, so its column reads —. T
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent work went into the environments material — a quickstart write-up on the shared state key and duplicated output blocks, and a minimal per-tier config that records both the key as written and the key each tier needs. Current focus is IaC environment isolation and per-tool quickstart depth.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent work went into ZAP DAST integration — a CI/CD pipeline manifest gating merges on scan results, a migration guide consolidating scattered scan config into one Automation Framework plan, and a reference covering baseline, plan-driven, and API-driven patterns. Current focus is DAST pipeline depth and per-tool quickstart coverage.
 
 ---
 _Last updated: 2026-09-30_
