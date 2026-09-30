@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - falco-028: `falco/notebooks/rule-engine-vs-ebpf-probes.ipynb` — Falco rule engine vs eBPF probe decision notebook: where the alert decision happens, the context a kernel-side predicate cannot reproduce, boundary cost as predicates widen, rule-vs-program change management, and a weighted scoring function over four contrasting workloads (L5 notebook)
+- falco-027: `falco/docs/runtime-security-monitoring-integration.md` — Falco runtime security monitoring integration, tiered routing and response workflow (L5 docs)
 - zap-029: `zap/docs/zap-scan-configuration-migration-guide.md` — ZAP scan configuration migration guide, legacy scripts to Automation Framework plan (L6 docs)
 - zap-030: `zap/manifests/zap-cicd-pipeline.yaml` — ZAP CI/CD pipeline DAST workflow, PR baseline gate plus main-branch Automation Framework scan with High-findings gate (L6 manifest)
 - assets-006: `assets/notes/2026-09-30-explore-assets-directory.md` — Explored the assets directory and cataloged current diagrams, configs, and notes (L1 notes)
