@@ -11,15 +11,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-1074 files across 35 tool folders, plus cross-cutting docs, scripts, snippets, templates, and lab environments. The toolchain runs from Linux and Git fundamentals up through Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, ZAP, Nuclei, SonarQube, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+1087 files across 37 tool folders, plus cross-cutting docs, scripts, snippets, templates, and lab environments. The toolchain runs from Linux and Git fundamentals up through Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, ZAP, Nuclei, SonarQube, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
+- [Semgrep rules migration guide](semgrep/docs/semgrep-rules-migration-guide.md) — Move an organically grown ruleset into a consistent, reviewable layout with normalized envelopes and a CI rollout
+- [Explore the environments directory](environments/notes/2026-09-29-explore-environments-directory.md) — What's actually inside `environments/` today: primer, three-environment comparison, and a minimal variable-set config
+- [Semgrep code-scanning integration reference](semgrep/docs/semgrep-code-scanning-integration-reference.md) — CI patterns, SARIF upload, rule sources, and severity tuning for Semgrep in code scanning
+- [Vault cluster deployment manifest](vault/manifests/vault-cluster-deployment.yaml) — HA Raft StatefulSet plus a single-replica dev variant side by side, with probes, PDB, and network policy
 - [Asset index](assets/configs/2026-09-29-asset-index.yaml) — Which diagram file is which size, and where each one is referenced from
-- [Image optimisation trip-ups](assets/notes/2026-09-29-image-optimization-tripped-me-up.md) — Keeping aspect ratio when resizing diagrams, and getting relative image links right from nested notes
-- [Semgrep rule-design comparison](semgrep/notebooks/rule-matching-mode-comparison.ipynb) — Search, context-constrained, and taint rules for the same injection class scored on one labelled corpus
-- [Shell automation with Git hooks](docs/concepts/linux-shell-fundamentals/combining-shell-automation-with-git-hooks.md) — Per-step wrapping, exit-code discipline, and idempotent checks firing at the right point in the commit cycle
-- [Version-control patterns in real projects](docs/concepts/version-control-with-git/notebooks/version-control-patterns-in-real-projects.ipynb) — Feature-branch, trunk-based, and squash-merge histories compared through the same Git queries
 
 ## Layout
 
@@ -43,8 +43,8 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 <summary>Coverage table</summary>
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total | Last verified |
-|------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|----------:|----------:|---------:|---------------|
-| checkov | 4 | 6 | 2 | 3 | 4 | 20 | 3 | 0 | 3 | 1 | 46 | 2026-09-17 |
+|------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|----------:|----------:|---------------|
+| checkov | 4 | 6 | 2 | 3 | 4 | 20 | 3 | 0 | 3 | 1 | 48 | 2026-09-17 |
 | trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 38 | 2026-09-04 |
 | syft | 4 | 6 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 37 | 2026-09-03 |
 | trivy | 6 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 35 | 2026-09-05 |
@@ -56,14 +56,14 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-08-10 |
 | terrascan | 5 | 2 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 21 | 2026-09-27 |
 | grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | — |
-| semgrep | 3 | 5 | 3 | 1 | 2 | 0 | 2 | 2 | 3 | 0 | 21 | 2026-09-29 |
+| semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 2 | 2 | 3 | 0 | 23 | 2026-09-29 |
 | falco | 4 | 3 | 3 | 3 | 1 | 4 | 1 | 0 | 1 | 0 | 20 | 2026-09-19 |
-| vault | 4 | 3 | 4 | 3 | 2 | 0 | 1 | 1 | 1 | 0 | 19 | 2026-08-30 |
+| vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-09-29 |
 | dependabot | 7 | 3 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 0 | 18 | 2026-09-26 |
 | cosign | 4 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 18 | 2026-09-25 |
 | docker | 2 | 2 | 3 | 1 | 0 | 7 | 1 | 2 | 0 | 0 | 18 | 2026-09-23 |
-| environments | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 15 | 2026-09-19 |
-| lab | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-09-20 |
+| environments | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 16 | 2026-09-29 |
+| lab | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-09-20 |
 | argocd | 6 | 2 | 0 | 2 | 0 | 0 | 3 | 0 | 0 | 0 | 13 | 2026-09-23 |
 | github-actions | 5 | 0 | 0 | 4 | 2 | 0 | 2 | 0 | 0 | 0 | 13 | 2026-09-21 |
 | tetragon | 3 | 1 | 3 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 11 | 2026-09-26 |
@@ -88,7 +88,7 @@ _Grype's notes carry no `last_verified` front-matter, so its column reads —. T
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions cover a Semgrep rule-design comparison (search vs context-constrained vs taint on one labelled corpus), a guide to combining shell automation with Git hooks, a version-control-patterns notebook, and an index plus optimisation notes for the kit's architecture diagrams. Current focus is Semgrep rule-writing depth and Linux/Git fundamentals practice material.
+Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent additions cover a Semgrep rules-migration guide and a code-scanning integration reference, a Vault cluster deployment manifest (HA plus dev variant), an environments-directory walkthrough, and an index of the kit's architecture diagrams. Current focus is Semgrep rule-writing depth and Vault deployment patterns.
 
 ---
-_Last updated: 2026-09-29_
+_Last updated: 2026-09-30_

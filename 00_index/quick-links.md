@@ -119,6 +119,7 @@
 - [Terraform basics practice loop](../docs/concepts/infrastructure-as-code/scripts/2026-09-27-terraform-basics-practice.sh) — Walk init/validate/plan/apply once on a provider-free config so you can see which command creates which file
 - [Reusable module HCL pattern](../docs/concepts/infrastructure-as-code/snippets/2026-09-27-reusable-module-hcl-pattern.sh) — One module folder owning a resource, callers passing inputs, no environment name hardcoded
 - [First environment comparison](../environments/notes/2026-09-19-first-environment-comparison.md) — Dev vs staging vs prod variable differences worth understanding before changing anything
+- [Explore the environments directory](../environments/notes/2026-09-29-explore-environments-directory.md) — Primer, three-environment comparison, and minimal variable-set config on disk today
 - [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
 - [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md)
 - [Helm primer](../helm/notes/0000-primer-helm.md)
@@ -167,6 +168,7 @@
 - [Vault AWS secrets engine policy](../vault/configs/2026-09-04-aws-secrets-engine-policy.hcl)
 - [Vault Agent auto-auth on Kubernetes](../vault/docs/vault-agent-auto-auth-kubernetes.md)
 - [Vault Agent sidecar for secret refresh](../vault/manifests/vault-sidecar-secrets-refresh.yaml)
+- [Vault cluster deployment manifest](../vault/manifests/vault-cluster-deployment.yaml) — HA Raft StatefulSet plus a single-replica dev variant with probes, PDB, and network policy
 - [Vault troubleshooting: seal and unseal](../docs/how-to/vault-troubleshooting-seal-unseal.md)
 
 ### Practice and learn
@@ -221,6 +223,8 @@
 - [Semgrep rule-writing reference](../semgrep/docs/semgrep-rule-writing-reference.md)
 - [Custom Semgrep rule example](../semgrep/snippets/first-custom-rule.yaml)
 - [Semgrep rule performance optimization](../semgrep/docs/semgrep-rule-performance-optimization.md)
+- [Semgrep rules migration guide](../semgrep/docs/semgrep-rules-migration-guide.md) — Move an organically grown ruleset into a consistent layout with normalized envelopes and CI rollout
+- [Semgrep code-scanning integration reference](../semgrep/docs/semgrep-code-scanning-integration-reference.md) — CI patterns, SARIF upload, rule sources, and severity tuning for code scanning
 - [AST-based security pattern checker](../docs/concepts/application-security-testing-concepts/scripts/2026-08-26-ast-devsecops.py)
 - [SonarQube quality gates and profiles](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md)
 - [Semgrep rule-design comparison](../semgrep/notebooks/rule-matching-mode-comparison.ipynb) — Search, context-constrained, and taint rules for one injection class scored on a labelled corpus
