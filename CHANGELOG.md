@@ -2983,3 +2983,9 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 - con-140: `docs/concepts/infrastructure-as-code/scripts/2026-09-27-terraform-basics-practice.sh` — Practice: Infrastructure as Code with Terraform basics (L2)
 - con-141: `docs/concepts/infrastructure-as-code/snippets/2026-09-27-reusable-module-hcl-pattern.sh` — Infrastructure as Code: HCL pattern for reusable modules (L2)
 - con-142: `docs/concepts/linux-shell-fundamentals/scripts/2026-09-27-devops-automation-shell-patterns.sh` — Practice: Linux shell patterns for DevOps automation (L2)
+
+## 2026-09-30 (rework)
+
+### Added
+- environments-005: `environments/notes/2026-09-30-environments-quickstart-trip-ups.md` — Per-environment quickstart trip-ups: the S3 backend bootstrap requirement, the shared `dev/terraform.tfstate` key across all three tiers, five duplicated output definitions, and tfvars auto-loading only from the running directory (L2 notes, rework 1)
+- environments-006: `environments/configs/2026-09-30-minimal-environments-config.yaml` — Minimal per-tier settings matrix for dev/staging/prod, recording the state key as configured (`dev/terraform.tfstate` for all three) alongside the key each tier needs, plus a promotion gate and verification step per tier (L2 config, rework 1)
