@@ -575,6 +575,13 @@
 
 - **Rule priority** — The severity tier Falco attaches to each rule firing (from Emergency down to Informational/Debug). Tuning starts by ranking rules on volume, then routing by tier: page on Warning and above while lower tiers stay searchable in logs.
 - **Priority override** — Changing a rule's priority in a custom rules layer instead of copying and editing the vendor default. Overrides keep the custom layer small and survive upstream ruleset updates.
+- **Rule engine vs eBPF probe** — Two ways to detect runtime behaviour. Falco's built-in engine matches syscall events against rules, which is cheap and easy to reason about; eBPF probes hook specific kernel functions for richer context (caller, arguments, stack) at the cost of per-kernel maintenance. Falco sits closer to the first camp than Tetragon does.
+
+## GitGuardian
+
+- **ggshield scan mode** — Which history ggshield looks at: the working tree, staged files, a commit range, or the full history. Choosing the narrowest mode that still covers the change keeps a pre-commit hook fast.
+- **ggshield allowlist** — A `.ggshield.yaml` / `.gitguardian.yaml` list of paths, detectors, and known false positives to skip. In a monorepo it is also the mechanism for scoping scans per team.
+- **Pre-commit gate vs CI gate** — Running ggshield before a commit (fast, developer-local, easy to bypass) versus running it in CI on the pull request (authoritative, slower). Real setups use both: local for feedback, CI to block the merge.
 
 ## Lab
 
