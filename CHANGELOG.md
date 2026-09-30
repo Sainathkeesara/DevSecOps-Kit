@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-09-30
+
+### Added
+
+- assets-006: `assets/notes/2026-09-30-explore-assets-directory.md` — Explored the assets directory and cataloged current diagrams, configs, and notes (L1 notes)
+
 ## 2026-09-29
 
 ### Added
