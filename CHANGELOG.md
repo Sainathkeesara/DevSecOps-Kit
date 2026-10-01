@@ -3001,3 +3001,8 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 - environments-005: `environments/notes/2026-09-30-environments-quickstart-trip-ups.md` — Per-environment quickstart trip-ups: the S3 backend bootstrap requirement, the shared `dev/terraform.tfstate` key across all three tiers, five duplicated output definitions, and tfvars auto-loading only from the running directory (L2 notes, rework 1)
 - environments-006: `environments/configs/2026-09-30-minimal-environments-config.yaml` — Minimal per-tier settings matrix for dev/staging/prod, recording the state key as configured (`dev/terraform.tfstate` for all three) alongside the key each tier needs, plus a promotion gate and verification step per tier (L2 config, rework 1)
 - zap: Added ZAP integration reference for application security testing (zap-028)
+
+## 2026-10-01 (rework)
+
+### Added
+- falco-029: `falco/notes/2026-10-01-falco-quickstart-trip-ups.md` — Four quickstart trip-ups written up after following the official Falco Helm install: the automatically selected driver not loading on my kernel, `kubectl exec` tripping the default shell-in-container rules, needing JSON output for anything downstream, and Falco shipping no built-in Slack output (falcosidekick has to be deployed separately) (L2 notes, rework 1)
