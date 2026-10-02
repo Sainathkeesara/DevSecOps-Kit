@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - checkov-025: `checkov/notebooks/compare-custom-policy-expressiveness.ipynb` — Checkov custom policy comparison patterns: one rule class (no S3 bucket may carry a public ACL) expressed four ways — single-attribute YAML policy, whole-value YAML policy set, per-key YAML policy set, and a single Python check — scored for recall, precision, and false positives against one labelled 12-resource fixture corpus, with a verification cell asserting the documented split and the `--external-checks-dir` wiring for all four (L6 notebook)
+- checkov-026: `checkov/scripts/validate-policies.sh` — Reusable Checkov policy validation script for the kit: validates YAML structure of custom policies under `checkov/policies/`, checks required sections (metadata, scope, definition), runs Checkov external-checks-dir validation when available, and lints with yamllint (L4 script)
 
 ## 2026-09-30
 
