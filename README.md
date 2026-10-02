@@ -11,15 +11,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-1084 files across 38 tool and content folders, plus cross-cutting docs, scripts, snippets, templates, and lab environments. The toolchain runs from Linux and Git fundamentals up through Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, ZAP, Nuclei, SonarQube, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+1087 files across 41 tool and content folders — 38 tools, plus the cross-cutting `docs/`, `scripts/`, `snippets/`, `templates/`, and `environments/` layers. The toolchain runs from Linux and Git fundamentals up through Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, ZAP, Nuclei, SonarQube, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
-- [ZAP CI/CD pipeline DAST gate](zap/manifests/zap-cicd-pipeline.yaml) — Baseline scan on every pull request plus a full Automation Framework scan on pushes to main, failing the build on High findings
-- [ZAP scan configuration migration guide](zap/docs/zap-scan-configuration-migration-guide.md) — Move scattered wrapper scripts and context files into one version-controlled Automation Framework plan
-- [ZAP integration reference](zap/docs/zap-integration-reference.md) — Baseline, Automation Framework, and REST API patterns for wiring DAST into automated pipelines
-- [Assets directory walkthrough](assets/notes/2026-09-30-explore-assets-directory.md) — What the diagram store holds today and how docs reference it
-- [Minimal per-tier environments config](environments/configs/2026-09-30-minimal-environments-config.yaml) — Only the values that differ between dev, staging, and prod, with the intended state key per tier
+- [GitGuardian CI/CD secret scanning integration](gitguardian/docs/cicd-secret-scanning-integration.md) — Wiring ggshield into pipelines with pre-commit, pull-request, and scheduled scans plus incident-response hooks
+- [Falco rule engine vs eBPF probes](falco/notebooks/rule-engine-vs-ebpf-probes.ipynb) — Comparing Falco's syscall rule engine against Tetragon-style eBPF probes for runtime detection coverage
+- [Falco runtime security monitoring integration](falco/docs/runtime-security-monitoring-integration.md) — End-to-end Falco deployment with custom rules, priority routing, and alert forwarding
+- [ZAP CI/CD pipeline manifest](zap/manifests/zap-cicd-pipeline.yaml) — Reusable ZAP DAST workflow for GitHub Actions with baseline, full, and authenticated scan modes
+- [ZAP scan configuration migration guide](zap/docs/zap-scan-configuration-migration-guide.md) — Moving scattered scan configuration into one versioned Automation Framework plan
 
 ## Layout
 
@@ -53,10 +53,10 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | opa | 3 | 2 | 2 | 1 | 3 | 9 | 4 | 0 | 0 | 0 | 24 | 2026-08-27 |
 | semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 2 | 2 | 3 | 0 | 23 | 2026-09-29 |
 | snyk | 4 | 2 | 1 | 2 | 1 | 11 | 1 | 1 | 0 | 0 | 23 | 2026-09-02 |
-| gitguardian | 4 | 2 | 3 | 2 | 2 | 9 | 0 | 0 | 0 | 0 | 22 | 2026-08-21 |
+| gitguardian | 4 | 3 | 3 | 2 | 2 | 9 | 0 | 0 | 0 | 0 | 23 | 2026-09-30 |
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-08-10 |
 | terrascan | 5 | 2 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 21 | 2026-09-27 |
-| falco | 4 | 3 | 3 | 3 | 1 | 4 | 1 | 0 | 1 | 0 | 20 | 2026-09-19 |
+| falco | 4 | 4 | 3 | 3 | 1 | 4 | 1 | 0 | 2 | 0 | 22 | 2026-09-30 |
 | grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | — |
 | vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-08-30 |
 | cosign | 4 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 18 | 2026-09-25 |
@@ -89,7 +89,7 @@ _Grype's notes carry no `last_verified` front-matter, so its column reads —. T
 
 ## Status
 
-Foundational concept primers and practice exercises are complete across the toolchain, and per-tool quickstarts are being rounded out. Recent work went into ZAP DAST integration — a CI/CD pipeline manifest gating merges on scan results, a migration guide consolidating scattered scan config into one Automation Framework plan, and a reference covering baseline, plan-driven, and API-driven patterns. Current focus is DAST pipeline depth and per-tool quickstart coverage.
+Primers and per-tool quickstarts are complete across most of the toolchain, and the depth work is now in integration patterns rather than first contact. Recent additions went into runtime security — a Falco deployment walkthrough covering custom rules, priority routing, and alert forwarding, plus a notebook weighing Falco's syscall rule engine against eBPF probes — and into secret-scanning pipelines with a GitGuardian CI/CD integration guide. Current focus is runtime detection depth and pipeline integrations for the security scanners.
 
 ---
-_Last updated: 2026-09-30_
+_Last updated: 2026-10-01_

@@ -75,8 +75,11 @@
 ### Tune runtime detection
 
 - [Falco primer](../falco/notes/0000-primer-falco.md)
+- [Falco runtime security monitoring integration](../falco/docs/runtime-security-monitoring-integration.md) — End-to-end deployment: custom rules, priority routing, and forwarding alerts onward
+- [Falco rule engine vs eBPF probes](../falco/notebooks/rule-engine-vs-ebpf-probes.ipynb) — When a syscall rule engine is enough and when eBPF probes earn their extra complexity
 - [Falco rule optimization with priority-based filtering](../falco/docs/rule-optimization-priority-filtering.md) — Rank the noisiest rules first, then cut volume with lists, macros, and priority-tiered routing
 - [Tuned Falco rules for noise reduction](../falco/docs/tuned-falco-rules-noise-reduction.md)
+- [Falco event output formats](../falco/notebooks/falco-event-output-formats.ipynb) — What each output format is good for when events leave the node
 - [First custom Falco rule](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
 - [Falco K8s admission control rule](../falco/manifests/falco-k8s-admission-control.yaml)
 - [Custom rules library scaffold](../falco/templates/falco-custom-rules-library/README.md) — Rules, tests, and a runner for iterating on a ruleset locally
@@ -242,6 +245,7 @@
 - [First secret scan with Gitleaks](../gitleaks/notes/2026-09-19-first-secret-scan.md) — What to set up before a first scan, using a fake credential in a test repo
 - [First Gitleaks scan script](../gitleaks/scripts/2026-09-26-run-first-gitleaks-scan.sh) — Point Gitleaks at a sample repo and save the findings as JSON
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
+- [GitGuardian CI/CD secret scanning integration](../gitguardian/docs/cicd-secret-scanning-integration.md) — Where pre-commit, pull-request, and scheduled ggshield scans belong, plus incident-response hooks
 - [GitGuardian incident response workflow](../gitguardian/docs/gitguardian-incident-response-workflow.md)
 - [GitGuardian API integration](../gitguardian/scripts/gitguardian-api-integration.py)
 - [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
@@ -275,7 +279,7 @@
 - [Docker CI/CD end-to-end](../docker/docs/cicd-end-to-end.md) — Build once in CI, smoke-test the image, push the verified tag, and deploy that exact tag
 - [Reusable Docker build script](../docker/scripts/reusable-build.sh) — Single and multi-stage image builds with build args and cache-from support
 - [ZAP baseline scan for CI](../zap/notes/2026-07-20-install-zap-baseline-scan.md)
-- [ZAP CI/CD pipeline DAST gate](../zap/manifests/zap-cicd-pipeline.yaml) — Baseline scan on pull requests plus a full plan-driven scan on pushes to main
+- [ZAP CI/CD pipeline manifest](../zap/manifests/zap-cicd-pipeline.yaml) — Reusable ZAP DAST workflow with baseline, full, and authenticated scan modes
 - [Trivy CI/CD pipeline recipes](../trivy/docs/ci-cd-pipeline-recipes.md)
 - [Trivy in GitHub Actions](../docs/how-to/trivy-github-actions.md)
 - [Trivy in Jenkins](../docs/how-to/trivy-jenkins-integration.md)
