@@ -91,6 +91,7 @@
 - [ZAP baseline scan script](../zap/scripts/zap-baseline-scan.sh) — Run a containerised ZAP baseline against a target URL and fail on High findings
 - [ZAP integration reference](../zap/docs/zap-integration-reference.md) — Baseline, Automation Framework, and REST API patterns for wiring DAST into automated pipelines
 - [ZAP scan configuration migration guide](../zap/docs/zap-scan-configuration-migration-guide.md) — Consolidate scattered scan config into one version-controlled Automation Framework plan
+- [ZAP scan strategy comparison](../zap/notebooks/scan-strategy-comparison-patterns.ipynb) — Passive baseline vs active full scan vs narrowed-context active scan, and what each costs you
 - [Nuclei primer](../nuclei/notes/0000-primer-nuclei.md)
 - [Trivy primer](../trivy/notes/0000-primer-trivy.md)
 - [Trivy scanning performance optimization](../trivy/notes/scanning-performance-optimization.md)
@@ -127,6 +128,7 @@
 - [Environments quickstart trip-ups](../environments/notes/2026-09-30-environments-quickstart-trip-ups.md) — Why a plan run in `staging/` reads dev's state file, and the three other things that stop the per-environment loop
 - [Minimal per-tier environments config](../environments/configs/2026-09-30-minimal-environments-config.yaml) — Only the values that differ between dev, staging, and prod, with the state key as written and as intended
 - [Explore the environments directory](../environments/notes/2026-09-29-explore-environments-directory.md) — Primer, three-environment comparison, and minimal variable-set config on disk today
+- [Validate environments deploy config](../environments/scripts/2026-10-01-validate-deploy-config.sh) — Walk dev, staging, and prod checking for the four files each root module needs
 - [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
 - [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md)
 - [Helm primer](../helm/notes/0000-primer-helm.md)
@@ -201,6 +203,7 @@
 - [Image optimisation trip-ups](../assets/notes/2026-09-29-image-optimization-tripped-me-up.md) — Resizing kit diagrams without squashing them, and relative image links from nested notes
 - [Assets directory walkthrough](../assets/notes/2026-09-30-explore-assets-directory.md) — What the diagram store holds today and how docs reference it
 - [Asset index](../assets/configs/2026-09-29-asset-index.yaml) — Which diagram file is which size, and where each one is referenced from
+- [Audit asset references](../assets/scripts/2026-10-01-audit-asset-references.sh) — Find the diagrams on disk and the docs that link to them, and spot the ones nothing references
 
 ### Run infrastructure tasks
 
@@ -221,6 +224,7 @@
 - [Checkov primer](../checkov/notes/0000-primer-checkov.md)
 - [Checkov 2.x to 3.x upgrade checklist](../checkov/docs/checkov-v3-upgrade-checklist.md) — Roll out the major-version upgrade on a trial branch without breaking the CI gate
 - [Checkov cross-module scanning limitations](../checkov/notebooks/compare-cross-module-scanning-limitations.ipynb) — Static directory scan vs plan JSON scan for cross-module IaC
+- [Checkov custom policy authoring comparison](../checkov/notebooks/compare-custom-policy-expressiveness.ipynb) — Four authoring styles for one "no public S3 bucket" rule, scored against a labelled corpus
 - [Checkov platform config](../checkov/configs/platform-config.yaml)
 - [CodeQL primer](../codeql/notes/0000-primer-codeql.md)
 - [Install CodeQL and run a first query](../codeql/notes/2026-08-26-install-codeql-first-query.md)
