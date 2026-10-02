@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- linux-031: `linux/docs/system-administration-runbook.md` — Linux production system administration runbook: ordered triage sequence (reachability, resource pressure, failed services), stabilisation escalation, evidence-preserving handoff, plus verify, rollback, and common-errors sections (L7 docs)
+- linux-034: `linux/notes/2026-10-02-explore-linux-environment.md` — first look around a Linux box: distro identity, filesystem layout, disk headroom, and early permission/process surprises (L1 notes)
 - checkov-025: `checkov/notebooks/compare-custom-policy-expressiveness.ipynb` — Checkov custom policy comparison patterns: one rule class (no S3 bucket may carry a public ACL) expressed four ways — single-attribute YAML policy, whole-value YAML policy set, per-key YAML policy set, and a single Python check — scored for recall, precision, and false positives against one labelled 12-resource fixture corpus, with a verification cell asserting the documented split and the `--external-checks-dir` wiring for all four (L6 notebook)
 
 ## 2026-09-30
