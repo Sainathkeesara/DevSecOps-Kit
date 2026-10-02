@@ -3001,3 +3001,6 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 - environments-005: `environments/notes/2026-09-30-environments-quickstart-trip-ups.md` — Per-environment quickstart trip-ups: the S3 backend bootstrap requirement, the shared `dev/terraform.tfstate` key across all three tiers, five duplicated output definitions, and tfvars auto-loading only from the running directory (L2 notes, rework 1)
 - environments-006: `environments/configs/2026-09-30-minimal-environments-config.yaml` — Minimal per-tier settings matrix for dev/staging/prod, recording the state key as configured (`dev/terraform.tfstate` for all three) alongside the key each tier needs, plus a promotion gate and verification step per tier (L2 config, rework 1)
 - zap: Added ZAP integration reference for application security testing (zap-028)
+
+### Added (2026-10-02)
+- zap-031: `zap/notebooks/scan-strategy-comparison-patterns.ipynb` — ZAP scan strategy comparison: passive baseline vs active full scan vs narrowed-context active, with weighted coverage/speed/blast-radius scoring, plan job-graph parsing, and a report-diff helper (L6 notebook)
