@@ -1,91 +1,160 @@
-# last_verified: 2026-10-03 · falco n/a
+# last_verified: 2026-10-03 · falco 0.38.0
 # Minimal Falco runtime security configuration.
 #
 # This is the daemon config file Falco is pointed at with --config, not a rule
 # file: the other YAML files in this folder hold individual rules, this one
-# decides how those rules are loaded, how alerts are formatted, and where the
-# metrics endpoint listens.
+# decides which rules get loaded, where alerts go, and where the metrics
+# endpoint listens.
 #
 # I wrote this while working through the quickstart, so it is deliberately
-# small. The reference config ships far more knobs than a first run needs and
-# I got lost in it, so I kept only the blocks I actually changed and left my
-# own notes on why underneath.
+# small. The reference config that ships with Falco has far more knobs than a
+# first run needs and I got lost in it, so I kept only the blocks I actually
+# changed and left notes on why underneath.
+#
+# Every key below is one I checked against the falco.yaml that ships with falco
+# 0.38.0, rather than against my memory of it. That matters more than it
+# sounds: Falco ignores config keys it does not recognise, so a made-up key does
+# not fail start-up -- it just quietly does nothing, and you find out weeks
+# later that the setting you "turned on" was never read once.
 
-# Rule files loaded at startup, in order. The first entry is the rule set that
-# ships with Falco; the second is the directory I drop my own rules into.
+# --- Rules ---------------------------------------------------------------
+
+# Rule files loaded at startup, in the order listed. The first entry is the
+# rule set that ships with Falco, the second is the directory I drop my own
+# rules into. A file entry is read directly and a directory entry is read in
+# alphabetical order. Order is precedence, so my own directory goes last: a rule
+# defined later takes precedence over an earlier one covering the same field.
 rules_files:
   - /etc/falco/falco_rules.yaml
   - /etc/falco/rules.d
 
-# One JSON object per alert on stderr, so the container log is machine
-# readable. json_include_output_property keeps the human-readable output line
-# inside that object, which is what I grep for while debugging a rule.
+# --- Where events come from ---------------------------------------------
+
+# The driver that produces syscall events. There is no "container vs unconfined"
+# switch in the daemon config: one driver instruments the whole node, and
+# whether a process sits inside a container is worked out per event from the
+# container runtime socket, then used to fill in the container.* fields that
+# rules match on. modern_ebpf is what the shipped reference config defaults to
+# and what I want, since it needs no kernel module.
+engine:
+  kind: modern_ebpf
+
+# Extra, non-syscall event sources. An empty list means none are loaded, which
+# is what I want on a plain node. k8saudit would add Kubernetes API audit
+# events and json would add file-change events; neither replaces syscall
+# coverage, so I only list them when I actually want them.
+load_plugins: []
+
+# --- Alert format --------------------------------------------------------
+
+# One JSON object per alert, so the container log is machine readable.
+# json_include_output_property keeps the human-readable summary line inside that
+# object, which is what I grep for while debugging a rule.
 json_output: true
 json_include_output_property: true
 
-# Where the daemon's own messages go, and how loud they are. I dropped this
-# from debug to notice once rules were loading, because debug on a busy node
-# buries the startup lines I actually needed.
+# The daemon's own lifecycle and error messages go to stderr, so they land in
+# the container log next to everything else. These are not alerts -- alerts go
+# to the output channels further down. Syslog is off because there is no syslog
+# daemon in the container to receive it.
 log_stderr: true
+log_syslog: false
+
+# Minimum severity a rule needs before Falco loads and runs it. This is a rule
+# filter, not a log level: debug here pulls in every rule the Falco package
+# ships with, which is a lot of alerts I do not act on. Daemon verbosity is
+# log_level, which is a separate key and which I leave alone.
 priority: notice
 
-# Global alert rate limiting: at most one alert per 0.2s, burst of 1 so a
-# single event is never held back. This is the setting that decides whether a
-# rule that fires in a loop can flood the output.
-outputs:
-  rate: 0.2
-  max_burst: 1
-
-# 0 means unbuffered. I left it unbuffered so alert order matches event order
-# when I tail the log.
-buffersize: 0
+# Buffer the output queue. I left it off so alert order still matches event
+# order when I tail the log; the trade is more work on the output path.
+buffered_outputs: false
 
 # Stop at the first rule that matches an event instead of evaluating the rest
 # of the loaded rules against it. Cheaper, and the extra matches were noise for
-# the rules I care about.
+# the rules I care about. The alternative, all, lets several rules fire on one
+# event and costs performance.
 rule_matching: first
 
-# 0 disables the consecutive-event cutoff. I would rather have the gap in my
-# trail than silently drop events.
+# --- Not losing events quietly ------------------------------------------
+
+# 0 disables the consecutive-event cutoff, so a rule keeps firing on a repeated
+# event instead of going quiet after a run of them. I would rather have the gap
+# in my trail than silently drop events.
 syscall_event_timeouts:
   max_consecutives: 0
 
-# Event sources instrumented on this node. container covers processes inside
-# containers, unconfined covers everything else on the host.
-runtime:
-  - container
-  - unconfined
+# What to do when the kernel/userspace event buffer fills up. This is the only
+# rate / max_burst pair in this file, so it is worth being precise about what it
+# throttles: these two numbers govern how often Falco emits its own "syscall
+# event drop" notice. They do not rate-limit rule alerts.
+#
+# Two things surprised me here. First, those automatic notifications only fire
+# when priority is debug, and I run at notice above, so the actions below are
+# inert as configured. Second, falco 0.38 simplifies these automatic
+# notifications anyway. What I actually use is the periodic metrics snapshot
+# further down with kernel_event_counters_enabled, which reports the same drop
+# counts on a schedule instead of as an alert.
+#
+# threshold is the fraction of dropped syscalls, against events in the last
+# second, above which the notice is emitted; 0 means alert on any drop at all.
+syscall_event_drops:
+  threshold: .1
+  actions:
+    - log
+    - alert
+  rate: .03333
+  max_burst: 1
 
-# Local metrics endpoint. I scrape this rather than counting alert lines,
-# because the counters are already broken down per rule.
+# Bounds the userspace output queue. 0 means unbounded, which is the shipped
+# default and what I keep: unbounded, memory is the thing that gives out and
+# Falco gets OOM-killed. Setting a capacity instead means a full queue drops
+# the current alert and the event loop carries on.
+outputs_queue:
+  capacity: 0
+
+# --- Metrics -------------------------------------------------------------
+
+# Local metrics endpoint. prometheus_metrics_enabled only takes effect when
+# metrics.enabled below is also true. I tripped over exactly that: turning the
+# webserver on by itself gives me the page and none of the counter values.
 webserver:
   enabled: true
   listen_port: 8765
-  keepalive: true
+  listen_address: 0.0.0.0
   threadiness: 0
+  prometheus_metrics_enabled: true
 
-# Share the same rate limit with the instrumentation library Falco loads into
-# the processes it watches, so a chatty process cannot starve the rules.
-falco_libs:
-  client_enabled: true
-  client_rate: 0.2
-  client_max_burst: 1
-
-# Metrics collection. The counters cost nothing extra here since the endpoint
-# above is already on, so I left them all enabled.
+# Periodic metrics snapshots. interval takes a duration string (1h, 30m, 5s),
+# not a count of seconds. output_rule emits each snapshot as an internal rule;
+# output_file is the commented-out alternative that appends the same JSON to a
+# file. The four *_enabled counters are what make the per-rule numbers actually
+# appear in the snapshot, so this block and the webserver block above only make
+# sense together.
 metrics:
   enabled: true
-  interval_seconds: 3600
+  interval: 1h
+  output_rule: true
   rules_counters_enabled: true
   resource_utilization_enabled: true
   state_counters_enabled: true
   kernel_event_counters_enabled: true
 
-# Extra destinations appended to every alert's output. Empty for now: I add
-# entries here when I start forwarding alerts to a collector.
-append_output: []
+# --- Process cache -------------------------------------------------------
 
-# Secondary debugging output stream. Off unless I am chasing a rule that will
-# not fire, because it duplicates every alert.
+# Size of the internal process cache, and the whole of the falco_libs block in
+# this release. There is nothing in here for sharing a rate limit with an
+# instrumentation library; I went looking for that and it is not a key.
+# state_counters_enabled above is how I tell whether this is big enough:
+# n_drops_full_threadtable in the snapshot means it is not.
+falco_libs:
+  thread_table_size: 262144
+
+# --- Alert destination ---------------------------------------------------
+
+# Alerts go to stdout. This is the shipped default and I left it on deliberately:
+# it is the only output channel enabled in this file, so switching it off would
+# leave alerts with nowhere to go. When I start forwarding to a file, webhook or
+# gRPC endpoint I enable that channel and can leave this one alone.
 stdout_output:
-  enabled: false
+  enabled: true
