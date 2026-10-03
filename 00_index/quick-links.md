@@ -257,6 +257,8 @@
 - [GitGuardian CI/CD secret scanning integration](../gitguardian/docs/cicd-secret-scanning-integration.md) — Where pre-commit, pull-request, and scheduled ggshield scans belong, plus incident-response hooks
 - [GitGuardian incident response workflow](../gitguardian/docs/gitguardian-incident-response-workflow.md)
 - [GitGuardian API integration](../gitguardian/scripts/gitguardian-api-integration.py)
+- [GitGuardian org secret-scanning policy](../gitguardian/configs/policy-configuration.yaml) — Which detectors stay enforced, which paths are ignored and why, who owns findings per directory, and what an incident handoff must carry
+- [Hosted vs self-managed secret scanning](../gitguardian/notebooks/choosing-between-on-premise-and-cloud-modes.ipynb) — Where scan content travels, who operates the service, and a per-tier scoring function with data residency as a veto
 - [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
 - [Secrets detection workflow analysis](../docs/concepts/secrets-access-management/notebooks/secrets-detection-remediation-workflow-analysis.ipynb)
 - [Dependabot configuration template](../dependabot/configs/dependabot-configuration-template.yaml) — A single dependabot.yml covering ecosystems, schedules, grouping, and review routing

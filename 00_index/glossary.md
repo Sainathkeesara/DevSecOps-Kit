@@ -593,6 +593,8 @@
 - **ggshield scan mode** — Which history ggshield looks at: the working tree, staged files, a commit range, or the full history. Choosing the narrowest mode that still covers the change keeps a pre-commit hook fast.
 - **ggshield allowlist** — A `.ggshield.yaml` / `.gitguardian.yaml` list of paths, detectors, and known false positives to skip. In a monorepo it is also the mechanism for scoping scans per team.
 - **Pre-commit gate vs CI gate** — Running ggshield before a commit (fast, developer-local, easy to bypass) versus running it in CI on the pull request (authoritative, slower). Real setups use both: local for feedback, CI to block the merge.
+- **Org secret-scanning policy** — One reviewable file that records which detectors stay enforced, which paths are ignored and why, who owns findings per directory, and what fields an incident handoff must carry. Copied per repo and narrowed to it, so the policy is decided in version control before CI scans are wired.
+- **Hosted vs self-managed scanning** — The two shapes secret scanning runs in: a hosted service receives scan content and returns findings, or a self-managed installation keeps content and findings inside team-operated infrastructure. Detection is comparable; what differs is data movement, operational burden, and failure modes. Data residency decides per repository tier and acts as a veto, not a weight.
 
 ## Lab
 
