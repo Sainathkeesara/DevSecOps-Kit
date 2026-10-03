@@ -104,6 +104,8 @@
 - [Container vulnerability scan with Trivy](../trivy/scripts/container-vuln-scan.sh)
 - [Minimal Grype scan](../grype/scripts/minimal-grype-scan.sh)
 - [CI-ready Grype scanning](../grype/scripts/ci-ready-grype-scan.sh)
+- [Grype in a vulnerability-management pipeline](../grype/docs/vulnerability-management-pipeline-integration.md) — The loop around the scan: target choice, database caching, machine-readable reports, gate thresholds, tracker routing, and diffing against the last accepted result
+- [Grype and Syft together](../grype/docs/grype-syft-integration-guide.md) — Generate an SBOM with Syft and scan it offline with Grype
 - [SBOM generation with Syft](../syft/scripts/gen-multi-format-sboms.sh)
 - [Syft output format comparison](../syft/notebooks/output-format-comparison.ipynb)
 - [Snyk vulnerability prioritization with reachability and Fix PRs](../snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md)
@@ -256,6 +258,7 @@
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
 - [GitGuardian CI/CD secret scanning integration](../gitguardian/docs/cicd-secret-scanning-integration.md) — Where pre-commit, pull-request, and scheduled ggshield scans belong, plus incident-response hooks
 - [GitGuardian incident response workflow](../gitguardian/docs/gitguardian-incident-response-workflow.md)
+- [GitGuardian scanning migration patterns](../gitguardian/docs/gitguardian-secret-scanning-migration-patterns.md) — ggshield v1 to v2 config moves, replacing TruffleHog or Gitleaks, consolidating per-repo config into an org baseline, and rolling out across a monorepo
 - [GitGuardian API integration](../gitguardian/scripts/gitguardian-api-integration.py)
 - [GitGuardian org secret-scanning policy](../gitguardian/configs/policy-configuration.yaml) — Which detectors stay enforced, which paths are ignored and why, who owns findings per directory, and what an incident handoff must carry
 - [Hosted vs self-managed secret scanning](../gitguardian/notebooks/choosing-between-on-premise-and-cloud-modes.ipynb) — Where scan content travels, who operates the service, and a per-tier scoring function with data residency as a veto
