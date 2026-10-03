@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - gitguardian-017: `gitguardian/docs/gitguardian-secret-scanning-migration-patterns.md` — GitGuardian secret scanning migration patterns: ggshield v1→v2 config format, TruffleHog/Gitleaks tool migrations, org baseline rollout, monorepo incremental team adoption, legacy CI command upgrade (L5 docs)
+- grype-040: `grype/docs/vulnerability-management-pipeline-integration.md` — Grype vulnerability management pipeline integration: scan-target selection (image vs directory vs SBOM) with cost trade-offs, explicit `grype db update` step and cache reuse, scan-once-export-once with `--fail-on` as a separate gate, JSON triage extraction, finding-set diff against the last accepted report, SARIF-vs-JSON publication, and report-to-tracker field mapping, with verify, rollback, and common-errors sections (L5 docs)
 - gitguardian-015: `gitguardian/notebooks/choosing-between-on-premise-and-cloud-modes.ipynb` — Hosted vs self-managed GitGuardian decision notebook: data-movement residency veto, operational-burden trade-off, policy rollout and outage behaviour per shape, and a per-tier scoring function over four contrasting estates (L5 notebook)
 
 ## 2026-10-02
