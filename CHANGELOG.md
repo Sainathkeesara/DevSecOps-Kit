@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-03
+
+### Added
+
+- gitguardian-015: `gitguardian/notebooks/choosing-between-on-premise-and-cloud-modes.ipynb` — Hosted vs self-managed GitGuardian decision notebook: data-movement residency veto, operational-burden trade-off, policy rollout and outage behaviour per shape, and a per-tier scoring function over four contrasting estates (L5 notebook)
+
 ## 2026-10-02
 
 ### Added
