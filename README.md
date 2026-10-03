@@ -11,15 +11,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-1091 files across 43 top-level folders — 38 tool folders, plus the cross-cutting `docs/`, `scripts/`, `snippets/`, `templates/`, and `00_index/` layers. The toolchain runs from Linux and Git fundamentals up through Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, ZAP, Nuclei, SonarQube, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+1096 files across 43 top-level folders — 38 tool folders, plus the cross-cutting `docs/`, `scripts/`, `snippets/`, `templates/`, and `00_index/` layers. The toolchain runs from Linux and Git fundamentals up through Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, ZAP, Nuclei, SonarQube, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
-- [Checkov custom policy authoring comparison](checkov/notebooks/compare-custom-policy-expressiveness.ipynb) — Four authoring styles for one "no public S3 bucket" rule, scored against a labelled corpus
-- [ZAP scan strategy comparison](zap/notebooks/scan-strategy-comparison-patterns.ipynb) — Passive baseline vs active full scan vs narrowed-context active scan, and what each one costs you
-- [Validate environments deploy config](environments/scripts/2026-10-01-validate-deploy-config.sh) — Walk dev, staging, and prod checking for the four files each root module needs
-- [Audit asset references](assets/scripts/2026-10-01-audit-asset-references.sh) — Find the diagrams on disk and the docs that link to them, and spot the ones nothing references
-- [GitGuardian CI/CD secret scanning integration](gitguardian/docs/cicd-secret-scanning-integration.md) — Wiring ggshield into pipelines with pre-commit, pull-request, and scheduled scans plus incident-response hooks
+- [Minimal Falco runtime config](falco/configs/2026-10-03-minimal-runtime-config.yaml) — The daemon config Falco is pointed at with `--config`: which rule files load, JSON alert output, and the rate limit that decides whether a looping rule floods the log
+- [Host health check and rollback](linux/scripts/health-check-and-rollback.sh) — One entry point with `check`, `snapshot`, and `rollback` subcommands, environment-overridable thresholds, and separate exit codes for healthy, degraded, and critical
+- [Linux production system administration runbook](linux/docs/system-administration-runbook.md) — A deterministic triage sequence for a degraded host: reachability, then load, memory, and disk in that order, then stabilisation and handoff
+- [First look around a Linux box](linux/notes/2026-10-02-explore-linux-environment.md) — `uname -a`, `/etc/os-release`, `whoami`, `df -h`, and the permission and process surprises that follow
+- [Validate custom Checkov policies](checkov/scripts/validate-policies.sh) — Structural checks on every policy folder, required-section validation, `checkov --external-checks-dir` where available, and a yamllint pass
 
 ## Layout
 
@@ -43,20 +43,20 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 <summary>Coverage table</summary>
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total | Last verified |
-|------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|----------:|----------:|---------:|---------------|
-| checkov | 4 | 6 | 2 | 3 | 4 | 20 | 3 | 0 | 4 | 1 | 47 | 2026-09-17 |
+|------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|----------:|----------:|---------------|
+| checkov | 4 | 6 | 3 | 3 | 4 | 20 | 3 | 0 | 4 | 1 | 48 | 2026-09-17 |
 | trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 38 | 2026-09-04 |
 | syft | 4 | 6 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 37 | 2026-09-03 |
 | trivy | 6 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 35 | 2026-09-05 |
 | zap | 6 | 5 | 3 | 2 | 4 | 8 | 1 | 1 | 1 | 0 | 31 | 2026-09-30 |
 | codeql | 4 | 2 | 1 | 1 | 5 | 8 | 2 | 1 | 1 | 0 | 25 | 2026-09-18 |
 | opa | 3 | 2 | 2 | 1 | 3 | 9 | 4 | 0 | 0 | 0 | 24 | 2026-08-27 |
+| falco | 4 | 4 | 3 | 4 | 1 | 4 | 1 | 0 | 2 | 0 | 23 | 2026-10-03 |
 | semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 2 | 2 | 3 | 0 | 23 | 2026-09-29 |
 | snyk | 4 | 2 | 1 | 2 | 1 | 11 | 1 | 1 | 0 | 0 | 23 | 2026-09-02 |
 | gitguardian | 4 | 3 | 3 | 2 | 2 | 9 | 0 | 0 | 0 | 0 | 23 | 2026-09-30 |
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-08-10 |
 | terrascan | 5 | 2 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 21 | 2026-09-27 |
-| falco | 4 | 4 | 3 | 3 | 1 | 4 | 1 | 0 | 2 | 0 | 22 | 2026-09-30 |
 | grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | — |
 | vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-08-30 |
 | cosign | 4 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 18 | 2026-09-25 |
@@ -71,6 +71,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
 | assets | 3 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 9 | 2026-09-30 |
 | kubernetes | 2 | 1 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 0 | 7 | 2026-09-22 |
+| linux | 3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-10-02 |
 | kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | opentofu | 3 | 0 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | defectdojo | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
@@ -78,7 +79,6 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | helm | 3 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 5 | 2026-09-21 |
 | grafana | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-09-26 |
 | gitleaks | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-19 |
-| linux | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-08-17 |
 | prometheus | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-20 |
 | nuclei | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 | tfsec | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
@@ -89,7 +89,7 @@ _Grype's notes carry no `last_verified` front-matter, so its column reads —. T
 
 ## Status
 
-Primers and per-tool quickstarts are complete across most of the toolchain, and the depth work is now in integration patterns rather than first contact. Recent additions went into comparative analysis — a notebook scoring four Checkov custom-policy authoring styles for one rule, and one weighing ZAP's passive, active, and narrowed-context scan strategies — and into small maintenance scripts for the environments and assets layers. Current focus is policy-authoring depth for the IaC scanners and small operational scripts that keep the kit's own folders honest.
+Primers and per-tool quickstarts are complete across most of the toolchain, and the depth work is now in operational runbooks and integration patterns rather than first contact. Recent additions moved to two places: a Linux system administration runbook plus a single-entry-point health check and rollback script, and a minimal Falco daemon config that documents the knobs a first run actually needs. Current focus is operational depth — host triage, policy validation, and the config files that sit underneath the tools.
 
 ---
-_Last updated: 2026-10-02_
+_Last updated: 2026-10-03_

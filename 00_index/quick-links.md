@@ -37,6 +37,8 @@
 - [Vault seal/unseal troubleshooting](../docs/troubleshooting/vault-seal-unseal.md)
 - [Jenkins troubleshooting](../docs/troubleshooting/jenkins-troubleshooting.md)
 - [Kafka consumer lag](../docs/troubleshooting/kafka-consumer-lag.md)
+- [Linux production system administration runbook](../linux/docs/system-administration-runbook.md) — A deterministic triage sequence for a degraded host: reachability first, then load, memory, and disk in that order, then stabilisation and handoff
+- [Host health check and rollback](../linux/scripts/health-check-and-rollback.sh) — One entry point with check, snapshot, and rollback subcommands; thresholds overridable from the environment, exit codes separating healthy from degraded and critical
 
 ### Explore Syft SBOM capabilities
 
@@ -80,6 +82,7 @@
 - [Falco rule optimization with priority-based filtering](../falco/docs/rule-optimization-priority-filtering.md) — Rank the noisiest rules first, then cut volume with lists, macros, and priority-tiered routing
 - [Tuned Falco rules for noise reduction](../falco/docs/tuned-falco-rules-noise-reduction.md)
 - [Falco event output formats](../falco/notebooks/falco-event-output-formats.ipynb) — What each output format is good for when events leave the node
+- [Minimal Falco runtime config](../falco/configs/2026-10-03-minimal-runtime-config.yaml) — The daemon config passed to `falco --config`: which rule files load, JSON alert output, log level, and the output rate limit
 - [First custom Falco rule](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
 - [Falco K8s admission control rule](../falco/manifests/falco-k8s-admission-control.yaml)
 - [Custom rules library scaffold](../falco/templates/falco-custom-rules-library/README.md) — Rules, tests, and a runner for iterating on a ruleset locally
@@ -108,6 +111,7 @@
 
 ### Learn Linux shell scripting
 
+- [First look around a Linux box](../linux/notes/2026-10-02-explore-linux-environment.md) — `uname -a`, `/etc/os-release`, `whoami`, `df -h`, and the permission and process surprises that turn up on the first pass
 - [Linux VM terminal first commands](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md)
 - [Linux shell scripting tutorial confusions](../linux/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md)
 - [Cron job configuration](../linux/configs/2026-08-06-cron-job-configuration.ini)
@@ -222,6 +226,7 @@
 
 - [Semgrep primer](../semgrep/notes/0000-primer-semgrep.md)
 - [Checkov primer](../checkov/notes/0000-primer-checkov.md)
+- [Validate custom Checkov policies](../checkov/scripts/validate-policies.sh) — Structural and required-section checks on every policy folder, then `checkov --external-checks-dir` and a yamllint pass
 - [Checkov 2.x to 3.x upgrade checklist](../checkov/docs/checkov-v3-upgrade-checklist.md) — Roll out the major-version upgrade on a trial branch without breaking the CI gate
 - [Checkov cross-module scanning limitations](../checkov/notebooks/compare-cross-module-scanning-limitations.ipynb) — Static directory scan vs plan JSON scan for cross-module IaC
 - [Checkov custom policy authoring comparison](../checkov/notebooks/compare-custom-policy-expressiveness.ipynb) — Four authoring styles for one "no public S3 bucket" rule, scored against a labelled corpus

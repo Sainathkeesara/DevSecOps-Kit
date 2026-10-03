@@ -25,12 +25,12 @@
 - **configs** (1): [2026-09-29-asset-index.yaml](../assets/configs/2026-09-29-asset-index.yaml)
 - _…and 4 diagram files at `assets/` root (`architecture-overview.png`, `cicd-workflow.png`, `devsecops-pipeline.png`, and a README) — browse the folder._
 
-## checkov  ·  47 files
+## checkov  ·  48 files
 
 - **primer:** [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md)
 - **notes** (4): [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md), [2026-05-25-scan-terraform-plan.md](../checkov/notes/2026-05-25-scan-terraform-plan.md), [2026-05-26-cli-vs-sdk-comparison.md](../checkov/notes/2026-05-26-cli-vs-sdk-comparison.md) — _…and 1 more under `checkov/notes/`._
 - **docs** (6): [checkov-v3-upgrade-checklist.md](../checkov/docs/checkov-v3-upgrade-checklist.md), [checkov-integration-patterns.md](../checkov/docs/checkov-integration-patterns.md), [multi-cloud-policy-management.md](../checkov/docs/multi-cloud-policy-management.md) — _…and 3 more under `checkov/docs/`._
-- **scripts** (2): [deep-terraform-plan-scan.sh](../checkov/scripts/deep-terraform-plan-scan.sh), [scan-terraform-plan.sh](../checkov/scripts/scan-terraform-plan.sh)
+- **scripts** (3): [validate-policies.sh](../checkov/scripts/validate-policies.sh), [deep-terraform-plan-scan.sh](../checkov/scripts/deep-terraform-plan-scan.sh), [scan-terraform-plan.sh](../checkov/scripts/scan-terraform-plan.sh)
 - **configs** (3): [checkov-ci-config.yaml](../checkov/configs/checkov-ci-config.yaml), [platform-config.yaml](../checkov/configs/platform-config.yaml), [checkov-skip-severity-config.yaml](../checkov/configs/checkov-skip-severity-config.yaml)
 - **snippets** (4): [scan-a-terraform-file.py](../checkov/snippets/scan-a-terraform-file.py), [scan-terraform-dir.py](../checkov/snippets/scan-terraform-dir.py), [scan-kubernetes.sh](../checkov/snippets/scan-kubernetes.sh) — _…and 1 more under `checkov/snippets/`._
 - **templates** (20): [multi-iac scan project](../checkov/templates/multi-iac-scan-project/README.md), [multi-repo drift auto-PR remediation](../checkov/templates/multi-repo-drift-auto-pr-remediation/README.md), [reusable custom-policy workflow](../checkov/templates/reusable-workflow-custom-policies/README.md)
@@ -99,13 +99,13 @@
 - **configs** (2): [2026-09-30-minimal-environments-config.yaml](../environments/configs/2026-09-30-minimal-environments-config.yaml), [2026-09-19-first-variable-set.yaml](../environments/configs/2026-09-19-first-variable-set.yaml)
 - _…and 12 Terraform files under `environments/dev/`, `environments/staging/`, `environments/prod/` — browse the folders._
 
-## falco  ·  22 files
+## falco  ·  23 files
 
 - **primer:** [0000-primer-falco.md](../falco/notes/0000-primer-falco.md)
 - **notes** (4): [0000-primer-falco.md](../falco/notes/0000-primer-falco.md), [2026-06-10-install-falco-first-detection.md](../falco/notes/2026-06-10-install-falco-first-detection.md), [2026-06-15-falco-rules-macros-lists.md](../falco/notes/2026-06-15-falco-rules-macros-lists.md) — _…and 1 more under `falco/notes/`._
 - **docs** (4): [runtime-security-monitoring-integration.md](../falco/docs/runtime-security-monitoring-integration.md), [rule-optimization-priority-filtering.md](../falco/docs/rule-optimization-priority-filtering.md), [tuned-falco-rules-noise-reduction.md](../falco/docs/tuned-falco-rules-noise-reduction.md) — _…and 1 more under `falco/docs/`._
 - **scripts** (3): [deploy-falco-ruleset.sh](../falco/scripts/deploy-falco-ruleset.sh), [tried-falco-k8s-alert-forwarding.sh](../falco/scripts/tried-falco-k8s-alert-forwarding.sh), [tried-falco-k8s-deploy-alert-forwarding.sh](../falco/scripts/tried-falco-k8s-deploy-alert-forwarding.sh)
-- **configs** (3): [first-custom-rule-detect-shell-in-container.yaml](../falco/configs/first-custom-rule-detect-shell-in-container.yaml), [container-drift-detection.yaml](../falco/configs/container-drift-detection.yaml), [2026-06-10-first-custom-rule-detect-shell-in-container.yaml](../falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml)
+- **configs** (4): [2026-10-03-minimal-runtime-config.yaml](../falco/configs/2026-10-03-minimal-runtime-config.yaml), [first-custom-rule-detect-shell-in-container.yaml](../falco/configs/first-custom-rule-detect-shell-in-container.yaml), [container-drift-detection.yaml](../falco/configs/container-drift-detection.yaml), [2026-06-10-first-custom-rule-detect-shell-in-container.yaml](../falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml)
 - **snippets** (1): [tried-file-access-detector.go](../falco/snippets/tried-file-access-detector.go)
 - **templates** (4): [custom rules library scaffold](../falco/templates/falco-custom-rules-library/README.md), [custom-rules.yaml](../falco/templates/falco-custom-rules-library/rules/custom-rules.yaml), [test-rules.sh](../falco/templates/falco-custom-rules-library/tests/test-rules.sh)
 - **manifests** (1): [falco-k8s-admission-control.yaml](../falco/manifests/falco-k8s-admission-control.yaml)
@@ -190,9 +190,11 @@
 - **configs** (1): [2026-09-19-first-lab-env.yaml](../lab/configs/2026-09-19-first-lab-env.yaml)
 - _…and 10 more files under `lab/mini-projects/` (postgres, samba, and Terraform practice setups) — browse the folder._
 
-## linux  ·  3 files
+## linux  ·  6 files
 
-- **notes** (2): [2026-07-21-install-linux-vm-terminal-first-commands.md](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md), [2026-08-06-linux-shell-scripting-tutorial-confusions.md](../linux/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md)
+- **notes** (3): [2026-10-02-explore-linux-environment.md](../linux/notes/2026-10-02-explore-linux-environment.md), [2026-07-21-install-linux-vm-terminal-first-commands.md](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md), [2026-08-06-linux-shell-scripting-tutorial-confusions.md](../linux/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md)
+- **docs** (1): [system-administration-runbook.md](../linux/docs/system-administration-runbook.md)
+- **scripts** (1): [health-check-and-rollback.sh](../linux/scripts/health-check-and-rollback.sh)
 - **configs** (1): [2026-08-06-cron-job-configuration.ini](../linux/configs/2026-08-06-cron-job-configuration.ini)
 
 ## nuclei  ·  2 files
