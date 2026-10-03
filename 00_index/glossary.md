@@ -595,6 +595,17 @@
 - **Pre-commit gate vs CI gate** — Running ggshield before a commit (fast, developer-local, easy to bypass) versus running it in CI on the pull request (authoritative, slower). Real setups use both: local for feedback, CI to block the merge.
 - **Org secret-scanning policy** — One reviewable file that records which detectors stay enforced, which paths are ignored and why, who owns findings per directory, and what fields an incident handoff must carry. Copied per repo and narrowed to it, so the policy is decided in version control before CI scans are wired.
 - **Hosted vs self-managed scanning** — The two shapes secret scanning runs in: a hosted service receives scan content and returns findings, or a self-managed installation keeps content and findings inside team-operated infrastructure. Detection is comparable; what differs is data movement, operational burden, and failure modes. Data residency decides per repository tier and acts as a veto, not a weight.
+- **ggshield v2 config format** — The configuration layout introduced in ggshield 1.18, which restructures the top level and renames several keys. The minimum client version for the v2 format is part of the format itself, so a stale CLI reads the new file as if it were empty rather than failing loudly.
+- **Org baseline config** — One inherited scanning configuration that replaces many drifted per-repo files. Migrating to it means each repo's exceptions get promoted into the baseline with an owner, instead of being re-invented locally at every repository.
+- **Incremental monorepo rollout** — Turning scanning on tier by tier rather than across every repository at once. Keeps the blast radius of a bad configuration change to the estate that just adopted it, and lets each team's exclusions be settled before the next team inherits them.
+- **Scanner replacement** — Swapping one secret scanner out for another without losing coverage. The work is in the allowlists: what the old tool ignored must be re-expressed in the new tool's vocabulary, or the first full run comes back red on known-false positives and gets switched off.
+
+## Grype
+
+- **Scan target form (Grype)** — What you point the scanner at: an image reference, a directory, a filesystem, or a previously generated SBOM. The choice moves cost more than severity does — an image reference pulls the image and its layers and binds the scan to that tag or digest, while an SBOM scan costs the size of the report.
+- **Gate threshold owner** — The named person or team who owns the severity level a build is allowed to fail on. Without an owner the threshold gets changed ad hoc to unblock one pipeline and nobody can say later why it moved.
+- **Accepted baseline report** — The last machine-readable result that passed the gate, kept so the next build can be diffed against it. Without it, every run is a fresh list and a regression looks identical to a fresh finding.
+- **Report retention vs log output** — Writing a report to durable storage instead of printing it into the build log. Log output is read once and discarded; a retained report is what makes diffing, tracker upload, and post-incident reconstruction possible at all.
 
 ## Lab
 
@@ -615,6 +626,8 @@
 
 - **ReplicaSet** — The controller that keeps a stable set of identical Pods running for a Deployment. A Deployment creates a ReplicaSet, the ReplicaSet creates the Pods, and a Service selects those Pods by label.
 - **ClusterIP Service** — The default Kubernetes Service type: a stable virtual IP reachable only inside the cluster that load-balances to the backing Pods.
+- **ResourceQuota (Kubernetes)** — A namespace-scoped object that caps aggregate resource consumption (CPU, memory, object counts) for that namespace. Used with environment-scoped namespaces to bound a whole environment rather than a single team.
+- **RoleBinding (Kubernetes)** — A namespace-scoped grant binding a Role's permissions to users or groups within that namespace. The mechanism that lets teams coexist in a shared environment namespace without touching each other's workloads.
 
 ## Git
 
@@ -625,11 +638,6 @@
 
 - **Role (Ansible)** — A reusable unit of Ansible content with a conventional directory layout (`tasks/`, `handlers/`, `templates/`, `vars/`, `defaults/`). A role is valid with just one of those directories, so small projects scaffold only what they need and call roles from a `site.yml` entry point.
 - **site.yml (Ansible)** — The conventional entry-point playbook that maps plays to hosts and lists the roles each play runs, keeping the top level readable instead of growing one giant playbook.
-
-## Kubernetes
-
-- **ResourceQuota (Kubernetes)** — A namespace-scoped object that caps aggregate resource consumption (CPU, memory, object counts) for that namespace. Used with environment-scoped namespaces to bound a whole environment rather than a single team.
-- **RoleBinding (Kubernetes)** — A namespace-scoped grant binding a Role's permissions to users or groups within that namespace. The mechanism that lets teams coexist in a shared environment namespace without touching each other's workloads.
 
 ## Docker
 

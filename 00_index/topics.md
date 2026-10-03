@@ -120,11 +120,11 @@
 - **configs** (1): [config-strategy-layered-vs-conditional.yaml](../git/configs/config-strategy-layered-vs-conditional.yaml)
 - **snippets** (1): [2026-07-04-git-rebase-vs-merge-conflict-patterns.sh](../git/snippets/2026-07-04-git-rebase-vs-merge-conflict-patterns.sh)
 
-## gitguardian  ·  25 files
+## gitguardian  ·  26 files
 
 - **primer:** [0000-primer-gitguardian.md](../gitguardian/notes/0000-primer-gitguardian.md)
 - **notes** (4): [0000-primer-gitguardian.md](../gitguardian/notes/0000-primer-gitguardian.md), [2026-06-07-first-ggshield-scan.md](../gitguardian/notes/2026-06-07-first-ggshield-scan.md), [2026-06-14-first-secrets-scan-repo.md](../gitguardian/notes/2026-06-14-first-secrets-scan-repo.md) — _…and 1 more under `gitguardian/notes/`._
-- **docs** (3): [cicd-secret-scanning-integration.md](../gitguardian/docs/cicd-secret-scanning-integration.md), [gitguardian-incident-response-workflow.md](../gitguardian/docs/gitguardian-incident-response-workflow.md), [monorepo-ci-per-team-exclusions.md](../gitguardian/docs/monorepo-ci-per-team-exclusions.md)
+- **docs** (4): [gitguardian-secret-scanning-migration-patterns.md](../gitguardian/docs/gitguardian-secret-scanning-migration-patterns.md), [cicd-secret-scanning-integration.md](../gitguardian/docs/cicd-secret-scanning-integration.md), [gitguardian-incident-response-workflow.md](../gitguardian/docs/gitguardian-incident-response-workflow.md) — _…and 1 more under `gitguardian/docs/`._
 - **scripts** (3): [pre-commit-hook-ggshield.sh](../gitguardian/scripts/pre-commit-hook-ggshield.sh), [gg-incident-response-pipeline.sh](../gitguardian/scripts/gg-incident-response-pipeline.sh), [gitguardian-api-integration.py](../gitguardian/scripts/gitguardian-api-integration.py)
 - **configs** (3): [policy-configuration.yaml](../gitguardian/configs/policy-configuration.yaml), [monorepo-allowlists.yaml](../gitguardian/configs/monorepo-allowlists.yaml), [.ggshield.yaml](../gitguardian/configs/.ggshield.yaml)
 - **snippets** (2): [my-first-ggshield-commands.sh](../gitguardian/snippets/my-first-ggshield-commands.sh), [custom-policy-engine-ggshield.sh](../gitguardian/snippets/custom-policy-engine-ggshield.sh)
@@ -151,11 +151,11 @@
 - **notes** (3): [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md), [2026-09-26-explore-grafana-dashboard-ui.md](../grafana/notes/2026-09-26-explore-grafana-dashboard-ui.md), [2026-09-19-first-dashboard-browser.md](../grafana/notes/2026-09-19-first-dashboard-browser.md)
 - **configs** (1): [2026-09-19-first-datasource.yaml](../grafana/configs/2026-09-19-first-datasource.yaml)
 
-## grype  ·  20 files
+## grype  ·  21 files
 
 - **primer:** [0000-primer-grype.md](../grype/notes/0000-primer-grype.md)
 - **notes** (4): [0000-primer-grype.md](../grype/notes/0000-primer-grype.md), [2026-05-31-install-grype.md](../grype/notes/2026-05-31-install-grype.md), [2026-06-08-first-grype-scan.md](../grype/notes/2026-06-08-first-grype-scan.md) — _…and 1 more under `grype/notes/`._
-- **docs** (1): [grype-syft-integration-guide.md](../grype/docs/grype-syft-integration-guide.md)
+- **docs** (2): [vulnerability-management-pipeline-integration.md](../grype/docs/vulnerability-management-pipeline-integration.md), [grype-syft-integration-guide.md](../grype/docs/grype-syft-integration-guide.md)
 - **scripts** (8): [ci-ready-grype-scan.sh](../grype/scripts/ci-ready-grype-scan.sh), [minimal-grype-scan.sh](../grype/scripts/minimal-grype-scan.sh), [grype-end-to-end-scan-pipeline.sh](../grype/scripts/grype-end-to-end-scan-pipeline.sh) — _…and 5 more under `grype/scripts/`._
 - **configs** (1): [grype-ci-github-actions.yaml](../grype/configs/grype-ci-github-actions.yaml)
 - **snippets** (2): [my-first-grype-commands.sh](../grype/snippets/my-first-grype-commands.sh), [minimal-grype-scan.go](../grype/snippets/minimal-grype-scan.go)
