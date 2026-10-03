@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - gitguardian-017: `gitguardian/docs/gitguardian-secret-scanning-migration-patterns.md` — GitGuardian secret scanning migration patterns: ggshield v1→v2 config format, TruffleHog/Gitleaks tool migrations, org baseline rollout, monorepo incremental team adoption, legacy CI command upgrade (L5 docs)
+- gitguardian-017 (rework 1): `gitguardian/docs/gitguardian-secret-scanning-migration-patterns.md` — Rework: dropped the non-existent `--dry-run` flag on `secret scan path`, replaced `ggshield list detectors` with the dashboard detector list and `ggshield config list`, corrected the v2 format introduction version, corrected the `ci` subcommand availability, and aligned all config examples with the real `secret:`-nested v2 schema (`secret.ignored_paths` / `secret.ignored_detectors` / `secret.ignored_matches`). Companion configs `gitguardian/configs/.ggshield.yaml`, `gitguardian/configs/monorepo-allowlists.yaml`, and `gitguardian/configs/policy-configuration.yaml` rewritten to the same schema, and `gitguardian/docs/monorepo-ci-per-team-exclusions.md` updated to match (L5 docs)
 - gitguardian-015: `gitguardian/notebooks/choosing-between-on-premise-and-cloud-modes.ipynb` — Hosted vs self-managed GitGuardian decision notebook: data-movement residency veto, operational-burden trade-off, policy rollout and outage behaviour per shape, and a per-tier scoring function over four contrasting estates (L5 notebook)
 
 ## 2026-10-02

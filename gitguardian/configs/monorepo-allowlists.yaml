@@ -1,24 +1,23 @@
-version: "2"
-ignore-known-paths:
-  - "node_modules/"
-  - "vendor/"
-  - "dist/"
-  - "build/"
-  - ".terraform/"
-ignored-detectors:
-  - "generic_api_key"
-ignored-paths:
-  - "*.generated.go"
-  - "*.min.js"
-  - "frontend/src/generated/**"
-  - "backend/vendor/**"
-  - "infra/terraform/.terraform/**"
-allow:
-  - path: "services/payments/test/fixtures/**"
-    diff-start-line: 1
-  - path: "services/payments/docs/examples/**"
-    diff-start-line: 1
-  - path: "infra/modules/example/**"
-    diff-start-line: 1
-  - path: "examples/**/*.yaml"
-    diff-start-line: 1
+version: 2
+
+secret:
+  ignored_paths:
+    - "node_modules/"
+    - "vendor/"
+    - "dist/"
+    - "build/"
+    - ".terraform/"
+  ignored_detectors:
+    - "generic_api_key"
+  ignored_matches:
+    - name: "generated go"
+      match: "*.generated.go"
+    - name: "minified js"
+      match: "*.min.js"
+    - name: "frontend generated"
+      match: "frontend/src/generated/**"
+    - name: "backend vendor"
+      match: "backend/vendor/**"
+    - name: "terraform cache"
+      match: "infra/terraform/.terraform/**"
+ENDOFFILE

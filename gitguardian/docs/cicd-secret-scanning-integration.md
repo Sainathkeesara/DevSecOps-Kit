@@ -1,5 +1,5 @@
 ---
-last_verified: 2026-09-30
+last_verified: 2026-10-03
 tool_version: n/a
 sources: []
 ---
@@ -88,7 +88,7 @@ Register the PR-level scan as a required status check in the branch protection r
 
 - **Token scope too broad:** Using a GitGuardian account-level token instead of a scoped API token. The scan succeeds but findings are attributed to the wrong account, making triage harder.
 - **Config not picked up:** Scanning from a subdirectory without passing `--config-path` means the root `.ggshield.yaml` is ignored, so custom ignore rules and allowlists do not apply.
-- **Scheduled scan noise:** Without `paths-ignore` entries in the config, generated files and vendored dependencies produce false positives. Reference `gitguardian/configs/.ggshield.yaml` for baseline exclusions.
+- **Scheduled scan noise:** Without `secret.ignored_paths` entries in the config, generated files and vendored dependencies produce false positives. Reference `gitguardian/configs/.ggshield.yaml` for baseline exclusions.
 - **CI environment not detected:** `ggshield secret scan ci` relies on CI-specific environment variables. Running it outside a CI context (e.g. locally without `CI=true`) falls back to scanning the full diff, not the PR range.
 - **Merge gate bypassed:** If the secret-scanning job is not marked as required in branch protection, contributors can override the failure and merge anyway.
 

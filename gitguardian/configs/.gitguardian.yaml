@@ -1,0 +1,14 @@
+version: 2
+
+secret:
+  ignored_paths:
+    - "vendor/"
+    - "node_modules/"
+    - "dist/"
+  ignored_detectors:
+    - "generic_api_key"
+  ignored_matches:
+    - name: "generated go"
+      match: "*.generated.go"
+    - name: "infra legacy"
+      match: "infra/legacy/**"
