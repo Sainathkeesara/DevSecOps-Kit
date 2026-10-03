@@ -1,0 +1,91 @@
+# last_verified: 2026-10-03 · falco n/a
+# Minimal Falco runtime security configuration.
+#
+# This is the daemon config file Falco is pointed at with --config, not a rule
+# file: the other YAML files in this folder hold individual rules, this one
+# decides how those rules are loaded, how alerts are formatted, and where the
+# metrics endpoint listens.
+#
+# I wrote this while working through the quickstart, so it is deliberately
+# small. The reference config ships far more knobs than a first run needs and
+# I got lost in it, so I kept only the blocks I actually changed and left my
+# own notes on why underneath.
+
+# Rule files loaded at startup, in order. The first entry is the rule set that
+# ships with Falco; the second is the directory I drop my own rules into.
+rules_files:
+  - /etc/falco/falco_rules.yaml
+  - /etc/falco/rules.d
+
+# One JSON object per alert on stderr, so the container log is machine
+# readable. json_include_output_property keeps the human-readable output line
+# inside that object, which is what I grep for while debugging a rule.
+json_output: true
+json_include_output_property: true
+
+# Where the daemon's own messages go, and how loud they are. I dropped this
+# from debug to notice once rules were loading, because debug on a busy node
+# buries the startup lines I actually needed.
+log_stderr: true
+priority: notice
+
+# Global alert rate limiting: at most one alert per 0.2s, burst of 1 so a
+# single event is never held back. This is the setting that decides whether a
+# rule that fires in a loop can flood the output.
+outputs:
+  rate: 0.2
+  max_burst: 1
+
+# 0 means unbuffered. I left it unbuffered so alert order matches event order
+# when I tail the log.
+buffersize: 0
+
+# Stop at the first rule that matches an event instead of evaluating the rest
+# of the loaded rules against it. Cheaper, and the extra matches were noise for
+# the rules I care about.
+rule_matching: first
+
+# 0 disables the consecutive-event cutoff. I would rather have the gap in my
+# trail than silently drop events.
+syscall_event_timeouts:
+  max_consecutives: 0
+
+# Event sources instrumented on this node. container covers processes inside
+# containers, unconfined covers everything else on the host.
+runtime:
+  - container
+  - unconfined
+
+# Local metrics endpoint. I scrape this rather than counting alert lines,
+# because the counters are already broken down per rule.
+webserver:
+  enabled: true
+  listen_port: 8765
+  keepalive: true
+  threadiness: 0
+
+# Share the same rate limit with the instrumentation library Falco loads into
+# the processes it watches, so a chatty process cannot starve the rules.
+falco_libs:
+  client_enabled: true
+  client_rate: 0.2
+  client_max_burst: 1
+
+# Metrics collection. The counters cost nothing extra here since the endpoint
+# above is already on, so I left them all enabled.
+metrics:
+  enabled: true
+  interval_seconds: 3600
+  rules_counters_enabled: true
+  resource_utilization_enabled: true
+  state_counters_enabled: true
+  kernel_event_counters_enabled: true
+
+# Extra destinations appended to every alert's output. Empty for now: I add
+# entries here when I start forwarding alerts to a collector.
+append_output: []
+
+# Secondary debugging output stream. Off unless I am chasing a rule that will
+# not fire, because it duplicates every alert.
+stdout_output:
+  enabled: false

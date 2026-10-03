@@ -3011,3 +3011,10 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 
 ### Added (2026-10-02)
 - zap-031: `zap/notebooks/scan-strategy-comparison-patterns.ipynb` — ZAP scan strategy comparison: passive baseline vs active full scan vs narrowed-context active, with weighted coverage/speed/blast-radius scoring, plan job-graph parsing, and a report-diff helper (L6 notebook)
+
+## 2026-10-03
+
+### Added
+
+- linux-032: `linux/scripts/health-check-and-rollback.sh` — Linux host health check and rollback procedure in one script: `check` probes load per core, memory availability, filesystem and inode usage, zombie processes, failed units, out-of-memory lines and listening sockets (0 healthy / 1 degraded / 2 critical), `snapshot` copies a config file into a state directory with checksums, and `rollback` restores a snapshot, keeps the outgoing copy, and optionally restarts a unit; every threshold is environment-overridable and optional probes degrade to SKIP (L7 script)
+- falco-030: `falco/configs/2026-10-03-minimal-runtime-config.yaml` — Minimal Falco runtime security configuration: rule-file loading, JSON alert output, log level, global alert rate limiting, unbuffered output, first-match rule evaluation, instrumented event sources, and a local metrics endpoint, with notes on why each block is set the way it is (L2 config)
