@@ -3026,6 +3026,7 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 
 - linux-032: `linux/scripts/health-check-and-rollback.sh` — Linux host health check and rollback procedure in one script: `check` probes load per core, memory availability, filesystem and inode usage, zombie processes, failed units, out-of-memory lines and listening sockets (0 healthy / 1 degraded / 2 critical), `snapshot` copies a config file into a state directory with checksums, and `rollback` restores a snapshot, keeps the outgoing copy, and optionally restarts a unit; every threshold is environment-overridable and optional probes degrade to SKIP (L7 script)
 - falco-030: `falco/configs/2026-10-03-minimal-runtime-config.yaml` — Minimal Falco runtime security configuration: rule-file loading, JSON alert output, log level, global alert rate limiting, unbuffered output, first-match rule evaluation, instrumented event sources, and a local metrics endpoint, with notes on why each block is set the way it is (L2 config)
+- gitguardian-016: `gitguardian/configs/policy-configuration.yaml` — GitGuardian secret-scanning policy configuration template: enforced-detector baseline, scoped ignores with reasons, per-team ownership routing, incident-handoff fields, and CI gate posture (L5 config)
 
 ### Fixed
 

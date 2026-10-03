@@ -1,0 +1,93 @@
+# last_verified: 2026-10-03 · gitguardian n/a
+# Purpose: Org-level GitGuardian secret-scanning policy template. One file that
+#   records which detectors are enforced, which paths are ignored (and why), who
+#   owns findings per directory, and what fields an incident handoff must carry.
+# When to use: as the starting point for a new repo or monorepo team that needs
+#   a reviewable policy before wiring CI scans. Copy this file to the repo root
+#   next to the scan config and narrow every section to that repo.
+# Prerequisites: ggshield available to the team; a scoped API token stored as a
+#   CI secret; branch protection able to require the scan job on pull requests.
+# Steps: 1) set policy.name/scope; 2) keep detectors enforced unless a stated
+#   reason exists; 3) scope each ignore to the narrowest path plus a reason;
+#   4) fill ownership so every path has an owner; 5) fill incident-handoff so a
+#   confirmed leak is revoked and rotated, not just closed.
+# Verify: run a diff-scoped scan on a pull request and a full-path scan on a
+#   schedule; confirm fixture paths stay quiet while a canary secret outside
+#   those paths still blocks. See gitguardian/docs/cicd-secret-scanning-integration.md.
+# Common errors: ignoring a whole secret type instead of a path; an allow entry
+#   without an expiry/review date that silently becomes permanent; ownership with
+#   a directory gap so a finding has no router. See also
+#   gitguardian/configs/monorepo-allowlists.yaml for the monorepo allowlist shape
+#   and gitguardian/scripts/gg-incident-response-pipeline.sh for finding routing.
+
+version: "2"
+
+policy:
+  name: "org-default-secret-policy"
+  scope: "Per-repo copy; org baseline lives in version control, teams narrow it."
+  review_cadence: "Quarterly; every allow entry carries reviewed_on below."
+
+# Detectors stay enforced by default. Only list a slug here when the team has a
+# documented reason, and record that reason. Find the exact slug in the scan
+# output for this repo rather than copying one from another repo's config.
+ignored-detectors: []
+
+# Generated, vendored, and build-output paths that should never be scanned.
+# Keep this list short; anything source-like belongs under `allow` with a reason.
+ignore-known-paths:
+  - "node_modules/"
+  - "vendor/"
+  - "dist/"
+  - "build/"
+
+# Narrowly scoped path ignores. Each entry needs a reason and a review date so
+# it cannot silently become a permanent blind spot.
+ignored-paths:
+  - path: "*.min.js"
+    reason: "Build output checked in for serving; source maps stay scanned."
+  - path: "*.generated.go"
+    reason: "Code-generated; inputs are scanned at the generator templates."
+
+# Short-lived, tightly scoped allows for fixtures and examples. Prefer an
+# expiry over a permanent entry; anything without reviewed_on fails review.
+allow:
+  - path: "services/payments/test/fixtures/**"
+    reason: "Test fixtures with fake credentials; no real secrets committed."
+    reviewed_on: "2026-10-03"
+  - path: "docs/examples/**"
+    reason: "Documentation placeholders; kept out of runtime config dirs."
+    reviewed_on: "2026-10-03"
+
+# Every source directory must have an owner so a finding routes somewhere.
+# Directories are matched by longest prefix; keep the fallback entry last.
+ownership:
+  - prefix: "services/payments/"
+    owner: "payments-team"
+    channel: "team channel for payments findings"
+  - prefix: "infra/"
+    owner: "platform-team"
+    channel: "team channel for platform findings"
+  - prefix: "/"
+    owner: "security-oncall"
+    channel: "fallback for anything outside the prefixes above"
+
+# Minimum fields a confirmed incident handoff must carry. The handoff script
+# reads these from the scan JSON; see the incident response pipeline script.
+incident-handoff:
+  required_fields:
+    - "secret_path"
+    - "commit_sha"
+    - "detector"
+    - "owner"
+    - "rotation_status"
+  actions:
+    - "Revoke the exposed credential at the provider."
+    - "Rotate every copy, including CI secrets and local checkouts."
+    - "Confirm the follow-up scan for the same path is clean."
+
+# How strictly the policy is enforced. Blocking applies to pull-request scans;
+# scheduled full-repo scans report without blocking so history can be triaged.
+ci-gate:
+  pull_request_scan: "block"
+  scheduled_scan: "report"
+  merge_rule: "Scan job is a required status check; findings must be resolved or explicitly allowed before merge."
