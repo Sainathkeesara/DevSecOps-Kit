@@ -11,15 +11,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-1087 files across 41 tool and content folders — 38 tools, plus the cross-cutting `docs/`, `scripts/`, `snippets/`, `templates/`, and `environments/` layers. The toolchain runs from Linux and Git fundamentals up through Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, ZAP, Nuclei, SonarQube, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+1091 files across 43 top-level folders — 38 tool folders, plus the cross-cutting `docs/`, `scripts/`, `snippets/`, `templates/`, and `00_index/` layers. The toolchain runs from Linux and Git fundamentals up through Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, ZAP, Nuclei, SonarQube, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
 
 ## Quick links
 
+- [Checkov custom policy authoring comparison](checkov/notebooks/compare-custom-policy-expressiveness.ipynb) — Four authoring styles for one "no public S3 bucket" rule, scored against a labelled corpus
+- [ZAP scan strategy comparison](zap/notebooks/scan-strategy-comparison-patterns.ipynb) — Passive baseline vs active full scan vs narrowed-context active scan, and what each one costs you
+- [Validate environments deploy config](environments/scripts/2026-10-01-validate-deploy-config.sh) — Walk dev, staging, and prod checking for the four files each root module needs
+- [Audit asset references](assets/scripts/2026-10-01-audit-asset-references.sh) — Find the diagrams on disk and the docs that link to them, and spot the ones nothing references
 - [GitGuardian CI/CD secret scanning integration](gitguardian/docs/cicd-secret-scanning-integration.md) — Wiring ggshield into pipelines with pre-commit, pull-request, and scheduled scans plus incident-response hooks
-- [Falco rule engine vs eBPF probes](falco/notebooks/rule-engine-vs-ebpf-probes.ipynb) — Comparing Falco's syscall rule engine against Tetragon-style eBPF probes for runtime detection coverage
-- [Falco runtime security monitoring integration](falco/docs/runtime-security-monitoring-integration.md) — End-to-end Falco deployment with custom rules, priority routing, and alert forwarding
-- [ZAP CI/CD pipeline manifest](zap/manifests/zap-cicd-pipeline.yaml) — Reusable ZAP DAST workflow for GitHub Actions with baseline, full, and authenticated scan modes
-- [ZAP scan configuration migration guide](zap/docs/zap-scan-configuration-migration-guide.md) — Moving scattered scan configuration into one versioned Automation Framework plan
 
 ## Layout
 
@@ -44,11 +44,11 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total | Last verified |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|----------:|----------:|---------:|---------------|
-| checkov | 4 | 6 | 2 | 3 | 4 | 20 | 3 | 0 | 3 | 1 | 46 | 2026-09-17 |
+| checkov | 4 | 6 | 2 | 3 | 4 | 20 | 3 | 0 | 4 | 1 | 47 | 2026-09-17 |
 | trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 38 | 2026-09-04 |
 | syft | 4 | 6 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 37 | 2026-09-03 |
 | trivy | 6 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 35 | 2026-09-05 |
-| zap | 6 | 5 | 3 | 2 | 4 | 8 | 1 | 1 | 0 | 0 | 30 | 2026-09-30 |
+| zap | 6 | 5 | 3 | 2 | 4 | 8 | 1 | 1 | 1 | 0 | 31 | 2026-09-30 |
 | codeql | 4 | 2 | 1 | 1 | 5 | 8 | 2 | 1 | 1 | 0 | 25 | 2026-09-18 |
 | opa | 3 | 2 | 2 | 1 | 3 | 9 | 4 | 0 | 0 | 0 | 24 | 2026-08-27 |
 | semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 2 | 2 | 3 | 0 | 23 | 2026-09-29 |
@@ -62,14 +62,14 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | cosign | 4 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 18 | 2026-09-25 |
 | dependabot | 7 | 3 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 0 | 18 | 2026-09-26 |
 | docker | 2 | 2 | 3 | 1 | 0 | 7 | 1 | 2 | 0 | 0 | 18 | 2026-09-23 |
-| environments | 4 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 18 | 2026-09-30 |
+| environments | 4 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 19 | 2026-09-30 |
 | lab | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-09-20 |
 | argocd | 6 | 2 | 0 | 2 | 0 | 0 | 3 | 0 | 0 | 0 | 13 | 2026-09-23 |
 | github-actions | 5 | 0 | 0 | 4 | 2 | 0 | 2 | 0 | 0 | 0 | 13 | 2026-09-21 |
 | tetragon | 3 | 1 | 3 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 11 | 2026-09-26 |
 | ansible | 3 | 1 | 3 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
 | git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
-| assets | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 8 | 2026-09-30 |
+| assets | 3 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 9 | 2026-09-30 |
 | kubernetes | 2 | 1 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 0 | 7 | 2026-09-22 |
 | kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | opentofu | 3 | 0 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
@@ -89,7 +89,7 @@ _Grype's notes carry no `last_verified` front-matter, so its column reads —. T
 
 ## Status
 
-Primers and per-tool quickstarts are complete across most of the toolchain, and the depth work is now in integration patterns rather than first contact. Recent additions went into runtime security — a Falco deployment walkthrough covering custom rules, priority routing, and alert forwarding, plus a notebook weighing Falco's syscall rule engine against eBPF probes — and into secret-scanning pipelines with a GitGuardian CI/CD integration guide. Current focus is runtime detection depth and pipeline integrations for the security scanners.
+Primers and per-tool quickstarts are complete across most of the toolchain, and the depth work is now in integration patterns rather than first contact. Recent additions went into comparative analysis — a notebook scoring four Checkov custom-policy authoring styles for one rule, and one weighing ZAP's passive, active, and narrowed-context scan strategies — and into small maintenance scripts for the environments and assets layers. Current focus is policy-authoring depth for the IaC scanners and small operational scripts that keep the kit's own folders honest.
 
 ---
-_Last updated: 2026-10-01_
+_Last updated: 2026-10-02_
