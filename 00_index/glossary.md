@@ -566,6 +566,9 @@
 - **Custom policy authoring style** — The shape a hand-written Checkov policy takes: a single-attribute YAML comparison, a whole-value YAML policy set, a per-key YAML policy set, or a Python check. The choice matters more than the rule, because each style decides differently about resources that say nothing about the attribute being policed.
 - **Absent vs violating (IaC policy)** — The distinction a custom policy has to make about a resource that carries no value for the attribute under inspection. For "no bucket may carry a public ACL", a bucket with no ACL information is not a finding. Policies that conflate the two over-report on every resource that simply omits the field.
 - **Labelled fixture corpus** — A small set of hand-classified resources every policy strategy is scored against, so recall and precision are measured on the same ground rather than argued about. The expected per-strategy split is asserted in code, so a later edit that changes a policy's semantics fails loudly instead of quietly re-scoring.
+- **Required policy sections** — The blocks a hand-written custom policy must carry (`metadata`, `definition`, and a declared `scope`) for Checkov to load it at all. Validating them before a scan turns a silently-ignored policy into a build failure.
+- **`--external-checks-dir`** — The flag that points Checkov at a directory of custom policies outside the repository it is scanning. It is what makes a shared, version-controlled policy library usable from more than one repository.
+- **Policy lint vs policy scan** — Two different checks on the same file. A lint asks whether the YAML parses and the required sections are present; a scan asks whether real infrastructure violates the rule. Running only the scan means a malformed policy reports as "clean".
 
 ## CodeQL
 
@@ -579,6 +582,11 @@
 - **Rule priority** — The severity tier Falco attaches to each rule firing (from Emergency down to Informational/Debug). Tuning starts by ranking rules on volume, then routing by tier: page on Warning and above while lower tiers stay searchable in logs.
 - **Priority override** — Changing a rule's priority in a custom rules layer instead of copying and editing the vendor default. Overrides keep the custom layer small and survive upstream ruleset updates.
 - **Rule engine vs eBPF probe** — Two ways to detect runtime behaviour. Falco's built-in engine matches syscall events against rules, which is cheap and easy to reason about; eBPF probes hook specific kernel functions for richer context (caller, arguments, stack) at the cost of per-kernel maintenance. Falco sits closer to the first camp than Tetragon does.
+- **Daemon config vs rule file (Falco)** — Two different kinds of YAML in the same folder. A rule file describes one detection; the daemon config is what `--config` points at and decides how rules are loaded, how alerts are formatted, and where the metrics endpoint listens.
+- **`rules_files`** — The ordered list of rule sources the daemon loads at startup — the shipped ruleset first, then your own directory. Appending a directory rather than copying vendor rules is what keeps a custom layer small and survives a ruleset update.
+- **Output rate limiting (`rate` / `max_burst`)** — The global cap on how many alerts Falco emits per second, with a burst allowance. This is the setting that decides whether a rule firing in a loop floods the log; `max_burst: 1` guarantees a single event is never held back.
+- **Unbuffered output** — Writing each alert as it happens rather than in blocks, so the order of lines in the log matches the order of the events. Worth choosing when you are tailing output to follow a rule firing live.
+- **Log priority** — Syslog severity for the daemon's own messages, separate from the priority a rule attaches to an alert. Dropping it from `debug` to `notice` after rules are loading keeps the startup lines from being buried on a busy node.
 
 ## GitGuardian
 
@@ -721,3 +729,14 @@
 - **Blast radius (scan planning)** — How much state a scan is allowed to change on the target it runs against. A passive baseline has none; an active scan that sends state-changing requests against a target you do not own is the maximum. Scored when comparing strategies so an unowned or production target is not scanned with the wrong one.
 - **Context-based scan (ZAP)** — An active scan narrowed to a known endpoint list, authenticated contexts, or specific input parameters, so coverage is concentrated where the risk is instead of spread over everything the crawler found.
 - **Seed vs crawl (scan planning)** — Whether discovery starts from a spider walk or from an endpoint inventory you already hold. Seeding skips discovery time and can cover routes a spider never reaches; crawling finds what you forgot to list.
+
+## Linux system administration
+
+- **Reachable but degraded** — The triage distinction between a host you cannot log into at all and a host that answers with a problem. They are different incidents with different next steps, and collapsing them sends you to the console when the fix was a full disk.
+- **Resource triage order** — Checking load, memory, and disk in that order rather than all at once, because each reading changes how you interpret the others: high load with free memory points at CPU, high load with no free memory points at pressure.
+- **Severity ladder (host health)** — Reporting a check's outcome as a small ordered set (healthy, degraded, critical) and exiting with a distinct code per level, so a monitoring system can page on one level and only record the other.
+- **Per-host profile override** — Letting every threshold in a health check be overridden from the environment, so a host with unusual disk sizing gets its own numbers without editing the script body.
+- **Zombie process** — A process whose parent has exited but which has not been reaped. A handful is normal churn; a large count means something is not collecting its children.
+- **Inode pressure** — Running out of file entries while free space remains. `df` on blocks alone reports the filesystem as healthy, so a usage check that ignores inodes misses a whole class of "disk full" incidents.
+- **Snapshot before change** — Capturing the current state of a host immediately before a change so the rollback has a known-good target. Without it, "roll back" means reconstructing from memory.
+- **Resource saturation vs memory pressure** — Two different exhaustion paths: the CPU run queue exceeding core count, and available memory falling under a percentage floor. They are measured against different numbers and get different first responses.
