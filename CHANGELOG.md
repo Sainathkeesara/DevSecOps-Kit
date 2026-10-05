@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- opa-016: `opa/docs/integrating-opa-with-policy-as-code-governance.md` — Integrating OPA with policy-as-code governance: the three-tier parameter contract (declared in `openAPIV3Schema`, supplied by `spec.parameters`, consumed by a `deny` rule) with a dev/staging/prod value table, dependency-ordered promotion (`Config` → ConstraintTemplate → Constraint) with `SkipDryRunOnMissingResource` and `FailOnSharedResource` guardrails, fail-closed switched last against the audit trail with the `timeoutSeconds: 3` control-plane coupling and the unmanaged-ValidatingWebhookConfiguration recovery rule, and a Terraform-plan gate that reuses the same Rego through the admission envelope (L5 docs)
 - grype-043: `grype/docs/grype-vulnerability-reporting-migration-patterns.md` — Grype vulnerability reporting migration patterns: format-as-parameter, retain raw JSON alongside published reports, migrate consumers one at a time, publish SARIF as a file, and normalize finding identity before diff-gating (L5 docs)
 
 ## 2026-10-04
