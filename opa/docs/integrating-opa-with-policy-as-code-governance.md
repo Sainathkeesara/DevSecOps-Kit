@@ -1,364 +1,335 @@
 ---
 last_verified: 2026-10-05
-tool_version: n/a
-sources: []
+tool_version: 3.23.1
+sources:
+  - https://open-policy-agent.github.io/gatekeeper/website/docs/failing-closed/
+  - https://open-policy-agent.github.io/gatekeeper/website/docs/sync
+  - https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/
+  - https://argo-cd.readthedocs.io/en/stable/user-guide/sync-waves/
+  - https://pkg.go.dev/github.com/open-policy-agent/gatekeeper
+  - https://api.github.com/repos/open-policy-agent/gatekeeper/releases/latest
+  - https://api.github.com/repos/open-policy-agent/opa/releases/latest
 ---
+
 # Integrating OPA with policy-as-code governance
+
+Parameterizing one policy estate across dev, staging and prod, ordering its
+promotion, and gating the Terraform plan with the same Rego that admission
+will run.
 
 ## Purpose
 
-This document describes how to integrate Open Policy Agent (OPA) and Gatekeeper into a policy-as-code governance framework. It covers the organizational patterns, repository structures, and CI/CD integration points that enable consistent policy enforcement across infrastructure, Kubernetes, and application layers.
+A policy estate becomes hard to operate at the moment it has more than one
+environment. The ConstraintTemplate stops changing; the Constraint values
+start changing — which registries are acceptable, which checks are on, which
+namespaces are skipped — and each of those values is enforcement surface. This
+doc covers the three decisions that follow from that: what the parameter
+surface looks like, what order the policy objects are promoted in, and what
+runs before anything reaches the cluster.
+
+The mechanics of authoring a template, deploying it and testing it live in
+the three artifacts listed under Prerequisites. This doc starts where those
+end and does not repeat them.
 
 ## When to use
 
-Adopt this pattern when:
-
-- Multiple teams need shared policy definitions with versioned, auditable changes
-- Policy enforcement must span Kubernetes admission control, Terraform plan validation, and CI gate checks
-- Compliance requirements demand traceability from policy source to enforcement point
-- Existing Gatekeeper or OPA deployments operate in isolation and need unified governance
+- One ConstraintTemplate is shared by dev, staging and prod Constraints, and
+  the environments need different answers from it.
+- The policy objects are applied by a GitOps controller and the CRD-creation
+  ordering is producing sync failures.
+- Enforcement is being switched from audit to fail-closed and the blast radius
+  of that switch needs to be bounded.
+- A policy violation is currently discovered as a rejected apply and should
+  instead fail at plan time.
 
 ## Prerequisites
 
-- OPA CLI installed for local policy development and testing
-- Gatekeeper deployed in target Kubernetes clusters (v3.x or later)
-- Git repository for policy source code with branch protection and review requirements
-- CI/CD system capable of running `opa eval`, `opa test`, and `gatekeeper verify` steps
-- Basic familiarity with Rego syntax and Gatekeeper CRDs (ConstraintTemplate, Constraint)
+Three artifacts in this folder cover the authoring and deployment flow and
+are referenced, not restated:
+
+- [`wired-opa-admission-control.md`](wired-opa-admission-control.md) — local
+  evaluation → ConstraintTemplate → Constraint → ConfigMap deployment.
+- [`constraint-template-design-patterns.md`](constraint-template-design-patterns.md)
+  — `match` block and `openAPIV3Schema` design.
+- [`../templates/gatekeeper-policy-library-scaffold/`](../templates/gatekeeper-policy-library-scaffold/README.md)
+  — library Rego modules, two ConstraintTemplates, per-environment
+  Constraints, and a CI test workflow.
+
+The API group/versions used in the examples below
+(`templates.gatekeeper.sh/v1beta1`, `constraints.gatekeeper.sh/v1beta1`,
+`config.gatekeeper.sh/v1beta1`) are the ones the scaffold in this folder
+ships. Confirm what a given cluster serves before copying, since the served
+versions depend on the installed release:
+
+```bash
+kubectl api-resources | grep -i -E 'constraint|gatekeeper'
+```
+
+The enforcement engine this doc was verified against is Gatekeeper v3.23.1
+(OPA v1.21.1).
 
 ## Steps
 
-### 1. Organize policies in a monorepo structure
+### 1. Design the parameter surface before writing the Constraints
 
-Structure the policy repository to separate concerns and enable independent lifecycle management:
+A parameter exists in three places, and only the third one enforces anything:
 
-```
-policies/
-├── library/                 # Reusable Rego modules (helpers, data models)
-│   ├── k8s/
-│   │   ├── pod_security.rego
-│   │   └── network_policy.rego
-│   ├── terraform/
-│   │   └── aws_security.rego
-│   └── common/
-│       └── labeling.rego
-├── templates/               # Gatekeeper ConstraintTemplates
-│   ├── k8s-security-baseline.yaml
-│   └── terraform-plan-check.yaml
-├── constraints/             # Constraint instances per environment
-│   ├── dev/
-│   │   └── k8s-security-baseline.yaml
-│   ├── staging/
-│   │   └── k8s-security-baseline.yaml
-│   └── prod/
-│       └── k8s-security-baseline.yaml
-├── test/                    # Unit and integration tests
-│   ├── unit/
-│   │   └── k8s_security_test.rego
-│   └── integration/
-│       └── gatekeeper_e2e_test.sh
-└── ci/
-    ├── policy-lint.yaml
-    ├── policy-test.yaml
-    └── policy-deploy.yaml
-```
+| Tier | Object | Effect |
+|---|---|---|
+| Declared | `spec.crd.spec.versions[*].schema.openAPIV3Schema` on the ConstraintTemplate | Validates the Constraint's values and populates editor completion. Nothing more. |
+| Supplied | `spec.parameters` on the Constraint | Reaches the policy as `input.parameters`. Nothing more. |
+| Consumed | a `deny` rule inside `spec.targets[*].rego` | Changes what is admitted. |
 
-**Rationale:** This layout isolates reusable logic (`library/`) from deployment artifacts (`templates/`, `constraints/`), enables environment-specific parameterization via `constraints/<env>/`, and keeps CI pipelines co-located with the policies they validate.
+A value that stops at the first two tiers is silently ignored: the Constraint
+applies cleanly, its `status` reports no violations, and nothing is enforced.
+The check for this is mechanical — for every key in the schema, name the rule
+that reads it. A key with no matching read is dead configuration.
 
-### 2. Implement shared library modules
-
-Create reusable Rego modules in `library/` that encode organizational standards. Import them in templates and CI policies to avoid duplication.
-
-Example `library/k8s/pod_security.rego`:
+Two parameter shapes cover most pod-security estates:
 
 ```rego
-package org.policies.k8s.pod_security
+package k8s.governance
 
-# Baseline deny rules shared across templates and CI checks
-deny_privileged[msg] {
-    container := input.spec.containers[_]
-    container.securityContext.privileged == true
-    msg := sprintf("Container %v runs privileged", [container.name])
+# The single extraction point. Every rule below reads `resource`, never a
+# bare `input.spec...`. See "one envelope, two callers" in Step 4.
+resource := input.review.object
+
+# --- registry tier: a list parameter with a default ------------------------
+default allowed_registries = ["docker.io", "gcr.io", "quay.io"]
+
+allowed_registries = input.parameters.allowedRegistries {
+  input.parameters.allowedRegistries
 }
 
-deny_host_network[msg] {
-    input.spec.hostNetwork == true
-    msg := "hostNetwork is not permitted"
+registry(img) = r {
+  parts := split(img, "/")
+  r := parts[0]
 }
 
-deny_host_path[msg] {
-    volume := input.spec.volumes[_]
-    volume.hostPath
-    msg := sprintf("Volume %v uses hostPath", [volume.name])
+deny[msg] {
+  container := resource.spec.containers[_]
+  reg := registry(container.image)
+  not reg == allowed_registries[_]
+  msg := sprintf("Image %v uses unapproved registry %v", [container.image, reg])
+}
+
+# --- boolean tier: a rule that reads the flag before it denies --------------
+deny[msg] {
+  container := resource.spec.containers[_]
+  input.parameters.requireReadOnlyRootFilesystem
+  not container.securityContext.readOnlyRootFilesystem == true
+  msg := sprintf("Container %v must set readOnlyRootFilesystem=true", [container.name])
 }
 ```
 
-Example `library/common/labeling.rego`:
+The boolean rule is written as an unconditional positive reference to
+`input.parameters.requireReadOnlyRootFilesystem`. In Rego a body expression
+that is undefined makes the whole rule undefined rather than false, so an
+absent parameter silently disables the rule — which is exactly the wanted
+behaviour for an environment that has not opted in yet. Nothing here needs a
+`default` for the same reason: the absence of the key *is* the "off" value.
 
-```rego
-package org.policies.common.labeling
-
-required_labels := {"team", "environment", "app"}
-
-missing_labels[label] {
-    label := required_labels[_]
-    not input.metadata.labels[label]
-}
-```
-
-### 3. Build ConstraintTemplates that import library modules
-
-Gatekeeper ConstraintTemplates embed Rego directly. Use the `library/` modules by copying them into the template or by mounting them via ConfigMap (advanced). For simplicity and portability, inline the required rules.
-
-Example `templates/k8s-security-baseline.yaml`:
+Namespace exemption does **not** belong in `parameters`. It is a scope
+decision and belongs in the `match` block's `excludedNamespaces` — the same
+`match` shape covered in
+[`constraint-template-design-patterns.md`](constraint-template-design-patterns.md),
+which scopes admission rather than adding a condition inside the policy:
 
 ```yaml
-apiVersion: templates.gatekeeper.sh/v1beta1
-kind: ConstraintTemplate
-metadata:
-  name: k8ssecuritybaseline
-spec:
-  crd:
-    spec:
-      names:
-        kind: K8sSecurityBaseline
-      validation:
-        openAPIV3Schema:
-          type: object
-          properties:
-            allowedRegistries:
-              type: array
-              items:
-                type: string
-            exemptNamespaces:
-              type: array
-              items:
-                type: string
-  targets:
-    - target: admission.k8s.gatekeeper.sh
-      rego: |
-        package k8s.security_baseline
-
-        import data.org.policies.k8s.pod_security
-        import data.org.policies.common.labeling
-
-        # Violation format expected by Gatekeeper
-        violation[{"msg": msg, "details": {}}] {
-            pod_security.deny_privileged[msg]
-            input.review.kind.kind == "Pod"
-        }
-        violation[{"msg": msg, "details": {}}] {
-            pod_security.deny_host_network[msg]
-            input.review.kind.kind == "Pod"
-        }
-        violation[{"msg": msg, "details": {}}] {
-            labeling.missing_labels[msg]
-            input.review.kind.kind == "Namespace"
-        }
-```
-
-**Note:** The `import data.org.policies...` paths assume the library modules are installed as ConfigMaps in the `gatekeeper-system` namespace under the same package structure. See step 5 for deployment.
-
-### 4. Parameterize constraints per environment
-
-Constraints in `constraints/<env>/` instantiate templates with environment-specific parameters.
-
-Example `constraints/dev/k8s-security-baseline.yaml`:
-
-```yaml
-apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: K8sSecurityBaseline
-metadata:
-  name: k8s-security-baseline-dev
 spec:
   match:
     kinds:
       - apiGroups: [""]
         kinds: ["Pod"]
-      - apiGroups: [""]
-        kinds: ["Namespace"]
     excludedNamespaces:
       - kube-system
       - gatekeeper-system
-  parameters:
-    allowedRegistries:
-      - "docker.io"
-      - "ghcr.io"
-    exemptNamespaces:
-      - "dev-*"
 ```
 
-Example `constraints/prod/k8s-security-baseline.yaml`:
+The per-environment split is then one template, three Constraints:
 
-```yaml
-apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: K8sSecurityBaseline
-metadata:
-  name: k8s-security-baseline-prod
-spec:
-  match:
-    kinds:
-      - apiGroups: [""]
-        kinds: ["Pod"]
-      - apiGroups: [""]
-        kinds: ["Namespace"]
-    excludedNamespaces:
-      - kube-system
-      - gatekeeper-system
-  parameters:
-    allowedRegistries:
-      - "registry.internal.corp"
-    exemptNamespaces: []
-```
+| Parameter | dev | staging | prod | Read by |
+|---|---|---|---|---|
+| `allowedRegistries` | defaults + internal mirrors | defaults + internal mirrors | defaults only | `allowed_registries` |
+| `requireReadOnlyRootFilesystem` | absent (check off) | `true` | `true` | second `deny` rule |
+| namespaces excluded | `kube-system`, `gatekeeper-system` | same | same | `match.excludedNamespaces` |
 
-### 5. Deploy library modules as Gatekeeper data
+Name the Constraints `<kind>-<env>` (`k8sgovernance-dev`,
+`k8sgovernance-staging`, `k8sgovernance-prod`) so a single `kubectl get
+constraints` distinguishes an estate from a single deployment. Keeping all
+three on the same template kind is the point: a change to the Rego is
+validated once and reaches all three environments, and only the values differ.
 
-Gatekeeper can load Rego modules as data via ConfigMaps in the `gatekeeper-system` namespace. This makes `library/` modules available to all templates without inlining.
+### 2. Promote in dependency order, never environment order backwards
 
-Create a ConfigMap from the `library/` directory:
+Within an environment the policy objects have a fixed order:
 
-```bash
-kubectl create configmap opa-policy-library \
-  --from-file=library/ \
-  -n gatekeeper-system \
-  --dry-run=client -o yaml > library-configmap.yaml
-```
+1. `Config` — the singleton that carries the engine-level knobs. It must be
+   named exactly `config`; the engine ignores a `Config` resource under any
+   other name, so a misnamed object applies cleanly and changes nothing.
+   `spec.match` here is where process exclusion (`[audit, webhook, sync]`) and
+   `excludedNamespaces` are set.
+2. `ConstraintTemplate` — which brings its Constraint CRD into existence with
+   it.
+3. `Constraint` — the per-environment values.
 
-Annotate the ConfigMap so Gatekeeper loads it:
+Step 2 is not a formality. The Constraint CRD is created out-of-band, in
+response to a user-defined ConstraintTemplate, so a sync that reaches
+Constraints before templates fails with `the server could not find the
+requested resource`. Two things follow. The ordering above is the fix, and
+the sync option `argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true`
+— settable per resource or app-wide via `spec.syncPolicy.syncOptions` — is
+the safety net for the case where the CRD is genuinely created out of band.
+Its scope is narrow: the dry run still executes if the CRD is already present
+in the cluster, so it does not replace waiting for the template.
 
-```yaml
-metadata:
-  annotations:
-    gatekeeper.sh/policy-lib: "true"
-```
+Across environments the order is always dev → staging → prod, for both rule
+changes and parameter changes. Parameter changes are the more frequent case
+and carry the same risk, because a registry list is enforcement surface. Two
+guardrails belong to that promotion:
 
-Apply the ConfigMap before deploying ConstraintTemplates that import the library.
+- **Gate the sync.** Run the plan-stage policy job as a `PreSync` hook: "Apply
+  all the resources marked as PreSync hooks. If any of them fails the whole
+  sync process will stop and will be marked as failed." Its limitation is worth
+  writing into the runbook — hooks do not run during a selective sync
+  operation, so re-syncing one Constraint by hand bypasses the gate entirely.
+  That is why the plan gate in Step 4 also runs on every pull request.
+- **Keep the three environments in separate Applications.** By default the
+  controller applies all manifests found in the configured git path regardless
+  of whether the resources are already applied by another Application, so
+  dev/staging/prod Constraints sharing one path fight over the same objects.
+  `spec.syncPolicy.syncOptions` with `FailOnSharedResource=true` makes the
+  sync fail on that overlap instead of silently overwriting.
 
-### 6. Validate policies in CI before merge
+Tearing an environment down follows the reverse dependency order:
+Constraints → ConstraintTemplates → `Config`, then Gatekeeper, then prune. The
+sync finalizers Gatekeeper adds to synced resources have to be able to remove
+them from state before termination, and a prune that runs before that leaves
+objects stuck `Terminating`.
 
-Add a CI pipeline that runs on every pull request:
+### 3. Switch to fail-closed last, and only after observing the audit trail
 
-```yaml
-# ci/policy-test.yaml (GitHub Actions example)
-name: Policy Tests
-on: [pull_request]
+The engine defaults to `failurePolicy: Ignore` for admission-request webhook
+errors, and the documented impact is that "when the webhook is down, or
+otherwise unreachable, constraints will not be enforced. Audit is expected to
+pick up any slack in enforcement by highlighting invalid resources that made
+it into the cluster." The practical consequence for a policy estate is that a
+broken policy engine looks exactly like a passing one — which is the reason
+audit-mode observation has to precede the switch, not follow it.
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install OPA
-        run: |
-          curl -L -o opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64
-          chmod +x opa
-          sudo mv opa /usr/local/bin/
-      - name: Run unit tests
-        run: opa test ./test/unit -v
-      - name: Lint Rego
-        run: opa fmt -l ./library ./templates
-      - name: Validate ConstraintTemplates
-        run: |
-          for f in ./templates/*.yaml; do
-            gatekeeper verify "$f" || exit 1
-          done
-      - name: Test against sample resources
-        run: |
-          opa eval -d ./library -i ./test/fixtures/valid-pod.json "data.org.policies.k8s.pod_security.deny_privileged"
-          opa eval -d ./library -i ./test/fixtures/bad-pod.json "data.org.policies.k8s.pod_security.deny_privileged" | grep -q "privileged"
-```
+Fail-closing is a one-field edit: set `failurePolicy` to `Fail` on the
+ValidatingWebhookConfiguration named
+`gatekeeper-validating-webhook-configuration` (for manifest installs; Helm and
+operator installs use their own docs). Within each environment that is the
+last promotion step, after the Constraints have been live in audit mode
+against real workloads long enough for the violation list to be believed.
 
-**Key checks:**
-- `opa test` runs Rego unit tests (files ending in `_test.rego`)
-- `opa fmt -l` catches syntax errors and formatting issues
-- `gatekeeper verify` validates ConstraintTemplate CRD structure
-- Sample resource evaluation confirms policy behavior before deployment
+The cost is stated in the same source and belongs in the change record. The
+webhook is called for all API server requests under the default
+configuration, with `timeoutSeconds: 3`, so the availability of the control
+plane becomes subject to the availability of the webhook. The documented
+admission deadlock: delete every Node, all Gatekeeper servers die, and a
+request to add a Node cannot succeed until the webhook can serve, while the
+webhook cannot serve until a Node is added. The stated mitigation is deleting
+the ValidatingWebhookConfiguration — so if that object is a managed resource
+in a GitOps repo with `selfHeal: true`, the recovery action is undone by the
+controller that is itself wedged. **The ValidatingWebhookConfiguration used
+for emergency recovery must not be an Argo CD-managed resource.**
 
-### 7. Promote constraints through environments
+One further trade-off applies to availability rather than correctness:
+increasing the number of webhook pods may increase the time it takes for a
+constraint to be enforced by all pods in the system, so replicas only help if
+they are not in a shared failure domain.
 
-Use a promotion pipeline that applies constraints progressively:
+### 4. Gate the Terraform plan with the same modules
 
-```yaml
-# ci/policy-deploy.yaml
-name: Policy Deploy
-on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        type: choice
-        options: [dev, staging, prod]
-        required: true
+The parameter contract in Step 1 has a second consumer. Because every rule
+reads `resource`, and `resource` resolves from a single expression, the same
+module runs in two places from one definition:
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.environment }}
-    steps:
-      - uses: actions/checkout@v4
-      - name: Apply library ConfigMap
-        run: kubectl apply -f library-configmap.yaml
-      - name: Apply ConstraintTemplates
-        run: |
-          for f in ./templates/*.yaml; do
-            kubectl apply -f "$f"
-          done
-      - name: Apply Constraints for environment
-        run: |
-          kubectl apply -f ./constraints/${{ github.event.inputs.environment }}/
-      - name: Wait for audit
-        run: |
-          sleep 30
-          kubectl get constraints -A -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.status.totalViolations}{"\n"}{end}'
-```
+| Caller | Input document | `resource` resolves to |
+|---|---|---|
+| Admission (Gatekeeper) | the engine's admission review | `input.review.object` |
+| Plan gate (CI) | `{"review": {"object": <resource>}}` | the wrapped resource |
 
-**Promotion gates:**
-- `dev`: Auto-deploy on merge to main
-- `staging`: Manual approval, run audit-only mode first (`enforcementAction: dryrun`)
-- `prod`: Manual approval, require zero new violations in staging audit
+The gate does not need a second copy of the rules or an adapter layer — it
+produces the same envelope admission does and evaluates the same Rego against
+the resources the plan is about to create. The local evaluation path is
+already in this folder: [`../scripts/how-i-test-policies-locally.sh`](../scripts/how-i-test-policies-locally.sh)
+wraps one policy file and one input document, and the scaffold's
+`.github/workflows/ci-test.yml` runs its test harness on every pull request
+that touches `policies/` or `constraint-templates/`.
 
-### 8. Extend to Terraform and CI gate checks
+Three properties make the gate worth running before promotion rather than
+after:
 
-Reuse the same `library/` modules for Terraform plan validation and generic CI gates.
+- **It evaluates against the parameters that will be live.** Load the
+  environment's Constraint values as the parameter set. A gate that judges with
+  dev's permissive registry list and a cluster running prod's narrow one
+  reports green for work prod will reject; the divergence between the gate's
+  parameters and the deployed Constraint is the defect this closes.
+- **It runs where selective sync cannot reach it.** Pull-request checks are not
+  affected by the selective-sync limitation on `PreSync` hooks.
+- **It fails before infrastructure exists.** A rejected plan is a failed check;
+  a rejected apply is a half-finished promotion with the environment's
+  enforcement state already changed.
 
-Example Terraform policy `ci/terraform-gate.rego`:
-
-```rego
-package org.policies.terraform
-
-import data.org.policies.terraform.aws_security
-
-violation[msg] {
-    aws_security.deny_public_s3[msg]
-    input.resource_changes[_]
-}
-```
-
-Run in CI:
-
-```bash
-terraform plan -out=tfplan
-terraform show -json tfplan > tfplan.json
-opa eval --format pretty --data library/terraform/aws_security.rego --data ci/terraform-gate.rego --input tfplan.json "data.org.policies.terraform.violation"
-```
+Ordering across the whole estate is then: plan gate → promote dev → promote
+staging → promote prod → flip fail-closed in prod last.
 
 ## Verify
 
-- All unit tests pass: `opa test ./test/unit`
-- ConstraintTemplates apply without CRD errors: `gatekeeper verify ./templates/*.yaml`
-- Constraints create successfully in each target environment
-- Audit reports zero unexpected violations in staging before prod promotion
-- Terraform plan gate blocks non-compliant changes in CI
+- `kubectl get constrainttemplates` lists the templates before any Constraint
+  in the same promotion references them, and `kubectl get constraints` shows
+  one Constraint per environment with the same template kind.
+- `kubectl get constraint k8sgovernance-prod -o yaml` shows the production
+  parameter values, and the same command against the dev Constraint shows the
+  wider registry list — the two differ only in `spec.parameters` and
+  `spec.match`.
+- For every key in a template's `openAPIV3Schema`, a rule in
+  `spec.targets[*].rego` reads `input.parameters.<key>`. A key with no reader
+  is dead configuration and is the check to run first.
+- A deliberately non-compliant resource is rejected by the plan gate before
+  promotion, and is also rejected by the webhook after the fail-close step in
+  that environment.
+- `kubectl get validatingwebhookconfiguration gatekeeper-validating-webhook-configuration -o yaml`
+  shows the `failurePolicy` each environment is meant to be at for its current
+  stage.
+- The ValidatingWebhookConfiguration is not listed as a resource in any
+  application, and dev/staging/prod Constraints are not in the same
+  application path.
 
 ## Common errors
 
-- **Library import path mismatch** — ConstraintTemplates import `data.org.policies...` but the ConfigMap mounts modules under a different package path. Verify with `kubectl get configmap opa-policy-library -n gatekeeper-system -o yaml` and ensure the file structure matches the import statements.
-- **ConstraintTemplate version drift** — Gatekeeper 3.12+ uses `v1` for ConstraintTemplate and Constraint CRDs; older versions use `v1beta1`. Check `kubectl api-resources | grep constraint` before applying.
-- **ExcludedNamespaces not effective** — Namespaces listed in `excludedNamespaces` must exist at apply time. Create system namespaces first or use a post-install hook.
-- **Parameters silently ignored** — A Constraint missing a required `parameters` field uses template defaults. Define explicit defaults in the template's `openAPIV3Schema` and validate with `gatekeeper verify`.
-- **Audit lag** — Gatekeeper's audit scanner runs periodically (default 60s). New violations may not appear immediately after constraint creation. Wait or trigger manual audit: `kubectl exec -n gatekeeper-system deploy/gatekeeper-controller-manager -- gatekeeper audit`.
+1. **Parameters declared but never read.** The Constraint applies, `status`
+   reports nothing, and no rule changes behaviour. Confirm each schema key has
+   a reader before trusting an estate.
+2. **Rules written against a bare resource.** A rule reading `input.spec...`
+   is undefined inside an admission template, where the object is at
+   `input.review.object`, so every `deny` is undefined and the template admits
+   everything. The template and its unit tests pass. Extract the object once,
+   as `resource` in Step 1, and point both callers at the same envelope.
+3. **Constraints synced before ConstraintTemplates.** The sync fails with
+   `the server could not find the requested resource`; promote in the order in
+   Step 2, and use `SkipDryRunOnMissingResource=true` for CRDs created out of
+   band.
+4. **A `Config` not named `config`.** It is ignored. The symptom is exemption
+   and process-exclusion settings that never take effect and no error to
+   explain why.
+5. **Fail-closing before the audit trail has been believed.** Rejected applies
+   with no record of what would have been rejected, which is the one moment
+   the default `failurePolicy: Ignore` is doing useful work.
+6. **One application path for all three environments.** Without
+   `FailOnSharedResource=true`, overlapping objects are applied by whichever
+   application syncs last.
+7. **Relying on a `PreSync` hook as the only gate.** Hooks do not run during a
+   selective sync operation, so a hand-triggered re-sync of a single Constraint
+   reaches the cluster ungated.
 
 ## References
 
-- OPA Gatekeeper documentation: ConstraintTemplate and Constraint CRD reference
-- Rego policy language specification
-- Policy-as-code patterns for multi-environment Kubernetes governance
+- [Gatekeeper: failing closed](https://open-policy-agent.github.io/gatekeeper/website/docs/failing-closed/)
+- [Gatekeeper: sync and data replication](https://open-policy-agent.github.io/gatekeeper/website/docs/sync)
+- [Argo CD: sync options](https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/)
+- [Argo CD: sync phases and waves](https://argo-cd.readthedocs.io/en/stable/user-guide/sync-waves/)
+- [open-policy-agent/gatekeeper module reference](https://pkg.go.dev/github.com/open-policy-agent/gatekeeper)
