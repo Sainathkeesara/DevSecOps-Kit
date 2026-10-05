@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- opa-016: `opa/docs/integrating-opa-with-policy-as-code-governance.md` — Integrating OPA with policy-as-code governance (L5 docs)
 - grype-043: `grype/docs/grype-vulnerability-reporting-migration-patterns.md` — Grype vulnerability reporting migration patterns: format-as-parameter, retain raw JSON alongside published reports, migrate consumers one at a time, publish SARIF as a file, and normalize finding identity before diff-gating (L5 docs)
 
 ## 2026-10-04
