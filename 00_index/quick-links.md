@@ -105,6 +105,9 @@
 - [Minimal Grype scan](../grype/scripts/minimal-grype-scan.sh)
 - [CI-ready Grype scanning](../grype/scripts/ci-ready-grype-scan.sh)
 - [Grype in a vulnerability-management pipeline](../grype/docs/vulnerability-management-pipeline-integration.md) — The loop around the scan: target choice, database caching, machine-readable reports, gate thresholds, tracker routing, and diffing against the last accepted result
+- [Grype vulnerability reporting migration patterns](../grype/docs/grype-vulnerability-reporting-migration-patterns.md) — Move a report from table to JSON to SARIF for a new downstream consumer, keeping the raw scan result and the old format until the new one is verified
+- [Grype filtering configuration template](../grype/configs/grype-filtering-configuration-template.yaml) — Severity gate, fix-state filtering, path exclusions, and ignore rules where every entry carries a reason, an owner, and what retires it
+- [Grype database vs registry sources](../grype/notebooks/grype-db-vs-registry-sources.ipynb) — Registry image scan vs DB-backed SBOM scan compared on network cost and repeat-scan cost, plus a database-freshness check
 - [Grype and Syft together](../grype/docs/grype-syft-integration-guide.md) — Generate an SBOM with Syft and scan it offline with Grype
 - [SBOM generation with Syft](../syft/scripts/gen-multi-format-sboms.sh)
 - [Syft output format comparison](../syft/notebooks/output-format-comparison.ipynb)
