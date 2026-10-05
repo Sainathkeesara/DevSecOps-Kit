@@ -1,0 +1,135 @@
+# last_verified: 2026-10-05 · grype
+#
+# Grype filtering configuration template
+#
+# Purpose: one versioned file that states which findings a Grype scan reports
+#   and which are filtered out. Keeping the filtering policy here instead of
+#   spreading it across CI flags is what makes it reviewable -- an ignore rule
+#   then shows up in a diff the same way a dependency bump does.
+#
+# Usage:
+#   grype <image> --config grype/configs/grype-filtering-configuration-template.yaml
+#   or copy this file to .grype.yaml at the root of the repository being
+#   scanned, where Grype picks it up without a flag.
+#
+# Scope: filtering only. Database, output and SARIF wiring belong to whatever
+#   drives the scan; see grype/configs/grype-ci-github-actions.yaml,
+#   grype/manifests/grype-reusable-sarif-workflow.yaml and
+#   grype/scripts/ci-ready-grype-scan.sh for that side.
+#
+# Rules for editing this file:
+#   - Every ignore entry carries a reason and an owner. An entry with no owner
+#     is a finding nobody ever reopens.
+#   - Use the narrowest selector that expresses the exception. A vulnerability
+#     ID on its own silences that advisory for every package in the image; add
+#     a package name, version or location to narrow it to the artifact that
+#     was actually assessed.
+#   - Record what retires the entry (an upstream fix, a package upgrade, a
+#     database rebuild) so the next reader knows when to delete it rather than
+#     inherit it.
+#   - This file defines what "clean" means for the gate, so treat a change to
+#     it as a policy change and review it as one.
+
+# ── Severity gate ───────────────────────────────────────────────────────────
+# A finding at or above any listed severity puts the scan into a failure state.
+# List only the severities you intend to block on: with an empty list Grype
+# reports findings without failing anything.
+# Severity values: Negligible, Low, Medium, High, Critical.
+fail-on-severity:
+  - High
+
+# ── Fix-state filtering ─────────────────────────────────────────────────────
+# Keep findings that have a fix available and drop the rest. This is usually the
+# right default for a merge gate: an unfixable finding cannot be remediated by
+# whoever is making the change.
+ignore-unfixed: true
+
+# The inverse spelling of the key above. Pipelines in this kit that report
+# unfixable findings deliberately pass --only-fixed on the command line
+# instead. Pick one spelling, not both.
+# only-fixed: true
+
+# ── Path exclusions ─────────────────────────────────────────────────────────
+# Skip packages found under these paths. Glob patterns, relative to the scan
+# root. Narrow beats broad: excluding a whole build directory also hides real
+# findings in anything that directory ships.
+exclude:
+  - "./tests/fixtures/**"
+  # - "./docs/**"
+
+# ── Ignore rules ────────────────────────────────────────────────────────────
+# An entry is a match, and several populated fields must all hold for it to
+# apply. Every field a rule can use is shown below; leave the ones that do not
+# narrow the exception commented out. Replace the empty list with the entry
+# shapes below, one rule per list item.
+ignore: []
+  # 1. Advisory-level exception. Use when the finding is wrong everywhere --
+  #    a disputed advisory or a data-source error rather than one bad artifact.
+  # - vulnerability: <cve-id>
+  #   fix-state: unknown
+  #   reason: <why this advisory does not apply to anything we build>
+  #   owner: <team>
+  #   reopen-when: <event that retires this entry>
+
+  # 2. Package-scoped exception. The common shape: one advisory, one package.
+  # - vulnerability: <cve-id>
+  #   package:
+  #     name: <package-name>
+  #     version: <package-version>
+  #     type: <package-type>
+  #   reason: <why this version is not exposed>
+  #   owner: <team>
+  #   reopen-when: <version that lifts the exception>
+
+  # 3. Location-scoped exception. Narrows an advisory to one artifact inside the
+  #    image, which is what you want when the same library also ships somewhere
+  #    reachable.
+  # - vulnerability: <cve-id>
+  #   package:
+  #     name: <package-name>
+  #     location: <path-within-image>
+
+  # 4. Fix-state exception. Silences an advisory only where no fix exists,
+  #    leaving the same advisory reportable against other packages.
+  # - vulnerability: <cve-id>
+  #   fix-state: not-fixed
+
+  # 5. VEX-driven exception. Delegates the decision to a VEX document loaded
+  #    below, so the "not affected" claim is versioned with the release
+  #    artifacts instead of with this file. vex-status takes the VEX statuses:
+  #    not_affected, fixed, under_investigation.
+  # - vulnerability: <cve-id>
+  #   vex-status: not_affected
+
+# ── VEX documents ───────────────────────────────────────────────────────────
+# Paths to VEX documents consulted for the entries above. Local paths only: a
+# hosted document URL is deliberately left out so this file never points a scan
+# at a location that can change without a review.
+# vex-documents:
+#   - "./vex/<product>.vex.json"
+
+# ── Matching behaviour ──────────────────────────────────────────────────────
+# Chooses which matches are reported when several data sources describe the same
+# finding. The defaults are already conservative; change a key only when
+# duplicate or missing findings are visible in the output, and re-check the
+# finding count afterwards.
+# match-by:
+#   package-vulnerability: true           # one finding per package and advisory
+#   package-vulnerability-metadata: true  # include data-source metadata
+#   package: false                        # package-only matches
+#   distro: false                         # distro-issued advisories
+#   language: false                       # language-package matches
+
+# ── Per-language archive search ─────────────────────────────────────────────
+# Unindexed, non-registry archives are searched per ecosystem. Confirm these
+# key names against the config schema of the release you install before relying
+# on them: they have moved between releases.
+# match:
+#   python:
+#     search-unindexed-archives: false
+#   javascript:
+#     search-unindexed-archives: false
+#   dotnet:
+#     search-unindexed-archives: false
+#   java:
+#     search-unindexed-archives: false
