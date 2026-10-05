@@ -4,6 +4,12 @@ All notable changes to the DevOps-Kit repository will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-04
+
+### Added
+
+- grype-041: `grype/notebooks/grype-db-vs-registry-sources.ipynb` — Grype DB vs registry source decision notebook: source-shape trade-off matrix, environment-driven `choose_source` decision function over five scenarios, synthetic report fixture exercising the severity-counting logic, and a database-freshness gate with boundary cases; all cells run offline on the standard library (L5 notebook)
+
 ## 2026-10-03
 
 ### Added
