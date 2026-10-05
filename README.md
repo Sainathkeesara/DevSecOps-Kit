@@ -11,23 +11,23 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-1098 files across 43 top-level folders — 35 tool folders, plus the cross-cutting `docs/`, `scripts/`, `snippets/`, `templates/`, and `00_index/` layers. The toolchain runs from Linux and Git fundamentals up through Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, ZAP, Nuclei, SonarQube, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+Scope runs from Linux and Git fundamentals up through infrastructure as code and Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, SonarQube, ZAP, Nuclei, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners — TruffleHog, Gitleaks, and GitGuardian. Cross-cutting layers hold the concept primers, how-to guides, runbooks, shell toolkits, cheatsheets, and starter templates that the per-tool folders lean on. Every entry is written to be adapted for real infrastructure work rather than read end to end.
 
 ## Quick links
 
-- [GitGuardian org secret-scanning policy](gitguardian/configs/policy-configuration.yaml) — Which detectors stay enforced, which paths are ignored and why, who owns findings per directory, and what an incident handoff must carry
-- [Hosted vs self-managed secret scanning](gitguardian/notebooks/choosing-between-on-premise-and-cloud-modes.ipynb) — Where scan content travels, who operates the service, and a per-tier scoring function with data residency as a veto
+- [Grype in a vulnerability-management pipeline](grype/docs/vulnerability-management-pipeline-integration.md) — The loop around a scan: picking a target, caching the vulnerability database, exporting once and gating separately, diffing against the last accepted report, and routing findings to a tracker
+- [GitGuardian scanning migration patterns](gitguardian/docs/gitguardian-secret-scanning-migration-patterns.md) — Adopting or replacing secret scanning without losing coverage: ggshield v1 to v2 config, moving off TruffleHog or Gitleaks, consolidating per-repo config into an org baseline
+- [GitGuardian org secret-scanning policy](gitguardian/configs/policy-configuration.yaml) — One reviewable file recording which detectors stay enforced, which paths are ignored and why, who owns findings per directory, and what an incident handoff must carry
+- [Hosted vs self-managed secret scanning](gitguardian/notebooks/choosing-between-on-premise-and-cloud-modes.ipynb) — Where scan content travels, who operates the service, and a per-tier scoring function that treats data residency as a veto rather than a weight
 - [Minimal Falco runtime config](falco/configs/2026-10-03-minimal-runtime-config.yaml) — The daemon config Falco is pointed at with `--config`: which rule files load, JSON alert output, and the rate limit that decides whether a looping rule floods the log
-- [Host health check and rollback](linux/scripts/health-check-and-rollback.sh) — One entry point with `check`, `snapshot`, and `rollback` subcommands, environment-overridable thresholds, and separate exit codes for healthy, degraded, and critical
-- [Linux production system administration runbook](linux/docs/system-administration-runbook.md) — A deterministic triage sequence for a degraded host: reachability, then load, memory, and disk in that order, then stabilisation and handoff
 
 ## Layout
 
 - **`00_index/`** — Navigation: topic map, quick links, glossary, learning path
-- **`docs/`** — Concepts, how-to guides, reference, runbooks, security docs, troubleshooting, and setup guides
-- **`scripts/`** — Shell toolkits organised by domain (`scripts/bash/`), deployment and rollback wrappers (`scripts/pipeline/`), and repository utilities
-- **`snippets/`** — Copy-paste ready cheatsheets and one-liners
-- **`templates/`** — Starter configs for Kubernetes, Terraform, Linux, Jenkins, Logstash, syslog-ng, and per-tool scaffolds
+- **`docs/`** — Concepts, how-to guides, reference, runbooks, security docs, troubleshooting, setup guides, and `docs/notes/`
+- **`scripts/`** — Shell toolkits organised by domain (`scripts/bash/`), deployment and rollback wrappers (`scripts/pipeline/`), and repository utilities, plus `scripts/notes/` and `scripts/snippets/`
+- **`snippets/`** — Copy-paste ready cheatsheets and one-liners, plus `snippets/configs/`, `snippets/notes/`, and `snippets/snippets/`
+- **`templates/`** — Starter configs for Kubernetes, Terraform, Linux, Jenkins, Logstash, syslog-ng, and per-tool scaffolds, plus `templates/configs/`, `templates/notes/`, and `templates/templates/`
 - **`environments/`** — Terraform environment configs (dev / staging / prod)
 - **`lab/`** — Mini-projects and learning sandboxes
 - **`assets/`** — Architecture diagrams and workflow illustrations
@@ -44,37 +44,37 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total | Last verified |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|----------:|----------:|---------------|
-| checkov | 4 | 6 | 3 | 3 | 4 | 20 | 3 | 0 | 4 | 1 | 48 | 2026-10-02 |
+| checkov | 4 | 6 | 3 | 3 | 4 | 20 | 3 | 0 | 4 | 1 | 48 | 2026-09-17 |
 | trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 38 | 2026-09-04 |
 | syft | 4 | 6 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 37 | 2026-09-03 |
 | trivy | 6 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 35 | 2026-09-05 |
 | zap | 6 | 5 | 3 | 2 | 4 | 8 | 1 | 1 | 1 | 0 | 31 | 2026-09-30 |
+| gitguardian | 4 | 4 | 3 | 3 | 2 | 9 | 0 | 0 | 1 | 0 | 26 | 2026-10-03 |
 | codeql | 4 | 2 | 1 | 1 | 5 | 8 | 2 | 1 | 1 | 0 | 25 | 2026-09-18 |
-| gitguardian | 4 | 3 | 3 | 3 | 2 | 9 | 0 | 0 | 1 | 0 | 25 | 2026-10-03 |
 | opa | 3 | 2 | 2 | 1 | 3 | 9 | 4 | 0 | 0 | 0 | 24 | 2026-08-27 |
-| falco | 4 | 4 | 3 | 4 | 1 | 4 | 1 | 0 | 2 | 0 | 23 | 2026-10-03 |
+| falco | 4 | 4 | 3 | 4 | 1 | 4 | 1 | 0 | 2 | 0 | 23 | 2026-09-30 |
 | semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 2 | 2 | 3 | 0 | 23 | 2026-09-29 |
 | snyk | 4 | 2 | 1 | 2 | 1 | 11 | 1 | 1 | 0 | 0 | 23 | 2026-09-02 |
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-08-10 |
 | terrascan | 5 | 2 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 21 | 2026-09-27 |
-| grype | 4 | 1 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | — |
+| grype | 4 | 2 | 8 | 1 | 2 | 0 | 2 | 1 | 1 | 0 | 21 | 2026-10-03 |
 | vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-08-30 |
+| environments | 4 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 19 | 2026-09-30 |
 | cosign | 4 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 18 | 2026-09-25 |
 | dependabot | 7 | 3 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 0 | 18 | 2026-09-26 |
 | docker | 2 | 2 | 3 | 1 | 0 | 7 | 1 | 2 | 0 | 0 | 18 | 2026-09-23 |
-| environments | 4 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 19 | 2026-09-30 |
-| lab | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-09-20 |
 | argocd | 6 | 2 | 0 | 2 | 0 | 0 | 3 | 0 | 0 | 0 | 13 | 2026-09-23 |
 | github-actions | 5 | 0 | 0 | 4 | 2 | 0 | 2 | 0 | 0 | 0 | 13 | 2026-09-21 |
+| lab | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-09-20 |
 | tetragon | 3 | 1 | 3 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 11 | 2026-09-26 |
 | ansible | 3 | 1 | 3 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
 | git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
 | assets | 3 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 9 | 2026-09-30 |
 | kubernetes | 2 | 1 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 0 | 7 | 2026-09-22 |
-| linux | 3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-10-03 |
-| kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 6 | 2026-09-21 |
-| opentofu | 3 | 0 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | defectdojo | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
+| kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 6 | 2026-09-21 |
+| linux | 3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-10-02 |
+| opentofu | 3 | 0 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | sonarqube | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | helm | 3 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 5 | 2026-09-21 |
 | grafana | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-09-26 |
@@ -83,13 +83,13 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | nuclei | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 | tfsec | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 
-_Grype's notes carry no `last_verified` front-matter, so its column reads —. Totals above are the files inside each category folder; a few folders also hold files at their root or in project sub-folders (Terraform's EventBridge sample, Lab's mini-projects, Environments' dev/staging/prod Terraform, and Assets' diagrams), which the category columns don't itemise._
+_Counts are the files inside each category folder; a few folders also hold files at their root or in project sub-folders (Terraform's EventBridge sample, Lab's mini-projects, Environments' dev/staging/prod Terraform, and Assets' diagrams), which the category columns don't itemise. `Last verified` is the most recent `last_verified` date in that tool's doc front-matter._
 
 </details>
 
 ## Status
 
-Primers and per-tool quickstarts are complete across most of the toolchain, and the depth work is now in operational runbooks and integration patterns rather than first contact. Recent additions went into GitGuardian policy depth — an org-level secret-scanning policy template plus a notebook weighing hosted against self-managed scanning per repository tier — alongside a Linux system administration runbook with a single-entry-point health check and rollback script, and a minimal Falco daemon config that documents the knobs a first run actually needs. Current focus is operational depth — host triage, policy validation, and the config files that sit underneath the tools.
+Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions went after the two places a security toolchain actually gets hard: the pipeline around a vulnerability scan — target choice, database caching, report retention, and diffing against the last accepted result — and the moves teams make when adopting or replacing secret scanning. The thinner corners are the tools carrying notes only: tfsec, Nuclei, Prometheus, Gitleaks, and Grafana.
 
 ---
-_Last updated: 2026-10-03_
+_Last updated: 2026-10-04_
