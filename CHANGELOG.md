@@ -4,6 +4,18 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-05
+
+### Added
+
+- grype-043: `grype/docs/grype-vulnerability-reporting-migration-patterns.md` — Grype vulnerability reporting migration patterns: format-as-parameter, retain raw JSON alongside published reports, migrate consumers one at a time, publish SARIF as a file, and normalize finding identity before diff-gating (L5 docs)
+
+## 2026-10-04
+
+### Added
+
+- grype-041: `grype/notebooks/grype-db-vs-registry-sources.ipynb` — Grype DB vs registry source decision notebook: source-shape trade-off matrix, environment-driven `choose_source` decision function over five scenarios, synthetic report fixture exercising the severity-counting logic, and a database-freshness gate with boundary cases; all cells run offline on the standard library (L5 notebook)
+
 ## 2026-10-03
 
 ### Added
@@ -3017,3 +3029,10 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 ### Fixed
 
 - `falco/configs/2026-10-03-minimal-runtime-config.yaml` — Re-derived every key against the `falco.yaml` shipped with falco 0.38.0 and removed six keys Falco does not recognise (`outputs`, `buffersize`, `runtime`, `webserver.keepalive`, `falco_libs.client_enabled`/`client_rate`/`client_max_burst`, `metrics.interval_seconds`), which were silently ignored. Replaced them with real mechanisms: `engine.kind` plus `load_plugins` for event-source selection, `buffered_outputs` for output buffering, `metrics.interval` as a duration string, `outputs_queue.capacity` for output-queue bounds, and `falco_libs.thread_table_size` as the only `falco_libs` key in this release. Also dropped `append_output` and `log_syslog`, which are absent from 0.36.0 and 0.38.0; corrected `priority` (a rule-severity filter, not a log level) and `stdout_output.enabled` (the only enabled alert channel, so alerts have somewhere to go); and resolved the contradiction between the `webserver` and `metrics` comments — `webserver.prometheus_metrics_enabled` only takes effect when `metrics.enabled` is also true
+- falco-030 (rework 1): `falco/configs/2026-10-03-minimal-runtime-config.yaml` — Re-derived every key against the `falco.yaml` shipped with falco 0.38.0 and removed six keys Falco does not recognise (`outputs`, `buffersize`, `runtime`, `webserver.keepalive`, `falco_libs.client_enabled`/`client_rate`/`client_max_burst`, `metrics.interval_seconds`), which were silently ignored. Replaced them with real mechanisms: `engine.kind` plus `load_plugins` for event-source selection, `buffered_outputs` for output buffering, `metrics.interval` as a duration string, `outputs_queue.capacity` for output-queue bounds, and `falco_libs.thread_table_size` as the only `falco_libs` key in this release. Also dropped `append_output` and `log_syslog`, which are absent from 0.36.0 and 0.38.0; corrected `priority` (a rule-severity filter, not a log level) and `stdout_output.enabled` (the only enabled alert channel, so alerts have somewhere to go); and resolved the contradiction between the `webserver` and `metrics` comments — `webserver.prometheus_metrics_enabled` only takes effect when `metrics.enabled` is also true (L2 config)
+
+## 2026-10-05
+
+### Added
+
+- grype-042: `grype/configs/grype-filtering-configuration-template.yaml` — Grype filtering configuration template: severity gate, fix-state filtering, path exclusions, and five ignore-rule shapes (advisory-level, package-scoped, location-scoped, fix-state, VEX-driven) with VEX document, match-by and per-language archive knobs commented for opt-in (L5 config)
