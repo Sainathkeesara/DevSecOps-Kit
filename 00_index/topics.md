@@ -151,17 +151,17 @@
 - **notes** (3): [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md), [2026-09-26-explore-grafana-dashboard-ui.md](../grafana/notes/2026-09-26-explore-grafana-dashboard-ui.md), [2026-09-19-first-dashboard-browser.md](../grafana/notes/2026-09-19-first-dashboard-browser.md)
 - **configs** (1): [2026-09-19-first-datasource.yaml](../grafana/configs/2026-09-19-first-datasource.yaml)
 
-## grype  ·  21 files
+## grype  ·  24 files
 
 - **primer:** [0000-primer-grype.md](../grype/notes/0000-primer-grype.md)
 - **notes** (4): [0000-primer-grype.md](../grype/notes/0000-primer-grype.md), [2026-05-31-install-grype.md](../grype/notes/2026-05-31-install-grype.md), [2026-06-08-first-grype-scan.md](../grype/notes/2026-06-08-first-grype-scan.md) — _…and 1 more under `grype/notes/`._
-- **docs** (2): [vulnerability-management-pipeline-integration.md](../grype/docs/vulnerability-management-pipeline-integration.md), [grype-syft-integration-guide.md](../grype/docs/grype-syft-integration-guide.md)
+- **docs** (3): [grype-vulnerability-reporting-migration-patterns.md](../grype/docs/grype-vulnerability-reporting-migration-patterns.md), [vulnerability-management-pipeline-integration.md](../grype/docs/vulnerability-management-pipeline-integration.md), [grype-syft-integration-guide.md](../grype/docs/grype-syft-integration-guide.md)
 - **scripts** (8): [ci-ready-grype-scan.sh](../grype/scripts/ci-ready-grype-scan.sh), [minimal-grype-scan.sh](../grype/scripts/minimal-grype-scan.sh), [grype-end-to-end-scan-pipeline.sh](../grype/scripts/grype-end-to-end-scan-pipeline.sh) — _…and 5 more under `grype/scripts/`._
-- **configs** (1): [grype-ci-github-actions.yaml](../grype/configs/grype-ci-github-actions.yaml)
+- **configs** (2): [grype-filtering-configuration-template.yaml](../grype/configs/grype-filtering-configuration-template.yaml), [grype-ci-github-actions.yaml](../grype/configs/grype-ci-github-actions.yaml)
 - **snippets** (2): [my-first-grype-commands.sh](../grype/snippets/my-first-grype-commands.sh), [minimal-grype-scan.go](../grype/snippets/minimal-grype-scan.go)
 - **manifests** (2): [grype-reusable-sarif-workflow.yaml](../grype/manifests/grype-reusable-sarif-workflow.yaml), [grype-sarif-reusable-workflow.yaml](../grype/manifests/grype-sarif-reusable-workflow.yaml)
 - **dockerfiles** (1): [multi-stage-grype-scan.Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile)
-- **notebooks** (1): [grype-sbom-output-explorer.ipynb](../grype/notebooks/grype-sbom-output-explorer.ipynb)
+- **notebooks** (2): [grype-db-vs-registry-sources.ipynb](../grype/notebooks/grype-db-vs-registry-sources.ipynb), [grype-sbom-output-explorer.ipynb](../grype/notebooks/grype-sbom-output-explorer.ipynb)
 
 ## helm  ·  5 files
 
