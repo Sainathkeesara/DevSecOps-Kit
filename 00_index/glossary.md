@@ -519,6 +519,18 @@
 
 **Audit (Gatekeeper)** — The periodic background scan that re-evaluates every Constraint against resources already in the cluster, surfacing pre-existing violations in each Constraint's `status.violations` rather than at admission time.
 
+**Config (Gatekeeper)** — The engine's singleton CRD carrying the deployment-level knobs: process exclusion, excluded namespaces, and webhook settings. It only takes effect under the exact name `config`; a misnamed object applies cleanly and silently changes nothing.
+
+**failurePolicy (Gatekeeper)** — The webhook setting deciding what happens when the policy engine is unreachable: `Ignore` lets the request through, `Fail` rejects it. The engine ships `Ignore` as the default, which makes a broken engine look exactly like a passing one.
+
+**Parameter tier (Gatekeeper)** — Where a policy parameter actually takes effect, in three steps: declared on the ConstraintTemplate schema (validates values, nothing more), supplied in a Constraint's `spec.parameters` (reaches the policy as `input.parameters`, nothing more), enforced by a rule that reads it and denies. Only the third tier is enforcement surface.
+
+**Policy estate** — The whole set of policy objects an organisation runs: one or more ConstraintTemplates plus every per-environment Config and Constraint. It becomes genuinely hard to operate the moment it spans more than one environment, because the templates stop changing and the Constraint values become the thing under governance.
+
+**Promotion order (policy estate)** — The dependency order the policy objects are applied in: `Config`, then `ConstraintTemplate` (which brings its CRD into existence), then `Constraint`. Applying them in environment order instead of dependency order produces sync failures that look like cluster problems.
+
+**One envelope, two callers** — Writing Rego rules so every rule reads the same extracted `resource` field rather than raw `input.spec...` paths, so the identical module runs both as an admission review and as a wrapped `{"review": {"object": ...}}` document in a CI plan gate. One rule set, no adapter layer.
+
 **Pod Security baseline** — A set of minimum container guardrails commonly enforced together: no privileged containers, no host namespaces, a read-only root filesystem, and images restricted to approved registries.
 
 **CodeQL database** — The extracted, queryable representation of a codebase (source plus a relational model of its syntax and data flow) that `codeql database create` produces. Queries run against the database, not the raw files, so it must be rebuilt after code changes.

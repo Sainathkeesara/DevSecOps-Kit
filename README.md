@@ -11,23 +11,23 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 ## What's in here
 
-1103 files across 43 top-level folders — 35 tool folders, plus the cross-cutting `docs/`, `scripts/`, `snippets/`, `templates/`, `environments/`, `lab/`, `assets/`, and `00_index/` layers. The toolchain runs from Linux and Git fundamentals up through Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, ZAP, Nuclei, SonarQube, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners. Every entry is scenario-grounded and designed to be adapted for real infrastructure work.
+Scope runs from Linux and Git fundamentals up through infrastructure as code and Kubernetes delivery, then into the security tooling that rides on top of it: Trivy, Syft, Grype, Checkov, tfsec, Terrascan, Semgrep, CodeQL, SonarQube, ZAP, Nuclei, Cosign, Falco, Tetragon, OPA, Vault, and the secret scanners — TruffleHog, Gitleaks, and GitGuardian. Cross-cutting layers hold the concept primers, how-to guides, runbooks, shell toolkits, cheatsheets, and starter templates that the per-tool folders lean on. Every entry is written to be adapted for real infrastructure work rather than read end to end.
 
 ## Quick links
 
-- [Grype vulnerability reporting migration patterns](grype/docs/grype-vulnerability-reporting-migration-patterns.md) — Moving a report from table to JSON to SARIF for a new downstream consumer, without changing the scan itself
-- [Grype filtering configuration template](grype/configs/grype-filtering-configuration-template.yaml) — One versioned file stating the severity gate, fix-state filtering, path exclusions, and ignore rules that each carry a reason and an owner
-- [Grype database vs registry sources](grype/notebooks/grype-db-vs-registry-sources.ipynb) — Choosing between a registry image scan and a DB-backed SBOM scan, with a runnable database-freshness check
-- [Grype in a vulnerability-management pipeline](grype/docs/vulnerability-management-pipeline-integration.md) — Target choice, database caching, machine-readable reports, gate thresholds, tracker routing, and diffing against the last accepted result
-- [GitGuardian secret-scanning migration patterns](gitguardian/docs/gitguardian-secret-scanning-migration-patterns.md) — Moving a config to the ggshield v2 format, replacing another scanner, and rolling one baseline out across a monorepo
+- [OPA policy-as-code governance](opa/docs/integrating-opa-with-policy-as-code-governance.md) — Operating a ConstraintTemplate that dev, staging, and prod all share: designing the parameter surface, promoting `Config` → `ConstraintTemplate` → `Constraint` in dependency order, and switching to `failurePolicy: Fail` only after the audit trail has been believed
+- [Grype reporting migration patterns](grype/docs/grype-vulnerability-reporting-migration-patterns.md) — Moving a report from table to JSON to SARIF for a new downstream consumer, keeping the raw scan result and the old format until the new one is verified
+- [Grype filtering configuration template](grype/configs/grype-filtering-configuration-template.yaml) — Severity gate, fix-state filtering, path exclusions, and ignore rules where every entry carries a reason, an owner, and what retires it
+- [Grype database vs registry sources](grype/notebooks/grype-db-vs-registry-sources.ipynb) — Registry image scan vs DB-backed SBOM scan compared on network cost and repeat-scan cost, plus a database-freshness check
+- [Grype in a vulnerability-management pipeline](grype/docs/vulnerability-management-pipeline-integration.md) — The loop around a scan: picking a target, caching the vulnerability database, exporting once and gating separately, diffing against the last accepted report, and routing findings to a tracker
 
 ## Layout
 
 - **`00_index/`** — Navigation: topic map, quick links, glossary, learning path
-- **`docs/`** — Concepts, how-to guides, reference, runbooks, security docs, troubleshooting, and setup guides
-- **`scripts/`** — Shell toolkits organised by domain (`scripts/bash/`), deployment and rollback wrappers (`scripts/pipeline/`), and repository utilities
-- **`snippets/`** — Copy-paste ready cheatsheets and one-liners
-- **`templates/`** — Starter configs for Kubernetes, Terraform, Linux, Jenkins, Logstash, syslog-ng, and per-tool scaffolds
+- **`docs/`** — Concepts, how-to guides, reference, runbooks, security docs, troubleshooting, setup guides, and `docs/notes/`
+- **`scripts/`** — Shell toolkits organised by domain (`scripts/bash/`), deployment and rollback wrappers (`scripts/pipeline/`), and repository utilities, plus `scripts/notes/` and `scripts/snippets/`
+- **`snippets/`** — Copy-paste ready cheatsheets and one-liners, plus `snippets/configs/`, `snippets/notes/`, and `snippets/snippets/`
+- **`templates/`** — Starter configs for Kubernetes, Terraform, Linux, Jenkins, Logstash, syslog-ng, and per-tool scaffolds, plus `templates/configs/`, `templates/notes/`, and `templates/templates/`
 - **`environments/`** — Terraform environment configs (dev / staging / prod)
 - **`lab/`** — Mini-projects and learning sandboxes
 - **`assets/`** — Architecture diagrams and workflow illustrations
@@ -51,15 +51,15 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | zap | 6 | 5 | 3 | 2 | 4 | 8 | 1 | 1 | 1 | 0 | 31 | 2026-10-02 |
 | gitguardian | 4 | 4 | 3 | 3 | 2 | 9 | 0 | 0 | 1 | 0 | 26 | 2026-10-03 |
 | codeql | 4 | 2 | 1 | 1 | 5 | 8 | 2 | 1 | 1 | 0 | 25 | 2026-09-25 |
+| opa | 3 | 3 | 2 | 1 | 3 | 9 | 4 | 0 | 0 | 0 | 25 | 2026-10-05 |
 | grype | 4 | 3 | 8 | 2 | 2 | 0 | 2 | 1 | 2 | 0 | 24 | 2026-10-05 |
-| opa | 3 | 2 | 2 | 1 | 3 | 9 | 4 | 0 | 0 | 0 | 24 | 2026-09-02 |
 | falco | 4 | 4 | 3 | 4 | 1 | 4 | 1 | 0 | 2 | 0 | 23 | 2026-10-03 |
 | semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 2 | 2 | 3 | 0 | 23 | 2026-09-29 |
 | snyk | 4 | 2 | 1 | 2 | 1 | 11 | 1 | 1 | 0 | 0 | 23 | 2026-09-03 |
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-09-22 |
 | terrascan | 5 | 2 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 21 | 2026-09-27 |
-| vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-08-29 |
-| environments | 4 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 19 | 2026-09-30 |
+| vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-09-29 |
+| environments | 4 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 19 | 2026-10-01 |
 | cosign | 4 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 18 | 2026-09-25 |
 | dependabot | 7 | 3 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 0 | 18 | 2026-09-26 |
 | docker | 2 | 2 | 3 | 1 | 0 | 7 | 1 | 2 | 0 | 0 | 18 | 2026-09-25 |
@@ -69,7 +69,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | tetragon | 3 | 1 | 3 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 11 | 2026-09-26 |
 | ansible | 3 | 1 | 3 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
 | git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
-| assets | 3 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 9 | 2026-09-30 |
+| assets | 3 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 9 | 2026-10-01 |
 | kubernetes | 2 | 1 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 0 | 7 | 2026-09-22 |
 | defectdojo | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 6 | 2026-09-22 |
@@ -83,13 +83,13 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | nuclei | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 | tfsec | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 
-_Last verified is the most recent `last_verified` value recorded anywhere in that tool's folder. Totals above are the files inside each category folder; a few folders also hold files at their root or in project sub-folders (Terraform's EventBridge sample, Lab's mini-projects, Environments' dev/staging/prod Terraform, and Assets' diagrams), which the category columns don't itemise._
+_Counts are the files inside each category folder; a few folders also hold files at their root or in project sub-folders (Terraform's EventBridge sample, Lab's mini-projects, Environments' dev/staging/prod Terraform, and Assets' diagrams), which the category columns don't itemise. `Last verified` is the most recent `last_verified` marker anywhere in that tool's files._
 
 </details>
 
 ## Status
 
-Primers and per-tool quickstarts are complete across most of the toolchain; the depth now sits in operational patterns rather than first contact. The most recent additions went into Grype — a reporting migration guide for moving a report shape without touching the scan, a filtering configuration template that puts the severity gate and ignore rules in one reviewable file, and a notebook weighing a registry image scan against a DB-backed SBOM scan with a database-freshness check. Alongside that sits GitGuardian's secret-scanning migration patterns and a Linux system administration runbook with a single-entry-point health check and rollback script. Current focus is operational depth — host triage, reporting contracts, and the config files that sit underneath the tools.
+Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions went after the places a security toolchain actually gets hard: the loop around a vulnerability scan — target choice, database caching, report retention, and diffing against the last accepted result — the moves teams make when adopting or replacing secret scanning, and running a single Gatekeeper ConstraintTemplate across dev, staging, and prod without breaking promotion order or fail-closed enforcement. The thinner corners are the tools carrying notes only: tfsec, Nuclei, Prometheus, Gitleaks, and Grafana.
 
 ---
-_Last updated: 2026-10-05_
+_Last updated: 2026-10-06_
