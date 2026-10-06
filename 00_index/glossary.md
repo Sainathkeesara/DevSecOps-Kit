@@ -770,3 +770,8 @@
 - **Inode pressure** — Running out of file entries while free space remains. `df` on blocks alone reports the filesystem as healthy, so a usage check that ignores inodes misses a whole class of "disk full" incidents.
 - **Snapshot before change** — Capturing the current state of a host immediately before a change so the rollback has a known-good target. Without it, "roll back" means reconstructing from memory.
 - **Resource saturation vs memory pressure** — Two different exhaustion paths: the CPU run queue exceeding core count, and available memory falling under a percentage floor. They are measured against different numbers and get different first responses.
+
+## OPA
+
+- **Built-in check (OPA)** — A decision the platform already ships (an admission check or ready-made constraint kind) that a team configures with parameters instead of authoring logic. Reach for it when the requirement matches what exists; write Rego when conditions combine, when they refer to organisation-specific data, or when a custom message is needed.
+- **Policy instance tuning** — Adjusting a policy's behaviour per environment by changing Constraint scope, enforcement, and parameters — audit-only where workloads are still being fixed, enforcing where the baseline is clean — without editing the shared ConstraintTemplate.

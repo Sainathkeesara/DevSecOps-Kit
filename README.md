@@ -15,11 +15,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 ## Quick links
 
+- [OPA policy configuration template](opa/configs/opa-policy-configuration-template.yaml) — One versioned file tuning the same check per environment: audit-only where workloads are still being fixed, enforcing where the baseline is already clean
+- [Choosing between Rego and built-in policies](opa/notebooks/rego-vs-builtin-policies.ipynb) — A scoring helper routing a new policy requirement to hand-written Rego or a platform check, with the same privileged-container intent expressed both ways
 - [OPA policy-as-code governance](opa/docs/integrating-opa-with-policy-as-code-governance.md) — Operating a ConstraintTemplate that dev, staging, and prod all share: designing the parameter surface, promoting `Config` → `ConstraintTemplate` → `Constraint` in dependency order, and switching to `failurePolicy: Fail` only after the audit trail has been believed
 - [Grype reporting migration patterns](grype/docs/grype-vulnerability-reporting-migration-patterns.md) — Moving a report from table to JSON to SARIF for a new downstream consumer, keeping the raw scan result and the old format until the new one is verified
 - [Grype filtering configuration template](grype/configs/grype-filtering-configuration-template.yaml) — Severity gate, fix-state filtering, path exclusions, and ignore rules where every entry carries a reason, an owner, and what retires it
-- [Grype database vs registry sources](grype/notebooks/grype-db-vs-registry-sources.ipynb) — Registry image scan vs DB-backed SBOM scan compared on network cost and repeat-scan cost, plus a database-freshness check
-- [Grype in a vulnerability-management pipeline](grype/docs/vulnerability-management-pipeline-integration.md) — The loop around a scan: picking a target, caching the vulnerability database, exporting once and gating separately, diffing against the last accepted report, and routing findings to a tracker
 
 ## Layout
 
@@ -51,7 +51,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | zap | 6 | 5 | 3 | 2 | 4 | 8 | 1 | 1 | 1 | 0 | 31 | 2026-10-02 |
 | gitguardian | 4 | 4 | 3 | 3 | 2 | 9 | 0 | 0 | 1 | 0 | 26 | 2026-10-03 |
 | codeql | 4 | 2 | 1 | 1 | 5 | 8 | 2 | 1 | 1 | 0 | 25 | 2026-09-25 |
-| opa | 3 | 3 | 2 | 1 | 3 | 9 | 4 | 0 | 0 | 0 | 25 | 2026-10-05 |
+| opa | 3 | 3 | 2 | 2 | 3 | 9 | 4 | 0 | 1 | 0 | 27 | 2026-10-06 |
 | grype | 4 | 3 | 8 | 2 | 2 | 0 | 2 | 1 | 2 | 0 | 24 | 2026-10-05 |
 | falco | 4 | 4 | 3 | 4 | 1 | 4 | 1 | 0 | 2 | 0 | 23 | 2026-10-03 |
 | semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 2 | 2 | 3 | 0 | 23 | 2026-09-29 |
@@ -89,7 +89,7 @@ _Counts are the files inside each category folder; a few folders also hold files
 
 ## Status
 
-Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions went after the places a security toolchain actually gets hard: the loop around a vulnerability scan — target choice, database caching, report retention, and diffing against the last accepted result — the moves teams make when adopting or replacing secret scanning, and running a single Gatekeeper ConstraintTemplate across dev, staging, and prod without breaking promotion order or fail-closed enforcement. The thinner corners are the tools carrying notes only: tfsec, Nuclei, Prometheus, Gitleaks, and Grafana.
+Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions went after the places a security toolchain actually gets hard: the loop around a vulnerability scan — target choice, database caching, report retention, and diffing against the last accepted result — the moves teams make when adopting or replacing secret scanning, and running a single Gatekeeper ConstraintTemplate across dev, staging, and prod without breaking promotion order or fail-closed enforcement. The newest OPA additions stay on that thread: a per-environment configuration template for tuning policy instances without touching the policy itself, and a notebook for deciding whether a new requirement belongs in hand-written Rego or a platform built-in. The thinner corners are the tools carrying notes only: tfsec, Nuclei, Prometheus, Gitleaks, and Grafana.
 
 ---
 _Last updated: 2026-10-06_
