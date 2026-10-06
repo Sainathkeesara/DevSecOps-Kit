@@ -203,11 +203,11 @@
 - **primer:** [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md)
 - **notes** (2): [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md), [2026-09-20-first-template-scan-attempt.md](../nuclei/notes/2026-09-20-first-template-scan-attempt.md)
 
-## opa  ·  24 files
+## opa  ·  25 files
 
 - **primer:** [0000-primer-opa.md](../opa/notes/0000-primer-opa.md)
 - **notes** (3): [0000-primer-opa.md](../opa/notes/0000-primer-opa.md), [2026-06-06-install-opa-repl.md](../opa/notes/2026-06-06-install-opa-repl.md), [2026-06-15-opa-getting-started-trip-ups.md](../opa/notes/2026-06-15-opa-getting-started-trip-ups.md)
-- **docs** (2): [constraint-template-design-patterns.md](../opa/docs/constraint-template-design-patterns.md), [wired-opa-admission-control.md](../opa/docs/wired-opa-admission-control.md)
+- **docs** (3): [integrating-opa-with-policy-as-code-governance.md](../opa/docs/integrating-opa-with-policy-as-code-governance.md), [constraint-template-design-patterns.md](../opa/docs/constraint-template-design-patterns.md), [wired-opa-admission-control.md](../opa/docs/wired-opa-admission-control.md)
 - **scripts** (2): [export-audit-results.sh](../opa/scripts/export-audit-results.sh), [how-i-test-policies-locally.sh](../opa/scripts/how-i-test-policies-locally.sh)
 - **configs** (1): [tried-a-gatekeeper-constraint.yaml](../opa/configs/tried-a-gatekeeper-constraint.yaml)
 - **snippets** (3): [my-first-opa-policy-eval.sh](../opa/snippets/my-first-opa-policy-eval.sh), [deny-privileged-hostnetwork.rego](../opa/snippets/deny-privileged-hostnetwork.rego), [enforce-image-registry-constraints.rego](../opa/snippets/enforce-image-registry-constraints.rego)

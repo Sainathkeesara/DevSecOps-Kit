@@ -164,6 +164,7 @@
 - [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md)
 - [My first OPA policy evaluation](../opa/snippets/my-first-opa-policy-eval.sh)
 - [Gatekeeper constraint template design patterns](../opa/docs/constraint-template-design-patterns.md)
+- [OPA policy-as-code governance](../opa/docs/integrating-opa-with-policy-as-code-governance.md) — Running one ConstraintTemplate across dev, staging, and prod: designing the parameter surface, promoting Config then ConstraintTemplate then Constraint, fail-closing last, and gating the Terraform plan from the same rules
 - [Wiring OPA into admission control](../opa/docs/wired-opa-admission-control.md)
 - [Gatekeeper policy library scaffold](../opa/templates/gatekeeper-policy-library-scaffold/README.md)
 - [Gatekeeper production deployment manifest](../opa/manifests/gatekeeper-production-deployment.yaml)
