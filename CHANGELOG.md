@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- opa-018: `opa/configs/opa-policy-configuration-template.yaml` — OPA (Gatekeeper) policy configuration template: audit-vs-enforce Constraint instances per environment (dryrun for measuring the baseline, deny for enforcement), reusing only the checks and parameter shapes already in the kit (`K8sRequiredLabels` with `parameters.labels`, `K8sDisallowCapabilities` parameterless), with apply ordering, promotion, verify, and common-errors notes (L5 config)
 - opa-017: `opa/notebooks/rego-vs-builtin-policies.ipynb` — Choosing between Rego and built-in policies: trade-off matrix, scoring helper routing requirements to Rego or built-in, and the same deny-privileged-containers intent expressed as illustrative Rego plus executable plain-logic mirror with agreement asserts; all cells run offline on the standard library (L5 notebook)
 
 ## 2026-10-05
