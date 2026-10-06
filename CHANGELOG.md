@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-06
+
+### Added
+
+- opa-017: `opa/notebooks/rego-vs-builtin-policies.ipynb` — Choosing between Rego and built-in policies: trade-off matrix, scoring helper routing requirements to Rego or built-in, and the same deny-privileged-containers intent expressed as illustrative Rego plus executable plain-logic mirror with agreement asserts; all cells run offline on the standard library (L5 notebook)
+
 ## 2026-10-05
 
 ### Added
