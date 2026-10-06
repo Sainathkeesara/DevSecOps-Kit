@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-06
+
+### Added
+
+- opa-018: `opa/configs/opa-policy-configuration-template.yaml` — OPA (Gatekeeper) policy configuration template: audit-vs-enforce Constraint instances per environment (dryrun for measuring the baseline, deny for enforcement), reusing only the checks and parameter shapes already in the kit (`K8sRequiredLabels` with `parameters.labels`, `K8sDisallowCapabilities` parameterless), with apply ordering, promotion, verify, and common-errors notes (L5 config)
+
 ## 2026-10-05
 
 ### Added

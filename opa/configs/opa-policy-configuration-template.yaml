@@ -1,0 +1,117 @@
+# last_verified: 2026-10-06 · opa n/a
+#
+# OPA (Gatekeeper) policy configuration template
+#
+# Purpose: one versioned file that shows how a policy instance is configured
+#   per environment without editing the policy itself. A ConstraintTemplate
+#   holds the reusable check; each Constraint below instantiates it with
+#   scope (match), enforcement (enforcementAction), and values (parameters).
+#   Copy one document per environment and adjust only the annotated fields.
+#
+# When to use: when the same policy must behave differently across
+#   environments — audit-only where workloads are still being fixed, enforcing
+#   where the baseline is already clean. When the check itself changes, edit
+#   the ConstraintTemplate in opa/manifests/constraint-templates.yaml instead;
+#   this file only tunes instances of checks that already exist.
+#
+# Prerequisites:
+#   - The matching ConstraintTemplate is installed before any Constraint that
+#     uses its kind (Constraint CRDs do not exist until their template is
+#     applied — see opa/manifests/README.md for the ordering).
+#   - kubectl access to apply manifests and read constraint status.
+#
+# Steps:
+#   1. Apply the templates once per cluster:
+#      kubectl apply -f opa/manifests/constraint-templates.yaml
+#   2. Apply the per-environment instance from this file that matches the
+#      target cluster (audit instance for dev/staging, enforcing instance
+#      for prod):
+#      kubectl apply -f opa/configs/opa-policy-configuration-template.yaml
+#   3. Promote by flipping enforcementAction from dryrun to deny only after
+#      the audit instance reports zero violations for the scoped resources.
+#
+# Verify:
+#   - kubectl get constraint <name> -o yaml shows the applied
+#     enforcementAction and the audit status block lists current violations.
+#   - A violating resource is recorded but admitted under dryrun, and denied
+#     under deny.
+#
+# Common errors:
+#   - "no matches for kind" right after apply: the template has not finished
+#     compiling yet. Wait and re-apply the Constraint; do not edit the kind.
+#   - Copying a parameters block onto a template whose rego never reads
+#     input.parameters: the values are accepted but have no effect. Only
+#     K8sRequiredLabels in this kit reads parameters (input.parameters.labels
+#     with key/value entries); the capability and runAsNonRoot checks take no
+#     parameters, so they carry none below.
+#   - Forgetting excludedNamespaces on Pod-scoped constraints: system
+#     components that legitimately need elevated settings get denied. Keep
+#     kube-system and gatekeeper-system excluded unless there is a reason to
+#     audit them.
+#
+# References (in-repo only):
+#   - opa/manifests/constraint-templates.yaml (the checks these instances use)
+#   - opa/manifests/constraints.yaml (the installed baseline instances)
+#   - opa/manifests/README.md (apply ordering and rollout notes)
+#   - opa/configs/tried-a-gatekeeper-constraint.yaml (single-policy example)
+#
+# Rules for editing copies of this file:
+#   - One file per environment beats one file with commented alternatives that
+#     drift. Keep the kind and match identical across copies; the only fields
+#     that should differ are enforcementAction and parameters values.
+#   - Treat a change to enforcementAction the way a code change is treated:
+#     it changes what gets blocked, so it gets reviewed.
+---
+# Audit instance: records violations without blocking. Start here on any
+# cluster where the baseline has not been measured yet.
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredLabels
+metadata:
+  name: require-team-label-audit
+spec:
+  enforcementAction: dryrun
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Namespace"]
+  parameters:
+    labels:
+      - key: team
+        value: platform
+---
+# Enforcing instance: same check, same scope shape, blocks on violation.
+# Promote to this only after the audit instance above is clean.
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredLabels
+metadata:
+  name: require-team-label-enforce
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Namespace"]
+    excludedNamespaces:
+      - kube-system
+      - gatekeeper-system
+  parameters:
+    labels:
+      - key: team
+        value: platform
+---
+# Pod-scoped example without parameters: the check takes no inputs, so the
+# instance only carries scope and enforcement. Included to show that a
+# parameterless policy is configured with match plus enforcementAction alone.
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sDisallowCapabilities
+metadata:
+  name: disallow-capabilities-audit
+spec:
+  enforcementAction: dryrun
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    excludedNamespaces:
+      - kube-system
+      - gatekeeper-system
