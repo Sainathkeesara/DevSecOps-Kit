@@ -1,0 +1,61 @@
+# last_verified: 2026-10-07 · gitleaks n/a
+#
+# Gitleaks detection rules for the kit — my second pass at the scanner.
+#
+# I wrote this after the first scan (see scripts/2026-09-26-run-first-gitleaks-scan.sh
+# and notes/2026-09-19-first-secret-scan.md): the default ruleset flagged
+# the kit's own example patterns, so I wanted rules I control plus an
+# allowlist for the paths I know are examples.
+#
+# The keys follow the rule shape the primer describes — a rule carries a
+# regex, a description, tags and a severity, and the allowlist lists the
+# paths gitleaks skips. Gitleaks itself reads TOML (.gitleaks.toml), so
+# I translate this file into that format when I wire a scan; this YAML is
+# the kit's readable copy of the rule set.
+
+# What I point the scanner at. I keep it at the repo root so a full-history
+# gitleaks detect walk covers every tool folder.
+source:
+  path: .
+
+rules:
+  # A fake token I plant in scan fixtures. I picked the KITTEST prefix
+  # because it never appears in a real credential, so a match here always
+  # means a fixture leaked, never a live secret.
+  - id: kit-test-token
+    description: fake kit test token planted in scan fixtures
+    regex: 'KITTEST[0-9A-Za-z]{16}'
+    tags:
+      - kit
+      - test-fixture
+    severity: LOW
+
+  # Generic secret assignment. I keep the entropy floor at 4.5 because
+  # anything lower tripped on ordinary dictionary words in the kit's docs
+  # during my first attempts at a catch-all rule.
+  - id: high-entropy-assignment
+    description: quoted secret-like assignment with high entropy
+    regex: '(?i)(token|secret|password|api[_-]?key)\s*[:=]\s*[A-Za-z0-9/+=_-]{20,}'
+    entropy: 4.5
+    tags:
+      - generic
+    severity: MEDIUM
+
+allowlist:
+  # Paths I skip on purpose. The notes keep example patterns so a learner
+  # can grep for them, and the report files are scanner output, not sources.
+  paths:
+    - "gitleaks/notes/**"
+    - "**/fixtures/**"
+    - "**/*-report.json"
+
+reporting:
+  # I ask for JSON so the report can be diffed between runs; the CLI flag
+  # that matches is the one my first scan script already uses.
+  format: json
+  path: gitleaks-reports/
+
+# Got stuck on: my first catch-all rule matched the primer's own AKIA
+#   example, which is why the example-heavy notes are allowlisted above.
+# What I'd try next: `gitleaks protect --staged` as a pre-commit hook once
+#   these rules stop producing noise on a clean tree.
