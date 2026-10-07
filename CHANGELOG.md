@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - checkov-024: `checkov/scripts/checkov-health-check-and-rollback.sh` — Checkov health check and rollback procedure: `check` runs a scan gate and classifies healthy/critical from the scanner exit code plus degraded when the result record cannot be persisted, `snapshot`/`list`/`rollback` manage config snapshots with checksum verification and absent-file restore, `--dry-run` on every mutating subcommand, and binary plus version validation up front (L7 script)
 - gitleaks-008: `gitleaks/configs/2026-10-07-detection-rules.yaml` — Gitleaks detection rules for the kit: kit-specific custom rules with authored regexes and an entropy floor, an allowlist for the kit's own example patterns and report output, and notes on translating the YAML into gitleaks' native TOML when wiring a scan (L2 config)
+- gitleaks-007: `gitleaks/notes/2026-10-07-quickstart-trip-ups.md` — Followed the gitleaks quickstart path without an installed binary: staged a throwaway repo with a fake credential, rehearsed `detect` vs `protect`, and wrote up the install, command-choice, and TOML-vs-YAML trip-ups plus what I would run next (L2 notes)
 
 ## 2026-10-06
 
