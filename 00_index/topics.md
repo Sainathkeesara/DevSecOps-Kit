@@ -203,16 +203,17 @@
 - **primer:** [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md)
 - **notes** (2): [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md), [2026-09-20-first-template-scan-attempt.md](../nuclei/notes/2026-09-20-first-template-scan-attempt.md)
 
-## opa  ·  25 files
+## opa  ·  27 files
 
 - **primer:** [0000-primer-opa.md](../opa/notes/0000-primer-opa.md)
 - **notes** (3): [0000-primer-opa.md](../opa/notes/0000-primer-opa.md), [2026-06-06-install-opa-repl.md](../opa/notes/2026-06-06-install-opa-repl.md), [2026-06-15-opa-getting-started-trip-ups.md](../opa/notes/2026-06-15-opa-getting-started-trip-ups.md)
 - **docs** (3): [integrating-opa-with-policy-as-code-governance.md](../opa/docs/integrating-opa-with-policy-as-code-governance.md), [constraint-template-design-patterns.md](../opa/docs/constraint-template-design-patterns.md), [wired-opa-admission-control.md](../opa/docs/wired-opa-admission-control.md)
 - **scripts** (2): [export-audit-results.sh](../opa/scripts/export-audit-results.sh), [how-i-test-policies-locally.sh](../opa/scripts/how-i-test-policies-locally.sh)
-- **configs** (1): [tried-a-gatekeeper-constraint.yaml](../opa/configs/tried-a-gatekeeper-constraint.yaml)
+- **configs** (2): [opa-policy-configuration-template.yaml](../opa/configs/opa-policy-configuration-template.yaml), [tried-a-gatekeeper-constraint.yaml](../opa/configs/tried-a-gatekeeper-constraint.yaml)
 - **snippets** (3): [my-first-opa-policy-eval.sh](../opa/snippets/my-first-opa-policy-eval.sh), [deny-privileged-hostnetwork.rego](../opa/snippets/deny-privileged-hostnetwork.rego), [enforce-image-registry-constraints.rego](../opa/snippets/enforce-image-registry-constraints.rego)
 - **templates** (9): [Gatekeeper policy library scaffold](../opa/templates/gatekeeper-policy-library-scaffold/README.md), [k8sallowedregistries.yaml](../opa/templates/gatekeeper-policy-library-scaffold/constraint-templates/k8sallowedregistries.yaml), [ci-test.yml](../opa/templates/gatekeeper-policy-library-scaffold/.github/workflows/ci-test.yml) — _…and 6 more under `opa/templates/`._
 - **manifests** (4): [gatekeeper-production-deployment.yaml](../opa/manifests/gatekeeper-production-deployment.yaml), [constraint-templates.yaml](../opa/manifests/constraint-templates.yaml), [constraints.yaml](../opa/manifests/constraints.yaml) — _…and 1 more under `opa/manifests/`._
+- **notebooks** (1): [rego-vs-builtin-policies.ipynb](../opa/notebooks/rego-vs-builtin-policies.ipynb)
 
 ## opentofu  ·  6 files
 

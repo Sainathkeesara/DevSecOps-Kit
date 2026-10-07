@@ -165,6 +165,8 @@
 - [My first OPA policy evaluation](../opa/snippets/my-first-opa-policy-eval.sh)
 - [Gatekeeper constraint template design patterns](../opa/docs/constraint-template-design-patterns.md)
 - [OPA policy-as-code governance](../opa/docs/integrating-opa-with-policy-as-code-governance.md) — Running one ConstraintTemplate across dev, staging, and prod: designing the parameter surface, promoting Config then ConstraintTemplate then Constraint, fail-closing last, and gating the Terraform plan from the same rules
+- [OPA policy configuration template](../opa/configs/opa-policy-configuration-template.yaml) — Tune one check per environment without editing the policy: audit-only instances where workloads are still being fixed, enforcing where the baseline is clean
+- [Rego vs built-in policies](../opa/notebooks/rego-vs-builtin-policies.ipynb) — Score a new requirement on four questions to decide between hand-written Rego and a platform check, with the same intent expressed both ways
 - [Wiring OPA into admission control](../opa/docs/wired-opa-admission-control.md)
 - [Gatekeeper policy library scaffold](../opa/templates/gatekeeper-policy-library-scaffold/README.md)
 - [Gatekeeper production deployment manifest](../opa/manifests/gatekeeper-production-deployment.yaml)
