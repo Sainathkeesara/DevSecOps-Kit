@@ -15,11 +15,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 ## Quick links
 
+- [Checkov health check and rollback](checkov/scripts/checkov-health-check-and-rollback.sh) — One entry point for a Checkov scan gate: prove the scanner runs, classify the latest scan result, and undo a bad scan-gate change by restoring the previous Checkov configuration
+- [Gitleaks detection rules](gitleaks/configs/2026-10-07-detection-rules.yaml) — Custom Gitleaks rules for the kit: a controlled ruleset plus an allowlist for the paths that are known examples
+- [Integrating Snyk with CI/CD security scanning](snyk/docs/integrating-snyk-with-cicd-security-scanning.md) — Placing Snyk scans inside a CI/CD pipeline so every change is checked at the right stage: fast feedback on pull requests, a recorded snapshot on merge, and recurring monitoring
+- [OPA policy version migration patterns](opa/docs/opa-policy-version-migration-patterns.md) — Moving a policy estate between OPA releases: what changes in the Rego, the schema, and the admission wiring, and how to keep the audit trail honest during the cut
 - [OPA policy configuration template](opa/configs/opa-policy-configuration-template.yaml) — One versioned file tuning the same check per environment: audit-only where workloads are still being fixed, enforcing where the baseline is already clean
-- [Choosing between Rego and built-in policies](opa/notebooks/rego-vs-builtin-policies.ipynb) — A scoring helper routing a new policy requirement to hand-written Rego or a platform check, with the same privileged-container intent expressed both ways
-- [OPA policy-as-code governance](opa/docs/integrating-opa-with-policy-as-code-governance.md) — Operating a ConstraintTemplate that dev, staging, and prod all share: designing the parameter surface, promoting `Config` → `ConstraintTemplate` → `Constraint` in dependency order, and switching to `failurePolicy: Fail` only after the audit trail has been believed
-- [Grype reporting migration patterns](grype/docs/grype-vulnerability-reporting-migration-patterns.md) — Moving a report from table to JSON to SARIF for a new downstream consumer, keeping the raw scan result and the old format until the new one is verified
-- [Grype filtering configuration template](grype/configs/grype-filtering-configuration-template.yaml) — Severity gate, fix-state filtering, path exclusions, and ignore rules where every entry carries a reason, an owner, and what retires it
 
 ## Layout
 
@@ -44,18 +44,18 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total | Last verified |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|----------:|----------:|---------------|
-| checkov | 4 | 6 | 3 | 3 | 4 | 20 | 3 | 0 | 4 | 1 | 48 | 2026-10-02 |
+| checkov | 4 | 6 | 4 | 3 | 4 | 20 | 3 | 0 | 4 | 1 | 49 | 2026-10-07 |
 | trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 38 | 2026-09-04 |
 | syft | 4 | 6 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 37 | 2026-09-17 |
 | trivy | 6 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 35 | 2026-09-05 |
 | zap | 6 | 5 | 3 | 2 | 4 | 8 | 1 | 1 | 1 | 0 | 31 | 2026-10-02 |
 | gitguardian | 4 | 4 | 3 | 3 | 2 | 9 | 0 | 0 | 1 | 0 | 26 | 2026-10-03 |
 | codeql | 4 | 2 | 1 | 1 | 5 | 8 | 2 | 1 | 1 | 0 | 25 | 2026-09-25 |
-| opa | 3 | 3 | 2 | 2 | 3 | 9 | 4 | 0 | 1 | 0 | 27 | 2026-10-06 |
+| opa | 3 | 4 | 2 | 2 | 3 | 9 | 4 | 0 | 1 | 0 | 28 | 2026-10-06 |
 | grype | 4 | 3 | 8 | 2 | 2 | 0 | 2 | 1 | 2 | 0 | 24 | 2026-10-05 |
 | falco | 4 | 4 | 3 | 4 | 1 | 4 | 1 | 0 | 2 | 0 | 23 | 2026-10-03 |
 | semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 2 | 2 | 3 | 0 | 23 | 2026-09-29 |
-| snyk | 4 | 2 | 1 | 2 | 1 | 11 | 1 | 1 | 0 | 0 | 23 | 2026-09-03 |
+| snyk | 4 | 3 | 1 | 2 | 1 | 11 | 1 | 1 | 0 | 0 | 24 | 2026-10-06 |
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-09-22 |
 | terrascan | 5 | 2 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 21 | 2026-09-27 |
 | vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-09-29 |
@@ -78,7 +78,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | sonarqube | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | helm | 3 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 5 | 2026-09-21 |
 | grafana | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-09-26 |
-| gitleaks | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-26 |
+| gitleaks | 2 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-10-07 |
 | prometheus | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-20 |
 | nuclei | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 | tfsec | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
@@ -89,7 +89,7 @@ _Counts are the files inside each category folder; a few folders also hold files
 
 ## Status
 
-Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions went after the places a security toolchain actually gets hard: the loop around a vulnerability scan — target choice, database caching, report retention, and diffing against the last accepted result — the moves teams make when adopting or replacing secret scanning, and running a single Gatekeeper ConstraintTemplate across dev, staging, and prod without breaking promotion order or fail-closed enforcement. The newest OPA additions stay on that thread: a per-environment configuration template for tuning policy instances without touching the policy itself, and a notebook for deciding whether a new requirement belongs in hand-written Rego or a platform built-in. The thinner corners are the tools carrying notes only: tfsec, Nuclei, Prometheus, Gitleaks, and Grafana.
+Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions went after the places a security toolchain actually gets hard: the loop around a vulnerability scan — target choice, database caching, report retention, and diffing against the last accepted result — the moves teams make when adopting or replacing secret scanning, and running a single Gatekeeper ConstraintTemplate across dev, staging, and prod without breaking promotion order or fail-closed enforcement. The newest OPA additions stay on that thread: a per-environment configuration template for tuning policy instances without touching the policy itself, a policy-version migration pattern for moving the estate between OPA releases, and a notebook for deciding whether a new requirement belongs in hand-written Rego or a platform built-in. The thinner corners are the tools carrying notes only: tfsec, Nuclei, Prometheus, Gitleaks, and Grafana.
 
 ---
-_Last updated: 2026-10-06_
+_Last updated: 2026-10-07_

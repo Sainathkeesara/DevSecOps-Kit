@@ -25,12 +25,12 @@
 - **configs** (1): [2026-09-29-asset-index.yaml](../assets/configs/2026-09-29-asset-index.yaml)
 - _…and 4 diagram files at `assets/` root (`architecture-overview.png`, `cicd-workflow.png`, `devsecops-pipeline.png`, and a README) — browse the folder._
 
-## checkov  ·  48 files
+## checkov  ·  49 files
 
 - **primer:** [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md)
 - **notes** (4): [0000-primer-checkov.md](../checkov/notes/0000-primer-checkov.md), [2026-05-25-scan-terraform-plan.md](../checkov/notes/2026-05-25-scan-terraform-plan.md), [2026-05-26-cli-vs-sdk-comparison.md](../checkov/notes/2026-05-26-cli-vs-sdk-comparison.md) — _…and 1 more under `checkov/notes/`._
 - **docs** (6): [checkov-v3-upgrade-checklist.md](../checkov/docs/checkov-v3-upgrade-checklist.md), [checkov-integration-patterns.md](../checkov/docs/checkov-integration-patterns.md), [multi-cloud-policy-management.md](../checkov/docs/multi-cloud-policy-management.md) — _…and 3 more under `checkov/docs/`._
-- **scripts** (3): [validate-policies.sh](../checkov/scripts/validate-policies.sh), [deep-terraform-plan-scan.sh](../checkov/scripts/deep-terraform-plan-scan.sh), [scan-terraform-plan.sh](../checkov/scripts/scan-terraform-plan.sh)
+- **scripts** (4): [checkov-health-check-and-rollback.sh](../checkov/scripts/checkov-health-check-and-rollback.sh), [validate-policies.sh](../checkov/scripts/validate-policies.sh), [deep-terraform-plan-scan.sh](../checkov/scripts/deep-terraform-plan-scan.sh), [scan-terraform-plan.sh](../checkov/scripts/scan-terraform-plan.sh)
 - **configs** (3): [checkov-ci-config.yaml](../checkov/configs/checkov-ci-config.yaml), [platform-config.yaml](../checkov/configs/platform-config.yaml), [checkov-skip-severity-config.yaml](../checkov/configs/checkov-skip-severity-config.yaml)
 - **snippets** (4): [scan-a-terraform-file.py](../checkov/snippets/scan-a-terraform-file.py), [scan-terraform-dir.py](../checkov/snippets/scan-terraform-dir.py), [scan-kubernetes.sh](../checkov/snippets/scan-kubernetes.sh) — _…and 1 more under `checkov/snippets/`._
 - **templates** (20): [multi-iac scan project](../checkov/templates/multi-iac-scan-project/README.md), [multi-repo drift auto-PR remediation](../checkov/templates/multi-repo-drift-auto-pr-remediation/README.md), [reusable custom-policy workflow](../checkov/templates/reusable-workflow-custom-policies/README.md)
@@ -139,11 +139,12 @@
 - **snippets** (2): [2026-08-26-composite-action-input-reuse.yaml](../github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml), [2026-08-26-first-workflow.yaml](../github-actions/snippets/2026-08-26-first-workflow.yaml)
 - **manifests** (2): [2026-08-04-what-is-github-actions.yaml](../github-actions/manifests/2026-08-04-what-is-github-actions.yaml), [2026-08-04-pr-validation.yml](../github-actions/manifests/2026-08-04-pr-validation.yml)
 
-## gitleaks  ·  3 files
+## gitleaks  ·  4 files
 
 - **primer:** [0000-primer-gitleaks.md](../gitleaks/notes/0000-primer-gitleaks.md)
 - **notes** (2): [0000-primer-gitleaks.md](../gitleaks/notes/0000-primer-gitleaks.md), [2026-09-19-first-secret-scan.md](../gitleaks/notes/2026-09-19-first-secret-scan.md)
 - **scripts** (1): [2026-09-26-run-first-gitleaks-scan.sh](../gitleaks/scripts/2026-09-26-run-first-gitleaks-scan.sh)
+- **configs** (1): [2026-10-07-detection-rules.yaml](../gitleaks/configs/2026-10-07-detection-rules.yaml)
 
 ## grafana  ·  4 files
 
@@ -203,11 +204,11 @@
 - **primer:** [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md)
 - **notes** (2): [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md), [2026-09-20-first-template-scan-attempt.md](../nuclei/notes/2026-09-20-first-template-scan-attempt.md)
 
-## opa  ·  27 files
+## opa  ·  28 files
 
 - **primer:** [0000-primer-opa.md](../opa/notes/0000-primer-opa.md)
 - **notes** (3): [0000-primer-opa.md](../opa/notes/0000-primer-opa.md), [2026-06-06-install-opa-repl.md](../opa/notes/2026-06-06-install-opa-repl.md), [2026-06-15-opa-getting-started-trip-ups.md](../opa/notes/2026-06-15-opa-getting-started-trip-ups.md)
-- **docs** (3): [integrating-opa-with-policy-as-code-governance.md](../opa/docs/integrating-opa-with-policy-as-code-governance.md), [constraint-template-design-patterns.md](../opa/docs/constraint-template-design-patterns.md), [wired-opa-admission-control.md](../opa/docs/wired-opa-admission-control.md)
+- **docs** (4): [opa-policy-version-migration-patterns.md](../opa/docs/opa-policy-version-migration-patterns.md), [integrating-opa-with-policy-as-code-governance.md](../opa/docs/integrating-opa-with-policy-as-code-governance.md), [constraint-template-design-patterns.md](../opa/docs/constraint-template-design-patterns.md), [wired-opa-admission-control.md](../opa/docs/wired-opa-admission-control.md)
 - **scripts** (2): [export-audit-results.sh](../opa/scripts/export-audit-results.sh), [how-i-test-policies-locally.sh](../opa/scripts/how-i-test-policies-locally.sh)
 - **configs** (2): [opa-policy-configuration-template.yaml](../opa/configs/opa-policy-configuration-template.yaml), [tried-a-gatekeeper-constraint.yaml](../opa/configs/tried-a-gatekeeper-constraint.yaml)
 - **snippets** (3): [my-first-opa-policy-eval.sh](../opa/snippets/my-first-opa-policy-eval.sh), [deny-privileged-hostnetwork.rego](../opa/snippets/deny-privileged-hostnetwork.rego), [enforce-image-registry-constraints.rego](../opa/snippets/enforce-image-registry-constraints.rego)
@@ -238,11 +239,11 @@
 - **dockerfiles** (2): [custom-scanning-image.Dockerfile](../semgrep/dockerfiles/custom-scanning-image.Dockerfile), [ci-entrypoint.sh](../semgrep/dockerfiles/ci-entrypoint.sh)
 - **notebooks** (3): [rule-matching-mode-comparison.ipynb](../semgrep/notebooks/rule-matching-mode-comparison.ipynb), [comparing-community-vs-custom-rules.ipynb](../semgrep/notebooks/comparing-community-vs-custom-rules.ipynb), [semgrep-scan-vs-ci-comparison.ipynb](../semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb)
 
-## snyk  ·  23 files
+## snyk  ·  24 files
 
 - **primer:** [0000-primer-snyk.md](../snyk/notes/0000-primer-snyk.md)
 - **notes** (4): [0000-primer-snyk.md](../snyk/notes/0000-primer-snyk.md), [2026-06-08-install-snyk-first-test.md](../snyk/notes/2026-06-08-install-snyk-first-test.md), [2026-06-14-first-vulnerability-scan.md](../snyk/notes/2026-06-14-first-vulnerability-scan.md) — _…and 1 more under `snyk/notes/`._
-- **docs** (2): [vulnerability-prioritization-reachability-fix-prs-license-compliance.md](../snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md), [multi-project-ci-pipeline.md](../snyk/docs/multi-project-ci-pipeline.md)
+- **docs** (3): [integrating-snyk-with-cicd-security-scanning.md](../snyk/docs/integrating-snyk-with-cicd-security-scanning.md), [vulnerability-prioritization-reachability-fix-prs-license-compliance.md](../snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md), [multi-project-ci-pipeline.md](../snyk/docs/multi-project-ci-pipeline.md)
 - **scripts** (1): [snyk-vuln-scan-pipeline.sh](../snyk/scripts/snyk-vuln-scan-pipeline.sh)
 - **configs** (2): [snyk-ci-github-actions.yaml](../snyk/configs/snyk-ci-github-actions.yaml), [snyk-dependency-patch-ignore.yaml](../snyk/configs/snyk-dependency-patch-ignore.yaml)
 - **snippets** (1): [my-first-snyk-commands.sh](../snyk/snippets/my-first-snyk-commands.sh)
