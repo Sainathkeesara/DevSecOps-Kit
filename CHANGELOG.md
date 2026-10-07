@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- snyk-013: `snyk/notebooks/cli-vs-api-modes.ipynb` — Choosing between CLI and API modes in Snyk: decision rule over caller, output consumer, and environment (air-gapped runtimes pre-bundle the CLI), criteria trade-off matrix, exit-code vs HTTP-status failure semantics with a fail-closed rule, per-integration decision records, and executable checks (mode-recommendation scenario matrix plus a synthetic severity-counting fixture that mirrors the pipeline script's jq aggregation); all cells run offline on the standard library (L5 notebook)
+- snyk-016: `snyk/notes/2026-10-07-explore-snyk-cli-commands.md` — Exploring the Snyk CLI: `test` vs `monitor`, `auth`/`SNYK_TOKEN`, `--json`/`--all-projects`/`--severity-threshold`/`--fail-on`, `container test`, and the exit-code-as-gate behavior (L1 notes)
 - checkov-024: `checkov/scripts/checkov-health-check-and-rollback.sh` — Checkov health check and rollback procedure: `check` runs a scan gate and classifies healthy/critical from the scanner exit code plus degraded when the result record cannot be persisted, `snapshot`/`list`/`rollback` manage config snapshots with checksum verification and absent-file restore, `--dry-run` on every mutating subcommand, and binary plus version validation up front (L7 script)
 - gitleaks-008: `gitleaks/configs/2026-10-07-detection-rules.yaml` — Gitleaks detection rules for the kit: kit-specific custom rules with authored regexes and an entropy floor, an allowlist for the kit's own example patterns and report output, and notes on translating the YAML into gitleaks' native TOML when wiring a scan (L2 config)
 
