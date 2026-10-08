@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- codeql-017: `codeql/docs/codeql-database-migration-guide.md` — CodeQL database migration guide: inventory language set/build mode/database path, per-language database creation, autobuild↔manual build moves with fresh extraction, path relocation verified on clean runners, stale-database recreation, custom-pack pointer carried across, rollback restores prior workflow (L6 docs)
 - snyk-014: `snyk/configs/snyk-project-configuration-template.yaml` — Snyk project configuration template: per-project settings (targets, severity gate, exclusions, policy file, CI wiring) copied per service so local and CI scans share one threshold, gate-drift and over-broad-exclusion notes, all references in-repo (L5 config)
 - snyk-015: `snyk/docs/snyk-security-policy-migration-patterns.md` — Snyk security policy migration patterns: inventory policy layers separately (ignore/patch file, severity threshold, exclusions, CI execution), introduce new policy alongside old in recording mode, diff scan output not file contents, promote by switching enforcement, rollback by reverting the file; references all in-repo (L5 docs)
 - codeql-016: `codeql/docs/codeql-integration-reference.md` — CodeQL integration reference for security analysis: how the init/autobuild/analyze stages, language matrix, scheduling, SARIF handling, and local CLI loop fit together, grounded in the kit's own workflow files, manifests, and helper script; all references in-repo (L6 docs)
