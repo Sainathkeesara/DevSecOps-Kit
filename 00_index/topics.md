@@ -38,11 +38,11 @@
 - **notebooks** (4): [compare-custom-policy-expressiveness.ipynb](../checkov/notebooks/compare-custom-policy-expressiveness.ipynb), [compare-static-vs-plan-scanning.ipynb](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb), [compare-cross-module-scanning-limitations.ipynb](../checkov/notebooks/compare-cross-module-scanning-limitations.ipynb) — _…and 1 more under `checkov/notebooks/`._
 - **policies** (1): [no_public_s3_buckets.yaml](../checkov/policies/no-public-s3-buckets/no_public_s3_buckets.yaml)
 
-## codeql  ·  25 files
+## codeql  ·  27 files
 
 - **primer:** [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md)
 - **notes** (4): [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md), [2026-08-26-install-codeql-first-query.md](../codeql/notes/2026-08-26-install-codeql-first-query.md), [2026-06-14-codeql-datalog-gotchas.md](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md) — _…and 1 more under `codeql/notes/`._
-- **docs** (2): [query-writing-patterns-dataflow-javascript-typescript.md](../codeql/docs/query-writing-patterns-dataflow-javascript-typescript.md), [wired-custom-queries-into-ci.md](../codeql/docs/wired-custom-queries-into-ci.md)
+- **docs** (4): [codeql-database-migration-guide.md](../codeql/docs/codeql-database-migration-guide.md), [codeql-integration-reference.md](../codeql/docs/codeql-integration-reference.md), [query-writing-patterns-dataflow-javascript-typescript.md](../codeql/docs/query-writing-patterns-dataflow-javascript-typescript.md) — _…and 1 more under `codeql/docs/`._
 - **scripts** (1): [first-codeql-analysis.sh](../codeql/scripts/first-codeql-analysis.sh)
 - **configs** (1): [first-codeql-analysis.yml](../codeql/configs/first-codeql-analysis.yml)
 - **snippets** (5): [find-hardcoded-creds.ql](../codeql/snippets/find-hardcoded-creds.ql), [hardcoded-creds-local-flow.ql](../codeql/snippets/hardcoded-creds-local-flow.ql), [2026-09-24-first-codeql-query.py](../codeql/snippets/2026-09-24-first-codeql-query.py) — _…and 2 more under `codeql/snippets/`._
@@ -239,11 +239,11 @@
 - **dockerfiles** (2): [custom-scanning-image.Dockerfile](../semgrep/dockerfiles/custom-scanning-image.Dockerfile), [ci-entrypoint.sh](../semgrep/dockerfiles/ci-entrypoint.sh)
 - **notebooks** (3): [rule-matching-mode-comparison.ipynb](../semgrep/notebooks/rule-matching-mode-comparison.ipynb), [comparing-community-vs-custom-rules.ipynb](../semgrep/notebooks/comparing-community-vs-custom-rules.ipynb), [semgrep-scan-vs-ci-comparison.ipynb](../semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb)
 
-## snyk  ·  27 files
+## snyk  ·  28 files
 
 - **primer:** [0000-primer-snyk.md](../snyk/notes/0000-primer-snyk.md)
 - **notes** (5): [0000-primer-snyk.md](../snyk/notes/0000-primer-snyk.md), [2026-10-07-explore-snyk-cli-commands.md](../snyk/notes/2026-10-07-explore-snyk-cli-commands.md), [2026-06-08-install-snyk-first-test.md](../snyk/notes/2026-06-08-install-snyk-first-test.md) — _…and 2 more under `snyk/notes/`._
-- **docs** (3): [integrating-snyk-with-cicd-security-scanning.md](../snyk/docs/integrating-snyk-with-cicd-security-scanning.md), [vulnerability-prioritization-reachability-fix-prs-license-compliance.md](../snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md), [multi-project-ci-pipeline.md](../snyk/docs/multi-project-ci-pipeline.md)
+- **docs** (4): [snyk-security-policy-migration-patterns.md](../snyk/docs/snyk-security-policy-migration-patterns.md), [integrating-snyk-with-cicd-security-scanning.md](../snyk/docs/integrating-snyk-with-cicd-security-scanning.md), [vulnerability-prioritization-reachability-fix-prs-license-compliance.md](../snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md) — _…and 1 more under `snyk/docs/`._
 - **scripts** (1): [snyk-vuln-scan-pipeline.sh](../snyk/scripts/snyk-vuln-scan-pipeline.sh)
 - **configs** (3): [snyk-project-configuration-template.yaml](../snyk/configs/snyk-project-configuration-template.yaml), [snyk-ci-github-actions.yaml](../snyk/configs/snyk-ci-github-actions.yaml), [snyk-dependency-patch-ignore.yaml](../snyk/configs/snyk-dependency-patch-ignore.yaml)
 - **snippets** (1): [my-first-snyk-commands.sh](../snyk/snippets/my-first-snyk-commands.sh)

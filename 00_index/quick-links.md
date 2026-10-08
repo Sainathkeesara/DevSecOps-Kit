@@ -112,6 +112,7 @@
 - [SBOM generation with Syft](../syft/scripts/gen-multi-format-sboms.sh)
 - [Syft output format comparison](../syft/notebooks/output-format-comparison.ipynb)
 - [Snyk vulnerability prioritization with reachability and Fix PRs](../snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md)
+- [Snyk security policy migration patterns](../snyk/docs/snyk-security-policy-migration-patterns.md) — Move ignore rules, severity thresholds, and exclusion paths without weakening the gate
 - [Snyk multi-language scan scaffold](../snyk/templates/snyk-multilang-scan-scaffold/README.md)
 - [Snyk project configuration template](../snyk/configs/snyk-project-configuration-template.yaml) — Per-project severity gate, scan targets, and exclusions in one versioned file
 - [Snyk CLI vs API modes](../snyk/notebooks/cli-vs-api-modes.ipynb) — When to scan through the CLI versus the HTTP API
@@ -249,6 +250,8 @@
 - [CodeQL query-writing patterns for JavaScript/TypeScript](../codeql/docs/query-writing-patterns-dataflow-javascript-typescript.md) — Source, sink, and sanitizer patterns for custom data-flow queries
 - [CodeQL CLI vs GitHub Actions scan modes](../codeql/notebooks/compare-cli-vs-actions-scan-modes.ipynb) — When to run CodeQL locally via the CLI versus declaratively in Actions
 - [CodeQL multi-language repository scan](../codeql/manifests/codeql-multi-language-scan.yaml) — One workflow that analyses every language in a repo with a single status check
+- [CodeQL database migration guide](../codeql/docs/codeql-database-migration-guide.md) — Move a setup between language sets, build modes, and database locations without losing coverage
+- [CodeQL integration reference](../codeql/docs/codeql-integration-reference.md) — How the kit's workflows, manifests, and local CLI loop fit together as one pipeline
 - [CodeQL custom query-pack scaffold](../codeql/templates/custom-query-pack-ci-harness/README.md) — Reusable layout for project-specific queries with CI and local test harness
 - [Semgrep rule-writing reference](../semgrep/docs/semgrep-rule-writing-reference.md)
 - [Custom Semgrep rule example](../semgrep/snippets/first-custom-rule.yaml)
