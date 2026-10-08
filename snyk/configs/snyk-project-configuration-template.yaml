@@ -1,0 +1,106 @@
+# last_verified: 2026-10-08 · snyk n/a
+# Snyk project configuration template.
+#
+# Purpose:
+#   Define per-project Snyk settings in one place so every service in a
+#   multi-project repository is scanned with the same severity gate, the
+#   same exclusion rules, and the same policy file. Copy this file per
+#   project, fill in the CHANGEME placeholders, and keep the copies in
+#   version control next to the CI workflow that consumes them.
+#
+# When to use:
+#   Use this template when a repository holds more than one scannable
+#   target (application code, container images, infrastructure definitions)
+#   and the team needs a single record of what gets scanned, what fails
+#   the build, and what is deliberately excluded. For a single-target
+#   repository, the CI workflow alone is sufficient.
+#
+# Prerequisites:
+#   - The Snyk CLI is available wherever scans run.
+#   - The SNYK_TOKEN credential is configured in the CI environment.
+#   - The ignore/patch policy file exists (see policy_file below).
+#
+# Steps:
+#   1. Copy this file to a per-project path and replace every CHANGEME value.
+#   2. List each scannable target under targets with its kind and path.
+#   3. Set severity_gate.fail_on to the lowest severity that blocks a merge.
+#   4. Record excluded paths under exclusions with a reason for each entry.
+#   5. Point policy_file at the team's ignore/patch policy configuration.
+#   6. Wire the CI job to read fail_on and targets from this file instead
+#      of hardcoding thresholds in the workflow.
+#
+# Verify:
+#   - The file parses as valid YAML.
+#   - Every target path exists in the repository.
+#   - The severity gate matches the gate used by the scan script and the
+#     CI workflow, so local and CI results agree.
+#   - Excluded paths are intentional and each carries a reason.
+#
+# Common errors:
+#   - Gate drift: fail_on set here differs from the threshold passed to
+#     the scan script, so a build passes locally and fails in CI. Fix by
+#     reading the threshold from this file in both places.
+#   - Over-broad exclusions: excluding a whole directory hides new targets
+#     added under it later. Prefer narrow paths and re-check exclusions
+#     when the repository layout changes.
+#   - Missing policy file: policy_file points at a path that was renamed.
+#     The scan still runs, but accepted-risk ignores stop applying and
+#     previously ignored findings resurface as new failures.
+#
+# References (all in-repo):
+#   - snyk/configs/snyk-ci-github-actions.yaml (CI workflow consuming the gate)
+#   - snyk/configs/snyk-dependency-patch-ignore.yaml (ignore/patch policy file)
+#   - snyk/scripts/snyk-vuln-scan-pipeline.sh (scan script honoring the threshold)
+#   - snyk/docs/integrating-snyk-with-cicd-security-scanning.md (CI integration pattern)
+#   - snyk/docs/multi-project-ci-pipeline.md (multi-project scanning pattern)
+#   - snyk/manifests/snyk-github-actions-cicd-workflow.yaml (pipeline manifest)
+
+project:
+  # Human-readable project name. Used as the Snyk project name when
+  # pushing snapshots for continuous monitoring.
+  name: CHANGEME-my-service
+  # Repository this configuration belongs to, in owner/repo form.
+  repository: CHANGEME-my-org/my-service
+  # Contact owning Snyk findings for this project.
+  owner: CHANGEME-team-name
+
+targets:
+  # Each entry is one scannable unit. kind is either code (a directory
+  # scanned with snyk test) or image (a container reference scanned
+  # with snyk container test).
+  - kind: code
+    path: ./app
+    description: Main application dependencies
+  - kind: image
+    path: CHANGEME-my-service:latest
+    description: Runtime image built from ./app
+
+severity_gate:
+  # Lowest severity that fails the build. One of: low, medium, high,
+  # critical. Must match the threshold used by the scan script and the
+  # CI workflow so results agree everywhere.
+  fail_on: high
+  # When true, the pipeline records a monitoring snapshot on every run
+  # even when the gate passes, keeping the dashboard current.
+  monitor_on_pass: true
+
+exclusions:
+  # Paths never scanned. Keep entries narrow and always give a reason;
+  # an exclusion without a reason is removed in review.
+  - path: ./app/test/fixtures
+    reason: Test fixtures with intentionally pinned vulnerable packages
+  - path: ./docs
+    reason: No executable code or dependencies in documentation
+
+policy_file:
+  # Path to the ignore/patch policy configuration holding accepted-risk
+  # ignores and remediation patches. Scans apply it automatically when
+  # it sits next to the scanned targets.
+  path: snyk/configs/snyk-dependency-patch-ignore.yaml
+
+ci:
+  # Name of the CI credential holding the Snyk token. The workflow reads
+  # this secret; the value itself is never stored in this file.
+  token_secret: SNYK_TOKEN
+  # How often a scheduled scan runs in addition to per-merge scans.
+  schedule: weekly
