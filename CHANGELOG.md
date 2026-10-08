@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-08
+
+### Added
+
+- snyk-014: `snyk/configs/snyk-project-configuration-template.yaml` — Snyk project configuration template: per-project settings (targets, severity gate, exclusions, policy file, CI wiring) copied per service so local and CI scans share one threshold, gate-drift and over-broad-exclusion notes, all references in-repo (L5 config)
+
 ## 2026-10-07
 
 ### Added
