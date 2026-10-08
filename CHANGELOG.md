@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - snyk-014: `snyk/configs/snyk-project-configuration-template.yaml` — Snyk project configuration template: per-project settings (targets, severity gate, exclusions, policy file, CI wiring) copied per service so local and CI scans share one threshold, gate-drift and over-broad-exclusion notes, all references in-repo (L5 config)
+- snyk-015: `snyk/docs/snyk-security-policy-migration-patterns.md` — Snyk security policy migration patterns: inventory policy layers separately (ignore/patch file, severity threshold, exclusions, CI execution), introduce new policy alongside old in recording mode, diff scan output not file contents, promote by switching enforcement, rollback by reverting the file; references all in-repo (L5 docs)
 
 ## 2026-10-07
 
