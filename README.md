@@ -15,11 +15,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 ## Quick links
 
+- [Snyk project configuration template](snyk/configs/snyk-project-configuration-template.yaml) — Per-project Snyk settings in one place: severity gate, scan targets, exclusions with reasons, and the ignore-policy pointer for multi-target repos
+- [Choosing between CLI and API modes in Snyk](snyk/notebooks/cli-vs-api-modes.ipynb) — When to run a scan through the CLI versus the HTTP API: who can call each, how results are consumed, and how failures surface
+- [Exploring the Snyk CLI](snyk/notes/2026-10-07-explore-snyk-cli-commands.md) — `test` versus `monitor` side by side, plus the JSON, monorepo, and severity-gate flags used for CI gating
+- [Following the Gitleaks quickstart](gitleaks/notes/2026-10-07-quickstart-trip-ups.md) — Full-history versus staged-changes scans rehearsed against a throwaway repo with a fake credential
 - [Checkov health check and rollback](checkov/scripts/checkov-health-check-and-rollback.sh) — One entry point for a Checkov scan gate: prove the scanner runs, classify the latest scan result, and undo a bad scan-gate change by restoring the previous Checkov configuration
-- [Gitleaks detection rules](gitleaks/configs/2026-10-07-detection-rules.yaml) — Custom Gitleaks rules for the kit: a controlled ruleset plus an allowlist for the paths that are known examples
-- [Integrating Snyk with CI/CD security scanning](snyk/docs/integrating-snyk-with-cicd-security-scanning.md) — Placing Snyk scans inside a CI/CD pipeline so every change is checked at the right stage: fast feedback on pull requests, a recorded snapshot on merge, and recurring monitoring
-- [OPA policy version migration patterns](opa/docs/opa-policy-version-migration-patterns.md) — Moving a policy estate between OPA releases: what changes in the Rego, the schema, and the admission wiring, and how to keep the audit trail honest during the cut
-- [OPA policy configuration template](opa/configs/opa-policy-configuration-template.yaml) — One versioned file tuning the same check per environment: audit-only where workloads are still being fixed, enforcing where the baseline is already clean
 
 ## Layout
 
@@ -55,7 +55,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | grype | 4 | 3 | 8 | 2 | 2 | 0 | 2 | 1 | 2 | 0 | 24 | 2026-10-05 |
 | falco | 4 | 4 | 3 | 4 | 1 | 4 | 1 | 0 | 2 | 0 | 23 | 2026-10-03 |
 | semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 2 | 2 | 3 | 0 | 23 | 2026-09-29 |
-| snyk | 4 | 3 | 1 | 2 | 1 | 11 | 1 | 1 | 0 | 0 | 24 | 2026-10-06 |
+| snyk | 5 | 3 | 1 | 3 | 1 | 11 | 1 | 1 | 1 | 0 | 27 | 2026-10-08 |
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-09-22 |
 | terrascan | 5 | 2 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 21 | 2026-09-27 |
 | vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-09-29 |
@@ -78,7 +78,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | sonarqube | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | helm | 3 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 5 | 2026-09-21 |
 | grafana | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-09-26 |
-| gitleaks | 2 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-10-07 |
+| gitleaks | 3 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 2026-10-07 |
 | prometheus | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-20 |
 | nuclei | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 | tfsec | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
@@ -89,7 +89,7 @@ _Counts are the files inside each category folder; a few folders also hold files
 
 ## Status
 
-Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions went after the places a security toolchain actually gets hard: the loop around a vulnerability scan — target choice, database caching, report retention, and diffing against the last accepted result — the moves teams make when adopting or replacing secret scanning, and running a single Gatekeeper ConstraintTemplate across dev, staging, and prod without breaking promotion order or fail-closed enforcement. The newest OPA additions stay on that thread: a per-environment configuration template for tuning policy instances without touching the policy itself, a policy-version migration pattern for moving the estate between OPA releases, and a notebook for deciding whether a new requirement belongs in hand-written Rego or a platform built-in. The thinner corners are the tools carrying notes only: tfsec, Nuclei, Prometheus, Gitleaks, and Grafana.
+Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions went after the places a security toolchain actually gets hard: the loop around a vulnerability scan — target choice, database caching, report retention, and diffing against the last accepted result — the moves teams make when adopting or replacing secret scanning, and running a single Gatekeeper ConstraintTemplate across dev, staging, and prod without breaking promotion order or fail-closed enforcement. The newest Snyk additions stay on the operational thread: a per-project configuration template recording severity gate, targets, and exclusions in one place, a notebook weighing CLI runs against API-driven scans, and a CLI walkthrough of `test` versus `monitor` for CI gating. Gitleaks gained a quickstart trip-ups note covering full-history versus staged-changes scans. The thinner corners are the tools carrying notes only: tfsec, Nuclei, and Prometheus.
 
 ---
-_Last updated: 2026-10-07_
+_Last updated: 2026-10-08_

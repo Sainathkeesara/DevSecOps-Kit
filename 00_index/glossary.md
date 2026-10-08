@@ -775,3 +775,14 @@
 
 - **Built-in check (OPA)** — A decision the platform already ships (an admission check or ready-made constraint kind) that a team configures with parameters instead of authoring logic. Reach for it when the requirement matches what exists; write Rego when conditions combine, when they refer to organisation-specific data, or when a custom message is needed.
 - **Policy instance tuning** — Adjusting a policy's behaviour per environment by changing Constraint scope, enforcement, and parameters — audit-only where workloads are still being fixed, enforcing where the baseline is clean — without editing the shared ConstraintTemplate.
+
+## Snyk
+
+- **snyk test** — The CLI command that scans a target and reports findings to stdout, exiting non-zero when findings breach the severity gate. Used for fast feedback in pull requests and local checks.
+- **snyk monitor** — The CLI command that pushes a scan snapshot to the Snyk dashboard so the same project can be tracked over time. Used on merge and on a schedule rather than per pull request.
+- **Project configuration (Snyk)** — A per-project file recording what gets scanned, what severity fails the build, and what is deliberately excluded with a reason. Keeps the gate definition next to the code instead of hardcoded in the workflow.
+- **CLI vs API scan (Snyk)** — Two ways to drive the same scan engine: the CLI runs scans from a shell or CI step and reports through exit codes and stdout, while the HTTP API runs them from custom code with results consumed programmatically. The finding set for identical inputs should agree; the choice is about caller and consumption, not coverage.
+
+## Gitleaks
+
+- **Full-history vs staged scan (Gitleaks)** — A full-history scan (`detect --source`) walks every commit for secrets already merged, while a staged-changes check scans only what is about to be committed. Run the full history when adopting the tool and the staged check on every commit to keep new secrets out.
