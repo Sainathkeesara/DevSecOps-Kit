@@ -235,6 +235,7 @@
 - [Semgrep primer](../semgrep/notes/0000-primer-semgrep.md)
 - [Checkov primer](../checkov/notes/0000-primer-checkov.md)
 - [Validate custom Checkov policies](../checkov/scripts/validate-policies.sh) — Structural and required-section checks on every policy folder, then `checkov --external-checks-dir` and a yamllint pass
+- [Checkov health check and rollback](../checkov/scripts/checkov-health-check-and-rollback.sh) — One entry point for a Checkov scan gate: prove the scanner runs, classify the latest scan result, and undo a bad scan-gate change by restoring the previous Checkov configuration
 - [Checkov 2.x to 3.x upgrade checklist](../checkov/docs/checkov-v3-upgrade-checklist.md) — Roll out the major-version upgrade on a trial branch without breaking the CI gate
 - [Checkov cross-module scanning limitations](../checkov/notebooks/compare-cross-module-scanning-limitations.ipynb) — Static directory scan vs plan JSON scan for cross-module IaC
 - [Checkov custom policy authoring comparison](../checkov/notebooks/compare-custom-policy-expressiveness.ipynb) — Four authoring styles for one "no public S3 bucket" rule, scored against a labelled corpus
