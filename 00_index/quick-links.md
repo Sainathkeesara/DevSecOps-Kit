@@ -113,6 +113,9 @@
 - [Syft output format comparison](../syft/notebooks/output-format-comparison.ipynb)
 - [Snyk vulnerability prioritization with reachability and Fix PRs](../snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md)
 - [Snyk multi-language scan scaffold](../snyk/templates/snyk-multilang-scan-scaffold/README.md)
+- [Snyk project configuration template](../snyk/configs/snyk-project-configuration-template.yaml) — Per-project severity gate, scan targets, and exclusions in one versioned file
+- [Snyk CLI vs API modes](../snyk/notebooks/cli-vs-api-modes.ipynb) — When to scan through the CLI versus the HTTP API
+- [Exploring the Snyk CLI](../snyk/notes/2026-10-07-explore-snyk-cli-commands.md) — `test` vs `monitor` and the flags used for CI gating
 
 ### Learn Linux shell scripting
 
@@ -261,6 +264,7 @@
 - [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md)
 - [Gitleaks primer](../gitleaks/notes/0000-primer-gitleaks.md)
 - [First secret scan with Gitleaks](../gitleaks/notes/2026-09-19-first-secret-scan.md) — What to set up before a first scan, using a fake credential in a test repo
+- [Gitleaks quickstart trip-ups](../gitleaks/notes/2026-10-07-quickstart-trip-ups.md) — Full-history vs staged-changes scans and the custom detection-rules config
 - [First Gitleaks scan script](../gitleaks/scripts/2026-09-26-run-first-gitleaks-scan.sh) — Point Gitleaks at a sample repo and save the findings as JSON
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
 - [GitGuardian CI/CD secret scanning integration](../gitguardian/docs/cicd-secret-scanning-integration.md) — Where pre-commit, pull-request, and scheduled ggshield scans belong, plus incident-response hooks
