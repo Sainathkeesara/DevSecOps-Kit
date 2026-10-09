@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-09
+
+### Added
+
+- codeql-018: `codeql/manifests/codeql-cicd-pipeline.yaml` — CodeQL CI/CD pipeline deployment gate: fast interpreted-language PR gate, full multi-language analysis on merge, promotion job releasing the build only when analysis succeeded; all references in-repo (L6 manifest)
+
 ## 2026-10-08
 
 ### Added
