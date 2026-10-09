@@ -250,6 +250,7 @@
 - [CodeQL query-writing patterns for JavaScript/TypeScript](../codeql/docs/query-writing-patterns-dataflow-javascript-typescript.md) — Source, sink, and sanitizer patterns for custom data-flow queries
 - [CodeQL CLI vs GitHub Actions scan modes](../codeql/notebooks/compare-cli-vs-actions-scan-modes.ipynb) — When to run CodeQL locally via the CLI versus declaratively in Actions
 - [CodeQL multi-language repository scan](../codeql/manifests/codeql-multi-language-scan.yaml) — One workflow that analyses every language in a repo with a single status check
+- [CodeQL CI/CD pipeline deployment gate](../codeql/manifests/codeql-cicd-pipeline.yaml) — PR gate running interpreted languages fast, full multi-language analysis on merge, and a promotion job that blocks deployment when analysis fails
 - [CodeQL database migration guide](../codeql/docs/codeql-database-migration-guide.md) — Move a setup between language sets, build modes, and database locations without losing coverage
 - [CodeQL integration reference](../codeql/docs/codeql-integration-reference.md) — How the kit's workflows, manifests, and local CLI loop fit together as one pipeline
 - [CodeQL custom query-pack scaffold](../codeql/templates/custom-query-pack-ci-harness/README.md) — Reusable layout for project-specific queries with CI and local test harness
@@ -258,6 +259,7 @@
 - [Semgrep rule performance optimization](../semgrep/docs/semgrep-rule-performance-optimization.md)
 - [Semgrep rules migration guide](../semgrep/docs/semgrep-rules-migration-guide.md) — Move an organically grown ruleset into a consistent layout with normalized envelopes and CI rollout
 - [Semgrep code-scanning integration reference](../semgrep/docs/semgrep-code-scanning-integration-reference.md) — CI patterns, SARIF upload, rule sources, and severity tuning for code scanning
+- [Semgrep CI/CD pipeline deployment manifest](../semgrep/manifests/semgrep-ci-cd-pipeline.yaml) — Full-repo SAST gate with SARIF upload, weekly scheduled scans, and configurable severity-based quality gating
 - [AST-based security pattern checker](../docs/concepts/application-security-testing-concepts/scripts/2026-08-26-ast-devsecops.py)
 - [SonarQube quality gates and profiles](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md)
 - [Semgrep rule-design comparison](../semgrep/notebooks/rule-matching-mode-comparison.ipynb) — Search, context-constrained, and taint rules for one injection class scored on a labelled corpus
