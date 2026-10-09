@@ -1,0 +1,147 @@
+# last_verified: 2026-10-09 · codeql n/a
+# Purpose: Deploy CodeQL scanning as a promotion gate inside a CI/CD pipeline —
+#          a fast interpreted-language scan blocks pull requests, a full
+#          multi-language analysis runs on merge to the default branch, and a
+#          promotion job releases the build for deployment only when analysis
+#          succeeded. Failing analysis fails the pipeline before anything ships.
+# When to use: Repositories with at least one compiled language (go, java)
+#              alongside interpreted ones (javascript, python) where a single
+#              scan-everything-on-every-PR workflow is too slow to gate merges.
+#              Use the PR job as the everyday merge gate and the full-analysis
+#              plus promotion jobs as the merge-to-main release gate. Prefer one
+#              of the single-purpose scan workflows when no deployment decision
+#              hangs off the result.
+# Prerequisites: Code scanning enabled for the repository; the checkout needs
+#                full history for autobuild; compiled languages need their
+#                toolchain on the runner (ubuntu-latest provides go and java).
+# Steps: 1. On pull requests, run the pr-gate job (javascript + python only —
+#           no build step, finishes in minutes). 2. On push to the default
+#           branch (or schedule/manual dispatch), run the full-analysis job
+#           over all four languages with autobuild. 3. The promotion job runs
+#           after full-analysis and only when it succeeded; its success is the
+#           signal the release pipeline may proceed to deployment.
+# Verify: Open a pull request — the pr-gate job runs and its status check
+#         appears on the PR. Merge to main — full-analysis runs, then promotion
+#         runs and uploads the promotion marker artifact. Introduce a finding
+#         the configured queries flag and confirm the merge-to-main run fails
+#         before promotion starts.
+# Rollback: To stop CodeQL blocking merges, remove the pr-gate status check
+#           from the branch protection rules — the workflow keeps running
+#           without gating. To revert to scan-only coverage, delete the
+#           promotion job; both scan jobs are self-contained. CodeQL does not
+#           resume an interrupted analysis; re-run the workflow instead.
+# Common errors: Autobuild failure on compiled languages — the runner is
+#                missing a build tool the project needs; add a setup step for
+#                that toolchain before autobuild. Promotion never runs — its
+#                needs chain requires full-analysis to succeed, so a red
+#                analysis correctly holds the release; fix the findings, not
+#                the gate. Schedule runs missing — the cron entry only fires on
+#                the default branch; confirm the workflow file is merged there.
+# References: codeql/manifests/codeql-multi-language-scan.yaml (single-job
+#             scan wiring), codeql/manifests/multi-language-codeql-analysis.yaml
+#             (matrix per-language wiring), codeql/docs/wired-custom-queries-into-ci.md
+#             (custom query packs in CI), codeql/configs/first-codeql-analysis.yml
+#             (minimal analysis configuration).
+name: CodeQL — CI/CD pipeline deployment gate
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+  schedule:
+    - cron: "0 5 * * 1"
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  pr-gate:
+    name: CodeQL PR gate (interpreted languages)
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Initialize CodeQL (no-build languages)
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript, python
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:pr-gate"
+
+  full-analysis:
+    name: CodeQL full analysis (all languages)
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Initialize CodeQL for all languages
+        uses: github/codeql-action/init@v3
+        with:
+          languages: go, java, javascript, python
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:full-analysis"
+
+  promotion:
+    name: Deployment promotion gate
+    needs: [full-analysis]
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Confirm analysis succeeded
+        run: |
+          test "${{ needs.full-analysis.result }}" = "success" || {
+            echo "::error::CodeQL full analysis did not succeed (result: ${{ needs.full-analysis.result }}) — release is held"
+            exit 1
+          }
+          echo "CodeQL analysis passed — release promoted for deployment."
+
+      - name: Record promotion marker
+        run: |
+          mkdir -p promotion
+          printf 'run=%s\nsha=%s\nanalysis=%s\n' \
+            "${{ github.run_id }}" \
+            "${{ github.sha }}" \
+            "${{ needs.full-analysis.result }}" > promotion/codeql-promotion.txt
+          cat promotion/codeql-promotion.txt
+
+      - name: Upload promotion marker
+        uses: actions/upload-artifact@v4
+        with:
+          name: codeql-promotion-marker
+          path: promotion/codeql-promotion.txt
+          if-no-files-found: error
+          retention-days: 90
