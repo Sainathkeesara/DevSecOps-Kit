@@ -1,0 +1,128 @@
+# last_verified: 2026-10-09 · semgrep n/a
+# Purpose: Deploy Semgrep SAST as a full-scan CI/CD gate on GitHub Actions, with SARIF
+# upload to GitHub Code Scanning, weekly scheduled deep scans, and configurable
+# severity-based quality gating that fails the pipeline on new findings.
+#
+# When to use:
+# - Repositories needing full-repo SAST coverage on every push and pull request
+# - Teams tracking findings through GitHub Code Scanning alerts
+# - Environments requiring scheduled scans beyond PR-gating coverage
+#
+# Prerequisites:
+# - Code scanning enabled for the repository (Security → Code scanning alerts)
+# - Full history checkout (fetch-depth: 0) for accurate rule evaluation
+# - .semgrepignore at repo root to exclude vendored/generated code
+#
+# Usage:
+# - Place at .github/workflows/semgrep-ci-cd-pipeline.yaml
+# - Override SEMGREP_CONFIG via workflow_dispatch to a rule pack (auto, p/security-audit, p/secrets)
+# - Set FAIL_SEVERITY to ERROR to block merges, ERROR,WARNING to surface both tiers
+#
+# Verify:
+# - Open a PR with a deliberate vulnerability; confirm detection and pipeline failure
+# - Check Security → Code scanning alerts for uploaded SARIF results
+# - Confirm the weekly scheduled run fires in Actions → Runs → Scheduled
+#
+# Rollback:
+# - Disable the workflow in the Actions tab to stop new runs without removing the file
+# - Revert .semgrepignore if exclusion changes caused findings to disappear
+# - Reset SEMGREP_CONFIG to a prior rule pack to roll back a ruleset change
+#
+# Common errors:
+# - "Found no Semgrep configuration" — SEMGREP_CONFIG path must resolve relative to repo root
+# - SARIF upload fails — verify the upload action version supports SARIF 2.1 schema
+# - Rule registry download is slow on first run — CLI caches in ~/.cache/semgrep
+# - Noise from vendored code — refine .semgrepignore (vendor/, node_modules/, dist/, build/)
+#
+# References:
+# - semgrep/manifests/diff-aware-semgrep-ci.yaml — PR-only diff-aware variant with baseline-commit
+# - semgrep/manifests/semgrep-gitlab-ci.yaml — GitLab CI variant with MR and scheduled jobs
+# - semgrep/docs/semgrep-ci-integration.md — quickstart for Semgrep on GitHub Actions
+# - semgrep/docs/semgrep-code-scanning-integration-reference.md — full integration reference
+# - semgrep/configs/multi-rule-pack.yaml — custom rule pack for org-specific patterns
+# - codeql/manifests/codeql-multi-language-scan.yaml — analogous CodeQL CI/CD pipeline manifest
+
+name: Semgrep CI/CD Pipeline
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      semgrep_config:
+        description: "Semgrep config (auto, p/security-audit, p/secrets, .semgrep.yml)"
+        required: false
+        default: "auto"
+      fail_severity:
+        description: "Minimum severity to fail the pipeline (ERROR or ERROR,WARNING)"
+        required: false
+        default: "ERROR"
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  semgrep-scan:
+    name: Semgrep SAST scan
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache Semgrep registry
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/semgrep
+          key: semgrep-registry-${{ runner.os }}-${{ hashFiles('.semgrep.yml', '.semgrepignore') }}
+          restore-keys: |
+            semgrep-registry-${{ runner.os }}-
+
+      - name: Install Semgrep
+        run: pip install semgrep
+
+      - name: Run Semgrep scan
+        id: scan
+        continue-on-error: true
+        env:
+          SEMGREP_CONFIG: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.semgrep_config != '') && github.event.inputs.semgrep_config || 'auto' }}
+          FAIL_SEVERITY: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.fail_severity != '') && github.event.inputs.fail_severity || 'ERROR' }}
+        run: |
+          mkdir -p results
+          semgrep \
+            --config "${SEMGREP_CONFIG}" \
+            --severity "${FAIL_SEVERITY}" \
+            --sarif \
+            --output results/semgrep-results.sarif \
+            --max-target-bytes 1000000 \
+            --jobs 4 \
+            --error \
+            .
+
+      - name: Upload SARIF to Code Scanning
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results/semgrep-results.sarif
+          category: semgrep-cicd
+
+      - name: Fail on findings
+        if: steps.scan.outcome != 'success'
+        run: |
+          echo "Semgrep found findings above the configured severity threshold — check the SARIF report"
+          exit 1

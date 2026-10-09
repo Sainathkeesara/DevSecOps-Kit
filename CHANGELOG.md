@@ -9,6 +9,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - codeql-018: `codeql/manifests/codeql-cicd-pipeline.yaml` — CodeQL CI/CD pipeline deployment gate: fast interpreted-language PR gate, full multi-language analysis on merge, promotion job releasing the build only when analysis succeeded; all references in-repo (L6 manifest)
+- semgrep-026: `semgrep/manifests/semgrep-ci-cd-pipeline.yaml` — Semgrep CI/CD pipeline deployment manifest: full-scan GitHub Actions workflow with SARIF upload to Code Scanning, weekly scheduled deep scans, and configurable severity quality gating (L6 manifest)
+
+### Fixed
+
+- **scripts/lib/ missing (BL anomaly)** — `scripts/README.md` "Shared Libraries" section (lines 79-86) claimed `scripts/lib/` directory exists with 7 files; directory did not exist on disk. Created all 7 stub modules: `logging.sh`, `logging.py`, `retry.sh`, `retry.py`, `config.sh`, `config.py`, `k8s-common.sh`
+- **scripts/README.md tree diagram regressed** — `git_toolkit/` listed instead of actual `git/` directory; added missing `notes/`, `snippets/`, and `lib/` rows to the tree
+- **docs/how-to/terraform-eventbridge-lambda.md broken script path** — referenced `scripts/bash/terraform/ter-019-deploy.sh` but directory was renamed to `terraform_toolkit`; updated 2 occurrences (lines 83, 151)
 
 ## 2026-10-08
 
