@@ -15,11 +15,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 ## Quick links
 
-- [CodeQL database migration guide](codeql/docs/codeql-database-migration-guide.md) — Move a CodeQL setup between database arrangements without losing coverage: language set, build mode, database location, or a stale database rebuild
-- [CodeQL integration reference for security analysis](codeql/docs/codeql-integration-reference.md) — How the kit's CodeQL scan stages fit together: workflow files, manifests, and the local CLI loop as one pipeline map
-- [Snyk security policy migration patterns](snyk/docs/snyk-security-policy-migration-patterns.md) — Move ignore rules, severity thresholds, and exclusion paths between policy forms without weakening the gate or losing accepted-risk suppressions
-- [Snyk project configuration template](snyk/configs/snyk-project-configuration-template.yaml) — Per-project Snyk settings in one place: severity gate, scan targets, exclusions with reasons, and the ignore-policy pointer for multi-target repos
-- [Choosing between CLI and API modes in Snyk](snyk/notebooks/cli-vs-api-modes.ipynb) — When to run a scan through the CLI versus the HTTP API: who can call each, how results are consumed, and how failures surface
+- [Trivy integration reference for container scanning](trivy/docs/trivy-integration-reference-container-scanning.md) — Which scan script, config, and report shape to reach for per job: single image, gated pipeline, Compose fleet, or in-cluster runs
+- [Syft integration reference for SBOM generation](syft/docs/syft-integration-reference.md) — CI platform patterns, registry auth, output selection, OCI storage, cosign attestation, and handoff to Grype and Trivy
+- [Syft format migration guide](syft/docs/syft-format-migration-guide.md) — Map old short `-o` spellings to current long format names when a Syft upgrade changes what a pipeline emits
+- [Terrascan scan configuration migration patterns](terrascan/docs/terrascan-scan-configuration-migration-patterns.md) — Move a Terrascan config between releases without losing coverage: recognised keys, policy source moves, explicit severity gating
+- [Checking where the diagrams are actually used](assets/notes/2026-10-10-checking-where-the-diagrams-are-used.md) — First-day audit of the three PNGs in `assets/`: zero inbound image links, prior usage claims corrected, embed-or-drop decision recorded
 
 ## Layout
 
@@ -46,8 +46,8 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|----------:|----------:|---------------|
 | checkov | 4 | 6 | 4 | 3 | 4 | 20 | 3 | 0 | 4 | 1 | 49 | 2026-10-07 |
 | trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 38 | 2026-09-04 |
-| syft | 4 | 6 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 37 | 2026-09-17 |
-| trivy | 6 | 4 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 35 | 2026-09-05 |
+| syft | 4 | 8 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 39 | 2026-10-10 |
+| trivy | 6 | 5 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 36 | 2026-10-10 |
 | zap | 6 | 5 | 3 | 2 | 4 | 8 | 1 | 1 | 1 | 0 | 31 | 2026-10-02 |
 | gitguardian | 4 | 4 | 3 | 3 | 2 | 9 | 0 | 0 | 1 | 0 | 26 | 2026-10-03 |
 | codeql | 4 | 4 | 1 | 1 | 5 | 8 | 2 | 1 | 1 | 0 | 27 | 2026-10-08 |
@@ -57,7 +57,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 2 | 2 | 3 | 0 | 23 | 2026-09-29 |
 | snyk | 5 | 4 | 1 | 3 | 1 | 11 | 1 | 1 | 1 | 0 | 28 | 2026-10-08 |
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-09-22 |
-| terrascan | 5 | 2 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 21 | 2026-09-27 |
+| terrascan | 5 | 3 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 22 | 2026-10-10 |
 | vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-09-29 |
 | environments | 4 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 19 | 2026-10-01 |
 | cosign | 4 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 18 | 2026-09-25 |
@@ -69,7 +69,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | tetragon | 3 | 1 | 3 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 11 | 2026-09-26 |
 | ansible | 3 | 1 | 3 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
 | git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
-| assets | 3 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 9 | 2026-10-01 |
+| assets | 4 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-10-10 |
 | kubernetes | 2 | 1 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 0 | 7 | 2026-09-22 |
 | defectdojo | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 6 | 2026-09-22 |
@@ -89,7 +89,7 @@ _Counts are the files inside each category folder; a few folders also hold files
 
 ## Status
 
-Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions went after the places a security toolchain actually gets hard: the loop around a vulnerability scan — target choice, database caching, report retention, and diffing against the last accepted result — the moves teams make when adopting or replacing secret scanning, and running a single Gatekeeper ConstraintTemplate across dev, staging, and prod without breaking promotion order or fail-closed enforcement. The newest CodeQL additions stay on that thread: a database migration guide for moving setups between language sets, build modes, and database locations without losing coverage, and an integration reference mapping the kit's workflows, manifests, and local CLI loop into one pipeline. The thinner corners are the tools carrying notes only: tfsec, Nuclei, and Prometheus.
+Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions are integration and migration references that map kit pieces together instead of adding new scanners: a Trivy reference matching each container-scanning job to its smallest script, a Syft pair covering CI integration patterns and the 0.x-to-1.x output-format move, and a Terrascan guide for carrying scan configs across releases without losing coverage. A first-day audit of `assets/` found the three diagrams orphaned — no inbound image links anywhere — with an embed-or-drop decision recorded. The thinner corners are still the tools carrying notes only: tfsec, Nuclei, and Prometheus.
 
 ---
-_Last updated: 2026-10-09_
+_Last updated: 2026-10-10_

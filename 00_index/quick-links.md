@@ -46,6 +46,8 @@
 - [Multi-language SBOM generation with release upload](../syft/scripts/syft-sbom-generation.py) — Generate SBOMs for every language ecosystem in a repo and attach them to a release
 - [SBOM output formats reference](../syft/docs/sbom-output-formats-reference.md) — What each format carries and when to pick it
 - [SBOM formats compared](../syft/docs/sbom-formats-comparison.md)
+- [Syft integration reference for SBOM generation](../syft/docs/syft-integration-reference.md) — CI platform patterns, registry auth, output selection, OCI storage, cosign attestation, and handoff to vulnerability scanners
+- [Syft format migration guide](../syft/docs/syft-format-migration-guide.md) — Map old short `-o` spellings to current long format names when a Syft upgrade changes what a pipeline emits
 
 ### Understand secrets management
 
@@ -102,6 +104,7 @@
 - [Trivy SARIF code-scanning output](../trivy/docs/ci-pipeline-sarif-output.md)
 - [Multi-arch vulnerability scanning with Trivy](../trivy/docs/multi-arch-vulnerability-scanning.md)
 - [Container vulnerability scan with Trivy](../trivy/scripts/container-vuln-scan.sh)
+- [Trivy integration reference for container scanning](../trivy/docs/trivy-integration-reference-container-scanning.md) — Which scan script, config, and report shape to reach for per job: single image, gated pipeline, Compose fleet, or in-cluster runs
 - [Minimal Grype scan](../grype/scripts/minimal-grype-scan.sh)
 - [CI-ready Grype scanning](../grype/scripts/ci-ready-grype-scan.sh)
 - [Grype in a vulnerability-management pipeline](../grype/docs/vulnerability-management-pipeline-integration.md) — The loop around the scan: target choice, database caching, machine-readable reports, gate thresholds, tracker routing, and diffing against the last accepted result
@@ -181,6 +184,7 @@
 - [Rego vs YAML rule authoring](../terrascan/notebooks/rego-vs-yaml-rule-authoring.ipynb) — When a Terrascan rule needs real logic instead of a declarative policy block
 - [Terrascan in an IaC pipeline](../terrascan/docs/iac-pipeline-integration.md) — Where the scan stage belongs and what the exit code should gate
 - [Terrascan vs Checkov for Terraform](../terrascan/docs/terrascan-vs-checkov-terraform-iac-scanning.md)
+- [Terrascan scan configuration migration patterns](../terrascan/docs/terrascan-scan-configuration-migration-patterns.md) — Carry a scan config across Terrascan releases: recognised keys, policy source moves, and explicit severity gating
 - [tfsec primer](../tfsec/notes/0000-primer-tfsec.md)
 
 ### Manage secrets and access
@@ -220,6 +224,7 @@
 - [Assets directory walkthrough](../assets/notes/2026-09-30-explore-assets-directory.md) — What the diagram store holds today and how docs reference it
 - [Asset index](../assets/configs/2026-09-29-asset-index.yaml) — Which diagram file is which size, and where each one is referenced from
 - [Audit asset references](../assets/scripts/2026-10-01-audit-asset-references.sh) — Find the diagrams on disk and the docs that link to them, and spot the ones nothing references
+- [Checking where the diagrams are actually used](../assets/notes/2026-10-10-checking-where-the-diagrams-are-used.md) — First-day audit: the three PNGs have zero inbound image links, with an embed-or-drop decision recorded
 
 ### Run infrastructure tasks
 
