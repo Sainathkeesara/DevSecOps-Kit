@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-10
+
+### Added
+
+- syft-018: `syft/docs/syft-integration-reference.md` — Syft integration reference for SBOM generation: CI/CD platform patterns (GitHub Actions, GitLab CI, Jenkins, Azure Pipelines), multi-language repo scanning, container image patterns, registry auth, output format selection, OCI artifact storage, cosign attestation, vulnerability scanner integration (Grype, Trivy), Kubernetes workload scanning, and performance optimization (L6 docs)
+
 ## 2026-10-09
 
 ### Added
