@@ -3085,3 +3085,10 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 
 - grype-042: `grype/configs/grype-filtering-configuration-template.yaml` — Grype filtering configuration template: severity gate, fix-state filtering, path exclusions, and five ignore-rule shapes (advisory-level, package-scoped, location-scoped, fix-state, VEX-driven) with VEX document, match-by and per-language archive knobs commented for opt-in (L5 config)
 - grype-043 (rework 1): `grype/docs/grype-vulnerability-reporting-migration-patterns.md` — Grype vulnerability reporting migration patterns, rewritten in place in neutral L5 reference voice (zero first-person pronouns, matching the two sibling L5 docs) and rescoped to the format-change sequence it uniquely owns: consumer inventory, a retained reference report, format as a scan-step parameter with a format-derived filename, dual-format emission from one scan via the repeatable `-o`/`--output` flag, one-consumer-at-a-time cutover verified against the reference report, and retirement as a separate change. The SARIF-publishing and set-comparison material that overlapped `vulnerability-management-pipeline-integration.md` §5/§6 is now cited instead of restated, a Rollback section covers reverting a consumer move or a premature retirement, and the file ends with a trailing newline (L5 docs)
+
+## 2026-10-10
+
+### Added
+
+- syft-019: `syft/docs/syft-format-migration-guide.md` — Syft format migration guide: what changes when a Syft output flag stops producing the expected SBOM format, mapping old short flag spellings to current long names, validating the emitted schema, and pinning the Syft version so the pipeline cannot drift again (L6 docs)
+- terrascan-021: `terrascan/docs/terrascan-scan-configuration-migration-patterns.md` — Terrascan scan configuration migration patterns: moving an existing scan config between Terrascan release shapes without losing coverage, including recognized top-level keys, policy-source moves, explicit severity gating, and rule include/exclude migration (L5 docs)
