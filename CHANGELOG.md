@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - syft-018: `syft/docs/syft-integration-reference.md` — Syft integration reference for SBOM generation: CI/CD platform patterns (GitHub Actions, GitLab CI, Jenkins, Azure Pipelines), multi-language repo scanning, container image patterns, registry auth, output format selection, OCI artifact storage, cosign attestation, vulnerability scanner integration (Grype, Trivy), Kubernetes workload scanning, and performance optimization (L6 docs)
+- trivy-022: `trivy/docs/trivy-integration-reference-container-scanning.md` — Trivy integration reference for container scanning: entry-point map across the kit's scripts, shared config keys, output shaping, threshold vs ignorefile gating, scheduled and in-cluster runs; all references in-repo (L6 docs)
+- assets-007: `assets/notes/2026-10-10-checking-where-the-diagrams-are-used.md` — First-day audit of the three PNGs: zero inbound markdown image links, README layout-bullet only, prior usage claims corrected, embed-or-drop decision recorded (L1 notes)
 
 ## 2026-10-09
 
