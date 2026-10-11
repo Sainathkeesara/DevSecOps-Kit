@@ -8,6 +8,8 @@ Application security testing is the practice of finding and fixing security weak
 
 It's the same idea as testing for bugs in functionality — except the "bug" is a security flaw. A missing input validation check is a bug; that same missing check also becomes a vector for SQL injection. Security testing just frames the same quality work through an attacker's eyes.
 
+![DevSecOps Pipeline](../../../assets/devsecops-pipeline.png)
+
 ## Why does it matter for DevSecOps?
 
 Security can't be a separate phase at the end of a project anymore. By the time a DAST scan runs after deployment, the code has already shipped. In DevSecOps, we weave security testing into the CI/CD pipeline so every commit gets checked automatically.

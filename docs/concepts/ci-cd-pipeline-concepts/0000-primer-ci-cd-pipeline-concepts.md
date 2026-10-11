@@ -8,6 +8,8 @@ A CI/CD pipeline is an automated sequence of steps that code goes through from t
 
 Think of it like an assembly line for software. Instead of manually compiling, testing, and deploying (which people forget or do differently every time), the pipeline does it the same way every single run. Consistent, repeatable, auditable.
 
+![CI/CD Workflow](../../../assets/cicd-workflow.png)
+
 ## Why does it matter for DevSecOps?
 
 A pipeline is where security testing actually happens in practice. Without a pipeline, you're relying on developers to remember to run security scans locally — which they won't, especially under deadline pressure.

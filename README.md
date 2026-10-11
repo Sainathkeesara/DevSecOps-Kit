@@ -33,6 +33,10 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 - **`assets/`** — Architecture diagrams and workflow illustrations
 - **`.github/`** — CODEOWNERS, PR template, and Dependabot config
 
+## Architecture Overview
+
+![DevSecOps Kit Architecture](assets/architecture-overview.png)
+
 Per-tool content folders follow a consistent shape — `notes/`, `scripts/`, `configs/`, `snippets/`, plus wherever useful `docs/`, `manifests/`, `dockerfiles/`, `notebooks/`, `policies/`, or `templates/`:
 
 Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitleaks, GitGuardian, Snyk, Terraform, CodeQL, ZAP, Cosign, Falco, Tetragon, OPA, Vault, Ansible, ArgoCD, Dependabot, Docker, Git, GitHub Actions, Helm, Kubernetes, Kustomize, OpenTofu, Prometheus, Grafana, DefectDojo, SonarQube, Linux, Assets, and Lab.
