@@ -74,8 +74,8 @@ A failing gate must tell the author what to do next without requiring Snyk exper
 
 ## References
 
-- `snyk/manifests/snyk-github-actions-cicd-workflow.yaml` — pipeline workflow with separate test and monitor jobs, the starting point for the stage layout above.
-- `snyk/scripts/snyk-vuln-scan-pipeline.sh` — local scan helper (test, monitor, threshold exit) for reproducing a gated result outside CI.
-- `snyk/docs/multi-project-ci-pipeline.md` — per-service project naming for monorepos; combine with this doc when one pipeline scans several services.
-- `snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md` — triage and prioritisation of the findings this pipeline surfaces.
-- `snyk/configs/snyk-ci-github-actions.yaml` — CI-oriented Snyk configuration referenced by the pipeline jobs.
+- `../manifests/snyk-github-actions-cicd-workflow.yaml` — pipeline workflow with separate test and monitor jobs, the starting point for the stage layout above.
+- `../scripts/snyk-vuln-scan-pipeline.sh` — local scan helper (test, monitor, threshold exit) for reproducing a gated result outside CI.
+- `../docs/multi-project-ci-pipeline.md` — per-service project naming for monorepos; combine with this doc when one pipeline scans several services.
+- `../docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md` — triage and prioritisation of the findings this pipeline surfaces.
+- `../configs/snyk-ci-github-actions.yaml` — CI-oriented Snyk configuration referenced by the pipeline jobs.

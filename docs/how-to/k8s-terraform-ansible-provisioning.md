@@ -158,39 +158,51 @@ All nodes should return `pong`. If connectivity fails, check:
 ### 11. Run the Ansible playbook
 
 ```bash
-ansible-playbook -i inventory.ini site.yml
+ansible-playbook -i inventory.ini.example site.yml
 ```
 
-The playbook runs in stages:
+> The inventory file is not written by Terraform. `terraform output -raw ansible_inventory > ../ansible/inventory.ini` writes one from the `ansible_inventory` output string, but the generated file has no bastion `ProxyJump` line — copy `inventory.ini.example` and fill in your bastion host, or hand-write the file.
 
-**Stage 1 — Preflight** (`preflight.yml`):
+The playbook runs in stages. Every stage ships as a role under `ansible/roles/`, driven by one `site.yml`:
+
+| Stage | Role | Status |
+|---|---|---|
+| 1 — Preflight | `preflight` | implemented |
+| 2 — Container runtime | `container-runtime` | stub |
+| 3 — Kubernetes components | `kubernetes` | stub |
+| 4 — Bootstrap control plane | `bootstrap-control-plane` | stub |
+| 5 — Calico CNI | `calico` | stub |
+| 6 — Join control plane | `join-control-plane` | stub |
+| 7 — Join workers | `join-workers` | stub |
+
+**Stage 1 — Preflight** (`preflight`):
 - Updates apt cache and upgrades packages
 - Installs `python3`, `jq`, `curl`, `wget`, `gnupg`, `lsb-release`
 - Configures `/etc/hosts` with short names
 - Sets kernel modules (`br_netfilter`, `overlay`) and sysctl params
 
-**Stage 2 — Container runtime** (`container-runtime.yml`, included in site.yml):
+**Stage 2 — Container runtime** (`container-runtime`, included in site.yml):
 - Installs containerd from Docker repository
 - Configures containerd `config.toml` with systemd cgroup driver
 - Enables and starts containerd
 
-**Stage 3 — Kubernetes components** (`kubernetes.yml`, included in site.yml):
+**Stage 3 — Kubernetes components** (`kubernetes`, included in site.yml):
 - Adds Kubernetes apt repository and installs `kubelet`, `kubeadm`, `kubectl`
 - Holds packages at current version (`apt-mark hold`)
 - Enables and starts kubelet (kubelet will error until join — this is expected)
 
-**Stage 4 — Bootstrap control plane** (`bootstrap-control-plane.yml`, included in site.yml):
+**Stage 4 — Bootstrap control plane** (`bootstrap-control-plane`, included in site.yml):
 - Runs `kubeadm init` on the first control plane node
 - Copies admin kubeconfig to `$HOME/.kube/config`
 - Installs Calico CNI via `kubectl apply`
 - Waits for API server to be ready
 - Generates and saves the join command for workers
 
-**Stage 5 — Join workers** (`join-workers.yml`, included in site.yml):
+**Stage 5 — Join workers** (`join-workers`, included in site.yml):
 - Copies the join command from the control plane bootstrap
 - Runs `kubeadm join` on all worker nodes
 
-Expected duration: 15–25 minutes end-to-end.
+Stages 2–7 are stubs whose `tasks/main.yml` is a single `debug:` saying "real tasks not yet written", so `site.yml` completes without building a cluster. Expected duration is 15–25 minutes end-to-end once the stubs are filled in.
 
 ### 12. Verify the cluster
 
@@ -226,10 +238,19 @@ kubectl logs deployment/nginx
 
 ### 14. Decode the kubeconfig (if Terraform output was used)
 
+`terraform output` emits `bastion_public_ip`, `bastion_private_ip`, `control_plane_private_ips`, `control_plane_instance_ids`, `worker_private_ips`, `worker_instance_ids`, `nlb_dns_name`, `nlb_zone_id`, `cluster_name`, `ssh_config`, and `ansible_inventory` — there is no `kubeconfig_b64` output. Pull the admin kubeconfig off the first control plane node instead:
+
 ```bash
-terraform output kubeconfig_b64 | base64 -d > ~/.kube/config
+# From the bastion, copy the admin kubeconfig back to your machine
+scp -i ~/.ssh/k8s-provisioning-key ubuntu@<bastion-ip>:/etc/kubernetes/admin.conf ~/.kube/config
 kubectl config use-context k8s-prod
 kubectl get nodes
+```
+
+To build an Ansible inventory from the Terraform output string (it has no bastion `ProxyJump` line, so copy `ansible/inventory.ini.example` and fill in your bastion host for a hand-written file):
+
+```bash
+terraform output -raw ansible_inventory > ../ansible/inventory.ini
 ```
 
 ## Verify

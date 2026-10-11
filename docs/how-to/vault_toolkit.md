@@ -10,8 +10,8 @@ Provide security scanning and hardening scripts to detect and remediate vulnerab
 
 | Script | Description |
 |--------|-------------|
-| `security/cve-2025-6000.sh` | Detect and remediate CVE-2025-6000 (Vault plugin directory RCE) |
-| `security/cve-2025-5999.sh` | Detect and remediate CVE-2025-5999 (Vault privilege escalation to root) |
+| `../../scripts/bash/vault_toolkit/security/cve-2025-6000.sh` | Detect and remediate CVE-2025-6000 (Vault plugin directory RCE) |
+| `../../scripts/bash/vault_toolkit/security/cve-2025-5999.sh` | Detect and remediate CVE-2025-5999 (Vault privilege escalation to root) |
 
 ## Documentation
 

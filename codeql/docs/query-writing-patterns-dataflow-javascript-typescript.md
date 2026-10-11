@@ -25,7 +25,7 @@ flows that are unique to the codebase.
 
 - A CodeQL database built for the JavaScript/TypeScript codebase under review.
 - A directory for custom queries, kept next to the workflow that runs them
-  (see `codeql/manifests/multi-language-codeql-analysis.yaml` in this kit for
+  (see `../manifests/multi-language-codeql-analysis.yaml` in this kit for
   the multi-language scan shape).
 - Familiarity with the three data flow roles below; no additional services
   are required.
@@ -91,7 +91,7 @@ boundary.
 Store each query with a short name that states the flow (for example,
 `request-field-to-html-render` rather than `security-check`). Group related
 queries in a suite file so CI runs the pack as a unit. The existing custom
-query wiring in `codeql/docs/wired-custom-queries-into-ci.md` shows one way
+query wiring in `../docs/wired-custom-queries-into-ci.md` shows one way
 to reference such a pack from a workflow.
 
 ## Verify
@@ -119,5 +119,5 @@ to reference such a pack from a workflow.
 
 ## References
 
-- In-repo multi-language scan workflow: `codeql/manifests/multi-language-codeql-analysis.yaml`
-- In-repo custom query CI wiring: `codeql/docs/wired-custom-queries-into-ci.md`
+- In-repo multi-language scan workflow: `../manifests/multi-language-codeql-analysis.yaml`
+- In-repo custom query CI wiring: `../docs/wired-custom-queries-into-ci.md`
