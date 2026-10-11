@@ -15,11 +15,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 ## Quick links
 
-- [Trivy integration reference for container scanning](trivy/docs/trivy-integration-reference-container-scanning.md) — Which scan script, config, and report shape to reach for per job: single image, gated pipeline, Compose fleet, or in-cluster runs
-- [Syft integration reference for SBOM generation](syft/docs/syft-integration-reference.md) — CI platform patterns, registry auth, output selection, OCI storage, cosign attestation, and handoff to Grype and Trivy
-- [Syft format migration guide](syft/docs/syft-format-migration-guide.md) — Map old short `-o` spellings to current long format names when a Syft upgrade changes what a pipeline emits
-- [Terrascan scan configuration migration patterns](terrascan/docs/terrascan-scan-configuration-migration-patterns.md) — Move a Terrascan config between releases without losing coverage: recognised keys, policy source moves, explicit severity gating
-- [Checking where the diagrams are actually used](assets/notes/2026-10-10-checking-where-the-diagrams-are-used.md) — First-day audit of the three PNGs in `assets/`: zero inbound image links, prior usage claims corrected, embed-or-drop decision recorded
+- [Trivy database migration guide](trivy/docs/trivy-database-migration-guide.md) — Move the vulnerability-database location or cache layout without breaking scan gates or losing coverage history
+- [Comparing CodeQL query patterns](codeql/notebooks/codeql-query-comparison-patterns.ipynb) — Query-level comparisons: before against after, source against sink, default suite against a custom pack
+- [Comparing Vault secrets backend patterns](vault/notebooks/vault-secrets-backend-comparison-patterns.ipynb) — KV, database, and cloud backends compared on mount config, auth, and day-to-day operational differences
+- [Embedding the three architecture diagrams](assets/notes/2026-10-11-embedding-architecture-diagrams.md) — Each orphaned PNG placed where it belongs, with the embed-or-drop decision recorded
+- [Syft CI/CD pipeline manifest](syft/manifests/syft-cicd-pipeline.yaml) — SBOM generation as a promotion gate: scan on every PR and push, promote only with SBOM evidence present
 
 ## Layout
 
@@ -50,11 +50,11 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|----------:|----------:|---------------|
 | checkov | 4 | 6 | 4 | 3 | 4 | 20 | 3 | 0 | 4 | 1 | 49 | 2026-10-07 |
 | trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 38 | 2026-09-04 |
-| syft | 4 | 8 | 4 | 1 | 1 | 15 | 2 | 1 | 3 | 0 | 39 | 2026-10-11 |
-| trivy | 6 | 5 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 36 | 2026-10-11 |
+| syft | 4 | 8 | 4 | 1 | 1 | 15 | 3 | 1 | 4 | 0 | 41 | 2026-10-11 |
+| trivy | 6 | 6 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 37 | 2026-10-11 |
 | zap | 6 | 5 | 3 | 2 | 4 | 8 | 1 | 1 | 1 | 0 | 31 | 2026-10-02 |
 | gitguardian | 4 | 4 | 3 | 3 | 2 | 9 | 0 | 0 | 1 | 0 | 26 | 2026-10-03 |
-| codeql | 4 | 4 | 1 | 1 | 5 | 8 | 3 | 1 | 1 | 0 | 28 | 2026-10-11 |
+| codeql | 4 | 4 | 1 | 1 | 5 | 8 | 3 | 1 | 2 | 0 | 29 | 2026-10-11 |
 | opa | 3 | 4 | 2 | 2 | 3 | 9 | 4 | 0 | 1 | 0 | 28 | 2026-10-06 |
 | grype | 4 | 3 | 8 | 2 | 2 | 0 | 2 | 1 | 2 | 0 | 24 | 2026-10-05 |
 | falco | 4 | 4 | 3 | 4 | 1 | 4 | 1 | 0 | 2 | 0 | 23 | 2026-10-03 |
@@ -62,7 +62,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | snyk | 5 | 4 | 1 | 3 | 1 | 11 | 1 | 1 | 1 | 0 | 28 | 2026-10-08 |
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-09-22 |
 | terrascan | 5 | 3 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 22 | 2026-10-11 |
-| vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 1 | 0 | 20 | 2026-09-29 |
+| vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 2 | 0 | 21 | 2026-10-11 |
 | environments | 4 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 19 | 2026-10-01 |
 | cosign | 4 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 18 | 2026-09-25 |
 | dependabot | 7 | 3 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 0 | 18 | 2026-09-26 |
@@ -73,7 +73,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | tetragon | 3 | 1 | 3 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 11 | 2026-09-26 |
 | ansible | 3 | 1 | 3 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
 | git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
-| assets | 4 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-10-11 |
+| assets | 5 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 11 | 2026-10-11 |
 | kubernetes | 2 | 1 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 0 | 7 | 2026-09-22 |
 | defectdojo | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 6 | 2026-09-22 |
@@ -93,7 +93,7 @@ _Counts are the files inside each category folder; a few folders also hold files
 
 ## Status
 
-Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions are integration and migration references that map kit pieces together instead of adding new scanners: a Trivy reference matching each container-scanning job to its smallest script, a Syft pair covering CI integration patterns and the 0.x-to-1.x output-format move, and a Terrascan guide for carrying scan configs across releases without losing coverage. A first-day audit of `assets/` found the three diagrams orphaned — no inbound image links anywhere — with an embed-or-drop decision recorded. The thinner corners are still the tools carrying notes only: tfsec, Nuclei, and Prometheus.
+Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions are integration and migration references that map kit pieces together instead of adding new scanners: a Trivy reference matching each container-scanning job to its smallest script, a Syft pair covering CI integration patterns and the 0.x-to-1.x output-format move, and a Terrascan guide for carrying scan configs across releases without losing coverage, plus a Trivy guide for moving the vulnerability-database location without breaking scan gates. A first-day audit of `assets/` found the three diagrams orphaned — no inbound image links anywhere — with an embed-or-drop decision recorded. The thinner corners are still the tools carrying notes only: tfsec, Nuclei, and Prometheus.
 
 ---
 _Last updated: 2026-10-11_
