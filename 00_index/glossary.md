@@ -786,3 +786,15 @@
 ## Gitleaks
 
 - **Full-history vs staged scan (Gitleaks)** — A full-history scan (`detect --source`) walks every commit for secrets already merged, while a staged-changes check scans only what is about to be committed. Run the full history when adopting the tool and the staged check on every commit to keep new secrets out.
+
+## Syft
+
+- **Short flag vs long name (Syft output formats)** — Syft's `-o` spellings drifted between 0.x and 1.x while the long format names (`syft-json`, `cyclonedx-json`, `spdx-json`, …) stayed stable. Prefer the long name in scripts: it survives short-flag renames and matches what the format's documentation calls the format. If a pinned flag stops producing the expected output after an upgrade, `syft <target> -o help` lists what the installed binary actually accepts.
+
+## Terrascan
+
+- **Policy source (Terrascan)** — Where Terrascan looks for rules: a local directory via the `path` key in the `policy` block, or a remote repo via `repo_url` and `branch`. Migrating between the two means setting one and blanking the other; `rego_subdir` keeps pointing at a writable cache directory in both cases.
+
+## Trivy
+
+- **Scan entry point (Trivy)** — The smallest kit artifact that does a given container-scanning job: a snippet for a first look at one image, a script for a gated pipeline or a mixed-target run, a manifest for scheduled or in-cluster scans. Matching the job to the entry point keeps one-off scans out of pipeline scripts and pipeline logic out of one-off snippets.
