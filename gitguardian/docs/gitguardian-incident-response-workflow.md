@@ -104,5 +104,5 @@ The incident response workflow is reactive. The goal is to make it less necessar
 
 ## References
 
-- Existing GitGuardian incident response pipeline script in this repo: `gitguardian/scripts/gg-incident-response-pipeline.sh`
-- GitGuardian monorepo CI configuration: `gitguardian/docs/monorepo-ci-per-team-exclusions.md`
+- Existing GitGuardian incident response pipeline script in this repo: `../scripts/gg-incident-response-pipeline.sh`
+- GitGuardian monorepo CI configuration: `../docs/monorepo-ci-per-team-exclusions.md`

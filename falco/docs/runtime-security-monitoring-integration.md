@@ -27,7 +27,7 @@ This guide describes how to wire Falco into a runtime security monitoring workfl
 
 Review recent Falco output and sort rules into two tiers: findings that should notify a responder, and findings that should remain searchable but not notify. Keep the notifying set small at first; an integration that pages on every runtime event gets muted within days.
 
-A companion guide on priority-based filtering under the same `falco/docs/` directory walks through ranking noisy rules and demoting low-value ones before routing.
+A companion guide on priority-based filtering under the same `../docs/` directory walks through ranking noisy rules and demoting low-value ones before routing.
 
 ### 2. Route Falco output by tier
 
@@ -66,6 +66,6 @@ Revisit the tier assignment whenever the workload mix changes: new sidecars, new
 
 ## References
 
-- Companion walkthrough in this repo: `falco/docs/tuned-falco-rules-noise-reduction.md` (baseline ranking and exception workflow).
-- Companion reference in this repo: `falco/docs/rule-optimization-priority-filtering.md` (priority tiers and output routing patterns).
-- Companion concept note in this repo: `falco/docs/syscall-vs-tracepoint-rules.md` (event-source background for rule design).
+- Companion walkthrough in this repo: `../docs/tuned-falco-rules-noise-reduction.md` (baseline ranking and exception workflow).
+- Companion reference in this repo: `../docs/rule-optimization-priority-filtering.md` (priority tiers and output routing patterns).
+- Companion concept note in this repo: `../docs/syscall-vs-tracepoint-rules.md` (event-source background for rule design).

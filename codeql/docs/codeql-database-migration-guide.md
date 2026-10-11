@@ -26,14 +26,14 @@ manifest shapes already present in this kit.
 - A stored database keeps producing empty or outdated results and needs to
   be discarded and re-created from a clean checkout.
 - A custom query pack is introduced alongside the default suite (see
-  `codeql/docs/wired-custom-queries-into-ci.md`) and the database must serve
+  `../docs/wired-custom-queries-into-ci.md`) and the database must serve
   both.
 
 ## Prerequisites
 
-- A working baseline: `codeql/configs/first-codeql-analysis.yml` (minimal
+- A working baseline: `../configs/first-codeql-analysis.yml` (minimal
   init → autobuild → analyze flow) runs green on the current revision.
-- The multi-language manifest `codeql/manifests/multi-language-codeql-analysis.yaml`
+- The multi-language manifest `../manifests/multi-language-codeql-analysis.yaml`
   is available as the reference for the target state when adding languages.
 - Write access to the workflow file being migrated and a branch where the
   migrated workflow can run at least twice before the old one is removed.

@@ -24,7 +24,7 @@ Use this pattern when:
 - `ggshield` available in the CI runner — installed via pip, a container image, or the system package manager
 - A GitGuardian API token with scanning permissions (e.g. `GITGUARDIAN_API_KEY` / `GITGUARDIAN_API_SECRET`)
 - Access to modify the repository's CI/CD workflow definitions
-- A `.ggshield.yaml` at the repository root (see `gitguardian/configs/.ggshield.yaml` for the base template)
+- A `.ggshield.yaml` at the repository root (see `../configs/.ggshield.yaml` for the base template)
 
 ## Steps
 
