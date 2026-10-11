@@ -4,6 +4,13 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-11
+
+### Added
+
+- codeql-019: `codeql/notebooks/codeql-query-comparison-patterns.ipynb` — CodeQL query comparison patterns: four comparison shapes (before/after result diff, scan-mode pair, data-flow-config pair, custom-vs-default-suite) with a decision rule for each; companion to the existing CLI-vs-Actions scan-mode notebook but stays at the query level (L6 notebook)
+- vault-028: `vault/notebooks/vault-secrets-backend-comparison-patterns.ipynb` — Vault secrets backend comparison patterns: KV vs database vs cloud backends across mount configuration, auth method, lease handling, and revocation; companion to the existing static-vs-dynamic-secrets lifecycle notebook but stays at the backend level (L6 notebook)
+
 ## 2026-10-10
 
 ### Added
