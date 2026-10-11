@@ -3094,3 +3094,9 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 
 - syft-019: `syft/docs/syft-format-migration-guide.md` — Syft format migration guide: what changes when a Syft output flag stops producing the expected SBOM format, mapping old short flag spellings to current long names, validating the emitted schema, and pinning the Syft version so the pipeline cannot drift again (L6 docs)
 - terrascan-021: `terrascan/docs/terrascan-scan-configuration-migration-patterns.md` — Terrascan scan configuration migration patterns: moving an existing scan config between Terrascan release shapes without losing coverage, including recognized top-level keys, policy-source moves, explicit severity gating, and rule include/exclude migration (L5 docs)
+
+## 2026-10-11
+
+### Added
+
+- assets-008: `assets/notes/2026-10-11-embedding-architecture-diagrams.md` — Embedded three architecture diagrams (architecture-overview.png, cicd-workflow.png, devsecops-pipeline.png) in README.md and concept primers; documented the fix in L1 notes
