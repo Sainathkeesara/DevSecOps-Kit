@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - codeql-019: `codeql/notebooks/codeql-query-comparison-patterns.ipynb` — CodeQL query comparison patterns: four comparison shapes (before/after result diff, scan-mode pair, data-flow-config pair, custom-vs-default-suite) with a decision rule for each; companion to the existing CLI-vs-Actions scan-mode notebook but stays at the query level (L6 notebook)
 - vault-028: `vault/notebooks/vault-secrets-backend-comparison-patterns.ipynb` — Vault secrets backend comparison patterns: KV vs database vs cloud backends across mount configuration, auth method, lease handling, and revocation; companion to the existing static-vs-dynamic-secrets lifecycle notebook but stays at the backend level (L6 notebook)
+- syft-021: `syft/notebooks/syft-format-comparison-patterns.ipynb` — Syft format comparison patterns from the consumer's side: synthetic fixtures in all four envelopes (native, SPDX, CycloneDX, GitHub snapshot), identity-parity asserts, field-fidelity matrix, envelope-size comparison, and a consumer-to-format selector; runs offline on stdlib only, distinct from the binary-driven `output-format-comparison.ipynb` (L6 notebook)
 
 ## 2026-10-10
 
