@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-11
+
+### Added
+
+- syft-021: `syft/notebooks/syft-format-comparison-patterns.ipynb` — Syft format comparison patterns from the consumer's side: synthetic fixtures in all four envelopes (native, SPDX, CycloneDX, GitHub snapshot), identity-parity asserts, field-fidelity matrix, envelope-size comparison, and a consumer-to-format selector; runs offline on stdlib only, distinct from the binary-driven `output-format-comparison.ipynb` (L6 notebook)
+
 ## 2026-10-10
 
 ### Added
