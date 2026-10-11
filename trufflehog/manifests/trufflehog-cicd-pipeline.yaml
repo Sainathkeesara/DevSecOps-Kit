@@ -1,0 +1,216 @@
+# last_verified: 2026-10-11 · trufflehog n/a
+# Purpose: Deploy TruffleHog secret detection as a promotion gate
+#          inside a CI/CD pipeline — a scan job runs TruffleHog over
+#          the repository's git history on every pull request and push,
+#          uploads the JSON findings as a workflow artifact, and a
+#          deployment-gate job releases the build for deployment only
+#          when the scan job succeeded and no verified secrets were
+#          found.
+# When to use: Repositories that need secret-leak evidence before a
+#              release is promoted. Use the scan job as the everyday
+#              merge gate and the promotion marker as the release
+#              signal. Prefer the reusable PR-scan workflow when no
+#              deployment decision hangs off the result.
+# Prerequisites: The runner provides Python and PyPI access (this
+#                manifest installs TruffleHog with pip) or ships
+#                TruffleHog on the runner image; git history is
+#                available to the checkout step (fetch-depth 0);
+#                verification reaches out to each service's own
+#                endpoint, so the runner needs outbound network
+#                access — to run fully offline, set the
+#                fail-on-verified input to false and gate on total
+#                findings instead; artifact upload and download
+#                actions are permitted in the repository.
+# Steps: 1. The secret-scan job checks out the full history, installs
+#           TruffleHog, runs a git scan in JSON mode with a
+#           configurable detector configuration, records the finding
+#           counts, and uploads the results and the count. 2. The
+#           deployment-gate job runs after secret-scan and only on
+#           push events; it re-downloads the count, checks the scan
+#           succeeded and the gated count is zero, and writes a
+#           promotion marker. 3. Treat a present promotion marker as
+#           the release signal; a red scan or a non-zero gated count
+#           holds it.
+# Verify: Open a pull request — the secret-scan job runs and uploads
+#         the findings artifact. Push to the default branch — the
+#         deployment-gate job runs after secret-scan and uploads the
+#         promotion marker. Point the scan at a repository with a
+#         known live secret and confirm the gate holds the release.
+# Rollback: To stop secret detection blocking releases, remove the
+#           secret-scan status check from the branch protection rules —
+#           the workflow keeps running without gating. To revert to
+#           scan-only coverage, delete the deployment-gate job; the
+#           secret-scan job is self-contained. A scan does not resume
+#           after interruption; re-run the workflow instead.
+# Common errors: TruffleHog missing and PyPI unreachable — the setup
+#                step aborts with a clear message; provide TruffleHog
+#                on the runner image or grant PyPI access. Gate never
+#                runs — its needs chain requires secret-scan to
+#                succeed, so a red scan correctly holds the release;
+#                fix the scan, not the gate. Count artifact missing —
+#                the scan produced no results file and the count step
+#                failed on purpose; confirm the checkout fetched the
+#                history and TruffleHog ran to completion.
+# References: trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml
+#             (single-purpose reusable PR scan), trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md
+#             (git vs filesystem scan modes), trufflehog/docs/trufflehog-output-formats-json-sarif-csv.md
+#             (JSON/SARIF/CSV output shapes), trufflehog/scripts/multi-repo-scan-pipeline.sh
+#             (scan-then-gate scripting pattern), trufflehog/configs/custom-detector-rules.yaml
+#             (custom detector configuration).
+name: TruffleHog — CI/CD pipeline deployment gate
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      scan-depth:
+        description: Number of git commits to fetch. 0 fetches all history (default).
+        type: number
+        required: false
+        default: 0
+      fail-on-verified:
+        description: When true, the gate fails only on verified secrets. When false, any finding fails the run.
+        type: boolean
+        required: false
+        default: true
+      config-path:
+        description: Relative path to a TruffleHog YAML configuration file for custom detectors and allowlists.
+        type: string
+        required: false
+        default: ''
+
+permissions: read-all
+
+jobs:
+  secret-scan:
+    name: TruffleHog secret scan
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      total-count: ${{ steps.count.outputs.total-count }}
+      gated-count: ${{ steps.count.outputs.gated-count }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: ${{ github.event.inputs.scan-depth || 0 }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install TruffleHog
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install trufflehog
+
+      - name: Run TruffleHog git scan
+        id: scan
+        continue-on-error: true
+        run: |
+          CONFIG_ARG=""
+          if [ -n "${{ github.event.inputs.config-path || '' }}" ] && [ -f "${{ github.event.inputs.config-path }}" ]; then
+            CONFIG_ARG="--config=${{ github.event.inputs.config-path }}"
+          fi
+
+          trufflehog git "file://${{ github.workspace }}" \
+            --json \
+            $CONFIG_ARG \
+            > trufflehog-results.json
+
+      - name: Count findings
+        id: count
+        run: |
+          if [ ! -f trufflehog-results.json ]; then
+            echo "::error::TruffleHog produced no results file — scan did not complete"
+            exit 1
+          fi
+
+          TOTAL=$(wc -l < trufflehog-results.json | tr -d ' ')
+          if [ "${{ github.event.inputs.fail-on-verified || 'true' }}" == "true" ]; then
+            GATED=$(jq -c 'select(.Verified == true)' trufflehog-results.json | wc -l | tr -d ' ')
+          else
+            GATED=$TOTAL
+          fi
+
+          echo "total-count=$TOTAL" >> "$GITHUB_OUTPUT"
+          echo "gated-count=$GATED" >> "$GITHUB_OUTPUT"
+          printf '{"total": %s, "gated": %s}\n' "$TOTAL" "$GATED" > trufflehog-count.json
+          echo "Findings: $TOTAL total, $GATED gated"
+
+      - name: Upload findings artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: trufflehog-results
+          path: trufflehog-results.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Upload count artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: trufflehog-count
+          path: trufflehog-count.json
+          if-no-files-found: error
+          retention-days: 30
+
+  deployment-gate:
+    name: Deployment promotion gate
+    needs: [secret-scan]
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+
+    steps:
+      - name: Download count artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: trufflehog-count
+          path: trufflehog-count/
+
+      - name: Confirm scan evidence
+        run: |
+          test "${{ needs.secret-scan.result }}" = "success" || {
+            echo "::error::TruffleHog scan did not succeed (result: ${{ needs.secret-scan.result }}) — release is held"
+            exit 1
+          }
+
+          COUNT_FILE="trufflehog-count/trufflehog-count.json"
+          test -f "$COUNT_FILE" || { echo "::error::Missing count artifact: $COUNT_FILE"; exit 1; }
+          python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$COUNT_FILE" \
+            || { echo "::error::Invalid JSON: $COUNT_FILE"; exit 1; }
+
+          GATED=$(python3 -c "import json,sys; print(json.load(open(sys.argv[1]))['gated'])" "$COUNT_FILE")
+          if [ "$GATED" != "0" ]; then
+            echo "::error::$GATED gated finding(s) detected — release is held"
+            exit 1
+          fi
+          echo "No gated findings — release promoted for deployment."
+
+      - name: Record promotion marker
+        run: |
+          mkdir -p promotion
+          printf 'run=%s\nsha=%s\nscan=%s\ntotal=%s\ngated=%s\n' \
+            "${{ github.run_id }}" \
+            "${{ github.sha }}" \
+            "${{ needs.secret-scan.result }}" \
+            "${{ needs.secret-scan.outputs.total-count }}" \
+            "${{ needs.secret-scan.outputs.gated-count }}" > promotion/trufflehog-promotion.txt
+          cat promotion/trufflehog-promotion.txt
+
+      - name: Upload promotion marker
+        uses: actions/upload-artifact@v4
+        with:
+          name: trufflehog-promotion-marker
+          path: promotion/trufflehog-promotion.txt
+          if-no-files-found: error
+          retention-days: 90

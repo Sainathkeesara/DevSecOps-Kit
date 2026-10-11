@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - vault-028: `vault/notebooks/vault-secrets-backend-comparison-patterns.ipynb` — Vault secrets backend comparison patterns: KV vs database vs cloud backends across mount configuration, auth method, lease handling, and revocation; companion to the existing static-vs-dynamic-secrets lifecycle notebook but stays at the backend level (L6 notebook)
 - syft-021: `syft/notebooks/syft-format-comparison-patterns.ipynb` — Syft format comparison patterns from the consumer's side: synthetic fixtures in all four envelopes (native, SPDX, CycloneDX, GitHub snapshot), identity-parity asserts, field-fidelity matrix, envelope-size comparison, and a consumer-to-format selector; runs offline on stdlib only, distinct from the binary-driven `output-format-comparison.ipynb` (L6 notebook)
 - trivy-023: `trivy/docs/trivy-database-migration-guide.md` — Trivy database migration guide: touchpoint inventory across the kit's configs, manifests, and templates, baseline-then-canary rollout, per-diff rollout order, data-level rollback, and cache-related failure modes; all references in-repo, no external claims (L6 docs)
+- trufflehog-043: `trufflehog/manifests/trufflehog-cicd-pipeline.yaml` — TruffleHog CI/CD pipeline deployment gate: git-history secret scan job on PR/push plus promotion job releasing the build only when the scan succeeded and the gated (verified) finding count is zero; all references in-repo (L6 manifest)
 
 ## 2026-10-10
 
