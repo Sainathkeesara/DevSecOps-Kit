@@ -1,0 +1,150 @@
+# last_verified: 2026-10-10 · syft n/a
+# Purpose: Deploy Syft SBOM generation as a promotion gate inside a CI/CD
+#          pipeline — a scan job builds an SBOM for the target image on every
+#          pull request and push, uploads it as a workflow artifact, and a
+#          promotion job releases the build for deployment only when the scan
+#          job succeeded and the SBOM files are present and non-empty.
+# When to use: Repositories that ship container images and need SBOM evidence
+#              before a release is promoted. Use the scan job as the everyday
+#              merge gate and the promotion marker as the release signal.
+#              Prefer one of the single-purpose SBOM workflows when no
+#              deployment decision hangs off the result.
+# Prerequisites: The target image reference is available to the workflow
+#                (workflow input or stored secret); the runner provides Syft
+#                (pre-installed on the image or installed by an earlier step —
+#                this manifest does not fetch installers itself); artifact
+#                upload and download actions are permitted in the repository.
+# Steps: 1. The sbom job resolves the image reference, generates one SPDX and
+#           one CycloneDX SBOM into sbom-out/, and uploads them as artifacts.
+#           2. The promotion job runs after sbom and only on push events; it
+#           re-downloads the artifacts, checks both files exist and are
+#           non-empty, and writes a promotion marker file. 3. Treat a present
+#           promotion marker as the release signal; a red scan job holds it.
+# Verify: Open a pull request — the sbom job runs and uploads two SBOM files.
+#         Push to the default branch — promotion runs after sbom and uploads
+#         the promotion marker. Point the input at an image the runner cannot
+#         pull and confirm the run fails before promotion starts.
+# Rollback: To stop SBOM evidence blocking releases, remove the sbom status
+#           check from the branch protection rules — the workflow keeps running
+#           without gating. To revert to scan-only coverage, delete the
+#           promotion job; the sbom job is self-contained. A scan does not
+#           resume after interruption; re-run the workflow instead.
+# Common errors: syft binary missing on the runner — the scan step aborts with
+#                a clear message naming the missing binary; provide Syft on the
+#                runner image or in an earlier step. Promotion never runs — its
+#                needs chain requires sbom to succeed, so a red scan correctly
+#                holds the release; fix the scan, not the gate. Empty SBOM
+#                directory — the image reference was empty or the pull failed;
+#                confirm the input or stored secret resolves to a pullable ref.
+# References: syft/manifests/syft-gha-multi-arch-sbom-registry-auth.yaml
+#             (per-architecture SBOM wiring), syft/manifests/syft-gha-sbom-oci-push-attestation.yaml
+#             (SBOM packaging and signing flow), syft/docs/syft-integration-reference.md
+#             (CI/CD platform patterns), syft/scripts/sbom-vuln-pipeline.sh
+#             (scan-then-gate scripting pattern).
+name: Syft — CI/CD pipeline deployment gate
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      image_ref:
+        description: Container image reference to scan
+        required: true
+        default: ''
+
+permissions: read-all
+
+jobs:
+  sbom:
+    name: Syft SBOM scan
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Resolve image reference
+        id: image
+        run: |
+          REF="${{ github.event.inputs.image_ref || secrets.IMAGE_REF }}"
+          if [ -z "$REF" ]; then
+            echo "::error::No image reference provided (workflow input or IMAGE_REF secret)"
+            exit 1
+          fi
+          echo "ref=$REF" >> "$GITHUB_OUTPUT"
+
+      - name: Check Syft availability
+        run: |
+          command -v syft >/dev/null 2>&1 || {
+            echo "::error::syft binary not found on runner — provide it on the runner image or in an earlier step"
+            exit 1
+          }
+
+      - name: Generate SBOMs
+        run: |
+          IMAGE="${{ steps.image.outputs.ref }}"
+          mkdir -p sbom-out
+          syft "$IMAGE" -o spdx-json > sbom-out/sbom.spdx.json
+          syft "$IMAGE" -o cyclonedx-json > sbom-out/sbom.cdx.json
+          test -s sbom-out/sbom.spdx.json || { echo "::error::Empty SPDX SBOM"; exit 1; }
+          test -s sbom-out/sbom.cdx.json || { echo "::error::Empty CycloneDX SBOM"; exit 1; }
+
+      - name: Upload SBOM artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom-artifacts
+          path: sbom-out/
+          if-no-files-found: error
+          retention-days: 30
+
+  promotion:
+    name: Deployment promotion gate
+    needs: [sbom]
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+
+    steps:
+      - name: Download SBOM artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: sbom-artifacts
+          path: sbom-out/
+
+      - name: Confirm SBOM evidence
+        run: |
+          test "${{ needs.sbom.result }}" = "success" || {
+            echo "::error::Syft scan did not succeed (result: ${{ needs.sbom.result }}) — release is held"
+            exit 1
+          }
+          for f in sbom-out/sbom.spdx.json sbom-out/sbom.cdx.json; do
+            test -s "$f" || { echo "::error::Missing or empty SBOM file: $f"; exit 1; }
+            python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$f" \
+              || { echo "::error::Invalid JSON: $f"; exit 1; }
+          done
+          echo "SBOM evidence present — release promoted for deployment."
+
+      - name: Record promotion marker
+        run: |
+          mkdir -p promotion
+          printf 'run=%s\nsha=%s\nscan=%s\n' \
+            "${{ github.run_id }}" \
+            "${{ github.sha }}" \
+            "${{ needs.sbom.result }}" > promotion/syft-promotion.txt
+          cat promotion/syft-promotion.txt
+
+      - name: Upload promotion marker
+        uses: actions/upload-artifact@v4
+        with:
+          name: syft-promotion-marker
+          path: promotion/syft-promotion.txt
+          if-no-files-found: error
+          retention-days: 90
