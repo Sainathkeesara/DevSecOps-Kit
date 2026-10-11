@@ -15,11 +15,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 ## Quick links
 
-- [CodeQL database migration guide](codeql/docs/codeql-database-migration-guide.md) — Move a CodeQL setup between database arrangements without losing coverage: language set, build mode, database location, or a stale database rebuild
-- [CodeQL integration reference for security analysis](codeql/docs/codeql-integration-reference.md) — How the kit's CodeQL scan stages fit together: workflow files, manifests, and the local CLI loop as one pipeline map
-- [Snyk security policy migration patterns](snyk/docs/snyk-security-policy-migration-patterns.md) — Move ignore rules, severity thresholds, and exclusion paths between policy forms without weakening the gate or losing accepted-risk suppressions
-- [Snyk project configuration template](snyk/configs/snyk-project-configuration-template.yaml) — Per-project Snyk settings in one place: severity gate, scan targets, exclusions with reasons, and the ignore-policy pointer for multi-target repos
-- [Choosing between CLI and API modes in Snyk](snyk/notebooks/cli-vs-api-modes.ipynb) — When to run a scan through the CLI versus the HTTP API: who can call each, how results are consumed, and how failures surface
+- [Trivy integration reference for container scanning](trivy/docs/trivy-integration-reference-container-scanning.md) — Which scan script, config, and report shape to reach for per job: single image, gated pipeline, Compose fleet, or in-cluster runs
+- [Syft integration reference for SBOM generation](syft/docs/syft-integration-reference.md) — CI platform patterns, registry auth, output selection, OCI storage, cosign attestation, and handoff to Grype and Trivy
+- [Syft format migration guide](syft/docs/syft-format-migration-guide.md) — Map old short `-o` spellings to current long format names when a Syft upgrade changes what a pipeline emits
+- [Terrascan scan configuration migration patterns](terrascan/docs/terrascan-scan-configuration-migration-patterns.md) — Move a Terrascan config between releases without losing coverage: recognised keys, policy source moves, explicit severity gating
+- [Checking where the diagrams are actually used](assets/notes/2026-10-10-checking-where-the-diagrams-are-used.md) — First-day audit of the three PNGs in `assets/`: zero inbound image links, prior usage claims corrected, embed-or-drop decision recorded
 
 ## Layout
 
@@ -93,7 +93,7 @@ _Counts are the files inside each category folder; a few folders also hold files
 
 ## Status
 
-Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions went after the places a security toolchain actually gets hard: the loop around a vulnerability scan — target choice, database caching, report retention, and diffing against the last accepted result — the moves teams make when adopting or replacing secret scanning, and running a single Gatekeeper ConstraintTemplate across dev, staging, and prod without breaking promotion order or fail-closed enforcement. The newest CodeQL additions stay on that thread: a database migration guide for moving setups between language sets, build modes, and database locations without losing coverage, and an integration reference mapping the kit's workflows, manifests, and local CLI loop into one pipeline. The thinner corners are the tools carrying notes only: tfsec, Nuclei, and Prometheus.
+Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions are integration and migration references that map kit pieces together instead of adding new scanners: a Trivy reference matching each container-scanning job to its smallest script, a Syft pair covering CI integration patterns and the 0.x-to-1.x output-format move, and a Terrascan guide for carrying scan configs across releases without losing coverage. A first-day audit of `assets/` found the three diagrams orphaned — no inbound image links anywhere — with an embed-or-drop decision recorded. The thinner corners are still the tools carrying notes only: tfsec, Nuclei, and Prometheus.
 
 ---
 _Last updated: 2026-10-11_

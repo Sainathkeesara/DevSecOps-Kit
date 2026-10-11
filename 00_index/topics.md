@@ -18,9 +18,9 @@
 - **configs** (2): [2026-08-17-private-repo-credentials-rbac.yaml](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml), [2026-09-20-values-dev.yaml](../argocd/configs/2026-09-20-values-dev.yaml)
 - **manifests** (3): [helm-guestbook-application.yaml](../argocd/manifests/helm-guestbook-application.yaml), [2026-08-12-gitops-sync-sample-web-app.yaml](../argocd/manifests/2026-08-12-gitops-sync-sample-web-app.yaml), [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml)
 
-## assets  ·  9 files
+## assets  ·  10 files
 
-- **notes** (3): [2026-09-30-explore-assets-directory.md](../assets/notes/2026-09-30-explore-assets-directory.md), [2026-09-29-image-optimization-tripped-me-up.md](../assets/notes/2026-09-29-image-optimization-tripped-me-up.md), [2026-09-19-explore-assets-directory.md](../assets/notes/2026-09-19-explore-assets-directory.md)
+- **notes** (4): [2026-10-10-checking-where-the-diagrams-are-used.md](../assets/notes/2026-10-10-checking-where-the-diagrams-are-used.md), [2026-09-30-explore-assets-directory.md](../assets/notes/2026-09-30-explore-assets-directory.md), [2026-09-29-image-optimization-tripped-me-up.md](../assets/notes/2026-09-29-image-optimization-tripped-me-up.md) — _…and 1 more under `assets/notes/`._
 - **scripts** (1): [2026-10-01-audit-asset-references.sh](../assets/scripts/2026-10-01-audit-asset-references.sh)
 - **configs** (1): [2026-09-29-asset-index.yaml](../assets/configs/2026-09-29-asset-index.yaml)
 - _…and 4 diagram files at `assets/` root (`architecture-overview.png`, `cicd-workflow.png`, `devsecops-pipeline.png`, and a README) — browse the folder._
@@ -260,11 +260,11 @@
 - **scripts** (1): [2026-09-21-sonarqube-scan-setup.sh](../sonarqube/scripts/2026-09-21-sonarqube-scan-setup.sh)
 - **snippets** (1): [2026-07-16-first-sonarscanner-run.sh](../sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh)
 
-## syft  ·  37 files
+## syft  ·  39 files
 
 - **primer:** [0000-primer-syft.md](../syft/notes/0000-primer-syft.md)
 - **notes** (4): [0000-primer-syft.md](../syft/notes/0000-primer-syft.md), [2026-05-27-install-syft-first-sbom.md](../syft/notes/2026-05-27-install-syft-first-sbom.md), [2026-05-30-sbom-format-comparison.md](../syft/notes/2026-05-30-sbom-format-comparison.md) — _…and 1 more under `syft/notes/`._
-- **docs** (6): [output-format-selection-guide.md](../syft/docs/output-format-selection-guide.md), [sbom-formats-comparison.md](../syft/docs/sbom-formats-comparison.md), [enterprise-registry-auth-caching-patterns.md](../syft/docs/enterprise-registry-auth-caching-patterns.md) — _…and 3 more under `syft/docs/`._
+- **docs** (8): [syft-integration-reference.md](../syft/docs/syft-integration-reference.md), [syft-format-migration-guide.md](../syft/docs/syft-format-migration-guide.md), [output-format-selection-guide.md](../syft/docs/output-format-selection-guide.md) — _…and 5 more under `syft/docs/`._
 - **scripts** (4): [gen-multi-format-sboms.sh](../syft/scripts/gen-multi-format-sboms.sh), [syft-sbom-generation.py](../syft/scripts/syft-sbom-generation.py), [multi-image-sbom-pipeline.sh](../syft/scripts/multi-image-sbom-pipeline.sh) — _…and 1 more under `syft/scripts/`._
 - **configs** (1): [.syft.yaml](../syft/configs/.syft.yaml)
 - **snippets** (1): [tried-sbom-formats.sh](../syft/snippets/tried-sbom-formats.sh)
@@ -283,11 +283,11 @@
 - **snippets** (1): [2026-07-20-practice-terraform-variables-outputs-datasources.hcl](../terraform/snippets/2026-07-20-practice-terraform-variables-outputs-datasources.hcl)
 - _…and 7 more files under `terraform/eventbridge-lambda/` (EventBridge plus Lambda sample project) — browse the folder._
 
-## terrascan  ·  21 files
+## terrascan  ·  22 files
 
 - **primer:** [0000-primer-terrascan.md](../terrascan/notes/0000-primer-terrascan.md)
 - **notes** (5): [0000-primer-terrascan.md](../terrascan/notes/0000-primer-terrascan.md), [2026-06-13-first-scan.md](../terrascan/notes/2026-06-13-first-scan.md), [2026-06-29-terrascan-getting-started-trip-ups.md](../terrascan/notes/2026-06-29-terrascan-getting-started-trip-ups.md) — _…and 2 more under `terrascan/notes/`._
-- **docs** (2): [iac-pipeline-integration.md](../terrascan/docs/iac-pipeline-integration.md), [terrascan-vs-checkov-terraform-iac-scanning.md](../terrascan/docs/terrascan-vs-checkov-terraform-iac-scanning.md)
+- **docs** (3): [terrascan-scan-configuration-migration-patterns.md](../terrascan/docs/terrascan-scan-configuration-migration-patterns.md), [iac-pipeline-integration.md](../terrascan/docs/iac-pipeline-integration.md), [terrascan-vs-checkov-terraform-iac-scanning.md](../terrascan/docs/terrascan-vs-checkov-terraform-iac-scanning.md)
 - **scripts** (2): [policy-as-code-workflow.sh](../terrascan/scripts/policy-as-code-workflow.sh), [tried-terrascan-ci-scan.sh](../terrascan/scripts/tried-terrascan-ci-scan.sh)
 - **configs** (2): [terrascan-config-template.yaml](../terrascan/configs/terrascan-config-template.yaml), [tried-custom-s3-rule.yaml](../terrascan/configs/tried-custom-s3-rule.yaml)
 - **snippets** (2): [insecure-terraform.tf](../terrascan/snippets/insecure-terraform.tf), [tiny-tf-with-findings.tf](../terrascan/snippets/tiny-tf-with-findings.tf)
@@ -308,11 +308,11 @@
 - **primer:** [0000-primer-tfsec.md](../tfsec/notes/0000-primer-tfsec.md)
 - **notes** (2): [0000-primer-tfsec.md](../tfsec/notes/0000-primer-tfsec.md), [2026-09-20-first-tfsec-scan.md](../tfsec/notes/2026-09-20-first-tfsec-scan.md)
 
-## trivy  ·  35 files
+## trivy  ·  36 files
 
 - **primer:** [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md)
 - **notes** (6): [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md), [2026-05-24-install-trivy.md](../trivy/notes/2026-05-24-install-trivy.md), [2026-07-27-first-container-scan.md](../trivy/notes/2026-07-27-first-container-scan.md) — _…and 3 more under `trivy/notes/`._
-- **docs** (4): [ci-cd-pipeline-recipes.md](../trivy/docs/ci-cd-pipeline-recipes.md), [ci-pipeline-sarif-output.md](../trivy/docs/ci-pipeline-sarif-output.md), [multi-arch-vulnerability-scanning.md](../trivy/docs/multi-arch-vulnerability-scanning.md) — _…and 1 more under `trivy/docs/`._
+- **docs** (5): [trivy-integration-reference-container-scanning.md](../trivy/docs/trivy-integration-reference-container-scanning.md), [ci-cd-pipeline-recipes.md](../trivy/docs/ci-cd-pipeline-recipes.md), [ci-pipeline-sarif-output.md](../trivy/docs/ci-pipeline-sarif-output.md) — _…and 2 more under `trivy/docs/`._
 - **scripts** (6): [container-vuln-scan.sh](../trivy/scripts/container-vuln-scan.sh), [compose-multi-scan.sh](../trivy/scripts/compose-multi-scan.sh), [image-vuln-pipeline.sh](../trivy/scripts/image-vuln-pipeline.sh) — _…and 3 more under `trivy/scripts/`._
 - **configs** (2): [trivy-scan-config.yaml](../trivy/configs/trivy-scan-config.yaml), [.trivy.yaml](../trivy/configs/.trivy.yaml)
 - **snippets** (1): [scan-docker-image.sh](../trivy/snippets/scan-docker-image.sh)
