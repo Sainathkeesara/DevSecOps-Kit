@@ -18,9 +18,9 @@
 - **configs** (2): [2026-08-17-private-repo-credentials-rbac.yaml](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml), [2026-09-20-values-dev.yaml](../argocd/configs/2026-09-20-values-dev.yaml)
 - **manifests** (3): [helm-guestbook-application.yaml](../argocd/manifests/helm-guestbook-application.yaml), [2026-08-12-gitops-sync-sample-web-app.yaml](../argocd/manifests/2026-08-12-gitops-sync-sample-web-app.yaml), [2026-07-06-sample-app-application.yaml](../argocd/manifests/2026-07-06-sample-app-application.yaml)
 
-## assets  ·  10 files
+## assets  ·  11 files
 
-- **notes** (4): [2026-10-10-checking-where-the-diagrams-are-used.md](../assets/notes/2026-10-10-checking-where-the-diagrams-are-used.md), [2026-09-30-explore-assets-directory.md](../assets/notes/2026-09-30-explore-assets-directory.md), [2026-09-29-image-optimization-tripped-me-up.md](../assets/notes/2026-09-29-image-optimization-tripped-me-up.md) — _…and 1 more under `assets/notes/`._
+- **notes** (5): [2026-10-11-embedding-architecture-diagrams.md](../assets/notes/2026-10-11-embedding-architecture-diagrams.md), [2026-10-10-checking-where-the-diagrams-are-used.md](../assets/notes/2026-10-10-checking-where-the-diagrams-are-used.md), [2026-09-30-explore-assets-directory.md](../assets/notes/2026-09-30-explore-assets-directory.md) — _…and 2 more under `assets/notes/`._
 - **scripts** (1): [2026-10-01-audit-asset-references.sh](../assets/scripts/2026-10-01-audit-asset-references.sh)
 - **configs** (1): [2026-09-29-asset-index.yaml](../assets/configs/2026-09-29-asset-index.yaml)
 - _…and 4 diagram files at `assets/` root (`architecture-overview.png`, `cicd-workflow.png`, `devsecops-pipeline.png`, and a README) — browse the folder._
@@ -38,7 +38,7 @@
 - **notebooks** (4): [compare-custom-policy-expressiveness.ipynb](../checkov/notebooks/compare-custom-policy-expressiveness.ipynb), [compare-static-vs-plan-scanning.ipynb](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb), [compare-cross-module-scanning-limitations.ipynb](../checkov/notebooks/compare-cross-module-scanning-limitations.ipynb) — _…and 1 more under `checkov/notebooks/`._
 - **policies** (1): [no_public_s3_buckets.yaml](../checkov/policies/no-public-s3-buckets/no_public_s3_buckets.yaml)
 
-## codeql  ·  27 files
+## codeql  ·  29 files
 
 - **primer:** [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md)
 - **notes** (4): [0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md), [2026-08-26-install-codeql-first-query.md](../codeql/notes/2026-08-26-install-codeql-first-query.md), [2026-06-14-codeql-datalog-gotchas.md](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md) — _…and 1 more under `codeql/notes/`._
@@ -47,9 +47,9 @@
 - **configs** (1): [first-codeql-analysis.yml](../codeql/configs/first-codeql-analysis.yml)
 - **snippets** (5): [find-hardcoded-creds.ql](../codeql/snippets/find-hardcoded-creds.ql), [hardcoded-creds-local-flow.ql](../codeql/snippets/hardcoded-creds-local-flow.ql), [2026-09-24-first-codeql-query.py](../codeql/snippets/2026-09-24-first-codeql-query.py) — _…and 2 more under `codeql/snippets/`._
 - **templates** (8): [custom query-pack CI harness](../codeql/templates/custom-query-pack-ci-harness/README.md), [hardcoded-credential-check.ql](../codeql/templates/custom-query-pack-ci-harness/queries/hardcoded-credential-check.ql), [custom-suite.qls](../codeql/templates/custom-query-pack-ci-harness/suites/custom-suite.qls) — _…and 5 more under `codeql/templates/`._
-- **manifests** (2): [codeql-multi-language-scan.yaml](../codeql/manifests/codeql-multi-language-scan.yaml), [multi-language-codeql-analysis.yaml](../codeql/manifests/multi-language-codeql-analysis.yaml)
+- **manifests** (3): [codeql-cicd-pipeline.yaml](../codeql/manifests/codeql-cicd-pipeline.yaml), [codeql-multi-language-scan.yaml](../codeql/manifests/codeql-multi-language-scan.yaml), [multi-language-codeql-analysis.yaml](../codeql/manifests/multi-language-codeql-analysis.yaml)
 - **dockerfiles** (1): [custom-codeql-analysis-image.Dockerfile](../codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile)
-- **notebooks** (1): [compare-cli-vs-actions-scan-modes.ipynb](../codeql/notebooks/compare-cli-vs-actions-scan-modes.ipynb)
+- **notebooks** (2): [codeql-query-comparison-patterns.ipynb](../codeql/notebooks/codeql-query-comparison-patterns.ipynb), [compare-cli-vs-actions-scan-modes.ipynb](../codeql/notebooks/compare-cli-vs-actions-scan-modes.ipynb)
 
 ## cosign  ·  18 files
 
@@ -227,7 +227,7 @@
 - **primer:** [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md)
 - **notes** (3): [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md), [0000-primer-observability.md](../prometheus/notes/0000-primer-observability.md), [2026-09-20-checking-the-metrics-interface.md](../prometheus/notes/2026-09-20-checking-the-metrics-interface.md)
 
-## semgrep  ·  23 files
+## semgrep  ·  24 files
 
 - **primer:** [0000-primer-semgrep.md](../semgrep/notes/0000-primer-semgrep.md)
 - **notes** (3): [0000-primer-semgrep.md](../semgrep/notes/0000-primer-semgrep.md), [2026-05-25-install-semgrep.md](../semgrep/notes/2026-05-25-install-semgrep.md), [2026-05-26-install-semgrep-pitfalls.md](../semgrep/notes/2026-05-26-install-semgrep-pitfalls.md)
@@ -235,7 +235,7 @@
 - **scripts** (3): [scan-python-codebase.sh](../semgrep/scripts/scan-python-codebase.sh), [detect-hardcoded-secrets.py](../semgrep/scripts/detect-hardcoded-secrets.py), [bulk-scan-helper.py](../semgrep/scripts/bulk-scan-helper.py)
 - **configs** (1): [multi-rule-pack.yaml](../semgrep/configs/multi-rule-pack.yaml)
 - **snippets** (2): [first-custom-rule.yaml](../semgrep/snippets/first-custom-rule.yaml), [catch-privileged-containers.yaml](../semgrep/snippets/catch-privileged-containers.yaml)
-- **manifests** (2): [diff-aware-semgrep-ci.yaml](../semgrep/manifests/diff-aware-semgrep-ci.yaml), [semgrep-gitlab-ci.yaml](../semgrep/manifests/semgrep-gitlab-ci.yaml)
+- **manifests** (3): [semgrep-ci-cd-pipeline.yaml](../semgrep/manifests/semgrep-ci-cd-pipeline.yaml), [diff-aware-semgrep-ci.yaml](../semgrep/manifests/diff-aware-semgrep-ci.yaml), [semgrep-gitlab-ci.yaml](../semgrep/manifests/semgrep-gitlab-ci.yaml)
 - **dockerfiles** (2): [custom-scanning-image.Dockerfile](../semgrep/dockerfiles/custom-scanning-image.Dockerfile), [ci-entrypoint.sh](../semgrep/dockerfiles/ci-entrypoint.sh)
 - **notebooks** (3): [rule-matching-mode-comparison.ipynb](../semgrep/notebooks/rule-matching-mode-comparison.ipynb), [comparing-community-vs-custom-rules.ipynb](../semgrep/notebooks/comparing-community-vs-custom-rules.ipynb), [semgrep-scan-vs-ci-comparison.ipynb](../semgrep/notebooks/semgrep-scan-vs-ci-comparison.ipynb)
 
@@ -260,7 +260,7 @@
 - **scripts** (1): [2026-09-21-sonarqube-scan-setup.sh](../sonarqube/scripts/2026-09-21-sonarqube-scan-setup.sh)
 - **snippets** (1): [2026-07-16-first-sonarscanner-run.sh](../sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh)
 
-## syft  ·  39 files
+## syft  ·  41 files
 
 - **primer:** [0000-primer-syft.md](../syft/notes/0000-primer-syft.md)
 - **notes** (4): [0000-primer-syft.md](../syft/notes/0000-primer-syft.md), [2026-05-27-install-syft-first-sbom.md](../syft/notes/2026-05-27-install-syft-first-sbom.md), [2026-05-30-sbom-format-comparison.md](../syft/notes/2026-05-30-sbom-format-comparison.md) — _…and 1 more under `syft/notes/`._
@@ -269,9 +269,9 @@
 - **configs** (1): [.syft.yaml](../syft/configs/.syft.yaml)
 - **snippets** (1): [tried-sbom-formats.sh](../syft/snippets/tried-sbom-formats.sh)
 - **templates** (15): [SBOM pipeline scaffold](../syft/templates/sbom-pipeline-scaffold/README.md), [Syft + Trivy Kubernetes scan scaffold](../syft/templates/syft-trivy-k8s-scan-scaffold/README.md), [sbom-scan.yml](../syft/templates/sbom-pipeline-scaffold/.github/workflows/sbom-scan.yml) — _…and 12 more under `syft/templates/`._
-- **manifests** (2): [syft-gha-multi-arch-sbom-registry-auth.yaml](../syft/manifests/syft-gha-multi-arch-sbom-registry-auth.yaml), [syft-gha-sbom-oci-push-attestation.yaml](../syft/manifests/syft-gha-sbom-oci-push-attestation.yaml)
+- **manifests** (3): [syft-cicd-pipeline.yaml](../syft/manifests/syft-cicd-pipeline.yaml), [syft-gha-multi-arch-sbom-registry-auth.yaml](../syft/manifests/syft-gha-multi-arch-sbom-registry-auth.yaml), [syft-gha-sbom-oci-push-attestation.yaml](../syft/manifests/syft-gha-sbom-oci-push-attestation.yaml)
 - **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
-- **notebooks** (3): [output-format-comparison.ipynb](../syft/notebooks/output-format-comparison.ipynb), [source-vs-library-multiarch.ipynb](../syft/notebooks/source-vs-library-multiarch.ipynb), [sbom-layer-package-analysis.ipynb](../syft/notebooks/sbom-layer-package-analysis.ipynb)
+- **notebooks** (4): [syft-format-comparison-patterns.ipynb](../syft/notebooks/syft-format-comparison-patterns.ipynb), [output-format-comparison.ipynb](../syft/notebooks/output-format-comparison.ipynb), [source-vs-library-multiarch.ipynb](../syft/notebooks/source-vs-library-multiarch.ipynb) — _…and 1 more under `syft/notebooks/`._
 
 ## terraform  ·  21 files
 
@@ -308,11 +308,11 @@
 - **primer:** [0000-primer-tfsec.md](../tfsec/notes/0000-primer-tfsec.md)
 - **notes** (2): [0000-primer-tfsec.md](../tfsec/notes/0000-primer-tfsec.md), [2026-09-20-first-tfsec-scan.md](../tfsec/notes/2026-09-20-first-tfsec-scan.md)
 
-## trivy  ·  36 files
+## trivy  ·  37 files
 
 - **primer:** [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md)
 - **notes** (6): [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md), [2026-05-24-install-trivy.md](../trivy/notes/2026-05-24-install-trivy.md), [2026-07-27-first-container-scan.md](../trivy/notes/2026-07-27-first-container-scan.md) — _…and 3 more under `trivy/notes/`._
-- **docs** (5): [trivy-integration-reference-container-scanning.md](../trivy/docs/trivy-integration-reference-container-scanning.md), [ci-cd-pipeline-recipes.md](../trivy/docs/ci-cd-pipeline-recipes.md), [ci-pipeline-sarif-output.md](../trivy/docs/ci-pipeline-sarif-output.md) — _…and 2 more under `trivy/docs/`._
+- **docs** (6): [trivy-database-migration-guide.md](../trivy/docs/trivy-database-migration-guide.md), [trivy-integration-reference-container-scanning.md](../trivy/docs/trivy-integration-reference-container-scanning.md), [ci-cd-pipeline-recipes.md](../trivy/docs/ci-cd-pipeline-recipes.md) — _…and 3 more under `trivy/docs/`._
 - **scripts** (6): [container-vuln-scan.sh](../trivy/scripts/container-vuln-scan.sh), [compose-multi-scan.sh](../trivy/scripts/compose-multi-scan.sh), [image-vuln-pipeline.sh](../trivy/scripts/image-vuln-pipeline.sh) — _…and 3 more under `trivy/scripts/`._
 - **configs** (2): [trivy-scan-config.yaml](../trivy/configs/trivy-scan-config.yaml), [.trivy.yaml](../trivy/configs/.trivy.yaml)
 - **snippets** (1): [scan-docker-image.sh](../trivy/snippets/scan-docker-image.sh)
@@ -334,7 +334,7 @@
 - **dockerfiles** (1): [pre-commit-scanner.Dockerfile](../trufflehog/dockerfiles/pre-commit-scanner.Dockerfile)
 - **notebooks** (2): [trufflehog-scan-modes-comparison.ipynb](../trufflehog/notebooks/trufflehog-scan-modes-comparison.ipynb), [analyzing-trufflehog-false-positives.ipynb](../trufflehog/notebooks/analyzing-trufflehog-false-positives.ipynb)
 
-## vault  ·  20 files
+## vault  ·  21 files
 
 - **primer:** [0000-primer-vault.md](../vault/notes/0000-primer-vault.md)
 - **notes** (4): [0000-primer-vault.md](../vault/notes/0000-primer-vault.md), [2026-08-26-install-vault-first-command.md](../vault/notes/2026-08-26-install-vault-first-command.md), [2026-06-05-install-vault-and-explore-cli.md](../vault/notes/2026-06-05-install-vault-and-explore-cli.md) — _…and 1 more under `vault/notes/`._
@@ -344,7 +344,7 @@
 - **snippets** (2): [2026-08-30-first-vault-secret.sh](../vault/snippets/2026-08-30-first-vault-secret.sh), [vault-read-write.go](../vault/snippets/vault-read-write.go)
 - **manifests** (2): [vault-cluster-deployment.yaml](../vault/manifests/vault-cluster-deployment.yaml), [vault-sidecar-secrets-refresh.yaml](../vault/manifests/vault-sidecar-secrets-refresh.yaml)
 - **dockerfiles** (1): [custom-vault-image-with-plugins-tls.Dockerfile](../vault/dockerfiles/custom-vault-image-with-plugins-tls.Dockerfile)
-- **notebooks** (1): [static-vs-dynamic-secrets.ipynb](../vault/notebooks/static-vs-dynamic-secrets.ipynb)
+- **notebooks** (2): [vault-secrets-backend-comparison-patterns.ipynb](../vault/notebooks/vault-secrets-backend-comparison-patterns.ipynb), [static-vs-dynamic-secrets.ipynb](../vault/notebooks/static-vs-dynamic-secrets.ipynb)
 
 ## zap  ·  31 files
 

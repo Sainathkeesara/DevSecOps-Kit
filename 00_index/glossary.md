@@ -798,3 +798,4 @@
 ## Trivy
 
 - **Scan entry point (Trivy)** — The smallest kit artifact that does a given container-scanning job: a snippet for a first look at one image, a script for a gated pipeline or a mixed-target run, a manifest for scheduled or in-cluster scans. Matching the job to the entry point keeps one-off scans out of pipeline scripts and pipeline logic out of one-off snippets.
+- **Database migration (Trivy)** — Moving the vulnerability-database location or cache layout (a new database path, a changed cache directory, or a shift to a shared pre-populated cache) with a baseline report, a single canary target, and touchpoint-by-touchpoint rollout, so scan gates keep passing and coverage history survives the move.

@@ -48,6 +48,7 @@
 - [SBOM formats compared](../syft/docs/sbom-formats-comparison.md)
 - [Syft integration reference for SBOM generation](../syft/docs/syft-integration-reference.md) — CI platform patterns, registry auth, output selection, OCI storage, cosign attestation, and handoff to vulnerability scanners
 - [Syft format migration guide](../syft/docs/syft-format-migration-guide.md) — Map old short `-o` spellings to current long format names when a Syft upgrade changes what a pipeline emits
+- [Syft CI/CD pipeline manifest](../syft/manifests/syft-cicd-pipeline.yaml) — SBOM generation as a promotion gate: scan on every PR and push, promote only with SBOM evidence present
 
 ### Understand secrets management
 
@@ -105,6 +106,7 @@
 - [Multi-arch vulnerability scanning with Trivy](../trivy/docs/multi-arch-vulnerability-scanning.md)
 - [Container vulnerability scan with Trivy](../trivy/scripts/container-vuln-scan.sh)
 - [Trivy integration reference for container scanning](../trivy/docs/trivy-integration-reference-container-scanning.md) — Which scan script, config, and report shape to reach for per job: single image, gated pipeline, Compose fleet, or in-cluster runs
+- [Trivy database migration guide](../trivy/docs/trivy-database-migration-guide.md) — Move the vulnerability-database location or cache layout without breaking scan gates or losing coverage history
 - [Minimal Grype scan](../grype/scripts/minimal-grype-scan.sh)
 - [CI-ready Grype scanning](../grype/scripts/ci-ready-grype-scan.sh)
 - [Grype in a vulnerability-management pipeline](../grype/docs/vulnerability-management-pipeline-integration.md) — The loop around the scan: target choice, database caching, machine-readable reports, gate thresholds, tracker routing, and diffing against the last accepted result
@@ -198,6 +200,7 @@
 - [Vault Agent auto-auth on Kubernetes](../vault/docs/vault-agent-auto-auth-kubernetes.md)
 - [Vault Agent sidecar for secret refresh](../vault/manifests/vault-sidecar-secrets-refresh.yaml)
 - [Vault cluster deployment manifest](../vault/manifests/vault-cluster-deployment.yaml) — HA Raft StatefulSet plus a single-replica dev variant with probes, PDB, and network policy
+- [Comparing Vault secrets backend patterns](../vault/notebooks/vault-secrets-backend-comparison-patterns.ipynb) — KV, database, and cloud backends compared on mount config, auth, and operational differences
 - [Vault troubleshooting: seal and unseal](../docs/how-to/vault-troubleshooting-seal-unseal.md)
 
 ### Practice and learn
@@ -225,6 +228,7 @@
 - [Asset index](../assets/configs/2026-09-29-asset-index.yaml) — Which diagram file is which size, and where each one is referenced from
 - [Audit asset references](../assets/scripts/2026-10-01-audit-asset-references.sh) — Find the diagrams on disk and the docs that link to them, and spot the ones nothing references
 - [Checking where the diagrams are actually used](../assets/notes/2026-10-10-checking-where-the-diagrams-are-used.md) — First-day audit: the three PNGs have zero inbound image links, with an embed-or-drop decision recorded
+- [Embedding the architecture diagrams](../assets/notes/2026-10-11-embedding-architecture-diagrams.md) — Each orphaned PNG placed where it belongs, with the embed-or-drop decision recorded
 
 ### Run infrastructure tasks
 
@@ -256,6 +260,8 @@
 - [CodeQL CLI vs GitHub Actions scan modes](../codeql/notebooks/compare-cli-vs-actions-scan-modes.ipynb) — When to run CodeQL locally via the CLI versus declaratively in Actions
 - [CodeQL multi-language repository scan](../codeql/manifests/codeql-multi-language-scan.yaml) — One workflow that analyses every language in a repo with a single status check
 - [CodeQL database migration guide](../codeql/docs/codeql-database-migration-guide.md) — Move a setup between language sets, build modes, and database locations without losing coverage
+- [Comparing CodeQL query patterns](../codeql/notebooks/codeql-query-comparison-patterns.ipynb) — Query-level comparisons: before vs after, source vs sink, default suite vs custom pack
+- [CodeQL CI/CD pipeline manifest](../codeql/manifests/codeql-cicd-pipeline.yaml) — Fast interpreted-language scan gates PRs, full multi-language analysis runs on merge, promotion only when analysis succeeded
 - [CodeQL integration reference](../codeql/docs/codeql-integration-reference.md) — How the kit's workflows, manifests, and local CLI loop fit together as one pipeline
 - [CodeQL custom query-pack scaffold](../codeql/templates/custom-query-pack-ci-harness/README.md) — Reusable layout for project-specific queries with CI and local test harness
 - [Semgrep rule-writing reference](../semgrep/docs/semgrep-rule-writing-reference.md)
@@ -263,6 +269,7 @@
 - [Semgrep rule performance optimization](../semgrep/docs/semgrep-rule-performance-optimization.md)
 - [Semgrep rules migration guide](../semgrep/docs/semgrep-rules-migration-guide.md) — Move an organically grown ruleset into a consistent layout with normalized envelopes and CI rollout
 - [Semgrep code-scanning integration reference](../semgrep/docs/semgrep-code-scanning-integration-reference.md) — CI patterns, SARIF upload, rule sources, and severity tuning for code scanning
+- [Semgrep CI/CD pipeline manifest](../semgrep/manifests/semgrep-ci-cd-pipeline.yaml) — Full-repo SAST gate on every push and PR with SARIF upload, weekly deep scans, and severity-based quality gating
 - [AST-based security pattern checker](../docs/concepts/application-security-testing-concepts/scripts/2026-08-26-ast-devsecops.py)
 - [SonarQube quality gates and profiles](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md)
 - [Semgrep rule-design comparison](../semgrep/notebooks/rule-matching-mode-comparison.ipynb) — Search, context-constrained, and taint rules for one injection class scored on a labelled corpus
