@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-12
+
+### Added
+
+- trufflehog-044: `trufflehog/notebooks/detector-comparison-patterns.ipynb` — TruffleHog detection comparison patterns: verification gating across result classes, detector selection via include/exclude, the decoder chain (PLAIN vs BASE64), the deduplication cache, and entropy-threshold filtering — each measured against a synthetic five-secret fixture with a 13-check verification cell; runs offline on stdlib only (L6 notebook)
+
 ## 2026-10-11
 
 ### Added
