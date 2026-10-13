@@ -799,3 +799,9 @@
 
 - **Scan entry point (Trivy)** — The smallest kit artifact that does a given container-scanning job: a snippet for a first look at one image, a script for a gated pipeline or a mixed-target run, a manifest for scheduled or in-cluster scans. Matching the job to the entry point keeps one-off scans out of pipeline scripts and pipeline logic out of one-off snippets.
 - **Database migration (Trivy)** — Moving the vulnerability-database location or cache layout (a new database path, a changed cache directory, or a shift to a shared pre-populated cache) with a baseline report, a single canary target, and touchpoint-by-touchpoint rollout, so scan gates keep passing and coverage history survives the move.
+
+## TruffleHog
+
+- **Verification gating (TruffleHog)** — Selecting which result classes (`verified`, `unknown`, `unverified`) fail a scan via `--results`. Some detectors report only findings they can confirm against the live service; others report unverified matches, so the same repo yields different gates depending on which classes are selected.
+- **Detector selection (TruffleHog)** — Limiting a scan to specific detectors with `--include-detectors` or `--exclude-detectors`. Narrowing the set cuts noise from irrelevant services but silently drops coverage for everything excluded, so the selection belongs in version control next to the gate it serves.
+- **Decoder chain (TruffleHog)** — Automatic decoding of base64 and other encodings before detection, so a secret hidden inside an encoded blob is still matched. Encoded fixtures that match no plain-text detector exercise this chain.

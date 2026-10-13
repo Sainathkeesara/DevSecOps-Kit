@@ -15,11 +15,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 ## Quick links
 
+- [TruffleHog detector comparison patterns](trufflehog/notebooks/detector-comparison-patterns.ipynb) — One fixture repo run through verification gating, detector selection, decoders, and entropy filtering to show what each detection knob adds or removes
+- [TruffleHog CI/CD pipeline deployment gate](trufflehog/manifests/trufflehog-cicd-pipeline.yaml) — Secret detection as a promotion gate: scan git history on every PR and push, release only when no verified secrets are found
 - [Trivy database migration guide](trivy/docs/trivy-database-migration-guide.md) — Move the vulnerability-database location or cache layout without breaking scan gates or losing coverage history
 - [Comparing CodeQL query patterns](codeql/notebooks/codeql-query-comparison-patterns.ipynb) — Query-level comparisons: before against after, source against sink, default suite against a custom pack
 - [Comparing Vault secrets backend patterns](vault/notebooks/vault-secrets-backend-comparison-patterns.ipynb) — KV, database, and cloud backends compared on mount config, auth, and day-to-day operational differences
-- [Embedding the three architecture diagrams](assets/notes/2026-10-11-embedding-architecture-diagrams.md) — Each orphaned PNG placed where it belongs, with the embed-or-drop decision recorded
-- [Syft CI/CD pipeline manifest](syft/manifests/syft-cicd-pipeline.yaml) — SBOM generation as a promotion gate: scan on every PR and push, promote only with SBOM evidence present
 
 ## Layout
 
@@ -49,7 +49,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total | Last verified |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|----------:|----------:|---------------|
 | checkov | 4 | 6 | 4 | 3 | 4 | 20 | 3 | 0 | 4 | 1 | 49 | 2026-10-07 |
-| trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 1 | 1 | 2 | 0 | 38 | 2026-09-04 |
+| trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 2 | 1 | 3 | 0 | 40 | 2026-10-12 |
 | syft | 4 | 8 | 4 | 1 | 1 | 15 | 3 | 1 | 4 | 0 | 41 | 2026-10-11 |
 | trivy | 6 | 6 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 37 | 2026-10-11 |
 | zap | 6 | 5 | 3 | 2 | 4 | 8 | 1 | 1 | 1 | 0 | 31 | 2026-10-02 |
@@ -58,10 +58,10 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | opa | 3 | 4 | 2 | 2 | 3 | 9 | 4 | 0 | 1 | 0 | 28 | 2026-10-06 |
 | grype | 4 | 3 | 8 | 2 | 2 | 0 | 2 | 1 | 2 | 0 | 24 | 2026-10-05 |
 | falco | 4 | 4 | 3 | 4 | 1 | 4 | 1 | 0 | 2 | 0 | 23 | 2026-10-03 |
-| semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 3 | 2 | 3 | 0 | 24 | 2026-10-11 |
+| semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 3 | 2 | 3 | 0 | 24 | 2026-10-09 |
 | snyk | 5 | 4 | 1 | 3 | 1 | 11 | 1 | 1 | 1 | 0 | 28 | 2026-10-08 |
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-09-22 |
-| terrascan | 5 | 3 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 22 | 2026-10-11 |
+| terrascan | 5 | 3 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 22 | 2026-10-10 |
 | vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 2 | 0 | 21 | 2026-10-11 |
 | environments | 4 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 19 | 2026-10-01 |
 | cosign | 4 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 18 | 2026-09-25 |
@@ -93,7 +93,7 @@ _Counts are the files inside each category folder; a few folders also hold files
 
 ## Status
 
-Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions are integration and migration references that map kit pieces together instead of adding new scanners: a Trivy reference matching each container-scanning job to its smallest script, a Syft pair covering CI integration patterns and the 0.x-to-1.x output-format move, and a Terrascan guide for carrying scan configs across releases without losing coverage, plus a Trivy guide for moving the vulnerability-database location without breaking scan gates. A first-day audit of `assets/` found the three diagrams orphaned — no inbound image links anywhere — with an embed-or-drop decision recorded. The thinner corners are still the tools carrying notes only: tfsec, Nuclei, and Prometheus.
+Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions are secret-detection references: a TruffleHog notebook comparing detector patterns against one fixture repo so scan disagreements trace back to configuration, and a TruffleHog CI/CD manifest wiring secret detection in as a promotion gate, alongside a Trivy guide for moving the vulnerability-database location without breaking scan gates. A first-day audit of `assets/` found the three diagrams orphaned — no inbound image links anywhere — with an embed-or-drop decision recorded. The thinner corners are still the tools carrying notes only: tfsec, Nuclei, and Prometheus.
 
 ---
-_Last updated: 2026-10-11_
+_Last updated: 2026-10-12_

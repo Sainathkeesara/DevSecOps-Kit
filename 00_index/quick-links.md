@@ -277,6 +277,8 @@
 ### Scan for secrets
 
 - [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md)
+- [TruffleHog detector comparison patterns](../trufflehog/notebooks/detector-comparison-patterns.ipynb) — One fixture repo through verification gating, detector selection, decoders, and entropy filtering to show what each knob adds or removes
+- [TruffleHog CI/CD pipeline deployment gate](../trufflehog/manifests/trufflehog-cicd-pipeline.yaml) — Scan git history on every PR and push, promote the release only when no verified secrets are found
 - [Gitleaks primer](../gitleaks/notes/0000-primer-gitleaks.md)
 - [First secret scan with Gitleaks](../gitleaks/notes/2026-09-19-first-secret-scan.md) — What to set up before a first scan, using a fake credential in a test repo
 - [Gitleaks quickstart trip-ups](../gitleaks/notes/2026-10-07-quickstart-trip-ups.md) — Full-history vs staged-changes scans and the custom detection-rules config
