@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - gitleaks-009: `gitleaks/scripts/2026-10-13-auditing-git-secrets.sh` — What I learned auditing Git secrets with gitleaks: history scan to JSON report with exit-code handling for the "leaks found" case (L2 script)
+- trufflehog-041: `trufflehog/docs/trufflehog-integration-reference-secret-detection.md` — TruffleHog integration reference for secret detection: CI/CD pipeline gates, pre-commit hooks, scheduled audits, detector configuration, verification behavior, SARIF/CSV conversion, ignore rules, and operational rollback patterns (L6 docs)
 
 ## 2026-10-12
 
