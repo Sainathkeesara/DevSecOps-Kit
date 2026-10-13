@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - gitleaks-009: `gitleaks/scripts/2026-10-13-auditing-git-secrets.sh` — What I learned auditing Git secrets with gitleaks: history scan to JSON report with exit-code handling for the "leaks found" case (L2 script)
 - trufflehog-041: `trufflehog/docs/trufflehog-integration-reference-secret-detection.md` — TruffleHog integration reference for secret detection: CI/CD pipeline gates, pre-commit hooks, scheduled audits, detector configuration, verification behavior, SARIF/CSV conversion, ignore rules, and operational rollback patterns (L6 docs)
+- trufflehog-042: `trufflehog/docs/trufflehog-secrets-database-migration-guide.md` — TruffleHog secrets database migration guide: version and detector-catalog recording, database-dir backup, install with `--no-update` to preserve the catalog, verification-cache invalidation, baseline re-run and finding-set diff, promotion after the diff is understood, and restore-from-backup rollback (L6 docs)
+- syft-020: `syft/manifests/syft-remote-state-backend-deployment.yaml` — Syft CI/CD pipeline deployment manifest for a remote-state backend: scan job resolves the artifact reference from remote state, generates SPDX and CycloneDX SBOMs, and a promotion job releases the build only when the scan succeeded and both SBOM files are present and valid (L6 manifest)
 
 ## 2026-10-12
 
