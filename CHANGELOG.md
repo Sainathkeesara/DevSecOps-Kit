@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-13
+
+### Added
+
+- gitleaks-009: `gitleaks/scripts/2026-10-13-auditing-git-secrets.sh` — What I learned auditing Git secrets with gitleaks: history scan to JSON report with exit-code handling for the "leaks found" case (L2 script)
+
 ## 2026-10-12
 
 ### Added
