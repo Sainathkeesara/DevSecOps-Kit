@@ -49,6 +49,7 @@
 - [Syft integration reference for SBOM generation](../syft/docs/syft-integration-reference.md) — CI platform patterns, registry auth, output selection, OCI storage, cosign attestation, and handoff to vulnerability scanners
 - [Syft format migration guide](../syft/docs/syft-format-migration-guide.md) — Map old short `-o` spellings to current long format names when a Syft upgrade changes what a pipeline emits
 - [Syft CI/CD pipeline manifest](../syft/manifests/syft-cicd-pipeline.yaml) — SBOM generation as a promotion gate: scan on every PR and push, promote only with SBOM evidence present
+- [First SBOM with Syft](../syft/snippets/2026-10-14-first-sbom.sh) — Scan a local directory and print a table; the smallest runnable starting point
 
 ### Understand secrets management
 
@@ -76,6 +77,8 @@
 - [Grafana installation](../docs/how-to/observability/grafana-installation.md)
 - [Prometheus + node_exporter installation](../docs/how-to/observability/prometheus-node-exporter-installation.md)
 - [Loki and Promtail installation](../docs/how-to/observability/loki-promtail-installation.md)
+- [First Prometheus query log](../prometheus/notes/2026-10-14-first-query-log.md) — One series, one label, one time window written down before running anything
+- [Deduping the observability primer](../prometheus/notes/2026-10-14-observability-primer-dedup.md) — Why the duplicate Prometheus primer was removed and the concept copy kept canonical
 
 ### Tune runtime detection
 
@@ -114,6 +117,7 @@
 - [Grype filtering configuration template](../grype/configs/grype-filtering-configuration-template.yaml) — Severity gate, fix-state filtering, path exclusions, and ignore rules where every entry carries a reason, an owner, and what retires it
 - [Grype database vs registry sources](../grype/notebooks/grype-db-vs-registry-sources.ipynb) — Registry image scan vs DB-backed SBOM scan compared on network cost and repeat-scan cost, plus a database-freshness check
 - [Grype and Syft together](../grype/docs/grype-syft-integration-guide.md) — Generate an SBOM with Syft and scan it offline with Grype
+- [Where Grype gets its vulnerability records](../grype/notes/2026-10-14-explore-vulnerability-database.md) — Built database bundle vs live feed, distro and language providers, and the matcher in between
 - [SBOM generation with Syft](../syft/scripts/gen-multi-format-sboms.sh)
 - [Syft output format comparison](../syft/notebooks/output-format-comparison.ipynb)
 - [Snyk vulnerability prioritization with reachability and Fix PRs](../snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md)
@@ -146,6 +150,7 @@
 - [Environments quickstart trip-ups](../environments/notes/2026-09-30-environments-quickstart-trip-ups.md) — Why a plan run in `staging/` reads dev's state file, and the three other things that stop the per-environment loop
 - [Minimal per-tier environments config](../environments/configs/2026-09-30-minimal-environments-config.yaml) — Only the values that differ between dev, staging, and prod, with the state key as written and as intended
 - [Explore the environments directory](../environments/notes/2026-09-29-explore-environments-directory.md) — Primer, three-environment comparison, and minimal variable-set config on disk today
+- [Correcting the assets claim in the environments note](../environments/notes/2026-10-14-architecture-overview-claim-fix.md) — Re-reading the comparison note showed it references no files, so the explore note's assets sentence was fixed in place
 - [Validate environments deploy config](../environments/scripts/2026-10-01-validate-deploy-config.sh) — Walk dev, staging, and prod checking for the four files each root module needs
 - [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
 - [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md)
@@ -164,6 +169,8 @@
 - [ArgoCD Helm guestbook application](../argocd/manifests/helm-guestbook-application.yaml) — Minimal Application spec wiring a Helm chart source into GitOps sync
 - [Kubernetes cluster workflow wiring](../kubernetes/docs/cluster-workflow-wiring.md) — Namespace-per-environment layout with a Deployment plus Service per app
 - [Namespace strategy: environment vs team](../kubernetes/configs/namespace-strategy-environment-vs-team.yaml)
+- [First scratch namespace](../kubernetes/configs/2026-10-14-minimal-namespace.yaml) — A minimal labelled namespace to try things in
+- [What resources are actually in the cluster](../kubernetes/notes/2026-10-14-cluster-resources.md) — `api-resources`, what `get all` leaves out, and the namespaces on a first look
 - [Small Kubernetes Deployment from scratch](../kubernetes/manifests/small-deployment-from-scratch.yaml) — Deployment to ReplicaSet to Pod chain behind a ClusterIP Service
 - [Provision a Kubernetes cluster with Terraform + Ansible](../docs/how-to/k8s-terraform-ansible-provisioning.md)
 - [EKS cluster setup](../docs/setup-guides/eks-cluster-setup.md)
@@ -172,6 +179,7 @@
 
 - [OPA/Gatekeeper primer](../opa/notes/0000-primer-opa.md)
 - [My first OPA policy evaluation](../opa/snippets/my-first-opa-policy-eval.sh)
+- [First Rego policy mirrored in Python](../opa/snippets/2026-10-14-first-rego-policy.py) — A default-deny allow rule in Rego with the same check in Python beside it
 - [Gatekeeper constraint template design patterns](../opa/docs/constraint-template-design-patterns.md)
 - [OPA policy-as-code governance](../opa/docs/integrating-opa-with-policy-as-code-governance.md) — Running one ConstraintTemplate across dev, staging, and prod: designing the parameter surface, promoting Config then ConstraintTemplate then Constraint, fail-closing last, and gating the Terraform plan from the same rules
 - [OPA policy configuration template](../opa/configs/opa-policy-configuration-template.yaml) — Tune one check per environment without editing the policy: audit-only instances where workloads are still being fixed, enforcing where the baseline is clean
@@ -242,6 +250,7 @@
 - [Debug pod](../scripts/bash/k8s_toolkit/debug/debug-pod.sh)
 - [Deploy wrapper](../scripts/pipeline/deploy.sh)
 - [Rollback wrapper](../scripts/pipeline/rollback.sh)
+- [Fixing the scripts/lib claim](../scripts/notes/2026-10-14-lib-claim-fix.md) — No `lib/` directory exists, so the shared-libraries docs were corrected instead of building the modules
 
 ### Run static analysis
 
@@ -283,6 +292,7 @@
 - [First secret scan with Gitleaks](../gitleaks/notes/2026-09-19-first-secret-scan.md) — What to set up before a first scan, using a fake credential in a test repo
 - [Gitleaks quickstart trip-ups](../gitleaks/notes/2026-10-07-quickstart-trip-ups.md) — Full-history vs staged-changes scans and the custom detection-rules config
 - [First Gitleaks scan script](../gitleaks/scripts/2026-09-26-run-first-gitleaks-scan.sh) — Point Gitleaks at a sample repo and save the findings as JSON
+- [Auditing git secrets with Gitleaks](../gitleaks/scripts/2026-10-13-auditing-git-secrets.sh) — History scan plus working-tree pass, with the non-zero exit on findings explained
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
 - [GitGuardian CI/CD secret scanning integration](../gitguardian/docs/cicd-secret-scanning-integration.md) — Where pre-commit, pull-request, and scheduled ggshield scans belong, plus incident-response hooks
 - [GitGuardian incident response workflow](../gitguardian/docs/gitguardian-incident-response-workflow.md)
