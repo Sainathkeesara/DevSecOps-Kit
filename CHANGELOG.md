@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- trivy-024: `trivy/notes/2026-10-14-quickstart-trip-ups.md` — Following the trivy quickstart: image vs fs scans, DB wait, severity filter (L2 notes)
+- trufflehog-045: `trufflehog/snippets/2026-10-14-first-secret-scan.sh` — My first trufflehog filesystem scan of the local checkout (L2 snippet)
+- gitguardian-018: `gitguardian/notes/2026-10-14-explore-interface.md` — Poking around the GitGuardian dashboard: incidents, sources, teams (L1 notes)
+
 - prometheus-043: `prometheus/notes/2026-10-14-observability-primer-dedup.md` — Deduped the byte-identical observability primer (kept the concept copy, removed the prometheus copy); index repoint left to Maintainer regen (L1 notes)
 - scripts-014: `scripts/notes/2026-10-14-lib-claim-fix.md` — Corrected the phantom `scripts/lib/` claim in README and explore note to describe the flat layout (L1 notes)
 - environments-010: `environments/notes/2026-10-14-architecture-overview-claim-fix.md` — Struck the false `../assets/architecture-overview.png` claim about the comparison note (L1 notes)
