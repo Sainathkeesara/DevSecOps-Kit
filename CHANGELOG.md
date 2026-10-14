@@ -4,6 +4,14 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-14
+
+### Added
+
+- grype-044: `grype/notes/2026-10-14-explore-vulnerability-database.md` — First-day scratch notes mapping what feeds the grype vulnerability database bundle (L1 notes)
+- opa-020: `opa/snippets/2026-10-14-first-rego-policy.py` — My first Rego allow rule with a matching Python mirror check (L1 snippet)
+- prometheus-035: `prometheus/notes/2026-10-14-first-query-log.md` — First-day log of my first single-series Prometheus query loop (L1 notes)
+
 ## 2026-10-13
 
 ### Added
