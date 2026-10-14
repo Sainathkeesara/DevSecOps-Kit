@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- syft-022: `syft/snippets/2026-10-14-first-sbom.sh` — My first SBOM with syft: scan a local dir to a table (L1 snippet)
+- kubernetes-011: `kubernetes/notes/2026-10-14-cluster-resources.md` — Poking at the cluster: api-resources, get all, and what it misses (L1 notes)
+- kubernetes-012: `kubernetes/configs/2026-10-14-minimal-namespace.yaml` — My first namespace: labelled scratch-dev Namespace (L1 config)
 - grype-044: `grype/notes/2026-10-14-explore-vulnerability-database.md` — First-day scratch notes mapping what feeds the grype vulnerability database bundle (L1 notes)
 - opa-020: `opa/snippets/2026-10-14-first-rego-policy.py` — My first Rego allow rule with a matching Python mirror check (L1 snippet)
 - prometheus-035: `prometheus/notes/2026-10-14-first-query-log.md` — First-day log of my first single-series Prometheus query loop (L1 notes)
