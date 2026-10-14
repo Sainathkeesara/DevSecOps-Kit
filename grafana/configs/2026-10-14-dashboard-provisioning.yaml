@@ -1,0 +1,20 @@
+# last_verified: 2026-10-14 · grafana n/a
+# Minimal dashboard provisioning — this is the half that tells Grafana "go look
+# in this folder for dashboard JSON when you start up". I only did the
+# provisioning half today; the dashboard JSON files themselves go under the
+# path at the bottom. The data source my panels would query is already set
+# up in grafana/configs/2026-09-19-first-datasource.yaml.
+# TODO: I have not pointed a running Grafana at this yet, so the key names are
+# from the provisioning format as I understand it, not from an installed version.
+apiVersion: 1
+
+providers:
+  - name: default
+    orgId: 1
+    folder: ''                    # empty string = top level, not a sub-folder
+    type: file                    # read dashboards off disk, not from the UI
+    disableDeletion: false        # keep dashboards if I delete the JSON file
+    updateIntervalSeconds: 30     # re-read the folder periodically
+    allowUiUpdates: true          # let me edit in the UI without it being lost
+    options:
+      path: /var/lib/grafana/dashboards

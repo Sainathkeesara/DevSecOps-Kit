@@ -23,6 +23,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - grype-044: `grype/notes/2026-10-14-explore-vulnerability-database.md` — First-day scratch notes mapping what feeds the grype vulnerability database bundle (L1 notes)
 - opa-020: `opa/snippets/2026-10-14-first-rego-policy.py` — My first Rego allow rule with a matching Python mirror check (L1 snippet)
 - prometheus-035: `prometheus/notes/2026-10-14-first-query-log.md` — First-day log of my first single-series Prometheus query loop (L1 notes)
+- github-actions-005: `github-actions/configs/2026-10-14-first-scheduled-workflow.yaml` — My first cron-triggered workflow, with a manual trigger kept alongside it (L1 config)
+- grafana-007: `grafana/configs/2026-10-14-dashboard-provisioning.yaml` — Minimal dashboard provisioning: one file-backed provider pointed at a dashboards directory (L2 config)
+
+### Fixed
+
+- zap-037: `zap/docs/zap-integration-reference.md` — Repointed Pattern 2 at the plan that actually exists (`zap/configs/ci-dast-automation-framework-plan.yaml`) instead of the phantom `zap-ci-plan.yaml`, dropped the drifted 110-line inline copy of the plan, added the missing `-e` values the real plan's placeholders need (including `REPORT_DIR`), and corrected the verification steps that claimed the `onFail: INFO` active-scan test fails the run (L4 docs)
 
 ## 2026-10-13
 

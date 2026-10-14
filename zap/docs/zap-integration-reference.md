@@ -1,5 +1,5 @@
 ---
-last_verified: 2026-09-30
+last_verified: 2026-10-14
 tool_version: n/a
 ---
 
@@ -60,141 +60,55 @@ docker run --rm \
 
 ### Pattern 2: ZAP Automation Framework plan (declarative multi-step)
 
-**Plan file** (`zap-ci-plan.yaml`):
+**Plan file**: `zap/configs/ci-dast-automation-framework-plan.yaml`
 
-```yaml
-env:
-  contexts:
-    - name: ci-target
-      urls:
-        - "{{TARGET_URL}}"
-      includePaths:
-        - ".*"
-      excludePaths:
-        - ".*\\.(css|js|png|jpg|jpeg|gif|ico|svg|woff2?|ttf|eot)(\\?.*)?$"
-        - ".*/logout"
-        - ".*/health"
-      authentication:
-        method: "formBasedAuthentication"
-        parameters:
-          loginPageUrl: "{{LOGIN_URL}}"
-          loginRequestData: "username={%username%}&password={%password%}"
-        verificationStrategy: "response"
-      sessionManagement:
-        method: "cookie"
-        parameters:
-          sessionTokenNames:
-            - "JSESSIONID"
-      users:
-        - name: ci-user
-          credentials:
-            username: "{{SCAN_USER}}"
-            password: "{{SCAN_PASS}}"
+The kit ships that plan instead of embedding a second copy of it here — a copy
+that drifts out of step with the file you actually run is worse than no example
+at all. Read it as a starting point: one context (`ci-target`) with a form-based
+login, then a spider job, a passive-scan config job, an AJAX spider job, an
+active-scan job with a narrow rule policy, and a JSON report job.
 
-vars:
-  TARGET_URL: "https://staging.example.com"
-  LOGIN_URL: "https://staging.example.com/login"
-  SCAN_USER: "ci-scanner"
-  SCAN_PASS: "changeme"
-  REPORT_DIR: "/zap/wrk/reports"
+The plan has no `vars:` block. Every `{{PLACEHOLDER}}` it references —
+`TARGET_URL`, `LOGIN_URL`, `AUTH_METHOD`, `SESSION_TOKEN`, `SCAN_USER`,
+`SCAN_PASS`, `REPORT_DIR` — is supplied by the caller at run time, either as
+`-job NAME value` arguments or as environment variables on the container. The
+`docker run` below uses the environment form, which is why each `-e` has a
+matching placeholder in the plan. Note the active-scan test is
+`alertCount` with `risk: HIGH`, `count: 0`, `operator: "=="` and
+`onFail: INFO` — it raises the HIGH alerts but does not by itself fail the run,
+so the CI gate has to read the report rather than trust the exit status alone.
 
-jobs:
-  - type: spider
-    parameters:
-      context: ci-target
-      user: ci-user
-      maxChildren: 10
-      maxDepth: 5
-      maxDuration: 2
-    tests:
-      - type: spiderStats
-        onFail: WARN
-        statistic: urls_added
-        value: 1
-        operator: ">="
-
-  - type: passiveScan-config
-    parameters:
-      maxAlertsPerRule: 10
-      scanOnlyInScope: true
-
-  - type: spiderAjax
-    parameters:
-      context: ci-target
-      user: ci-user
-      maxDuration: 5
-      maxCrawlDepth: 5
-      numberOfBrowsers: 1
-    tests:
-      - type: spiderAjaxStats
-        onFail: WARN
-        statistic: urls_added
-        value: 1
-        operator: ">="
-
-  - type: activeScan
-    parameters:
-      context: ci-target
-      user: ci-user
-      maxDuration: 20
-      maxScansInUI: 5
-      threadPerHost: 4
-      alertThreshold: MEDIUM
-    policyDefinition:
-      rules:
-        - id: 40012
-          threshold: MEDIUM
-          strength: DEFAULT
-        - id: 40018
-          threshold: MEDIUM
-          strength: DEFAULT
-        - id: 90019
-          threshold: MEDIUM
-          strength: DEFAULT
-        - id: 40014
-          threshold: MEDIUM
-          strength: DEFAULT
-        - id: 40024
-          threshold: MEDIUM
-          strength: DEFAULT
-    tests:
-      - type: alertCount
-        onFail: FAIL
-        action: raise_alerts
-        risk: HIGH
-        count: 0
-        operator: "=="
-
-  - type: report
-    parameters:
-      template: traditional-json-plus
-      reportDir: "{{REPORT_DIR}}"
-      reportFileName: "zap-report-{{DATE:yyyyMMdd-HHmmss}}.json"
-      reportTitle: "CI DAST Scan — {{TARGET_URL}}"
-      display: false
-```
+The scaffold's plan, `zap/templates/zap-dast-integration-scaffold/zap-automation-plan.yaml`,
+has the same shape and is driven by
+`zap/templates/zap-dast-integration-scaffold/scripts/run-zap-dast.sh`, which takes
+the plan file as its third argument.
 
 **Execution**:
 
+Run from the kit root, so `$(pwd)` resolves the `zap/` path:
+
 ```bash
 docker run --rm \
-  -v "$(pwd)/zap-ci-plan.yaml:/zap/wrk/plan.yaml:ro" \
+  -v "$(pwd)/zap/configs/ci-dast-automation-framework-plan.yaml:/zap/wrk/plan.yaml:ro" \
   -v "$(pwd)/reports:/zap/wrk/reports" \
   -e TARGET_URL=https://staging.example.com \
   -e LOGIN_URL=https://staging.example.com/login \
+  -e AUTH_METHOD=formBasedAuthentication \
+  -e SESSION_TOKEN=JSESSIONID \
   -e SCAN_USER=ci-scanner \
   -e SCAN_PASS="$SCAN_PASS_SECRET" \
+  -e REPORT_DIR=/zap/wrk/reports \
   ghcr.io/zaproxy/zaproxy:stable \
   zap.sh -cmd -autorun /zap/wrk/plan.yaml
 ```
 
 **Verification**:
 
-1. All jobs in plan execute without ERROR status
-2. Spider and AJAX spider tests pass (minimum URLs discovered)
-3. Active scan test passes (zero HIGH alerts or configured threshold)
-4. JSON report generated with expected structure
-5. Report contains findings relevant to target technology stack
+1. The container did not abort before the first job — that means the plan file mounted correctly
+2. All jobs in plan execute without ERROR status
+3. Spider and AJAX spider tests pass (minimum URLs discovered)
+4. Report file written under the mounted `REPORT_DIR`, and no `{{...}}` placeholder survives into the report title or filename
+5. HIGH-alert count read from the JSON report is within the threshold your CI gate enforces — the plan's own `alertCount` test is `onFail: INFO`, so it reports rather than blocks
 
 **Rollback**: If active scan disrupts target environment, stop container immediately (`docker kill <container_id>`). Restore any test data written during scan from backup. Re-run with reduced `maxDuration` or narrowed policy rules.
 
@@ -307,6 +221,8 @@ jobs:
 | Variable substitution fails | Case mismatch or extra whitespace in `{{VAR}}` template | Use consistent uppercase names, no spaces inside braces |
 | AJAX spider fails to start | No display available in headless Docker | Ensure `numberOfBrowsers: 1` and container has Xvfb (included in official image) |
 | Report template not found | Wrong template name in `report` job | Use `traditional-json`, `traditional-json-plus`, `traditional-html`, or custom template path |
+| Container aborts before any job runs | The `docker run` mount path does not point at a file that exists — `-v "$(pwd)/plan.yaml:..."` resolves against your current directory, not the kit | Mount the file that is actually on disk (`zap/configs/ci-dast-automation-framework-plan.yaml`) and run from the kit root |
+| Placeholders left unsubstituted in the report | A `{{PLACEHOLDER}}` in the plan has no matching `-e` or `-job` argument | Every placeholder in the plan needs a caller-supplied value; `REPORT_DIR` is the one most often missed |
 
 ## Performance tuning
 
@@ -336,3 +252,6 @@ For large applications, split the plan into multiple files: one for spider + pas
 - OWASP ZAP Automation Framework documentation
 - OWASP ZAP REST API documentation
 - ZAP Docker image usage guide
+- `zap/configs/ci-dast-automation-framework-plan.yaml` — the plan this document mounts
+- `zap/templates/zap-dast-integration-scaffold/zap-automation-plan.yaml` — scaffold plan variant
+- `zap/templates/zap-dast-integration-scaffold/scripts/run-zap-dast.sh` — scaffold runner
