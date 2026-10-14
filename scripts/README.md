@@ -71,14 +71,14 @@ param()
 $ErrorActionPreference = 'Stop'
 ```
 
-## Shared Libraries
+## Shared Helpers
 
-Common functionality is extracted to `scripts/lib/`:
-
-- **logging.sh** / **logging.py** - Unified logging functions
-- **retry.sh** / **retry.py** - Retry logic with backoff
-- **config.sh** / **config.py** - Configuration parsing
-- **k8s-common.sh** - Kubernetes command wrappers
+There is no `scripts/lib/` directory on disk — each script keeps its own
+helpers next to it (root-level scripts, `pipeline/` wrappers, and the
+per-tool `bash/*_toolkit/` folders), and nothing sources from `lib/`.
+A shared library (`logging`, `retry`, `config`, `k8s-common` modules) has
+been proposed but not built yet, so new scripts should keep helpers local
+until that lands.
 
 ## Safety Policy
 
