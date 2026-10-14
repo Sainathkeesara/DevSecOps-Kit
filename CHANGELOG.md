@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- dependabot-021: `dependabot/docs/wired-dependabot-version-control-workflow.md` — How I wired Dependabot into the version control workflow: entries, schedule, queue cap, routing, branch protection (L3 docs)
+- grafana-006: `grafana/notes/2026-10-14-grafana-quickstart-trip-ups.md` — Grafana quickstart write-up: datasource port snag and auto-refresh trip-up (L2 notes)
 - trivy-024: `trivy/notes/2026-10-14-quickstart-trip-ups.md` — Following the trivy quickstart: image vs fs scans, DB wait, severity filter (L2 notes)
 - trufflehog-045: `trufflehog/snippets/2026-10-14-first-secret-scan.sh` — My first trufflehog filesystem scan of the local checkout (L2 snippet)
 - gitguardian-018: `gitguardian/notes/2026-10-14-explore-interface.md` — Poking around the GitGuardian dashboard: incidents, sources, teams (L1 notes)
