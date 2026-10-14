@@ -19,7 +19,7 @@ environments/
 
 The primer (`0000-primer-environments.md`) explains what environments are in this kit — basically a way to manage dev/staging/prod configurations with separate variable files and deployment targets. It compares it to Terraform workspaces but for the whole kit.
 
-The comparison note (`2026-09-19-first-environment-comparison.md`) walks through a three-environment setup (dev, staging, prod) showing how network settings, AZs, NAT gateways, and tags differ across them. It references some shared files I haven't found yet (`../assets/architecture-overview.png` and similar).
+The comparison note (`2026-09-19-first-environment-comparison.md`) walks through a three-environment setup (dev, staging, prod) showing how network settings, AZs, NAT gateways, and tags differ across them. I first claimed it references shared files I hadn't found yet (`../assets/architecture-overview.png` and similar), but re-reading it shows it references no files at all — that claim was wrong, so I struck it.
 
 The config file (`environment-config.yaml`) has a minimal structure with `environments:` mapping to dev/staging/prod blocks, each with `region`, `cidr`, `azs`, and `tags`. There's also a `defaults:` section at the top.
 

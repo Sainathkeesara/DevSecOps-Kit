@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- prometheus-043: `prometheus/notes/2026-10-14-observability-primer-dedup.md` — Deduped the byte-identical observability primer (kept the concept copy, removed the prometheus copy); index repoint left to Maintainer regen (L1 notes)
+- scripts-014: `scripts/notes/2026-10-14-lib-claim-fix.md` — Corrected the phantom `scripts/lib/` claim in README and explore note to describe the flat layout (L1 notes)
+- environments-010: `environments/notes/2026-10-14-architecture-overview-claim-fix.md` — Struck the false `../assets/architecture-overview.png` claim about the comparison note (L1 notes)
 - syft-022: `syft/snippets/2026-10-14-first-sbom.sh` — My first SBOM with syft: scan a local dir to a table (L1 snippet)
 - kubernetes-011: `kubernetes/notes/2026-10-14-cluster-resources.md` — Poking at the cluster: api-resources, get all, and what it misses (L1 notes)
 - kubernetes-012: `kubernetes/configs/2026-10-14-minimal-namespace.yaml` — My first namespace: labelled scratch-dev Namespace (L1 config)

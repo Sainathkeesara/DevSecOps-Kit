@@ -6,7 +6,7 @@ sources: []
 
 # Exploring the scripts directory — what helpers exist
 
-I listed everything under `scripts/` to see what helpers are already available before writing my own. The root has `bump-version.sh`, `patch-report.sh`, and `triage-vulnerabilities.sh`. Under `scripts/bash/` there are toolkit directories for nearly every tool: ansible_toolkit, docker_toolkit, git_toolkit, k8s_toolkit, terraform_toolkit, etc. There's also a `pipeline/` folder with deploy and rollback wrappers, and a `scripts/lib/` area with shared logging, retry, and config modules.
+I listed everything under `scripts/` to see what helpers are already available before writing my own. The root has `bump-version.sh`, `patch-report.sh`, and `triage-vulnerabilities.sh`. Under `scripts/bash/` there are toolkit directories for nearly every tool: ansible_toolkit, docker_toolkit, git_toolkit, k8s_toolkit, terraform_toolkit, etc. There's also a `pipeline/` folder with deploy and rollback wrappers. I first wrote that there was a `scripts/lib/` area with shared logging, retry, and config modules, but `ls scripts/` shows no `lib/` directory and nothing sources from it — each script keeps its own helpers, so I corrected that claim.
 
 What surprised me: the `scripts/bash/` tree has 16 toolkit folders but `scripts/snippets/` doesn't exist yet — I created it for my first utility script. I also noticed `scripts/README.md` documents the bash standards and safety policies that all scripts should follow.
 
