@@ -96,4 +96,4 @@ _Counts are the files inside each category folder; a few folders also hold files
 Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions are secret-detection references: a TruffleHog notebook comparing detector patterns against one fixture repo so scan disagreements trace back to configuration, and a TruffleHog CI/CD manifest wiring secret detection in as a promotion gate, alongside a Trivy guide for moving the vulnerability-database location without breaking scan gates. A first-day audit of `assets/` found the three diagrams orphaned — no inbound image links anywhere — with an embed-or-drop decision recorded. The thinner corners are still the tools carrying notes only: tfsec, Nuclei, and Prometheus.
 
 ---
-_Last updated: 2026-10-12_
+_Last updated: 2026-10-14_
