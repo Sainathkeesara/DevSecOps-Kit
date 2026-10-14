@@ -15,11 +15,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 ## Quick links
 
-- [Correcting the assets claim in my environments note](environments/notes/2026-10-14-architecture-overview-claim-fix.md) — Re-reading the comparison note showed it references no files at all, so the explore note's assets sentence was fixed in place
-- [Deduping the observability primer](prometheus/notes/2026-10-14-observability-primer-dedup.md) — The Prometheus copy was byte-identical to the concept primer, so it was removed and the concept copy kept as canonical
-- [Fixing the scripts/lib claim](scripts/notes/2026-10-14-lib-claim-fix.md) — No `lib/` directory exists under `scripts/`, so the README's shared-libraries section was corrected instead of building the modules
-- [My first namespace](kubernetes/configs/2026-10-14-minimal-namespace.yaml) — A minimal labelled scratch namespace to try things in
-- [Poking at the cluster — what resources are even here](kubernetes/notes/2026-10-14-cluster-resources.md) — `api-resources`, what `get all` leaves out, and the namespaces on a first look around
+- [How I wired Dependabot into my version control workflow](dependabot/docs/wired-dependabot-version-control-workflow.md) — Updates open branches, get a reviewer, and merge under the same branch protection as any other change
+- [Grafana quickstart — what tripped me up](grafana/notes/2026-10-14-grafana-quickstart-trip-ups.md) — What worked and where it broke on a first pass through the official quickstart
+- [Poking around the GitGuardian interface](gitguardian/notes/2026-10-14-explore-interface.md) — Incidents list, repo integrations, and team handoff, after only using ggshield from the CLI
+- [Following the Trivy quickstart — what tripped me up](trivy/notes/2026-10-14-quickstart-trip-ups.md) — A first image scan straight from the quickstart, snags written down as they happened
+- [My first TruffleHog scan](trufflehog/snippets/2026-10-14-first-secret-scan.sh) — Filesystem scan of a local checkout with findings piped through jq
 
 ## Layout
 
@@ -49,11 +49,11 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total | Last verified |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|----------:|----------:|---------------|
 | checkov | 4 | 6 | 4 | 3 | 4 | 20 | 3 | 0 | 4 | 1 | 49 | 2026-10-07 |
-| trufflehog | 4 | 4 | 3 | 2 | 2 | 21 | 2 | 1 | 3 | 0 | 42 | 2026-10-13 |
+| trufflehog | 4 | 4 | 3 | 2 | 3 | 21 | 2 | 1 | 3 | 0 | 43 | 2026-10-14 |
 | syft | 4 | 8 | 4 | 1 | 2 | 15 | 4 | 1 | 4 | 0 | 43 | 2026-10-14 |
-| trivy | 6 | 6 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 37 | 2026-10-11 |
+| trivy | 7 | 6 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 38 | 2026-10-14 |
 | zap | 6 | 5 | 3 | 2 | 4 | 8 | 1 | 1 | 1 | 0 | 31 | 2026-10-02 |
-| gitguardian | 4 | 4 | 3 | 3 | 2 | 9 | 0 | 0 | 1 | 0 | 26 | 2026-10-03 |
+| gitguardian | 5 | 4 | 3 | 3 | 2 | 9 | 0 | 0 | 1 | 0 | 27 | 2026-10-14 |
 | codeql | 4 | 4 | 1 | 1 | 5 | 8 | 3 | 1 | 2 | 0 | 29 | 2026-10-11 |
 | opa | 3 | 4 | 2 | 2 | 4 | 9 | 4 | 0 | 1 | 0 | 29 | 2026-10-14 |
 | grype | 5 | 3 | 8 | 2 | 2 | 0 | 2 | 1 | 2 | 0 | 25 | 2026-10-14 |
@@ -65,7 +65,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 2 | 0 | 21 | 2026-10-11 |
 | environments | 5 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 20 | 2026-10-14 |
 | cosign | 4 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 18 | 2026-09-25 |
-| dependabot | 7 | 3 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 0 | 18 | 2026-09-26 |
+| dependabot | 7 | 4 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 0 | 19 | 2026-10-14 |
 | docker | 2 | 2 | 3 | 1 | 0 | 7 | 1 | 2 | 0 | 0 | 18 | 2026-09-25 |
 | argocd | 6 | 2 | 0 | 2 | 0 | 0 | 3 | 0 | 0 | 0 | 13 | 2026-09-23 |
 | github-actions | 5 | 0 | 0 | 4 | 2 | 0 | 2 | 0 | 0 | 0 | 13 | 2026-09-21 |
@@ -81,7 +81,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | opentofu | 3 | 0 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | sonarqube | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | helm | 3 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 5 | 2026-09-21 |
-| grafana | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-09-26 |
+| grafana | 4 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 2026-10-14 |
 | gitleaks | 3 | 0 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-10-13 |
 | prometheus | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-10-14 |
 | nuclei | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
@@ -93,7 +93,7 @@ _Counts are the files inside each category folder; a few folders also hold files
 
 ## Status
 
-First-contact notes are still landing where the kit was thin: a first look at cluster resources and a first scratch namespace for Kubernetes, a first SBOM snippet for Syft, a first Rego policy mirrored in Python for OPA, and a first query log plus an audit of the Gitleaks flow. Alongside that, a round of claim-fixing corrected stale sentences in the environments and scripts notes against what's actually on disk. The thinner corners are still the tools carrying notes only: tfsec and Nuclei.
+First-contact notes are still landing where the kit was thin: a Trivy quickstart run, a Grafana quickstart pass, a first tour of the GitGuardian dashboard, and a first TruffleHog filesystem scan. Alongside that, Dependabot updates got wired into the normal branch-and-review workflow instead of arriving as unowned surprise PRs. The thinner corners are still the tools carrying notes only: tfsec and Nuclei.
 
 ---
 _Last updated: 2026-10-14_

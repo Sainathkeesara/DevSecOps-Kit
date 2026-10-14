@@ -74,6 +74,7 @@
 - [First Grafana datasource](../grafana/configs/2026-09-19-first-datasource.yaml) — Wire one Prometheus backend in so a first panel query has something to read
 - [First dashboard browser check](../grafana/notes/2026-09-19-first-dashboard-browser.md) — What to inspect once the dashboard browser is reachable
 - [Grafana dashboard UI walkthrough](../grafana/notes/2026-09-26-explore-grafana-dashboard-ui.md) — Panels, plain-Prometheus queries, and the Loki log view in a default install
+- [Grafana quickstart trip-ups](../grafana/notes/2026-10-14-grafana-quickstart-trip-ups.md) — What worked and where it broke on a first local pass through the official quickstart
 - [Grafana installation](../docs/how-to/observability/grafana-installation.md)
 - [Prometheus + node_exporter installation](../docs/how-to/observability/prometheus-node-exporter-installation.md)
 - [Loki and Promtail installation](../docs/how-to/observability/loki-promtail-installation.md)
@@ -96,6 +97,7 @@
 ### Get started with vulnerability scanning
 
 - [Install Trivy and run a first container scan](../trivy/notes/2026-09-05-install-trivy-first-container-scan.md)
+- [Trivy quickstart trip-ups](../trivy/notes/2026-10-14-quickstart-trip-ups.md) — A first image scan straight from the quickstart, with the snags written down as they happened
 - [Install ZAP and run a baseline scan](../zap/notes/2026-09-05-install-zap-first-baseline-scan.md)
 - [ZAP baseline scan script](../zap/scripts/zap-baseline-scan.sh) — Run a containerised ZAP baseline against a target URL and fail on High findings
 - [ZAP integration reference](../zap/docs/zap-integration-reference.md) — Baseline, Automation Framework, and REST API patterns for wiring DAST into automated pipelines
@@ -286,6 +288,7 @@
 ### Scan for secrets
 
 - [TruffleHog primer](../trufflehog/notes/0000-primer-trufflehog.md)
+- [First TruffleHog filesystem scan](../trufflehog/snippets/2026-10-14-first-secret-scan.sh) — Scan a local checkout and pick fields out of the JSON findings with jq
 - [TruffleHog detector comparison patterns](../trufflehog/notebooks/detector-comparison-patterns.ipynb) — One fixture repo through verification gating, detector selection, decoders, and entropy filtering to show what each knob adds or removes
 - [TruffleHog CI/CD pipeline deployment gate](../trufflehog/manifests/trufflehog-cicd-pipeline.yaml) — Scan git history on every PR and push, promote the release only when no verified secrets are found
 - [Gitleaks primer](../gitleaks/notes/0000-primer-gitleaks.md)
@@ -294,6 +297,7 @@
 - [First Gitleaks scan script](../gitleaks/scripts/2026-09-26-run-first-gitleaks-scan.sh) — Point Gitleaks at a sample repo and save the findings as JSON
 - [Auditing git secrets with Gitleaks](../gitleaks/scripts/2026-10-13-auditing-git-secrets.sh) — History scan plus working-tree pass, with the non-zero exit on findings explained
 - [GitGuardian primer](../gitguardian/notes/0000-primer-gitguardian.md)
+- [Touring the GitGuardian dashboard](../gitguardian/notes/2026-10-14-explore-interface.md) — Incidents list, repo integrations, and team handoff from a first click-through after only using ggshield
 - [GitGuardian CI/CD secret scanning integration](../gitguardian/docs/cicd-secret-scanning-integration.md) — Where pre-commit, pull-request, and scheduled ggshield scans belong, plus incident-response hooks
 - [GitGuardian incident response workflow](../gitguardian/docs/gitguardian-incident-response-workflow.md)
 - [GitGuardian scanning migration patterns](../gitguardian/docs/gitguardian-secret-scanning-migration-patterns.md) — ggshield v1 to v2 config moves, replacing TruffleHog or Gitleaks, consolidating per-repo config into an org baseline, and rolling out across a monorepo
@@ -303,6 +307,7 @@
 - [Scan a GitHub repo for secrets](../trufflehog/snippets/scan-github-repo-for-secrets.sh)
 - [Secrets detection workflow analysis](../docs/concepts/secrets-access-management/notebooks/secrets-detection-remediation-workflow-analysis.ipynb)
 - [Dependabot configuration template](../dependabot/configs/dependabot-configuration-template.yaml) — A single dependabot.yml covering ecosystems, schedules, grouping, and review routing
+- [Wiring Dependabot into the version-control workflow](../dependabot/docs/wired-dependabot-version-control-workflow.md) — Update branches get a reviewer and merge under branch protection instead of arriving as unowned surprise PRs
 - [Dependabot integration with version control workflows](../dependabot/docs/dependabot-version-control-workflow-integration.md) — Branch targeting, PR queue shape, grouping, review routing, and required checks
 - [Auto-merge vs manual review](../dependabot/notebooks/auto-merge-vs-manual-review.ipynb) — Trade-offs between auto-merging update PRs and reviewing each one by hand
 - [Dependabot alert migration patterns](../dependabot/docs/dependabot-security-alert-migration-patterns.md) — Move alert configs from repo level to an org-wide policy when consolidating scanning
