@@ -15,11 +15,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 ## Quick links
 
-- [TruffleHog detector comparison patterns](trufflehog/notebooks/detector-comparison-patterns.ipynb) — One fixture repo run through verification gating, detector selection, decoders, and entropy filtering to show what each detection knob adds or removes
-- [TruffleHog CI/CD pipeline deployment gate](trufflehog/manifests/trufflehog-cicd-pipeline.yaml) — Secret detection as a promotion gate: scan git history on every PR and push, release only when no verified secrets are found
-- [Trivy database migration guide](trivy/docs/trivy-database-migration-guide.md) — Move the vulnerability-database location or cache layout without breaking scan gates or losing coverage history
-- [Comparing CodeQL query patterns](codeql/notebooks/codeql-query-comparison-patterns.ipynb) — Query-level comparisons: before against after, source against sink, default suite against a custom pack
-- [Comparing Vault secrets backend patterns](vault/notebooks/vault-secrets-backend-comparison-patterns.ipynb) — KV, database, and cloud backends compared on mount config, auth, and day-to-day operational differences
+- [Correcting the assets claim in my environments note](environments/notes/2026-10-14-architecture-overview-claim-fix.md) — Re-reading the comparison note showed it references no files at all, so the explore note's assets sentence was fixed in place
+- [Deduping the observability primer](prometheus/notes/2026-10-14-observability-primer-dedup.md) — The Prometheus copy was byte-identical to the concept primer, so it was removed and the concept copy kept as canonical
+- [Fixing the scripts/lib claim](scripts/notes/2026-10-14-lib-claim-fix.md) — No `lib/` directory exists under `scripts/`, so the README's shared-libraries section was corrected instead of building the modules
+- [My first namespace](kubernetes/configs/2026-10-14-minimal-namespace.yaml) — A minimal labelled scratch namespace to try things in
+- [Poking at the cluster — what resources are even here](kubernetes/notes/2026-10-14-cluster-resources.md) — `api-resources`, what `get all` leaves out, and the namespaces on a first look around
 
 ## Layout
 
@@ -49,21 +49,21 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Policies | Total | Last verified |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|----------:|----------:|---------------|
 | checkov | 4 | 6 | 4 | 3 | 4 | 20 | 3 | 0 | 4 | 1 | 49 | 2026-10-07 |
-| trufflehog | 4 | 2 | 3 | 2 | 2 | 21 | 2 | 1 | 3 | 0 | 40 | 2026-10-12 |
-| syft | 4 | 8 | 4 | 1 | 1 | 15 | 3 | 1 | 4 | 0 | 41 | 2026-10-11 |
+| trufflehog | 4 | 4 | 3 | 2 | 2 | 21 | 2 | 1 | 3 | 0 | 42 | 2026-10-13 |
+| syft | 4 | 8 | 4 | 1 | 2 | 15 | 4 | 1 | 4 | 0 | 43 | 2026-10-14 |
 | trivy | 6 | 6 | 6 | 2 | 1 | 11 | 2 | 1 | 2 | 0 | 37 | 2026-10-11 |
 | zap | 6 | 5 | 3 | 2 | 4 | 8 | 1 | 1 | 1 | 0 | 31 | 2026-10-02 |
 | gitguardian | 4 | 4 | 3 | 3 | 2 | 9 | 0 | 0 | 1 | 0 | 26 | 2026-10-03 |
 | codeql | 4 | 4 | 1 | 1 | 5 | 8 | 3 | 1 | 2 | 0 | 29 | 2026-10-11 |
-| opa | 3 | 4 | 2 | 2 | 3 | 9 | 4 | 0 | 1 | 0 | 28 | 2026-10-06 |
-| grype | 4 | 3 | 8 | 2 | 2 | 0 | 2 | 1 | 2 | 0 | 24 | 2026-10-05 |
+| opa | 3 | 4 | 2 | 2 | 4 | 9 | 4 | 0 | 1 | 0 | 29 | 2026-10-14 |
+| grype | 5 | 3 | 8 | 2 | 2 | 0 | 2 | 1 | 2 | 0 | 25 | 2026-10-14 |
 | falco | 4 | 4 | 3 | 4 | 1 | 4 | 1 | 0 | 2 | 0 | 23 | 2026-10-03 |
 | semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 3 | 2 | 3 | 0 | 24 | 2026-10-09 |
 | snyk | 5 | 4 | 1 | 3 | 1 | 11 | 1 | 1 | 1 | 0 | 28 | 2026-10-08 |
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-09-22 |
 | terrascan | 5 | 3 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 22 | 2026-10-10 |
 | vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 2 | 0 | 21 | 2026-10-11 |
-| environments | 4 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 19 | 2026-10-01 |
+| environments | 5 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 20 | 2026-10-14 |
 | cosign | 4 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 18 | 2026-09-25 |
 | dependabot | 7 | 3 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 0 | 18 | 2026-09-26 |
 | docker | 2 | 2 | 3 | 1 | 0 | 7 | 1 | 2 | 0 | 0 | 18 | 2026-09-25 |
@@ -74,7 +74,7 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | ansible | 3 | 1 | 3 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
 | git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
 | assets | 5 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 11 | 2026-10-11 |
-| kubernetes | 2 | 1 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 0 | 7 | 2026-09-22 |
+| kubernetes | 3 | 1 | 0 | 2 | 0 | 0 | 3 | 0 | 0 | 0 | 9 | 2026-10-14 |
 | defectdojo | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | kustomize | 3 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 6 | 2026-09-22 |
 | linux | 3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-10-03 |
@@ -82,8 +82,8 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | sonarqube | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | helm | 3 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 5 | 2026-09-21 |
 | grafana | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-09-26 |
-| gitleaks | 3 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 2026-10-07 |
-| prometheus | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 2026-09-20 |
+| gitleaks | 3 | 0 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-10-13 |
+| prometheus | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-10-14 |
 | nuclei | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 | tfsec | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 
@@ -93,7 +93,7 @@ _Counts are the files inside each category folder; a few folders also hold files
 
 ## Status
 
-Primers and first-contact notes are complete across the toolchain, so the depth work is operational rather than introductory. Recent additions are secret-detection references: a TruffleHog notebook comparing detector patterns against one fixture repo so scan disagreements trace back to configuration, and a TruffleHog CI/CD manifest wiring secret detection in as a promotion gate, alongside a Trivy guide for moving the vulnerability-database location without breaking scan gates. A first-day audit of `assets/` found the three diagrams orphaned — no inbound image links anywhere — with an embed-or-drop decision recorded. The thinner corners are still the tools carrying notes only: tfsec, Nuclei, and Prometheus.
+First-contact notes are still landing where the kit was thin: a first look at cluster resources and a first scratch namespace for Kubernetes, a first SBOM snippet for Syft, a first Rego policy mirrored in Python for OPA, and a first query log plus an audit of the Gitleaks flow. Alongside that, a round of claim-fixing corrected stale sentences in the environments and scripts notes against what's actually on disk. The thinner corners are still the tools carrying notes only: tfsec and Nuclei.
 
 ---
 _Last updated: 2026-10-14_

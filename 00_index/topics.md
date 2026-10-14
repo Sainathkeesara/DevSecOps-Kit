@@ -91,10 +91,10 @@
 - **dockerfiles** (2): [2026-07-12-first-custom-docker-image.Dockerfile](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile), [2026-07-10-first-custom-image.Dockerfile](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
 - **templates** (7): [multi-service setup scaffold](../docker/templates/multi-service-setup/README.md), [compose.yaml](../docker/templates/multi-service-setup/compose.yaml), [api/app.py](../docker/templates/multi-service-setup/api/app.py) — _…and 4 more under `docker/templates/`._
 
-## environments  ·  19 files
+## environments  ·  20 files
 
 - **primer:** [0000-primer-environments.md](../environments/notes/0000-primer-environments.md)
-- **notes** (4): [2026-09-30-environments-quickstart-trip-ups.md](../environments/notes/2026-09-30-environments-quickstart-trip-ups.md), [2026-09-29-explore-environments-directory.md](../environments/notes/2026-09-29-explore-environments-directory.md), [2026-09-19-first-environment-comparison.md](../environments/notes/2026-09-19-first-environment-comparison.md) — _…and 1 more under `environments/notes/`._
+- **notes** (5): [2026-10-14-architecture-overview-claim-fix.md](../environments/notes/2026-10-14-architecture-overview-claim-fix.md), [2026-09-30-environments-quickstart-trip-ups.md](../environments/notes/2026-09-30-environments-quickstart-trip-ups.md), [2026-09-29-explore-environments-directory.md](../environments/notes/2026-09-29-explore-environments-directory.md) — _…and 2 more under `environments/notes/`._
 - **scripts** (1): [2026-10-01-validate-deploy-config.sh](../environments/scripts/2026-10-01-validate-deploy-config.sh)
 - **configs** (2): [2026-09-30-minimal-environments-config.yaml](../environments/configs/2026-09-30-minimal-environments-config.yaml), [2026-09-19-first-variable-set.yaml](../environments/configs/2026-09-19-first-variable-set.yaml)
 - _…and 12 Terraform files under `environments/dev/`, `environments/staging/`, `environments/prod/` — browse the folders._
@@ -139,11 +139,11 @@
 - **snippets** (2): [2026-08-26-composite-action-input-reuse.yaml](../github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml), [2026-08-26-first-workflow.yaml](../github-actions/snippets/2026-08-26-first-workflow.yaml)
 - **manifests** (2): [2026-08-04-what-is-github-actions.yaml](../github-actions/manifests/2026-08-04-what-is-github-actions.yaml), [2026-08-04-pr-validation.yml](../github-actions/manifests/2026-08-04-pr-validation.yml)
 
-## gitleaks  ·  5 files
+## gitleaks  ·  6 files
 
 - **primer:** [0000-primer-gitleaks.md](../gitleaks/notes/0000-primer-gitleaks.md)
 - **notes** (3): [0000-primer-gitleaks.md](../gitleaks/notes/0000-primer-gitleaks.md), [2026-10-07-quickstart-trip-ups.md](../gitleaks/notes/2026-10-07-quickstart-trip-ups.md), [2026-09-19-first-secret-scan.md](../gitleaks/notes/2026-09-19-first-secret-scan.md)
-- **scripts** (1): [2026-09-26-run-first-gitleaks-scan.sh](../gitleaks/scripts/2026-09-26-run-first-gitleaks-scan.sh)
+- **scripts** (2): [2026-10-13-auditing-git-secrets.sh](../gitleaks/scripts/2026-10-13-auditing-git-secrets.sh), [2026-09-26-run-first-gitleaks-scan.sh](../gitleaks/scripts/2026-09-26-run-first-gitleaks-scan.sh)
 - **configs** (1): [2026-10-07-detection-rules.yaml](../gitleaks/configs/2026-10-07-detection-rules.yaml)
 
 ## grafana  ·  4 files
@@ -152,10 +152,10 @@
 - **notes** (3): [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md), [2026-09-26-explore-grafana-dashboard-ui.md](../grafana/notes/2026-09-26-explore-grafana-dashboard-ui.md), [2026-09-19-first-dashboard-browser.md](../grafana/notes/2026-09-19-first-dashboard-browser.md)
 - **configs** (1): [2026-09-19-first-datasource.yaml](../grafana/configs/2026-09-19-first-datasource.yaml)
 
-## grype  ·  24 files
+## grype  ·  25 files
 
 - **primer:** [0000-primer-grype.md](../grype/notes/0000-primer-grype.md)
-- **notes** (4): [0000-primer-grype.md](../grype/notes/0000-primer-grype.md), [2026-05-31-install-grype.md](../grype/notes/2026-05-31-install-grype.md), [2026-06-08-first-grype-scan.md](../grype/notes/2026-06-08-first-grype-scan.md) — _…and 1 more under `grype/notes/`._
+- **notes** (5): [2026-10-14-explore-vulnerability-database.md](../grype/notes/2026-10-14-explore-vulnerability-database.md), [0000-primer-grype.md](../grype/notes/0000-primer-grype.md), [2026-05-31-install-grype.md](../grype/notes/2026-05-31-install-grype.md) — _…and 2 more under `grype/notes/`._
 - **docs** (3): [grype-vulnerability-reporting-migration-patterns.md](../grype/docs/grype-vulnerability-reporting-migration-patterns.md), [vulnerability-management-pipeline-integration.md](../grype/docs/vulnerability-management-pipeline-integration.md), [grype-syft-integration-guide.md](../grype/docs/grype-syft-integration-guide.md)
 - **scripts** (8): [ci-ready-grype-scan.sh](../grype/scripts/ci-ready-grype-scan.sh), [minimal-grype-scan.sh](../grype/scripts/minimal-grype-scan.sh), [grype-end-to-end-scan-pipeline.sh](../grype/scripts/grype-end-to-end-scan-pipeline.sh) — _…and 5 more under `grype/scripts/`._
 - **configs** (2): [grype-filtering-configuration-template.yaml](../grype/configs/grype-filtering-configuration-template.yaml), [grype-ci-github-actions.yaml](../grype/configs/grype-ci-github-actions.yaml)
@@ -170,12 +170,12 @@
 - **notes** (3): [0000-primer-helm.md](../helm/notes/0000-primer-helm.md), [2026-07-19-explore-helm-charts-releases-values-repos.md](../helm/notes/2026-07-19-explore-helm-charts-releases-values-repos.md), [2026-09-21-quickstart-tripped-me-up.md](../helm/notes/2026-09-21-quickstart-tripped-me-up.md)
 - **manifests** (2): [2026-09-21-minimal-service-chart.yaml](../helm/manifests/2026-09-21-minimal-service-chart.yaml), [2026-07-15-first-chart-values.yaml](../helm/manifests/2026-07-15-first-chart-values.yaml)
 
-## kubernetes  ·  7 files
+## kubernetes  ·  9 files
 
 - **primer:** [0000-primer-kubernetes.md](../kubernetes/notes/0000-primer-kubernetes.md)
-- **notes** (2): [0000-primer-kubernetes.md](../kubernetes/notes/0000-primer-kubernetes.md), [2026-07-15-explore-kubernetes.md](../kubernetes/notes/2026-07-15-explore-kubernetes.md)
+- **notes** (3): [2026-10-14-cluster-resources.md](../kubernetes/notes/2026-10-14-cluster-resources.md), [0000-primer-kubernetes.md](../kubernetes/notes/0000-primer-kubernetes.md), [2026-07-15-explore-kubernetes.md](../kubernetes/notes/2026-07-15-explore-kubernetes.md)
 - **docs** (1): [cluster-workflow-wiring.md](../kubernetes/docs/cluster-workflow-wiring.md)
-- **configs** (1): [namespace-strategy-environment-vs-team.yaml](../kubernetes/configs/namespace-strategy-environment-vs-team.yaml)
+- **configs** (2): [2026-10-14-minimal-namespace.yaml](../kubernetes/configs/2026-10-14-minimal-namespace.yaml), [namespace-strategy-environment-vs-team.yaml](../kubernetes/configs/namespace-strategy-environment-vs-team.yaml)
 - **manifests** (3): [small-deployment-from-scratch.yaml](../kubernetes/manifests/small-deployment-from-scratch.yaml), [2026-07-15-first-pod-service.yaml](../kubernetes/manifests/2026-07-15-first-pod-service.yaml), [2026-09-10-first-pod.yaml](../kubernetes/manifests/2026-09-10-first-pod.yaml)
 
 ## kustomize  ·  6 files
@@ -204,14 +204,14 @@
 - **primer:** [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md)
 - **notes** (2): [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md), [2026-09-20-first-template-scan-attempt.md](../nuclei/notes/2026-09-20-first-template-scan-attempt.md)
 
-## opa  ·  28 files
+## opa  ·  29 files
 
 - **primer:** [0000-primer-opa.md](../opa/notes/0000-primer-opa.md)
 - **notes** (3): [0000-primer-opa.md](../opa/notes/0000-primer-opa.md), [2026-06-06-install-opa-repl.md](../opa/notes/2026-06-06-install-opa-repl.md), [2026-06-15-opa-getting-started-trip-ups.md](../opa/notes/2026-06-15-opa-getting-started-trip-ups.md)
 - **docs** (4): [opa-policy-version-migration-patterns.md](../opa/docs/opa-policy-version-migration-patterns.md), [integrating-opa-with-policy-as-code-governance.md](../opa/docs/integrating-opa-with-policy-as-code-governance.md), [constraint-template-design-patterns.md](../opa/docs/constraint-template-design-patterns.md), [wired-opa-admission-control.md](../opa/docs/wired-opa-admission-control.md)
 - **scripts** (2): [export-audit-results.sh](../opa/scripts/export-audit-results.sh), [how-i-test-policies-locally.sh](../opa/scripts/how-i-test-policies-locally.sh)
 - **configs** (2): [opa-policy-configuration-template.yaml](../opa/configs/opa-policy-configuration-template.yaml), [tried-a-gatekeeper-constraint.yaml](../opa/configs/tried-a-gatekeeper-constraint.yaml)
-- **snippets** (3): [my-first-opa-policy-eval.sh](../opa/snippets/my-first-opa-policy-eval.sh), [deny-privileged-hostnetwork.rego](../opa/snippets/deny-privileged-hostnetwork.rego), [enforce-image-registry-constraints.rego](../opa/snippets/enforce-image-registry-constraints.rego)
+- **snippets** (4): [2026-10-14-first-rego-policy.py](../opa/snippets/2026-10-14-first-rego-policy.py), [my-first-opa-policy-eval.sh](../opa/snippets/my-first-opa-policy-eval.sh), [deny-privileged-hostnetwork.rego](../opa/snippets/deny-privileged-hostnetwork.rego) — _…and 1 more under `opa/snippets/`._
 - **templates** (9): [Gatekeeper policy library scaffold](../opa/templates/gatekeeper-policy-library-scaffold/README.md), [k8sallowedregistries.yaml](../opa/templates/gatekeeper-policy-library-scaffold/constraint-templates/k8sallowedregistries.yaml), [ci-test.yml](../opa/templates/gatekeeper-policy-library-scaffold/.github/workflows/ci-test.yml) — _…and 6 more under `opa/templates/`._
 - **manifests** (4): [gatekeeper-production-deployment.yaml](../opa/manifests/gatekeeper-production-deployment.yaml), [constraint-templates.yaml](../opa/manifests/constraint-templates.yaml), [constraints.yaml](../opa/manifests/constraints.yaml) — _…and 1 more under `opa/manifests/`._
 - **notebooks** (1): [rego-vs-builtin-policies.ipynb](../opa/notebooks/rego-vs-builtin-policies.ipynb)
@@ -222,10 +222,10 @@
 - **notes** (3): [0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md), [2026-07-20-explore-open-tofu.md](../opentofu/notes/2026-07-20-explore-open-tofu.md), [2026-09-21-follow-open-tofu-quickstart.md](../opentofu/notes/2026-09-21-follow-open-tofu-quickstart.md)
 - **configs** (3): [2026-09-21-minimal-opentofu-config-with-vars.hcl](../opentofu/configs/2026-09-21-minimal-opentofu-config-with-vars.hcl), [2026-07-20-first-open-tofu-config.hcl](../opentofu/configs/2026-07-20-first-open-tofu-config.hcl), [2026-09-10-minimal-opentofu-config.hcl](../opentofu/configs/2026-09-10-minimal-opentofu-config.hcl)
 
-## prometheus  ·  3 files
+## prometheus  ·  4 files
 
 - **primer:** [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md)
-- **notes** (3): [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md), [0000-primer-observability.md](../prometheus/notes/0000-primer-observability.md), [2026-09-20-checking-the-metrics-interface.md](../prometheus/notes/2026-09-20-checking-the-metrics-interface.md)
+- **notes** (4): [2026-10-14-observability-primer-dedup.md](../prometheus/notes/2026-10-14-observability-primer-dedup.md), [2026-10-14-first-query-log.md](../prometheus/notes/2026-10-14-first-query-log.md), [0000-primer-prometheus.md](../prometheus/notes/0000-primer-prometheus.md) — _…and 1 more under `prometheus/notes/`._
 
 ## semgrep  ·  24 files
 
@@ -260,16 +260,16 @@
 - **scripts** (1): [2026-09-21-sonarqube-scan-setup.sh](../sonarqube/scripts/2026-09-21-sonarqube-scan-setup.sh)
 - **snippets** (1): [2026-07-16-first-sonarscanner-run.sh](../sonarqube/snippets/2026-07-16-first-sonarscanner-run.sh)
 
-## syft  ·  41 files
+## syft  ·  43 files
 
 - **primer:** [0000-primer-syft.md](../syft/notes/0000-primer-syft.md)
 - **notes** (4): [0000-primer-syft.md](../syft/notes/0000-primer-syft.md), [2026-05-27-install-syft-first-sbom.md](../syft/notes/2026-05-27-install-syft-first-sbom.md), [2026-05-30-sbom-format-comparison.md](../syft/notes/2026-05-30-sbom-format-comparison.md) — _…and 1 more under `syft/notes/`._
 - **docs** (8): [syft-integration-reference.md](../syft/docs/syft-integration-reference.md), [syft-format-migration-guide.md](../syft/docs/syft-format-migration-guide.md), [output-format-selection-guide.md](../syft/docs/output-format-selection-guide.md) — _…and 5 more under `syft/docs/`._
 - **scripts** (4): [gen-multi-format-sboms.sh](../syft/scripts/gen-multi-format-sboms.sh), [syft-sbom-generation.py](../syft/scripts/syft-sbom-generation.py), [multi-image-sbom-pipeline.sh](../syft/scripts/multi-image-sbom-pipeline.sh) — _…and 1 more under `syft/scripts/`._
 - **configs** (1): [.syft.yaml](../syft/configs/.syft.yaml)
-- **snippets** (1): [tried-sbom-formats.sh](../syft/snippets/tried-sbom-formats.sh)
+- **snippets** (2): [2026-10-14-first-sbom.sh](../syft/snippets/2026-10-14-first-sbom.sh), [tried-sbom-formats.sh](../syft/snippets/tried-sbom-formats.sh)
 - **templates** (15): [SBOM pipeline scaffold](../syft/templates/sbom-pipeline-scaffold/README.md), [Syft + Trivy Kubernetes scan scaffold](../syft/templates/syft-trivy-k8s-scan-scaffold/README.md), [sbom-scan.yml](../syft/templates/sbom-pipeline-scaffold/.github/workflows/sbom-scan.yml) — _…and 12 more under `syft/templates/`._
-- **manifests** (3): [syft-cicd-pipeline.yaml](../syft/manifests/syft-cicd-pipeline.yaml), [syft-gha-multi-arch-sbom-registry-auth.yaml](../syft/manifests/syft-gha-multi-arch-sbom-registry-auth.yaml), [syft-gha-sbom-oci-push-attestation.yaml](../syft/manifests/syft-gha-sbom-oci-push-attestation.yaml)
+- **manifests** (4): [syft-remote-state-backend-deployment.yaml](../syft/manifests/syft-remote-state-backend-deployment.yaml), [syft-cicd-pipeline.yaml](../syft/manifests/syft-cicd-pipeline.yaml), [syft-gha-multi-arch-sbom-registry-auth.yaml](../syft/manifests/syft-gha-multi-arch-sbom-registry-auth.yaml) — _…and 1 more under `syft/manifests/`._
 - **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
 - **notebooks** (4): [syft-format-comparison-patterns.ipynb](../syft/notebooks/syft-format-comparison-patterns.ipynb), [output-format-comparison.ipynb](../syft/notebooks/output-format-comparison.ipynb), [source-vs-library-multiarch.ipynb](../syft/notebooks/source-vs-library-multiarch.ipynb) — _…and 1 more under `syft/notebooks/`._
 
@@ -321,11 +321,11 @@
 - **dockerfiles** (1): [custom-policies.Dockerfile](../trivy/dockerfiles/custom-policies.Dockerfile)
 - **notebooks** (2): [trivy-scan-mode-comparison.ipynb](../trivy/notebooks/trivy-scan-mode-comparison.ipynb), [trivy-sarif-output-processing.ipynb](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
 
-## trufflehog  ·  40 files
+## trufflehog  ·  42 files
 
 - **primer:** [0000-primer-trufflehog.md](../trufflehog/notes/0000-primer-trufflehog.md)
 - **notes** (4): [0000-primer-trufflehog.md](../trufflehog/notes/0000-primer-trufflehog.md), [2026-05-27-install-trufflehog.md](../trufflehog/notes/2026-05-27-install-trufflehog.md), [2026-07-27-explore-cli.md](../trufflehog/notes/2026-07-27-explore-cli.md) — _…and 1 more under `trufflehog/notes/`._
-- **docs** (2): [comparing-scan-modes-git-filesystem-s3.md](../trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md), [trufflehog-output-formats-json-sarif-csv.md](../trufflehog/docs/trufflehog-output-formats-json-sarif-csv.md)
+- **docs** (4): [comparing-scan-modes-git-filesystem-s3.md](../trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md), [trufflehog-output-formats-json-sarif-csv.md](../trufflehog/docs/trufflehog-output-formats-json-sarif-csv.md), [trufflehog-integration-reference-secret-detection.md](../trufflehog/docs/trufflehog-integration-reference-secret-detection.md) — _…and 1 more under `trufflehog/docs/`._
 - **scripts** (3): [multi-repo-scan-pipeline.sh](../trufflehog/scripts/multi-repo-scan-pipeline.sh), [pre-commit-scan-pipeline.sh](../trufflehog/scripts/pre-commit-scan-pipeline.sh), [analyze-trufflehog-results.py](../trufflehog/scripts/analyze-trufflehog-results.py)
 - **configs** (2): [custom-detector-rules.yaml](../trufflehog/configs/custom-detector-rules.yaml), [trufflehog-custom-regex-config.yaml](../trufflehog/configs/trufflehog-custom-regex-config.yaml)
 - **snippets** (2): [scan-github-repo-for-secrets.sh](../trufflehog/snippets/scan-github-repo-for-secrets.sh), [fake-secrets-test.sh](../trufflehog/snippets/fake-secrets-test.sh)
@@ -364,7 +364,7 @@
 These sit alongside the per-tool folders and are indexed here rather than given their own section.
 
 - **`docs/`** (212 files) — concept primers under `docs/concepts/`, plus `how-to/`, `reference/`, `runbooks/`, `security/`, `setup-guides/`, and `troubleshooting/`. Start at [the concept primers](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) and [the how-to index](../docs/how-to/ci_cd_toolkit.md).
-- **`scripts/`** (192 files) — shell toolkits by domain under `scripts/bash/`, `scripts/pipeline/` deployment and rollback wrappers, and a few repository utilities at the root ([triage-vulnerabilities.sh](../scripts/triage-vulnerabilities.sh), [patch-report.sh](../scripts/patch-report.sh)).
+- **`scripts/`** (193 files) — shell toolkits by domain under `scripts/bash/`, `scripts/pipeline/` deployment and rollback wrappers, and a few repository utilities at the root ([triage-vulnerabilities.sh](../scripts/triage-vulnerabilities.sh), [patch-report.sh](../scripts/patch-report.sh)), plus `scripts/notes/` ([lib claim fix](../scripts/notes/2026-10-14-lib-claim-fix.md)).
 - **`snippets/`** (20 files) — copy-paste cheatsheets, one per tool family. [linux-cheatsheet.md](../snippets/linux-cheatsheet.md), [ci-cd-cheatsheet.md](../snippets/ci-cd-cheatsheet.md), [vault-commands.md](../snippets/vault-commands.md).
 - **`templates/`** (39 files) — starter configs for Kubernetes, Terraform, Linux automation, Jenkins, Logstash, syslog-ng, and cookiecutter project scaffolds.
 - **`environments/`** and **`lab/`** are covered in their own sections above.

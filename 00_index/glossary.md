@@ -626,6 +626,7 @@
 - **Narrowest selector (filtering)** — Naming a package, version, or path alongside the advisory ID instead of silencing that CVE everywhere in the image. A vulnerability ID on its own hides real findings for every other package it also matches.
 - **Registry-image source vs DB-backed SBOM source** — The two shapes a scan's inputs can arrive in. The registry shape pulls image layers on every run and refreshes the vulnerability database inside the scan's time budget; the DB-backed shape scans a stored SBOM against a database refreshed as its own step, so repeat scans are cheap and the pipeline can run without egress. The two consult the same database once it is present, so any disagreement between their finding sets means the inputs differed, not the shapes.
 - **Database freshness gate** — A maximum allowed age for the local vulnerability database. A scan against a stale database completes successfully and reports fewer findings, which reads as "clean" rather than "stale"; gating on age makes the job fail loudly instead.
+- **Provider (Grype database)** — One upstream vulnerability feed bundled into Grype's built database: distro package lists on one side, language package feeds on the other. A matcher ties each installed package to the right provider's records, which is why two images with different ecosystems yield different finding sets from the same database.
 
 ## Lab
 
@@ -648,6 +649,8 @@
 - **ClusterIP Service** — The default Kubernetes Service type: a stable virtual IP reachable only inside the cluster that load-balances to the backing Pods.
 - **ResourceQuota (Kubernetes)** — A namespace-scoped object that caps aggregate resource consumption (CPU, memory, object counts) for that namespace. Used with environment-scoped namespaces to bound a whole environment rather than a single team.
 - **RoleBinding (Kubernetes)** — A namespace-scoped grant binding a Role's permissions to users or groups within that namespace. The mechanism that lets teams coexist in a shared environment namespace without touching each other's workloads.
+- **`kubectl get all`** — A convenience shortcut that lists a fixed subset of namespaced resources (pods, services, deployments, replicasets, and a few more), not everything in the namespace. ConfigMaps, Secrets, and most other kinds are left out, so an empty `get all` does not mean an empty namespace.
+- **`kubectl api-resources`** — The command that lists every resource kind the cluster's API server knows about, including kinds a first look would not expect (leases, endpointslices). The starting point for learning what a cluster can hold before asking what it does hold.
 
 ## Git
 
@@ -775,6 +778,7 @@
 
 - **Built-in check (OPA)** — A decision the platform already ships (an admission check or ready-made constraint kind) that a team configures with parameters instead of authoring logic. Reach for it when the requirement matches what exists; write Rego when conditions combine, when they refer to organisation-specific data, or when a custom message is needed.
 - **Policy instance tuning** — Adjusting a policy's behaviour per environment by changing Constraint scope, enforcement, and parameters — audit-only where workloads are still being fixed, enforcing where the baseline is clean — without editing the shared ConstraintTemplate.
+- **Default deny (Rego)** — A `default allow = false` line that denies every request the allow rules do not explicitly permit. The first line of most real policies: without it, an input no rule mentions is allowed by default rather than rejected.
 
 ## Snyk
 
