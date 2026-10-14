@@ -1,0 +1,9 @@
+# last_verified: 2026-10-14 · kubernetes n/a
+# My first namespace — just a labelled scratch space to try things in.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: scratch-dev
+  labels:
+    env: dev
+    owner: me

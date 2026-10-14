@@ -4,6 +4,14 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-14
+
+### Added
+
+- syft-022: `syft/snippets/2026-10-14-first-sbom.sh` — My first SBOM with syft: scan a local dir to a table (L1 snippet)
+- kubernetes-011: `kubernetes/notes/2026-10-14-cluster-resources.md` — Poking at the cluster: api-resources, get all, and what it misses (L1 notes)
+- kubernetes-012: `kubernetes/configs/2026-10-14-minimal-namespace.yaml` — My first namespace: labelled scratch-dev Namespace (L1 config)
+
 ## 2026-10-13
 
 ### Added
