@@ -1,0 +1,30 @@
+# last_verified: 2026-10-15 · ansible 2.15+
+galaxy_info:
+  author: DevSecOps-Kit
+  description: Baseline system configuration applied to all hosts
+  company: ""
+  license: MIT
+  min_ansible_version: "2.15"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - "22.04"
+        - "24.04"
+    - name: Debian
+      versions:
+        - "11"
+        - "12"
+    - name: EL
+      versions:
+        - "8"
+        - "9"
+  galaxy_tags:
+    - system
+    - baseline
+    - hardening
+    - bootstrap
+
+dependencies: []
+  # Example: depend on another role from Galaxy
+  # - role: geerlingguy.security
+  #   version: 2.0.0

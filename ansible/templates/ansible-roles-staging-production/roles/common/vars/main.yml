@@ -1,0 +1,18 @@
+# last_verified: 2026-10-15 · ansible 2.15+
+---
+# Common role vars — higher precedence than defaults, lower than inventory
+# Use for computed values or constants that shouldn't be overridden by inventory
+
+# Internal: detected package manager (set by setup module)
+# pkg_mgr: "{{ ansible_pkg_mgr }}"
+
+# Internal: detected init system
+# init_system: "{{ ansible_service_mgr }}"
+
+# Path constants
+common_config_paths:
+  sysctl_d: "/etc/sysctl.d"
+  modules_load_d: "/etc/modules-load.d"
+  sshd_config: "/etc/ssh/sshd_config"
+  journald_config: "/etc/systemd/journald.conf"
+  fstab: "/etc/fstab"

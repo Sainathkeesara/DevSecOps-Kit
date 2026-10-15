@@ -1,0 +1,146 @@
+# last_verified: 2026-10-15 · ansible 2.15+
+---
+# Common role tasks — baseline configuration applied to all hosts
+# This role runs first on every host via site.yml
+
+- name: Ensure Python3 is present (required for Ansible modules)
+  raw: test -e /usr/bin/python3 || (apt-get update && apt-get install -y python3)
+  become: yes
+  changed_when: false
+  tags:
+    - bootstrap
+
+- name: Install essential packages
+  ansible.builtin.package:
+    name:
+      - curl
+      - wget
+      - gnupg2
+      - ca-certificates
+      - apt-transport-https
+      - software-properties-common
+    state: present
+    update_cache: yes
+  become: yes
+  tags:
+    - packages
+
+- name: Configure timezone to UTC
+  ansible.builtin.timezone:
+    name: UTC
+  become: yes
+  tags:
+    - system
+
+- name: Ensure swap is disabled (recommended for Kubernetes nodes)
+  ansible.builtin.command: swapoff -a
+  become: yes
+  changed_when: false
+  failed_when: false
+  tags:
+    - system
+
+- name: Disable swap permanently in /etc/fstab
+  ansible.builtin.lineinfile:
+    path: /etc/fstab
+    regexp: '^\s*[^#].*\sswap\s'
+    state: absent
+  become: yes
+  tags:
+    - system
+
+- name: Set kernel parameters for networking and containers
+  ansible.builtin.sysctl:
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+    sysctl_set: yes
+    state: present
+    reload: yes
+  become: yes
+  loop:
+    - { key: "net.ipv4.ip_forward", value: "1" }
+    - { key: "net.bridge.bridge-nf-call-iptables", value: "1" }
+    - { key: "net.bridge.bridge-nf-call-ip6tables", value: "1" }
+    - { key: "fs.inotify.max_user_watches", value: "524288" }
+    - { key: "fs.inotify.max_user_instances", value: "512" }
+  tags:
+    - kernel
+    - kubernetes
+
+- name: Load required kernel modules
+  ansible.builtin.modprobe:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  loop:
+    - br_netfilter
+    - overlay
+  tags:
+    - kernel
+    - kubernetes
+
+- name: Ensure modules persist across reboots
+  ansible.builtin.copy:
+    dest: /etc/modules-load.d/k8s.conf
+    content: |
+      br_netfilter
+      overlay
+    mode: "0644"
+  become: yes
+  tags:
+    - kernel
+    - kubernetes
+
+- name: Configure journald for structured logging
+  ansible.builtin.lineinfile:
+    path: /etc/systemd/journald.conf
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    state: present
+  become: yes
+  loop:
+    - { regexp: "^#?Storage=", line: "Storage=persistent" }
+    - { regexp: "^#?Compress=", line: "Compress=yes" }
+    - { regexp: "^#?ForwardToSyslog=", line: "ForwardToSyslog=no" }
+  notify: restart systemd-journald
+  tags:
+    - logging
+
+- name: Ensure SSH allows key-based auth only
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    state: present
+  become: yes
+  loop:
+    - { regexp: "^#?PasswordAuthentication", line: "PasswordAuthentication no" }
+    - { regexp: "^#?PubkeyAuthentication", line: "PubkeyAuthentication yes" }
+    - { regexp: "^#?PermitRootLogin", line: "PermitRootLogin prohibit-password" }
+  notify: restart ssh
+  tags:
+    - ssh
+    - security
+
+- name: Create admin user with sudo access (if not exists)
+  ansible.builtin.user:
+    name: "{{ admin_user | default('admin') }}"
+    groups: sudo
+    append: yes
+    shell: /bin/bash
+    create_home: yes
+  become: yes
+  tags:
+    - users
+
+- name: Deploy authorized_keys for admin user
+  ansible.builtin.authorized_key:
+    user: "{{ admin_user | default('admin') }}"
+    state: present
+    key: "{{ item }}"
+  become: yes
+  loop: "{{ admin_ssh_keys | default([]) }}"
+  when: admin_ssh_keys is defined and admin_ssh_keys | length > 0
+  tags:
+    - users
+    - ssh

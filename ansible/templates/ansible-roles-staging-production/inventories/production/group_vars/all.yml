@@ -1,0 +1,60 @@
+# last_verified: 2026-10-15 · ansible 2.15+
+---
+# Production environment variables — overrides role defaults
+# These values are specific to the production environment
+
+# Environment identification
+environment: "production"
+deployment_tier: "production"
+
+# Domain / DNS
+base_domain: "example.com"
+internal_domain: "prod.internal"
+
+# Network
+vpc_cidr: "10.1.0.0/16"
+private_subnet_cidrs:
+  - "10.1.1.0/24"  # bastion
+  - "10.1.2.0/24"  # web
+  - "10.1.3.0/24"  # database
+  - "10.1.4.0/24"  # monitoring
+  - "10.1.5.0/24"  # loadbalancer
+
+# Application configuration
+app_replicas: 6
+app_image_tag: "production-latest"
+app_resources:
+  requests:
+    cpu: "500m"
+    memory: "512Mi"
+  limits:
+    cpu: "2000m"
+    memory: "2Gi"
+
+# Database configuration
+db_instance_class: "db.r6g.xlarge"
+db_allocated_storage: 500
+db_backup_retention_days: 30
+db_multi_az: true
+
+# Monitoring
+prometheus_retention_days: 90
+grafana_admin_password: "{{ vault_grafana_admin_password_production }}"
+
+# Security (reference vaulted secrets)
+# vault_ssh_keys: "{{ vault_production_ssh_keys }}"
+# vault_db_password: "{{ vault_production_db_password }}"
+# vault_api_keys: "{{ vault_production_api_keys }}"
+
+# Feature flags
+enable_debug_logging: false
+enable_profiling: false
+maintenance_window: "Sun 03:00-05:00 UTC"
+
+# Terraform-provisioned outputs (populated by inventory generator)
+# terraform_outputs:
+#   vpc_id: "vpc-xxx"
+#   subnet_ids: ["subnet-xxx", "subnet-yyy"]
+#   security_group_ids: ["sg-xxx"]
+#   rds_endpoint: "prod-db.xxx.us-east-1.rds.amazonaws.com"
+#   alb_dns_name: "prod-alb-xxx.us-east-1.elb.amazonaws.com"
