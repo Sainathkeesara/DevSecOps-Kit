@@ -23,6 +23,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - grype-044: `grype/notes/2026-10-14-explore-vulnerability-database.md` — First-day scratch notes mapping what feeds the grype vulnerability database bundle (L1 notes)
 - opa-020: `opa/snippets/2026-10-14-first-rego-policy.py` — My first Rego allow rule with a matching Python mirror check (L1 snippet)
 - prometheus-035: `prometheus/notes/2026-10-14-first-query-log.md` — First-day log of my first single-series Prometheus query loop (L1 notes)
+- github-actions-003: `github-actions/notes/2026-10-14-run-first-workflow.md` — Ran my first workflow and recorded what happened: queued, running, green (L1 notes)
+- github-actions-004: `github-actions/snippets/2026-10-14-trigger-first-workflow-gh.sh` — Trigger my first workflow from the CLI with `gh workflow run` (L1 snippet)
+- grafana-008: `grafana/snippets/2026-10-14-first-grafana-datasource-query.py` — Query my first Grafana data source through the HTTP API (L2 snippet)
+- lab-004: `lab/snippets/2026-10-14-first-lab-command.sh` — Run my first lab command and capture the result (L1 snippet)
+- cosign-019: `cosign/notes/2026-10-14-install-cosign-first-signing-command.md` — Installed cosign and ran my first signing command (L1 notes)
 - github-actions-005: `github-actions/configs/2026-10-14-first-scheduled-workflow.yaml` — My first cron-triggered workflow, with a manual trigger kept alongside it (L1 config)
 - grafana-007: `grafana/configs/2026-10-14-dashboard-provisioning.yaml` — Minimal dashboard provisioning: one file-backed provider pointed at a dashboards directory (L2 config)
 
