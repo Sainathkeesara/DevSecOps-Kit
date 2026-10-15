@@ -28,6 +28,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - grafana-008: `grafana/snippets/2026-10-14-first-grafana-datasource-query.py` — Query my first Grafana data source through the HTTP API (L2 snippet)
 - lab-004: `lab/snippets/2026-10-14-first-lab-command.sh` — Run my first lab command and capture the result (L1 snippet)
 - cosign-019: `cosign/notes/2026-10-14-install-cosign-first-signing-command.md` — Installed cosign and ran my first signing command (L1 notes)
+- github-actions-005: `github-actions/configs/2026-10-14-first-scheduled-workflow.yaml` — My first cron-triggered workflow, with a manual trigger kept alongside it (L1 config)
+- grafana-007: `grafana/configs/2026-10-14-dashboard-provisioning.yaml` — Minimal dashboard provisioning: one file-backed provider pointed at a dashboards directory (L2 config)
+
+### Fixed
+
+- zap-037: `zap/docs/zap-integration-reference.md` — Repointed Pattern 2 at the plan that actually exists (`zap/configs/ci-dast-automation-framework-plan.yaml`) instead of the phantom `zap-ci-plan.yaml`, dropped the drifted 110-line inline copy of the plan, added the missing `-e` values the real plan's placeholders need (including `REPORT_DIR`), and corrected the verification steps that claimed the `onFail: INFO` active-scan test fails the run (L4 docs)
 
 ## 2026-10-13
 
