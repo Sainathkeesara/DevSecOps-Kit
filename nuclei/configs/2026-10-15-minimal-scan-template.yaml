@@ -1,0 +1,21 @@
+# last_verified: 2026-10-15 · nuclei n/a
+# My first nuclei template — written while following the quickstart, not run yet.
+# I kept it to one harmless check (looks for a word on the page, severity info)
+# because I only want to point this at a throwaway page I serve myself.
+# I haven't confirmed the runner accepts every key below, so the first run
+# is also a schema check: if it errors, the error message tells me what to fix.
+id: first-hello-check
+
+info:
+  name: First hello check
+  description: My first template. Matches a word on a practice page I control.
+  severity: info
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    matchers:
+      - type: word
+        words:
+          - "Example"
