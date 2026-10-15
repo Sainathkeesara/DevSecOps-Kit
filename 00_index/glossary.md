@@ -599,6 +599,7 @@
 - **Output rate limiting (`rate` / `max_burst`)** — The global cap on how many alerts Falco emits per second, with a burst allowance. This is the setting that decides whether a rule firing in a loop floods the log; `max_burst: 1` guarantees a single event is never held back.
 - **Unbuffered output** — Writing each alert as it happens rather than in blocks, so the order of lines in the log matches the order of the events. Worth choosing when you are tailing output to follow a rule firing live.
 - **Log priority** — Syslog severity for the daemon's own messages, separate from the priority a rule attaches to an alert. Dropping it from `debug` to `notice` after rules are loading keeps the startup lines from being buried on a busy node.
+- **Node requirement (Falco)** — Falco watches syscalls on a real node, typically installed as a DaemonSet, so there is nothing to install or observe inside a plain container with no privileged driver. Without a node there is no event to log; the install stays mapped-out until a watchable host exists.
 
 ## GitGuardian
 
@@ -813,3 +814,26 @@
 - **Decoder chain (TruffleHog)** — Automatic decoding of base64 and other encodings before detection, so a secret hidden inside an encoded blob is still matched. Encoded fixtures that match no plain-text detector exercise this chain.
 - **Filesystem scan (TruffleHog)** — Running `trufflehog filesystem` against a local directory instead of git history or a remote repo. The pragmatic first scan when there is no token handy for the remote, with findings emitted as JSON for jq filtering.
 - **Verified flag (TruffleHog)** — The per-finding field recording whether the detector confirmed the credential against the live service. Gates usually fail on verified findings and only report the rest, since some detectors report matches they cannot confirm.
+
+## Nuclei
+
+- **Template (Nuclei)** — One YAML file per check carrying an `id` and an `info` block with severity, plus the request definition and matchers. The unit of reuse: a first run should be one template against one target rather than the whole shared collection.
+- **Matcher (Nuclei)** — The condition inside a template that decides a match, e.g. a `word` matcher looking for a string on the page. Severity `info` keeps a first probe harmless while proving the template loads and fires.
+- **Target ownership (Nuclei)** — The rule that a scan only ever points at something you control, such as a throwaway page served locally. Pointing a scanner at an unowned target is off the table regardless of how harmless the template looks.
+
+## Cosign
+
+- **Keypair (Cosign)** — The `cosign.key` / `cosign.pub` pair minted by `cosign generate-key-pair`, with the private key protected by a password. Signing takes the image reference plus the private key; verification takes the public key.
+- **Full registry reference (Cosign)** — The complete `registry.io/repo:tag` path a signing command needs. A short name fails with a confusing reference error, so the registry prefix is part of the command, not decoration.
+- **Key password in scripts (Cosign)** — The interactive password prompt on `cosign sign` blocks scripted runs unless the secret arrives via `--password` or `COSIGN_PASSWORD`. The first manual run works; the second run makes it non-interactive.
+
+## GitHub Actions
+
+- **Silent non-run (GitHub Actions)** — A workflow file outside `.github/workflows/` never triggers: no runs, no errors, just silence. The first fix for "nothing ran" is checking the file's location, not its syntax.
+- **Scheduled workflow (GitHub Actions)** — A workflow fired by a `schedule` cron entry instead of a push, paired with `workflow_dispatch` so the same workflow can be re-run by hand while the cron is tuned.
+- **Trigger via gh (GitHub Actions)** — Firing a named workflow from the CLI with `gh workflow run`, then watching the run in the Actions tab. The quick loop for iterating on a starter workflow without pushing empty commits.
+
+## Grafana
+
+- **Dashboard provisioning (Grafana)** — A providers document telling Grafana which folder to load dashboard JSON from at startup. The provisioning half and the dashboard JSON half are separate: one points, the other fills.
+- **Datasource query via API (Grafana)** — Hitting `/api/datasources` with a token to list backends the way the UI does behind the scenes. The smallest check that the datasource from setup is actually visible before building panels.
