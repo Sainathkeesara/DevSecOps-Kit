@@ -611,6 +611,7 @@
 - **Org baseline config** — One inherited scanning configuration that replaces many drifted per-repo files. Migrating to it means each repo's exceptions get promoted into the baseline with an owner, instead of being re-invented locally at every repository.
 - **Incremental monorepo rollout** — Turning scanning on tier by tier rather than across every repository at once. Keeps the blast radius of a bad configuration change to the estate that just adopted it, and lets each team's exclusions be settled before the next team inherits them.
 - **Scanner replacement** — Swapping one secret scanner out for another without losing coverage. The work is in the allowlists: what the old tool ignored must be re-expressed in the new tool's vocabulary, or the first full run comes back red on known-false positives and gets switched off.
+- **Dashboard incident (GitGuardian)** — One row in the incidents list: the secret type, the repo and file it was found in, the commit and line, and whether someone already marked it reviewed or assigned it. The unit of the triage-to-revocation handoff.
 
 ## Grype
 
@@ -685,6 +686,7 @@
 ## Dependabot
 
 - **Ecosystem (Dependabot)** — The package manager an update entry watches (e.g. `npm`, `pip`, `docker`, `terraform`). One entry covers one ecosystem in one directory; a monorepo needs one entry per manifest location.
+- **Version-control workflow wiring (Dependabot)** — Routing dependency updates through the normal branch-and-review flow: each update opens a branch, gets a reviewer, and merges under the same branch protection as any other change, instead of arriving as a surprise pull request nobody owns.
 - **Auto-merge (Dependabot)** — Letting dependency update PRs merge without human review once checks pass, usually limited to patch or minor bumps. Trades review effort against the risk of a bad update landing unattended.
 - **Auto-dismiss (Dependabot)** — A rule that automatically closes Dependabot alerts matching a pattern (e.g. dev-dependency-only scope below a severity threshold), so the alert queue reflects what the team will actually fix.
 - **Policy promotion (Dependabot)** — Moving a proven repository-level alert configuration up to an organization-wide security policy, so new repos inherit the same severity filters, notification routing, and auto-dismiss rules.
@@ -809,3 +811,5 @@
 - **Verification gating (TruffleHog)** — Selecting which result classes (`verified`, `unknown`, `unverified`) fail a scan via `--results`. Some detectors report only findings they can confirm against the live service; others report unverified matches, so the same repo yields different gates depending on which classes are selected.
 - **Detector selection (TruffleHog)** — Limiting a scan to specific detectors with `--include-detectors` or `--exclude-detectors`. Narrowing the set cuts noise from irrelevant services but silently drops coverage for everything excluded, so the selection belongs in version control next to the gate it serves.
 - **Decoder chain (TruffleHog)** — Automatic decoding of base64 and other encodings before detection, so a secret hidden inside an encoded blob is still matched. Encoded fixtures that match no plain-text detector exercise this chain.
+- **Filesystem scan (TruffleHog)** — Running `trufflehog filesystem` against a local directory instead of git history or a remote repo. The pragmatic first scan when there is no token handy for the remote, with findings emitted as JSON for jq filtering.
+- **Verified flag (TruffleHog)** — The per-finding field recording whether the detector confirmed the credential against the live service. Gates usually fail on verified findings and only report the rest, since some detectors report matches they cannot confirm.

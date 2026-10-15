@@ -71,11 +71,11 @@
 - **scripts** (1): [2026-09-20-defectdojo-tutorial-check.sh](../defectdojo/scripts/2026-09-20-defectdojo-tutorial-check.sh)
 - **snippets** (1): [install-defectdojo-first-scan-report.sh](../defectdojo/snippets/install-defectdojo-first-scan-report.sh)
 
-## dependabot  ·  18 files
+## dependabot  ·  19 files
 
 - **primer:** [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md)
 - **notes** (7): [0000-primer-dependabot.md](../dependabot/notes/0000-primer-dependabot.md), [2026-06-15-dependabot-first-repo-bump-pr.md](../dependabot/notes/2026-06-15-dependabot-first-repo-bump-pr.md), [2026-06-22-first-time-dependabot-setup.md](../dependabot/notes/2026-06-22-first-time-dependabot-setup.md) — _…and 4 more under `dependabot/notes/`._
-- **docs** (3): [dependabot-version-control-workflow-integration.md](../dependabot/docs/dependabot-version-control-workflow-integration.md), [dependabot-security-update-auto-merge.md](../dependabot/docs/dependabot-security-update-auto-merge.md), [dependabot-security-alert-migration-patterns.md](../dependabot/docs/dependabot-security-alert-migration-patterns.md)
+- **docs** (4): [wired Dependabot into the version-control workflow](../dependabot/docs/wired-dependabot-version-control-workflow.md), [version-control workflow integration](../dependabot/docs/dependabot-version-control-workflow-integration.md), [security update auto-merge](../dependabot/docs/dependabot-security-update-auto-merge.md) — _…and 1 more under `dependabot/docs/`._
 - **scripts** (2): [dependabot-alert-aggregation.py](../dependabot/scripts/dependabot-alert-aggregation.py), [2026-08-04-dependabot-alert-triage.py](../dependabot/scripts/2026-08-04-dependabot-alert-triage.py)
 - **configs** (5): [dependabot-configuration-template.yaml](../dependabot/configs/dependabot-configuration-template.yaml), [monorepo-ecosystem-schedules-reviewers.yaml](../dependabot/configs/monorepo-ecosystem-schedules-reviewers.yaml), [2026-07-10-npm-version-strategy.yaml](../dependabot/configs/2026-07-10-npm-version-strategy.yaml) — _…and 2 more under `dependabot/configs/`._
 - **notebooks** (1): [auto-merge-vs-manual-review.ipynb](../dependabot/notebooks/auto-merge-vs-manual-review.ipynb)
@@ -120,10 +120,10 @@
 - **configs** (1): [config-strategy-layered-vs-conditional.yaml](../git/configs/config-strategy-layered-vs-conditional.yaml)
 - **snippets** (1): [2026-07-04-git-rebase-vs-merge-conflict-patterns.sh](../git/snippets/2026-07-04-git-rebase-vs-merge-conflict-patterns.sh)
 
-## gitguardian  ·  26 files
+## gitguardian  ·  27 files
 
 - **primer:** [0000-primer-gitguardian.md](../gitguardian/notes/0000-primer-gitguardian.md)
-- **notes** (4): [0000-primer-gitguardian.md](../gitguardian/notes/0000-primer-gitguardian.md), [2026-06-07-first-ggshield-scan.md](../gitguardian/notes/2026-06-07-first-ggshield-scan.md), [2026-06-14-first-secrets-scan-repo.md](../gitguardian/notes/2026-06-14-first-secrets-scan-repo.md) — _…and 1 more under `gitguardian/notes/`._
+- **notes** (5): [touring the dashboard interface](../gitguardian/notes/2026-10-14-explore-interface.md), [0000-primer-gitguardian.md](../gitguardian/notes/0000-primer-gitguardian.md), [2026-06-07-first-ggshield-scan.md](../gitguardian/notes/2026-06-07-first-ggshield-scan.md) — _…and 2 more under `gitguardian/notes/`._
 - **docs** (4): [gitguardian-secret-scanning-migration-patterns.md](../gitguardian/docs/gitguardian-secret-scanning-migration-patterns.md), [cicd-secret-scanning-integration.md](../gitguardian/docs/cicd-secret-scanning-integration.md), [gitguardian-incident-response-workflow.md](../gitguardian/docs/gitguardian-incident-response-workflow.md) — _…and 1 more under `gitguardian/docs/`._
 - **scripts** (3): [pre-commit-hook-ggshield.sh](../gitguardian/scripts/pre-commit-hook-ggshield.sh), [gg-incident-response-pipeline.sh](../gitguardian/scripts/gg-incident-response-pipeline.sh), [gitguardian-api-integration.py](../gitguardian/scripts/gitguardian-api-integration.py)
 - **configs** (3): [policy-configuration.yaml](../gitguardian/configs/policy-configuration.yaml), [monorepo-allowlists.yaml](../gitguardian/configs/monorepo-allowlists.yaml), [.ggshield.yaml](../gitguardian/configs/.ggshield.yaml)
@@ -146,10 +146,10 @@
 - **scripts** (2): [2026-10-13-auditing-git-secrets.sh](../gitleaks/scripts/2026-10-13-auditing-git-secrets.sh), [2026-09-26-run-first-gitleaks-scan.sh](../gitleaks/scripts/2026-09-26-run-first-gitleaks-scan.sh)
 - **configs** (1): [2026-10-07-detection-rules.yaml](../gitleaks/configs/2026-10-07-detection-rules.yaml)
 
-## grafana  ·  4 files
+## grafana  ·  5 files
 
 - **primer:** [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md)
-- **notes** (3): [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md), [2026-09-26-explore-grafana-dashboard-ui.md](../grafana/notes/2026-09-26-explore-grafana-dashboard-ui.md), [2026-09-19-first-dashboard-browser.md](../grafana/notes/2026-09-19-first-dashboard-browser.md)
+- **notes** (4): [quickstart trip-ups](../grafana/notes/2026-10-14-grafana-quickstart-trip-ups.md), [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md), [2026-09-26-explore-grafana-dashboard-ui.md](../grafana/notes/2026-09-26-explore-grafana-dashboard-ui.md) — _…and 1 more under `grafana/notes/`._
 - **configs** (1): [2026-09-19-first-datasource.yaml](../grafana/configs/2026-09-19-first-datasource.yaml)
 
 ## grype  ·  25 files
@@ -308,10 +308,10 @@
 - **primer:** [0000-primer-tfsec.md](../tfsec/notes/0000-primer-tfsec.md)
 - **notes** (2): [0000-primer-tfsec.md](../tfsec/notes/0000-primer-tfsec.md), [2026-09-20-first-tfsec-scan.md](../tfsec/notes/2026-09-20-first-tfsec-scan.md)
 
-## trivy  ·  37 files
+## trivy  ·  38 files
 
 - **primer:** [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md)
-- **notes** (6): [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md), [2026-05-24-install-trivy.md](../trivy/notes/2026-05-24-install-trivy.md), [2026-07-27-first-container-scan.md](../trivy/notes/2026-07-27-first-container-scan.md) — _…and 3 more under `trivy/notes/`._
+- **notes** (7): [quickstart trip-ups](../trivy/notes/2026-10-14-quickstart-trip-ups.md), [0000-primer-trivy.md](../trivy/notes/0000-primer-trivy.md), [2026-05-24-install-trivy.md](../trivy/notes/2026-05-24-install-trivy.md) — _…and 4 more under `trivy/notes/`._
 - **docs** (6): [trivy-database-migration-guide.md](../trivy/docs/trivy-database-migration-guide.md), [trivy-integration-reference-container-scanning.md](../trivy/docs/trivy-integration-reference-container-scanning.md), [ci-cd-pipeline-recipes.md](../trivy/docs/ci-cd-pipeline-recipes.md) — _…and 3 more under `trivy/docs/`._
 - **scripts** (6): [container-vuln-scan.sh](../trivy/scripts/container-vuln-scan.sh), [compose-multi-scan.sh](../trivy/scripts/compose-multi-scan.sh), [image-vuln-pipeline.sh](../trivy/scripts/image-vuln-pipeline.sh) — _…and 3 more under `trivy/scripts/`._
 - **configs** (2): [trivy-scan-config.yaml](../trivy/configs/trivy-scan-config.yaml), [.trivy.yaml](../trivy/configs/.trivy.yaml)
@@ -321,14 +321,14 @@
 - **dockerfiles** (1): [custom-policies.Dockerfile](../trivy/dockerfiles/custom-policies.Dockerfile)
 - **notebooks** (2): [trivy-scan-mode-comparison.ipynb](../trivy/notebooks/trivy-scan-mode-comparison.ipynb), [trivy-sarif-output-processing.ipynb](../trivy/notebooks/trivy-sarif-output-processing.ipynb)
 
-## trufflehog  ·  42 files
+## trufflehog  ·  43 files
 
 - **primer:** [0000-primer-trufflehog.md](../trufflehog/notes/0000-primer-trufflehog.md)
 - **notes** (4): [0000-primer-trufflehog.md](../trufflehog/notes/0000-primer-trufflehog.md), [2026-05-27-install-trufflehog.md](../trufflehog/notes/2026-05-27-install-trufflehog.md), [2026-07-27-explore-cli.md](../trufflehog/notes/2026-07-27-explore-cli.md) — _…and 1 more under `trufflehog/notes/`._
 - **docs** (4): [comparing-scan-modes-git-filesystem-s3.md](../trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md), [trufflehog-output-formats-json-sarif-csv.md](../trufflehog/docs/trufflehog-output-formats-json-sarif-csv.md), [trufflehog-integration-reference-secret-detection.md](../trufflehog/docs/trufflehog-integration-reference-secret-detection.md) — _…and 1 more under `trufflehog/docs/`._
 - **scripts** (3): [multi-repo-scan-pipeline.sh](../trufflehog/scripts/multi-repo-scan-pipeline.sh), [pre-commit-scan-pipeline.sh](../trufflehog/scripts/pre-commit-scan-pipeline.sh), [analyze-trufflehog-results.py](../trufflehog/scripts/analyze-trufflehog-results.py)
 - **configs** (2): [custom-detector-rules.yaml](../trufflehog/configs/custom-detector-rules.yaml), [trufflehog-custom-regex-config.yaml](../trufflehog/configs/trufflehog-custom-regex-config.yaml)
-- **snippets** (2): [scan-github-repo-for-secrets.sh](../trufflehog/snippets/scan-github-repo-for-secrets.sh), [fake-secrets-test.sh](../trufflehog/snippets/fake-secrets-test.sh)
+- **snippets** (3): [first secret scan](../trufflehog/snippets/2026-10-14-first-secret-scan.sh), [scan-github-repo-for-secrets.sh](../trufflehog/snippets/scan-github-repo-for-secrets.sh), [fake-secrets-test.sh](../trufflehog/snippets/fake-secrets-test.sh)
 - **templates** (21): [GitHub secret-scanning integration](../trufflehog/templates/github-secret-scanning-integration/README.md), [multi-repo secret scan](../trufflehog/templates/multi-repo-secret-scan/README.md), [secret-scanning pipeline](../trufflehog/templates/secret-scanning-pipeline/README.md) — _…and 18 more under `trufflehog/templates/`._
 - **manifests** (2): [trufflehog-cicd-pipeline.yaml](../trufflehog/manifests/trufflehog-cicd-pipeline.yaml), [trufflehog-pr-secret-scan-reusable.yaml](../trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml)
 - **dockerfiles** (1): [pre-commit-scanner.Dockerfile](../trufflehog/dockerfiles/pre-commit-scanner.Dockerfile)
