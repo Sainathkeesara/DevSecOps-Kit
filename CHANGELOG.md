@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - falco-031: `falco/notes/2026-10-15-install-falco-first-event.md` — Install attempt with no cluster available: binary check, DaemonSet prerequisite, first-event plan (L1 notes)
 - nuclei-006: `nuclei/notes/2026-10-15-nuclei-quickstart-trip-ups.md` — Following the nuclei quickstart: template-download, target-choice, and output trip-ups (L2 notes)
 - nuclei-007: `nuclei/configs/2026-10-15-minimal-scan-template.yaml` — Minimal single-check nuclei template for a self-served practice page (L2 config)
+- nuclei-008: `nuclei/scripts/2026-10-15-first-nuclei-scan.sh` — First nuclei scan against a local practice target with output saved per run (L2 script)
+- scripts-006: `scripts/notes/2026-10-15-shell-quickstart-trip-ups.md` — Shell quickstart write-up: shebang, stale `$?`, and pipeline-subshell trip-ups (L2 notes)
+- scripts-007: `scripts/snippets/2026-10-15-kit-helper-logging-retry.sh` — Sourcable logging plus retry helper with a demo run (L2 script)
 
 ## 2026-10-14
 
