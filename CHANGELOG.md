@@ -3168,3 +3168,4 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 ### Added
 
 - assets-008: `assets/notes/2026-10-11-embedding-architecture-diagrams.md` — Embedded three architecture diagrams (architecture-overview.png, cicd-workflow.png, devsecops-pipeline.png) in README.md and concept primers; documented the fix in L1 notes
+Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansible.py
