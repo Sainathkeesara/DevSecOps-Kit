@@ -4,6 +4,14 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-15
+
+### Added
+
+- falco-031: `falco/notes/2026-10-15-install-falco-first-event.md` — Install attempt with no cluster available: binary check, DaemonSet prerequisite, first-event plan (L1 notes)
+- nuclei-006: `nuclei/notes/2026-10-15-nuclei-quickstart-trip-ups.md` — Following the nuclei quickstart: template-download, target-choice, and output trip-ups (L2 notes)
+- nuclei-007: `nuclei/configs/2026-10-15-minimal-scan-template.yaml` — Minimal single-check nuclei template for a self-served practice page (L2 config)
+
 ## 2026-10-14
 
 ### Added
