@@ -1,0 +1,26 @@
+# last_verified: 2026-10-15 · ansible 2.15+
+# Ansible Galaxy role and collection dependencies
+# Install with: ansible-galaxy install -r requirements.yml
+
+collections:
+  # Core system administration
+  - name: ansible.posix
+    version: ">=1.5.0"
+  - name: community.general
+    version: ">=8.0.0"
+  # Package management
+  - name: ansible.builtin
+    version: ">=2.15.0"
+  # Cloud provider inventory plugins (uncomment as needed)
+  # - name: amazon.aws
+  #   version: ">=7.0.0"
+  # - name: azure.azcollection
+  #   version: ">=2.0.0"
+  # - name: google.cloud
+  #   version: ">=1.3.0"
+
+roles:
+  # Example: common hardening role from Galaxy (replace with your own)
+  # - src: geerlingguy.security
+  #   version: 2.0.0
+  #   name: common

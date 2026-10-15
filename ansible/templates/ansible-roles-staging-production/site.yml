@@ -1,0 +1,42 @@
+# last_verified: 2026-10-15 · ansible 2.15+
+---
+# Main entry point playbook — applies roles to host groups defined in inventory
+# Usage: ansible-playbook -i inventories/staging site.yml
+#        ansible-playbook -i inventories/production site.yml
+
+- name: Bootstrap all hosts
+  hosts: all
+  gather_facts: yes
+  roles:
+    - common
+
+- name: Configure web servers
+  hosts: webservers
+  gather_facts: yes
+  roles:
+    # - nginx
+    # - certbot
+    # Add your web tier roles here
+
+- name: Configure database servers
+  hosts: databases
+  gather_facts: yes
+  roles:
+    # - postgresql
+    # - mysql
+    # Add your database tier roles here
+
+- name: Configure monitoring
+  hosts: monitoring
+  gather_facts: yes
+  roles:
+    # - prometheus-node-exporter
+    # - grafana-agent
+    # Add your monitoring roles here
+
+# Example: Load balancer tier (uncomment and add role)
+# - name: Configure load balancers
+#   hosts: loadbalancers
+#   gather_facts: yes
+#   roles:
+#     - haproxy

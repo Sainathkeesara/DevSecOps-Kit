@@ -1,0 +1,59 @@
+# last_verified: 2026-10-15 · ansible 2.15+
+---
+# Staging environment variables — overrides role defaults
+# These values are specific to the staging environment
+
+# Environment identification
+environment: "staging"
+deployment_tier: "staging"
+
+# Domain / DNS
+base_domain: "staging.example.com"
+internal_domain: "staging.internal"
+
+# Network
+vpc_cidr: "10.0.0.0/16"
+private_subnet_cidrs:
+  - "10.0.1.0/24"  # bastion
+  - "10.0.2.0/24"  # web
+  - "10.0.3.0/24"  # database
+  - "10.0.4.0/24"  # monitoring
+
+# Application configuration
+app_replicas: 2
+app_image_tag: "staging-latest"
+app_resources:
+  requests:
+    cpu: "250m"
+    memory: "256Mi"
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+
+# Database configuration
+db_instance_class: "db.t3.micro"
+db_allocated_storage: 20
+db_backup_retention_days: 7
+db_multi_az: false
+
+# Monitoring
+prometheus_retention_days: 7
+grafana_admin_password: "{{ vault_grafana_admin_password_staging }}"
+
+# Security (reference vaulted secrets)
+# vault_ssh_keys: "{{ vault_staging_ssh_keys }}"
+# vault_db_password: "{{ vault_staging_db_password }}"
+# vault_api_keys: "{{ vault_staging_api_keys }}"
+
+# Feature flags
+enable_debug_logging: true
+enable_profiling: true
+maintenance_window: "Sat 02:00-04:00 UTC"
+
+# Terraform-provisioned outputs (populated by inventory generator)
+# terraform_outputs:
+#   vpc_id: "vpc-xxx"
+#   subnet_ids: ["subnet-xxx", "subnet-yyy"]
+#   security_group_ids: ["sg-xxx"]
+#   rds_endpoint: "staging-db.xxx.us-east-1.rds.amazonaws.com"
+#   alb_dns_name: "staging-alb-xxx.us-east-1.elb.amazonaws.com"

@@ -1,0 +1,19 @@
+# last_verified: 2026-10-15 · ansible 2.15+
+---
+# Common role handlers — triggered by notify in tasks
+
+- name: restart systemd-journald
+  ansible.builtin.systemd:
+    name: systemd-journald
+    state: restarted
+    daemon_reload: yes
+
+- name: restart ssh
+  ansible.builtin.systemd:
+    name: ssh
+    state: restarted
+    daemon_reload: yes
+
+- name: reload sysctl
+  ansible.builtin.command: sysctl --system
+  become: yes

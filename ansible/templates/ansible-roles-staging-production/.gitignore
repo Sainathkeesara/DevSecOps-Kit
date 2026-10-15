@@ -1,0 +1,50 @@
+# last_verified: 2026-10-15 · ansible 2.15+
+# Ansible generated files
+*.retry
+.ansible_facts/
+.ansible_retry/
+
+# Vault password files (never commit)
+.vault_pass
+.vault_*.pass
+
+# Local development overrides
+*.local.yml
+*.local.yaml
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.tox/
+.venv/
+venv/
+.env
+
+# Terraform (if co-located)
+*.tfstate
+*.tfstate.*
+*.tfplan
+.terraform/
+.terraform.lock.hcl
+
+# Logs
+*.log
+ansible.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp

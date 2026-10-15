@@ -1,0 +1,25 @@
+# last_verified: 2026-10-15 · ansible 2.15+
+# {{ ansible_managed | comment }}
+
+# Managed by Ansible — changes will be overwritten
+# Environment: {{ environment }}
+# Tier: {{ tier }}
+
+[Unit]
+Description=Example service for {{ inventory_hostname }}
+After=network.target
+
+[Service]
+Type=simple
+User={{ admin_user }}
+WorkingDirectory=/opt/app
+ExecStart=/usr/bin/python3 -m http.server 8080
+Restart=on-failure
+RestartSec=5
+
+# Resource limits (adjust per environment)
+MemoryLimit={{ app_resources.limits.memory | default('512M') }}
+CPUQuota={{ app_resources.limits.cpu | default('50%') }}
+
+[Install]
+WantedBy=multi-user.target

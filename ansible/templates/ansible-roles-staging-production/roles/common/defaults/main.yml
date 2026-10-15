@@ -1,0 +1,45 @@
+# last_verified: 2026-10-15 · ansible 2.15+
+---
+# Common role defaults — low-precedence variables overridden by inventory group_vars
+# These provide sane defaults; override in inventories/*/group_vars/all.yml
+
+# Admin user configuration
+admin_user: "admin"
+# admin_ssh_keys: []  # Define in group_vars to deploy keys
+
+# Package management
+essential_packages:
+  - curl
+  - wget
+  - gnupg2
+  - ca-certificates
+  - apt-transport-https
+  - software-properties-common
+
+# Timezone
+system_timezone: "UTC"
+
+# Kernel parameters
+kernel_parameters:
+  net.ipv4.ip_forward: "1"
+  net.bridge.bridge-nf-call-iptables: "1"
+  net.bridge.bridge-nf-call-ip6tables: "1"
+  fs.inotify.max_user_watches: "524288"
+  fs.inotify.max_user_instances: "512"
+
+# Kernel modules
+kernel_modules:
+  - br_netfilter
+  - overlay
+
+# SSH hardening
+sshd_config:
+  PasswordAuthentication: "no"
+  PubkeyAuthentication: "yes"
+  PermitRootLogin: "prohibit-password"
+
+# Journald
+journald_config:
+  Storage: "persistent"
+  Compress: "yes"
+  ForwardToSyslog: "no"
