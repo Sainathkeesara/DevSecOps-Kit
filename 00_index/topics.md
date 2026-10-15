@@ -51,10 +51,10 @@
 - **dockerfiles** (1): [custom-codeql-analysis-image.Dockerfile](../codeql/dockerfiles/custom-codeql-analysis-image.Dockerfile)
 - **notebooks** (2): [codeql-query-comparison-patterns.ipynb](../codeql/notebooks/codeql-query-comparison-patterns.ipynb), [compare-cli-vs-actions-scan-modes.ipynb](../codeql/notebooks/compare-cli-vs-actions-scan-modes.ipynb)
 
-## cosign  ·  18 files
+## cosign  ·  19 files
 
 - **primer:** [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md)
-- **notes** (4): [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md), [2026-06-13-install-cosign-sign-first-image.md](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md), [2026-06-14-install-cosign-generate-first-keypair.md](../cosign/notes/2026-06-14-install-cosign-generate-first-keypair.md) — _…and 1 more under `cosign/notes/`._
+- **notes** (5): [install and first signing command](../cosign/notes/2026-10-14-install-cosign-first-signing-command.md), [0000-primer-cosign.md](../cosign/notes/0000-primer-cosign.md), [2026-06-13-install-cosign-sign-first-image.md](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md) — _…and 2 more under `cosign/notes/`._
 - **docs** (3): [container-signing-pipeline.md](../cosign/docs/container-signing-pipeline.md), [cosign-verification-patterns.md](../cosign/docs/cosign-verification-patterns.md), [key-rotation-and-migration-patterns.md](../cosign/docs/key-rotation-and-migration-patterns.md)
 - **scripts** (3): [cosign-key-management-workflow.sh](../cosign/scripts/cosign-key-management-workflow.sh), [verify-signed-image.sh](../cosign/scripts/verify-signed-image.sh), [minimal-sign-verify.sh](../cosign/scripts/minimal-sign-verify.sh)
 - **configs** (2): [keyless-signing-github-actions.yaml](../cosign/configs/keyless-signing-github-actions.yaml), [cosign-signature-configuration.yaml](../cosign/configs/cosign-signature-configuration.yaml)
@@ -99,10 +99,10 @@
 - **configs** (2): [2026-09-30-minimal-environments-config.yaml](../environments/configs/2026-09-30-minimal-environments-config.yaml), [2026-09-19-first-variable-set.yaml](../environments/configs/2026-09-19-first-variable-set.yaml)
 - _…and 12 Terraform files under `environments/dev/`, `environments/staging/`, `environments/prod/` — browse the folders._
 
-## falco  ·  23 files
+## falco  ·  24 files
 
 - **primer:** [0000-primer-falco.md](../falco/notes/0000-primer-falco.md)
-- **notes** (4): [0000-primer-falco.md](../falco/notes/0000-primer-falco.md), [2026-06-10-install-falco-first-detection.md](../falco/notes/2026-06-10-install-falco-first-detection.md), [2026-06-15-falco-rules-macros-lists.md](../falco/notes/2026-06-15-falco-rules-macros-lists.md) — _…and 1 more under `falco/notes/`._
+- **notes** (5): [install and wait for a first event](../falco/notes/2026-10-15-install-falco-first-event.md), [0000-primer-falco.md](../falco/notes/0000-primer-falco.md), [2026-06-10-install-falco-first-detection.md](../falco/notes/2026-06-10-install-falco-first-detection.md) — _…and 2 more under `falco/notes/`._
 - **docs** (4): [runtime-security-monitoring-integration.md](../falco/docs/runtime-security-monitoring-integration.md), [rule-optimization-priority-filtering.md](../falco/docs/rule-optimization-priority-filtering.md), [tuned-falco-rules-noise-reduction.md](../falco/docs/tuned-falco-rules-noise-reduction.md) — _…and 1 more under `falco/docs/`._
 - **scripts** (3): [deploy-falco-ruleset.sh](../falco/scripts/deploy-falco-ruleset.sh), [tried-falco-k8s-alert-forwarding.sh](../falco/scripts/tried-falco-k8s-alert-forwarding.sh), [tried-falco-k8s-deploy-alert-forwarding.sh](../falco/scripts/tried-falco-k8s-deploy-alert-forwarding.sh)
 - **configs** (4): [2026-10-03-minimal-runtime-config.yaml](../falco/configs/2026-10-03-minimal-runtime-config.yaml), [first-custom-rule-detect-shell-in-container.yaml](../falco/configs/first-custom-rule-detect-shell-in-container.yaml), [container-drift-detection.yaml](../falco/configs/container-drift-detection.yaml), [2026-06-10-first-custom-rule-detect-shell-in-container.yaml](../falco/configs/2026-06-10-first-custom-rule-detect-shell-in-container.yaml)
@@ -131,12 +131,12 @@
 - **notebooks** (1): [choosing-between-on-premise-and-cloud-modes.ipynb](../gitguardian/notebooks/choosing-between-on-premise-and-cloud-modes.ipynb)
 - **templates** (9): [multi-repo scanning scaffold](../gitguardian/templates/gitguardian-multi-repo-scanning-scaffold/README.md), [org-secret-scan.yml](../gitguardian/templates/gitguardian-multi-repo-scanning-scaffold/.github/workflows/org-secret-scan.yml), [allowlist.yaml](../gitguardian/templates/gitguardian-multi-repo-scanning-scaffold/.ggshield/allowlist.yaml) — _…and 6 more under `gitguardian/templates/`._
 
-## github-actions  ·  13 files
+## github-actions  ·  16 files
 
 - **primer:** [0000-primer-github-actions.md](../github-actions/notes/0000-primer-github-actions.md)
-- **notes** (5): [0000-primer-github-actions.md](../github-actions/notes/0000-primer-github-actions.md), [2026-09-21-quickstart-tripped-me-up.md](../github-actions/notes/2026-09-21-quickstart-tripped-me-up.md), [2026-08-26-install-gh-cli-first-command.md](../github-actions/notes/2026-08-26-install-gh-cli-first-command.md) — _…and 2 more under `github-actions/notes/`._
-- **configs** (4): [2026-09-21-minimal-starter-workflow.yaml](../github-actions/configs/2026-09-21-minimal-starter-workflow.yaml), [2026-09-10-minimal-ci-workflow.yaml](../github-actions/configs/2026-09-10-minimal-ci-workflow.yaml), [2026-08-04-first-workflow.yaml](../github-actions/configs/2026-08-04-first-workflow.yaml), [2026-07-14-first-github-actions-workflow.yaml](../github-actions/configs/2026-07-14-first-github-actions-workflow.yaml)
-- **snippets** (2): [2026-08-26-composite-action-input-reuse.yaml](../github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml), [2026-08-26-first-workflow.yaml](../github-actions/snippets/2026-08-26-first-workflow.yaml)
+- **notes** (6): [run a first workflow](../github-actions/notes/2026-10-14-run-first-workflow.md), [0000-primer-github-actions.md](../github-actions/notes/0000-primer-github-actions.md), [2026-09-21-quickstart-tripped-me-up.md](../github-actions/notes/2026-09-21-quickstart-tripped-me-up.md) — _…and 3 more under `github-actions/notes/`._
+- **configs** (5): [first scheduled workflow](../github-actions/configs/2026-10-14-first-scheduled-workflow.yaml), [2026-09-21-minimal-starter-workflow.yaml](../github-actions/configs/2026-09-21-minimal-starter-workflow.yaml), [2026-09-10-minimal-ci-workflow.yaml](../github-actions/configs/2026-09-10-minimal-ci-workflow.yaml) — _…and 2 more under `github-actions/configs/`._
+- **snippets** (3): [trigger a workflow with gh](../github-actions/snippets/2026-10-14-trigger-first-workflow-gh.sh), [2026-08-26-composite-action-input-reuse.yaml](../github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml), [2026-08-26-first-workflow.yaml](../github-actions/snippets/2026-08-26-first-workflow.yaml)
 - **manifests** (2): [2026-08-04-what-is-github-actions.yaml](../github-actions/manifests/2026-08-04-what-is-github-actions.yaml), [2026-08-04-pr-validation.yml](../github-actions/manifests/2026-08-04-pr-validation.yml)
 
 ## gitleaks  ·  6 files
@@ -146,11 +146,12 @@
 - **scripts** (2): [2026-10-13-auditing-git-secrets.sh](../gitleaks/scripts/2026-10-13-auditing-git-secrets.sh), [2026-09-26-run-first-gitleaks-scan.sh](../gitleaks/scripts/2026-09-26-run-first-gitleaks-scan.sh)
 - **configs** (1): [2026-10-07-detection-rules.yaml](../gitleaks/configs/2026-10-07-detection-rules.yaml)
 
-## grafana  ·  5 files
+## grafana  ·  7 files
 
 - **primer:** [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md)
 - **notes** (4): [quickstart trip-ups](../grafana/notes/2026-10-14-grafana-quickstart-trip-ups.md), [0000-primer-grafana.md](../grafana/notes/0000-primer-grafana.md), [2026-09-26-explore-grafana-dashboard-ui.md](../grafana/notes/2026-09-26-explore-grafana-dashboard-ui.md) — _…and 1 more under `grafana/notes/`._
-- **configs** (1): [2026-09-19-first-datasource.yaml](../grafana/configs/2026-09-19-first-datasource.yaml)
+- **configs** (2): [dashboard provisioning](../grafana/configs/2026-10-14-dashboard-provisioning.yaml), [2026-09-19-first-datasource.yaml](../grafana/configs/2026-09-19-first-datasource.yaml)
+- **snippets** (1): [first datasource query](../grafana/snippets/2026-10-14-first-grafana-datasource-query.py)
 
 ## grype  ·  25 files
 
@@ -185,11 +186,12 @@
 - **configs** (2): [2026-09-22-minimal-kustomization-with-overlay.yaml](../kustomize/configs/2026-09-22-minimal-kustomization-with-overlay.yaml), [2026-07-08-minimal-kustomization.yaml](../kustomize/configs/2026-07-08-minimal-kustomization.yaml)
 - **manifests** (1): [2026-09-21-kustomize-tutorial.yaml](../kustomize/manifests/2026-09-21-kustomize-tutorial.yaml)
 
-## lab  ·  13 files
+## lab  ·  14 files
 
 - **primer:** [0000-primer-lab.md](../lab/notes/0000-primer-lab.md)
 - **notes** (2): [0000-primer-lab.md](../lab/notes/0000-primer-lab.md), [2026-09-20-setting-up-the-lab-directory.md](../lab/notes/2026-09-20-setting-up-the-lab-directory.md)
 - **configs** (1): [2026-09-19-first-lab-env.yaml](../lab/configs/2026-09-19-first-lab-env.yaml)
+- **snippets** (1): [first lab command](../lab/snippets/2026-10-14-first-lab-command.sh)
 - _…and 10 more files under `lab/mini-projects/` (postgres, samba, and Terraform practice setups) — browse the folder._
 
 ## linux  ·  6 files
@@ -199,10 +201,11 @@
 - **scripts** (1): [health-check-and-rollback.sh](../linux/scripts/health-check-and-rollback.sh)
 - **configs** (1): [2026-08-06-cron-job-configuration.ini](../linux/configs/2026-08-06-cron-job-configuration.ini)
 
-## nuclei  ·  2 files
+## nuclei  ·  4 files
 
 - **primer:** [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md)
-- **notes** (2): [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md), [2026-09-20-first-template-scan-attempt.md](../nuclei/notes/2026-09-20-first-template-scan-attempt.md)
+- **notes** (3): [quickstart trip-ups](../nuclei/notes/2026-10-15-nuclei-quickstart-trip-ups.md), [0000-primer-nuclei.md](../nuclei/notes/0000-primer-nuclei.md), [2026-09-20-first-template-scan-attempt.md](../nuclei/notes/2026-09-20-first-template-scan-attempt.md)
+- **configs** (1): [minimal scan template](../nuclei/configs/2026-10-15-minimal-scan-template.yaml)
 
 ## opa  ·  29 files
 

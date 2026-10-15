@@ -16,6 +16,7 @@
 
 - [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
 - [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh)
+- [Install Cosign and run a first signing command](../cosign/notes/2026-10-14-install-cosign-first-signing-command.md) — Binary install, keypair generation, and `cosign sign` against a full registry path
 - [Cosign verification patterns](../cosign/docs/cosign-verification-patterns.md)
 - [Container signing pipeline integration](../cosign/docs/container-signing-pipeline.md) — Where signing and verification stages belong in an image pipeline, and the verify gate that rejects unsigned images
 - [Cosign key management workflow](../cosign/scripts/cosign-key-management-workflow.sh)
@@ -72,6 +73,8 @@
 
 - [Grafana primer](../grafana/notes/0000-primer-grafana.md)
 - [First Grafana datasource](../grafana/configs/2026-09-19-first-datasource.yaml) — Wire one Prometheus backend in so a first panel query has something to read
+- [Dashboard provisioning](../grafana/configs/2026-10-14-dashboard-provisioning.yaml) — Tell Grafana which folder to load dashboard JSON from at startup
+- [First datasource query](../grafana/snippets/2026-10-14-first-grafana-datasource-query.py) — Hit the HTTP API for the datasource list the way the UI does
 - [First dashboard browser check](../grafana/notes/2026-09-19-first-dashboard-browser.md) — What to inspect once the dashboard browser is reachable
 - [Grafana dashboard UI walkthrough](../grafana/notes/2026-09-26-explore-grafana-dashboard-ui.md) — Panels, plain-Prometheus queries, and the Loki log view in a default install
 - [Grafana quickstart trip-ups](../grafana/notes/2026-10-14-grafana-quickstart-trip-ups.md) — What worked and where it broke on a first local pass through the official quickstart
@@ -84,6 +87,7 @@
 ### Tune runtime detection
 
 - [Falco primer](../falco/notes/0000-primer-falco.md)
+- [Installing Falco and waiting for a first event](../falco/notes/2026-10-15-install-falco-first-event.md) — No cluster with watchable nodes here, so the install stays mapped-out rather than run
 - [Falco runtime security monitoring integration](../falco/docs/runtime-security-monitoring-integration.md) — End-to-end deployment: custom rules, priority routing, and forwarding alerts onward
 - [Falco rule engine vs eBPF probes](../falco/notebooks/rule-engine-vs-ebpf-probes.ipynb) — When a syscall rule engine is enough and when eBPF probes earn their extra complexity
 - [Falco rule optimization with priority-based filtering](../falco/docs/rule-optimization-priority-filtering.md) — Rank the noisiest rules first, then cut volume with lists, macros, and priority-tiered routing
@@ -104,6 +108,8 @@
 - [ZAP scan configuration migration guide](../zap/docs/zap-scan-configuration-migration-guide.md) — Consolidate scattered scan config into one version-controlled Automation Framework plan
 - [ZAP scan strategy comparison](../zap/notebooks/scan-strategy-comparison-patterns.ipynb) — Passive baseline vs active full scan vs narrowed-context active scan, and what each costs you
 - [Nuclei primer](../nuclei/notes/0000-primer-nuclei.md)
+- [Following the Nuclei quickstart — what tripped me up](../nuclei/notes/2026-10-15-nuclei-quickstart-trip-ups.md) — Install, template fetch, target choice, and output handling, with a one-template plan
+- [My first Nuclei template](../nuclei/configs/2026-10-15-minimal-scan-template.yaml) — A single harmless word-matcher check at severity info for a practice page
 - [Trivy primer](../trivy/notes/0000-primer-trivy.md)
 - [Trivy scanning performance optimization](../trivy/notes/scanning-performance-optimization.md)
 - [Trivy ignore-rules pipeline](../trivy/scripts/ignore-rules-pipeline.sh)
@@ -231,6 +237,7 @@
 - [Configuration management fundamentals](../docs/concepts/configuration-management/0000-primer-configuration-management.md)
 - [Lab primer](../lab/notes/0000-primer-lab.md) — What the lab scratch space is for and how mini-projects are organised
 - [First lab environment](../lab/configs/2026-09-19-first-lab-env.yaml) — A one-machine practice box you can rebuild from when experiments get messy
+- [First lab command](../lab/snippets/2026-10-14-first-lab-command.sh) — List the mini-projects on disk and save the listing
 - [DefectDojo tutorial check](../defectdojo/scripts/2026-09-20-defectdojo-tutorial-check.sh) — Verify DefectDojo setup and prerequisites before starting
 - [Version-control patterns in real projects](../docs/concepts/version-control-with-git/notebooks/version-control-patterns-in-real-projects.ipynb) — Feature-branch, trunk-based, and squash-merge histories compared through the same Git queries
 - [Image optimisation trip-ups](../assets/notes/2026-09-29-image-optimization-tripped-me-up.md) — Resizing kit diagrams without squashing them, and relative image links from nested notes
@@ -329,6 +336,9 @@
 ### Set up CI/CD pipelines
 
 - [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md)
+- [Run a first workflow](../github-actions/notes/2026-10-14-run-first-workflow.md) — Push-triggered run from queued to green, plus the silent-folder and indentation gotchas
+- [Trigger a workflow with gh](../github-actions/snippets/2026-10-14-trigger-first-workflow-gh.sh) — Fire a named workflow from the CLI and watch it in the Actions tab
+- [First scheduled workflow](../github-actions/configs/2026-10-14-first-scheduled-workflow.yaml) — A cron-triggered run with a manual `workflow_dispatch` escape hatch
 - [Install the GitHub CLI and run a first command](../github-actions/notes/2026-08-26-install-gh-cli-first-command.md)
 - [My first GitHub Actions workflow](../github-actions/snippets/2026-08-26-first-workflow.yaml)
 - [Reusing inputs with a composite action](../github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml)

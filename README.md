@@ -15,11 +15,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 ## Quick links
 
-- [How I wired Dependabot into my version control workflow](dependabot/docs/wired-dependabot-version-control-workflow.md) — Updates open branches, get a reviewer, and merge under the same branch protection as any other change
-- [Grafana quickstart — what tripped me up](grafana/notes/2026-10-14-grafana-quickstart-trip-ups.md) — What worked and where it broke on a first pass through the official quickstart
-- [Poking around the GitGuardian interface](gitguardian/notes/2026-10-14-explore-interface.md) — Incidents list, repo integrations, and team handoff, after only using ggshield from the CLI
-- [Following the Trivy quickstart — what tripped me up](trivy/notes/2026-10-14-quickstart-trip-ups.md) — A first image scan straight from the quickstart, snags written down as they happened
-- [My first TruffleHog scan](trufflehog/snippets/2026-10-14-first-secret-scan.sh) — Filesystem scan of a local checkout with findings piped through jq
+- [Installing Falco and waiting for my first event](falco/notes/2026-10-15-install-falco-first-event.md) — No cluster with watchable nodes here, so the install steps stay mapped-out rather than run
+- [Following the Nuclei quickstart — what tripped me up](nuclei/notes/2026-10-15-nuclei-quickstart-trip-ups.md) — Install, template fetch, target choice, and output handling, with a one-template plan
+- [My first Nuclei template](nuclei/configs/2026-10-15-minimal-scan-template.yaml) — A single harmless word-matcher check at severity info for a practice page
+- [Cosign — install and my first signing command](cosign/notes/2026-10-14-install-cosign-first-signing-command.md) — Binary install, keypair generation, and `cosign sign` against a full registry path
+- [GitHub Actions — run my first workflow and record what happened](github-actions/notes/2026-10-14-run-first-workflow.md) — Push-triggered run from queued to green, plus the silent-folder and indentation gotchas
 
 ## Layout
 
@@ -57,19 +57,19 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | codeql | 4 | 4 | 1 | 1 | 5 | 8 | 3 | 1 | 2 | 0 | 29 | 2026-10-11 |
 | opa | 3 | 4 | 2 | 2 | 4 | 9 | 4 | 0 | 1 | 0 | 29 | 2026-10-14 |
 | grype | 5 | 3 | 8 | 2 | 2 | 0 | 2 | 1 | 2 | 0 | 25 | 2026-10-14 |
-| falco | 4 | 4 | 3 | 4 | 1 | 4 | 1 | 0 | 2 | 0 | 23 | 2026-10-03 |
+| falco | 5 | 4 | 3 | 4 | 1 | 4 | 1 | 0 | 2 | 0 | 24 | 2026-10-15 |
 | semgrep | 3 | 7 | 3 | 1 | 2 | 0 | 3 | 2 | 3 | 0 | 24 | 2026-10-09 |
 | snyk | 5 | 4 | 1 | 3 | 1 | 11 | 1 | 1 | 1 | 0 | 28 | 2026-10-08 |
 | terraform | 3 | 1 | 4 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 21 | 2026-09-22 |
 | terrascan | 5 | 3 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 22 | 2026-10-10 |
 | vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 2 | 0 | 21 | 2026-10-11 |
 | environments | 5 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 20 | 2026-10-14 |
-| cosign | 4 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 18 | 2026-09-25 |
+| cosign | 5 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 19 | 2026-10-14 |
 | dependabot | 7 | 4 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 0 | 19 | 2026-10-14 |
 | docker | 2 | 2 | 3 | 1 | 0 | 7 | 1 | 2 | 0 | 0 | 18 | 2026-09-25 |
 | argocd | 6 | 2 | 0 | 2 | 0 | 0 | 3 | 0 | 0 | 0 | 13 | 2026-09-23 |
-| github-actions | 5 | 0 | 0 | 4 | 2 | 0 | 2 | 0 | 0 | 0 | 13 | 2026-09-21 |
-| lab | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 13 | 2026-09-20 |
+| github-actions | 6 | 0 | 0 | 5 | 3 | 0 | 2 | 0 | 0 | 0 | 16 | 2026-10-14 |
+| lab | 2 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 14 | 2026-10-14 |
 | tetragon | 3 | 1 | 3 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 11 | 2026-09-26 |
 | ansible | 3 | 1 | 3 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
 | git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
@@ -81,10 +81,10 @@ Trivy, Nuclei, Semgrep, Checkov, tfsec, Terrascan, Grype, Syft, TruffleHog, Gitl
 | opentofu | 3 | 0 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | sonarqube | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-09-21 |
 | helm | 3 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 5 | 2026-09-21 |
-| grafana | 4 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 2026-10-14 |
+| grafana | 4 | 0 | 0 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-10-14 |
 | gitleaks | 3 | 0 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-10-13 |
 | prometheus | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-10-14 |
-| nuclei | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
+| nuclei | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 2026-10-15 |
 | tfsec | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 2026-09-20 |
 
 _Counts are the files inside each category folder; a few folders also hold files at their root or in project sub-folders (Terraform's EventBridge sample, Lab's mini-projects, Environments' dev/staging/prod Terraform, and Assets' diagrams), which the category columns don't itemise. `Last verified` is the most recent `last_verified` marker anywhere in that tool's files._
@@ -93,7 +93,7 @@ _Counts are the files inside each category folder; a few folders also hold files
 
 ## Status
 
-First-contact notes are still landing where the kit was thin: a Trivy quickstart run, a Grafana quickstart pass, a first tour of the GitGuardian dashboard, and a first TruffleHog filesystem scan. Alongside that, Dependabot updates got wired into the normal branch-and-review workflow instead of arriving as unowned surprise PRs. The thinner corners are still the tools carrying notes only: tfsec and Nuclei.
+First-contact notes are still landing where the kit was thin: a Nuclei quickstart pass with a first hand-written scan template, a Falco install mapped out against a box with no nodes to watch, a first Cosign signing command, and a first GitHub Actions run from queued to green. The thinner corners are still the tools carrying notes only: tfsec, and Nuclei until that first template actually runs.
 
 ---
-_Last updated: 2026-10-14_
+_Last updated: 2026-10-15_
