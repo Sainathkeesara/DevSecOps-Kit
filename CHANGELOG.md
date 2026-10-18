@@ -3169,3 +3169,10 @@ ter-018: Terraform AWS Secrets Manager integration — 2026-04-22
 
 - assets-008: `assets/notes/2026-10-11-embedding-architecture-diagrams.md` — Embedded three architecture diagrams (architecture-overview.png, cicd-workflow.png, devsecops-pipeline.png) in README.md and concept primers; documented the fix in L1 notes
 Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansible.py
+
+## 2026-10-18
+
+### Added
+
+- con-137: `docs/concepts/configuration-management/combining-configuration-management-with-infrastructure-as-code.md` — Combining Configuration Management with Infrastructure as Code: IaC provisions, CM configures, generated inventory handoff, verify steps, and common errors (L3 concept docs)
+- scripts-008: `scripts/configs/2026-10-18-shared-script-config.yaml` — Minimal shared script configuration for the kit: default interpreter/log level/output dir, retry policy, and logging format (L2 config yaml)

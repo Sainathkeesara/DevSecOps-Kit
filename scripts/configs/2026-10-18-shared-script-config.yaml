@@ -1,0 +1,22 @@
+# last_verified: 2026-10-18 · scripts n/a
+# Minimal shared script configuration for the kit.
+# This is my scratch attempt at one place that holds the settings several
+# kit scripts reuse (log level, retry count, output directory) so I stop
+# copying the same defaults into every new script. Treat the values below
+# as defaults that individual scripts can override.
+
+version: 1
+
+default_interpreter: /bin/bash
+default_log_level: info
+default_output_dir: ./scripts/output
+
+retry:
+  enabled: true
+  max_attempts: 3
+  backoff_seconds: 2
+
+logging:
+  level: info
+  format: text
+  destination: stderr
