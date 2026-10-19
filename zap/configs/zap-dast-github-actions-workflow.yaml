@@ -1,0 +1,53 @@
+# last_verified: 2026-10-19 · zap n/a
+# ZAP DAST workflow aligned with the repository's own workflow standards.
+# Decision: security scanners genuinely need security-events: write to upload
+# SARIF results, so the README's `permissions: read-all` standard is carved out
+# for scanner jobs — job-level permissions grant the extra scope with a comment
+# explaining why. Every other job stays at read-all. `continue-on-error: false`
+# is set explicitly on the DAST scan step because its non-zero exit is the gate.
+# Actions are tag-pinned here; SHA pinning is recommended per
+# snippets/ci-cd-cheatsheet.md and should be applied before publishing.
+name: ZAP DAST
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      target_url:
+        description: 'Target URL to scan (overrides vars.ZAP_TARGET_URL)'
+        required: false
+        default: ''
+
+permissions: read-all
+
+jobs:
+  dast-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write   # carve-out: ZAP uploads SARIF results
+      actions: read
+    env:
+      ZAP_IMAGE: ghcr.io/zaproxy/zaproxy:stable
+      ZAP_TARGET_URL: ${{ vars.ZAP_TARGET_URL || 'http://localhost:8080' }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run ZAP DAST scan
+        id: zap-scan
+        run: |
+          docker run --rm -v "$PWD:/zap/wrk:rw" \
+            "$ZAP_IMAGE" zap.sh -cmd -autorun /zap/wrk/zap-automation-plan.yaml
+        continue-on-error: false
+
+      - name: Upload ZAP report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zap-dast-report
+          path: reports/
+          if-no-files-found: warn

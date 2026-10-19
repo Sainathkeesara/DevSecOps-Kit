@@ -3185,3 +3185,10 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - con-137: `docs/concepts/configuration-management/combining-configuration-management-with-infrastructure-as-code.md` — Combining Configuration Management with Infrastructure as Code: IaC provisions, CM configures, generated inventory handoff, verify steps, and common errors (L3 concept docs)
 - scripts-008: `scripts/configs/2026-10-18-shared-script-config.yaml` — Minimal shared script configuration for the kit: default interpreter/log level/output dir, retry policy, and logging format (L2 config yaml)
 - 2026-10-19: snippets-004, snippets-005, snippets-006 — added snippets quickstart notes, minimal Python snippet, and shared index config
+
+## 2026-10-19
+
+### Added
+
+- templates-009: `templates/docs/2026-10-19-linux-automation-deploy-path.md` — Reconciled the linux-automation README deploy.sh path with the shipped deploy.sh (L2 docs)
+- zap-040: `zap/configs/zap-dast-github-actions-workflow.yaml` — Aligned the ZAP DAST scaffold workflow with the repository workflow standards (L4 config yaml)
