@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-19
+
+### Added
+
+- terraform-026: `terraform/configs/2026-10-19-minimal-quickstart-config.hcl` — Minimal Terraform configuration from the official quickstart: one provider, one AWS instance, runnable with `terraform init` and `terraform plan` (L2 config hcl)
+
 ## 2026-10-15
 
 ### Added
