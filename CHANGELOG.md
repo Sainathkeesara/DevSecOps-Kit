@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - terraform-026: `terraform/configs/2026-10-19-minimal-quickstart-config.hcl` — Minimal Terraform configuration from the official quickstart: one provider, one AWS instance, runnable with `terraform init` and `terraform plan` (L2 config hcl)
+- trivy-025: `trivy/notes/2026-10-19-trivy-first-image-scan.md` — First install and image scan: DB download hang, cached DB, stdout vs --file, uppercase severity names (L2 notes)
+- trivy-026: `trivy/configs/2026-10-19-minimal-trivy-config.yaml` — Minimal starter Trivy scan config: severity filter, skip-db-update, table output, exit code (L2 config yaml)
 
 ## 2026-10-15
 

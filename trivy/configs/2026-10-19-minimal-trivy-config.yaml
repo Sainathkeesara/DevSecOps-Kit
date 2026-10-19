@@ -1,0 +1,18 @@
+# last_verified: 2026-10-19 · trivy n/a
+# Minimal starter Trivy scan config for the kit (L2 learner config).
+# Use with: trivy --config 2026-10-19-minimal-trivy-config.yaml image <target>
+
+# Only report findings we can act on right now.
+severity:
+  - CRITICAL
+  - HIGH
+
+# Don't re-download the vulnerability database on every run.
+scan:
+  skip-db-update: true
+
+# Keep output simple and human-readable.
+format: table
+
+# Fail the scan with this exit code when findings are reported.
+exit-code: 1
