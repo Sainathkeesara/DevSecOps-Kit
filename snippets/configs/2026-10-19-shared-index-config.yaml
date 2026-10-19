@@ -1,0 +1,114 @@
+# last_verified: 2026-10-19 · snippets L2
+
+# Minimal shared snippet index configuration for the kit.
+# Maps root-level cheatsheet files to categories so tooling can auto-generate
+# an index or validate coverage. This extends the category schema from
+# 2026-09-20-first-category.yaml with a "files" field per category.
+
+categories:
+  - name: "bash-scripting"
+    description: "Reusable bash functions and patterns"
+    tags: ["bash", "shell", "scripting", "functions"]
+    files:
+      - "linux-commands.md"
+      - "linux-cheatsheet.md"
+    examples:
+      - "logging"
+      - "retry-logic"
+      - "arg-parsing"
+
+  - name: "k8s-operations"
+    description: "kubectl snippets for common cluster tasks"
+    tags: ["kubernetes", "kubectl", "cluster", "devops"]
+    files:
+      - "kubectl-cheatsheet.md"
+    examples:
+      - "pod-logs"
+      - "scale-deployment"
+      - "port-forward"
+
+  - name: "terraform-patterns"
+    description: "Terraform module snippets and patterns"
+    tags: ["terraform", "iac", "modules", "aws"]
+    files:
+      - "terraform-commands.md"
+    examples:
+      - "s3-bucket"
+      - "security-group"
+      - "iam-role"
+
+  - name: "ci-cd-pipelines"
+    description: "Pipeline snippets for GitHub Actions, Jenkins, GitLab CI"
+    tags: ["ci", "cd", "github-actions", "jenkins", "pipelines"]
+    files:
+      - "ci-cd-cheatsheet.md"
+      - "jenkins-cheatsheet.md"
+      - "jenkins-commands-reference.md"
+      - "jenkins-scripted-pipeline-groovy.md"
+      - "jenkins-cli-commands.md"
+    examples:
+      - "docker-build-push"
+      - "terraform-plan-apply"
+      - "security-scan"
+
+  - name: "observability"
+    description: "Prometheus, Grafana, Loki query snippets"
+    tags: ["prometheus", "grafana", "loki", "metrics", "logs"]
+    files:
+      - "observability-cheatsheet.md"
+    examples:
+      - "cpu-usage-query"
+      - "error-rate-alert"
+      - "log-filter"
+
+  - name: "container-registry"
+    description: "OCI registry and Docker CLI patterns"
+    tags: ["docker", "oci", "registry", "containers"]
+    files:
+      - "docker-commands.md"
+      - "oci-registry-cheatsheet.md"
+    examples:
+      - "image-build"
+      - "multi-arch-push"
+      - "vulnerability-scan"
+
+  - name: "secrets-management"
+    description: "Vault and secret injection patterns"
+    tags: ["vault", "secrets", "hcp", "tokens"]
+    files:
+      - "vault-commands.md"
+    examples:
+      - "read-secret"
+      - "dynamic-creds"
+      - "token-renewal"
+
+  - name: "messaging"
+    description: "Kafka topic and consumer commands"
+    tags: ["kafka", "messaging", "topics", "consumers"]
+    files:
+      - "kafka-cheatsheet.md"
+      - "kafka-topics-commands.md"
+    examples:
+      - "create-topic"
+      - "list-consumer-groups"
+      - "reset-offsets"
+
+  - name: "ansible-automation"
+    description: "Ad-hoc Ansible commands and playbook patterns"
+    tags: ["ansible", "automation", "playbooks", "inventory"]
+    files:
+      - "ansible-commands.md"
+    examples:
+      - "ping-all"
+      - "run-playbook"
+      - "limit-hosts"
+
+  - name: "git-workflows"
+    description: "Git history, rebase, and hook patterns"
+    tags: ["git", "version-control", "hooks", "history"]
+    files:
+      - "git-commands.md"
+    examples:
+      - "interactive-rebase"
+      - "commit-signing"
+      - "hook-setup"
