@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- defectdojo-008: `defectdojo/snippets/2026-10-19-minimal-product-setup-api.py` — Minimal DefectDojo product and engagement setup via REST API v2 (L2 snippet python)
 - ansible-014: `ansible/configs/terraform-nginx-integration.yaml` — Terraform-provisioned host inventory + Nginx role wiring with dynamic upstream generation from Terraform output (L4 config yaml)
 - tfsec-006: `tfsec/notes/2026-10-19-followed-tfsec-quickstart-what-tripped-me-up.md` — Followed the tfsec quickstart: install, scan, exit codes, SARIF output, module depth, config file creation trip-ups (L2 notes)
 - terraform-026: `terraform/configs/2026-10-19-minimal-quickstart-config.hcl` — Minimal Terraform configuration from the official quickstart: one provider, one AWS instance, runnable with `terraform init` and `terraform plan` (L2 config hcl)
