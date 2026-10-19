@@ -1,0 +1,10 @@
+# last_verified: 2026-10-19 · tfsec n/a
+
+# Minimal tfsec scan config — what I started with.
+# Run with: tfsec . --config-file tfsec/configs/2026-10-19-minimal-tfsec-scan-config.yaml
+
+minimum_severity: MEDIUM
+exclude_paths:
+  - .terraform/
+  - vendor/
+  - node_modules/
