@@ -1,0 +1,239 @@
+---
+# last_verified: 2026-10-19 · ansible-core 2.21.5
+# Terraform-provisioned host inventory + Nginx role wiring
+# Uses ansible.builtin.template for dynamic upstream generation from Terraform output
+
+# Purpose: Wire Terraform-provisioned web servers into an Ansible Nginx configuration
+# When to use: After Terraform apply creates EC2/GCE/VM instances; before application deploy
+# Prerequisites:
+#   - Terraform state with aws_instance.web or google_compute_instance.web outputs
+#   - ansible-core >= 2.15, community.aws >= 7.0.0 or community.general >= 7.0.0
+#   - SSH access to provisioned hosts (ansible_user, private key)
+#   - Terraform outputs: web_public_ips (list), web_private_ips (list), ssh_key_path (string)
+
+all:
+  vars:
+    ansible_user: "ubuntu"
+    ansible_ssh_private_key_file: "{{ lookup('env', 'TF_SSH_KEY_PATH') | default('~/.ssh/id_ed25519') }}"
+    ansible_python_interpreter: /usr/bin/python3
+    nginx_upstream_servers: "{{ groups['web'] | map('extract', hostvars, ['ansible_host', 'ansible_port']) | list }}"
+    terraform_state_path: "{{ lookup('env', 'TF_STATE_PATH') | default('../terraform/terraform.tfstate') }}"
+  children:
+    web:
+      vars:
+        nginx_config_template: "templates/nginx.conf.j2"
+        nginx_sites_enabled: "/etc/nginx/sites-enabled"
+        nginx_sites_available: "/etc/nginx/sites-available"
+      hosts: {}
+
+---
+# Dynamic inventory plugin: terraform_inv.yml (place in inventory/ or playbook dir)
+# Run: ansible-inventory -i terraform_inv.yml --list
+plugin: community.general.terraform
+project_dir: "{{ terraform_state_path | dirname }}"
+state_file: "{{ terraform_state_path }}"
+groups:
+  web:
+    - type: "aws_instance"
+      name: "web"
+    - type: "google_compute_instance"
+      name: "web"
+host_filters: {}
+compose:
+  ansible_host: "public_ip | default(private_ip)"
+  ansible_port: 22
+
+---
+# site-terraform-nginx.yml - entry point playbook
+- name: Configure Nginx on Terraform-provisioned web servers
+  hosts: web
+  become: true
+  gather_facts: true
+  vars:
+    nginx_version: "latest"
+    nginx_worker_processes: "auto"
+    nginx_worker_connections: 1024
+    upstream_name: "app_backend"
+    upstream_servers: "{{ groups['web'] | map('extract', hostvars, 'ansible_host') | list }}"
+    health_check_path: "/health"
+  roles:
+    - role: nginx
+      tags: [nginx, terraform]
+
+---
+# roles/nginx/tasks/main.yml
+- name: Ensure nginx package is present
+  ansible.builtin.apt:
+    name: "nginx={{ nginx_version }}"
+    state: present
+    update_cache: true
+  notify: restart nginx
+  when: ansible_facts.os_family == "Debian"
+
+- name: Ensure nginx package is present (RHEL)
+  ansible.builtin.dnf:
+    name: "nginx-{{ nginx_version }}"
+    state: present
+  notify: restart nginx
+  when: ansible_facts.os_family == "RedHat"
+
+- name: Create nginx sites-available directory
+  ansible.builtin.file:
+    path: "{{ nginx_sites_available }}"
+    state: directory
+    mode: "0755"
+
+- name: Create nginx sites-enabled directory
+  ansible.builtin.file:
+    path: "{{ nginx_sites_enabled }}"
+    state: directory
+    mode: "0755"
+
+- name: Render nginx.conf from template with Terraform-derived upstreams
+  ansible.builtin.template:
+    src: "{{ nginx_config_template }}"
+    dest: "/etc/nginx/nginx.conf"
+    mode: "0644"
+    backup: true
+  notify: reload nginx
+
+- name: Render site config with dynamic upstream blocks
+  ansible.builtin.template:
+    src: "templates/site-upstream.conf.j2"
+    dest: "{{ nginx_sites_available }}/terraform-app.conf"
+    mode: "0644"
+    backup: true
+  notify: reload nginx
+
+- name: Enable site by symlinking to sites-enabled
+  ansible.builtin.file:
+    src: "{{ nginx_sites_available }}/terraform-app.conf"
+    dest: "{{ nginx_sites_enabled }}/terraform-app.conf"
+    state: link
+    force: true
+  notify: reload nginx
+
+- name: Disable default site if present
+  ansible.builtin.file:
+    path: "{{ nginx_sites_enabled }}/default"
+    state: absent
+  notify: reload nginx
+
+- name: Ensure nginx is running and enabled
+  ansible.builtin.systemd:
+    name: nginx
+    state: started
+    enabled: true
+    daemon_reload: true
+
+---
+# roles/nginx/handlers/main.yml
+- name: reload nginx
+  ansible.builtin.systemd:
+    name: nginx
+    state: reloaded
+    daemon_reload: false
+
+- name: restart nginx
+  ansible.builtin.systemd:
+    name: nginx
+    state: restarted
+    daemon_reload: true
+
+---
+# roles/nginx/templates/nginx.conf.j2
+user www-data;
+worker_processes {{ nginx_worker_processes }};
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+    worker_connections {{ nginx_worker_connections }};
+    multi_accept on;
+}
+
+http {
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout 65;
+    types_hash_max_size 2048;
+    server_tokens off;
+
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    # Logging
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+
+    # Gzip
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+    # Upstream blocks generated from Terraform inventory
+    {% for host in groups['web'] %}
+    upstream {{ upstream_name }}_{{ loop.index }} {
+        server {{ hostvars[host].ansible_host }}:80 max_fails=3 fail_timeout=30s;
+    }
+    {% endfor %}
+
+    # Combined upstream for load balancing across all Terraform hosts
+    upstream {{ upstream_name }} {
+        {% for host in groups['web'] %}
+        server {{ hostvars[host].ansible_host }}:80;
+        {% endfor %}
+        keepalive 32;
+    }
+
+    include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/sites-enabled/*;
+}
+
+---
+# roles/nginx/templates/site-upstream.conf.j2
+server {
+    listen 80;
+    server_name _;
+
+    location / {
+        proxy_pass http://{{ upstream_name }};
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_connect_timeout 30s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
+    }
+
+    location {{ health_check_path }} {
+        access_log off;
+        return 200 "healthy\n";
+        add_header Content-Type text/plain;
+    }
+}
+
+---
+# Usage:
+# 1. Export Terraform outputs: TF_STATE_PATH=../terraform/terraform.tfstate TF_SSH_KEY_PATH=~/.ssh/terraform_key
+# 2. Generate inventory: ansible-inventory -i terraform_inv.yml --list > inventory.yml
+# 3. Run playbook: ansible-playbook -i inventory.yml site-terraform-nginx.yml --check --diff
+# 4. Apply: ansible-playbook -i inventory.yml site-terraform-nginx.yml
+#
+# Verify:
+#   curl -f http://<any_web_host>/health
+#   nginx -t && systemctl status nginx
+#
+# Common errors:
+#   - "Unable to find ansible_host": Terraform state missing public_ip/private_ip attributes
+#   - "Permission denied (publickey)": TF_SSH_KEY_PATH not set or key mismatch
+#   - "Template variable undefined": groups['web'] empty — check terraform_inv.yml group filters
+#   - "nginx: [emerg] upstream has no server": No hosts matched in web group
+#
+# References:
+#   - Terraform + Ansible integration patterns: https://www.hashicorp.com/en/blog/terraform-ansible-unifying-infrastructure-provisioning-configuration-management
+#   - Ansible dynamic inventory from Terraform: https://www.neteye-blog.com/blog/2024/07/30/terraform-integration-with-ansible
+#   - Ansible project structure best practices: https://oneuptime.com/blog/post/2026-02-21-how-to-organize-ansible-project-directory-structure/view
