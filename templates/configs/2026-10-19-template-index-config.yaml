@@ -1,0 +1,26 @@
+# last_verified: 2026-10-19 · templates n/a
+# Minimal shared template index configuration for the kit
+template_index:
+  categories:
+    - name: terraform
+      description: Terraform modules and infrastructure scaffolds
+      templates:
+        - path: templates/terraform/production-module-template.md
+        - path: templates/terraform/lambda-api-gateway
+    - name: k8s
+      description: Kubernetes manifests and kustomize scaffolds
+      templates:
+        - path: templates/k8s/deployment-service-template.md
+        - path: templates/k8s/kustomize-base-template.md
+    - name: docker
+      description: Container and Dockerfile scaffolds
+      templates:
+        - path: templates/docker/dockerfile-multistage-template.md
+    - name: jenkins
+      description: Jenkins pipeline scaffolds
+      templates:
+        - path: templates/jenkins/Jenkinsfile-maven-gradle-template.md
+    - name: linux-automation
+      description: Linux automation script templates
+      templates:
+        - path: templates/linux-automation
