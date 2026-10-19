@@ -233,7 +233,7 @@ Create `playbooks/deploy.yml`:
 
 ### 8. Deployment Script
 
-Create `scripts/deploy.sh`:
+Create `deploy.sh`:
 
 ```bash
 #!/usr/bin/env bash
@@ -282,7 +282,7 @@ ansible webservers -i inventory/production.yml -m systemd -a "name=myapp state=s
 ```bash
 git log --oneline -10
 git checkout <previous-commit-hash>
-./scripts/deploy.sh production
+./deploy.sh production
 ```
 
 ### 2. Manual Rollback
