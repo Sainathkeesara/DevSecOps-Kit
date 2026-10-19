@@ -129,7 +129,6 @@
 - **configs** (3): [policy-configuration.yaml](../gitguardian/configs/policy-configuration.yaml), [monorepo-allowlists.yaml](../gitguardian/configs/monorepo-allowlists.yaml), [.ggshield.yaml](../gitguardian/configs/.ggshield.yaml)
 - **snippets** (2): [my-first-ggshield-commands.sh](../gitguardian/snippets/my-first-ggshield-commands.sh), [custom-policy-engine-ggshield.sh](../gitguardian/snippets/custom-policy-engine-ggshield.sh)
 - **notebooks** (1): [choosing-between-on-premise-and-cloud-modes.ipynb](../gitguardian/notebooks/choosing-between-on-premise-and-cloud-modes.ipynb)
-- **templates** (9): [multi-repo scanning scaffold](../gitguardian/templates/gitguardian-multi-repo-scanning-scaffold/README.md), [org-secret-scan.yml](../gitguardian/templates/gitguardian-multi-repo-scanning-scaffold/.github/workflows/org-secret-scan.yml), [allowlist.yaml](../gitguardian/templates/gitguardian-multi-repo-scanning-scaffold/.ggshield/allowlist.yaml) — _…and 6 more under `gitguardian/templates/`._
 
 ## github-actions  ·  16 files
 
@@ -215,7 +214,6 @@
 - **scripts** (2): [export-audit-results.sh](../opa/scripts/export-audit-results.sh), [how-i-test-policies-locally.sh](../opa/scripts/how-i-test-policies-locally.sh)
 - **configs** (2): [opa-policy-configuration-template.yaml](../opa/configs/opa-policy-configuration-template.yaml), [tried-a-gatekeeper-constraint.yaml](../opa/configs/tried-a-gatekeeper-constraint.yaml)
 - **snippets** (4): [2026-10-14-first-rego-policy.py](../opa/snippets/2026-10-14-first-rego-policy.py), [my-first-opa-policy-eval.sh](../opa/snippets/my-first-opa-policy-eval.sh), [deny-privileged-hostnetwork.rego](../opa/snippets/deny-privileged-hostnetwork.rego) — _…and 1 more under `opa/snippets/`._
-- **templates** (9): [Gatekeeper policy library scaffold](../opa/templates/gatekeeper-policy-library-scaffold/README.md), [k8sallowedregistries.yaml](../opa/templates/gatekeeper-policy-library-scaffold/constraint-templates/k8sallowedregistries.yaml), [ci-test.yml](../opa/templates/gatekeeper-policy-library-scaffold/.github/workflows/ci-test.yml) — _…and 6 more under `opa/templates/`._
 - **manifests** (4): [gatekeeper-production-deployment.yaml](../opa/manifests/gatekeeper-production-deployment.yaml), [constraint-templates.yaml](../opa/manifests/constraint-templates.yaml), [constraints.yaml](../opa/manifests/constraints.yaml) — _…and 1 more under `opa/manifests/`._
 - **notebooks** (1): [rego-vs-builtin-policies.ipynb](../opa/notebooks/rego-vs-builtin-policies.ipynb)
 
@@ -250,7 +248,6 @@
 - **scripts** (1): [snyk-vuln-scan-pipeline.sh](../snyk/scripts/snyk-vuln-scan-pipeline.sh)
 - **configs** (3): [snyk-project-configuration-template.yaml](../snyk/configs/snyk-project-configuration-template.yaml), [snyk-ci-github-actions.yaml](../snyk/configs/snyk-ci-github-actions.yaml), [snyk-dependency-patch-ignore.yaml](../snyk/configs/snyk-dependency-patch-ignore.yaml)
 - **snippets** (1): [my-first-snyk-commands.sh](../snyk/snippets/my-first-snyk-commands.sh)
-- **templates** (11): [multi-language scan scaffold](../snyk/templates/snyk-multilang-scan-scaffold/README.md), [snyk-multilang-ci.yml](../snyk/templates/snyk-multilang-scan-scaffold/.github/workflows/snyk-multilang-ci.yml), [Makefile](../snyk/templates/snyk-multilang-scan-scaffold/Makefile) — _…and 8 more under `snyk/templates/`._
 - **manifests** (1): [snyk-github-actions-cicd-workflow.yaml](../snyk/manifests/snyk-github-actions-cicd-workflow.yaml)
 - **dockerfiles** (1): [custom-snyk-cli-air-gapped.Dockerfile](../snyk/dockerfiles/custom-snyk-cli-air-gapped.Dockerfile)
 - **notebooks** (1): [cli-vs-api-modes.ipynb](../snyk/notebooks/cli-vs-api-modes.ipynb)
@@ -271,7 +268,6 @@
 - **scripts** (4): [gen-multi-format-sboms.sh](../syft/scripts/gen-multi-format-sboms.sh), [syft-sbom-generation.py](../syft/scripts/syft-sbom-generation.py), [multi-image-sbom-pipeline.sh](../syft/scripts/multi-image-sbom-pipeline.sh) — _…and 1 more under `syft/scripts/`._
 - **configs** (1): [.syft.yaml](../syft/configs/.syft.yaml)
 - **snippets** (2): [2026-10-14-first-sbom.sh](../syft/snippets/2026-10-14-first-sbom.sh), [tried-sbom-formats.sh](../syft/snippets/tried-sbom-formats.sh)
-- **templates** (15): [SBOM pipeline scaffold](../syft/templates/sbom-pipeline-scaffold/README.md), [Syft + Trivy Kubernetes scan scaffold](../syft/templates/syft-trivy-k8s-scan-scaffold/README.md), [sbom-scan.yml](../syft/templates/sbom-pipeline-scaffold/.github/workflows/sbom-scan.yml) — _…and 12 more under `syft/templates/`._
 - **manifests** (4): [syft-remote-state-backend-deployment.yaml](../syft/manifests/syft-remote-state-backend-deployment.yaml), [syft-cicd-pipeline.yaml](../syft/manifests/syft-cicd-pipeline.yaml), [syft-gha-multi-arch-sbom-registry-auth.yaml](../syft/manifests/syft-gha-multi-arch-sbom-registry-auth.yaml) — _…and 1 more under `syft/manifests/`._
 - **dockerfiles** (1): [multi-stage-sbom.Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
 - **notebooks** (4): [syft-format-comparison-patterns.ipynb](../syft/notebooks/syft-format-comparison-patterns.ipynb), [output-format-comparison.ipynb](../syft/notebooks/output-format-comparison.ipynb), [source-vs-library-multiarch.ipynb](../syft/notebooks/source-vs-library-multiarch.ipynb) — _…and 1 more under `syft/notebooks/`._
@@ -357,7 +353,6 @@
 - **scripts** (3): [zap-baseline-scan.sh](../zap/scripts/zap-baseline-scan.sh), [dast-workflow-from-scratch.sh](../zap/scripts/dast-workflow-from-scratch.sh), [zap-dast-sarif-code-scanning.sh](../zap/scripts/zap-dast-sarif-code-scanning.sh)
 - **configs** (2): [ci-dast-automation-framework-plan.yaml](../zap/configs/ci-dast-automation-framework-plan.yaml), [zap-authenticated-scan-context.yaml](../zap/configs/zap-authenticated-scan-context.yaml)
 - **snippets** (4): [my-first-zap-baseline-scan.sh](../zap/snippets/my-first-zap-baseline-scan.sh), [authenticated-scan-with-context.sh](../zap/snippets/authenticated-scan-with-context.sh), [2026-07-16-zap-docker-quickstart-json-export.sh](../zap/snippets/2026-07-16-zap-docker-quickstart-json-export.sh) — _…and 1 more under `zap/snippets/`._
-- **templates** (8): [DAST integration scaffold](../zap/templates/zap-dast-integration-scaffold/README.md), [zap-dast.yml](../zap/templates/zap-dast-integration-scaffold/.github/workflows/zap-dast.yml), [Makefile](../zap/templates/zap-dast-integration-scaffold/Makefile) — _…and 5 more under `zap/templates/`._
 - **manifests** (1): [zap-cicd-pipeline.yaml](../zap/manifests/zap-cicd-pipeline.yaml)
 - **dockerfiles** (1): [custom-zap-automation.Dockerfile](../zap/dockerfiles/custom-zap-automation.Dockerfile)
 - **notebooks** (1): [scan-strategy-comparison-patterns.ipynb](../zap/notebooks/scan-strategy-comparison-patterns.ipynb)
