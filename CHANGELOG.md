@@ -8,7 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
-- Passed ([x]) defectdojo-008 — DefectDojo: snippet — Minimal DefectDojo product setup via the API · Level: L2 · 2026-10-20
 - gitguardian-019: `gitguardian/scripts/2026-10-20-first-ggshield-scan.sh` — My first ggshield scan: install, auth, scan, capture JSON report (L1 script)
 - snyk-017: `snyk/scripts/2026-10-20-first-snyk-test.sh` — My first snyk test: install, auth, test, capture JSON report (L1 script)
 
