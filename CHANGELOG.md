@@ -3217,3 +3217,6 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - Added defectdojo/configs/api-vs-ui-ingestion.yaml (defectdojo-011) - API vs UI ingestion comparison
 - Added defectdojo/docs/how-i-wired-defectdojo-into-my-triage-workflow.md (defectdojo-010) - DefectDojo triage workflow
 - Added helm/docs/how-i-wired-helm-into-my-release-workflow.md (helm-010) - Helm release workflow
+
+## 2026-10-20 (rework)
+- helm/scripts/build-and-deploy-chart.sh — helm-009 (rework): Helm chart build-and-deploy script with error handling, atomic upgrade, and values-file resolution against the chart directory.
