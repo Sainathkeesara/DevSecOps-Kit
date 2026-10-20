@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - kubernetes-015: `kubernetes/scripts/2026-10-20-quickstart-repro.sh` — Imperative reproduction of the six quickstart modules for a fresh cluster (L2 script)
 - kustomize-008: `kustomize/scripts/2026-10-20-kustomize-tutorial.sh` — What I learned doing the kustomize tutorial, re-runnable: base manifests, a dev overlay with namePrefix, labels, a patch and a generated ConfigMap, then kustomize build (L2 script)
 - defectdojo-009: `defectdojo/scripts/product-scan-import.py` — Small DefectDojo product scan import from scratch: find or create the product and the engagement, then reimport-scan with a case-checked scan type (L3 script)
+- trufflehog-046: `trufflehog/templates/trufflehog-ci-integration/` — Project scaffold: TruffleHog + CI integration with GitHub Actions and GitLab CI, shared config, custom detectors, allowlist, and scan scripts (L4 template)
 - trufflehog-047: `trufflehog/dockerfiles/pipeline-scanner.Dockerfile` — TruffleHog pipeline scanner container: git, filesystem, and GitHub scan modes with JSON output for CI/CD integration (L4 dockerfile)
 
 ## 2026-10-19

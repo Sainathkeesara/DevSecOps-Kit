@@ -1,0 +1,198 @@
+# TruffleHog Secret Scan — GitHub Actions
+#
+# Runs TruffleHog on pull requests, pushes to default branch, and a weekly schedule.
+# Uploads SARIF results to GitHub Code Scanning for PR annotation and dashboard.
+#
+# Prerequisites:
+# - Code scanning enabled in repository settings (Security > Code scanning)
+# - For private repos: TRUFFLEHOG_TOKEN secret with repo scope (optional, for git scanning)
+#
+# Reference: https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
+
+name: "TruffleHog Secret Scan"
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main, master]
+  push:
+    branches: [main, master]
+  schedule:
+    # Weekly full history scan — Sundays at 03:00 UTC
+    - cron: "0 3 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+  pull-requests: write
+  actions: read
+
+concurrency:
+  group: "trufflehog-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    name: "Secret Scan (${{ matrix.target }})"
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - name: "filesystem"
+            path: "."
+            args: "filesystem ."
+          - name: "git-history"
+            path: "."
+            args: "git file://. --since-commit HEAD~50"
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Required for git history scanning
+
+      - name: "Setup Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: "Install TruffleHog"
+        run: |
+          pip install --upgrade trufflehog
+          trufflehog --version
+
+      - name: "Verify configuration"
+        run: |
+          test -f trufflehog-config.yaml || { echo "Config file not found"; exit 1; }
+          echo "Configuration file present"
+
+      - name: "Run TruffleHog scan"
+        id: scan
+        env:
+          TRUFFLEHOG_TOKEN: ${{ secrets.TRUFFLEHOG_TOKEN }}
+        run: |
+          set -euo pipefail
+          REPORT_DIR="reports"
+          TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+          OUTFILE="${REPORT_DIR}/trufflehog-${{ matrix.target.name }}-${TIMESTAMP}.sarif"
+          SARIF_FILE="${REPORT_DIR}/trufflehog-${{ matrix.target.name }}.sarif"
+          mkdir -p "${REPORT_DIR}"
+
+          echo "[scan] Running ${{ matrix.target.name }} scan..."
+          if trufflehog ${{ matrix.target.args }} \
+              --config=trufflehog-config.yaml \
+              --sarif \
+              --no-verification > "${OUTFILE}" 2>&1; then
+            echo "[scan] No findings"
+            echo "findings=0" >> $GITHUB_OUTPUT
+          else
+            # trufflehog exits non-zero on findings — check if output has content
+            if [[ -s "${OUTFILE}" ]]; then
+              COUNT=$(jq '.runs[0].results | length' "${OUTFILE}" 2>/dev/null || echo "0")
+              echo "[scan] Found ${COUNT} potential secret(s)"
+              echo "findings=${COUNT}" >> $GITHUB_OUTPUT
+            else
+              echo "[scan] Scan completed with errors but no SARIF output"
+              echo "findings=0" >> $GITHUB_OUTPUT
+            fi
+          fi
+          # Copy to stable name for upload
+          cp "${OUTFILE}" "${SARIF_FILE}"
+
+      - name: "Upload SARIF to GitHub Code Scanning"
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: reports/trufflehog-${{ matrix.target.name }}.sarif
+          category: "trufflehog-${{ matrix.target.name }}"
+
+      - name: "Comment PR with findings summary"
+        if: github.event_name == 'pull_request' && steps.scan.outputs.findings != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const sarif = JSON.parse(fs.readFileSync('reports/trufflehog-${{ matrix.target.name }}.sarif', 'utf8'));
+            const results = sarif.runs[0].results || [];
+            const findings = results.slice(0, 20).map(r => {
+              const loc = r.locations[0].physicalLocation;
+              return `- **${r.ruleId}**: \`${loc.artifactLocation.uri}:${loc.region.startLine}\` — ${r.message.text}`;
+            }).join('\n');
+            const body = `## TruffleHog Findings (${{ matrix.target.name }})\n\n${results.length} potential secret(s) detected. Showing first 20:\n\n${findings}\n\n*Full results uploaded to Code Scanning.*`;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+      - name: "Fail job on findings"
+        if: steps.scan.outputs.findings != '0'
+        run: |
+          echo "::error::TruffleHog found ${{ steps.scan.outputs.findings }} potential secret(s) in ${{ matrix.target.name }} scan"
+          exit 1
+
+  # Separate job for schedule to run full history without PR gating
+  scan-full-history:
+    name: "Full History Scan (schedule)"
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "Setup Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: "Install TruffleHog"
+        run: |
+          pip install --upgrade trufflehog
+          trufflehog --version
+
+      - name: "Run full git history scan"
+        id: scan
+        env:
+          TRUFFLEHOG_TOKEN: ${{ secrets.TRUFFLEHOG_TOKEN }}
+        run: |
+          set -euo pipefail
+          REPORT_DIR="reports"
+          TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+          OUTFILE="${REPORT_DIR}/trufflehog-full-history-${TIMESTAMP}.sarif"
+          SARIF_FILE="${REPORT_DIR}/trufflehog-full-history.sarif"
+          mkdir -p "${REPORT_DIR}"
+
+          echo "[scan] Running full git history scan..."
+          if trufflehog git file://. \
+              --config=trufflehog-config.yaml \
+              --sarif \
+              --no-verification > "${OUTFILE}" 2>&1; then
+            echo "[scan] No findings in full history"
+            echo "findings=0" >> $GITHUB_OUTPUT
+          else
+            if [[ -s "${OUTFILE}" ]]; then
+              COUNT=$(jq '.runs[0].results | length' "${OUTFILE}" 2>/dev/null || echo "0")
+              echo "[scan] Found ${COUNT} potential secret(s) in full history"
+              echo "findings=${COUNT}" >> $GITHUB_OUTPUT
+            else
+              echo "[scan] Scan completed with errors but no SARIF output"
+              echo "findings=0" >> $GITHUB_OUTPUT
+            fi
+          fi
+          cp "${OUTFILE}" "${SARIF_FILE}"
+
+      - name: "Upload SARIF to GitHub Code Scanning"
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: reports/trufflehog-full-history.sarif
+          category: "trufflehog-full-history"

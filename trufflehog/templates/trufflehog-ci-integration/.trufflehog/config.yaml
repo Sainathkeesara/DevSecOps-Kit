@@ -1,0 +1,42 @@
+# TruffleHog Custom Detectors
+#
+# Add organization-specific secret patterns here.
+# Each detector must have a unique name, a regex pattern, and optional keywords.
+# Keywords are used for fast pre-filtering before regex matching.
+#
+# Reference: https://github.com/trufflesecurity/trufflehog/blob/main/docs/content/docs/getting-started/configuration.md#custom-detectors
+
+custom_detectors:
+  - name: "Internal API Key"
+    regex:
+      pattern: "sk-internal-[0-9a-f]{32}"
+    keywords:
+      - "sk-internal"
+
+  - name: "Company Database Password"
+    regex:
+      pattern: "db-[a-z]+-[0-9a-f]{16}"
+    keywords:
+      - "db-"
+
+  - name: "Internal Service Token"
+    regex:
+      pattern: "svc-[a-z0-9]{24}"
+    keywords:
+      - "svc-"
+
+  - name: "Deployment Key"
+    regex:
+      pattern: "deploy-[a-f0-9]{32}"
+    keywords:
+      - "deploy-"
+
+# Entropy tuning for generic detectors
+# Lower = more sensitive (more findings), Higher = less sensitive
+entropy:
+  # Shannon entropy threshold for base64 strings
+  base64: 4.5
+  # Shannon entropy threshold for hex strings
+  hex: 3.0
+  # Minimum length for entropy analysis
+  min_length: 20

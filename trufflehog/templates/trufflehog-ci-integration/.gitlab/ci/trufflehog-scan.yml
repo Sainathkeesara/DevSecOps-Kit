@@ -1,0 +1,231 @@
+# TruffleHog Secret Scan — GitLab CI
+#
+# Runs TruffleHog on merge requests, pipeline runs, and a weekly schedule.
+# Reports findings to GitLab SAST/Secret Detection MR widget and pipeline security dashboard.
+#
+# Prerequisites:
+# - GitLab Runner with Docker executor or shell executor
+# - For Docker executor: uses python:3.12-slim image
+# - Secret Detection enabled in project settings (Secure > Security configuration)
+# - For private repos: TRUFFLEHOG_TOKEN CI/CD variable with read_repository scope
+#
+# Reference: https://docs.gitlab.com/ee/user/application_security/secret_detection/
+
+stages:
+  - secret-detection
+
+# Default variables — override in project/group CI/CD settings
+variables:
+  TRUFFLEHOG_VERSION: "latest"
+  SCAN_DEPTH: "50"
+  FAIL_ON_FINDINGS: "true"
+
+# Cache pip packages between runs
+cache:
+  key: "trufflehog-pip-${CI_COMMIT_REF_SLUG}"
+  paths:
+    - .cache/pip/
+  policy: pull-push
+
+# Secret detection job for merge requests and push pipelines
+trufflehog:secret-detection:
+  stage: secret-detection
+  image: python:3.12-slim
+  timeout: 30m
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+    - if: $CI_PIPELINE_SOURCE == "pipeline"
+    - if: $CI_PIPELINE_SOURCE == "web"
+  variables:
+    PIP_CACHE_DIR: ".cache/pip"
+  before_script:
+    - pip install --upgrade pip --cache-dir "$PIP_CACHE_DIR"
+    - pip install trufflehog=="$TRUFFLEHOG_VERSION" --cache-dir "$PIP_CACHE_DIR"
+    - trufflehog --version
+    - test -f trufflehog-config.yaml || { echo "Config file not found"; exit 1; }
+  script:
+    - |
+      set -euo pipefail
+      REPORT_DIR="reports"
+      TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+      SARIF_FILE="${REPORT_DIR}/trufflehog-${CI_JOB_NAME}-${TIMESTAMP}.sarif"
+      JUNIT_FILE="${REPORT_DIR}/trufflehog-${CI_JOB_NAME}-${TIMESTAMP}.xml"
+      mkdir -p "${REPORT_DIR}"
+
+      echo "[scan] Running filesystem scan..."
+      if trufflehog filesystem . \
+          --config=trufflehog-config.yaml \
+          --sarif \
+          --no-verification > "${SARIF_FILE}" 2>&1; then
+        FS_FINDINGS=0
+        echo "[scan] Filesystem scan: no findings"
+      else
+        if [[ -s "${SARIF_FILE}" ]]; then
+          FS_FINDINGS=$(jq '.runs[0].results | length' "${SARIF_FILE}" 2>/dev/null || echo "0")
+          echo "[scan] Filesystem scan: ${FS_FINDINGS} finding(s)"
+        else
+          FS_FINDINGS=0
+          echo "[scan] Filesystem scan: error but no output"
+        fi
+      fi
+
+      echo "[scan] Running git history scan (last ${SCAN_DEPTH} commits)..."
+      GIT_SARIF="${REPORT_DIR}/trufflehog-git-${CI_JOB_NAME}-${TIMESTAMP}.sarif"
+      if trufflehog git file://. \
+          --since-commit "HEAD~${SCAN_DEPTH}" \
+          --config=trufflehog-config.yaml \
+          --sarif \
+          --no-verification > "${GIT_SARIF}" 2>&1; then
+        GIT_FINDINGS=0
+        echo "[scan] Git scan: no findings"
+      else
+        if [[ -s "${GIT_SARIF}" ]]; then
+          GIT_FINDINGS=$(jq '.runs[0].results | length' "${GIT_SARIF}" 2>/dev/null || echo "0")
+          echo "[scan] Git scan: ${GIT_FINDINGS} finding(s)"
+        else
+          GIT_FINDINGS=0
+          echo "[scan] Git scan: error but no output"
+        fi
+      fi
+
+      # Combine SARIF files for upload
+      COMBINED_SARIF="${REPORT_DIR}/trufflehog-combined.sarif"
+      jq -s '{
+        version: "2.1.0",
+        runs: (map(.runs[0]) | add | {results: (map(.results) | add), tool: .tool, artifacts: .artifacts})
+      }' "${SARIF_FILE}" "${GIT_SARIF}" > "${COMBINED_SARIF}"
+
+      # Convert SARIF to JUnit for GitLab MR widget
+      python3 - <<'PYEOF'
+import json, sys, xml.etree.ElementTree as ET
+from datetime import datetime
+
+with open(sys.argv[1]) as f:
+    sarif = json.load(f)
+
+testsuite = ET.Element("testsuite", name="TruffleHog Secret Detection", timestamp=datetime.utcnow().isoformat())
+results = sarif.get("runs", [{}])[0].get("results", [])
+
+for r in results:
+    rule_id = r.get("ruleId", "unknown")
+    msg = r.get("message", {}).get("text", "")
+    locs = r.get("locations", [])
+    file_path = locs[0].get("physicalLocation", {}).get("artifactLocation", {}).get("uri", "unknown") if locs else "unknown"
+    line = locs[0].get("physicalLocation", {}).get("region", {}).get("startLine", 0) if locs else 0
+
+    testcase = ET.SubElement(testsuite, "testcase", name=f"{rule_id}:{file_path}:{line}", classname="secret-detection")
+    failure = ET.SubElement(testcase, "failure", message=msg, type="SecretFound")
+    failure.text = f"Detector: {rule_id}\nFile: {file_path}:{line}\nDetails: {msg}"
+
+# Add a passing test if no findings so JUnit is valid
+if len(results) == 0:
+    ET.SubElement(testsuite, "testcase", name="no-secrets-found", classname="secret-detection")
+
+tree = ET.ElementTree(testsuite)
+tree.write(sys.argv[2], encoding="utf-8", xml_declaration=True)
+PYEOF
+      "${COMBINED_SARIF}" "${JUNIT_FILE}"
+
+      TOTAL_FINDINGS=$((FS_FINDINGS + GIT_FINDINGS))
+      echo "[scan] Total findings: ${TOTAL_FINDINGS}"
+
+      if [[ "${FAIL_ON_FINDINGS}" == "true" && ${TOTAL_FINDINGS} -gt 0 ]]; then
+        echo "[scan] Failing pipeline due to findings"
+        exit 1
+      fi
+  artifacts:
+    when: always
+    reports:
+      sast: reports/trufflehog-combined.sarif
+      junit: reports/trufflehog-*-${CI_JOB_NAME}-*.xml
+    expire_in: 30d
+    paths:
+      - reports/*.sarif
+      - reports/*.xml
+
+# Scheduled full history scan (separate job for longer timeout)
+trufflehog:full-history:
+  stage: secret-detection
+  image: python:3.12-slim
+  timeout: 60m
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+  variables:
+    PIP_CACHE_DIR: ".cache/pip"
+    SCAN_DEPTH: "0"  # 0 = full history
+  before_script:
+    - pip install --upgrade pip --cache-dir "$PIP_CACHE_DIR"
+    - pip install trufflehog=="$TRUFFLEHOG_VERSION" --cache-dir "$PIP_CACHE_DIR"
+    - trufflehog --version
+    - test -f trufflehog-config.yaml || { echo "Config file not found"; exit 1; }
+  script:
+    - |
+      set -euo pipefail
+      REPORT_DIR="reports"
+      TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+      SARIF_FILE="${REPORT_DIR}/trufflehog-full-history-${TIMESTAMP}.sarif"
+      JUNIT_FILE="${REPORT_DIR}/trufflehog-full-history-${TIMESTAMP}.xml"
+      mkdir -p "${REPORT_DIR}"
+
+      echo "[scan] Running full git history scan..."
+      if trufflehog git file://. \
+          --config=trufflehog-config.yaml \
+          --sarif \
+          --no-verification > "${SARIF_FILE}" 2>&1; then
+        FINDINGS=0
+        echo "[scan] Full history scan: no findings"
+      else
+        if [[ -s "${SARIF_FILE}" ]]; then
+          FINDINGS=$(jq '.runs[0].results | length' "${SARIF_FILE}" 2>/dev/null || echo "0")
+          echo "[scan] Full history scan: ${FINDINGS} finding(s)"
+        else
+          FINDINGS=0
+          echo "[scan] Full history scan: error but no output"
+        fi
+      fi
+
+      # Convert to JUnit
+      python3 - <<'PYEOF'
+import json, sys, xml.etree.ElementTree as ET
+from datetime import datetime
+
+with open(sys.argv[1]) as f:
+    sarif = json.load(f)
+
+testsuite = ET.Element("testsuite", name="TruffleHog Full History Scan", timestamp=datetime.utcnow().isoformat())
+results = sarif.get("runs", [{}])[0].get("results", [])
+
+for r in results:
+    rule_id = r.get("ruleId", "unknown")
+    msg = r.get("message", {}).get("text", "")
+    locs = r.get("locations", [])
+    file_path = locs[0].get("physicalLocation", {}).get("artifactLocation", {}).get("uri", "unknown") if locs else "unknown"
+    line = locs[0].get("physicalLocation", {}).get("region", {}).get("startLine", 0) if locs else 0
+
+    testcase = ET.SubElement(testsuite, "testcase", name=f"{rule_id}:{file_path}:{line}", classname="secret-detection")
+    failure = ET.SubElement(testcase, "failure", message=msg, type="SecretFound")
+    failure.text = f"Detector: {rule_id}\nFile: {file_path}:{line}\nDetails: {msg}"
+
+if len(results) == 0:
+    ET.SubElement(testsuite, "testcase", name="no-secrets-found", classname="secret-detection")
+
+tree = ET.ElementTree(testsuite)
+tree.write(sys.argv[2], encoding="utf-8", xml_declaration=True)
+PYEOF
+      "${SARIF_FILE}" "${JUNIT_FILE}"
+
+      if [[ "${FAIL_ON_FINDINGS}" == "true" && ${FINDINGS} -gt 0 ]]; then
+        echo "[scan] Failing scheduled pipeline due to findings"
+        exit 1
+      fi
+  artifacts:
+    when: always
+    reports:
+      sast: reports/trufflehog-full-history-*.sarif
+      junit: reports/trufflehog-full-history-*.xml
+    expire_in: 90d
+    paths:
+      - reports/*.sarif
+      - reports/*.xml

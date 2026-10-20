@@ -1,0 +1,13 @@
+# TruffleHog scan reports
+reports/
+*.sarif
+*.json
+*.xml
+
+# Temporary files
+*.tmp
+*.log
+
+# Local config overrides
+trufflehog-config.local.yaml
+.trufflehog/*.local.yaml
