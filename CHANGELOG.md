@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- templates-010: `templates/scripts/template-catalog-validator.py` — Template catalog validator: loads the template index, resolves every indexed path against the repo root, classifies each as found / missing / not-a-directory, cross-checks on-disk directories absent from the index, and exits non-zero when an indexed path is missing so a CI job can gate on it; emits a human-readable table and a machine-readable JSON report (L3 script python)
+- templates-011: `templates/configs/flat-vs-cookiecutter-variable-profiles.yaml` — Flat YAML defaults vs cookiecutter.json for the same scaffold: two fully specified variable profiles with defaults, required/optional flags, consuming files, and breakage notes, plus the substitution map, the known project_slug trip-up, and a which-to-pick rule (L3 config yaml)
+
 - gitguardian-019: `gitguardian/scripts/2026-10-20-first-ggshield-scan.sh` — My first ggshield scan: install, auth, scan, capture JSON report (L1 script)
 - snyk-017: `snyk/scripts/2026-10-20-first-snyk-test.sh` — My first snyk test: install, auth, test, capture JSON report (L1 script)
 

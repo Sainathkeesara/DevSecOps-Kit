@@ -1,0 +1,111 @@
+# last_verified: 2026-10-20 · templates n/a
+# Flat variables file vs cookiecutter.json: two ways to parameterize the same
+# scaffold, side by side. Read from the two files themselves — no fields invented.
+#
+# Profile A is the contract behind templates/configs/2026-09-20-first-template-variables.yaml
+# (flat YAML defaults consumed by templates-007's renderer).
+# Profile B is the contract behind templates/templates/2026-09-20-first-project-template/cookiecutter.json
+# (the cookiecutter scaffold consumed by cookiecutter itself).
+#
+# Cookiecutter is NOT installed in this environment (checked at execution time:
+# `command -v cookiecutter` returns non-zero), so profile B below is the file
+# contract — what the JSON declares and what the scaffold's directory tree
+# consumes — not a claim about a rendered output.
+
+profiles:
+  A_flat_yaml_defaults:
+    source_file: templates/configs/2026-09-20-first-template-variables.yaml
+    mechanism: flat YAML key/value defaults, read by the renderer in templates-007
+    fields:
+      - key: project_name
+        default: my-service
+        required: true
+        consumed_by: templates/configs/2026-09-20-first-template-variables.yaml
+        breaks_if_omitted: the renderer has no name to substitute; every placeholder in the scaffold stays literal
+      - key: project_slug
+        default: my-service
+        required: true
+        consumed_by: templates/configs/2026-09-20-first-template-variables.yaml
+        breaks_if_omitted: same as project_name — the slug is what names the rendered directory
+      - key: author
+        default: me
+        required: false
+        consumed_by: templates/configs/2026-09-20-first-template-variables.yaml
+        breaks_if_omitted: nothing breaks; the author field is metadata only
+      - key: description
+        default: A tiny starter service
+        required: false
+        consumed_by: templates/configs/2026-09-20-first-template-variables.yaml
+        breaks_if_omitted: nothing breaks; description is metadata only
+      - key: license
+        default: MIT
+        required: false
+        consumed_by: templates/configs/2026-09-20-first-template-variables.yaml
+        breaks_if_omitted: nothing breaks; license is metadata only
+      - key: python_version
+        default: "3.12"
+        required: false
+        consumed_by: templates/configs/2026-09-20-first-template-variables.yaml
+        breaks_if_omitted: nothing breaks; the value is advisory, no file in the scaffold pins it today
+      - key: include_docker
+        default: false
+        required: false
+        consumed_by: templates/configs/2026-09-20-first-template-variables.yaml
+        breaks_if_omitted: nothing breaks; it is a flag the renderer may branch on in the future
+    extra_keys_not_in_B:
+      - license
+      - python_version
+      - include_docker
+
+  B_cookiecutter_json:
+    source_file: templates/templates/2026-09-20-first-project-template/cookiecutter.json
+    mechanism: cookiecutter JSON defaults; cookiecutter renders {{cookiecutter.<key>}} placeholders
+    fields:
+      - key: project_name
+        default: my-service
+        required: true
+        consumed_by: templates/templates/2026-09-20-first-project-template/cookiecutter.json
+        breaks_if_omitted: cookiecutter aborts — a required key with no default cannot render
+      - key: project_slug
+        default: my-service
+        required: true
+        consumed_by: templates/templates/2026-09-20-first-project-template/{{cookiecutter.project_slug}}/app.py
+        breaks_if_omitted: the rendered directory name collapses to an empty slug and the starter file is misplaced
+      - key: author
+        default: me
+        required: false
+        consumed_by: templates/templates/2026-09-20-first-project-template/cookiecutter.json
+        breaks_if_omitted: nothing breaks; author is metadata only
+      - key: description
+        default: A tiny starter service
+        required: false
+        consumed_by: templates/templates/2026-09-20-first-project-template/cookiecutter.json
+        breaks_if_omitted: nothing breaks; description is metadata only
+    extra_keys_not_in_A: []
+
+substitution_map:
+  note: "Keys that exist in both profiles carry identical defaults in the two source files; the map below records that overlap."
+  shared:
+    - key: project_name
+      profile_A_default: my-service
+      profile_B_default: my-service
+    - key: project_slug
+      profile_A_default: my-service
+      profile_B_default: my-service
+    - key: author
+      profile_A_default: me
+      profile_B_default: me
+    - key: description
+      profile_A_default: A tiny starter service
+      profile_B_default: A tiny starter service
+
+known_trip_up:
+  description: "The scaffold's own README records the exact failure: a placeholder key spelled differently between the JSON and the directory name leaves a literal {{...}} in the rendered path."
+  location: templates/templates/2026-09-20-first-project-template/README.md
+  affected_key: project_slug
+  fix: use the exact same key name in cookiecutter.json and in the {{cookiecutter.<key>}} directory
+
+which_to_pick:
+  - "Pick profile A (flat YAML) when you are wiring the kit's own renderer (templates-007) and want every default in one file, including the three keys cookiecutter does not know about (license, python_version, include_docker)."
+  - "Pick profile B (cookiecutter.json) when you want cookiecutter itself to drive instantiation and you only need the four keys the scaffold's directory tree actually consumes."
+  - "Do not mix them as two sources of truth for the same key: if both files ship in the same scaffold, keep the key names identical or the render leaves a literal placeholder."
