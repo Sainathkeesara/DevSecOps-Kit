@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-10-20
 
 ### Added
+- opentofu-009: `opentofu/notes/2026-10-20-follow-opentofu-test-quickstart.md` — Follow the OpenTofu test quickstart: module with null_resource, tftest.hcl with run/assert blocks, mock_provider for plan-only validation, and four trip-ups on assert syntax, apply-phase access, variable scoping, and test file discovery (L2 notes)
 
 - templates-010: `templates/scripts/template-catalog-validator.py` — Template catalog validator: loads the template index, resolves every indexed path against the repo root, classifies each as found / missing / not-a-directory, cross-checks on-disk directories absent from the index, and exits non-zero when an indexed path is missing so a CI job can gate on it; emits a human-readable table and a machine-readable JSON report (L3 script python)
 - templates-011: `templates/configs/flat-vs-cookiecutter-variable-profiles.yaml` — Flat YAML defaults vs cookiecutter.json for the same scaffold: two fully specified variable profiles with defaults, required/optional flags, consuming files, and breakage notes, plus the substitution map, the known project_slug trip-up, and a which-to-pick rule (L3 config yaml)
