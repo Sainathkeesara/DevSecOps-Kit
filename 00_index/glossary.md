@@ -846,3 +846,16 @@
 - **`--minimum-severity` (tfsec)** — A gate flag that only reports findings at or above a chosen severity. The default exit code is 1 whenever any finding exists, which is wrong for CI — pairing `--minimum-severity=HIGH` with the flag makes the build fail only on findings you actually care about.
 - **`--module-depth` (tfsec)** — Controls how far tfsec recurses into `modules/` directories. Deep module trees are scanned by default and can slow the run; `--module-depth=0` skips modules entirely for a fast shallow pass.
 - **`--tfvars-file` (tfsec)** — Tells tfsec to load a `.tfvars` file so variable references resolve during the scan. Without it, tfsec evaluates variables as unknown and can miss or misreport findings that only appear after interpolation.
+
+## Recently Added
+
+- **kubernetes deployment** — A Kubernetes resource that manages a set of identical pods, ensuring the desired count is running and performing rolling updates. Defines the pod template, replica count, and update strategy.
+- **kubernetes rolling update** — A deployment strategy that gradually replaces old pods with new ones, maintaining availability during updates. Controlled by maxSurge and maxUnavailable parameters.
+- **kubernetes probe** — Health checks for containers: liveness probes determine when to restart a container, readiness probes determine when a pod should receive traffic, and startup probes handle slow-starting containers.
+- **resource limits (kubernetes)** — CPU and memory limits enforced by the container runtime. Limits prevent a container from consuming more than its share; requests are what the scheduler uses for placement.
+- **namespace strategy (kubernetes)** — Organizing cluster resources by environment (dev/staging/prod) or team. Environment-based isolation separates workloads by lifecycle; team-based isolates by ownership.
+- **flat variable profile** — A single YAML file containing all template variables without nesting, used for simple template rendering without cookiecutter.
+- **cookiecutter variable profile** — Variables generated through cookiecutter's interactive prompts, producing nested context for complex project scaffolding with conditional logic.
+- **template catalog validator** — A script that verifies template scaffolds have required files (README, renderable configs, .gitignore) and can be rendered without errors.
+- **quickstart followup** — Documentation capturing what happened after running a tool's quickstart — what worked, what tripped up the user, and the next steps they took.
+- **quickstart repro script** — A one-shot script that reproduces a quickstart flow end-to-end, used to verify the documented steps still work and to share with others.

@@ -8,7 +8,7 @@
 - [Trivy CVE severity filtering](../scripts/bash/ci_cd_toolkit/trivy-severity-filter.sh)
 - [TruffleHog PR secret scan reusable workflow](../trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml)
 - [Falco K8s admission control rule](../falco/manifests/falco-k8s-admission-control.yaml)
-- [DefectDojo vulnerability scanner setup](../defectdojo/configs/2026-09-21-vulnerability-scanner-setup.yaml) — Scanner integration scaffold with finding ingestion
+- [DefectDojo vulnerability scanner setup](../defectdojo/configs/2026-09-21-vulnerability-scanner-setup.yaml)
 - [Flatted CVE-2026-33228 runbook](../docs/runbooks/cve-2026-33228-ansible-flatted.md)
 - [Kaniko CVE-2026-28406 runbook](../docs/how-to/docker-kaniko-cve-2026-28406.md)
 
@@ -16,19 +16,19 @@
 
 - [First custom Docker image](../docker/dockerfiles/2026-07-10-first-custom-image.Dockerfile)
 - [Sign and verify my first image](../cosign/snippets/first-cosign-sign-verify-image.sh)
-- [Install Cosign and run a first signing command](../cosign/notes/2026-10-14-install-cosign-first-signing-command.md) — Binary install, keypair generation, and `cosign sign` against a full registry path
+- [Install Cosign and run a first signing command](../cosign/notes/2026-10-14-install-cosign-first-signing-command.md)
 - [Cosign verification patterns](../cosign/docs/cosign-verification-patterns.md)
-- [Container signing pipeline integration](../cosign/docs/container-signing-pipeline.md) — Where signing and verification stages belong in an image pipeline, and the verify gate that rejects unsigned images
+- [Container signing pipeline integration](../cosign/docs/container-signing-pipeline.md)
 - [Cosign key management workflow](../cosign/scripts/cosign-key-management-workflow.sh)
-- [Cosign signature configuration](../cosign/configs/cosign-signature-configuration.yaml) — CI workflow wiring keyless and key-based signing into an image pipeline
-- [Key-based vs keyless signing](../cosign/notebooks/key-based-vs-keyless-signing.ipynb) — Operational comparison of Cosign signing modes
-- [Cosign key rotation and migration patterns](../cosign/docs/key-rotation-and-migration-patterns.md) — Rotate signing trust without leaving published images unverifiable
+- [Cosign signature configuration](../cosign/configs/cosign-signature-configuration.yaml)
+- [Key-based vs keyless signing](../cosign/notebooks/key-based-vs-keyless-signing.ipynb)
+- [Cosign key rotation and migration patterns](../cosign/docs/key-rotation-and-migration-patterns.md)
 - [Custom Cosign image](../cosign/dockerfiles/custom-cosign-image.Dockerfile)
 - [Multi-stage SBOM Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
 - [Multi-stage Grype scan Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile)
 - [Build a multi-service Docker Compose app](../docker/scripts/build-multi-service-compose-app.sh)
-- [Multi-service Compose scaffold](../docker/templates/multi-service-setup/README.md) — Web plus API plus Postgres with health-gated startup and named volumes
-- [Docker Compose production manifest](../docker/manifests/docker-compose-production.yaml) — Replicated app service with rolling updates, resource limits, and restart policy
+- [Multi-service Compose scaffold](../docker/templates/multi-service-setup/README.md)
+- [Docker Compose production manifest](../docker/manifests/docker-compose-production.yaml)
 - [Syft + Trivy Kubernetes scan scaffold](../syft/templates/syft-trivy-k8s-scan-scaffold/README.md)
 
 ### Diagnose failures
@@ -38,5 +38,84 @@
 - [Vault seal/unseal troubleshooting](../docs/troubleshooting/vault-seal-unseal.md)
 - [Jenkins troubleshooting](../docs/troubleshooting/jenkins-troubleshooting.md)
 - [Kafka consumer lag](../docs/troubleshooting/kafka-consumer-lag.md)
-- [Linux production system administration runbook](../linux/docs/system-administration-runbook.md) — A deterministic triage sequence for a degraded host: reachability first, then load, memory, and disk in that order, then stabilisation and handoff
-- [Host health check and rollback](../linux/scripts/health-check-and-rollback.sh) — One entry point with check, snapshot, and rollback subcommands; thresholds overridable from the environment, exit codes separating healthy from degraded and critical
+- [Linux production system administration runbook](../linux/docs/system-administration-runbook.md)
+- [Host health check and rollback](../linux/scripts/health-check-and-rollback.sh)
+
+### Generate SBOMs and scan for vulnerabilities
+
+- [Syft SBOM generation primer](../syft/notes/0000-primer-syft.md)
+- [Generate multi-format SBOMs](../syft/scripts/gen-multi-format-sboms.sh)
+- [SBOM pipeline scaffold](../syft/templates/sbom-pipeline-scaffold/README.md)
+- [Grype vulnerability scanner primer](../grype/notes/0000-primer-grype.md)
+- [Grype end-to-end scan pipeline](../grype/scripts/grype-end-to-end-scan-pipeline.sh)
+- [Grype + Syft integration guide](../grype/docs/grype-syft-integration-guide.md)
+- [Trivy universal scanner primer](../trivy/notes/0000-primer-trivy.md)
+- [Trivy container vulnerability scan](../trivy/scripts/container-vuln-scan.sh)
+- [Trivy Kubernetes workload scanning scaffold](../trivy/templates/trivy-k8s-workload-scanning/README.md)
+
+### Scan infrastructure as code
+
+- [Checkov IaC scanner primer](../checkov/notes/0000-primer-checkov.md)
+- [Checkov deep Terraform plan scan](../checkov/scripts/deep-terraform-plan-scan.sh)
+- [Checkov validate custom policies](../checkov/scripts/validate-policies.sh)
+- [tfsec Terraform security scanner primer](../tfsec/notes/0000-primer-tfsec.md)
+- [Terrascan IaC scanner primer](../terrascan/notes/0000-primer-terrascan.md)
+- [OPA policy engine primer](../opa/notes/0000-primer-opa.md)
+- [Semgrep SAST primer](../semgrep/notes/0000-primer-semgrep.md)
+
+### Detect secrets in code and git history
+
+- [TruffleHog secret scanner primer](../trufflehog/notes/0000-primer-trufflehog.md)
+- [TruffleHog first secret scan](../trufflehog/snippets/2026-10-14-first-secret-scan.sh)
+- [Gitleaks secret scanner primer](../gitleaks/notes/0000-primer-gitleaks.md)
+- [Gitleaks first scan script](../gitleaks/scripts/2026-09-26-run-first-gitleaks-scan.sh)
+- [GitGuardian secrets platform primer](../gitguardian/notes/0000-primer-gitguardian.md)
+- [GitGuardian pre-commit hook](../gitguardian/scripts/pre-commit-hook-ggshield.sh)
+
+### Set up CI/CD pipelines
+
+- [GitHub Actions primer](../github-actions/notes/0000-primer-github-actions.md)
+- [Minimal starter workflow](../github-actions/configs/2026-09-21-minimal-starter-workflow.yaml)
+- [Run first workflow](../github-actions/notes/2026-10-14-run-first-workflow.md)
+- [Trigger workflow with gh CLI](../github-actions/snippets/2026-10-14-trigger-first-workflow-gh.sh)
+- [ArgoCD GitOps primer](../argocd/notes/0000-primer-argocd.md)
+- [ArgoCD Helm guestbook application](../argocd/manifests/helm-guestbook-application.yaml)
+- [Dependabot automated updates primer](../dependabot/notes/0000-primer-dependabot.md)
+- [Dependabot configuration template](../dependabot/configs/dependabot-configuration-template.yaml)
+
+### Manage Kubernetes clusters
+
+- [Kubernetes primer](../kubernetes/notes/0000-primer-kubernetes.md)
+- [First pod and service manifest](../kubernetes/manifests/2026-07-15-first-pod-service.yaml)
+- [Minimal namespace config](../kubernetes/configs/2026-10-14-minimal-namespace.yaml)
+- [Cluster workflow wiring](../kubernetes/docs/cluster-workflow-wiring.md)
+- [Helm package manager primer](../helm/notes/0000-primer-helm.md)
+- [Kustomize YAML customization primer](../kustomize/notes/0000-primer-kustomize.md)
+
+### Manage secrets and encryption
+
+- [Vault secrets management primer](../vault/notes/0000-primer-vault.md)
+- [Vault KV CRUD operations](../vault/scripts/vault-kv-crud.sh)
+- [Vault PKI workflow](../vault/scripts/vault-pki-workflow.sh)
+- [Vault secrets engine selection guide](../vault/docs/vault-secrets-engine-selection-guide.md)
+- [Vault Agent auto-auth on Kubernetes](../vault/docs/vault-agent-auto-auth-kubernetes.md)
+- [Cosign container signing primer](../cosign/notes/2026-10-14-install-cosign-first-signing-command.md)
+
+### Monitor and observe systems
+
+- [Prometheus metrics primer](../prometheus/notes/0000-primer-prometheus.md)
+- [Prometheus first query log](../prometheus/notes/2026-10-14-first-query-log.md)
+- [Grafana dashboard primer](../grafana/notes/0000-primer-grafana.md)
+- [Grafana dashboard provisioning](../grafana/configs/2026-10-14-dashboard-provisioning.yaml)
+- [Grafana first datasource query](../grafana/snippets/2026-10-14-first-grafana-datasource-query.py)
+- [Falco runtime security primer](../falco/notes/0000-primer-falco.md)
+- [Tetragon eBPF runtime primer](../tetragon/notes/0000-primer-tetragon.md)
+
+### Write and test infrastructure code
+
+- [Terraform primer](../terraform/notes/0000-primer-terraform.md)
+- [Small Terraform module from scratch](../terraform/configs/small-module-from-scratch.hcl)
+- [Terraform deploy script](../terraform/scripts/2026-07-18-deploy.sh)
+- [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
+- [Ansible quickstart trip-ups](../ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md)
+- [Ansible bootstrap target node](../ansible/scripts/bootstrap-target-node.sh)
