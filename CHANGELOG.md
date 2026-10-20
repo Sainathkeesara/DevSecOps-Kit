@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - gitguardian-019: `gitguardian/scripts/2026-10-20-first-ggshield-scan.sh` — My first ggshield scan: install, auth, scan, capture JSON report (L1 script)
 - snyk-017: `snyk/scripts/2026-10-20-first-snyk-test.sh` — My first snyk test: install, auth, test, capture JSON report (L1 script)
+- kubernetes-013: `kubernetes/notes/2026-10-20-quickstart-followup.md` — Following the Kubernetes quickstart: module-by-module write-up of what tripped me up (L2 notes)
+- kubernetes-014: `kubernetes/configs/2026-10-20-minimal-deployment.yaml` — Minimal Deployment + Service showing replicas, selector wiring, and stable endpoint (L2 config)
+- kubernetes-015: `kubernetes/scripts/2026-10-20-quickstart-repro.sh` — Imperative reproduction of the six quickstart modules for a fresh cluster (L2 script)
 
 ## 2026-10-19
 

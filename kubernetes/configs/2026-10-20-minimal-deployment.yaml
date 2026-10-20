@@ -1,0 +1,36 @@
+# last_verified: 2026-10-20 · kubernetes v1.32.0
+# Minimal Deployment + Service — the smallest thing that shows replicas,
+# selector wiring, and a stable endpoint. Apply with: kubectl apply -f minimal-deployment.yaml
+# Then: kubectl rollout status deployment/minimal-web
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minimal-web
+  labels:
+    app: minimal-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: minimal-web
+  template:
+    metadata:
+      labels:
+        app: minimal-web
+    spec:
+      containers:
+        - name: web
+          image: nginx:1.27
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: minimal-web-svc
+spec:
+  selector:
+    app: minimal-web
+  ports:
+    - port: 80
+      targetPort: 80
