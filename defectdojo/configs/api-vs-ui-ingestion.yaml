@@ -1,0 +1,78 @@
+# last_verified: 2026-10-20 · defectdojo n/a
+
+# DefectDojo: API vs UI ingestion for scans - comparison of approaches
+# Both methods achieve the same goal (import scan findings into DefectDojo),
+# but differ in automation, repeatability, and operational control.
+
+api_ingestion:
+  # Programmatic import via DefectDojo API (reimport/import endpoints)
+  method: api
+  when_to_use:
+    - "CI/CD pipelines that need automated, repeatable imports"
+    - "Large-scale imports across multiple products/engagements"
+    - "When deduplication/reimport logic must be controlled in code"
+  prerequisites:
+    - "DefectDojo API key or token with import permissions"
+    - "Network access from build agent/runner to DefectDojo API endpoint"
+    - "Scan report in a supported parser format (e.g., Trivy JSON, SARIF)"
+  configuration:
+    endpoint: "${DEFECTDOJO_API_ENDPOINT}/api/v2/import-scan/"
+    auth_header: "Authorization: Token ${DEFECTDOJO_API_TOKEN}"
+    required_fields:
+      engagement: "<engagement_id>"
+      scan_type: "<defectdojo_scan_type>"
+      file: "<report_file>"
+    common_options:
+      active: true
+      verified: false
+      minimum_severity: "Low"
+      close_old_findings: true
+      push_to_jira: false
+      tags: "ci,automated"
+  pros:
+    - "Fully automatable in pipelines with no manual clicks"
+    - "Version-controllable and reproducible"
+    - "Supports reimport for same engagement to track fixes"
+    - "Can be parameterized per product/branch/environment"
+  cons:
+    - "Requires API token management and network egress"
+    - "Needs mapping of scan_type and parser-specific fields"
+    - "Errors require log inspection/debugging"
+
+ui_ingestion:
+  # Manual import via DefectDojo web UI
+  method: ui
+  when_to_use:
+    - "One-off imports for ad-hoc investigations"
+    - "Validating parser behavior on a new report format"
+    - "When API access is not yet configured"
+  prerequisites:
+    - "Access to DefectDojo web UI with permissions to import"
+    - "Scan report downloaded locally"
+  configuration:
+    path: "Engagement > Tests > Add Findings > Import Scan Results"
+    required_fields:
+      engagement: "<select from UI>"
+      scan_type: "<select from supported parsers>"
+      file: "<upload report>"
+    common_options:
+      active: true
+      verified: false
+      minimum_severity: "Low"
+      close_old_findings: false
+  pros:
+    - "No code or token setup required to try quickly"
+    - "Interactive - easy to inspect parser options and preview"
+    - "Good for exploring new scan types/formats"
+  cons:
+    - "Not automatable - manual, error-prone at scale"
+    - "Not reproducible/auditable in pipeline history"
+    - "Difficult to enforce consistent parameters across runs"
+
+comparison_summary:
+  automation: { api: "full", ui: "none" }
+  repeatability: { api: "high", ui: "low" }
+  auditability: { api: "high (pipeline logs)", ui: "low" }
+  speed_for_bulk: { api: "fast", ui: "slow" }
+  setup_overhead: { api: "higher initial", ui: "lower initial" }
+  recommended_default: "api for CI/CD; ui for exploration/validation"
