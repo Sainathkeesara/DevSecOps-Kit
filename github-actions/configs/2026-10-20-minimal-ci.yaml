@@ -1,0 +1,9 @@
+# last_verified: 2026-10-20 · github-actions n/a
+name: ci
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "hello"

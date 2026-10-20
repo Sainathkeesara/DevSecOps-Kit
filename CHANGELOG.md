@@ -3203,3 +3203,4 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - templates-009: `templates/docs/2026-10-19-linux-automation-deploy-path.md` — Reconciled the linux-automation README deploy.sh path with the shipped deploy.sh (L2 docs)
 - zap-040: `zap/configs/zap-dast-github-actions-workflow.yaml` — Aligned the ZAP DAST scaffold workflow with the repository workflow standards (L4 config yaml)
 - 2026-10-19: tfsec configs/scripts, defectdojo notes
+- 2026-10-20 github-actions-006, github-actions-007, helm-008: followed quickstarts + minimal CI workflow
