@@ -16,6 +16,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - kubernetes-013: `kubernetes/notes/2026-10-20-quickstart-followup.md` — Following the Kubernetes quickstart: module-by-module write-up of what tripped me up (L2 notes)
 - kubernetes-014: `kubernetes/configs/2026-10-20-minimal-deployment.yaml` — Minimal Deployment + Service showing replicas, selector wiring, and stable endpoint (L2 config)
 - kubernetes-015: `kubernetes/scripts/2026-10-20-quickstart-repro.sh` — Imperative reproduction of the six quickstart modules for a fresh cluster (L2 script)
+- kustomize-008: `kustomize/scripts/2026-10-20-kustomize-tutorial.sh` — What I learned doing the kustomize tutorial, re-runnable: base manifests, a dev overlay with namePrefix, labels, a patch and a generated ConfigMap, then kustomize build (L2 script)
+- defectdojo-009: `defectdojo/scripts/product-scan-import.py` — Small DefectDojo product scan import from scratch: find or create the product and the engagement, then reimport-scan with a case-checked scan type (L3 script)
 
 ## 2026-10-19
 
