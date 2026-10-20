@@ -3216,6 +3216,4 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - 2026-10-20 github-actions-006, github-actions-007, helm-008: followed quickstarts + minimal CI workflow
 - Added defectdojo/configs/api-vs-ui-ingestion.yaml (defectdojo-011) - API vs UI ingestion comparison
 - Added defectdojo/docs/how-i-wired-defectdojo-into-my-triage-workflow.md (defectdojo-010) - DefectDojo triage workflow
-- Added helm/scripts/2026-10-20-build-and-deploy-chart.sh (helm-009) - Build and deploy Helm chart
 - Added helm/docs/how-i-wired-helm-into-my-release-workflow.md (helm-010) - Helm release workflow
-- Added opentofu/notes/2026-10-20-opentofu-quickstart-tripped-me-up.md (opentofu-009) - OpenTofu quickstart notes
