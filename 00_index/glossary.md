@@ -362,6 +362,7 @@
 - **Test** — The result of importing one scan file into a DefectDojo engagement.
 - **Deduplication** — Merging identical findings across scans so one issue doesn't fan out into multiple tickets.
 - **Initializer (DefectDojo)** — The one-shot Docker Compose service that runs database setup on first boot. It takes several minutes and prints the generated admin password to its logs — watch it before assuming the install is broken.
+- **API v2 (DefectDojo)** — The current REST API version, exposed at `/api/v2/`. Product, engagement, and scan imports all live here. The older v1 endpoints still exist but are frozen, so new integrations should target v2 to avoid surprises when the v1 paths eventually change.
 
 **Quality Gate** — SonarQube's pass/fail conditions for a project (e.g., no new bugs, coverage ≥ 80%). Enforced in CI to block PRs that degrade code quality.
 
@@ -837,3 +838,11 @@
 
 - **Dashboard provisioning (Grafana)** — A providers document telling Grafana which folder to load dashboard JSON from at startup. The provisioning half and the dashboard JSON half are separate: one points, the other fills.
 - **Datasource query via API (Grafana)** — Hitting `/api/datasources` with a token to list backends the way the UI does behind the scenes. The smallest check that the datasource from setup is actually visible before building panels.
+
+## tfsec
+
+- **Inline ignore (tfsec)** — A comment placed directly above a line, `# tfsec:ignore[check-id]`, that suppresses that specific check for that specific resource. Kept next to the code it hides, so an audit pass is one grep away and the reason travels with the finding.
+- **`.tfsec.yml`** — tfsec's local config file, created by hand (there is no `tfsec --init`). It sets severity overrides, excludes checks, and tunes the scan scope. Without it every run uses the defaults; with it the scan reflects what your environment actually accepts.
+- **`--minimum-severity` (tfsec)** — A gate flag that only reports findings at or above a chosen severity. The default exit code is 1 whenever any finding exists, which is wrong for CI — pairing `--minimum-severity=HIGH` with the flag makes the build fail only on findings you actually care about.
+- **`--module-depth` (tfsec)** — Controls how far tfsec recurses into `modules/` directories. Deep module trees are scanned by default and can slow the run; `--module-depth=0` skips modules entirely for a fast shallow pass.
+- **`--tfvars-file` (tfsec)** — Tells tfsec to load a `.tfvars` file so variable references resolve during the scan. Without it, tfsec evaluates variables as unknown and can miss or misreport findings that only appear after interpolation.
