@@ -1,0 +1,61 @@
+# TruffleHog Shared Scan Configuration
+#
+# This file is the single source of truth for scan targets, detectors,
+# and output settings. Both local scripts and CI workflows reference it.
+# Edit this file to customize scanning for your repository.
+
+# Filesystem paths to scan (relative to repository root)
+# Supports glob patterns and negation with !
+fs_paths:
+  - "."
+  - "!vendor/**"
+  - "!.git/**"
+  - "!node_modules/**"
+  - "!**/*.min.js"
+  - "!**/*.map"
+
+# Git history scanning options
+git:
+  # Scan commits reachable from this ref (default: HEAD)
+  since_commit: "HEAD~50"
+  # Branch to compare against for PR scans
+  branch: "main"
+
+# Output format for scan results
+# Options: json, sarif, junit, csv, text
+output_format: "json"
+
+# Detector configuration
+detectors:
+  # Enable all built-in detectors (800+ patterns)
+  enable_all: true
+  # Exclude specific detectors by name (reduces noise)
+  exclude:
+    - "generic-api-key"
+    - "high-entropy-string"
+  # Directory containing custom detector YAML files
+  custom_detectors_dir: ".trufflehog"
+
+# Secret verification against live APIs
+# Enabled: true = slower but fewer false positives
+# Disabled: false = faster, more findings to triage
+verification:
+  enabled: false
+  # Max concurrent verification requests
+  concurrency: 5
+  # Timeout per verification request (seconds)
+  timeout: 10
+
+# Allowlist configuration
+# Paths to allowlist files (merged in order)
+allowlist:
+  - ".trufflehog/allowlist.yaml"
+
+# Scan behavior
+scan:
+  # Maximum file size to scan (bytes, 0 = unlimited)
+  max_file_size: 1048576
+  # Follow symlinks
+  follow_symlinks: false
+  # Exit code: 0 = clean, 1 = findings, 2 = error
+  fail_on_findings: true

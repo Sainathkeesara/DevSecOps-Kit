@@ -1,0 +1,30 @@
+# TruffleHog Verified False Positive Allowlist
+#
+# Add verified false positives here to suppress them from scan results.
+# Each entry MUST include: detector, path, line, commit, and reason.
+# The commit hash must match the commit where the secret appears.
+#
+# To find the commit hash: git log --oneline -1 -- <file>
+# To find the line number: grep -n <secret> <file>
+#
+# Reference: https://github.com/trufflesecurity/trufflehog/blob/main/docs/content/docs/getting-started/configuration.md#allowlisting
+
+allowlist:
+  # Example entries — replace with your verified false positives
+  - detector: "AWS"
+    path: "docs/examples/aws-config.example"
+    line: 15
+    commit: "abc123def456789"
+    reason: "Example AWS credential in documentation"
+
+  - detector: "Generic API Key"
+    path: "test/fixtures/sample-config.yaml"
+    line: 42
+    commit: "fedcba987654321"
+    reason: "Test fixture with placeholder key"
+
+  - detector: "High Entropy String"
+    path: "src/crypto/test_vectors.go"
+    line: 10
+    commit: "123456789abcdef"
+    reason: "Cryptographic test vectors with high entropy"
