@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - defectdojo-009: `defectdojo/scripts/product-scan-import.py` — Small DefectDojo product scan import from scratch: find or create the product and the engagement, then reimport-scan with a case-checked scan type (L3 script)
 - trufflehog-046: `trufflehog/templates/trufflehog-ci-integration/` — Project scaffold: TruffleHog + CI integration with GitHub Actions and GitLab CI, shared config, custom detectors, allowlist, and scan scripts (L4 template)
 - trufflehog-047: `trufflehog/dockerfiles/pipeline-scanner.Dockerfile` — TruffleHog pipeline scanner container: git, filesystem, and GitHub scan modes with JSON output for CI/CD integration (L4 dockerfile)
+- github-actions-008: `github-actions/docs/how-i-wired-github-actions-into-my-ci-workflow.md` — How GitHub Actions is wired into a CI workflow: build and static-analysis jobs, workflow-level and per-job `permissions` scoping, pull-request triggers, and the `gh` trigger/watch loop (L3 docs)
 
 ## 2026-10-19
 
