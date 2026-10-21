@@ -4,6 +4,11 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-21
+
+### Added
+- github-actions-010: `github-actions/scripts/triage-latest-failed-run.sh` — Triage the most recent failed workflow run: list recent runs, pick the newest one whose conclusion is `failure`, print the failing jobs and the failing steps inside them, and save the failed-step log to a file; exits 1 when a failed run is found so it can gate a pipeline, 0 when nothing failed, 2 on a usage or `gh` error (L3 script bash)
+
 ## 2026-10-20
 
 ### Added
