@@ -3227,3 +3227,4 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 
 ## 2026-10-20 (rework)
 - helm/scripts/build-and-deploy-chart.sh — helm-009 (rework): Helm chart build-and-deploy script with error handling, atomic upgrade, and values-file resolution against the chart directory.
+- 2026-10-22: added github-actions/configs/reusable-deployment-workflow.yaml

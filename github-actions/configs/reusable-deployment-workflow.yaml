@@ -1,0 +1,38 @@
+# last_verified: 2026-10-22 · github-actions n/a
+# A reusable deployment workflow with environment protection and OIDC trust.
+# Non-minimal variant: callable workflow invoked by other workflows.
+
+name: Reusable deployment
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      image:
+        required: true
+        type: string
+    secrets:
+      AWS_ROLE_ARN:
+        required: true
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - uses: actions/checkout
+      - name: Configure AWS credentials via OIDC
+        uses: aws-actions/configure-aws-credentials
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: us-east-1
+      - name: Deploy image
+        run: |
+          echo "Deploying ${{ inputs.image }} to ${{ inputs.environment }}"
+          # Add your deploy command here
