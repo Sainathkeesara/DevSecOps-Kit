@@ -1,0 +1,46 @@
+# last_verified: 2026-10-22 · codeql n/a
+
+"""Small helper that runs a CodeQL analysis query against a database."""
+
+import subprocess
+import sys
+from pathlib import Path
+
+
+def run(cmd):
+    print("$", " ".join(cmd))
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        print(result.stderr, file=sys.stderr)
+        raise SystemExit(f"command failed with exit code {result.returncode}")
+    if result.stdout:
+        print(result.stdout)
+
+
+def main():
+    if len(sys.argv) < 3:
+        print("usage: codeql-security-issue-detector.py <source-dir> <query-file>", file=sys.stderr)
+        raise SystemExit(2)
+
+    source_dir = Path(sys.argv[1])
+    query_file = Path(sys.argv[2])
+    db_path = Path("codeql-db")
+
+    if not source_dir.is_dir():
+        raise SystemExit(f"source directory not found: {source_dir}")
+    if not query_file.is_file():
+        raise SystemExit(f"query file not found: {query_file}")
+
+    run(["codeql", "database", "create", str(db_path),
+         "--language=python", f"--source-root={source_dir}"])
+
+    run(["codeql", "database", "analyze", str(db_path), str(query_file),
+         "--format=sarif-latest", "--output=results.sarif"])
+
+    print("analysis complete: results.sarif")
+
+
+if __name__ == "__main__":
+    main()
+""" filePath">
+/work/DevSecOps-Kit/codeql/scripts/codeql-security-issue-detector.py
