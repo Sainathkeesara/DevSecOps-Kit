@@ -4,6 +4,11 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-22
+
+### Added
+- defectdojo-016: `defectdojo/docs/defectdojo-scan-tool-ingestion-end-to-end.md` — DefectDojo scan-tool ingestion end-to-end integration: product/engagement setup, scanner report generation, reimport-scan API flow, deduplication, tagging, CI automation, and remediation tracking (L4 docs)
+
 ## 2026-10-21
 
 ### Added
