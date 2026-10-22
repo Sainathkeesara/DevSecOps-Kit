@@ -1,0 +1,13 @@
+# last_verified: 2026-10-22 · github-actions n/a
+name: Minimal CI workflow
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a minimal step
+        run: echo "Minimal GitHub Actions workflow running"

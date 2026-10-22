@@ -3227,3 +3227,10 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 
 ## 2026-10-20 (rework)
 - helm/scripts/build-and-deploy-chart.sh — helm-009 (rework): Helm chart build-and-deploy script with error handling, atomic upgrade, and values-file resolution against the chart directory.
+
+## 2026-10-22
+
+### Added
+
+- defectdojo-016: `defectdojo/docs/scan-ingestion-end-to-end.md` — DefectDojo scan-tool ingestion end-to-end: purpose, prerequisites, steps, verify, and in-repo references (L4 docs)
+- github-actions-009: `github-actions/configs/minimal-workflow.yaml` — Minimal GitHub Actions workflow configuration (L3 config yaml)
