@@ -64,7 +64,7 @@
 - **notes** (4): [2026-10-19-followed-defectdojo-quickstart-what-tripped-me-up.md](../defectdojo/notes/2026-10-19-followed-defectdojo-quickstart-what-tripped-me-up.md), [2026-09-21-quickstart-tripups.md](../defectdojo/notes/2026-09-21-quickstart-tripups.md)  <!-- link the 2–3 newest only -->
 - _…and 2 more under `defectdojo/notes/` — browse the folder._
 - **scripts** (2): [product-scan-import.py](../defectdojo/scripts/product-scan-import.py), [2026-09-20-defectdojo-tutorial-check.sh](../defectdojo/scripts/2026-09-20-defectdojo-tutorial-check.sh)
-- **configs** (1): [2026-09-21-vulnerability-scanner-setup.yaml](../defectdojo/configs/2026-09-21-vulnerability-scanner-setup.yaml)
+- **configs** (2): [2026-09-21-vulnerability-scanner-setup.yaml](../defectdojo/configs/2026-09-21-vulnerability-scanner-setup.yaml), [api-vs-ui-ingestion.yaml](../defectdojo/configs/api-vs-ui-ingestion.yaml)  <!-- link the 2–3 newest only -->
 - **snippets** (2): [install-defectdojo-first-scan-report.sh](../defectdojo/snippets/install-defectdojo-first-scan-report.sh), [2026-10-19-minimal-product-setup-api.py](../defectdojo/snippets/2026-10-19-minimal-product-setup-api.py)
 
 ## dependabot  ·  19 files
@@ -156,9 +156,10 @@
 - **dockerfiles** (1): [multi-stage-grype-scan.Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile)
 - **notebooks** (2): [grype-sbom-output-explorer.ipynb](../grype/notebooks/grype-sbom-output-explorer.ipynb), [grype-db-vs-registry-sources.ipynb](../grype/notebooks/grype-db-vs-registry-sources.ipynb)
 
-## helm  ·  6 files
+## helm  ·  7 files
 - **primer:** [helm/notes/0000-primer-helm.md](../helm/notes/0000-primer-helm.md)
 - **notes** (4): [2026-10-20-followed-quickstart.md](../helm/notes/2026-10-20-followed-quickstart.md), [2026-09-21-quickstart-tripped-me-up.md](../helm/notes/2026-09-21-quickstart-tripped-me-up.md)  <!-- link the 2–3 newest only -->
+- **scripts** (1): [build-and-deploy-chart.sh](../helm/scripts/build-and-deploy-chart.sh)
 - _…and 2 more under `helm/notes/` — browse the folder._
 - **manifests** (2): [2026-09-21-minimal-service-chart.yaml](../helm/manifests/2026-09-21-minimal-service-chart.yaml), [2026-07-15-first-chart-values.yaml](../helm/manifests/2026-07-15-first-chart-values.yaml)
 
@@ -203,9 +204,10 @@
 - _…and 2 more under `opa/manifests/` — browse the folder._
 - **notebooks** (1): [rego-vs-builtin-policies.ipynb](../opa/notebooks/rego-vs-builtin-policies.ipynb)
 
-## opentofu  ·  6 files
+## opentofu  ·  7 files
 - **primer:** [opentofu/notes/0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md)
-- **notes** (3): [2026-09-21-follow-open-tofu-quickstart.md](../opentofu/notes/2026-09-21-follow-open-tofu-quickstart.md), [2026-07-20-explore-open-tofu.md](../opentofu/notes/2026-07-20-explore-open-tofu.md), [0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md)
+- **notes** (4): [2026-10-20-follow-opentofu-test-quickstart.md](../opentofu/notes/2026-10-20-follow-opentofu-test-quickstart.md), [2026-09-21-follow-open-tofu-quickstart.md](../opentofu/notes/2026-09-21-follow-open-tofu-quickstart.md), [2026-07-20-explore-open-tofu.md](../opentofu/notes/2026-07-20-explore-open-tofu.md)  <!-- link the 2–3 newest only -->
+- _and 1 more under `opentofu/notes/` — browse the folder._
 - **configs** (3): [2026-09-21-minimal-opentofu-config-with-vars.hcl](../opentofu/configs/2026-09-21-minimal-opentofu-config-with-vars.hcl), [2026-09-10-minimal-opentofu-config.hcl](../opentofu/configs/2026-09-10-minimal-opentofu-config.hcl), [2026-07-20-first-open-tofu-config.hcl](../opentofu/configs/2026-07-20-first-open-tofu-config.hcl)
 
 ## prometheus  ·  4 files

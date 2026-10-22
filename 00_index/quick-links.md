@@ -9,8 +9,10 @@
 - [TruffleHog PR secret scan reusable workflow](../trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml)
 - [Falco K8s admission control rule](../falco/manifests/falco-k8s-admission-control.yaml)
 - [DefectDojo vulnerability scanner setup](../defectdojo/configs/2026-09-21-vulnerability-scanner-setup.yaml)
+- [DefectDojo API vs UI ingestion config](../defectdojo/configs/api-vs-ui-ingestion.yaml)
 - [Flatted CVE-2026-33228 runbook](../docs/runbooks/cve-2026-33228-ansible-flatted.md)
 - [Kaniko CVE-2026-28406 runbook](../docs/how-to/docker-kaniko-cve-2026-28406.md)
+- [DefectDojo wired into triage workflow](../defectdojo/docs/how-i-wired-defectdojo-into-my-triage-workflow.md)
 
 ### Build and sign container images
 
@@ -27,9 +29,11 @@
 - [Multi-stage SBOM Dockerfile](../syft/dockerfiles/multi-stage-sbom.Dockerfile)
 - [Multi-stage Grype scan Dockerfile](../grype/dockerfiles/multi-stage-grype-scan.Dockerfile)
 - [Build a multi-service Docker Compose app](../docker/scripts/build-multi-service-compose-app.sh)
+- [Helm build and deploy chart script](../helm/scripts/build-and-deploy-chart.sh)
 - [Multi-service Compose scaffold](../docker/templates/multi-service-setup/README.md)
 - [Docker Compose production manifest](../docker/manifests/docker-compose-production.yaml)
 - [Syft + Trivy Kubernetes scan scaffold](../syft/templates/syft-trivy-k8s-scan-scaffold/README.md)
+- [Helm wired into release workflow](../helm/docs/how-i-wired-helm-into-my-release-workflow.md)
 
 ### Diagnose failures
 
@@ -119,3 +123,4 @@
 - [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
 - [Ansible quickstart trip-ups](../ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md)
 - [Ansible bootstrap target node](../ansible/scripts/bootstrap-target-node.sh)
+- [OpenTofu test quickstart followup](../opentofu/notes/2026-10-20-follow-opentofu-test-quickstart.md)
