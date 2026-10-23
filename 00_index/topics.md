@@ -33,7 +33,7 @@
 - **notebooks** (4): [compare-static-vs-plan-scanning.ipynb](../checkov/notebooks/compare-static-vs-plan-scanning.ipynb), [compare-custom-policy-expressiveness.ipynb](../checkov/notebooks/compare-custom-policy-expressiveness.ipynb)  <!-- link the 2–3 newest only -->
 - _…and 2 more under `checkov/notebooks/` — browse the folder._
 
-## codeql  ·  28 files
+## codeql  ·  30 files
 - **primer:** [codeql/notes/0000-primer-codeql.md](../codeql/notes/0000-primer-codeql.md)
 - **notes** (4): [2026-08-26-install-codeql-first-query.md](../codeql/notes/2026-08-26-install-codeql-first-query.md), [2026-06-14-codeql-datalog-gotchas.md](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md)  <!-- link the 2–3 newest only -->
 - _…and 2 more under `codeql/notes/` — browse the folder._
@@ -143,7 +143,7 @@
 - **configs** (2): [2026-10-14-dashboard-provisioning.yaml](../grafana/configs/2026-10-14-dashboard-provisioning.yaml), [2026-09-19-first-datasource.yaml](../grafana/configs/2026-09-19-first-datasource.yaml)
 - **snippets** (1): [2026-10-14-first-grafana-datasource-query.py](../grafana/snippets/2026-10-14-first-grafana-datasource-query.py)
 
-## grype  ·  25 files
+## grype  ·  26 files
 - **primer:** [grype/notes/0000-primer-grype.md](../grype/notes/0000-primer-grype.md)
 - **notes** (5): [2026-10-14-explore-vulnerability-database.md](../grype/notes/2026-10-14-explore-vulnerability-database.md), [2026-06-08-first-grype-scan.md](../grype/notes/2026-06-08-first-grype-scan.md)  <!-- link the 2–3 newest only -->
 - _…and 3 more under `grype/notes/` — browse the folder._
@@ -240,7 +240,7 @@
 - **dockerfiles** (1): [custom-snyk-cli-air-gapped.Dockerfile](../snyk/dockerfiles/custom-snyk-cli-air-gapped.Dockerfile)
 - **notebooks** (1): [cli-vs-api-modes.ipynb](../snyk/notebooks/cli-vs-api-modes.ipynb)
 
-## sonarqube  ·  6 files
+## sonarqube  ·  7 files
 - **primer:** [sonarqube/notes/0000-primer-sonarqube.md](../sonarqube/notes/0000-primer-sonarqube.md)
 - **notes** (3): [2026-09-21-follow-sonarqube-quickstart.md](../sonarqube/notes/2026-09-21-follow-sonarqube-quickstart.md), [2026-07-19-explore-sonarqube-quality-gates-profiles.md](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md), [0000-primer-sonarqube.md](../sonarqube/notes/0000-primer-sonarqube.md)
 - **scripts** (1): [2026-09-21-sonarqube-scan-setup.sh](../sonarqube/scripts/2026-09-21-sonarqube-scan-setup.sh)
