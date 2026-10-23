@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-23
+
+### Added
+- defectdojo-015: `defectdojo/templates/defectdojo-scan-ingestion-starter/` — DefectDojo scan ingestion starter scaffold: docker-compose stack, product/engagement setup script, scan import script with reimport-scan deduplication, scanner config mappings, and environment template (L4 template)
+- sonarqube-015: `sonarqube/configs/minimal-project-quality-gate.yaml` — Minimal SonarQube project and quality-gate configuration: project metadata, quality gate conditions (bugs, vulnerabilities, hotspots, coverage, duplication, ratings), quality profiles, scanner properties, new code definition, and webhook template (L3 config)
+
 ## 2026-10-22
 
 ### Added

@@ -1,0 +1,101 @@
+# last_verified: 2026-10-23 · sonarqube n/a
+
+# Minimal SonarQube project and quality-gate configuration.
+# This YAML documents the project-level settings and a baseline quality gate
+# that can be imported via the SonarQube REST API or applied through the UI.
+#
+# For API import, use the sonarqube/scripts/sonarqube-analysis-run.sh pattern
+# or the SonarQube web API endpoints (/api/projects/create, /api/qualitygates/create, etc.).
+
+project:
+  key: "my-project"
+  name: "My Project"
+  visibility: "private"
+  # branching:
+  #   long_living_branches: "main,develop,release/*"
+
+quality_gate:
+  name: "Minimal Quality Gate"
+  conditions:
+    - metric: "new_bugs"
+      operator: "GREATER_THAN"
+      value: "0"
+      error_threshold: "0"
+    - metric: "new_vulnerabilities"
+      operator: "GREATER_THAN"
+      value: "0"
+      error_threshold: "0"
+    - metric: "new_security_hotspots"
+      operator: "GREATER_THAN"
+      value: "0"
+      error_threshold: "0"
+    - metric: "coverage"
+      operator: "LESS_THAN"
+      value: "80"
+      error_threshold: "80"
+    - metric: "duplicated_lines_density"
+      operator: "GREATER_THAN"
+      value: "3"
+      error_threshold: "3"
+    - metric: "new_code_smells"
+      operator: "GREATER_THAN"
+      value: "0"
+      error_threshold: "0"
+    - metric: "new_maintainability_rating"
+      operator: "GREATER_THAN"
+      value: "1"
+      error_threshold: "1"
+    - metric: "new_reliability_rating"
+      operator: "GREATER_THAN"
+      value: "1"
+      error_threshold: "1"
+    - metric: "new_security_rating"
+      operator: "GREATER_THAN"
+      value: "1"
+      error_threshold: "1"
+
+# Quality profile reference (uses built-in "Sonar way" for each language).
+# To customize, create a profile in the UI and associate it with the project.
+quality_profiles:
+  - language: "java"
+    profile: "Sonar way"
+  - language: "python"
+    profile: "Sonar way"
+  - language: "javascript"
+    profile: "Sonar way"
+  - language: "typescript"
+    profile: "Sonar way"
+  - language: "go"
+    profile: "Sonar way"
+  - language: "cs"
+    profile: "Sonar way"
+
+# Scanner properties for sonar-scanner CLI or Maven/Gradle plugins.
+# These go in sonar-project.properties or are passed as -D flags.
+scanner_properties:
+  sonar.projectKey: "my-project"
+  sonar.projectName: "My Project"
+  sonar.projectVersion: "1.0.0"
+  sonar.sources: "src"
+  sonar.tests: "tests"
+  sonar.sourceEncoding: "UTF-8"
+  # sonar.exclusions: "**/generated/**,**/node_modules/**"
+  # sonar.test.exclusions: "**/test-resources/**"
+  # sonar.coverage.exclusions: "**/test/**"
+  # sonar.jacoco.reportPaths: "target/jacoco.exec"
+  # sonar.python.coverage.reportPaths: "coverage.xml"
+  # sonar.javascript.lcov.reportPaths: "coverage/lcov.info"
+
+# New Code definition (how SonarQube identifies "new" code for the quality gate).
+# Options: "previous_version", "number_of_days", "scm", "reference_branch".
+new_code_definition:
+  type: "reference_branch"
+  reference_branch: "main"
+  # days: 30
+
+# Webhook for CI integration (e.g., GitHub Actions, GitLab CI).
+# The webhook receives quality gate status after each analysis.
+webhook:
+  name: "CI Quality Gate"
+  url: "https://ci.example.com/sonarqube-webhook"
+  secret: "<generate-and-store-in-ci-secrets>"

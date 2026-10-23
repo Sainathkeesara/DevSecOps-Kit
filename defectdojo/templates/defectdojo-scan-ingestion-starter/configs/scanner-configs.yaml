@@ -1,0 +1,84 @@
+# Scanner to DefectDojo scan_type mapping
+# last_verified: 2026-10-23 · DefectDojo n/a
+
+# Each entry maps a scanner identifier to the exact scan_type string
+# that DefectDojo's parser expects. These strings are case-sensitive.
+# Verify the complete list at /api/v2/doc/ on your DefectDojo instance.
+
+scanners:
+  - id: trivy
+    name: "Trivy"
+    scan_type: "Trivy Scan"
+    output_format: json
+    typical_command: "trivy image --format json --output report.json <image>"
+    supported: true
+
+  - id: grype
+    name: "Grype"
+    scan_type: "Grype Scan"
+    output_format: json
+    typical_command: "grype <image> -o json > report.json"
+    supported: true
+
+  - id: semgrep
+    name: "Semgrep"
+    scan_type: "Semgrep JSON Report"
+    output_format: json
+    typical_command: "semgrep scan --json=report.json"
+    supported: true
+
+  - id: zap
+    name: "OWASP ZAP"
+    scan_type: "ZAP Scan"
+    output_format: json
+    typical_command: "zap-api-scan.py -t <target> -r report.json"
+    supported: true
+
+  - id: gitleaks
+    name: "Gitleaks"
+    scan_type: "Gitleaks Scan"
+    output_format: json
+    typical_command: "gitleaks detect --report-format json --report-path report.json"
+    supported: true
+
+  - id: sarif
+    name: "Generic SARIF"
+    scan_type: "SARIF"
+    output_format: sarif
+    typical_command: "<any-tool> --format sarif --output report.sarif"
+    supported: true
+
+  - id: prowler
+    name: "Prowler"
+    scan_type: "Prowler Scan"
+    output_format: json
+    typical_command: "prowler -M json -o report.json"
+    supported: true
+
+  - id: checkov
+    name: "Checkov"
+    scan_type: "Checkov Scan"
+    output_format: json
+    typical_command: "checkov -d . --output json --output-file-path report.json"
+    supported: true
+
+  - id: tfsec
+    name: "tfsec"
+    scan_type: "TFSec Scan"
+    output_format: json
+    typical_command: "tfsec . --format json --out report.json"
+    supported: true
+
+  - id: nuclei
+    name: "Nuclei"
+    scan_type: "Nuclei Scan"
+    output_format: json
+    typical_command: "nuclei -json -o report.json"
+    supported: true
+
+# Notes:
+# - The scan_type strings must match DefectDojo's parser names exactly.
+# - A wrong scan_type does not fail the import; it silently drops findings.
+# - Always verify the scan_type against your DefectDojo instance's parser list.
+# - For SARIF, DefectDojo accepts SARIF 2.1.0 format from any tool.
+# - To add a new scanner, append an entry here and use its scan_type with import-scan.py.
