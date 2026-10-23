@@ -3238,3 +3238,6 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 ## 2026-10-23
 - helm-011: helm/configs/values-file-vs-set-flags.yaml
 - kustomize-009: kustomize/configs/small-overlay.yaml
+
+## 2026-10-23
+- kustomize-011: kustomize/scripts/bases-vs-remote-resources.sh
