@@ -1,2 +1,3 @@
 # CI artifacts
 .pr_result.json
+__pycache__/

@@ -1,0 +1,55 @@
+# DefectDojo + PostgreSQL stack for scan ingestion starter
+# last_verified: 2026-10-23 · DefectDojo n/a
+
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: defectdojo-db
+    environment:
+      POSTGRES_DB: defectdojo
+      POSTGRES_USER: defectdojo
+      POSTGRES_PASSWORD: "${DD_DATABASE_PASSWORD}"
+    volumes:
+      - defectdojo-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U defectdojo -d defectdojo"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+
+  defectdojo:
+    image: defectdojo/defectdojo-django:2.40.0
+    container_name: defectdojo-web
+    environment:
+      DD_DATABASE_URL: "postgres://defectdojo:${DD_DATABASE_PASSWORD}@db:5432/defectdojo"
+      DD_SECRET_KEY: "${DD_SECRET_KEY}"
+      DD_ADMIN_USER: admin
+      DD_ADMIN_PASSWORD: "${DD_ADMIN_PASSWORD}"
+      DD_TIME_ZONE: "${DD_TIME_ZONE:-UTC}"
+      DD_DEBUG: "false"
+      DD_ALLOWED_HOSTS: "*"
+      DD_CSRF_TRUSTED_ORIGINS: "http://localhost:8080"
+    ports:
+      - "8080:8080"
+    volumes:
+      - defectdojo-media:/app/media
+      - defectdojo-static:/app/static
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/system/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+    restart: unless-stopped
+
+volumes:
+  defectdojo-db-data:
+  defectdojo-media:
+  defectdojo-static:
