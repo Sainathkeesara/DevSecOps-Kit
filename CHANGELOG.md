@@ -3247,3 +3247,6 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 
 ## 2026-10-23
 - kustomize-011: kustomize/scripts/bases-vs-remote-resources.sh
+## 2026-10-23
+- con-166: applying SAST in a pipeline script
+- con-168: building a CI/CD pipeline step script
