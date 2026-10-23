@@ -1,0 +1,46 @@
+# last_verified: 2026-10-23 · helm n/a
+# helm-011 — Values-file vs set-flags for Helm releases
+
+approach: values_file
+when_to_use: "Multi-environment releases, anything with more than a couple of overrides, or values shared across charts."
+prerequisites:
+  - "A chart with a values.yaml"
+  - "One values file per environment (values-dev.yaml, values-prod.yaml)"
+configuration:
+  command: "helm upgrade --install myapp ./myapp --values values.yaml --values values-prod.yaml"
+  notes:
+    - "--values files are merged in order; later files override earlier ones."
+    - "Keeps secrets out of shell history and CI logs."
+    - "Diffable in code review."
+pros:
+  - "Readable and reviewable"
+  - "Composable across environments"
+  - "No quoting pitfalls for complex values"
+cons:
+  - "More files to maintain"
+  - "Need to keep files in sync with chart defaults"
+
+---
+
+approach: set_flags
+when_to_use: "One-off overrides from CI, quick experiments, or single scalar values."
+prerequisites:
+  - "Chart installed or upgrading"
+configuration:
+  command: "helm upgrade --install myapp ./myapp --set image.tag=1.2.3 --set replicaCount=3"
+  notes:
+    - "--set takes precedence over --values files."
+    - "Nested keys use dots; lists use braces: --set foo.bar[0]=baz"
+    - "Quoting complex strings is error-prone."
+pros:
+  - "Single command, no extra files"
+  - "Easy to inject from CI variables"
+cons:
+  - "Hard to review in a diff"
+  - "Shell quoting gotchas"
+  - "Secrets can leak into logs"
+
+recommended_default: "values_file for anything beyond a one-off; set_flags only for CI-injected scalars."
+comparison_summary:
+  precedence: "--set overrides --values; multiple --values merge left-to-right."
+  recommendation: "Commit a values file per environment and reserve --set for image tags injected by CI."
