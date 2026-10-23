@@ -1,0 +1,30 @@
+# last_verified: 2026-10-23 · kustomize n/a
+# kustomize-009 — Build a small Kustomize overlay from scratch
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+
+namePrefix: dev-
+
+commonLabels:
+  env: dev
+
+patches:
+  - path: patch-deployment.yaml
+
+images:
+  - name: myapp
+    newTag: dev-latest
+
+configMapGenerator:
+  - name: app-config
+    literals:
+      - LOG_LEVEL=debug
+
+secretGenerator:
+  - name: app-secret
+    literals:
+      - API_TOKEN=dev-token-placeholder
