@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - defectdojo-015: `defectdojo/templates/defectdojo-scan-ingestion-starter/` — DefectDojo scan ingestion starter scaffold: docker-compose stack, product/engagement setup script, scan import script with reimport-scan deduplication, scanner config mappings, and environment template (L4 template)
 - sonarqube-015: `sonarqube/configs/minimal-project-quality-gate.yaml` — Minimal SonarQube project and quality-gate configuration: project metadata, quality gate conditions (bugs, vulnerabilities, hotspots, coverage, duplication, ratings), quality profiles, scanner properties, new code definition, and webhook template (L3 config)
+- opentofu-011: `opentofu/docs/how-i-wired-opentofu-into-my-iac-workflow.md` — How OpenTofu was wired into an IaC workflow: migration from Terraform, CI/CD integration, state backend, provider cache, team onboarding (L3 docs)
+- con-169: `docs/concepts/ci-cd-pipeline-concepts/snippets/2026-10-23-cicd-common-patterns.sh` — CI/CD Pipeline Concepts common patterns: staged pipeline, artifact promotion, manual approval gate, rollback on health check, matrix build (L2 snippet)
 
 ## 2026-10-22
 
