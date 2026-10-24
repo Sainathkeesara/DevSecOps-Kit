@@ -13,6 +13,8 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 Scope runs from Linux and Git fundamentals up through infrastructure as code and Kubernetes delivery, then into the security tooling that rides on top of it. Cross-cutting layers hold concept primers, how-to guides, runbooks, shell toolkits, cheatsheets, and starter templates that the per-tool folders lean on. Every entry is written to be adapted for real infrastructure work rather than read end to end.
 
+**1187 files across 43 top-level folders (37 tool folders + 6 cross-cutting).**
+
 ## Quick links
 
 - [OpenTofu test quickstart followup](opentofu/notes/2026-10-20-follow-opentofu-test-quickstart.md) — What happened after following the OpenTofu test quickstart: commands run, output captured, and where it tripped
