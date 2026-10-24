@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - con-167: `docs/concepts/application-security-testing-concepts/snippets/2026-10-24-appsec-common-patterns.sh` — Application Security Testing common patterns: SAST/DAST/SCA pipeline snippets, tool matrix, Semgrep/CodeQL/Trivy/Syft/ZAP usage patterns (L2 snippet)
 - con-170: `docs/concepts/container-runtime-security/scripts/2026-10-24-applying-runtime-controls.sh` — Container Runtime Security practice: drop capabilities, readonly rootfs, non-root user, seccomp profiles, no-new-privileges, Kubernetes PodSecurityContext, Falco rule triggers (L2 script)
 - docs-029: `README.md` — Corrected "What's in here" claims to reflect 1187 files across 43 top-level folders (37 tool folders + 6 cross-cutting) (L1 docs)
+- opa-021: `opa/notes/2026-10-24-install-opa-first-policy-eval.md` — First install of OPA and my first policy evaluation: wrote a tiny Rego allow rule, fed it a sample input, and read the allow/deny result back (L1 notes)
 
 ## 2026-10-23
 
