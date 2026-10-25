@@ -3269,3 +3269,4 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - con-166: applying SAST in a pipeline script
 - con-168: building a CI/CD pipeline step script
 - con-162, con-163, con-164: supply-chain SBOM/cosign scripts and vault access script
+- 2026-10-25 assets: add inventory collector script, CI wiring doc, tracking config

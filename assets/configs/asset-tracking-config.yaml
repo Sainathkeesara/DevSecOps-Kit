@@ -1,0 +1,9 @@
+# last_verified: 2026-10-25 · assets n/a
+# Asset tracking config: YAML vs JSON comparison notes live here in YAML form.
+
+asset_tracking:
+  inventory_file: assets-inventory.json
+  include_extensions: [".png", ".jpg", ".svg", ".gif"]
+  exclude_dirs: [".git", "node_modules"]
+  max_size_bytes: 5242880
+  report_orphans: true
