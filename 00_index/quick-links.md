@@ -5,6 +5,8 @@
 ### Audit and remediate CVEs
 
 - [Ansible CVE-2026-33228 path verification](../ansible/notes/2026-08-17-verify-ansible-cve-2026-33228-paths.md)
+- [Lab multi-node demo config](../lab/configs/2026-10-25-multi-node-demo.yaml)
+- [Lab quickstart trip-ups](../lab/notes/2026-10-25-lab-quickstart-trips.md)
 - [Trivy CVE severity filtering](../scripts/bash/ci_cd_toolkit/trivy-severity-filter.sh)
 - [TruffleHog PR secret scan reusable workflow](../trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml)
 - [Falco K8s admission control rule](../falco/manifests/falco-k8s-admission-control.yaml)
@@ -66,6 +68,7 @@
 - [Terrascan IaC scanner primer](../terrascan/notes/0000-primer-terrascan.md)
 - [OPA policy engine primer](../opa/notes/0000-primer-opa.md)
 - [Semgrep SAST primer](../semgrep/notes/0000-primer-semgrep.md)
+- [OPA first policy evaluation](../opa/notes/2026-10-24-install-opa-first-policy-eval.md)
 
 ### Detect secrets in code and git history
 
@@ -104,6 +107,7 @@
 - [Vault secrets engine selection guide](../vault/docs/vault-secrets-engine-selection-guide.md)
 - [Vault Agent auto-auth on Kubernetes](../vault/docs/vault-agent-auto-auth-kubernetes.md)
 - [Cosign container signing primer](../cosign/notes/2026-10-14-install-cosign-first-signing-command.md)
+- [Vault secret access patterns](../docs/concepts/secrets-access-management/scripts/vault-secrets-access-patterns.sh)
 
 ### Monitor and observe systems
 
