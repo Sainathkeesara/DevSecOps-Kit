@@ -1,0 +1,28 @@
+# last_verified: 2026-10-25 · prometheus 2.54.0
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: 'demo'
+    environment: 'development'
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+        labels:
+          component: 'monitoring'
+
+  - job_name: 'demo-app'
+    static_configs:
+      - targets: ['localhost:8080']
+        labels:
+          component: 'application'
+          version: 'v1.0.0'
+
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['localhost:9100']
+        labels:
+          component: 'infrastructure'
