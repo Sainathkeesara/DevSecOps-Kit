@@ -4,6 +4,13 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-25
+
+### Added
+- lab-005: `lab/notes/2026-10-25-lab-quickstart-trips.md` — Followed the lab quickstart and wrote up what tripped me up: config doesn't run itself, port mapping in compose vs config, shared network not automatic, postgres init order, README/config separation (L2 notes)
+- lab-006: `lab/snippets/2026-10-25-minimal-lab-env.py` — Minimal lab environment setup with Python: reads lab YAML config, generates Dockerfile, builds image, optionally runs container with port mapping (L2 snippet)
+- lab-007: `lab/configs/2026-10-25-multi-node-demo.yaml` — Lab configuration for multi-node demo: three-node practice cluster (load balancer, app, database) with depends_on, network, and rebuild notes (L2 config)
+
 ## 2026-10-24
 
 ### Added
