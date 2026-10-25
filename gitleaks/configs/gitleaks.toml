@@ -1,0 +1,48 @@
+# last_verified: 2026-10-25 · gitleaks n/a
+#
+# Gitleaks configuration: TOML keys vs equivalent CLI flags.
+#
+# This file is the TOML form of a gitleaks config. Where a TOML key has a
+# matching CLI flag, the flag is noted in a comment; keys that only exist in
+# config (rule definitions, allowlist entries) are marked config-only.
+#
+# gitleaks reads this with --config gitleaks.toml. Rules defined here are
+# merged with the built-in default ruleset.
+
+# [rules] has no single CLI flag -- it is config-only. The config file itself
+# is supplied with --config.
+[rules]
+  [[rules]]
+    id = "aws-access-key"
+    description = "AWS access key id"
+    regex = "AKIA[0-9A-Z]{16}"
+    tags = ["aws", "credential"]
+    severity = "CRITICAL"
+
+  [[rules]]
+    id = "github-token"
+    description = "GitHub personal access token"
+    regex = "ghp_[A-Za-z0-9]{36}"
+    tags = ["github", "token"]
+    severity = "CRITICAL"
+
+  [[rules]]
+    id = "internal-service-token"
+    description = "internal service token with isvc- prefix"
+    regex = "isvc-[A-Za-z0-9]{24}"
+    tags = ["internal", "service-token"]
+    severity = "HIGH"
+
+# [allowlist] is config-only; CLI has --allowlist-path / --allowlist but the
+# path and regex lists live in config.
+[allowlist]
+  paths = [
+    "gitleaks/notes/**",
+    "**/fixtures/**",
+    "**/*-report.json",
+  ]
+
+# [reporting] mirrors --report-format and --report-path.
+[reporting]
+  format = "json"
+  path = "gitleaks-reports/scan.json"

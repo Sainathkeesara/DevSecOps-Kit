@@ -14,10 +14,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - prometheus-044: `prometheus/notes/2026-10-25-followed-quickstart.md` — Followed the official Prometheus quickstart and wrote up what tripped me up: scrape config indentation, node_exporter separate binary, relabeling syntax, no default auth, retention defaults (L2 notes)
 - prometheus-045: `prometheus/snippets/2026-10-25-minimal-scrape-config.yaml` — Minimal Prometheus scrape config for a demo app: global scrape interval, self-scrape, demo app target, node_exporter target with component labels (L2 snippet)
 - prometheus-046: `prometheus/scripts/2026-10-25-query-api-python.py` — Run Prometheus query API from Python: instant/range queries, metadata, series matching, stdlib-only HTTP client (L2 script)
+- gitleaks-010: `gitleaks/scripts/custom-ruleset.sh` — Build a custom gitleaks ruleset for internal patterns: generated TOML with service-token, API-key, and issuer rules plus an allowlist, validated by running `gitleaks detect` against a throwaway fixture with exit-code handling (L3 script bash)
+- gitleaks-012: `gitleaks/configs/gitleaks.toml` — Gitleaks configuration: TOML keys vs equivalent CLI flags, with built-in AWS/GitHub rules, an internal service-token rule, an allowlist, and a reporting block (L3 config toml)
 
 ### Passed
 - Passed ([x]) environments-011 — Build environment promotion workflow from scratch · Level: L3 · 2026-10-25
 - Passed ([x]) environments-012 — Managing dev/staging/prod with environments tool · Level: L3 · 2026-10-25
+- Passed ([x]) environments-013 — Environment manifest for Kubernetes namespaces · Level: L3 · 2026-10-25
 
 ## 2026-10-24
 
