@@ -1,0 +1,73 @@
+# last_verified: 2026-10-25 · lab n/a
+# Lab configuration for multi-node demo — three practice boxes that talk to each other.
+# This is a single-file description of the full setup. The Python snippet in
+# lab/snippets/2026-10-25-minimal-lab-env.py can build/run each node from its config section.
+
+---
+name: multi-node-demo
+purpose: three-node practice cluster (load balancer, app, database) for kit walkthroughs
+
+nodes:
+  - name: lb-node
+    purpose: nginx load balancer distributing traffic to app nodes
+    machine:
+      os: ubuntu
+      packages:
+        - nginx
+        - curl
+      ports:
+        - 80
+        - 443
+    depends_on: []  # entry point, no dependencies
+    config_hint: |
+      nginx.conf should upstream to app-node:8080
+      health check on /health endpoint
+
+  - name: app-node
+    purpose: python API service that reads/writes to the database
+    machine:
+      os: ubuntu
+      packages:
+        - python3
+        - python3-pip
+        - python3-venv
+      ports:
+        - 8080
+    depends_on:
+      - db-node
+    config_hint: |
+      pip install flask psycopg2-binary gunicorn
+      connects to postgresql://app:apppass@db-node:5432/demo
+      exposes GET /health, GET /items, POST /items
+
+  - name: db-node
+    purpose: postgresql database for the app node
+    machine:
+      os: ubuntu
+      packages:
+        - postgresql
+        - postgresql-contrib
+      ports:
+        - 5432
+    depends_on: []
+    config_hint: |
+      CREATE DATABASE demo;
+      CREATE USER app WITH PASSWORD 'apppass';
+      GRANT ALL PRIVILEGES ON DATABASE demo TO app;
+      CREATE TABLE items (id SERIAL PRIMARY KEY, name TEXT, created_at TIMESTAMP DEFAULT NOW());
+
+network:
+  name: demo-net
+  driver: bridge
+  # All three nodes join this network. Hostnames = node names.
+
+notes: |
+  Rebuild steps:
+  1. For each node, run the Python snippet to build its image:
+     python3 lab/snippets/2026-10-25-minimal-lab-env.py <this-file> --node lb-node --run
+     (repeat for app-node, db-node)
+  2. Or generate a docker-compose.yml from this config and run: docker compose up -d
+  3. Test: curl http://localhost/health  (hits lb-node -> app-node -> db-node)
+
+  The config_hint fields are not machine-readable — they're reminders for me
+  when I'm manually wiring the pieces together. Next step: make them executable.
