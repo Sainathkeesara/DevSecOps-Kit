@@ -25,14 +25,6 @@ These tools are unlocked from the start and cover the most common DevSecOps work
 - **Docker** — Container runtime for packaging and running applications. [Primer](../docker/notes/0000-primer-docker.md) | [Explore the CLI](../docker/notes/2026-07-12-explore-docker-cli.md) | [Custom image](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile) | [Networking and volumes](../docker/scripts/2026-07-18-custom-network-volume-mounts.sh) | [CI/CD end-to-end](../docker/docs/cicd-end-to-end.md) | [Reusable build script](../docker/scripts/reusable-build.sh) | [Multi-service Compose scaffold](../docker/templates/multi-service-setup/README.md) | [Production Compose manifest](../docker/manifests/docker-compose-production.yaml)
 - **Kubernetes** — Container orchestration for deploying and scaling workloads. [Primer](../kubernetes/notes/0000-primer-kubernetes.md) | [Explore](../kubernetes/notes/2026-07-15-explore-kubernetes.md) | [What resources are in the cluster](../kubernetes/notes/2026-10-14-cluster-resources.md) | [First manifest](../kubernetes/manifests/2026-07-15-first-pod-service.yaml) | [First scratch namespace](../kubernetes/configs/2026-10-14-minimal-namespace.yaml) | [Cluster workflow wiring](../kubernetes/docs/cluster-workflow-wiring.md) | [Small Deployment from scratch](../kubernetes/manifests/small-deployment-from-scratch.yaml) | [Namespace strategy: environment vs team](../kubernetes/configs/namespace-strategy-environment-vs-team.yaml) | [Minimal Deployment with probes](../kubernetes/configs/2026-10-20-minimal-deployment.yaml) | [Quickstart followup](../kubernetes/notes/2026-10-20-quickstart-followup.md) | [Quickstart repro script](../kubernetes/scripts/2026-10-20-quickstart-repro.sh)
 - **Terraform** — Declarative infrastructure provisioning with HCL and providers. [Primer](../terraform/notes/0000-primer-terraform.md) | [First config](../terraform/configs/2026-07-15-first-config.tf) | [Small reusable module](../terraform/configs/small-module-from-scratch.hcl) | [Deploy script](../terraform/scripts/2026-07-18-deploy.sh) | [Cleanup script](../terraform/scripts/2026-07-18-cleanup.sh) | [Module composition guide](../terraform/docs/terraform-module-composition.md) | [Workspace variable precedence](../terraform/configs/workspace-variable-precedence.hcl) | [Provision a Kubernetes cluster](../docs/how-to/k8s-terraform-ansible-provisioning.md)
-- **Environments** — Dev, staging, and prod as separate root modules over one shared module, and the state-key discipline that keeps them isolated. [Primer](../environments/notes/0000-primer-environments.md) | [Dev/staging/prod comparison](../environments/notes/2026-09-19-first-environment-comparison.md) | [Quickstart trip-ups](../environments/notes/2026-09-30-environments-quickstart-trip-ups.md) | [Minimal per-tier config](../environments/configs/2026-09-30-minimal-environments-config.yaml) | [First variable set](../environments/configs/2026-09-19-first-variable-set.yaml) | [Validate deploy config across tiers](../environments/scripts/2026-10-01-validate-deploy-config.sh) | [Explore the environments directory](../environments/notes/2026-09-29-explore-environments-directory.md) | [Correcting the assets claim](../environments/notes/2026-10-14-architecture-overview-claim-fix.md)
-- **Trivy** — Universal vulnerability scanner for containers, filesystems, repos, and SBOMs. [Primer](../trivy/notes/0000-primer-trivy.md) | [Install and first container scan](../trivy/notes/2026-09-05-install-trivy-first-container-scan.md) | [Quickstart trip-ups](../trivy/notes/2026-10-14-quickstart-trip-ups.md) | [Scan modes comparison](../trivy/notebooks/trivy-scan-mode-comparison.ipynb) | [Scanning performance optimization](../trivy/notes/scanning-performance-optimization.md) | [Integration reference for container scanning](../trivy/docs/trivy-integration-reference-container-scanning.md) | [Database migration guide](../trivy/docs/trivy-database-migration-guide.md)
-- **Nuclei** — Template-based vulnerability scanner for web apps, network services, and cloud APIs. [Primer](../nuclei/notes/0000-primer-nuclei.md) | [First template scan attempt](../nuclei/notes/2026-09-20-first-template-scan-attempt.md) | [Quickstart trip-ups](../nuclei/notes/2026-10-15-nuclei-quickstart-trip-ups.md) | [Minimal scan template](../nuclei/configs/2026-10-15-minimal-scan-template.yaml)
-- **Semgrep** — SAST tool with custom rule writing, multi-language support, and CI/CD integration. [Primer](../semgrep/notes/0000-primer-semgrep.md) | [Rule writing reference](../semgrep/docs/semgrep-rule-writing-reference.md) | [Rule-design comparison: search vs taint](../semgrep/notebooks/rule-matching-mode-comparison.ipynb) | [Rules migration guide](../semgrep/docs/semgrep-rules-migration-guide.md) | [Code-scanning integration reference](../semgrep/docs/semgrep-code-scanning-integration-reference.md) | [CI/CD pipeline manifest](../semgrep/manifests/semgrep-ci-cd-pipeline.yaml)
-- **Checkov** — IaC security scanner for Terraform, Kubernetes, CloudFormation. Supports custom policies and plan scanning. [Primer](../checkov/notes/0000-primer-checkov.md) | [Plan scanning](../checkov/scripts/deep-terraform-plan-scan.sh) | [Validate custom policies](../checkov/scripts/validate-policies.sh) | [Health check and rollback](../checkov/scripts/checkov-health-check-and-rollback.sh) | [v3 migration guide](../checkov/docs/checkov-v3-migration-guide.md) | [2.x to 3.x upgrade checklist](../checkov/docs/checkov-v3-upgrade-checklist.md) | [Cross-module scanning limitations](../checkov/notebooks/compare-cross-module-scanning-limitations.ipynb) | [Custom policy authoring styles compared](../checkov/notebooks/compare-custom-policy-expressiveness.ipynb) | [Multi-repo drift detection scaffold](../checkov/templates/multi-repo-drift-auto-pr-remediation/README.md)
-- **TruffleHog** — Secret scanner with git, filesystem, and S3 scan modes. Custom regex and entropy-based detection. [Primer](../trufflehog/notes/0000-primer-trufflehog.md) | [First filesystem scan](../trufflehog/snippets/2026-10-14-first-secret-scan.sh) | [Scan modes comparison](../trufflehog/docs/comparing-scan-modes-git-filesystem-s3.md) | [Detector comparison patterns](../trufflehog/notebooks/detector-comparison-patterns.ipynb) | [CI/CD pipeline deployment gate](../trufflehog/manifests/trufflehog-cicd-pipeline.yaml)
-- **Gitleaks** — Secret scanner using configurable pattern-matching rules with pre-commit and CI integration. [Primer](../gitleaks/notes/0000-primer-gitleaks.md) | [First secret scan](../gitleaks/notes/2026-09-19-first-secret-scan.md) | [First scan script](../gitleaks/scripts/2026-09-26-run-first-gitleaks-scan.sh) | [Auditing git secrets](../gitleaks/scripts/2026-10-13-auditing-git-secrets.sh) | [Custom detection rules](../gitleaks/configs/2026-10-07-detection-rules.yaml) | [Quickstart trip-ups](../gitleaks/notes/2026-10-07-quickstart-trip-ups.md)
-- **OWASP ZAP** — DAST tool for web application security testing. Baseline, spider, and active scan modes. [Primer](../zap/notes/0000-primer-zap.md) | [Install and first baseline scan](../zap/notes/2026-09-05-install-zap-first-baseline-scan.md) | [DAST workflow](../zap/scripts/dast-workflow-from-scratch.sh) | [Integration reference](../zap/docs/zap-integration-reference.md) | [Scan strategy comparison](../zap/notebooks/scan-strategy-comparison-patterns.ipynb) | [Scan configuration migration guide](../zap/docs/zap-scan-configuration-migration-guide.md) | [CI/CD pipeline DAST gate](../zap/manifests/zap-cicd-pipeline.yaml)
 
 ## Stage 3: Building Skills
 
@@ -84,7 +76,7 @@ Cross-cutting integration and custom tooling.
 ```mermaid
 flowchart LR
   subgraph Foundations
-    Linux["Linux & Shell"]
+    Linux["Linux & Shell Fundamentals"]
     Git["Version Control (Git)"]
     CICD["CI/CD Pipeline Concepts"]
     IaC["Infrastructure as Code"]
@@ -95,45 +87,41 @@ flowchart LR
     Observ["Observability & Monitoring"]
   end
 
-   subgraph Core[Stage 2: Core Tools]
-      Docker
-      Kubernetes
-      Terraform
-      Trivy
-      Nuclei
-      Semgrep
-      Checkov
-      TruffleHog
-      Gitleaks
-      ZAP
-    end
+   stage Core Tools[Stage 2: Core Tools]
+    GitCore["Git"]
+    DockerCore["Docker"]
+    KubeCore["Kubernetes"]
+    TfCore["Terraform"]
 
-   subgraph Intermediate[Stage 3: Building Skills]
-     Helm
-     Kustomize
-     GitHubActions["GitHub Actions"]
-     Syft
-     Grype
-     CodeQL
-     GitGuardian
-     Snyk
-     Dependabot
-     Terrascan
-     tfsec
-     Prometheus
-     Grafana
-   end
+   stage BuildingSkills[Stage 3: Building Skills]
+     Helm["Helm"]
+     Kustomize["Kustomize"]
+     CI_CD["GitHub Actions"]
+     Syft["Syft"]
+     Grype["Grype"]
+     CodeQL["CodeQL"]
+     GG["GitGuardian"]
+     Snyk["Snyk"]
+     Dep["Dependabot"]
+     Terrascan["Terrascan"]
+     Tfsec["tfsec"]
+     Prom["Prometheus"]
+     Graf["Grafana"]
+     Ansible["Ansible"]
 
-  subgraph Advanced[Stage 4: Advanced Tools]
-    ArgoCD
-    SonarQube
-    Cosign
-    Falco
-    OPA["OPA/Gatekeeper"]
-    Vault
-    Tetragon
-    DefectDojo
-  end
+   stage AdvancedTools[Stage 4: Advanced Tools]
+     ArgoCD["ArgoCD"]
+     SonarQube["SonarQube"]
+     Cosign["Cosign"]
+     Falco["Falco"]
+     OPA["OPA/Gatekeeper"]
+     Vault["Vault"]
+     Tetragon["Tetragon"]
+     DefectDojo["DefectDojo"]
+
+  Foundations --> Core Tools
+  Core Tools --> BuildingSkills
+  BuildingSkills --> AdvancedTools
 
   Linux --> Docker & Kubernetes & Trivy & Semgrep & Checkov & TruffleHog & ZAP
   Git --> TruffleHog & CodeQL & Semgrep & Dependabot
