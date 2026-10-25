@@ -7,12 +7,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-10-25
 
 ### Added
+- environments-013: `environments/manifests/kubernetes-namespaces.yaml` — Kubernetes namespaces for dev, staging, prod with resource quotas and limit ranges per environment (L3 manifest)
 - lab-005: `lab/notes/2026-10-25-lab-quickstart-trips.md` — Followed the lab quickstart and wrote up what tripped me up: config doesn't run itself, port mapping in compose vs config, shared network not automatic, postgres init order, README/config separation (L2 notes)
 - lab-006: `lab/snippets/2026-10-25-minimal-lab-env.py` — Minimal lab environment setup with Python: reads lab YAML config, generates Dockerfile, builds image, optionally runs container with port mapping (L2 snippet)
 - lab-007: `lab/configs/2026-10-25-multi-node-demo.yaml` — Lab configuration for multi-node demo: three-node practice cluster (load balancer, app, database) with depends_on, network, and rebuild notes (L2 config)
 - prometheus-044: `prometheus/notes/2026-10-25-followed-quickstart.md` — Followed the official Prometheus quickstart and wrote up what tripped me up: scrape config indentation, node_exporter separate binary, relabeling syntax, no default auth, retention defaults (L2 notes)
 - prometheus-045: `prometheus/snippets/2026-10-25-minimal-scrape-config.yaml` — Minimal Prometheus scrape config for a demo app: global scrape interval, self-scrape, demo app target, node_exporter target with component labels (L2 snippet)
 - prometheus-046: `prometheus/scripts/2026-10-25-query-api-python.py` — Run Prometheus query API from Python: instant/range queries, metadata, series matching, stdlib-only HTTP client (L2 script)
+
+### Passed
+- Passed ([x]) environments-011 — Build environment promotion workflow from scratch · Level: L3 · 2026-10-25
+- Passed ([x]) environments-012 — Managing dev/staging/prod with environments tool · Level: L3 · 2026-10-25
 
 ## 2026-10-24
 
