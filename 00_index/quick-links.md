@@ -128,3 +128,11 @@
 - [Ansible quickstart trip-ups](../ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md)
 - [Ansible bootstrap target node](../ansible/scripts/bootstrap-target-node.sh)
 - [OpenTofu test quickstart followup](../opentofu/notes/2026-10-20-follow-opentofu-test-quickstart.md)
+
+### Manage environments and assets
+
+- [Managing environments guide](../environments/docs/managing-environments.md)
+- [Environment promotion script](../environments/scripts/promote-environment.sh)
+- [Asset tracking config](../assets/configs/asset-tracking-config.yaml)
+- [Assets CI/CD pipeline wiring](../assets/docs/how-i-wired-assets-into-ci-cd-pipeline.md)
+- [Asset inventory collector](../assets/scripts/asset-inventory-collector.py)
