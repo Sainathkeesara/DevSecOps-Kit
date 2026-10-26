@@ -1,0 +1,151 @@
+# last_verified: 2026-10-26 · grafana n/a
+#
+# Grafana on Kubernetes: datasource and dashboard manifests.
+#
+# Purpose: run Grafana in-cluster with a Prometheus datasource and one
+# sample dashboard provisioned from ConfigMaps, so dashboards are versioned
+# in Git instead of clicked together in the UI.
+#
+# Steps:
+#   1. kubectl apply -f grafana-datasource-dashboard.yaml
+#   2. kubectl -n monitoring get pod -l app=grafana  (wait for Running)
+#   3. kubectl -n monitoring port-forward service/grafana 3000:3000
+#      then open http://localhost:3000 (admin / admin).
+#
+# Verify:
+#   - Configuration → Data Sources shows Prometheus as the default.
+#   - The "Kit sample dashboard" appears in the dashboard list.
+#
+# Notes: image has no tag pinned deliberately — the learner chooses the
+# Grafana version. Anonymous auth is enabled only to keep this local
+# learning example usable without an identity provider; do not copy this
+# into a cluster that faces the internet.
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: monitoring
+  labels:
+    name: monitoring
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-datasources
+  namespace: monitoring
+data:
+  datasources.yaml: |
+    apiVersion: 1
+    deleteDatasources:
+      - name: Prometheus
+        orgId: 1
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        access: proxy
+        url: http://prometheus.monitoring.svc.cluster.local:9090
+        isDefault: true
+        editable: true
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboards
+  namespace: monitoring
+data:
+  kit-sample.json: |
+    {
+      "id": null,
+      "uid": "kit-sample",
+      "title": "Kit sample dashboard",
+      "timezone": "browser",
+      "schemaVersion": 38,
+      "version": 1,
+      "refresh": "30s",
+      "panels": []
+    }
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboard-provider
+  namespace: monitoring
+data:
+  dashboard.yaml: |
+    apiVersion: 1
+    providers:
+      - name: kit-dashboards
+        orgId: 1
+        folder: ""
+        type: file
+        disableDeletion: false
+        editable: true
+        options:
+          path: /etc/grafana/provisioning/dashboards
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+  namespace: monitoring
+  labels:
+    app: grafana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      containers:
+        - name: grafana
+          image: grafana/grafana
+          ports:
+            - containerPort: 3000
+          env:
+            - name: GF_AUTH_ANONYMOUS_ENABLED
+              value: "true"
+            - name: GF_AUTH_ANONYMOUS_ORG_ROLE
+              value: Admin
+            - name: GF_AUTH_DISABLE_LOGIN_FORM
+              value: "true"
+          volumeMounts:
+            - name: datasources
+              mountPath: /etc/grafana/provisioning/datasources
+              readOnly: true
+            - name: dashboards
+              mountPath: /etc/grafana/provisioning/dashboards
+              readOnly: true
+      volumes:
+        - name: datasources
+          configMap:
+            name: grafana-datasources
+            items:
+              - key: datasources.yaml
+                path: datasources.yaml
+        - name: dashboards
+          configMap:
+            name: grafana-dashboards
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  namespace: monitoring
+  labels:
+    app: grafana
+spec:
+  type: ClusterIP
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: grafana

@@ -4,6 +4,13 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-26
+
+### Added
+- gitleaks-012: `gitleaks/configs/gitleaks-config.toml` — Gitleaks TOML config with CLI-flag equivalents annotated per block (source, reporting format/path) plus rule and allowlist samples (L3 config)
+- grafana-010: `grafana/docs/grafana-alerting-routing-templates.md` — Grafana alerting: alert rules, notification policy routing, and Go notification templates (L3 docs)
+- grafana-011: `grafana/manifests/grafana-datasource-dashboard.yaml` — Grafana on Kubernetes: Prometheus datasource, dashboard provider and dashboards ConfigMaps, Deployment, and Service (L3 manifest)
+
 ## 2026-10-25
 
 ### Added

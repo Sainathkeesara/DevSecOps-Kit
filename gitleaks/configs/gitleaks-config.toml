@@ -1,0 +1,43 @@
+# last_verified: 2026-10-26 · gitleaks n/a
+#
+# Gitleaks scan configuration written as .gitleaks.toml, with each block
+# annotated with the equivalent gitleaks CLI flag. Reads as a side-by-side
+# comparison of TOML configuration versus CLI flags: rules and allowlists
+# must live in a config file (loaded with gitleaks detect --config), while
+# reporting, source selection, and output can be driven from the command line.
+#
+# Same scan from the CLI (no config file):
+#   gitleaks detect --source . --report-format json --report-path gitleaks-reports/results.json
+# Rules and allowlist below have no direct CLI equivalent; they require this
+# config file:
+#   gitleaks detect --config gitleaks-config.toml
+# Pre-commit / pre-push blocking mode:
+#   gitleaks protect --staged
+
+source = "."
+
+[[rules]]
+  id = "kit-test-token"
+  description = "fake kit test token planted in scan fixtures"
+  regex = 'KITTEST[0-9A-Za-z]{16}'
+  tags = ["kit", "test-fixture"]
+  severity = "LOW"
+
+[[rules]]
+  id = "high-entropy-assignment"
+  description = "quoted secret-like assignment with high entropy"
+  regex = '(?i)(token|secret|password|api[_-]?key)\s*[:=]\s*[A-Za-z0-9/+=_-]{20,}'
+  entropy = 4.5
+  tags = ["generic"]
+  severity = "MEDIUM"
+
+[allowlist]
+  paths = [
+    "gitleaks/notes/**",
+    "**/fixtures/**",
+    "**/*-report.json",
+  ]
+
+[reporting]
+  format = "json"
+  path = "gitleaks-reports/"
