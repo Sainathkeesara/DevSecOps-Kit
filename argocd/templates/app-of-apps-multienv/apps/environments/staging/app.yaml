@@ -1,0 +1,22 @@
+# last_verified: 2026-10-27 · argocd n/a
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: frontend-staging
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/example/gitops-repo.git
+    targetRevision: main
+    path: services/frontend
+    helm:
+      valueFiles:
+        - values/environments/staging.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: frontend-staging
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false

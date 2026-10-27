@@ -1,0 +1,7 @@
+# last_verified: 2026-10-27 · argocd n/a
+apiVersion: v2
+name: frontend
+description: Sample frontend service deployed via ArgoCD App of Apps
+type: application
+version: 0.1.0
+appVersion: "1.27"
