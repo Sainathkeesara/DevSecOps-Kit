@@ -3294,3 +3294,4 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - 2026-10-25 assets: add inventory collector script, CI wiring doc, tracking config
 ## 2026-10-25
 - gitleaks: custom ruleset script + pre-commit/CI integration docs
+- feat: syft-025 syft-026 ansible-22
