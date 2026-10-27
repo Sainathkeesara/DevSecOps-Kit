@@ -1,0 +1,22 @@
+# last_verified: 2026-10-27 · argocd n/a
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: frontend-production
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/example/gitops-repo.git
+    targetRevision: main
+    path: services/frontend
+    helm:
+      valueFiles:
+        - values/environments/production.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: frontend-production
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
