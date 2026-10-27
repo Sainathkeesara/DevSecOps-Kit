@@ -3295,3 +3295,4 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 ## 2026-10-25
 - gitleaks: custom ruleset script + pre-commit/CI integration docs
 - feat: syft-025 syft-026 ansible-22
+- 2026-10-27: ansible-015 project scaffold template
