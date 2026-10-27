@@ -3298,3 +3298,4 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - 2026-10-27: ansible-015 project scaffold template
 - ansible-015: rework project scaffold (added missing vpc module and dev overlay, L4 voice)
 - grafana-009: grafana/scripts/build-dashboard-provisioning.py
+- 2026-10-27: added argocd/scripts/argocd-api-automation.sh, falco/notes/2026-10-27-follow-official-falco-quickstart.md
