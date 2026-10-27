@@ -859,3 +859,8 @@
 - **template catalog validator** — A script that verifies template scaffolds have required files (README, renderable configs, .gitignore) and can be rendered without errors.
 - **quickstart followup** — Documentation capturing what happened after running a tool's quickstart — what worked, what tripped up the user, and the next steps they took.
 - **quickstart repro script** — A one-shot script that reproduces a quickstart flow end-to-end, used to verify the documented steps still work and to share with others.
+**Asset inventory**: A machine-readable catalog of infrastructure assets (diagrams, configs, scripts) with metadata such as size, type, and modification time. Used to detect orphaned assets and enforce documentation hygiene in CI.
+
+**Asset tracking**: The practice of maintaining a canonical index of all infrastructure assets, mapping each asset to its consumers (docs, scripts, pipelines) so changes can be impact-assessed.
+
+**Environment promotion**: A controlled workflow for moving infrastructure changes through dev → staging → prod tiers, where each tier has distinct validation gates (auto-apply in dev, smoke-test in staging, manual approval in prod). The `environments/` directory implements this with byte-identical Terraform configurations and per-environment `terraform.tfvars`.
