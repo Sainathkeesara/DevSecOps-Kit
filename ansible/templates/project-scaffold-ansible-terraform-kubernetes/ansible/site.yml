@@ -1,0 +1,13 @@
+---
+- name: Configure cluster nodes
+  hosts: k8s_nodes
+  become: true
+  roles:
+    - common
+
+- name: Deploy application
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Apply Kubernetes manifests
+      command: kubectl apply -k ../kubernetes/overlays/dev
