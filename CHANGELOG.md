@@ -4,6 +4,13 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-27
+
+### Added
+- codeql-023: `codeql/notes/2026-10-27-install-codeql-first-query.md` — CodeQL CLI install and first query on a sample Java repo: database creation, built-in security query, SARIF output, and first-contact trip-ups (L1 notes)
+- codeql-024: `codeql/snippets/2026-10-27-hardcoded-secrets.ql` — Small CodeQL query flagging string literals that look like database connection strings with embedded credentials (L1 snippet)
+- syft-024: `syft/notes/2026-10-27-first-image-sbom.md` — Syft install and first SBOM from a container image archive: table and JSON output, trip-ups, and what's next (L1 notes)
+
 ## 2026-10-26
 
 ### Added
