@@ -3306,3 +3306,4 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 ### Added
 - kubernetes-018: `kubernetes/scripts/cluster-health-check-and-conformance-validation.sh` — L4 cluster health check and conformance validation script (L4 script/bash)
 - docker-016: `docker/dockerfiles/small-app.Dockerfile` — L3 small app Docker image from scratch (L3 dockerfile)
+- 2026-10-28 argocd/manifests/2026-10-28-install.yaml (argocd-01)
