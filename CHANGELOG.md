@@ -3301,3 +3301,8 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - grafana-009: grafana/scripts/build-dashboard-provisioning.py
 - 2026-10-27: added argocd/scripts/argocd-api-automation.sh, falco/notes/2026-10-27-follow-official-falco-quickstart.md
 - 2026-10-27 argocd-048 gitguardian-020
+
+## 2026-10-28
+### Added
+- kubernetes-018: `kubernetes/scripts/cluster-health-check-and-conformance-validation.sh` — L4 cluster health check and conformance validation script (L4 script/bash)
+- docker-016: `docker/dockerfiles/small-app.Dockerfile` — L3 small app Docker image from scratch (L3 dockerfile)
