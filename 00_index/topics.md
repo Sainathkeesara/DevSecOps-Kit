@@ -358,7 +358,7 @@
 These sit alongside the per-tool folders and are indexed here rather than given their own section.
 
 - **`docs/`** (213 files) — concept primers under `docs/concepts/`, plus `how-to/`, `reference/`, `runbooks/`, `security/`, `setup-guides/`, and `troubleshooting/`. Start at [the concept primers](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md) and [the how-to index](../docs/how-to/ci_cd_toolkit.md).
-- **`scripts/`** (196 files) — shell toolkits by domain under `scripts/bash/`, `scripts/pipeline/` deployment and rollback wrappers, and a few repository utilities at the root ([triage-vulnerabilities.sh](../scripts/triage-vulnerabilities.sh), [patch-report.sh](../scripts/patch-report.sh)), plus `scripts/notes/` ([lib claim fix](../scripts/notes/2026-10-14-lib-claim-fix.md)).
+- **`scripts/`** (196 files) — shell toolkits by domain under `scripts/bash/`, `scripts/pipeline/` deployment and rollback wrappers, and a few repository utilities at the root ([triage-vulnerabilities.sh](../scripts/triage-vulnerabilities.sh), [patch-report.sh](../scripts/patch-report.sh)), plus `scripts/notes/`.
 - **`snippets/`** (23 files) — copy-paste cheatsheets, one per tool family. [linux-cheatsheet.md](../snippets/linux-cheatsheet.md), [ci-cd-cheatsheet.md](../snippets/ci-cd-cheatsheet.md), [vault-commands.md](../snippets/vault-commands.md).
 - **`templates/`** (45 files) — starter configs for Kubernetes, Terraform, Linux automation, Jenkins, Logstash, syslog-ng, and cookiecutter project scaffolds.
 - **`environments/`** (20 files) — covered in its own section above.
