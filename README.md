@@ -13,7 +13,7 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 Scope runs from Linux and Git fundamentals up through infrastructure as code and Kubernetes delivery, then into the security tooling that rides on top of it. Cross-cutting layers hold concept primers, how-to guides, runbooks, shell toolkits, cheatsheets, and starter templates that the per-tool folders lean on. Every entry is written to be adapted for real infrastructure work rather than read end to end.
 
-**1284 files across 43 top-level folders (35 tool folders + 8 cross-cutting).**
+**1296 files across 43 top-level folders (35 tool folders + 8 cross-cutting).**
 
 ## Quick links
 
@@ -56,7 +56,7 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 | falco | 5 | 4 | 3 | 4 | 1 | 4 | 1 | 0 | 2 | 0 | 24 | 2026-07-19 |
 | snippets | 2 | 0 | 0 | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 23 | 2026-10-19 |
 | terrascan | 5 | 3 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 0 | 22 | 2026-07-10 |
-| terraform | 3 | 1 | 4 | 6 | 1 | 0 | 0 | 0 | 0 | 0 | 15 | 2026-08-04 |
+| terraform | 3 | 1 | 4 | 6 | 1 | 0 | 1 | 0 | 0 | 0 | 16 | 2026-10-28 |
 | vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 2 | 0 | 21 | 2026-08-26 |
 | github-actions | 7 | 1 | 1 | 7 | 3 | 0 | 2 | 0 | 0 | 0 | 21 | 2026-10-14 |
 | defectdojo | 4 | 2 | 3 | 2 | 2 | 6 | 0 | 0 | 0 | 0 | 19 | 2026-08-04 |
@@ -72,7 +72,7 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 | kustomize | 3 | 0 | 2 | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 10 | 2026-07-08 |
 | helm | 4 | 1 | 1 | 1 | 0 | 0 | 2 | 0 | 0 | 0 | 9 | 2026-09-21 |
 | sonarqube | 3 | 0 | 1 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-09-21 |
-| opentofu | 4 | 1 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 8 | 2026-07-09 |
+| opentofu | 4 | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 9 | 2026-10-28 |
 | grafana | 4 | 0 | 0 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-09-26 |
 | linux | 3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-10-02 |
 | gitleaks | 3 | 0 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 2026-10-07 |
@@ -90,7 +90,7 @@ _Counts are the files inside each category folder; a few folders also hold files
 
 ## Status
 
-First-contact notes are still landing where the kit was thin: an environments promotion workflow and docs, asset tracking config and inventory collector, and the lab multi-node demo. The thinner corners are still the tools carrying notes only: tfsec, Nuclei, and Prometheus until their first configs and scripts land. Argo CD gained an app-of-apps multi-environment scaffold (dev/staging/prod) with bootstrap and Helm values.
+OpenTofu and Terraform terrain expanded: OpenTofu vs Terraform migration decision matrix and cloud workspace automation configs now available. Thinner corners persist for tfsec, Nuclei, and Prometheus until first configs and scripts land. Argo CD carries the app-of-apps multi-environment scaffold (dev/staging/prod) with bootstrap and Helm values. Environments promotion workflow and asset tracking still landing.
 
 ---
 _Last updated: 2026-10-28_

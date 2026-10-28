@@ -98,6 +98,9 @@
 - [Cluster workflow wiring](../kubernetes/docs/cluster-workflow-wiring.md)
 - [Helm package manager primer](../helm/notes/0000-primer-helm.md)
 - [Kustomize YAML customization primer](../kustomize/notes/0000-primer-kustomize.md)
+- [Kubernetes bootstrap scaffold](../kubernetes/templates/cluster-bootstrap/README.md)
+- [Cert Manager bootstrap](../kubernetes/templates/cluster-bootstrap/cert-manager/cert-manager-bootstrap.yaml)
+- [Calico CNI installation](../kubernetes/templates/cluster-bootstrap/cni/calico-installation.yaml)
 
 ### Manage secrets and encryption
 
@@ -125,6 +128,7 @@
 - [Small Terraform module from scratch](../terraform/configs/small-module-from-scratch.hcl)
 - [Terraform deploy script](../terraform/scripts/2026-07-18-deploy.sh)
 - [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md)
+- [OpenTofu vs Terraform migration decision matrix](../opentofu/docs/open-tofu-vs-terraform-migration-decision-matrix.md)
 - [Ansible quickstart trip-ups](../ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md)
 - [Ansible bootstrap target node](../ansible/scripts/bootstrap-target-node.sh)
 - [OpenTofu test quickstart followup](../opentofu/notes/2026-10-20-follow-opentofu-test-quickstart.md)
