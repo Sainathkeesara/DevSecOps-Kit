@@ -1,0 +1,14 @@
+# last_verified: 2026-10-28 · kubernetes n/a
+# Cluster bootstrap — Cert-Manager.
+# Install Cert-Manager via its official install manifest or Helm chart (pin the release),
+# then create a ClusterIssuer for issuing TLS certificates. This file creates the
+# cert-manager namespace only; the controller install is a separate step.
+# Verify: kubectl get pod -n cert-manager   # cert-manager pods running
+#
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cert-manager
+  labels:
+    bootstrap-component: cert-manager
+    managed-by: cluster-bootstrap
