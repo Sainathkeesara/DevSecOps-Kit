@@ -13,15 +13,15 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 Scope runs from Linux and Git fundamentals up through infrastructure as code and Kubernetes delivery, then into the security tooling that rides on top of it. Cross-cutting layers hold concept primers, how-to guides, runbooks, shell toolkits, cheatsheets, and starter templates that the per-tool folders lean on. Every entry is written to be adapted for real infrastructure work rather than read end to end.
 
-**1250 files across 43 top-level folders (37 tool folders + 6 cross-cutting).**
+**1284 files across 43 top-level folders (35 tool folders + 8 cross-cutting).**
 
 ## Quick links
 
-- [Managing environments guide](environments/docs/managing-environments.md) — Promotion workflow and docs for dev/staging/prod environment management
-- [Environment promotion script](environments/scripts/promote-environment.sh) — Script to promote environments across tiers with validation
-- [Asset tracking config](assets/configs/asset-tracking-config.yaml) — Configuration for tracking infrastructure assets
-- [Assets CI/CD pipeline wiring](assets/docs/how-i-wired-assets-into-ci-cd-pipeline.md) — How assets integrate into CI/CD pipelines
-- [Asset inventory collector](assets/scripts/asset-inventory-collector.py) — Python script to collect and track infrastructure assets
+- [App-of-apps multi-env README](argocd/templates/app-of-apps-multienv/README.md) — Argo CD app-of-apps scaffold for dev/staging/prod environments
+- [Root application](argocd/templates/app-of-apps-multienv/apps/root-application.yaml) — Root Argo CD Application that manages environment apps
+- [Bootstrap script](argocd/templates/app-of-apps-multienv/bootstrap/apply-root.sh) — Applies the root application to the cluster
+- [Environment app (production)](argocd/templates/app-of-apps-multienv/apps/environments/production/app.yaml) — Production environment Argo CD Application
+- [Frontend chart values](argocd/templates/app-of-apps-multienv/services/frontend/Chart.yaml) — Helm chart metadata for the frontend service
 
 ## Layout
 
@@ -64,7 +64,7 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 | cosign | 5 | 3 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 0 | 19 | 2026-10-14 |
 | docker | 2 | 2 | 3 | 1 | 0 | 7 | 1 | 2 | 0 | 0 | 18 | 2026-07-09 |
 | lab | 2 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 14 | 2026-10-25 |
-| argocd | 6 | 2 | 0 | 2 | 0 | 0 | 3 | 0 | 0 | 0 | 13 | 2026-07-31 |
+| argocd | 6 | 2 | 0 | 2 | 0 | 12 | 3 | 0 | 0 | 0 | 25 | 2026-07-31 |
 | kubernetes | 4 | 1 | 1 | 3 | 0 | 0 | 3 | 0 | 0 | 0 | 12 | 2026-07-15 |
 | tetragon | 3 | 1 | 3 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 11 | 2026-08-06 |
 | assets | 5 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 2026-10-25 |
@@ -90,7 +90,7 @@ _Counts are the files inside each category folder; a few folders also hold files
 
 ## Status
 
-First-contact notes are still landing where the kit was thin: an environments promotion workflow and docs, asset tracking config and inventory collector, and the lab multi-node demo. The thinner corners are still the tools carrying notes only: tfsec, Nuclei, and Prometheus until their first configs and scripts land.
+First-contact notes are still landing where the kit was thin: an environments promotion workflow and docs, asset tracking config and inventory collector, and the lab multi-node demo. The thinner corners are still the tools carrying notes only: tfsec, Nuclei, and Prometheus until their first configs and scripts land. Argo CD gained an app-of-apps multi-environment scaffold (dev/staging/prod) with bootstrap and Helm values.
 
 ---
-_Last updated: 2026-10-25_
+_Last updated: 2026-10-28_
