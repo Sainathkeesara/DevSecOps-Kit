@@ -4,6 +4,11 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-28
+
+### Added
+- kubernetes-016: `kubernetes/templates/cluster-bootstrap/` — Cluster bootstrap: CNI, CSI, Ingress, Cert-Manager template: Calico CNI namespace, CSI StorageClass reference, IngressClass plus sample Ingress, and Cert-Manager namespace (L4 template)
+
 ## 2026-10-27
 
 ### Added

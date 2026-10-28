@@ -1,0 +1,17 @@
+# last_verified: 2026-10-28 · kubernetes n/a
+# Cluster bootstrap — CSI storage.
+# Install the CSI driver for your storage provider first, then create StorageClass
+# objects that reference its provisioner. This is a reference StorageClass; replace
+# `csi.example.com` with your driver's provisioner and tune parameters per environment.
+#
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: standard-csi
+  labels:
+    bootstrap-component: csi
+provisioner: csi.example.com
+parameters:
+  type: ssds
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
