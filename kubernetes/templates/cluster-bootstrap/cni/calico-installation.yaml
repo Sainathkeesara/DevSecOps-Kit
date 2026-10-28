@@ -1,0 +1,16 @@
+# last_verified: 2026-10-28 · kubernetes n/a
+# Cluster bootstrap — CNI (Calico via the Tigera operator).
+# Steps (run from this folder):
+#   1. Apply the Calico custom-resources manifest to create the Installation CR
+#      (pin a Calico release in CI so the install is reproducible).
+#   2. Apply the Tigera operator manifest to install the operator.
+#   3. kubectl apply -f cni/calico-installation.yaml   # this file: the calico-system namespace
+# Verify: kubectl get daemonset -n calico-system        # calico-node should be Available on each node
+#
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: calico-system
+  labels:
+    bootstrap-component: cni
+    managed-by: cluster-bootstrap
