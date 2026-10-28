@@ -1,0 +1,29 @@
+# last_verified: 2026-10-28 · argocd n/a
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: fleet-example
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: cluster-1
+        namespace: production
+      - cluster: cluster-2
+        namespace: staging
+  template:
+    metadata:
+      name: ${{gen.cluster}}-${{gen.namespace}}
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/example/manifests.git
+        targetRevision: HEAD
+        path: ${{gen.cluster}}
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: ${{gen.namespace}}
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
