@@ -3324,3 +3324,4 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 ### Passed
 - Passed ([x]) opentofu-012 — opentofu: script — Build OpenTofu module registry publisher · Level: L3 · 2026-10-29
 - Passed ([x]) kubernetes-017 — kubernetes: manifest — Kustomize overlays for multi-environment deployments · Level: L4 · 2026-10-29
+- 2026-10-28 opentofu-012: module-registry-publisher.sh
