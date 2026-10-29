@@ -1,0 +1,37 @@
+# last_verified: 2026-10-29 · kubernetes n/a
+# Kustomize overlays for multi-environment deployments:
+# This is one way to organize per-environment customizations using
+# kustomize base + overlays. The docs also suggest using Helm charts
+# for the same purpose, and the choice depends on team preference.
+#
+# When to use: teams that need to share a common base across multiple
+# environments (dev/staging/prod) with environment-specific patches and
+# adjustments without duplicating entire configurations.
+
+resources:
+  - base/
+
+patchesStrategicMerge:
+  - deployment-values.yaml
+  - service-values.yaml
+
+namespace: development
+
+images:
+  - name: myapp
+    newImage: myapp:1.2.3
+
+commonAnnotations:
+  com.example.env: development
+
+secretGenerator:
+  - name: mysecret
+    files:
+      - .env
+
+configMapGenerator:
+  - name: myconfig
+    behavior: literal
+    literals:
+      - key1=value1
+      - key2=value2

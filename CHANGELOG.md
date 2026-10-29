@@ -9,6 +9,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - kubernetes-016: `kubernetes/templates/cluster-bootstrap/` — Cluster bootstrap: CNI, CSI, Ingress, Cert-Manager template: Calico CNI namespace, CSI StorageClass reference, IngressClass plus sample Ingress, and Cert-Manager namespace (L4 template)
 
+## 2026-10-29
+
+### Added
+- grype-047: `grype/snippets/2026-10-27-grype-filter-severity-formats.sh` — Grype vulnerability scan: filter by severity and output formats (L2 snippet)
+- opa-023: `opa/notes/2026-10-27-opa-install-first-policy.md` — Install OPA and run first Rego policy evaluation (L2 notes)
+- snyk-018: `snyk/notes/2026-10-27-snyk-quickstart-tripped.md` — Follow the official Snyk quickstart and write up what tripped me up (L2 notes)
+
 ## 2026-10-27
 
 ### Added
@@ -3312,4 +3319,9 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - kubernetes-018: `kubernetes/scripts/cluster-health-check-and-conformance-validation.sh` — L4 cluster health check and conformance validation script (L4 script/bash)
 - docker-016: `docker/dockerfiles/small-app.Dockerfile` — L3 small app Docker image from scratch (L3 dockerfile)
 - 2026-10-28 argocd/manifests/2026-10-28-install.yaml (argocd-01)
+
+## 2026-10-29
+### Passed
+- Passed ([x]) opentofu-012 — opentofu: script — Build OpenTofu module registry publisher · Level: L3 · 2026-10-29
+- Passed ([x]) kubernetes-017 — kubernetes: manifest — Kustomize overlays for multi-environment deployments · Level: L4 · 2026-10-29
 - 2026-10-28 opentofu-012: module-registry-publisher.sh
