@@ -864,3 +864,11 @@
 **Asset tracking**: The practice of maintaining a canonical index of all infrastructure assets, mapping each asset to its consumers (docs, scripts, pipelines) so changes can be impact-assessed.
 
 **Environment promotion**: A controlled workflow for moving infrastructure changes through dev → staging → prod tiers, where each tier has distinct validation gates (auto-apply in dev, smoke-test in staging, manual approval in prod). The `environments/` directory implements this with byte-identical Terraform configurations and per-environment `terraform.tfvars`.
+
+## OpenTofu
+
+- **OpenTofu** — A community-driven fork of Terraform that maintains open-source compatibility with the last fully OSS version of Terraform, governed by the Linux Foundation.
+- **Terraform Cloud** — HashiCorp's hosted SaaS platform for managing Terraform workspaces, state, and runs; certain features are behind paywalls or the BSL.
+- **Provider compatibility** — The degree to which a cloud provider's API can be provisioned using a given IaC tool's configuration language without modification.
+- **State migration** — The process of moving Terraform state from one version or tool to another, often requiring `terraform state migrate` or manual conversion.
+- **Sentinel** — HashiCorp's policy-as-code engine for Terraform Cloud; not available in OpenTofu, which uses OPA/Gatekeeper instead.

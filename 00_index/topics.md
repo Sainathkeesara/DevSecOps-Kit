@@ -204,10 +204,11 @@
 - _…and 2 more under `opa/manifests/` — browse the folder._
 - **notebooks** (1): [rego-vs-builtin-policies.ipynb](../opa/notebooks/rego-vs-builtin-policies.ipynb)
 
-## opentofu  ·  7 files
+## opentofu  ·  9 files
 - **primer:** [opentofu/notes/0000-primer-opentofu.md](../opentofu/notes/0000-primer-opentofu.md)
 - **notes** (4): [2026-10-20-follow-opentofu-test-quickstart.md](../opentofu/notes/2026-10-20-follow-opentofu-test-quickstart.md), [2026-09-21-follow-open-tofu-quickstart.md](../opentofu/notes/2026-09-21-follow-open-tofu-quickstart.md), [2026-07-20-explore-open-tofu.md](../opentofu/notes/2026-07-20-explore-open-tofu.md)  <!-- link the 2–3 newest only -->
 - _and 1 more under `opentofu/notes/` — browse the folder._
+- **docs** (2): [how-i-wired-opentofu-into-my-iac-workflow.md](../opentofu/docs/how-i-wired-opentofu-into-my-iac-workflow.md), [open-tofu-vs-terraform-migration-decision-matrix.md](../opentofu/docs/open-tofu-vs-terraform-migration-decision-matrix.md)
 - **configs** (3): [2026-09-21-minimal-opentofu-config-with-vars.hcl](../opentofu/configs/2026-09-21-minimal-opentofu-config-with-vars.hcl), [2026-09-10-minimal-opentofu-config.hcl](../opentofu/configs/2026-09-10-minimal-opentofu-config.hcl), [2026-07-20-first-open-tofu-config.hcl](../opentofu/configs/2026-07-20-first-open-tofu-config.hcl)
 
 ## prometheus  ·  4 files
@@ -263,7 +264,7 @@
 - **notebooks** (4): [syft-format-comparison-patterns.ipynb](../syft/notebooks/syft-format-comparison-patterns.ipynb), [source-vs-library-multiarch.ipynb](../syft/notebooks/source-vs-library-multiarch.ipynb)  <!-- link the 2–3 newest only -->
 - _…and 2 more under `syft/notebooks/` — browse the folder._
 
-## terraform  ·  22 files
+## terraform  ·  23 files
 - **primer:** [terraform/notes/0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md)
 - **notes** (3): [2026-08-04-install-terraform-first-vm.md](../terraform/notes/2026-08-04-install-terraform-first-vm.md), [2026-07-15-explore-terraform.md](../terraform/notes/2026-07-15-explore-terraform.md), [0000-primer-terraform.md](../terraform/notes/0000-primer-terraform.md)
 - **docs** (1): [terraform-module-composition.md](../terraform/docs/terraform-module-composition.md)
@@ -273,6 +274,7 @@
 - _…and 4 more under `terraform/configs/` — browse the folder._
 - **snippets** (1): [2026-07-20-practice-terraform-variables-outputs-datasources.hcl](../terraform/snippets/2026-07-20-practice-terraform-variables-outputs-datasources.hcl)
 - **eventbridge-lambda** (2): [variables.tf](../terraform/eventbridge-lambda/variables.tf), [main.tf](../terraform/eventbridge-lambda/main.tf)
+- **manifests** (2): [terraform-cloud-workspace-automation.hcl](../terraform/manifests/terraform-cloud-workspace-automation.hcl), [2026-07-15-first-config.tf](../terraform/manifests/2026-07-15-first-config.tf)
 
 ## terrascan  ·  22 files
 - **primer:** [terrascan/notes/0000-primer-terrascan.md](../terrascan/notes/0000-primer-terrascan.md)

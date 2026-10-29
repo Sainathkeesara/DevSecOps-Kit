@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# last_verified: 2026-10-29 · grype n/a
+# last_verified: 2026-10-27 · grype n/a
 #
 # Grype vulnerability scan: filter by severity and output formats
 # I ran this to explore how grype surfaces findings and how to
