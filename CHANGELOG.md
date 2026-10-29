@@ -3312,3 +3312,8 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - kubernetes-018: `kubernetes/scripts/cluster-health-check-and-conformance-validation.sh` — L4 cluster health check and conformance validation script (L4 script/bash)
 - docker-016: `docker/dockerfiles/small-app.Dockerfile` — L3 small app Docker image from scratch (L3 dockerfile)
 - 2026-10-28 argocd/manifests/2026-10-28-install.yaml (argocd-01)
+
+## 2026-10-29
+### Passed
+- Passed ([x]) opentofu-012 — opentofu: script — Build OpenTofu module registry publisher · Level: L3 · 2026-10-29
+- Passed ([x]) kubernetes-017 — kubernetes: manifest — Kustomize overlays for multi-environment deployments · Level: L4 · 2026-10-29
