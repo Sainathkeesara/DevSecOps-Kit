@@ -1,152 +1,143 @@
-# Learning Path — DevSecOps
+# Learning path — devsecops
 
-> A suggested progression from beginner to confident practitioner. Each stage builds on the previous one. If a topic is listed but has no content yet, it's marked as ⏳ (coming soon).
+Work through the stages in order. Each lesson says what it expects you to know already, ends with an exercise you can check, and links to the next lesson.
 
 ## Stage 1: Foundations
 
-These concepts have no prerequisites and are the starting point for any security engineer.
+1. [Linux and shell fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md)
+2. Navigate and script on Linux — *not written yet* · needs: Linux and shell fundamentals
+3. [Version control with Git — concepts](../docs/concepts/version-control-with-git/0000-primer-version-control-with-git.md)
+4. Branch, merge and rebase safely — *not written yet* · needs: Version control with Git — concepts, Navigate and script on Linux
+5. Read an HTTP exchange and a certificate — *not written yet* · needs: Navigate and script on Linux
+6. YAML, JSON, jq and regex for security tooling — *not written yet* · needs: Navigate and script on Linux
+7. Set up the lab and the sample app — *not written yet* · needs: Branch, merge and rebase safely
+8. First win: find a secret and a vulnerable package — *not written yet* · needs: Set up the lab and the sample app, YAML, JSON, jq and regex for security tooling
 
-- **Linux & Shell Fundamentals** — Everything runs on Linux. Scripts, containers, pipelines all depend on shell fluency. [Linux toolkit guide](../docs/how-to/linux_toolkit.md) | [Cheatsheet](../snippets/linux-cheatsheet.md) | [Practice exercises](../docs/concepts/linux-shell-fundamentals/scripts/2026-07-23-practice-exercises.sh) | [Automation shell patterns](../docs/concepts/linux-shell-fundamentals/scripts/2026-09-27-devops-automation-shell-patterns.sh) | [First look around a Linux box](../linux/notes/2026-10-02-explore-linux-environment.md) | [Linux VM terminal first commands](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md) | [Shell scripting confusions](../linux/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md) | [Cron job config](../linux/configs/2026-08-06-cron-job-configuration.ini) | [System administration runbook](../linux/docs/system-administration-runbook.md) | [Host health check and rollback](../linux/scripts/health-check-and-rollback.sh) | [Security scanner wrapper script](../docs/concepts/linux-shell-fundamentals/scripts/ci-cd-pipeline-security-scanner-wrapper.sh) | [Combining shell automation with Git hooks](../docs/concepts/linux-shell-fundamentals/combining-shell-automation-with-git-hooks.md)
-- **Version Control with Git** — Branching, commits, remotes, and CI/CD triggers. Primers cover mental models and everyday commands. [Git fundamentals](../docs/concepts/git-001-version-control-fundamentals.md) | [Commands reference](../docs/reference/git-commands.md) | [Practice exercises](../docs/concepts/version-control-with-git/scripts/2026-07-24-practice-exercises.sh) | [Git hooks for security checks](../docs/concepts/version-control-with-git/scripts/git-hooks-devsecops-security-checks.sh) | [Version-control patterns in real projects](../docs/concepts/version-control-with-git/notebooks/version-control-patterns-in-real-projects.ipynb)
-- **CI/CD Pipeline Concepts** — How code moves from commit to deployment; why gates and scans matter. [CI/CD toolkit guide](../docs/how-to/ci_cd_toolkit.md) | [Cheatsheet](../snippets/ci-cd-cheatsheet.md) | [Practice exercises](../docs/concepts/ci-cd-pipeline-concepts/scripts/2026-07-17-practice-ci-cd-exercises.sh)
-- **Infrastructure as Code** — Terraform, OpenTofu, and the idea of declarative infrastructure. [OpenTofu primer](../opentofu/notes/0000-primer-opentofu.md) | [Explore OpenTofu](../opentofu/notes/2026-07-20-explore-open-tofu.md) | [Terraform state management](../docs/how-to/terraform-state-management.md) | [Practice exercises](../docs/concepts/infrastructure-as-code/snippets/2026-07-23-practice-exercises.hcl) | [Provider-free init→plan→apply loop](../docs/concepts/infrastructure-as-code/scripts/2026-09-27-terraform-basics-practice.sh) | [Reusable module pattern](../docs/concepts/infrastructure-as-code/snippets/2026-09-27-reusable-module-hcl-pattern.sh)
-- **Application Security Testing Concepts** — SAST, DAST, SCA — what they catch and when to use each. Primers on Semgrep, CodeQL, ZAP, Snyk, and Nuclei cover this. [Applying AppSec in DevSecOps](../docs/concepts/application-security-testing-concepts/2026-07-12-applying-appsec-in-devsecops.md) | [AppSec + secrets integration exercise](../docs/concepts/application-security-testing-concepts/snippets/2026-07-19-appsec-secrets-integration.py) | [SCA and dependency exercises](../docs/concepts/application-security-testing-concepts/snippets/2026-08-26-appsec-sca-dependency-exercises.py) | [AST-based pattern checker](../docs/concepts/application-security-testing-concepts/scripts/2026-08-26-ast-devsecops.py)
-- **Container & Runtime Security** — Images, registries, runtime behaviour. Trivy, Syft, Grype, Cosign, and Falco all depend on this. [Docker primer](../docker/notes/0000-primer-docker.md) | [Docker security best practices](../docs/how-to/docker-security-best-practices.md)
-- **Secrets & Access Management** — How secrets leak and how to protect them. Vault, TruffleHog, Gitleaks, and GitGuardian depend on this. [Vault primer](../vault/notes/0000-primer-vault.md) | [Practice exercises](../docs/concepts/secrets-access-management/snippets/2026-07-24-practice-exercises.py) | [Secrets detection workflow analysis notebook](../docs/concepts/secrets-access-management/notebooks/secrets-detection-remediation-workflow-analysis.ipynb)
-- **Software Supply Chain Security** — Dependency risk, SBOMs, signing. Syft, Grype, Cosign, Dependabot all live here. [Practice exercises](../docs/concepts/software-supply-chain-security/snippets/2026-07-23-practice-exercises.sh)
-- **Configuration Management** — Desired state, idempotency, drift, and managing systems as code. The foundation for Ansible. [Primer](../docs/concepts/configuration-management/0000-primer-configuration-management.md) | [DevSecOps patterns](../docs/concepts/configuration-management/2026-07-14-devsecops-patterns.md)
-- **Observability & Monitoring** — Metrics, logs, traces, SLOs, and understanding system behaviour. The foundation for Prometheus and Grafana. [Observability primer](../docs/concepts/observability-monitoring/notes/0000-primer-observability.md) | [SLI/SLO/SLA definitions](../00_index/glossary.md)
+## Stage 2: Build and ship
 
-## Stage 2: Core Tools
+1. [Containers and orchestration — concepts](../docs/concepts/containers-orchestration/0000-primer-containers-orchestration.md)
+2. [Docker — quick primer](../docker/notes/0000-primer-docker.md)
+3. Build the sample app image — *not written yet* · needs: Docker — quick primer, Containers and orchestration — concepts, Set up the lab and the sample app
+4. [CI/CD pipeline concepts](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md)
+5. [GitHub Actions — quick primer](../github-actions/notes/0000-primer-github-actions.md)
+6. CI for the sample app — build, test and push — *not written yet* · needs: GitHub Actions — quick primer, CI/CD pipeline concepts, Build the sample app image
 
-These tools are unlocked from the start and cover the most common DevSecOps workflows.
+## Stage 3: Shift-left security in the pipeline
 
-- **Git** — Version control foundation for every DevOps workflow. [Primer](../git/notes/0000-primer-git.md) | [Branching and merging](../git/notes/2026-07-04-git-branching-merge-confusions.md) | [First repo: stage and log](../git/scripts/2026-08-24-first-repo-stage-log.sh) | [Local CI simulation](../git/scripts/2026-07-10-local-ci-simulation.sh) | [Layered vs conditional config](../git/configs/config-strategy-layered-vs-conditional.yaml) | [How Git fits the workflow](../git/docs/how-i-wired-git-into-my-version-control-workflow.md)
-- **Docker** — Container runtime for packaging and running applications. [Primer](../docker/notes/0000-primer-docker.md) | [Explore the CLI](../docker/notes/2026-07-12-explore-docker-cli.md) | [Custom image](../docker/dockerfiles/2026-07-12-first-custom-docker-image.Dockerfile) | [Networking and volumes](../docker/scripts/2026-07-18-custom-network-volume-mounts.sh) | [CI/CD end-to-end](../docker/docs/cicd-end-to-end.md) | [Reusable build script](../docker/scripts/reusable-build.sh) | [Multi-service Compose scaffold](../docker/templates/multi-service-setup/README.md) | [Production Compose manifest](../docker/manifests/docker-compose-production.yaml)
-- **Kubernetes** — Container orchestration for deploying and scaling workloads. [Primer](../kubernetes/notes/0000-primer-kubernetes.md) | [Explore](../kubernetes/notes/2026-07-15-explore-kubernetes.md) | [What resources are in the cluster](../kubernetes/notes/2026-10-14-cluster-resources.md) | [First manifest](../kubernetes/manifests/2026-07-15-first-pod-service.yaml) | [First scratch namespace](../kubernetes/configs/2026-10-14-minimal-namespace.yaml) | [Cluster workflow wiring](../kubernetes/docs/cluster-workflow-wiring.md) | [Small Deployment from scratch](../kubernetes/manifests/small-deployment-from-scratch.yaml) | [Namespace strategy: environment vs team](../kubernetes/configs/namespace-strategy-environment-vs-team.yaml) | [Minimal Deployment with probes](../kubernetes/configs/2026-10-20-minimal-deployment.yaml) | [Quickstart followup](../kubernetes/notes/2026-10-20-quickstart-followup.md) | [Quickstart repro script](../kubernetes/scripts/2026-10-20-quickstart-repro.sh)
-- **Terraform** — Declarative infrastructure provisioning with HCL and providers. [Primer](../terraform/notes/0000-primer-terraform.md) | [First config](../terraform/configs/2026-07-15-first-config.tf) | [Small reusable module](../terraform/configs/small-module-from-scratch.hcl) | [Deploy script](../terraform/scripts/2026-07-18-deploy.sh) | [Cleanup script](../terraform/scripts/2026-07-18-cleanup.sh) | [Module composition guide](../terraform/docs/terraform-module-composition.md) | [Workspace variable precedence](../terraform/configs/workspace-variable-precedence.hcl) | [Provision a Kubernetes cluster](../docs/how-to/k8s-terraform-ansible-provisioning.md)
-- **Environment promotion** — Managing dev/staging/prod tiers with byte-identical Terraform configs and per-environment tfvars. [Managing environments guide](../environments/docs/managing-environments.md) | [Promotion script](../environments/scripts/promote-environment.sh) | [Minimal environments config](../environments/configs/2026-09-30-minimal-environments-config.yaml) | [Quickstart trip-ups](../environments/notes/2026-09-30-environments-quickstart-trip-ups.md)
+1. [Application security testing — SAST, DAST, SCA and secrets](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md)
+2. [Secrets and access management — concepts](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md)
+3. Catch secrets before they land with Gitleaks — *not written yet* · needs: Application security testing — SAST, DAST, SCA and secrets, Secrets and access management — concepts, CI for the sample app — build, test and push
+4. Search the whole history and verify secrets with TruffleHog — *not written yet* · needs: Catch secrets before they land with Gitleaks
+5. Find the SQL injection with Semgrep — *not written yet* · needs: Application security testing — SAST, DAST, SCA and secrets, CI for the sample app — build, test and push
+6. Follow tainted data with CodeQL — *not written yet* · needs: Find the SQL injection with Semgrep
+7. [Software supply chain security — concepts](../docs/concepts/software-supply-chain-security/0000-primer-software-supply-chain-security.md)
+8. Keep dependencies patched with Dependabot — *not written yet* · needs: Software supply chain security — concepts, CI for the sample app — build, test and push
+9. Gate the image on Trivy findings in CI — *not written yet* · needs: First win: find a secret and a vulnerable package, CI for the sample app — build, test and push
+10. Produce and read an SBOM with Syft — *not written yet* · needs: Software supply chain security — concepts, Gate the image on Trivy findings in CI
+11. Scan the SBOM with Grype and compare with Trivy — *not written yet* · needs: Produce and read an SBOM with Syft
+12. Sign the image and attach the SBOM with Cosign — *not written yet* · needs: Produce and read an SBOM with Syft
+13. Scan the running app with ZAP — *not written yet* · needs: Application security testing — SAST, DAST, SCA and secrets, Build the sample app image, Read an HTTP exchange and a certificate
+14. Bring all findings together in DefectDojo — *not written yet* · needs: Catch secrets before they land with Gitleaks, Find the SQL injection with Semgrep, Gate the image on Trivy findings in CI, Scan the running app with ZAP
 
-## Stage 3: Building Skills
+## Stage 4: Infrastructure as code and its security
 
-Intermediate tools that add SBOM management, software composition analysis, and deeper vulnerability workflows.
+1. [Infrastructure as code — concepts](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md)
+2. [Terraform — quick primer](../terraform/notes/0000-primer-terraform.md)
+3. Plan, apply and destroy with remote state — *not written yet* · needs: Terraform — quick primer, Infrastructure as code — concepts, YAML, JSON, jq and regex for security tooling
+4. Promote a change from dev to prod — *not written yet* · needs: Plan, apply and destroy with remote state, CI for the sample app — build, test and push
+5. Block the public bucket with Checkov — *not written yet* · needs: Plan, apply and destroy with remote state, CI for the sample app — build, test and push
+6. Scan IaC with Trivy config — *not written yet* · needs: Block the public bucket with Checkov, Gate the image on Trivy findings in CI
+7. [Configuration management — concepts](../docs/concepts/configuration-management/0000-primer-configuration-management.md)
+8. Harden a host with an idempotent Ansible playbook — *not written yet* · needs: Configuration management — concepts, Navigate and script on Linux, YAML, JSON, jq and regex for security tooling
 
-- **Helm** — Package manager for Kubernetes charts and releases. [Primer](../helm/notes/0000-primer-helm.md) | [Explore charts, releases, values, repos](../helm/notes/2026-07-19-explore-helm-charts-releases-values-repos.md) | [Quickstart trip-ups](../helm/notes/2026-09-21-quickstart-tripped-me-up.md)
-- **Kustomize** — Kubernetes YAML customization without templating. [Primer](../kustomize/notes/0000-primer-kustomize.md) | [First overlay](../kustomize/notes/2026-07-08-install-kustomize-first-overlay.md) | [Quickstart trip-ups](../kustomize/notes/2026-09-21-kustomize-quickstart-tripped-me-up.md) | [Minimal kustomization with overlay](../kustomize/configs/2026-09-22-minimal-kustomization-with-overlay.yaml)
-- **GitHub Actions** — GitHub's built-in CI/CD system. [Primer](../github-actions/notes/0000-primer-github-actions.md) | [Explore](../github-actions/notes/2026-08-04-explore-github-actions.md) | [Quickstart trip-ups](../github-actions/notes/2026-09-21-quickstart-tripped-me-up.md) | [Minimal starter workflow](../github-actions/configs/2026-09-21-minimal-starter-workflow.yaml) | [First workflow](../github-actions/configs/2026-07-14-first-github-actions-workflow.yaml) | [Run a first workflow](../github-actions/notes/2026-10-14-run-first-workflow.md) | [First scheduled workflow](../github-actions/configs/2026-10-14-first-scheduled-workflow.yaml) | [Install the gh CLI](../github-actions/notes/2026-08-26-install-gh-cli-first-command.md) | [Minimal push-triggered workflow](../github-actions/snippets/2026-08-26-first-workflow.yaml) | [Trigger a workflow with gh](../github-actions/snippets/2026-10-14-trigger-first-workflow-gh.sh) | [Composite action input reuse](../github-actions/snippets/2026-08-26-composite-action-input-reuse.yaml)
-- **Syft** — SBOM generation in CycloneDX and SPDX formats. Integrates with Grype for vulnerability correlation. [Primer](../syft/notes/0000-primer-syft.md) | [First SBOM](../syft/snippets/2026-10-14-first-sbom.sh) | [Output format comparison](../syft/notebooks/output-format-comparison.ipynb) | [Source vs library multiarch](../syft/notebooks/source-vs-library-multiarch.ipynb) | [Multi-language SBOM generation](../syft/scripts/syft-sbom-generation.py) | [SBOM pipeline scaffold](../syft/templates/sbom-pipeline-scaffold/README.md) | [Syft + Trivy K8s scan scaffold](../syft/templates/syft-trivy-k8s-scan-scaffold/README.md) | [Integration reference](../syft/docs/syft-integration-reference.md) | [Format migration guide](../syft/docs/syft-format-migration-guide.md) | [CI/CD pipeline manifest](../syft/manifests/syft-cicd-pipeline.yaml)
-- **Grype** — Vulnerability scanner for container images and filesystems. Designed to consume Syft SBOMs. [Primer](../grype/notes/0000-primer-grype.md) | [Where the vulnerability records come from](../grype/notes/2026-10-14-explore-vulnerability-database.md) | [Vulnerability diff](../grype/scripts/vuln-diff-two-images.sh) | [End-to-end pipeline](../grype/scripts/grype-end-to-end-scan-pipeline.sh) | [SBOM-to-SARIF pipeline](../grype/scripts/grype-scan-pipeline-end-to-end.sh) | [SBOM integration guide](../grype/docs/grype-syft-integration-guide.md) | [Vulnerability-management pipeline integration](../grype/docs/vulnerability-management-pipeline-integration.md) | [Filtering configuration](../grype/configs/grype-filtering-configuration-template.yaml) | [Reporting migration patterns](../grype/docs/grype-vulnerability-reporting-migration-patterns.md) | [Database vs registry sources](../grype/notebooks/grype-db-vs-registry-sources.ipynb)
-- **CodeQL** — Semantic code analysis with custom QL queries. Supports multiple languages and CI integration. [Primer](../codeql/notes/0000-primer-codeql.md) | [Install and run a first query](../codeql/notes/2026-08-26-install-codeql-first-query.md) | [First query example](../codeql/snippets/2026-09-24-first-codeql-query.py) | [Datalog gotchas](../codeql/notes/2026-06-14-codeql-datalog-gotchas.md) | [Custom queries in CI](../codeql/docs/wired-custom-queries-into-ci.md) | [Query-writing patterns for JavaScript/TypeScript](../codeql/docs/query-writing-patterns-dataflow-javascript-typescript.md) | [CLI vs Actions scan modes](../codeql/notebooks/compare-cli-vs-actions-scan-modes.ipynb) | [Multi-language scan workflow](../codeql/manifests/codeql-multi-language-scan.yaml) | [Integration reference](../codeql/docs/codeql-integration-reference.md) | [Database migration guide](../codeql/docs/codeql-database-migration-guide.md) | [Custom query-pack scaffold](../codeql/templates/custom-query-pack-ci-harness/README.md) | [Query comparison patterns](../codeql/notebooks/codeql-query-comparison-patterns.ipynb) | [CI/CD pipeline manifest](../codeql/manifests/codeql-cicd-pipeline.yaml)
-- **GitGuardian** — Secrets detection platform with ggshield CLI for pre-commit and CI scanning. [Primer](../gitguardian/notes/0000-primer-gitguardian.md) | [Touring the dashboard](../gitguardian/notes/2026-10-14-explore-interface.md) | [Custom policy engine](../gitguardian/snippets/custom-policy-engine-ggshield.sh) | [CI/CD secret scanning integration](../gitguardian/docs/cicd-secret-scanning-integration.md) | [Scanning migration patterns](../gitguardian/docs/gitguardian-secret-scanning-migration-patterns.md) | [Org secret-scanning policy](../gitguardian/configs/policy-configuration.yaml) | [Hosted vs self-managed scanning](../gitguardian/notebooks/choosing-between-on-premise-and-cloud-modes.ipynb)
-- **Snyk** — Developer security platform for open-source dependencies and containers. [Primer](../snyk/notes/0000-primer-snyk.md) | [CI pipeline integration](../snyk/configs/snyk-ci-github-actions.yaml) | [Multi-language scan scaffold](../snyk/templates/snyk-multilang-scan-scaffold/README.md) | [Security policy migration patterns](../snyk/docs/snyk-security-policy-migration-patterns.md) | [Vulnerability prioritization with reachability and Fix PRs](../snyk/docs/vulnerability-prioritization-reachability-fix-prs-license-compliance.md) | [Per-project configuration template](../snyk/configs/snyk-project-configuration-template.yaml) | [CLI vs API modes](../snyk/notebooks/cli-vs-api-modes.ipynb) | [Exploring the CLI](../snyk/notes/2026-10-07-explore-snyk-cli-commands.md)
-- **Dependabot** — GitHub's automated dependency update tool for vulnerability patching. [Primer](../dependabot/notes/0000-primer-dependabot.md) | [Configuration template](../dependabot/configs/dependabot-configuration-template.yaml) | [Wired into the version-control workflow](../dependabot/docs/wired-dependabot-version-control-workflow.md) | [Version-control workflow integration](../dependabot/docs/dependabot-version-control-workflow-integration.md) | [Auto-merge vs manual review](../dependabot/notebooks/auto-merge-vs-manual-review.ipynb) | [Alert migration patterns](../dependabot/docs/dependabot-security-alert-migration-patterns.md) | [npm config](../dependabot/configs/tried-npm-dependabot.yaml) | [Python config](../dependabot/configs/2026-07-18-python-project-version-update.yaml) | [Enabling alerts](../dependabot/notes/2026-07-10-enabling-dependabot-alerts.md) | [Alerts + security updates](../dependabot/notes/2026-07-21-enabling-dependabot-alerts-security-updates.md) | [Custom registry tutorial](../dependabot/notes/2026-08-08-dependabot-custom-registry-tutorial.md)
-- **Terrascan** — IaC static analysis for Terraform and Kubernetes with custom Rego rules. [Primer](../terrascan/notes/0000-primer-terrascan.md) | [First scan](../terrascan/notes/2026-06-13-first-scan.md) | [Custom S3 rule](../terrascan/configs/tried-custom-s3-rule.yaml) | [Config template](../terrascan/configs/terrascan-config-template.yaml) | [Rego vs YAML rule authoring](../terrascan/notebooks/rego-vs-yaml-rule-authoring.ipynb) | [Wiring Terrascan into an IaC pipeline](../terrascan/docs/iac-pipeline-integration.md) | [Terrascan vs Checkov](../terrascan/docs/terrascan-vs-checkov-terraform-iac-scanning.md) | [Scan configuration migration patterns](../terrascan/docs/terrascan-scan-configuration-migration-patterns.md)
-- **OpenTofu** — Open-source Terraform fork with the same HCL workflow. [Primer](../opentofu/notes/0000-primer-opentofu.md) | [Explore](../opentofu/notes/2026-07-20-explore-open-tofu.md) | [Quickstart](../opentofu/notes/2026-09-21-follow-open-tofu-quickstart.md) | [Minimal config with vars](../opentofu/configs/2026-09-21-minimal-opentofu-config-with-vars.hcl)
-- **tfsec** — Static analysis tool for scanning Terraform code for security misconfigurations at write time. [Primer](../tfsec/notes/0000-primer-tfsec.md) | [First security check](../tfsec/notes/2026-09-20-first-tfsec-scan.md)
-- **Prometheus** — Time-series metrics collection and alerting for cloud-native environments. [Primer](../prometheus/notes/0000-primer-prometheus.md) | [Checking the metrics interface](../prometheus/notes/2026-09-20-checking-the-metrics-interface.md) | [First query log](../prometheus/notes/2026-10-14-first-query-log.md) | [Deduping the observability primer](../prometheus/notes/2026-10-14-observability-primer-dedup.md)
-- **Grafana** — Dashboard and visualization layer for metrics. [Primer](../grafana/notes/0000-primer-grafana.md) | [First datasource](../grafana/configs/2026-09-19-first-datasource.yaml) | [Dashboard browser check](../grafana/notes/2026-09-19-first-dashboard-browser.md) | [Dashboard UI walkthrough](../grafana/notes/2026-09-26-explore-grafana-dashboard-ui.md) | [Quickstart trip-ups](../grafana/notes/2026-10-14-grafana-quickstart-trip-ups.md) | [Dashboard provisioning](../grafana/configs/2026-10-14-dashboard-provisioning.yaml) | [First datasource query](../grafana/snippets/2026-10-14-first-grafana-datasource-query.py)
-- **Ansible** — Configuration management and automation over SSH, built on the Configuration Management fundamentals. [Provision a Kubernetes cluster](../docs/how-to/k8s-terraform-ansible-provisioning.md) | [Quickstart trip-ups](../ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md) | [Minimal playbook: package and service](../ansible/snippets/2026-08-25-minimal-ansible-playbook-package-service.yaml) | [Inventory with group and host vars](../ansible/configs/2026-09-15-inventory-groups-host-vars.yaml) | [CVE-2026-33228 path verification](../ansible/notes/2026-08-17-verify-ansible-cve-2026-33228-paths.md) | [Bootstrap a node](../ansible/scripts/bootstrap-target-node.sh) | [Wired Ansible infrastructure workflow](../ansible/docs/wired-ansible-infrastructure-workflow.md) | [Roles vs tasks](../ansible/notes/roles-vs-tasks.md)
+## Stage 5: Kubernetes and GitOps
 
-## Stage 4: Advanced Tools
+1. [Kubernetes — quick primer](../kubernetes/notes/0000-primer-kubernetes.md)
+2. Deploy and debug the sample app on kind — *not written yet* · needs: Kubernetes — quick primer, Build the sample app image
+3. Environment overlays with Kustomize — *not written yet* · needs: Deploy and debug the sample app on kind
+4. [Helm — quick primer](../helm/notes/0000-primer-helm.md)
+5. Package the sample app as a Helm chart — *not written yet* · needs: Helm — quick primer, Environment overlays with Kustomize
+6. [Argo CD — quick primer](../argocd/notes/0000-primer-argocd.md)
+7. Deploy per environment from Git with Argo CD — *not written yet* · needs: Argo CD — quick primer, Package the sample app as a Helm chart, Promote a change from dev to prod
 
-Tools that depend on foundational concepts and earlier tools being complete.
+## Stage 6: Policy, secrets and runtime
 
-- **ArgoCD** — Declarative GitOps continuous delivery for Kubernetes. Requires Kubernetes and Git fluency. [Primer](../argocd/notes/0000-primer-argocd.md) | [Quickstart trip-ups](../argocd/notes/2026-08-12-quickstart-tripups.md) | [First app deployment](../argocd/notes/2026-07-06-install-argocd-first-app.md) | [Helm guestbook application](../argocd/manifests/helm-guestbook-application.yaml) | [Private repo credentials and RBAC](../argocd/configs/2026-08-17-private-repo-credentials-rbac.yaml) | [GitOps workflow wiring](../argocd/docs/gitops-workflow-wiring.md)
-- **SonarQube** — Static analysis platform for bugs, code smells, and security issues with Quality Gates. [Primer](../sonarqube/notes/0000-primer-sonarqube.md) | [Explore quality gates and profiles](../sonarqube/notes/2026-07-19-explore-sonarqube-quality-gates-profiles.md) | [Quickstart](../sonarqube/notes/2026-09-21-follow-sonarqube-quickstart.md) | [Minimal quality gate](../sonarqube/configs/2026-09-21-minimal-quality-gate.yaml)
-- **Cosign** — Container image signing and verification as part of the Sigstore project. Requires SBOM and vulnerability awareness. [Primer](../cosign/notes/0000-primer-cosign.md) | [Sign first image](../cosign/notes/2026-06-13-install-cosign-sign-first-image.md) | [Install and first signing command](../cosign/notes/2026-10-14-install-cosign-first-signing-command.md) | [Verification patterns](../cosign/docs/cosign-verification-patterns.md) | [Signing pipeline integration](../cosign/docs/container-signing-pipeline.md) | [Key rotation and migration](../cosign/docs/key-rotation-and-migration-patterns.md) | [Key-based vs keyless](../cosign/notebooks/key-based-vs-keyless-signing.ipynb) | [Custom signing image](../cosign/dockerfiles/custom-cosign-image.Dockerfile)
-- **Falco** — Runtime security monitoring for containers and Kubernetes. Requires understanding of container behaviour and system calls. [Primer](../falco/notes/0000-primer-falco.md) | [Install and wait for a first event](../falco/notes/2026-10-15-install-falco-first-event.md) | [Custom rules](../falco/configs/first-custom-rule-detect-shell-in-container.yaml) | [Minimal daemon config](../falco/configs/2026-10-03-minimal-runtime-config.yaml) | [Explore CLI, rules, events, output](../falco/notes/2026-07-19-explore-falco-cli-rules-events-output.md) | [Rule optimization with priority-based filtering](../falco/docs/rule-optimization-priority-filtering.md) | [Runtime security monitoring integration](../falco/docs/runtime-security-monitoring-integration.md) | [Rule engine vs eBPF probes](../falco/notebooks/rule-engine-vs-ebpf-probes.ipynb)
-- **OPA / Gatekeeper** — Policy engine for Kubernetes admission control and IaC validation. Requires understanding of Rego and Kubernetes policies. [Primer](../opa/notes/0000-primer-opa.md) | [First Rego policy in Python](../opa/snippets/2026-10-14-first-rego-policy.py) | [Gatekeeper constraint](../opa/configs/tried-a-gatekeeper-constraint.yaml) | [Policy configuration template](../opa/configs/opa-policy-configuration-template.yaml) | [Rego vs built-in policies](../opa/notebooks/rego-vs-builtin-policies.ipynb) | [Constraint template design patterns](../opa/docs/constraint-template-design-patterns.md) | [Policy-as-code governance across environments](../opa/docs/integrating-opa-with-policy-as-code-governance.md) | [Policy version migration patterns](../opa/docs/opa-policy-version-migration-patterns.md) | [Policy library scaffold](../opa/templates/gatekeeper-policy-library-scaffold/README.md) | [Export audit results](../opa/scripts/export-audit-results.sh)
-- **HashiCorp Vault** — Secrets management, dynamic secrets, encryption-as-a-service. [Primer](../vault/notes/0000-primer-vault.md) | [Install and first command](../vault/notes/2026-08-26-install-vault-first-command.md) | [PKI workflow](../vault/scripts/vault-pki-workflow.sh) | [Secrets engine selection guide](../vault/docs/vault-secrets-engine-selection-guide.md) | [KV CRUD](../vault/scripts/vault-kv-crud.sh) | [Policy-as-code](../vault/configs/2026-06-26-dev-test-policies.hcl) | [AWS secrets engine policy](../vault/configs/2026-09-04-aws-secrets-engine-policy.hcl) | [Agent auto-auth on Kubernetes](../vault/docs/vault-agent-auto-auth-kubernetes.md) | [Static vs dynamic secrets](../vault/notebooks/static-vs-dynamic-secrets.ipynb) | [Agent sidecar for secret refresh](../vault/manifests/vault-sidecar-secrets-refresh.yaml) | [Cluster deployment manifest](../vault/manifests/vault-cluster-deployment.yaml) | [Secrets backend comparison](../vault/notebooks/vault-secrets-backend-comparison-patterns.ipynb)
-- **Tetragon** — eBPF-based runtime security observability for detecting kernel-level anomalies in containers. [Primer](../tetragon/notes/0000-primer-tetragon.md) | [Docker install](../tetragon/notes/2026-06-23-install-tetragon-docker-first-events.md) | [Observability tutorial](../tetragon/notes/2026-08-06-tetragon-observability-tutorial.md) | [Runtime security workflow](../tetragon/docs/runtime-security-workflow.md) | [Network tracing policy](../tetragon/configs/2026-08-05-minimal-network-tracing-policy.yaml) | [K8s runtime-monitoring policy](../tetragon/configs/tetragon-policy-config-for-k8s-runtime-monitoring.yaml) | [Event collection pipeline](../tetragon/scripts/2026-08-05-tetragon-event-collection-pipeline.sh) | [Build a policy from scratch](../tetragon/scripts/build-tetragon-policy.sh) | [File-access policy builder](../tetragon/scripts/build-tetragon-file-access-tracing-policy.sh) | [Policy approaches comparison](../tetragon/configs/policy-approaches-comparison.yaml)
-- **DefectDojo** — Vulnerability management platform for aggregating and tracking security findings. [Primer](../defectdojo/notes/0000-primer-defectdojo.md) | [Quickstart trip-ups](../defectdojo/notes/2026-09-21-quickstart-tripups.md) | [Readiness check script](../defectdojo/scripts/2026-09-20-defectdojo-tutorial-check.sh) | [Install and import report](../defectdojo/snippets/install-defectdojo-first-scan-report.sh)
+1. Rego basics and testing policies — *not written yet* · needs: Deploy and debug the sample app on kind, YAML, JSON, jq and regex for security tooling
+2. Reject privileged and root pods with Gatekeeper — *not written yet* · needs: Rego basics and testing policies, Deploy per environment from Git with Argo CD
+3. [HashiCorp Vault — quick primer](../vault/notes/0000-primer-vault.md)
+4. Deliver the app's secrets from Vault — *not written yet* · needs: HashiCorp Vault — quick primer, Secrets and access management — concepts, Deploy and debug the sample app on kind
+5. Admit only signed images — *not written yet* · needs: Sign the image and attach the SBOM with Cosign, Reject privileged and root pods with Gatekeeper
+6. [Container and runtime security — concepts](../docs/concepts/container-runtime-security/0000-primer-container-runtime-security.md)
+7. Detect a shell in a container with Falco — *not written yet* · needs: Container and runtime security — concepts, Deploy and debug the sample app on kind
 
-## Stage 5: Mastery
+## Stage 7: Observe, respond and capstone
 
-Cross-cutting integration and custom tooling.
+1. [Observability and monitoring — concepts](../docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md)
+2. [Prometheus — quick primer](../prometheus/notes/0000-primer-prometheus.md)
+3. Alert on the app and on security events — *not written yet* · needs: Prometheus — quick primer, Observability and monitoring — concepts, Detect a shell in a container with Falco
+4. A security and SLO dashboard in Grafana — *not written yet* · needs: Alert on the app and on security events
+5. Respond to a vulnerable-dependency incident — *not written yet* · needs: A security and SLO dashboard in Grafana, Bring all findings together in DefectDojo
+6. Capstone: a secure delivery pipeline — *not written yet* · needs: Respond to a vulnerable-dependency incident, Admit only signed images, Deliver the app's secrets from Vault, Harden a host with an idempotent Ansible playbook, Follow tainted data with CodeQL, Scan the SBOM with Grype and compare with Trivy
 
-- **Custom policy authoring** — Writing Checkov policies, Semgrep rules, Falco rules, OPA Rego policies, and TruffleHog custom detectors. The hard part is usually not the rule but the authoring style, since each style decides differently about resources that omit the attribute being policed. [First Rego policy](../opa/snippets/2026-10-14-first-rego-policy.py) | [Gatekeeper policy library scaffold](../opa/templates/gatekeeper-policy-library-scaffold/README.md) | [Local policy test suite](../opa/templates/gatekeeper-policy-library-scaffold/tests/test-policies.sh) | [Checkov custom policy authoring styles compared](../checkov/notebooks/compare-custom-policy-expressiveness.ipynb) | [First custom Semgrep rule](../semgrep/snippets/first-custom-rule.yaml) | [First custom Falco rule](../falco/configs/first-custom-rule-detect-shell-in-container.yaml)
-- **Template tooling** — Scaffolds, validators, and variable profiles for project templates. [Template catalog validator](../templates/scripts/template-catalog-validator.py) | [Flat vs cookiecutter variable profiles](../templates/configs/flat-vs-cookiecutter-variable-profiles.yaml) | [Linux automation scaffold](../templates/linux-automation/README.md) | [Terraform project templates](../templates/terraform/) | [Cookiecutter project scaffolds](../templates/templates/)
-- **Multi-stage CI/CD pipelines** — Combining SAST + SCA + DAST + secret scanning + SBOM generation + container signing in a single gated pipeline. [TruffleHog PR secret scan reusable workflow](../trufflehog/manifests/trufflehog-pr-secret-scan-reusable.yaml) | [TruffleHog CI/CD deployment gate](../trufflehog/manifests/trufflehog-cicd-pipeline.yaml)
-- **CVE remediation workflows** — Using the CVE-specific scripts and guides for Ansible, Docker, Jenkins, Kafka, Kubernetes, and Trivy.
-- **Multi-cluster security posture management** — Integrating Falco, OPA, Trivy Operator, and kubescape across multiple Kubernetes clusters.
-- **Observability stack integration** — Wiring Prometheus metrics, Grafana dashboards, Loki logs, and Jaeger traces into a unified SLO-driven alerting pipeline.
-- **Hands-on practice environments** — Rebuilding small setups from saved configs without touching shared infrastructure. [Lab primer](../lab/notes/0000-primer-lab.md) | [Setting up the lab directory](../lab/notes/2026-09-20-setting-up-the-lab-directory.md) | [First lab environment](../lab/configs/2026-09-19-first-lab-env.yaml) | [First lab command](../lab/snippets/2026-10-14-first-lab-command.sh) | [Diagrams and their references](../assets/notes/2026-09-30-explore-assets-directory.md) | [Keeping diagrams sized correctly](../assets/notes/2026-09-29-image-optimization-tripped-me-up.md) | [Checking where the diagrams are actually used](../assets/notes/2026-10-10-checking-where-the-diagrams-are-used.md) | [Asset index](../assets/configs/2026-09-29-asset-index.yaml) | [Audit asset references](../assets/scripts/2026-10-01-audit-asset-references.sh) | [Embedding the diagrams](../assets/notes/2026-10-11-embedding-architecture-diagrams.md) | [Asset tracking config](../assets/configs/asset-tracking-config.yaml) | [Assets CI/CD pipeline wiring](../assets/docs/how-i-wired-assets-into-ci-cd-pipeline.md) | [Asset inventory collector](../assets/scripts/asset-inventory-collector.py)
+## Stage 8: Optional tools
 
-## Progression Map
+1. Secret detection with GitGuardian — *not written yet* · needs: Search the whole history and verify secrets with TruffleHog
+2. Code quality and security with SonarQube — *not written yet* · needs: Follow tainted data with CodeQL
+3. Dependency and container scanning with Snyk — *not written yet* · needs: Keep dependencies patched with Dependabot, Gate the image on Trivy findings in CI
+4. Template-based scanning with Nuclei — *not written yet* · needs: Scan the running app with ZAP
+5. IaC scanning with Terrascan — *not written yet* · needs: Block the public bucket with Checkov
+6. Run the Terraform code with OpenTofu — *not written yet* · needs: Plan, apply and destroy with remote state
+7. Runtime enforcement with Tetragon — *not written yet* · needs: Detect a shell in a container with Falco
 
-```mermaid
-flowchart LR
-  subgraph Foundations
-    Linux["Linux & Shell Fundamentals"]
-    Git["Version Control (Git)"]
-    CICD["CI/CD Pipeline Concepts"]
-    IaC["Infrastructure as Code"]
-    AppSec["AppSec Testing Concepts"]
-    Container["Container & Runtime Security"]
-    Secrets["Secrets & Access Management"]
-    SupplyChain["Software Supply Chain Security"]
-    Observ["Observability & Monitoring"]
-  end
+## Reference shelf
 
-   stage Core Tools[Stage 2: Core Tools]
-    GitCore["Git"]
-    DockerCore["Docker"]
-    KubeCore["Kubernetes"]
-    TfCore["Terraform"]
+Background material per tool, for looking things up after the lesson.
 
-   stage BuildingSkills[Stage 3: Building Skills]
-     Helm["Helm"]
-     Kustomize["Kustomize"]
-     CI_CD["GitHub Actions"]
-     Syft["Syft"]
-     Grype["Grype"]
-     CodeQL["CodeQL"]
-     GG["GitGuardian"]
-     Snyk["Snyk"]
-     Dep["Dependabot"]
-     Terrascan["Terrascan"]
-     Tfsec["tfsec"]
-     Prom["Prometheus"]
-     Graf["Grafana"]
-     Ansible["Ansible"]
-
-   stage AdvancedTools[Stage 4: Advanced Tools]
-     ArgoCD["ArgoCD"]
-     SonarQube["SonarQube"]
-     Cosign["Cosign"]
-     Falco["Falco"]
-     OPA["OPA/Gatekeeper"]
-     Vault["Vault"]
-     Tetragon["Tetragon"]
-     DefectDojo["DefectDojo"]
-
-  Foundations --> Core Tools
-  Core Tools --> BuildingSkills
-  BuildingSkills --> AdvancedTools
-
-  Linux --> Docker & Kubernetes & Trivy & Semgrep & Checkov & TruffleHog & ZAP
-  Git --> TruffleHog & CodeQL & Semgrep & Dependabot
-  CICD --> Trivy & Semgrep & Checkov & Syft & Grype & ZAP
-   IaC --> Checkov & Terrascan & OPA & Terraform & tfsec
-  AppSec --> Semgrep & CodeQL & ZAP & Snyk & Checkov & Nuclei
-  Container --> Trivy & Syft & Grype & Cosign & Falco & OPA
-  Secrets --> Vault & TruffleHog & Gitleaks & GitGuardian
-  SupplyChain --> Syft & Grype & Cosign & Trivy & Dependabot & Snyk
-  Observ --> Prometheus & Grafana
-
-  Docker --> Kubernetes
-  Kubernetes --> Helm & Kustomize & ArgoCD
-  Git --> GitHubActions
-  CICD --> GitHubActions
-  Trivy --> Syft & Grype & ZAP & Vault & Falco
-  Falco --> Tetragon
-  Semgrep --> ZAP & CodeQL & Snyk
-  Checkov --> Terrascan & OPA
-  TruffleHog --> GitGuardian
-  Syft --> Grype & Cosign
-  Grype --> Cosign
-  Prometheus --> Grafana
-  Nuclei --> Trivy
-  Gitleaks --> TruffleHog
-  tfsec --> Checkov & Terrascan
-```
+| Tool | Folder |
+|---|---|
+| Linux & Shell Fundamentals | [docs/concepts/linux-shell-fundamentals/](../docs/concepts/linux-shell-fundamentals/) |
+| Version Control with Git | [docs/concepts/version-control-with-git/](../docs/concepts/version-control-with-git/) |
+| Containers & Orchestration | [docs/concepts/containers-orchestration/](../docs/concepts/containers-orchestration/) |
+| CI/CD Pipeline Concepts | [docs/concepts/ci-cd-pipeline-concepts/](../docs/concepts/ci-cd-pipeline-concepts/) |
+| Application Security Testing Concepts | [docs/concepts/application-security-testing-concepts/](../docs/concepts/application-security-testing-concepts/) |
+| Software Supply Chain Security | [docs/concepts/software-supply-chain-security/](../docs/concepts/software-supply-chain-security/) |
+| Infrastructure as Code | [docs/concepts/infrastructure-as-code/](../docs/concepts/infrastructure-as-code/) |
+| Configuration Management | [docs/concepts/configuration-management/](../docs/concepts/configuration-management/) |
+| Secrets & Access Management | [docs/concepts/secrets-access-management/](../docs/concepts/secrets-access-management/) |
+| Container & Runtime Security | [docs/concepts/container-runtime-security/](../docs/concepts/container-runtime-security/) |
+| Observability & Monitoring | [docs/concepts/observability-monitoring/](../docs/concepts/observability-monitoring/) |
+| Linux | [linux/](../linux/) |
+| Git | [git/](../git/) |
+| Docker | [docker/](../docker/) |
+| GitHub Actions | [github-actions/](../github-actions/) |
+| Gitleaks | [gitleaks/](../gitleaks/) |
+| TruffleHog | [trufflehog/](../trufflehog/) |
+| GitGuardian | [gitguardian/](../gitguardian/) |
+| Semgrep | [semgrep/](../semgrep/) |
+| CodeQL | [codeql/](../codeql/) |
+| SonarQube | [sonarqube/](../sonarqube/) |
+| Dependabot | [dependabot/](../dependabot/) |
+| Snyk | [snyk/](../snyk/) |
+| Trivy | [trivy/](../trivy/) |
+| Syft | [syft/](../syft/) |
+| Grype | [grype/](../grype/) |
+| Cosign | [cosign/](../cosign/) |
+| OWASP ZAP | [zap/](../zap/) |
+| Nuclei | [nuclei/](../nuclei/) |
+| DefectDojo | [defectdojo/](../defectdojo/) |
+| Terraform | [terraform/](../terraform/) |
+| OpenTofu | [opentofu/](../opentofu/) |
+| Checkov | [checkov/](../checkov/) |
+| Terrascan | [terrascan/](../terrascan/) |
+| tfsec | [tfsec/](../tfsec/) |
+| Ansible | [ansible/](../ansible/) |
+| Kubernetes | [kubernetes/](../kubernetes/) |
+| Kustomize | [kustomize/](../kustomize/) |
+| Helm | [helm/](../helm/) |
+| Argo CD | [argocd/](../argocd/) |
+| OPA / Gatekeeper | [opa/](../opa/) |
+| HashiCorp Vault | [vault/](../vault/) |
+| Falco | [falco/](../falco/) |
+| Tetragon | [tetragon/](../tetragon/) |
+| Prometheus | [prometheus/](../prometheus/) |
+| Grafana | [grafana/](../grafana/) |
