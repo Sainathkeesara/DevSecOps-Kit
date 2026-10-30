@@ -3326,3 +3326,4 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - Passed ([x]) kubernetes-017 — kubernetes: manifest — Kustomize overlays for multi-environment deployments · Level: L4 · 2026-10-29
 - 2026-10-28 opentofu-012: module-registry-publisher.sh
 - 2026-10-29 terraform-027 template module-registry-publish-consume
+- kubernetes: RBAC design patterns for multi-tenant clusters (kubernetes-019)

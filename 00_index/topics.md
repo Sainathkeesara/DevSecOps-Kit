@@ -274,7 +274,7 @@
 - _…and 4 more under `terraform/configs/` — browse the folder._
 - **snippets** (1): [2026-07-20-practice-terraform-variables-outputs-datasources.hcl](../terraform/snippets/2026-07-20-practice-terraform-variables-outputs-datasources.hcl)
 - **eventbridge-lambda** (2): [variables.tf](../terraform/eventbridge-lambda/variables.tf), [main.tf](../terraform/eventbridge-lambda/main.tf)
-- **manifests** (2): [terraform-cloud-workspace-automation.hcl](../terraform/manifests/terraform-cloud-workspace-automation.hcl), [2026-07-15-first-config.tf](../terraform/manifests/2026-07-15-first-config.tf)
+- **manifests** (1): [terraform-cloud-workspace-automation.hcl](../terraform/manifests/terraform-cloud-workspace-automation.hcl)
 
 ## terrascan  ·  22 files
 - **primer:** [terrascan/notes/0000-primer-terrascan.md](../terrascan/notes/0000-primer-terrascan.md)
