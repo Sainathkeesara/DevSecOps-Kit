@@ -3327,3 +3327,8 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - 2026-10-28 opentofu-012: module-registry-publisher.sh
 - 2026-10-29 terraform-027 template module-registry-publish-consume
 - kubernetes: RBAC design patterns for multi-tenant clusters (kubernetes-019)
+
+## 2026-10-30
+### Passed
+- terraform-029: `terraform/docs/terraform-testing-patterns.md` — Terraform testing: unit, contract, and integration patterns · Level: L4 · 2026-10-30
+- Passed ([x]) terraform-027 — terraform: template — Terraform module registry: publish and consume pattern · Level: L4 · 2026-10-30
