@@ -4,6 +4,11 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-31
+
+### Added
+- linux-040: `learn/01-foundations/02-shell-scripting.md` — Navigate and script on Linux: navigate and inspect files with `pwd`/`cd`/`ls -la`, find files by name and type with `find`, write a shell script that finds large log files with correct quoting and exit codes, then make it pass ShellCheck; companion script `linux/scripts/find-large-logs.sh` (L1 lesson)
+
 ## 2026-10-28
 
 ### Added
