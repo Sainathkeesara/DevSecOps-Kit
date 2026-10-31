@@ -15,6 +15,8 @@
 - [Flatted CVE-2026-33228 runbook](../docs/runbooks/cve-2026-33228-ansible-flatted.md)
 - [Kaniko CVE-2026-28406 runbook](../docs/how-to/docker-kaniko-cve-2026-28406.md)
 - [DefectDojo wired into triage workflow](../defectdojo/docs/how-i-wired-defectdojo-into-my-triage-workflow.md)
+- [Grype filter severity formats](../grype/snippets/2026-10-27-grype-filter-severity-formats.sh)
+- [Snyk quickstart trip-ups](../snyk/notes/2026-10-27-snyk-quickstart-tripped.md)
 
 ### Build and sign container images
 
@@ -36,6 +38,7 @@
 - [Docker Compose production manifest](../docker/manifests/docker-compose-production.yaml)
 - [Syft + Trivy Kubernetes scan scaffold](../syft/templates/syft-trivy-k8s-scan-scaffold/README.md)
 - [Helm wired into release workflow](../helm/docs/how-i-wired-helm-into-my-release-workflow.md)
+- [Cosign keyless signing patterns](../cosign/docs/keyless-signing-patterns.md)
 
 ### Diagnose failures
 
@@ -46,6 +49,7 @@
 - [Kafka consumer lag](../docs/troubleshooting/kafka-consumer-lag.md)
 - [Linux production system administration runbook](../linux/docs/system-administration-runbook.md)
 - [Host health check and rollback](../linux/scripts/health-check-and-rollback.sh)
+- [Kubernetes cluster health and conformance validation](../kubernetes/scripts/cluster-health-check-and-conformance-validation.sh)
 
 ### Generate SBOMs and scan for vulnerabilities
 
@@ -132,6 +136,8 @@
 - [Ansible quickstart trip-ups](../ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md)
 - [Ansible bootstrap target node](../ansible/scripts/bootstrap-target-node.sh)
 - [OpenTofu test quickstart followup](../opentofu/notes/2026-10-20-follow-opentofu-test-quickstart.md)
+- [Terraform testing patterns](../terraform/docs/terraform-testing-patterns.md)
+- [Module registry publish and consume](../terraform/templates/module-registry-publish-consume/README.md)
 
 ### Manage environments and assets
 
@@ -140,3 +146,4 @@
 - [Asset tracking config](../assets/configs/asset-tracking-config.yaml)
 - [Assets CI/CD pipeline wiring](../assets/docs/how-i-wired-assets-into-ci-cd-pipeline.md)
 - [Asset inventory collector](../assets/scripts/asset-inventory-collector.py)
+- [OpenTofu module registry publisher script](../opentofu/scripts/module-registry-publisher.sh)

@@ -179,10 +179,10 @@
 - **configs** (2): [2026-09-22-minimal-kustomization-with-overlay.yaml](../kustomize/configs/2026-09-22-minimal-kustomization-with-overlay.yaml), [2026-07-08-minimal-kustomization.yaml](../kustomize/configs/2026-07-08-minimal-kustomization.yaml)
 - **manifests** (1): [2026-09-21-kustomize-tutorial.yaml](../kustomize/manifests/2026-09-21-kustomize-tutorial.yaml)
 
-## linux  ·  6 files
+## linux  ·  7 files
 - **notes** (3): [2026-10-02-explore-linux-environment.md](../linux/notes/2026-10-02-explore-linux-environment.md), [2026-08-06-linux-shell-scripting-tutorial-confusions.md](../linux/notes/2026-08-06-linux-shell-scripting-tutorial-confusions.md), [2026-07-21-install-linux-vm-terminal-first-commands.md](../linux/notes/2026-07-21-install-linux-vm-terminal-first-commands.md)
 - **docs** (1): [system-administration-runbook.md](../linux/docs/system-administration-runbook.md)
-- **scripts** (1): [health-check-and-rollback.sh](../linux/scripts/health-check-and-rollback.sh)
+- **scripts** (2): [health-check-and-rollback.sh](../linux/scripts/health-check-and-rollback.sh), [find-large-logs.sh](../linux/scripts/find-large-logs.sh)
 - **configs** (1): [2026-08-06-cron-job-configuration.ini](../linux/configs/2026-08-06-cron-job-configuration.ini)
 
 ## nuclei  ·  5 files

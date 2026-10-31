@@ -827,6 +827,8 @@
 - **Keypair (Cosign)** — The `cosign.key` / `cosign.pub` pair minted by `cosign generate-key-pair`, with the private key protected by a password. Signing takes the image reference plus the private key; verification takes the public key.
 - **Full registry reference (Cosign)** — The complete `registry.io/repo:tag` path a signing command needs. A short name fails with a confusing reference error, so the registry prefix is part of the command, not decoration.
 - **Key password in scripts (Cosign)** — The interactive password prompt on `cosign sign` blocks scripted runs unless the secret arrives via `--password` or `COSIGN_PASSWORD`. The first manual run works; the second run makes it non-interactive.
+- **Fulcio** — Sigstore's certificate authority that issues short-lived TLS certificates for keyless signing, acting as a trusted issuer that verifies identity during the OIDC-based signing process.
+- **Rekor** — Sigstore's transparency log that records every signature created, providing an auditable trail that can be queried to verify the provenance and authenticity of signed artifacts.
 
 ## GitHub Actions
 
