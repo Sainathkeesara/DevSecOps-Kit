@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - grype-047: `grype/snippets/2026-10-27-grype-filter-severity-formats.sh` — Grype vulnerability scan: filter by severity and output formats (L2 snippet)
 - opa-023: `opa/notes/2026-10-27-opa-install-first-policy.md` — Install OPA and run first Rego policy evaluation (L2 notes)
 - snyk-018: `snyk/notes/2026-10-27-snyk-quickstart-tripped.md` — Follow the official Snyk quickstart and write up what tripped me up (L2 notes)
+- cosign-020: `cosign/docs/keyless-signing-patterns.md` — Keyless signing with Fulcio and Rekor in production: OIDC federation, digest signing, verification gates, and common error patterns
 
 ## 2026-10-27
 
