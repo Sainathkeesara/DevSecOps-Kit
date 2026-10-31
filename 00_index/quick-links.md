@@ -36,6 +36,7 @@
 - [Docker Compose production manifest](../docker/manifests/docker-compose-production.yaml)
 - [Syft + Trivy Kubernetes scan scaffold](../syft/templates/syft-trivy-k8s-scan-scaffold/README.md)
 - [Helm wired into release workflow](../helm/docs/how-i-wired-helm-into-my-release-workflow.md)
+- [Keyless signing patterns](../cosign/docs/keyless-signing-patterns.md)
 
 ### Diagnose failures
 
@@ -46,6 +47,7 @@
 - [Kafka consumer lag](../docs/troubleshooting/kafka-consumer-lag.md)
 - [Linux production system administration runbook](../linux/docs/system-administration-runbook.md)
 - [Host health check and rollback](../linux/scripts/health-check-and-rollback.sh)
+- [Find large logs](../linux/scripts/find-large-logs.sh)
 
 ### Generate SBOMs and scan for vulnerabilities
 
@@ -132,6 +134,9 @@
 - [Ansible quickstart trip-ups](../ansible/notes/2026-08-25-followed-ansible-quickstart-what-tripped-me-up.md)
 - [Ansible bootstrap target node](../ansible/scripts/bootstrap-target-node.sh)
 - [OpenTofu test quickstart followup](../opentofu/notes/2026-10-20-follow-opentofu-test-quickstart.md)
+- [Terraform testing patterns](../terraform/docs/terraform-testing-patterns.md)
+- [Module registry publish consume](../terraform/templates/module-registry-publish-consume/README.md)
+- [Shell scripting foundations](../learn/01-foundations/02-shell-scripting.md)
 
 ### Manage environments and assets
 

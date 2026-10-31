@@ -872,3 +872,13 @@
 - **Provider compatibility** — The degree to which a cloud provider's API can be provisioned using a given IaC tool's configuration language without modification.
 - **State migration** — The process of moving Terraform state from one version or tool to another, often requiring `terraform state migrate` or manual conversion.
 - **Sentinel** — HashiCorp's policy-as-code engine for Terraform Cloud; not available in OpenTofu, which uses OPA/Gatekeeper instead.
+
+**shell checking** — The process of reviewing shell scripts for errors, edge cases, and safety issues before execution. Example: using `shellcheck` to identify potential problems in bash scripts.
+
+**here-document** — A shell syntax that allows multi-line strings to be passed to a command, using the `<<` operator followed by a delimiter. Example: `cat << EOF > file\ncontent\nEOF`. Improper quoting or delimiter choice can introduce security issues.
+
+**rekor** — An open-source transparency log framework used by Sigstore to provide publicly verifiable records of signed artifacts and supply chain provenance.
+
+**terraform testing** — The practice of validating Terraform configurations before applying them, using commands like `terraform plan` to preview changes and `terraform validate` to check syntax and compliance. Testing may include unit tests, integration tests, and policy-based checks.
+
+**module registry** — A curated collection of reusable Terraform modules published to a registry (such as the Terraform Registry or a private registry), enabling versioned consumption of proven infrastructure patterns via `module` blocks.
