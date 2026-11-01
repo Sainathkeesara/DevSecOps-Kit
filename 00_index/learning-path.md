@@ -7,8 +7,8 @@ Work through the stages in order. Each lesson says what it expects you to know a
 1. [Linux and shell fundamentals](../docs/concepts/linux-shell-fundamentals/0000-primer-linux-shell-fundamentals.md)
 2. [Navigate and script on Linux](../learn/01-foundations/02-shell-scripting.md) · needs: Linux and shell fundamentals
 3. [Version control with Git — concepts](../docs/concepts/version-control-with-git/0000-primer-version-control-with-git.md)
-4. Branch, merge and rebase safely — *not written yet* · needs: Version control with Git — concepts, Navigate and script on Linux
-5. Read an HTTP exchange and a certificate — *not written yet* · needs: Navigate and script on Linux
+4. [Branch, merge and rebase safely](../learn/01-foundations/04-git-branch-merge-rebase.md) · needs: Version control with Git — concepts, Navigate and script on Linux
+5. [Read an HTTP exchange and a certificate](../learn/01-foundations/05-http-and-tls.md) · needs: Navigate and script on Linux
 6. YAML, JSON, jq and regex for security tooling — *not written yet* · needs: Navigate and script on Linux
 7. Set up the lab and the sample app — *not written yet* · needs: Branch, merge and rebase safely
 8. First win: find a secret and a vulnerable package — *not written yet* · needs: Set up the lab and the sample app, YAML, JSON, jq and regex for security tooling
