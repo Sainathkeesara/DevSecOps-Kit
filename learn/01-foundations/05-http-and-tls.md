@@ -73,4 +73,4 @@ You should see `subject=` and `issuer=` fields populated, not empty.
 
 ## Next
 
-[YAML, JSON, jq and regex for security tooling](../../00_index/learning-path.md)
+[YAML, JSON, jq and regex for security tooling](06-yaml-json-jq-regex.md)
