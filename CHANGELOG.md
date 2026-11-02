@@ -4,6 +4,11 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-02
+
+### Added
+- docker-017: `learn/01-foundations/07-lab-setup.md` — Set up the lab and the sample app: install Docker, kind and a local registry, confirm each works, clone the sample app and list its planted security issues (L1 lesson)
+
 ## 2026-10-31
 
 ### Added
