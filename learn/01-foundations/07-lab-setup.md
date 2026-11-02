@@ -161,4 +161,4 @@ grep -nE 'password|PASSWORD|secret|SECRET' compose.yaml .env.example
 
 ## Next
 
-[First win: find a secret and a vulnerable package](../../00_index/learning-path.md)
+[First win: find a secret and a vulnerable package](08-first-scan.md)
