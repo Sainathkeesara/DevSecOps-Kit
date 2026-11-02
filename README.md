@@ -13,7 +13,7 @@ A working devops and devsecops engineer's quick-reference: first-contact notes, 
 
 Scope runs from Linux and Git fundamentals up through infrastructure as code and Kubernetes delivery, then into the security tooling that rides on top of it. Cross-cutting layers hold concept primers, how-to guides, runbooks, shell toolkits, cheatsheets, and starter templates that the per-tool folders lean on. Every entry is written to be adapted for real infrastructure work rather than read end to end.
 
-**1296 files across 43 top-level folders (35 tool folders + 8 cross-cutting).**
+**1315 files across 44 top-level folders (36 tool folders + 8 cross-cutting).**
 
 ## Quick links
 
