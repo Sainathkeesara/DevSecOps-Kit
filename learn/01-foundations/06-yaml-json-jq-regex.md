@@ -1,5 +1,5 @@
 ---
-last_verified: 2026-11-01
+last_verified: 2026-11-02
 tool_version: jq 1.8.2
 sources:
   - https://jqlang.github.io/jq/manual/
@@ -153,4 +153,4 @@ grep -E 'CVE-[0-9]{4}-[0-9]{4,}' my-scan.json
 
 ## Next
 
-[Set up the lab and the sample app](../../00_index/learning-path.md)
+[Set up the lab and the sample app](07-lab-setup.md)
