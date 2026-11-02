@@ -11,7 +11,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 5. [Read an HTTP exchange and a certificate](../learn/01-foundations/05-http-and-tls.md) · needs: Navigate and script on Linux
 6. [YAML, JSON, jq and regex for security tooling](../learn/01-foundations/06-yaml-json-jq-regex.md) · needs: Navigate and script on Linux
 7. [Set up the lab and the sample app](../learn/01-foundations/07-lab-setup.md) · needs: Branch, merge and rebase safely
-8. First win: find a secret and a vulnerable package — *not written yet* · needs: Set up the lab and the sample app, YAML, JSON, jq and regex for security tooling
+8. [First win: find a secret and a vulnerable package](../learn/01-foundations/08-first-scan.md) · needs: Set up the lab and the sample app, YAML, JSON, jq and regex for security tooling
 
 ## Stage 2: Build and ship
 
