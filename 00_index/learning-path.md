@@ -9,7 +9,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 3. [Version control with Git — concepts](../docs/concepts/version-control-with-git/0000-primer-version-control-with-git.md)
 4. [Branch, merge and rebase safely](../learn/01-foundations/04-git-branch-merge-rebase.md) · needs: Version control with Git — concepts, Navigate and script on Linux
 5. [Read an HTTP exchange and a certificate](../learn/01-foundations/05-http-and-tls.md) · needs: Navigate and script on Linux
-6. YAML, JSON, jq and regex for security tooling — *not written yet* · needs: Navigate and script on Linux
+6. [YAML, JSON, jq and regex for security tooling](../learn/01-foundations/06-yaml-json-jq-regex.md) · needs: Navigate and script on Linux
 7. Set up the lab and the sample app — *not written yet* · needs: Branch, merge and rebase safely
 8. First win: find a secret and a vulnerable package — *not written yet* · needs: Set up the lab and the sample app, YAML, JSON, jq and regex for security tooling
 
