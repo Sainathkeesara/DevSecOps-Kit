@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-03
+
+### Added
+- github-actions-014: `learn/02-build-and-ship/06-gha-sample-app-ci.md` — CI for the sample app — build, test and push: write a GitHub Actions workflow that builds and tests on every pull request and gates the merge on a green run (L2 lesson)
+- github-actions-014: `github-actions/configs/sample-app-ci.yml` — companion CI workflow file for the sample app (L2 lesson)
+
 ## 2026-11-02
 
 ### Added
