@@ -3345,3 +3345,4 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - terraform-029: `terraform/docs/terraform-testing-patterns.md` — Terraform testing: unit, contract, and integration patterns · Level: L4 · 2026-10-30
 - Passed ([x]) terraform-027 — terraform: template — Terraform module registry: publish and consume pattern · Level: L4 · 2026-10-30
 - 2026-11-02: Add Foundations lesson 08-first-scan.md (trivy-027)
+feat: add lesson 03-docker-sample-app-image.md
