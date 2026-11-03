@@ -20,7 +20,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 3. [Build the sample app image](../learn/02-build-and-ship/03-docker-sample-app-image.md) · needs: Docker — quick primer, Containers and orchestration — concepts, Set up the lab and the sample app
 4. [CI/CD pipeline concepts](../docs/concepts/ci-cd-pipeline-concepts/0000-primer-ci-cd-pipeline-concepts.md)
 5. [GitHub Actions — quick primer](../github-actions/notes/0000-primer-github-actions.md)
-6. CI for the sample app — build, test and push — *not written yet* · needs: GitHub Actions — quick primer, CI/CD pipeline concepts, Build the sample app image
+6. [CI for the sample app — build, test and push](../learn/02-build-and-ship/06-gha-sample-app-ci.md) · needs: GitHub Actions — quick primer, CI/CD pipeline concepts, Build the sample app image
 
 ## Stage 3: Shift-left security in the pipeline
 
