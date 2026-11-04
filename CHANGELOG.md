@@ -3352,3 +3352,4 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - Passed ([x]) terraform-027 — terraform: template — Terraform module registry: publish and consume pattern · Level: L4 · 2026-10-30
 - 2026-11-02: Add Foundations lesson 08-first-scan.md (trivy-027)
 feat: add lesson 03-docker-sample-app-image.md
+- Add lesson 05-semgrep-sast.md (semgrep-029)
