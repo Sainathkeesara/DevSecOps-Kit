@@ -93,4 +93,4 @@ _Counts are the files inside each category folder; a few folders also hold files
 OpenTofu and Terraform terrain expanded: OpenTofu vs Terraform migration decision matrix and cloud workspace automation configs now available. Thinner corners persist for tfsec, Nuclei, and Prometheus until first configs and scripts land. Argo CD carries the app-of-apps multi-environment scaffold (dev/staging/prod) with bootstrap and Helm values. Environments promotion workflow and asset tracking still landing.
 
 ---
-_Last updated: 2026-11-03_
+_Last updated: 2026-11-05_
