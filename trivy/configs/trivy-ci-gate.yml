@@ -1,0 +1,25 @@
+# last_verified: 2026-11-04 · trivy v0.76.1
+# Trivy config used by the CI image-scan gate lesson (learn/03-shift-left/09-trivy-ci-gate.md).
+# Use with: trivy --config trivy-ci-gate.yml image <image>
+
+# Only fail on findings we can act on right now.
+severity:
+  - CRITICAL
+  - HIGH
+
+# Don't re-download the vulnerability database on every run.
+scan:
+  skip-db-update: true
+
+# Keep output simple and human-readable.
+format: table
+
+# Fail the scan with this exit code when findings are reported.
+exit-code: 1
+
+# Report only vulnerabilities with a known fix (unfixed findings are notes,
+# not blockers, in this gate).
+vulnerability:
+  only-fixed: true
+
+ignorefile: .trivyignore

@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-04
+
+### Added
+- trivy-028: `learn/03-shift-left/09-trivy-ci-gate.md` — Gate the image on Trivy findings in CI: add a Trivy image-scan job that fails on HIGH and CRITICAL, and accept a known finding with a dated `.trivyignore` entry (L2 lesson)
+- trivy-028: `trivy/configs/trivy-ci-gate.yml` — Trivy config for the CI image-scan gate lesson (severity CRITICAL/HIGH, exit-code 1, ignorefile .trivyignore)
+
 ## 2026-11-03
 
 ### Added
