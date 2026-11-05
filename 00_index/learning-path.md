@@ -26,13 +26,13 @@ Work through the stages in order. Each lesson says what it expects you to know a
 
 1. [Application security testing — SAST, DAST, SCA and secrets](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md)
 2. [Secrets and access management — concepts](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md)
-3. Catch secrets before they land with Gitleaks — *not written yet* · needs: Application security testing — SAST, DAST, SCA and secrets, Secrets and access management — concepts, CI for the sample app — build, test and push
+3. [Catch secrets before they land with Gitleaks](../learn/03-shift-left/03-gitleaks-in-ci.md) · needs: Application security testing — SAST, DAST, SCA and secrets, Secrets and access management — concepts, CI for the sample app — build, test and push
 4. Search the whole history and verify secrets with TruffleHog — *not written yet* · needs: Catch secrets before they land with Gitleaks
 5. [Find the SQL injection with Semgrep](../learn/03-shift-left/05-semgrep-sast.md) · needs: Application security testing — SAST, DAST, SCA and secrets, CI for the sample app — build, test and push
 6. Follow tainted data with CodeQL — *not written yet* · needs: Find the SQL injection with Semgrep
 7. [Software supply chain security — concepts](../docs/concepts/software-supply-chain-security/0000-primer-software-supply-chain-security.md)
 8. Keep dependencies patched with Dependabot — *not written yet* · needs: Software supply chain security — concepts, CI for the sample app — build, test and push
-9. Gate the image on Trivy findings in CI — *not written yet* · needs: First win: find a secret and a vulnerable package, CI for the sample app — build, test and push
+9. [Gate the image on Trivy findings in CI](../learn/03-shift-left/09-trivy-ci-gate.md) · needs: First win: find a secret and a vulnerable package, CI for the sample app — build, test and push
 10. Produce and read an SBOM with Syft — *not written yet* · needs: Software supply chain security — concepts, Gate the image on Trivy findings in CI
 11. Scan the SBOM with Grype and compare with Trivy — *not written yet* · needs: Produce and read an SBOM with Syft
 12. Sign the image and attach the SBOM with Cosign — *not written yet* · needs: Produce and read an SBOM with Syft
