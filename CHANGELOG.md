@@ -4,6 +4,10 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-05
+
+### Added
+- gitleaks-013: `learn/03-shift-left/03-gitleaks-in-ci.md` — Catch secrets before they land with Gitleaks (L2 lesson)
 ## 2026-11-04
 
 ### Added
