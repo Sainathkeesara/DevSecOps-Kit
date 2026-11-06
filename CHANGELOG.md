@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-06
+
+### Added
+- syft-027: `learn/03-shift-left/10-syft-sbom.md` — Produce and read an SBOM with Syft: generate SPDX and CycloneDX SBOMs for an image and locate a package+version in each format (L2 lesson)
+- syft-027: `learn/03-shift-left/09-trivy-ci-gate.md` — Updated `## Next` link to point at the new Syft SBOM lesson
+
 ## 2026-11-05
 
 ### Added
