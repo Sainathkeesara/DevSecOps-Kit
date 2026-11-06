@@ -27,7 +27,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 1. [Application security testing — SAST, DAST, SCA and secrets](../docs/concepts/application-security-testing-concepts/0000-primer-application-security-testing-concepts.md)
 2. [Secrets and access management — concepts](../docs/concepts/secrets-access-management/0000-primer-secrets-access-management.md)
 3. [Catch secrets before they land with Gitleaks](../learn/03-shift-left/03-gitleaks-in-ci.md) · needs: Application security testing — SAST, DAST, SCA and secrets, Secrets and access management — concepts, CI for the sample app — build, test and push
-4. Search the whole history and verify secrets with TruffleHog — *not written yet* · needs: Catch secrets before they land with Gitleaks
+4. [Search the whole history and verify secrets with TruffleHog](../learn/03-shift-left/04-trufflehog-history.md) · needs: Catch secrets before they land with Gitleaks
 5. [Find the SQL injection with Semgrep](../learn/03-shift-left/05-semgrep-sast.md) · needs: Application security testing — SAST, DAST, SCA and secrets, CI for the sample app — build, test and push
 6. Follow tainted data with CodeQL — *not written yet* · needs: Find the SQL injection with Semgrep
 7. [Software supply chain security — concepts](../docs/concepts/software-supply-chain-security/0000-primer-software-supply-chain-security.md)
