@@ -33,7 +33,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 7. [Software supply chain security — concepts](../docs/concepts/software-supply-chain-security/0000-primer-software-supply-chain-security.md)
 8. Keep dependencies patched with Dependabot — *not written yet* · needs: Software supply chain security — concepts, CI for the sample app — build, test and push
 9. [Gate the image on Trivy findings in CI](../learn/03-shift-left/09-trivy-ci-gate.md) · needs: First win: find a secret and a vulnerable package, CI for the sample app — build, test and push
-10. Produce and read an SBOM with Syft — *not written yet* · needs: Software supply chain security — concepts, Gate the image on Trivy findings in CI
+10. [Produce and read an SBOM with Syft](../learn/03-shift-left/10-syft-sbom.md) · needs: Software supply chain security — concepts, Gate the image on Trivy findings in CI
 11. Scan the SBOM with Grype and compare with Trivy — *not written yet* · needs: Produce and read an SBOM with Syft
 12. Sign the image and attach the SBOM with Cosign — *not written yet* · needs: Produce and read an SBOM with Syft
 13. Scan the running app with ZAP — *not written yet* · needs: Application security testing — SAST, DAST, SCA and secrets, Build the sample app image, Read an HTTP exchange and a certificate
