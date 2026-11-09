@@ -4,6 +4,22 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-06
+
+### Added
+- syft-027: `learn/03-shift-left/10-syft-sbom.md` — Produce and read an SBOM with Syft: generate SPDX and CycloneDX SBOMs for an image and locate a package+version in each format (L2 lesson)
+- syft-027: `learn/03-shift-left/09-trivy-ci-gate.md` — Updated `## Next` link to point at the new Syft SBOM lesson
+
+## 2026-11-05
+
+### Added
+- gitleaks-013: `learn/03-shift-left/03-gitleaks-in-ci.md` — Catch secrets before they land with Gitleaks (L2 lesson)
+## 2026-11-04
+
+### Added
+- trivy-028: `learn/03-shift-left/09-trivy-ci-gate.md` — Gate the image on Trivy findings in CI: add a Trivy image-scan job that fails on HIGH and CRITICAL, and accept a known finding with a dated `.trivyignore` entry (L2 lesson)
+- trivy-028: `trivy/configs/trivy-ci-gate.yml` — Trivy config for the CI image-scan gate lesson (severity CRITICAL/HIGH, exit-code 1, ignorefile .trivyignore)
+
 ## 2026-11-03
 
 ### Added
@@ -3354,3 +3370,4 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 feat: add lesson 03-docker-sample-app-image.md
 - Add lesson 05-semgrep-sast.md (semgrep-029)
 feat: dependabot-022 — Keep dependencies patched with Dependabot lesson
+- Add learn/03-shift-left/04-trufflehog-history.md (trufflehog-048): search git history and verify secrets with TruffleHog
