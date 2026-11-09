@@ -3369,5 +3369,6 @@ Add ansible/scripts/reusable-inventory-generator-from-terraform-outputs-for-ansi
 - 2026-11-02: Add Foundations lesson 08-first-scan.md (trivy-027)
 feat: add lesson 03-docker-sample-app-image.md
 - Add lesson 05-semgrep-sast.md (semgrep-029)
+- 2026-11-05: add learn/03-shift-left/06-codeql-dataflow.md (codeql-025)
 feat: dependabot-022 — Keep dependencies patched with Dependabot lesson
 - Add learn/03-shift-left/04-trufflehog-history.md (trufflehog-048): search git history and verify secrets with TruffleHog

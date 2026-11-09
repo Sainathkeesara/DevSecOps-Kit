@@ -68,4 +68,4 @@ Expected: at least one SQL-injection finding, and your custom rule name appears 
 - Using a broad ruleset (`p/security-audit`) on day one and drowning in noise before triage habits exist.
 
 ## Next
-[Follow tainted data with CodeQL](../../00_index/learning-path.md)
+[Follow tainted data with CodeQL](06-codeql-dataflow.md)
