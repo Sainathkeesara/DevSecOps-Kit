@@ -107,4 +107,4 @@ Do not change the severity gate — keep `HIGH,CRITICAL` failing. Test it on a b
 
 ## Next
 
-[Produce and read an SBOM with Syft](../../00_index/learning-path.md)
+[Produce and read an SBOM with Syft](./10-syft-sbom.md)

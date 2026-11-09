@@ -110,4 +110,4 @@ Expected result: the command exits with code `0` and reports no leaks. On the br
 - Treating "deleted from the latest commit" as the same as "safe" — if a real credential was exposed, rotate it and assess where it may have been copied.
 
 ## Next
-[Bring all findings together in DefectDojo](../../00_index/learning-path.md)
+[Search the whole history and verify secrets with TruffleHog](04-trufflehog-history.md)

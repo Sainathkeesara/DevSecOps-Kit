@@ -872,3 +872,7 @@
 - **Provider compatibility** — The degree to which a cloud provider's API can be provisioned using a given IaC tool's configuration language without modification.
 - **State migration** — The process of moving Terraform state from one version or tool to another, often requiring `terraform state migrate` or manual conversion.
 - **Sentinel** — HashiCorp's policy-as-code engine for Terraform Cloud; not available in OpenTofu, which uses OPA/Gatekeeper instead.
+
+## DevSecOps practice
+
+- **Shift-left security** — Moving security checks earlier in the development lifecycle (IDE, pre-commit, and CI) so issues are found and fixed before they reach later stages like staging or production. In this kit, the `learn/03-shift-left/` lessons and CI gate configs (e.g., Trivy, Semgrep, Gitleaks) demonstrate shift-left in practice.
