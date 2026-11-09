@@ -3372,3 +3372,5 @@ feat: add lesson 03-docker-sample-app-image.md
 - 2026-11-05: add learn/03-shift-left/06-codeql-dataflow.md (codeql-025)
 feat: dependabot-022 — Keep dependencies patched with Dependabot lesson
 - Add learn/03-shift-left/04-trufflehog-history.md (trufflehog-048): search git history and verify secrets with TruffleHog
+
+- Add learn/03-shift-left/12-cosign-sign.md (cosign-021): sign the image and attach the SBOM with Cosign
