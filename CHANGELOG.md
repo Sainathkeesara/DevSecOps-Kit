@@ -4,6 +4,13 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-10
+
+### Added
+- defectdojo-017: `learn/03-shift-left/14-defectdojo-findings.md` — Bring all findings together in DefectDojo: import Gitleaks, Semgrep, Trivy, and ZAP results into one product and engagement, enable deduplication and finding closure, triage findings in the UI (L3 lesson)
+- defectdojo-017: `learn/03-shift-left/13-zap-baseline.md` — Updated `## Next` link to point at the new DefectDojo findings lesson
+
+
 ## 2026-11-06
 
 ### Added

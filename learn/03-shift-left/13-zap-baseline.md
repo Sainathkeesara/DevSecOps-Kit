@@ -50,4 +50,4 @@ Expected: `report OK`.
 - Treating every alert as a blocker instead of triaging by risk level.
 
 ## Next
-[Bring all findings together in DefectDojo](../../00_index/learning-path.md)
+[Bring all findings together in DefectDojo](14-defectdojo-findings.md)
