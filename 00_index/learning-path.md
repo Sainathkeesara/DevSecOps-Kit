@@ -34,7 +34,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 8. [Keep dependencies patched with Dependabot](../learn/03-shift-left/08-dependabot-updates.md) · needs: Software supply chain security — concepts, CI for the sample app — build, test and push
 9. [Gate the image on Trivy findings in CI](../learn/03-shift-left/09-trivy-ci-gate.md) · needs: First win: find a secret and a vulnerable package, CI for the sample app — build, test and push
 10. [Produce and read an SBOM with Syft](../learn/03-shift-left/10-syft-sbom.md) · needs: Software supply chain security — concepts, Gate the image on Trivy findings in CI
-11. Scan the SBOM with Grype and compare with Trivy — *not written yet* · needs: Produce and read an SBOM with Syft
+11. [Scan the SBOM with Grype and compare with Trivy](../learn/03-shift-left/11-grype-sbom-scan.md) · needs: Produce and read an SBOM with Syft
 12. [Sign the image and attach the SBOM with Cosign](../learn/03-shift-left/12-cosign-sign.md) · needs: Produce and read an SBOM with Syft
 13. [Scan the running app with ZAP](../learn/03-shift-left/13-zap-baseline.md) · needs: Application security testing — SAST, DAST, SCA and secrets, Build the sample app image, Read an HTTP exchange and a certificate
 14. [Bring all findings together in DefectDojo](../learn/03-shift-left/14-defectdojo-findings.md) · needs: Catch secrets before they land with Gitleaks, Find the SQL injection with Semgrep, Gate the image on Trivy findings in CI, Scan the running app with ZAP
