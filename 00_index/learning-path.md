@@ -48,7 +48,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 5. Block the public bucket with Checkov — *not written yet* · needs: Plan, apply and destroy with remote state, CI for the sample app — build, test and push
 6. Scan IaC with Trivy config — *not written yet* · needs: Block the public bucket with Checkov, Gate the image on Trivy findings in CI
 7. [Configuration management — concepts](../docs/concepts/configuration-management/0000-primer-configuration-management.md)
-8. Harden a host with an idempotent Ansible playbook — *not written yet* · needs: Configuration management — concepts, Navigate and script on Linux, YAML, JSON, jq and regex for security tooling
+8. [Harden a host with an idempotent Ansible playbook](../learn/04-iac/08-ansible-idempotent-playbook.md) · needs: Configuration management — concepts, Navigate and script on Linux, YAML, JSON, jq and regex for security tooling
 
 ## Stage 5: Kubernetes and GitOps
 
