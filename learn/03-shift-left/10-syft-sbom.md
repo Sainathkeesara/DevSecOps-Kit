@@ -114,4 +114,4 @@ Do not include your solution inline — write the commands and run them yourself
 
 ## Next
 
-[Scan the SBOM with Grype and compare with Trivy](../../00_index/learning-path.md)
+[Scan the SBOM with Grype and compare with Trivy](11-grype-sbom-scan.md)
