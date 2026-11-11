@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - grype-048: `learn/03-shift-left/11-grype-sbom-scan.md` — Scan the SBOM with Grype and compare with Trivy: scan a CycloneDX SBOM with Grype, inspect JSON results by severity, and explain why Grype and Trivy can report different findings (L3 lesson)
 - grype-048: `learn/03-shift-left/10-syft-sbom.md` — Updated `## Next` link to point at the new Grype SBOM scan lesson
+- terraform-029: `learn/04-iac/03-terraform-plan-apply-destroy.md` — Plan, apply and destroy with remote state: initialize a project, apply infrastructure, confirm a second plan reports no changes (idempotence), keep state remote with DynamoDB locking explained, then destroy everything cleanly (L2 lesson)
 
 ## 2026-11-10
 
