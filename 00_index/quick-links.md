@@ -41,6 +41,7 @@
 
 - [Semgrep SAST primer](../semgrep/notes/0000-primer-semgrep.md)
 - [Find SQL injection patterns with Semgrep (lesson)](../learn/03-shift-left/05-semgrep-sast.md)
+- [Follow tainted data with CodeQL (lesson)](../learn/03-shift-left/06-codeql-dataflow.md)
 - [CodeQL semantic analysis primer](../codeql/notes/0000-primer-codeql.md)
 - [SonarQube quality and security primer](../sonarqube/notes/0000-primer-sonarqube.md)
 - [OWASP ZAP DAST primer](../zap/notes/0000-primer-zap.md)
@@ -54,6 +55,7 @@
 - [Multi-service Docker Compose app](../docker/scripts/build-multi-service-compose-app.sh)
 - [Docker Compose production manifest](../docker/manifests/docker-compose-production.yaml)
 - [Cosign container signing primer](../cosign/notes/0000-primer-cosign.md)
+- [Sign the image and attach the SBOM with Cosign (lesson)](../learn/03-shift-left/12-cosign-sign.md)
 - [Install Cosign and run a first signing command](../cosign/notes/2026-10-14-install-cosign-first-signing-command.md)
 - [Sign and verify an image (snippet)](../cosign/snippets/first-cosign-sign-verify-image.sh)
 - [Cosign verification patterns](../cosign/docs/cosign-verification-patterns.md)
@@ -67,11 +69,12 @@
 - [Run your first workflow](../github-actions/notes/2026-10-14-run-first-workflow.md)
 - [Trigger a workflow with the gh CLI](../github-actions/snippets/2026-10-14-trigger-first-workflow-gh.sh)
 - [Sample app CI workflow (shift-left)](../github-actions/configs/sample-app-ci.yml)
+- [Keep dependencies patched with Dependabot (lesson)](../learn/03-shift-left/08-dependabot-updates.md)
+- [Dependabot automated updates primer](../dependabot/notes/0000-primer-dependabot.md)
+- [Dependabot configuration template](../dependabot/configs/dependabot-configuration-template.yaml)
 - [Argo CD GitOps primer](../argocd/notes/0000-primer-argocd.md)
 - [Argo CD Helm guestbook application](../argocd/manifests/helm-guestbook-application.yaml)
 - [Argo CD app-of-apps multi-env scaffold](../argocd/templates/app-of-apps-multienv/README.md)
-- [Dependabot automated updates primer](../dependabot/notes/0000-primer-dependabot.md)
-- [Dependabot configuration template](../dependabot/configs/dependabot-configuration-template.yaml)
 
 ### Manage Kubernetes clusters
 
@@ -117,6 +120,7 @@
 ### Triage findings and respond
 
 - [DefectDojo vulnerability management primer](../defectdojo/notes/0000-primer-defectdojo.md)
+- [Bring all findings together in DefectDojo (lesson)](../learn/03-shift-left/14-defectdojo-findings.md)
 - [Wired DefectDojo into triage workflow](../defectdojo/docs/how-i-wired-defectdojo-into-my-triage-workflow.md)
 - [Product and scan import script](../defectdojo/scripts/product-scan-import.py)
 - [Flatted CVE-2026-33228 runbook](../docs/runbooks/cve-2026-33228-ansible-flatted.md)
