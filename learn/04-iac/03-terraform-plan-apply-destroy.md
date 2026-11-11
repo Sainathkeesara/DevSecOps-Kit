@@ -119,4 +119,4 @@ terraform destroy -auto-approve
 - Running two applies at once against remote state without locking — both can write state simultaneously and corrupt it; always configure a lock table when sharing state.
 
 ## Next
-[Promote a change from dev to prod](../../00_index/learning-path.md)
+[Promote a change from dev to prod](04-environments-promotion.md)
