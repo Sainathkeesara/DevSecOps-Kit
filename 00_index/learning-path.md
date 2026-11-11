@@ -43,7 +43,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 
 1. [Infrastructure as code — concepts](../docs/concepts/infrastructure-as-code/0000-primer-infrastructure-as-code.md)
 2. [Terraform — quick primer](../terraform/notes/0000-primer-terraform.md)
-3. Plan, apply and destroy with remote state — *not written yet* · needs: Terraform — quick primer, Infrastructure as code — concepts, YAML, JSON, jq and regex for security tooling
+3. [Plan, apply and destroy with remote state](../learn/04-iac/03-terraform-plan-apply-destroy.md) · needs: Terraform — quick primer, Infrastructure as code — concepts, YAML, JSON, jq and regex for security tooling
 4. Promote a change from dev to prod — *not written yet* · needs: Plan, apply and destroy with remote state, CI for the sample app — build, test and push
 5. Block the public bucket with Checkov — *not written yet* · needs: Plan, apply and destroy with remote state, CI for the sample app — build, test and push
 6. Scan IaC with Trivy config — *not written yet* · needs: Block the public bucket with Checkov, Gate the image on Trivy findings in CI
