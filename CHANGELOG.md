@@ -12,6 +12,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - checkov-027: `checkov/policies/ckv2-no-public-bucket/no_public_bucket.yaml` — custom `CKV2_AWS_1` policy flagging public-read S3 buckets (L2 lesson)
 - checkov-027: `learn/04-iac/04-environments-promotion.md` — Updated `## Next` link to point at the new Checkov lesson
 
+## 2026-11-12
+
+### Added
+- checkov-027: `learn/04-iac/05-checkov-iac-scan.md` — Block the public bucket with Checkov: run Checkov against a Terraform file with a planted public S3 bucket, catch the `CKV_AWS_20` failure, add a custom policy, and fix the bucket so the PR passes (L2 lesson, rework)
+
 ## 2026-11-11
 
 ### Added
