@@ -1,0 +1,48 @@
+# last_verified: 2026-11-11 · Terraform n/a
+# Promotes the sample-app module from dev to prod through CI.
+# plan-prod runs on every pull request so reviewers see the diff.
+# apply-prod runs only on a push to master, after plan-prod is green.
+
+name: Promote dev to prod
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  plan-prod:
+    name: Plan prod
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+      - name: Initialize prod backend
+        run: terraform init -backend-config=environments/prod/backend.hcl
+        working-directory: environments/prod
+      - name: Plan prod changes
+        run: terraform plan
+        working-directory: environments/prod
+
+  apply-prod:
+    name: Apply prod
+    needs: plan-prod
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+      - name: Initialize prod backend
+        run: terraform init -backend-config=environments/prod/backend.hcl
+        working-directory: environments/prod
+      - name: Apply prod changes
+        run: terraform apply -auto-approve
+        working-directory: environments/prod

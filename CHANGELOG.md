@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - grype-048: `learn/03-shift-left/10-syft-sbom.md` — Updated `## Next` link to point at the new Grype SBOM scan lesson
 - terraform-029: `learn/04-iac/03-terraform-plan-apply-destroy.md` — Plan, apply and destroy with remote state: initialize a project, apply infrastructure, confirm a second plan reports no changes (idempotence), keep state remote with DynamoDB locking explained, then destroy everything cleanly (L2 lesson)
 - ansible-023: `learn/04-iac/08-ansible-idempotent-playbook.md` — Harden a host with an idempotent Ansible playbook: SSH hardening role with template/sshd -t validation, become:true, idempotence proven via ansible-playbook --check reporting changed=0 on a second run (L2 lesson)
+- terraform-004: `learn/04-iac/04-environments-promotion.md` — Promote a change from dev to prod: structure dev and prod environments that share modules and promote a reviewed change through CI (L3 lesson)
+Passed ([x]) ansible-023 — Ansible: lesson — Harden a host with an idempotent Ansible playbook · Level: L2 · 2026-11-11
 
 ## 2026-11-10
 
