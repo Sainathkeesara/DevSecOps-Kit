@@ -126,6 +126,7 @@
 
 - [Managing environments guide](../environments/docs/managing-environments.md)
 - [Environment promotion script](../environments/scripts/promote-environment.sh)
+- [Promote Terraform from dev to prod (lesson)](../learn/04-iac/04-environments-promotion.md)
 - [Asset tracking config](../assets/configs/asset-tracking-config.yaml)
 - [Assets CI/CD pipeline wiring](../assets/docs/how-i-wired-assets-into-ci-cd-pipeline.md)
 - [Asset inventory collector](../assets/scripts/asset-inventory-collector.py)
