@@ -7,6 +7,8 @@
 - [Checkov IaC scanner primer](../checkov/notes/0000-primer-checkov.md)
 - [Checkov deep Terraform plan scan](../checkov/scripts/deep-terraform-plan-scan.sh)
 - [Checkov custom policy validation](../checkov/scripts/validate-policies.sh)
+- [Block the public bucket with Checkov (lesson)](../learn/04-iac/05-checkov-iac-scan.md)
+- [Checkov public-bucket prevention policy](../checkov/policies/ckv2-no-public-bucket/no_public_bucket.yaml)
 - [tfsec Terraform security scanner primer](../tfsec/notes/0000-primer-tfsec.md)
 - [Terrascan IaC scanner primer](../terrascan/notes/0000-primer-terrascan.md)
 - [OPA policy engine primer](../opa/notes/0000-primer-opa.md)
@@ -35,6 +37,7 @@
 - [Trivy scanner primer](../trivy/notes/0000-primer-trivy.md)
 - [Trivy container vulnerability scan](../trivy/scripts/container-vuln-scan.sh)
 - [Gate container images on Trivy findings in CI (lesson)](../learn/03-shift-left/09-trivy-ci-gate.md)
+- [Trivy CI gate config for severity-based blocking](../trivy/configs/trivy-ci-gate.yml)
 - [Trivy Kubernetes workload scanning scaffold](../trivy/templates/trivy-k8s-workload-scanning/README.md)
 
 ### Scan applications (SAST/DAST)
