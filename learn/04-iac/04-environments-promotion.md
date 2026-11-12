@@ -1,5 +1,5 @@
 ---
-last_verified: 2026-11-11
+last_verified: 2026-11-12
 tool_version: n/a
 sources: []
 ---
@@ -180,4 +180,4 @@ Both report `No changes. Your infrastructure matches the configuration.`
 - Running `terraform apply` in prod directly from your laptop instead of through the PR gate — promotion should happen through CI after review, not as a local manual step.
 
 ## Next
-[Block the public bucket with Checkov](../../00_index/learning-path.md)
+[Block the public bucket with Checkov](05-checkov-iac-scan.md)
