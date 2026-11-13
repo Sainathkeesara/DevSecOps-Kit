@@ -85,4 +85,5 @@ checkov --framework terraform -f bucket.tf --external-checks-dir ../../checkov/p
 - Leaving `acl = "public-read"` on the bucket after "fixing" it — Checkov keeps failing until the ACL is `private`.
 
 ## Next
-[Scan IaC with Trivy config](../../00_index/learning-path.md)
+
+[Scan IaC with Trivy config](06-trivy-config-scan.md)
