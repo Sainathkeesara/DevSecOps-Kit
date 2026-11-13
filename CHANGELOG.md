@@ -4,6 +4,11 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-13
+
+### Added
+- kubernetes-020: `learn/05-kubernetes-gitops/02-k8s-deploy-sample-app.md` — Deploy and debug the sample app on kind: namespace, Deployment, Service, least-privilege RBAC service account, and CrashLoopBackOff debugging on kind (L2 lesson)
+
 ## 2026-11-12
 
 ### Added
