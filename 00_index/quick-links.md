@@ -7,6 +7,10 @@
 - [Checkov IaC scanner primer](../checkov/notes/0000-primer-checkov.md)
 - [Checkov deep Terraform plan scan](../checkov/scripts/deep-terraform-plan-scan.sh)
 - [Checkov custom policy validation](../checkov/scripts/validate-policies.sh)
+- [Checkov no-public-bucket policy](../checkov/policies/ckv2-no-public-bucket/no_public_bucket.yaml) — Custom Checkov policy: no public read ACLs on S3 buckets
+- [Public-read S3 bucket target](../checkov/configs/public-bucket/main.tf) — Practice target for Checkov's public-bucket policy
+- [Checkov IaC scan lesson](../learn/04-iac/05-checkov-iac-scan.md) — Scan infrastructure as code with Checkov
+- [Trivy config scan lesson](../learn/04-iac/06-trivy-config-scan.md) — Scan Terraform configs with Trivy
 - [tfsec Terraform security scanner primer](../tfsec/notes/0000-primer-tfsec.md)
 - [Terrascan IaC scanner primer](../terrascan/notes/0000-primer-terrascan.md)
 - [OPA policy engine primer](../opa/notes/0000-primer-opa.md)

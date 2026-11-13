@@ -15,11 +15,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 ## Quick links
 
-- [Checkov IaC scanner primer](checkov/notes/0000-primer-checkov.md) — Scan Terraform plans with Checkov
-- [Checkov deep Terraform plan scan](checkov/scripts/deep-terraform-plan-scan.sh) — Deep scan of a Terraform plan before apply
-- [Trivy scanner primer](trivy/notes/0000-primer-trivy.md) — Container image vulnerability scanning primer
+- [Checkov IaC scan lesson](learn/04-iac/05-checkov-iac-scan.md) — Block public S3 buckets with Checkov
+- [Checkov no-public-bucket policy](checkov/policies/ckv2-no-public-bucket/no_public_bucket.yaml) — Custom Checkov policy: no public read ACLs on S3 buckets
+- [Public-read S3 bucket target](checkov/configs/public-bucket/main.tf) — Practice target for Checkov's public-bucket policy
+- [Trivy config scan lesson](learn/04-iac/06-trivy-config-scan.md) — Scan Terraform configs with Trivy
 - [Environment promotion lesson](learn/04-iac/04-environments-promotion.md) — Promote Terraform from dev to prod through CI
-- [dev backend config](terraform/configs/environments-promotion/environments/dev/backend.hcl) — Remote backend config for the dev environment
 
 ## Layout
 
@@ -41,41 +41,41 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Total | Last verified |
 |------|------:|-----:|--------:|--------:|---------:|----------:|----------:|------------:|----------:|--------:|---------------|
-| trufflehog | 4 | 4 | 3 | 2 | 3 | 0 | 2 | 2 | 3 | 51 | 2026-10-13 |
-| checkov | 4 | 6 | 4 | 3 | 4 | 0 | 3 | 0 | 4 | 45 | 2026-09-17 |
-| syft | 5 | 8 | 5 | 1 | 3 | 0 | 4 | 1 | 4 | 44 | 2026-10-27 |
-| trivy | 8 | 6 | 6 | 4 | 1 | 0 | 2 | 1 | 2 | 40 | 2026-10-19 |
-| terraform | 3 | 2 | 4 | 6 | 1 | 0 | 1 | 0 | 0 | 35 | 2026-10-30 |
-| ansible | 3 | 1 | 5 | 3 | 1 | 0 | 0 | 0 | 0 | 34 | 2026-10-27 |
-| codeql | 5 | 4 | 2 | 2 | 6 | 0 | 3 | 1 | 2 | 32 | 2026-10-27 |
-| zap | 6 | 5 | 3 | 3 | 4 | 0 | 1 | 1 | 1 | 31 | 2026-10-14 |
-| opa | 5 | 4 | 2 | 2 | 4 | 0 | 4 | 0 | 1 | 30 | 2026-10-27 |
-| snyk | 6 | 4 | 2 | 3 | 1 | 0 | 1 | 1 | 1 | 29 | 2026-10-27 |
-| gitguardian | 6 | 4 | 4 | 3 | 2 | 0 | 0 | 0 | 1 | 28 | 2026-10-27 |
-| argocd | 6 | 3 | 1 | 2 | 0 | 0 | 5 | 0 | 0 | 28 | 2026-10-27 |
-| grype | 5 | 3 | 9 | 2 | 3 | 0 | 2 | 1 | 2 | 27 | 2026-10-14 |
-| falco | 6 | 4 | 3 | 4 | 1 | 0 | 1 | 0 | 2 | 25 | 2026-10-27 |
-| semgrep | 3 | 8 | 3 | 1 | 2 | 0 | 3 | 2 | 3 | 25 | 2026-10-18 |
-| terrascan | 5 | 3 | 2 | 2 | 2 | 0 | 1 | 0 | 1 | 22 | 2026-10-10 |
-| github-actions | 7 | 1 | 1 | 8 | 3 | 0 | 2 | 0 | 0 | 22 | 2026-10-20 |
-| vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 2 | 21 | 2026-08-30 |
-| cosign | 5 | 4 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 20 | 2026-10-30 |
-| kubernetes | 4 | 2 | 2 | 3 | 0 | 0 | 4 | 0 | 0 | 20 | 2026-10-29 |
-| docker | 2 | 2 | 3 | 1 | 0 | 0 | 1 | 3 | 0 | 19 | 2026-09-23 |
-| defectdojo | 4 | 2 | 3 | 2 | 2 | 0 | 0 | 0 | 0 | 19 | 2026-10-23 |
-| dependabot | 7 | 4 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 19 | 2026-10-14 |
-| tetragon | 3 | 1 | 3 | 4 | 0 | 0 | 0 | 0 | 0 | 11 | 2026-09-26 |
-| git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
-| grafana | 4 | 1 | 1 | 2 | 1 | 0 | 1 | 0 | 0 | 10 | 2026-10-26 |
-| kustomize | 3 | 1 | 2 | 3 | 0 | 0 | 1 | 0 | 0 | 10 | 2026-10-24 |
-| opentofu | 4 | 2 | 1 | 3 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-10-28 |
-| gitleaks | 3 | 1 | 3 | 2 | 0 | 0 | 0 | 0 | 0 | 9 | 2026-10-25 |
-| helm | 4 | 1 | 1 | 1 | 0 | 0 | 2 | 0 | 0 | 9 | 2026-10-20 |
-| sonarqube | 3 | 0 | 1 | 2 | 1 | 0 | 0 | 0 | 0 | 7 | 2026-09-21 |
-| prometheus | 5 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 7 | 2026-10-25 |
-| linux | 3 | 1 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-10-02 |
+| TruffleHog | 4 | 4 | 3 | 2 | 3 | 28 | 2 | 2 | 3 | 51 | 2026-10-13 |
+| Checkov | 4 | 6 | 4 | 4 | 4 | 16 | 3 | 0 | 4 | 47 | 2026-09-17 |
+| Syft | 5 | 8 | 5 | 1 | 3 | 13 | 4 | 1 | 4 | 44 | 2026-10-27 |
+| Trivy | 8 | 6 | 6 | 4 | 1 | 10 | 2 | 1 | 2 | 40 | 2026-10-19 |
+| Terraform | 3 | 2 | 4 | 12 | 1 | 5 | 1 | 0 | 0 | 35 | 2026-10-30 |
+| Ansible | 3 | 1 | 5 | 3 | 1 | 21 | 0 | 0 | 0 | 34 | 2026-10-27 |
+| CodeQL | 5 | 4 | 2 | 2 | 6 | 7 | 3 | 1 | 2 | 32 | 2026-10-27 |
+| ZAP | 6 | 5 | 3 | 3 | 4 | 7 | 1 | 1 | 1 | 31 | 2026-10-14 |
+| OPA | 5 | 4 | 2 | 2 | 4 | 8 | 4 | 0 | 1 | 30 | 2026-10-27 |
+| Snyk | 6 | 4 | 2 | 3 | 1 | 10 | 1 | 1 | 1 | 29 | 2026-10-27 |
+| Argo CD | 6 | 3 | 1 | 2 | 0 | 11 | 5 | 0 | 0 | 28 | 2026-10-27 |
+| GitGuardian | 6 | 4 | 4 | 3 | 2 | 8 | 0 | 0 | 1 | 28 | 2026-10-27 |
+| Grype | 5 | 3 | 9 | 2 | 3 | 0 | 2 | 1 | 2 | 27 | 2026-10-14 |
+| Falco | 6 | 4 | 3 | 4 | 1 | 4 | 1 | 0 | 2 | 25 | 2026-10-27 |
+| Semgrep | 3 | 8 | 3 | 1 | 2 | 0 | 3 | 2 | 3 | 25 | 2026-10-18 |
+| GitHub Actions | 7 | 1 | 1 | 8 | 3 | 0 | 2 | 0 | 0 | 22 | 2026-10-20 |
+| Terrascan | 5 | 3 | 2 | 2 | 2 | 6 | 1 | 0 | 1 | 22 | 2026-10-10 |
+| Vault | 4 | 3 | 4 | 3 | 2 | 0 | 2 | 1 | 2 | 21 | 2026-08-30 |
+| Cosign | 5 | 4 | 3 | 2 | 1 | 0 | 2 | 2 | 1 | 20 | 2026-10-30 |
+| Kubernetes | 4 | 2 | 2 | 3 | 0 | 5 | 4 | 0 | 0 | 20 | 2026-10-29 |
+| DefectDojo | 4 | 2 | 3 | 2 | 2 | 6 | 0 | 0 | 0 | 19 | 2026-10-23 |
+| Dependabot | 7 | 4 | 2 | 5 | 0 | 0 | 0 | 0 | 1 | 19 | 2026-10-14 |
+| Docker | 2 | 2 | 3 | 1 | 0 | 7 | 1 | 3 | 0 | 19 | 2026-09-23 |
+| Tetragon | 3 | 1 | 3 | 4 | 0 | 0 | 0 | 0 | 0 | 11 | 2026-09-26 |
+| Git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
+| Grafana | 4 | 1 | 1 | 2 | 1 | 0 | 1 | 0 | 0 | 10 | 2026-10-26 |
+| Kustomize | 3 | 1 | 2 | 3 | 0 | 0 | 1 | 0 | 0 | 10 | 2026-10-24 |
+| OpenTofu | 4 | 2 | 1 | 3 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-10-28 |
+| Gitleaks | 3 | 1 | 3 | 2 | 0 | 0 | 0 | 0 | 0 | 9 | 2026-10-25 |
+| Helm | 4 | 1 | 1 | 1 | 0 | 0 | 2 | 0 | 0 | 9 | 2026-10-20 |
+| Linux | 3 | 1 | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 7 | 2026-10-02 |
+| Prometheus | 5 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 7 | 2026-10-25 |
+| SonarQube | 3 | 0 | 1 | 2 | 1 | 0 | 0 | 0 | 0 | 7 | 2026-09-21 |
 | tfsec | 3 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 6 | 2026-10-19 |
-| nuclei | 3 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 5 | 2026-10-15 |
+| Nuclei | 3 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 5 | 2026-10-15 |
 
 </details>
 
@@ -86,4 +86,4 @@ Counts reflect files inside each category subfolder. Some folders also hold file
 Shift-left lessons landed recently under `learn/`. Thinner corners remain for tfsec, Nuclei, Prometheus, and SonarQube where first configs or scripts are still sparse.
 
 ---
-_Last updated: 2026-11-12_
+_Last updated: 2026-11-13_
