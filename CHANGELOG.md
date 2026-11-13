@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - kubernetes-020: `learn/05-kubernetes-gitops/02-k8s-deploy-sample-app.md` — Deploy and debug the sample app on kind: namespace, Deployment, Service, least-privilege RBAC service account, and CrashLoopBackOff debugging on kind (L2 lesson)
+Passed ([x]) kubernetes-020 — Kubernetes: lesson — Deploy and debug the sample app on kind · Level: L2 · 2026-11-13
 
 ## 2026-11-12
 
