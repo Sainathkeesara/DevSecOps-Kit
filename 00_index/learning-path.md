@@ -46,7 +46,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 3. [Plan, apply and destroy with remote state](../learn/04-iac/03-terraform-plan-apply-destroy.md) · needs: Terraform — quick primer, Infrastructure as code — concepts, YAML, JSON, jq and regex for security tooling
 4. [Promote a change from dev to prod](../learn/04-iac/04-environments-promotion.md) · needs: Plan, apply and destroy with remote state, CI for the sample app — build, test and push
 5. [Block the public bucket with Checkov](../learn/04-iac/05-checkov-iac-scan.md) · needs: Plan, apply and destroy with remote state, CI for the sample app — build, test and push
-6. Scan IaC with Trivy config — *not written yet* · needs: Block the public bucket with Checkov, Gate the image on Trivy findings in CI
+6. [Scan IaC with Trivy config](../learn/04-iac/06-trivy-config-scan.md) · needs: Block the public bucket with Checkov, Gate the image on Trivy findings in CI
 7. [Configuration management — concepts](../docs/concepts/configuration-management/0000-primer-configuration-management.md)
 8. [Harden a host with an idempotent Ansible playbook](../learn/04-iac/08-ansible-idempotent-playbook.md) · needs: Configuration management — concepts, Navigate and script on Linux, YAML, JSON, jq and regex for security tooling
 
