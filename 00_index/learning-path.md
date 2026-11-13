@@ -53,7 +53,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 ## Stage 5: Kubernetes and GitOps
 
 1. [Kubernetes — quick primer](../kubernetes/notes/0000-primer-kubernetes.md)
-2. Deploy and debug the sample app on kind — *not written yet* · needs: Kubernetes — quick primer, Build the sample app image
+2. [Deploy and debug the sample app on kind](../learn/05-kubernetes-gitops/02-k8s-deploy-sample-app.md) · needs: Kubernetes — quick primer, Build the sample app image
 3. Environment overlays with Kustomize — *not written yet* · needs: Deploy and debug the sample app on kind
 4. [Helm — quick primer](../helm/notes/0000-primer-helm.md)
 5. Package the sample app as a Helm chart — *not written yet* · needs: Helm — quick primer, Environment overlays with Kustomize
