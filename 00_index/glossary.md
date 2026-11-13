@@ -582,6 +582,7 @@
 - **Required policy sections** — The blocks a hand-written custom policy must carry (`metadata`, `definition`, and a declared `scope`) for Checkov to load it at all. Validating them before a scan turns a silently-ignored policy into a build failure.
 - **`--external-checks-dir`** — The flag that points Checkov at a directory of custom policies outside the repository it is scanning. It is what makes a shared, version-controlled policy library usable from more than one repository.
 - **Policy lint vs policy scan** — Two different checks on the same file. A lint asks whether the YAML parses and the required sections are present; a scan asks whether real infrastructure violates the rule. Running only the scan means a malformed policy reports as "clean".
+- **Public S3 bucket (Checkov)** — An Amazon S3 bucket that grants public read or write access, a common IaC misconfiguration Checkov's AWS checks flag. The kit's `checkov/configs/public-bucket/` config is a deliberate practice target for the `checkov/no-public-bucket` policy.
 
 ## CodeQL
 
