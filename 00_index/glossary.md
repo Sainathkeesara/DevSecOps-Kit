@@ -866,6 +866,10 @@
 
 **Environment promotion**: A controlled workflow for moving infrastructure changes through dev → staging → prod tiers, where each tier has distinct validation gates (auto-apply in dev, smoke-test in staging, manual approval in prod). The `environments/` directory implements this with byte-identical Terraform configurations and per-environment `terraform.tfvars`.
 
+- **Checkov IaC scan** — Running Checkov against Terraform to catch misconfigurations such as public S3 buckets, typically gated in pull requests.
+- **Trivy config scan** — Trivy's `config` subcommand scanning IaC files (Terraform, Kubernetes manifests) for misconfigurations.
+- **CKV2 custom policy** — A hand-written Checkov rule with an ID prefixed `CKV2_`, used for organization-specific checks.
+
 ## OpenTofu
 
 - **OpenTofu** — A community-driven fork of Terraform that maintains open-source compatibility with the last fully OSS version of Terraform, governed by the Linux Foundation.
