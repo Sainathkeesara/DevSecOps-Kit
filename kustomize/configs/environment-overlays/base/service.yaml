@@ -1,0 +1,11 @@
+# last_verified: 2026-11-14 · kustomize n/a
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-app-svc
+spec:
+  selector:
+    app: sample-app
+  ports:
+  - port: 80
+    targetPort: 8000

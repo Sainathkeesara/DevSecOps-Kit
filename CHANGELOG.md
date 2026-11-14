@@ -4,6 +4,20 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-14
+
+### Added
+- kustomize-012: `learn/05-kubernetes-gitops/03-kustomize-overlays.md` — Environment overlays with Kustomize: base plus dev/prod overlays, and when to use an overlay instead of a chart (L2 lesson)
+- kustomize-012: `kustomize/configs/environment-overlays/base/kustomization.yaml` — base Deployment, Service, ConfigMap and kustomization (L2 lesson companion)
+- kustomize-012: `kustomize/configs/environment-overlays/base/deployment.yaml` — base Deployment manifest (L2 lesson companion)
+- kustomize-012: `kustomize/configs/environment-overlays/base/service.yaml` — base Service manifest (L2 lesson companion)
+- kustomize-012: `kustomize/configs/environment-overlays/base/configmap.yaml` — base ConfigMap manifest (L2 lesson companion)
+- kustomize-012: `kustomize/configs/environment-overlays/overlays/dev/kustomization.yaml` — dev overlay with name prefix, namespace, and image tag (L2 lesson companion)
+- kustomize-012: `kustomize/configs/environment-overlays/overlays/prod/kustomization.yaml` — prod overlay with namespace, stable image, and replica patch (L2 lesson companion)
+- kustomize-012: `kustomize/configs/environment-overlays/overlays/prod/patch-deployment.yaml` — prod Deployment replica patch (L2 lesson companion)
+- kustomize-012: `learn/05-kubernetes-gitops/02-k8s-deploy-sample-app.md` — Updated `## Next` link to point at the new Kustomize overlays lesson
+Passed ([x]) kustomize-012 — Kustomize: lesson — Environment overlays with Kustomize · Level: L2 · 2026-11-14
+
 ## 2026-11-13
 
 ### Added
