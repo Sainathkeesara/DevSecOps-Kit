@@ -226,4 +226,4 @@ You should see `2`, the Service line with a ClusterIP, and `yes`. Then break the
 
 ## Next
 
-[Environment overlays with Kustomize](../../00_index/learning-path.md)
+[Environment overlays with Kustomize](03-kustomize-overlays.md)
