@@ -1,0 +1,19 @@
+# last_verified: 2026-11-14 · kustomize n/a
+# Prod overlay: the production namespace, a stable image tag, and more replicas.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+
+namespace: production
+
+commonLabels:
+  env: production
+
+images:
+  - name: sample-app
+    newTag: stable
+
+patches:
+  - path: patch-deployment.yaml

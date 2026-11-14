@@ -1,0 +1,8 @@
+# last_verified: 2026-11-14 · kustomize n/a
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  ENV: development
+  LOG_LEVEL: debug

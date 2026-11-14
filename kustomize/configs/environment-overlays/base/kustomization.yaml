@@ -1,0 +1,17 @@
+# last_verified: 2026-11-14 · kustomize n/a
+# Base manifests for the sample app. Overlays reference this directory.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - deployment.yaml
+  - service.yaml
+  - configmap.yaml
+
+commonLabels:
+  app: sample-app
+  managed-by: kustomize
+
+namePrefix: sample-app-
+
+namespace: sample-app

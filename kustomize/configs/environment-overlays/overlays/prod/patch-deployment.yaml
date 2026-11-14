@@ -1,0 +1,9 @@
+# last_verified: 2026-11-14 · kustomize n/a
+# Strategic merge patch applied to the Deployment in the base.
+# The base keeps the name sample-app here (no namePrefix), so this target matches.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app
+spec:
+  replicas: 5
