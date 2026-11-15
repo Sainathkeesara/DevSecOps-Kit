@@ -56,7 +56,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 2. [Deploy and debug the sample app on kind](../learn/05-kubernetes-gitops/02-k8s-deploy-sample-app.md) · needs: Kubernetes — quick primer, Build the sample app image
 3. [Environment overlays with Kustomize](../learn/05-kubernetes-gitops/03-kustomize-overlays.md) · needs: Deploy and debug the sample app on kind
 4. [Helm — quick primer](../helm/notes/0000-primer-helm.md)
-5. Package the sample app as a Helm chart — *not written yet* · needs: Helm — quick primer, Environment overlays with Kustomize
+5. [Package the sample app as a Helm chart](../learn/05-kubernetes-gitops/05-helm-chart-sample-app.md) · needs: Helm — quick primer, Environment overlays with Kustomize
 6. [Argo CD — quick primer](../argocd/notes/0000-primer-argocd.md)
 7. Deploy per environment from Git with Argo CD — *not written yet* · needs: Argo CD — quick primer, Package the sample app as a Helm chart, Promote a change from dev to prod
 
