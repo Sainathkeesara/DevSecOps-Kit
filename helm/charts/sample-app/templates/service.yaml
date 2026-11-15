@@ -1,0 +1,15 @@
+# last_verified: 2026-11-15 · helm n/a
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-app
+  labels:
+    app: sample-app
+spec:
+  type: "{{ .Values.service.type }}"
+  selector:
+    app: sample-app
+  ports:
+    - port: "{{ .Values.service.port }}"
+      targetPort: "{{ .Values.service.targetPort }}"
+      protocol: TCP

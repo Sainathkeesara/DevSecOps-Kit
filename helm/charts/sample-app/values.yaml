@@ -1,0 +1,12 @@
+# last_verified: 2026-11-15 · helm n/a
+replicaCount: 2
+
+image:
+  repository: sample-app
+  tag: dev
+  pullPolicy: Never
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
