@@ -1,0 +1,8 @@
+# last_verified: 2026-11-15 · helm n/a
+# Dev environment overrides.
+replicaCount: 2
+image:
+  tag: dev-latest
+service:
+  port: 80
+  targetPort: 8000

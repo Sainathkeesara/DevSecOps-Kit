@@ -1,0 +1,12 @@
+# last_verified: 2026-11-15 · helm n/a
+# Default values for the sample app chart. Environments override these in
+# their own values file (values-dev.yaml, values-prod.yaml).
+replicaCount: 2
+image:
+  repository: sample-app
+  tag: dev
+  pullPolicy: Never
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000

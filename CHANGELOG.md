@@ -4,6 +4,16 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-15
+
+### Added
+- helm-004: `learn/05-kubernetes-gitops/05-helm-chart-sample-app.md` — Package the sample app as a Helm chart: chart with per-environment values, unquoted numeric template fields, upgrade and roll back a release (L2 lesson)
+- helm-004: `helm/charts/sample-app/Chart.yaml` — sample app Helm chart metadata (L2 lesson companion)
+- helm-004: `helm/charts/sample-app/values.yaml` — default chart values (L2 lesson companion)
+- helm-004: `helm/charts/sample-app/values-dev.yaml` — dev environment values override (L2 lesson companion)
+- helm-004: `helm/charts/sample-app/values-prod.yaml` — prod environment values override (L2 lesson companion)
+Passed ([x]) helm-004 — Helm: lesson — Package the sample app as a Helm chart · Level: L2 · 2026-11-15
+
 ## 2026-11-14
 
 ### Added
