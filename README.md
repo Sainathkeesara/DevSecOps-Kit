@@ -67,7 +67,7 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 | Tetragon | 3 | 1 | 3 | 4 | 0 | 0 | 0 | 0 | 0 | 11 | 2026-09-26 |
 | Git | 3 | 1 | 4 | 1 | 1 | 0 | 0 | 0 | 0 | 10 | 2026-09-22 |
 | Grafana | 4 | 1 | 1 | 2 | 1 | 0 | 1 | 0 | 0 | 10 | 2026-10-26 |
-| Kustomize | 3 | 1 | 2 | 3 | 0 | 0 | 1 | 0 | 0 | 10 | 2026-10-24 |
+| Kustomize | 3 | 1 | 2 | 10 | 0 | 0 | 1 | 0 | 0 | 17 | 2026-10-24 |
 | OpenTofu | 4 | 2 | 1 | 3 | 0 | 0 | 0 | 0 | 0 | 10 | 2026-10-28 |
 | Gitleaks | 3 | 1 | 3 | 2 | 0 | 0 | 0 | 0 | 0 | 9 | 2026-10-25 |
 | Helm | 4 | 1 | 1 | 1 | 0 | 0 | 2 | 0 | 0 | 9 | 2026-10-20 |
@@ -86,4 +86,4 @@ Counts reflect files inside each category subfolder. Some folders also hold file
 Shift-left lessons landed recently under `learn/`. Thinner corners remain for tfsec, Nuclei, Prometheus, and SonarQube where first configs or scripts are still sparse.
 
 ---
-_Last updated: 2026-11-13_
+_Last updated: 2026-11-15_
