@@ -1,0 +1,7 @@
+# last_verified: 2026-11-15 · helm n/a
+apiVersion: v2
+name: sample-app
+description: A Helm chart for the sample app
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
