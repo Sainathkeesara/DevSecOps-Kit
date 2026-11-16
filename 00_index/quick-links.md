@@ -72,6 +72,7 @@
 - [Trigger a workflow with the gh CLI](../github-actions/snippets/2026-10-14-trigger-first-workflow-gh.sh)
 - [Sample app CI workflow (shift-left)](../github-actions/configs/sample-app-ci.yml)
 - [Argo CD GitOps primer](../argocd/notes/0000-primer-argocd.md)
+- [Argo CD GitOps lesson](../learn/05-kubernetes-gitops/07-argocd-gitops.md) — Deploy per environment from Git with Argo CD
 - [Argo CD Helm guestbook application](../argocd/manifests/helm-guestbook-application.yaml)
 - [Argo CD app-of-apps multi-env scaffold](../argocd/templates/app-of-apps-multienv/README.md)
 - [Dependabot automated updates primer](../dependabot/notes/0000-primer-dependabot.md)
