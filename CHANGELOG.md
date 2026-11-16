@@ -3436,3 +3436,5 @@ feat: dependabot-022 — Keep dependencies patched with Dependabot lesson
 - Add learn/03-shift-left/12-cosign-sign.md (cosign-021): sign the image and attach the SBOM with Cosign
 
 - Add learn/04-iac/06-trivy-config-scan.md (trivy-029): scan IaC with Trivy config, compare with Checkov, and explain tfsec
+
+- Rework kustomize-012: fix environment overlay YAMLs so they render with kubectl kustomize
