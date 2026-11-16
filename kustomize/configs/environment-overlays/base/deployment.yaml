@@ -1,4 +1,4 @@
-# last_verified: 2026-11-14 · kustomize n/a
+# last_verified: 2026-11-16 · kustomize n/a
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,8 +16,8 @@ spec:
         app: sample-app
     spec:
       containers:
-      - name: app
-        image: sample-app:dev
-        imagePullPolicy: Never
-        ports:
-        - containerPort: 8000
+        - name: app
+          image: sample-app:dev
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000

@@ -1,4 +1,4 @@
-# last_verified: 2026-11-14 · kustomize n/a
+# last_verified: 2026-11-16 · kustomize n/a
 # Dev overlay: a name prefix, the development namespace, and a dev image tag.
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization

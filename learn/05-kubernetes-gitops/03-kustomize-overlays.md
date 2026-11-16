@@ -1,5 +1,5 @@
 ---
-last_verified: 2026-11-14
+last_verified: 2026-11-16
 tool_version: n/a
 sources: []
 ---
@@ -33,14 +33,12 @@ You deployed the sample app on kind in the previous lesson with flat manifests y
      - service.yaml
      - configmap.yaml
 
-   commonLabels:
-     app: sample-app
-     managed-by: kustomize
+    commonLabels:
+      app: sample-app
+      managed-by: kustomize
 
-   namePrefix: sample-app-
-
-   namespace: sample-app
-   ```
+    namespace: sample-app
+    ```
 
    Render it to see what Kustomize produces from the base alone:
 
@@ -48,7 +46,7 @@ You deployed the sample app on kind in the previous lesson with flat manifests y
    kubectl kustomize kustomize/configs/environment-overlays/base
    ```
 
-   You should see the Deployment, Service, and ConfigMap YAML one after another, each carrying the `sample-app-` name prefix and the `sample-app` namespace.
+    You should see the Deployment, Service, and ConfigMap YAML one after another, each in the `sample-app` namespace and carrying the shared `app: sample-app` label.
 
 2. Create the dev overlay.
 
@@ -146,7 +144,7 @@ Create a staging overlay from scratch, without copying the walkthrough blocks ve
 - A directory `kustomize/configs/environment-overlays/overlays/staging/` with its own `kustomization.yaml` that references `../../base`
 - The staging namespace set to `staging`
 - The image retagged to `stable` (same image as prod, different namespace)
-- Three replicas
+- Three replicas, applied through a `patch-deployment.yaml` in the same directory that targets the base Deployment and sets `replicas: 3`
 
 Then render it and confirm the staging Deployment runs three replicas in the `staging` namespace.
 
