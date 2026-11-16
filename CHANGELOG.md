@@ -3443,3 +3443,4 @@ feat: dependabot-022 — Keep dependencies patched with Dependabot lesson
 ### Passed
 - Passed ([x]) kustomize-012 — Kustomize: lesson — Environment overlays with Kustomize · Level: L2 · 2026-11-16
 - Passed ([x]) argocd-049 — Argo CD: lesson — Deploy per environment from Git with Argo CD · Level: L3 · 2026-11-16
+- Passed ([x]) opa-024 — OPA / Gatekeeper: lesson — Rego basics and testing policies · Level: L2 · 2026-11-16

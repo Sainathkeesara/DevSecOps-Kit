@@ -1,0 +1,9 @@
+{
+  "metadata": {"name": "frontend", "namespace": "default"},
+  "spec": {
+    "containers": [
+      {"name": "web", "image": "nginx:1.25", "securityContext": {"privileged": true}},
+      {"name": "sidecar", "image": "busybox", "securityContext": {"privileged": false}}
+    ]
+  }
+}

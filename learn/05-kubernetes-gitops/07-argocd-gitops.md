@@ -179,4 +179,4 @@ shows `READY` of `5/5` before the revert and `3/3` after you revert and re-sync.
 
 ## Next
 
-[Rego basics and testing policies](../../00_index/learning-path.md)
+[Rego basics and testing policies](../06-policy-secrets-runtime/01-rego-basics.md)
