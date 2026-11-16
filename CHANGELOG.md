@@ -3438,3 +3438,8 @@ feat: dependabot-022 — Keep dependencies patched with Dependabot lesson
 - Add learn/04-iac/06-trivy-config-scan.md (trivy-029): scan IaC with Trivy config, compare with Checkov, and explain tfsec
 
 - Rework kustomize-012: fix environment overlay YAMLs so they render with kubectl kustomize
+
+## 2026-11-16
+### Passed
+- Passed ([x]) kustomize-012 — Kustomize: lesson — Environment overlays with Kustomize · Level: L2 · 2026-11-16
+- Passed ([x]) argocd-049 — Argo CD: lesson — Deploy per environment from Git with Argo CD · Level: L3 · 2026-11-16
