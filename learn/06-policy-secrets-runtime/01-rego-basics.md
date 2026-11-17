@@ -165,4 +165,4 @@ Both tests should print `PASS`. The denial message should include the pod's name
 
 ## Next
 
-[Reject privileged and root pods with Gatekeeper](../../00_index/learning-path.md)
+[Reject privileged and root pods with Gatekeeper](02-gatekeeper-admission.md)
