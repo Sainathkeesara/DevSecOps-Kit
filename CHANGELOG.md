@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-16
+
+### Added
+- vault-029: `learn/06-policy-secrets-runtime/04-vault-k8s-injection.md` — Deliver the app's secrets from Vault: enable KV v2, store the database password, bind a Kubernetes service account to a Vault role and policy, inject the secret with Vault Agent, and confirm nothing lands in Git or a Kubernetes Secret (L3 lesson)
+Passed ([x]) vault-029 — Vault: lesson — Deliver the app's secrets from Vault · Level: L3 · 2026-11-16
+
 ## 2026-11-15
 
 ### Added
