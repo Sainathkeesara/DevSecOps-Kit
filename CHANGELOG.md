@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - opa-025: `learn/06-policy-secrets-runtime/02-gatekeeper-admission.md` — Reject privileged and root pods with Gatekeeper: confirm Gatekeeper CRDs, apply a ConstraintTemplate + Constraint that denies privileged and root containers, plant a violating pod and watch it get rejected, then fix the security context and confirm admission (L3 lesson)
 - opa-025: `opa/manifests/gatekeeper-pod-security.yaml` — Gatekeeper ConstraintTemplate + Constraint blocking privileged and root pods (L3 lesson companion)
 Passed ([x]) opa-025 — OPA / Gatekeeper: lesson — Reject privileged and root pods with Gatekeeper · Level: L3 · 2026-11-17
+- falco-032: `learn/06-policy-secrets-runtime/07-falco-detect-shell.md` — Detect a shell in a container with Falco: run Falco, trigger an alert with kubectl exec, and tune a noisy shell rule by priority and filters (L3 lesson)
+Passed ([x]) falco-032 — Falco: lesson — Detect a shell in a container with Falco · Level: L3 · 2026-11-17
 
 ## 2026-11-16
 
