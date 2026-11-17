@@ -881,3 +881,7 @@
 ## DevSecOps practice
 
 - **Shift-left security** — Moving security checks earlier in the development lifecycle (IDE, pre-commit, and CI) so issues are found and fixed before they reach later stages like staging or production. In this kit, the `learn/03-shift-left/` lessons and CI gate configs (e.g., Trivy, Semgrep, Gitleaks) demonstrate shift-left in practice.
+
+## Cosign admission
+
+- **Signed image admission** — A Gatekeeper policy that rejects Kubernetes pods whose images are not signed (Cosign) or not pinned by digest, so only verified images can run.
