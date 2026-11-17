@@ -1,0 +1,45 @@
+# last_verified: 2026-11-17 · OPA/Gatekeeper n/a
+#
+# Gatekeeper ConstraintTemplate + Constraint that rejects privileged
+# containers and containers running as root. Used by the
+# "Reject privileged and root pods with Gatekeeper" lesson.
+---
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8spodsecuritybaseline
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sPodSecurityBaseline
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8s.podsecuritybaseline
+
+        violation[{"msg": msg}] {
+          container := input.review.object.spec.containers[_]
+          container.securityContext.privileged == true
+          msg := sprintf("Container %v runs privileged — not allowed", [container.name])
+        }
+
+        violation[{"msg": msg}] {
+          container := input.review.object.spec.containers[_]
+          not container.securityContext.runAsNonRoot == true
+          msg := sprintf("Container %v must run as non-root (runAsNonRoot: true)", [container.name])
+        }
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sPodSecurityBaseline
+metadata:
+  name: block-privileged-root-pods
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    excludedNamespaces:
+      - kube-system
+      - gatekeeper-system
