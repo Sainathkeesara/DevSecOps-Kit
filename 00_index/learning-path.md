@@ -68,7 +68,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 4. [Deliver the app's secrets from Vault](../learn/06-policy-secrets-runtime/04-vault-k8s-injection.md) · needs: HashiCorp Vault — quick primer, Secrets and access management — concepts, Deploy and debug the sample app on kind
 5. Admit only signed images — *not written yet* · needs: Sign the image and attach the SBOM with Cosign, Reject privileged and root pods with Gatekeeper
 6. [Container and runtime security — concepts](../docs/concepts/container-runtime-security/0000-primer-container-runtime-security.md)
-7. Detect a shell in a container with Falco — *not written yet* · needs: Container and runtime security — concepts, Deploy and debug the sample app on kind
+7. [Detect a shell in a container with Falco](../learn/06-policy-secrets-runtime/07-falco-detect-shell.md) · needs: Container and runtime security — concepts, Deploy and debug the sample app on kind
 
 ## Stage 7: Observe, respond and capstone
 
