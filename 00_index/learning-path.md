@@ -63,7 +63,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 ## Stage 6: Policy, secrets and runtime
 
 1. [Rego basics and testing policies](../learn/06-policy-secrets-runtime/01-rego-basics.md) · needs: Deploy and debug the sample app on kind, YAML, JSON, jq and regex for security tooling
-2. Reject privileged and root pods with Gatekeeper — *not written yet* · needs: Rego basics and testing policies, Deploy per environment from Git with Argo CD
+2. [Reject privileged and root pods with Gatekeeper](../learn/06-policy-secrets-runtime/02-gatekeeper-admission.md) · needs: Rego basics and testing policies, Deploy per environment from Git with Argo CD
 3. [HashiCorp Vault — quick primer](../vault/notes/0000-primer-vault.md)
 4. [Deliver the app's secrets from Vault](../learn/06-policy-secrets-runtime/04-vault-k8s-injection.md) · needs: HashiCorp Vault — quick primer, Secrets and access management — concepts, Deploy and debug the sample app on kind
 5. Admit only signed images — *not written yet* · needs: Sign the image and attach the SBOM with Cosign, Reject privileged and root pods with Gatekeeper
