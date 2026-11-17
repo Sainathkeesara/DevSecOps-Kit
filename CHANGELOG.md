@@ -3459,3 +3459,8 @@ feat: dependabot-022 — Keep dependencies patched with Dependabot lesson
 - Passed ([x]) kustomize-012 — Kustomize: lesson — Environment overlays with Kustomize · Level: L2 · 2026-11-16
 - Passed ([x]) argocd-049 — Argo CD: lesson — Deploy per environment from Git with Argo CD · Level: L3 · 2026-11-16
 - Passed ([x]) opa-024 — OPA / Gatekeeper: lesson — Rego basics and testing policies · Level: L2 · 2026-11-16
+
+## 2026-11-17
+### Passed
+- Add learn/06-policy-secrets-runtime/05-signed-images-only.md (cosign-022): admit only signed images at the Gatekeeper admission webhook
+- Add cosign/manifests/require-signed-image.yaml (cosign-022): Gatekeeper ConstraintTemplate + Constraint that admits only signed, digest-pinned images

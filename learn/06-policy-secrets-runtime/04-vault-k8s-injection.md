@@ -221,4 +221,4 @@ You should see: no commits and no matching Kubernetes Secret.
 
 ## Next
 
-[Admit only signed images](../../00_index/learning-path.md)
+[Admit only signed images](05-signed-images-only.md)
