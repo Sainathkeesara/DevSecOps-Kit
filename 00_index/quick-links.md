@@ -14,6 +14,10 @@
 - [tfsec Terraform security scanner primer](../tfsec/notes/0000-primer-tfsec.md)
 - [Terrascan IaC scanner primer](../terrascan/notes/0000-primer-terrascan.md)
 - [OPA policy engine primer](../opa/notes/0000-primer-opa.md)
+- [OPA Rego basics](../learn/06-policy-secrets-runtime/01-rego-basics.md)
+- [Contradictory deny rule](../opa/snippets/contradictory-deny.rego)
+- [Deny privileged containers](../opa/snippets/deny-privileged-containers.rego)
+- [Deny privileged containers test](../opa/snippets/deny-privileged-containers_test.rego)
 - [Semgrep SAST primer](../semgrep/notes/0000-primer-semgrep.md)
 
 ### Detect secrets in code and git history
@@ -106,6 +110,7 @@
 - [Vault PKI workflow](../vault/scripts/vault-pki-workflow.sh)
 - [Vault secrets engine selection guide](../vault/docs/vault-secrets-engine-selection-guide.md)
 - [Vault Agent auto-auth on Kubernetes](../vault/docs/vault-agent-auto-auth-kubernetes.md)
+- [Vault Kubernetes injection](../learn/06-policy-secrets-runtime/04-vault-k8s-injection.md)
 - [Secrets access patterns (concept)](../docs/concepts/secrets-access-management/scripts/vault-secrets-access-patterns.sh)
 
 ### Monitor and observe systems

@@ -15,11 +15,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 ## Quick links
 
-- [Chart.yaml](helm/charts/sample-app/Chart.yaml) — Sample app Helm chart metadata
-- [values-dev.yaml](helm/charts/sample-app/values-dev.yaml) — Dev environment values for the sample app chart
-- [values-prod.yaml](helm/charts/sample-app/values-prod.yaml) — Prod environment values for the sample app chart
-- [values.yaml](helm/charts/sample-app/values.yaml) — Default values for the sample app chart
-- [Helm chart sample app lesson](learn/05-kubernetes-gitops/05-helm-chart-sample-app.md) — Deploy a sample app with Helm
+- [Vault Kubernetes injection lesson](learn/06-policy-secrets-runtime/04-vault-k8s-injection.md) — Inject Vault secrets into Kubernetes workloads
+- [Rego policy basics](learn/06-policy-secrets-runtime/01-rego-basics.md) — OPA Rego language fundamentals
+- [Contradictory deny rule](opa/snippets/contradictory-deny.rego) — OPA Rego example of conflicting deny policies
+- [Deny privileged containers](opa/snippets/deny-privileged-containers.rego) — OPA Rego policy that blocks privileged containers
+- [Deny privileged containers test](opa/snippets/deny-privileged-containers_test.rego) — Unit tests for the deny-privileged-containers policy
 
 ## Layout
 
@@ -45,11 +45,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 | Checkov | 4 | 6 | 4 | 4 | 4 | 16 | 3 | 0 | 4 | 47 | 2026-09-17 |
 | Syft | 5 | 8 | 5 | 1 | 3 | 13 | 4 | 1 | 4 | 44 | 2026-10-27 |
 | Trivy | 8 | 6 | 6 | 4 | 1 | 10 | 2 | 1 | 2 | 40 | 2026-10-19 |
+| OPA / Gatekeeper | 5 | 4 | 2 | 2 | 8 | 8 | 4 | 0 | 1 | 34 | 2026-10-27 |
 | Terraform | 3 | 2 | 4 | 12 | 1 | 5 | 1 | 0 | 0 | 35 | 2026-10-30 |
 | Ansible | 3 | 1 | 5 | 3 | 1 | 21 | 0 | 0 | 0 | 34 | 2026-09-22 |
 | CodeQL | 5 | 4 | 2 | 2 | 6 | 7 | 3 | 1 | 2 | 32 | 2026-10-27 |
 | OWASP ZAP | 6 | 5 | 3 | 3 | 4 | 7 | 1 | 1 | 1 | 31 | 2026-10-14 |
-| OPA / Gatekeeper | 5 | 4 | 2 | 2 | 4 | 8 | 4 | 0 | 1 | 30 | 2026-10-27 |
 | Snyk | 6 | 4 | 2 | 3 | 1 | 10 | 1 | 1 | 1 | 29 | 2026-10-27 |
 | Argo CD | 6 | 3 | 1 | 2 | 0 | 11 | 5 | 0 | 0 | 28 | 2026-10-27 |
 | GitGuardian | 6 | 4 | 4 | 3 | 2 | 8 | 0 | 0 | 1 | 28 | 2026-10-27 |
@@ -86,4 +86,4 @@ Counts reflect files inside each category subfolder. Some folders also hold file
 Shift-left lessons landed recently under `learn/`. Thinner corners remain for tfsec, Nuclei, Prometheus, and SonarQube where first configs or scripts are still sparse.
 
 ---
-_Last updated: 2026-11-15_
+_Last updated: 2026-11-17_
