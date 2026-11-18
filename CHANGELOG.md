@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-18
+
+### Added
+- cosign-022: `learn/06-policy-secrets-runtime/05-signed-images-only.md` — Admit only signed images: wire Ratify (Cosign verifier) into Gatekeeper as external data so the cluster admits only digest-pinned, Cosign-signed images and rejects unsigned ones; fixes the inverted digest-pin check to use contains(image, "@") and gates the allowlist on digest-pinned images (L4 lesson rework)
+Passed ([x]) cosign-022 — Cosign: lesson — Admit only signed images · Level: L4 · 2026-11-18
+
 ## 2026-11-17
 
 ### Added
