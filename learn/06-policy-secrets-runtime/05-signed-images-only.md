@@ -1,92 +1,95 @@
 ---
-last_verified: 2026-11-17
-tool_version: "n/a"
+last_verified: 2026-11-18
+tool_version: "v3.1.4"
 sources:
+  - https://ratify.dev/docs/plugins/verifier/cosign/
+  - https://github.com/sigstore/cosign-gatekeeper-provider/
+  - https://github.com/sigstore/cosign/releases/tag/v3.1.4
   - https://open-policy-agent.github.io/gatekeeper/website/docs/install
   - https://open-policy-agent.github.io/gatekeeper/website/docs/constrainttemplates
-  - https://open-policy-agent.github.io/gatekeeper/website/docs/howto
 ---
 
 # Admit only signed images
 
-You've signed images with Cosign and you've run Gatekeeper as a Kubernetes admission webhook. Now combine them: make Gatekeeper reject any pod whose container image isn't a signed, digest-pinned image. That proves "the image that runs is the image you signed" before a single container starts.
+You can sign an image keylessly with Cosign (the signing lesson) and Gatekeeper can reject a pod before it runs (the Gatekeeper admission lesson). What is missing is the link between them: Gatekeeper sees the image reference in a pod spec, but it cannot verify a Cosign signature on its own. This lesson closes that gap by wiring Ratify — Sigstore's built-in Cosign verifier — into Gatekeeper as an external-data provider, so the cluster admits only digest-pinned, Cosign-signed images and rejects everything else.
 
 ## What you'll learn
 
-- Enforce a signature check at admission
-- Show an unsigned image is rejected and the signed one runs
+- Enforce a signature check at admission with Gatekeeper + Ratify external data, because Gatekeeper cannot verify Cosign signatures natively
+- Pin each image to its digest with `cosign triangulate`, then show an unsigned image is rejected and the signed one runs
 
 ## Before you start
 
-- [Sign the image and attach the SBOM with Cosign](../03-shift-left/12-cosign-sign.md) — you can sign an image keylessly and confirm a digest is signed with `cosign verify`.
-- [Reject privileged and root pods with Gatekeeper](02-gatekeeper-admission.md) — Gatekeeper is installed in `gatekeeper-system`, its admission webhook rejects violating pods, and you know how to author a ConstraintTemplate + Constraint.
-- `kubectl` pointed at a cluster with Gatekeeper running: `kubectl version --client` prints a client version and `kubectl -n gatekeeper-system get pods` shows the controller pods.
+- [Sign the image and attach the SBOM with Cosign](../03-shift-left/12-cosign-sign.md) — you can sign an image keylessly and verify it with `cosign verify`.
+- [Reject privileged and root pods with Gatekeeper](02-gatekeeper-admission.md) — Gatekeeper is installed with its admission CRDs, and you can apply a ConstraintTemplate + Constraint to a cluster.
+- [Cosign — quick primer](../../cosign/notes/0000-primer-cosign.md) — Cosign's signing and verification model, including keyless OIDC signing.
+- `cosign` v3.1.4 installed: `cosign version` reports the release [source: https://github.com/sigstore/cosign/releases/tag/v3.1.4]
+- Gatekeeper installed in a reachable cluster with `--enable-external-data`, which Ratify requires [source: https://open-policy-agent.github.io/gatekeeper/website/docs/install]
+- Ratify installed with the Cosign verifier [source: https://ratify.dev/docs/plugins/verifier/cosign/]
+- `kubectl version --client` prints a client version
 
 ## Walkthrough
 
-### 1. Sign an image and record its signed digest
+### 1. Confirm Gatekeeper's CRDs are established before applying anything
 
-Cosign signs the image keylessly (OIDC) and pushes the signature alongside the image in the registry:
-
-```bash
-IMAGE="ghcr.io/myorg/myapp:latest"
-cosign sign --yes "$IMAGE"
-```
-
-You should see: Cosign confirms the image was signed and pushed the signature, with no key or password prompt because `--yes` skips the interactive confirmation in CI.
-
-Now capture the digest Cosign verifies against this image — Gatekeeper will admit only this exact pinned reference:
+Gatekeeper registers its own CRDs (`ConstraintTemplate`, `Constraint` kinds). Applying a Constraint before the CRD is established fails with "no matches for kind" — wait for `Established` first [source: https://open-policy-agent.github.io/gatekeeper/website/docs/constrainttemplates].
 
 ```bash
-cosign verify "$IMAGE"
+kubectl get crds | grep gatekeeper
 ```
 
-You should see: verification passes and the output names the image reference with a digest, e.g. `ghcr.io/myorg/myapp@sha256:0123abcd...`. Set that value to `SIGNED_DIGEST` for the next step:
+You should see `constrainttemplates.gatekeeper.sh` and `constraints.gatekeeper.sh` listed. If they are absent or not yet `Established`, install Gatekeeper first (cluster-admin required) and wait for the controller pods to be `Running` in `gatekeeper-system`.
 
-```bash
-SIGNED_DIGEST="ghcr.io/myorg/myapp@sha256:0123abcd..."
-```
+### 2. Understand why Gatekeeper needs Ratify for Cosign signatures
 
-### 2. Write a Gatekeeper policy that admits only signed images
+Gatekeeper's admission webhook sees the image reference, but it has no built-in Cosign verification — it cannot check whether that image was signed, by whom, or against which key. Ratify is Sigstore's built-in Cosign verifier and runs as a Gatekeeper external-data provider: Gatekeeper sends the image to Ratify, Ratify evaluates its trust policy (keyless OIDC identity, issuer/subject pinning), and returns a signed/unsigned decision [source: https://ratify.dev/docs/plugins/verifier/cosign/]. The archived `cosign-gatekeeper-provider` must not be used [source: https://github.com/sigstore/cosign-gatekeeper-provider/].
 
-Gatekeeper's admission webhook runs a Rego ConstraintTemplate against every pod before it's created. The template below requires each container image to be (a) digest-pinned, not a mutable tag, and (b) present in a signed-digest allowlist that you populate from `cosign verify` output. Cosign provides the signatures; Gatekeeper enforces that only signed images run.
+Ratify performs tag-to-digest mutation by default, so a tag-based trust scope won't match reliably — scope your Ratify trust policy to a digest, or use a wildcard scope [source: https://ratify.dev/docs/plugins/verifier/cosign/].
 
-Create the companion manifest `cosign/manifests/require-signed-image.yaml`:
+### 3. Write the ConstraintTemplate: digest-pin check first, then signature check
+
+Create `opa/manifests/signed-images-only.yaml` with a ConstraintTemplate wrapping two Rego rules, plus a Constraint scoped to all Pods:
 
 ```yaml
 apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
-  name: k8srequiresignedimage
+  name: k8ssignedimagesonly
 spec:
   crd:
     spec:
       names:
-        kind: K8sRequiresSignedImage
+        kind: K8sSignedImagesOnly
   targets:
     - target: admission.k8s.gatekeeper.sh
       rego: |
-        package k8s.requiresignedimage
+        package k8s.signedimagesonly
 
         violation[{"msg": msg}] {
           container := input.review.object.spec.containers[_]
           image := container.image
-          not endswith(image, "@")
-          msg := sprintf("Container %v must use a pinned image digest, got %v", [container.name, image])
+          # Digest-pin check (the fix): tags are mutable, so require image@sha256:...
+          # contains(image, "@") matches a digest reference; endswith(image, "@")
+          # never matches one, which previously let unsigned tagged images through.
+          not contains(image, "@")
+          msg := sprintf("Container %v uses a mutable tag (%v); pin to a digest before admission", [container.name, image])
         }
 
         violation[{"msg": msg}] {
           container := input.review.object.spec.containers[_]
           image := container.image
-          endswith(image, "@")
-          not parameters.signedDigests[_] == image
-          msg := sprintf("Container %v image %v is not in the signed-digest allowlist", [container.name, image])
+          contains(image, "@")
+          # Gate the allowlist on digest-pinned images: only a verified, signed image
+          # is admitted. Ratify external data returns the verification decision; match
+          # the response field to Ratify's external-data contract for your deployment.
+          not data.external.ratify[image].verified
+          msg := sprintf("Container %v image %v is not a verified signed image — admission denied", [container.name, image])
         }
 ---
 apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: K8sRequiresSignedImage
+kind: K8sSignedImagesOnly
 metadata:
-  name: require-signed-image
+  name: block-unsigned-images
 spec:
   enforcementAction: deny
   match:
@@ -96,80 +99,93 @@ spec:
     excludedNamespaces:
       - kube-system
       - gatekeeper-system
-  parameters:
-    signedDigests:
-      - "PLACEHOLDER_REPLACE_WITH_SIGNED_DIGEST"
 ```
 
 Apply it:
 
 ```bash
-kubectl apply -f cosign/manifests/require-signed-image.yaml
+kubectl apply -f opa/manifests/signed-images-only.yaml
 ```
 
-You should see: `constrainttemplate.templates.gatekeeper.sh/k8srequiresignedimage created` and `k8srequiresignedimage.constraints.gatekeeper.sh/require-signed-image created`, and the `K8sRequiresSignedImage` CRD becomes available.
+You should see `constrainttemplate.templates.gatekeeper.sh/k8ssignedimagesonly created` and `k8ssignedimagesonly.constraints.gatekeeper.sh/block-unsigned-images created`.
 
-Populate the allowlist with your signed digest:
+### 4. Sign an image and pin it to its digest
+
+Sign your image keylessly (as in the signing lesson), then resolve the tag to its immutable digest with `cosign triangulate` [source: ../../cosign/docs/cosign-verification-patterns.md]:
 
 ```bash
-kubectl patch k8srequiresignedimage require-signed-image --type merge -p "{\"spec\":{\"parameters\":{\"signedDigests\":[\"$SIGNED_DIGEST\"]}}}"
+IMAGE="ghcr.io/myorg/myapp:latest"
+cosign sign --yes "$IMAGE"
+DIGEST="$(cosign triangulate "$IMAGE")"
+echo "$DIGEST"
 ```
 
-### 3. Show an unsigned image is rejected, then the signed one runs
+You should see: a digest reference like `ghcr.io/myorg/myapp@sha256:...` — the immutable artifact that was actually signed.
 
-Try an unsigned image (a mutable tag that isn't in the allowlist):
+Confirm the signed digest verifies (exit 0):
 
 ```bash
-kubectl run unsigned-pod --image=nginx:latest --restart=Never
+cosign verify \
+  --certificate-identity-regexp '^https://github\.com/myorg/myapp/\.github/workflows/ci\.yml@refs/heads/main$' \
+  --certificate-oidc-issuer-regexp '^https://token\.actions\.githubusercontent\.com$' \
+  "ghcr.io/myorg/myapp@${DIGEST#*@}"
 ```
 
-You should see: `Error from server (Forbidden): admission webhook "validation.gatekeeper.sh" denied the request: ... Container unsigned-pod must use a pinned image digest ...`. Gatekeeper blocks the pod before the image is ever pulled.
+You should see: verification succeeds (exit 0) and lists the OIDC certificate issuer and subject.
 
-Now run the signed, digest-pinned image:
+### 5. Reject an unsigned image, admit the signed one
+
+Plant a pod that runs an unsigned, tag-referenced image:
 
 ```bash
-kubectl run signed-pod --image="$SIGNED_DIGEST" --restart=Never
+kubectl run unsigned-pod --image=ghcr.io/myorg/myapp:latest
 ```
 
-You should see: `pod/signed-pod created`. Gatekeeper admits the pinned, signed image. (The placeholder image may not pull, but admission — what this policy controls — has succeeded.)
+You should see: Gatekeeper denies the request — the image is not digest-pinned (no "@"), so the first Rego rule fires and the pod is not created.
 
-Clean up:
+Now deploy the digest-pinned, signed image:
 
 ```bash
-kubectl delete pod unsigned-pod signed-pod --ignore-not-found
+kubectl run signed-pod --image="ghcr.io/myorg/myapp@${DIGEST#*@}"
 ```
+
+You should see: `pod/signed-pod created` — Ratify's external-data decision reports the image as verified signed, so Gatekeeper admits it.
+
+Finally, confirm a signed image from a different identity is rejected too: Ratify's trust policy pins the issuer/subject, so a signature from another CI workflow fails verification and the pod is denied.
 
 ## Exercise
 
-Working alone, with Gatekeeper still running:
+Working alone, with Gatekeeper + Ratify still running:
 
-1. Sign a second image of your own with `cosign sign --yes`, capture its digest from `cosign verify`, and add it to the `require-signed-image` constraint's `signedDigests` parameter.
-2. Deploy that second image as a pod and confirm Gatekeeper admits it.
-3. Deploy any unsigned image (a mutable tag not in the allowlist) and confirm Gatekeeper rejects it.
-4. Remove your test digests and delete the test pods.
+1. Create a Ratify trust policy that requires keyless verification from your own CI identity (`certificateIdentityRegExp` / `certificateOIDCIssuerRegExp`), scoped to a digest.
+2. Sign an image you control with `cosign sign --yes`, triangulate it to a digest, and confirm `cosign verify` exits 0 against `image@sha256:...`.
+3. Apply the `K8sSignedImagesOnly` Constraint and deploy an unsigned image — confirm Gatekeeper rejects it.
+4. Deploy the same image pinned to its signed digest — confirm Gatekeeper admits it.
+5. Deploy an image signed by a different identity — confirm Gatekeeper rejects it.
 
-Do not paste the solution into the lesson file.
+Do not paste your solution into the lesson file.
 
 ## Check your work
 
 ```bash
-kubectl get constrainttemplate k8srequiresignedimage
-kubectl get k8srequiresignedimage require-signed-image -o yaml
+kubectl get constrainttemplate k8ssignedimagesonly
 ```
-
-The template exists, and the constraint shows `enforcementAction: deny` with your signed digests in `spec.parameters.signedDigests`.
-
+lists the template, and
 ```bash
-kubectl run <your-signed-image@digest> --restart=Never   # admitted
-kubectl run <unsigned-image:tag> --restart=Never          # rejected by validation.gatekeeper.sh
+kubectl get k8ssignedimagesonly block-unsigned-images -o yaml
 ```
+shows the enforced Constraint with `enforcementAction: deny`.
+
+- `cosign triangulate` returns a digest reference containing "@" (`image@sha256:...`).
+- `cosign verify image@sha256:...` exits 0 for the signed image and non-zero for an unsigned one — gate your pipeline on the exit code (`set -e` or check `$?`) so unsigned images can't slip through.
+- An unsigned pod is rejected with `validation.gatekeeper.sh`, while the digest-pinned signed pod is created.
 
 ## Common mistakes
 
-- Relying on a mutable tag (`:latest`) instead of a pinned digest: Gatekeeper admits the tag reference, but the image behind the tag can change after you signed it, so the running image may no longer match what Cosign verified. Always pin `@sha256:...`.
-- Forgetting `excludedNamespaces`: Gatekeeper audits `kube-system` and `gatekeeper-system` too, and system components that legitimately run images outside your allowlist get blocked.
-- Setting `enforcementAction: dryrun` (or `warn`): violations are audited but not blocked, so an unsigned image still runs.
-- Testing Gatekeeper rules with top-level `input` instead of `input.review.object`: a rule that passes locally never fires under Gatekeeper, because Gatekeeper nests the reviewed object under `input.review.object.spec`.
+- **Verifying a tag instead of the digest signed at build time.** A tag can be re-pointed after signing, so a signature against a tag may no longer match what runs. Always `cosign triangulate` then verify `image@sha256:...` [source: ../../cosign/docs/cosign-verification-patterns.md].
+- **Using `endswith(image, "@")` for the digest-pin check.** A digest reference `image@sha256:abc...` contains "@" but does not end with it — that check never matches and lets unsigned tagged images through. Use `contains(image, "@")`.
+- **Applying the Constraint before the ConstraintTemplate CRD is established** → "no matches for kind"; wait for `Established` first [source: https://open-policy-agent.github.io/gatekeeper/website/docs/constrainttemplates].
+- **Treating a non-zero `cosign verify` exit as a warning** — gate CI on the exit code so unsigned images can't slip through [source: ../../cosign/docs/cosign-verification-patterns.md].
 
 ## Next
 

@@ -4,6 +4,12 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-18
+
+### Added
+- cosign-022: `learn/06-policy-secrets-runtime/05-signed-images-only.md` — Admit only signed images: wire Ratify (Cosign verifier) into Gatekeeper as external data so the cluster admits only digest-pinned, Cosign-signed images and rejects unsigned ones; fixes the inverted digest-pin check to use contains(image, "@") and gates the allowlist on digest-pinned images (L4 lesson rework)
+Passed ([x]) cosign-022 — Cosign: lesson — Admit only signed images · Level: L4 · 2026-11-18
+
 ## 2026-11-17
 
 ### Added
@@ -3459,8 +3465,3 @@ feat: dependabot-022 — Keep dependencies patched with Dependabot lesson
 - Passed ([x]) kustomize-012 — Kustomize: lesson — Environment overlays with Kustomize · Level: L2 · 2026-11-16
 - Passed ([x]) argocd-049 — Argo CD: lesson — Deploy per environment from Git with Argo CD · Level: L3 · 2026-11-16
 - Passed ([x]) opa-024 — OPA / Gatekeeper: lesson — Rego basics and testing policies · Level: L2 · 2026-11-16
-
-## 2026-11-17
-### Passed
-- Add learn/06-policy-secrets-runtime/05-signed-images-only.md (cosign-022): admit only signed images at the Gatekeeper admission webhook
-- Add cosign/manifests/require-signed-image.yaml (cosign-022): Gatekeeper ConstraintTemplate + Constraint that admits only signed, digest-pinned images
