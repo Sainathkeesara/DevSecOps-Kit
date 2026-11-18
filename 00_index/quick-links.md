@@ -68,7 +68,6 @@
 - [Cosign key management workflow](../cosign/scripts/cosign-key-management-workflow.sh)
 - [Container signing pipeline integration](../cosign/docs/container-signing-pipeline.md)
 - [Admit only signed images lesson](../learn/06-policy-secrets-runtime/05-signed-images-only.md) — Enforce signed images at admission with Gatekeeper
-- [Gatekeeper signed-image constraint](../cosign/manifests/require-signed-image.yaml) — ConstraintTemplate + Constraint for digest-pinned signed images
 
 ### Set up CI/CD and GitOps
 
