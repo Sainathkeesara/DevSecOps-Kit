@@ -86,4 +86,4 @@ Counts reflect files inside each category subfolder. Some folders also hold file
 Recent additions under `learn/` focus on policy, secrets, and runtime security. Thinner corners remain for tfsec, Nuclei, Prometheus, and SonarQube where first configs or scripts are still sparse.
 
 ---
-_Last updated: 2026-11-17_
+_Last updated: 2026-11-18_
