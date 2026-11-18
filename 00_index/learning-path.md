@@ -66,7 +66,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 2. [Reject privileged and root pods with Gatekeeper](../learn/06-policy-secrets-runtime/02-gatekeeper-admission.md) · needs: Rego basics and testing policies, Deploy per environment from Git with Argo CD
 3. [HashiCorp Vault — quick primer](../vault/notes/0000-primer-vault.md)
 4. [Deliver the app's secrets from Vault](../learn/06-policy-secrets-runtime/04-vault-k8s-injection.md) · needs: HashiCorp Vault — quick primer, Secrets and access management — concepts, Deploy and debug the sample app on kind
-5. Admit only signed images — *not written yet* · needs: Sign the image and attach the SBOM with Cosign, Reject privileged and root pods with Gatekeeper
+5. [Admit only signed images](../learn/06-policy-secrets-runtime/05-signed-images-only.md) · needs: Sign the image and attach the SBOM with Cosign, Reject privileged and root pods with Gatekeeper
 6. [Container and runtime security — concepts](../docs/concepts/container-runtime-security/0000-primer-container-runtime-security.md)
 7. [Detect a shell in a container with Falco](../learn/06-policy-secrets-runtime/07-falco-detect-shell.md) · needs: Container and runtime security — concepts, Deploy and debug the sample app on kind
 
