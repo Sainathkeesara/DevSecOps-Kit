@@ -15,11 +15,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 ## Quick links
 
-- [Detect a shell in a container with Falco](learn/06-policy-secrets-runtime/07-falco-detect-shell.md) — Falco runtime detection lesson
-- [Reject privileged and root pods with Gatekeeper](learn/06-policy-secrets-runtime/02-gatekeeper-admission.md) — Gatekeeper admission lesson
-- [Gatekeeper pod-security constraint](opa/manifests/gatekeeper-pod-security.yaml) — Blocks privileged and root pods
-- [Deliver app secrets from Vault into Kubernetes](learn/06-policy-secrets-runtime/04-vault-k8s-injection.md) — Vault injection lesson
-- [Rego basics and testing policies](learn/06-policy-secrets-runtime/01-rego-basics.md) — OPA Rego fundamentals
+- [Admit only signed images](learn/06-policy-secrets-runtime/05-signed-images-only.md) — Gatekeeper + Ratify admit only digest-pinned, Cosign-signed images
+- [Detect a shell in a container with Falco](learn/06-policy-secrets-runtime/07-falco-detect-shell.md) — Falco runtime shell detection, tuned by priority and filters
+- [Reject privileged and root pods with Gatekeeper](learn/06-policy-secrets-runtime/02-gatekeeper-admission.md) — Gatekeeper ConstraintTemplate + Constraint blocks privileged root pods
+- [Gatekeeper pod-security constraint](opa/manifests/gatekeeper-pod-security.yaml) — ConstraintTemplate + Constraint rejecting privileged and root containers
+- [Deliver the app's secrets from Vault](learn/06-policy-secrets-runtime/04-vault-k8s-injection.md) — Vault KV v2, Kubernetes auth, and Vault Agent sidecar delivery
 
 ## Layout
 
@@ -86,4 +86,4 @@ Counts reflect files inside each category subfolder. Some folders also hold file
 Recent additions under `learn/` focus on policy, secrets, and runtime security. Thinner corners remain for tfsec, Nuclei, Prometheus, and SonarQube where first configs or scripts are still sparse.
 
 ---
-_Last updated: 2026-11-18_
+_Last updated: 2026-11-19_
