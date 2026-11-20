@@ -188,6 +188,8 @@
 
 **Cosign**: Open-source tool for container image signing and verification using cryptographic signatures, part of the Sigstore project, enabling supply chain security through signed artifact provenance.
 
+**Ratify**: Sigstore policy engine that verifies artifacts (container images, SBOMs) against trust policies before admission or deployment; used with Cosign to confirm an image was signed by an approved identity before it runs.
+
 **OPA (Open Policy Agent)**: Open-source policy engine that uses Rego language to define and enforce policies across cloud-native stacks, including Kubernetes admission control, Terraform plan validation, and CI/CD gate decisions.
 
 **Rego**: OPA's declarative policy language for defining rules that query and transform structured data (JSON, YAML) to make policy decisions.
