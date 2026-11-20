@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - cosign-022: `learn/06-policy-secrets-runtime/05-signed-images-only.md` — Admit only signed images: wire Ratify (Cosign verifier) into Gatekeeper as external data so the cluster admits only digest-pinned, Cosign-signed images and rejects unsigned ones; fixes the inverted digest-pin check to use contains(image, "@") and gates the allowlist on digest-pinned images (L4 lesson rework)
 Passed ([x]) cosign-022 — Cosign: lesson — Admit only signed images · Level: L4 · 2026-11-18
+- prometheus-047: `learn/07-observe-respond/03-prometheus-security-alerts.md` — Alert on the app and on security events: scrape the app and Falco metrics, alert on error rate and on Falco critical events (L3 lesson)
+Passed ([x]) prometheus-047 — Prometheus: lesson — Alert on the app and on security events · Level: L3 · 2026-11-18
 
 ## 2026-11-17
 
