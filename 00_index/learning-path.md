@@ -75,7 +75,7 @@ Work through the stages in order. Each lesson says what it expects you to know a
 1. [Observability and monitoring — concepts](../docs/concepts/observability-monitoring/0000-primer-observability-monitoring.md)
 2. [Prometheus — quick primer](../prometheus/notes/0000-primer-prometheus.md)
 3. [Alert on the app and on security events](../learn/07-observe-respond/03-prometheus-security-alerts.md) · needs: Prometheus — quick primer, Observability and monitoring — concepts, Detect a shell in a container with Falco
-4. A security and SLO dashboard in Grafana — *not written yet* · needs: Alert on the app and on security events
+4. [A security and SLO dashboard in Grafana](../learn/07-observe-respond/04-grafana-security-dashboard.md) · needs: Alert on the app and on security events
 5. Respond to a vulnerable-dependency incident — *not written yet* · needs: A security and SLO dashboard in Grafana, Bring all findings together in DefectDojo
 6. Capstone: a secure delivery pipeline — *not written yet* · needs: Respond to a vulnerable-dependency incident, Admit only signed images, Deliver the app's secrets from Vault, Harden a host with an idempotent Ansible playbook, Follow tainted data with CodeQL, Scan the SBOM with Grype and compare with Trivy
 
