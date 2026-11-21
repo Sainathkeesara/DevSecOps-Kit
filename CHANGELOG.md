@@ -7,9 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2026-11-21
 
 ### Added
-- grafana-012: `learn/07-observe-respond/04-grafana-security-dashboard.md` — A security and SLO dashboard in Grafana: provision a dashboard from a file kept in Git; show the SLO, scanner gate results and runtime alerts together (L3 lesson)
-- grafana-012: `grafana/configs/security-slo-dashboard.json` — Dashboard JSON provisioned from Grafana's file provider, committed to Git alongside the provisioning config (L3 lesson companion)
-Passed ([x]) grafana-012 — Grafana: lesson — A security and SLO dashboard in Grafana · Level: L3 · 2026-11-21
+- defectdojo-018: `learn/07-observe-respond/05-incident-case-study.md` — Respond to a vulnerable-dependency incident: work through a CVE case study from advisory to patched deployment, write the timeline and follow-up actions in DefectDojo (L4 lesson)
+- defectdojo-018: `learn/07-observe-respond/04-grafana-security-dashboard.md` — Updated `## Next` link to point at the new incident case study lesson
+Passed ([x]) defectdojo-018 — DefectDojo: lesson — Respond to a vulnerable-dependency incident · Level: L4 · 2026-11-21
 
 ## 2026-11-18
 
