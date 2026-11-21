@@ -131,4 +131,4 @@ Expected results:
 
 ## Next
 
-[Respond to a vulnerable-dependency incident](../../00_index/learning-path.md)
+[Respond to a vulnerable-dependency incident](05-incident-case-study.md)
