@@ -135,4 +135,4 @@ Expected results:
 
 ## Next
 
-[A security and SLO dashboard in Grafana](../../00_index/learning-path.md)
+[A security and SLO dashboard in Grafana](04-grafana-security-dashboard.md)

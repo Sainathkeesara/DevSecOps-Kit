@@ -4,6 +4,13 @@ All notable changes to the DevSecOps-Kit repository will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-21
+
+### Added
+- grafana-012: `learn/07-observe-respond/04-grafana-security-dashboard.md` — A security and SLO dashboard in Grafana: provision a dashboard from a file kept in Git; show the SLO, scanner gate results and runtime alerts together (L3 lesson)
+- grafana-012: `grafana/configs/security-slo-dashboard.json` — Dashboard JSON provisioned from Grafana's file provider, committed to Git alongside the provisioning config (L3 lesson companion)
+Passed ([x]) grafana-012 — Grafana: lesson — A security and SLO dashboard in Grafana · Level: L3 · 2026-11-21
+
 ## 2026-11-18
 
 ### Added

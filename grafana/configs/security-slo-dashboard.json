@@ -1,0 +1,47 @@
+{
+  "id": null,
+  "uid": "security-slo",
+  "title": "Security and SLO dashboard",
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "SLO - availability",
+      "gridPos": { "h": 4, "w": 12, "x": 0, "y": 0 },
+      "datasource": "my-first-prometheus",
+      "targets": [
+        {
+          "expr": "(1 - (rate(http_requests_total{code=~\"5..\"}[5m]) / rate(http_requests_total[5m]))) * 100",
+          "legendFormat": "availability %"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "title": "Scanner gate - findings",
+      "gridPos": { "h": 4, "w": 12, "x": 12, "y": 0 },
+      "datasource": "my-first-prometheus",
+      "targets": [
+        {
+          "expr": "scanner_findings_total",
+          "legendFormat": "findings"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "title": "Runtime alerts - firing",
+      "gridPos": { "h": 4, "w": 24, "x": 0, "y": 4 },
+      "datasource": "my-first-prometheus",
+      "targets": [
+        {
+          "expr": "count(ALERTS{alertname=~\"FalcoCriticalEvent|HighAppErrorRate\"})",
+          "legendFormat": "firing alerts"
+        }
+      ]
+    }
+  ]
+}
