@@ -15,11 +15,11 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 
 ## Quick links
 
-- [security-slo-dashboard.json](grafana/configs/security-slo-dashboard.json) — Grafana security and SLO dashboard definition
-- [04-grafana-security-dashboard.md](learn/07-observe-respond/04-grafana-security-dashboard.md) — Build a security and SLO dashboard in Grafana
-- [03-prometheus-security-alerts.md](learn/07-observe-respond/03-prometheus-security-alerts.md) — Alert on the app and on security events with Prometheus
-- [05-signed-images-only.md](learn/06-policy-secrets-runtime/05-signed-images-only.md) — Gatekeeper + Ratify admit only digest-pinned, Cosign-signed images
-- [07-falco-detect-shell.md](learn/06-policy-secrets-runtime/07-falco-detect-shell.md) — Falco runtime shell detection, tuned by priority and filters
+- [Grafana security SLO dashboard config](grafana/configs/security-slo-dashboard.json) — Grafana security and SLO dashboard definition
+- [Grafana security dashboard lesson](learn/07-observe-respond/04-grafana-security-dashboard.md) — Build a security and SLO dashboard in Grafana
+- [Prometheus security alerts lesson](learn/07-observe-respond/03-prometheus-security-alerts.md) — Alert on the app and on security events with Prometheus
+- [Signed images only lesson](learn/06-policy-secrets-runtime/05-signed-images-only.md) — Gatekeeper + Ratify admit only digest-pinned, Cosign-signed images
+- [Falco detect shell lesson](learn/06-policy-secrets-runtime/07-falco-detect-shell.md) — Falco runtime shell detection, tuned by priority and filters
 
 ## Layout
 
@@ -40,42 +40,42 @@ Scope runs from Linux and Git fundamentals up through infrastructure as code and
 <summary>Coverage table</summary>
 
 | Tool | Notes | Docs | Scripts | Configs | Snippets | Templates | Manifests | Dockerfiles | Notebooks | Total | Last verified |
-|------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 | TruffleHog | 4 | 4 | 3 | 2 | 3 | 28 | 2 | 2 | 3 | 51 | 2026-10-13 |
-| Checkov | 4 | 6 | 4 | 4 | 4 | 16 | 3 |  | 4 | 47 | 2026-09-17 |
+| Checkov | 4 | 6 | 4 | 4 | 4 | 16 | 3 | | 4 | 47 | 2026-09-17 |
 | Syft | 5 | 8 | 5 | 1 | 3 | 13 | 4 | 1 | 4 | 44 | 2026-10-27 |
 | Trivy | 8 | 6 | 6 | 4 | 1 | 10 | 2 | 1 | 2 | 40 | 2026-10-19 |
-| Terraform | 3 | 2 | 4 | 12 | 1 | 5 | 1 |  |  | 35 | 2026-10-30 |
-| OPA / Gatekeeper | 5 | 4 | 2 | 2 | 8 | 8 | 5 |  | 1 | 35 | 2026-10-27 |
-| Ansible | 3 | 1 | 5 | 3 | 1 | 21 |  |  |  | 34 | 2026-10-27 |
+| Terraform | 3 | 2 | 4 | 12 | 1 | 5 | 1 | | | 35 | 2026-10-30 |
+| OPA / Gatekeeper | 5 | 4 | 2 | 2 | 8 | 8 | 5 | | 1 | 35 | 2026-10-27 |
+| Ansible | 3 | 1 | 5 | 3 | 1 | 21 | | | | 34 | 2026-10-27 |
 | CodeQL | 5 | 4 | 2 | 2 | 6 | 7 | 3 | 1 | 2 | 32 | 2026-10-27 |
 | OWASP ZAP | 6 | 5 | 3 | 3 | 4 | 7 | 1 | 1 | 1 | 31 | 2026-10-14 |
 | Snyk | 6 | 4 | 2 | 3 | 1 | 10 | 1 | 1 | 1 | 29 | 2026-10-27 |
-| GitGuardian | 6 | 4 | 4 | 3 | 2 | 8 |  |  | 1 | 28 | 2026-10-27 |
-| Argo CD | 6 | 3 | 1 | 2 |  | 11 | 5 |  |  | 28 | 2026-10-27 |
-| Grype | 5 | 3 | 9 | 2 | 3 |  | 2 | 1 | 2 | 27 | 2026-10-14 |
-| Semgrep | 3 | 8 | 3 | 1 | 2 |  | 3 | 2 | 3 | 25 | 2026-10-18 |
-| Falco | 6 | 4 | 3 | 4 | 1 | 4 | 1 |  | 2 | 25 | 2026-10-27 |
-| GitHub Actions | 7 | 1 | 1 | 8 | 3 |  | 2 |  |  | 22 | 2026-10-20 |
-| Terrascan | 5 | 3 | 2 | 2 | 2 | 6 | 1 |  | 1 | 22 | 2026-10-10 |
-| HashiCorp Vault | 4 | 3 | 4 | 3 | 2 |  | 2 | 1 | 2 | 21 | 2026-08-30 |
-| Cosign | 5 | 4 | 3 | 2 | 1 |  | 2 | 2 | 1 | 20 | 2026-10-30 |
-| Kubernetes | 4 | 2 | 2 | 3 |  | 5 | 4 |  |  | 20 | 2026-10-29 |
-| Docker | 2 | 2 | 3 | 1 |  | 7 | 1 | 3 |  | 19 | 2026-09-23 |
-| Dependabot | 7 | 4 | 2 | 5 |  |  |  |  | 1 | 19 | 2026-10-14 |
-| DefectDojo | 4 | 2 | 3 | 2 | 2 | 6 |  |  |  | 19 | 2026-10-23 |
-| Kustomize | 3 | 1 | 2 | 10 |  |  | 1 |  |  | 17 | 2026-10-24 |
-| Helm | 4 | 1 | 1 | 1 |  |  | 2 |  |  | 13 | 2026-10-20 |
-| Grafana | 4 | 1 | 1 | 3 | 1 |  | 1 |  |  | 11 | 2026-10-26 |
-| Tetragon | 3 | 1 | 3 | 4 |  |  |  |  |  | 11 | 2026-09-26 |
-| Git | 3 | 1 | 4 | 1 | 1 |  |  |  |  | 10 | 2026-09-22 |
-| OpenTofu | 4 | 2 | 1 | 3 |  |  |  |  |  | 10 | 2026-10-28 |
-| Gitleaks | 3 | 1 | 3 | 2 |  |  |  |  |  | 9 | 2026-10-25 |
-| Linux | 3 | 1 | 2 | 1 |  |  |  |  |  | 7 | 2026-10-02 |
-| SonarQube | 3 |  | 1 | 2 | 1 |  |  |  |  | 7 | 2026-09-21 |
-| Prometheus | 5 |  | 1 |  | 1 |  |  |  |  | 7 | 2026-10-25 |
-| tfsec | 3 |  | 1 | 1 | 1 |  |  |  |  | 6 | 2026-10-19 |
-| Nuclei | 3 |  | 1 | 1 |  |  |  |  |  | 5 | 2026-10-15 |
+| GitGuardian | 6 | 4 | 4 | 3 | 2 | 8 | | | 1 | 28 | 2026-10-27 |
+| Argo CD | 6 | 3 | 1 | 2 | | 11 | 5 | | | 28 | 2026-10-27 |
+| Grype | 5 | 3 | 9 | 2 | 3 | | 2 | 1 | 2 | 27 | 2026-10-14 |
+| Semgrep | 3 | 8 | 3 | 1 | 2 | | 3 | 2 | 3 | 25 | 2026-10-18 |
+| Falco | 6 | 4 | 3 | 4 | 1 | 4 | 1 | | 2 | 25 | 2026-10-27 |
+| GitHub Actions | 7 | 1 | 1 | 8 | 3 | | 2 | | | 22 | 2026-10-20 |
+| Terrascan | 5 | 3 | 2 | 2 | 2 | 6 | 1 | | 1 | 22 | 2026-10-10 |
+| HashiCorp Vault | 4 | 3 | 4 | 3 | 2 | | 2 | 1 | 2 | 21 | 2026-08-30 |
+| Kubernetes | 4 | 2 | 2 | 3 | | 5 | 4 | | | 20 | 2026-10-29 |
+| Cosign | 5 | 4 | 3 | 2 | 1 | | 2 | 2 | 1 | 20 | 2026-10-30 |
+| Docker | 2 | 2 | 3 | 1 | | 7 | 1 | 3 | | 19 | 2026-09-23 |
+| Dependabot | 7 | 4 | 2 | 5 | | | | | 1 | 19 | 2026-10-14 |
+| DefectDojo | 4 | 2 | 3 | 2 | 2 | 6 | | | | 19 | 2026-10-23 |
+| Kustomize | 3 | 1 | 2 | 10 | | | 1 | | | 17 | 2026-10-24 |
+| Helm | 4 | 1 | 1 | 1 | | | 2 | | | 13 | 2026-10-20 |
+| Grafana | 4 | 1 | 1 | 3 | 1 | | 1 | | | 11 | 2026-10-26 |
+| Tetragon | 3 | 1 | 3 | 4 | | | | | | 11 | 2026-09-26 |
+| Git | 3 | 1 | 4 | 1 | 1 | | | | | 10 | 2026-09-22 |
+| OpenTofu | 4 | 2 | 1 | 3 | | | | | | 10 | 2026-10-28 |
+| Gitleaks | 3 | 1 | 3 | 2 | | | | | | 9 | 2026-10-25 |
+| Linux | 3 | 1 | 2 | 1 | | | | | | 7 | 2026-10-02 |
+| SonarQube | 3 | | 1 | 2 | 1 | | | | | 7 | 2026-09-21 |
+| Prometheus | 5 | | 1 | | 1 | | | | | 7 | 2026-10-25 |
+| tfsec | 3 | | 1 | 1 | 1 | | | | | 6 | 2026-10-19 |
+| Nuclei | 3 | | 1 | 1 | | | | | | 5 | 2026-10-15 |
 
 </details>
 
