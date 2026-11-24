@@ -118,10 +118,14 @@
 
 - [Prometheus metrics primer](../prometheus/notes/0000-primer-prometheus.md)
 - [Prometheus first query log](../prometheus/notes/2026-10-14-first-query-log.md)
+- [Prometheus security alerts lesson](../learn/07-observe-respond/03-prometheus-security-alerts.md) — Alert on the app and on security events with Prometheus
 - [Grafana dashboard primer](../grafana/notes/0000-primer-grafana.md)
 - [Grafana dashboard provisioning](../grafana/configs/2026-10-14-dashboard-provisioning.yaml)
 - [Grafana first datasource query](../grafana/snippets/2026-10-14-first-grafana-datasource-query.py)
+- [Grafana security dashboard lesson](../learn/07-observe-respond/04-grafana-security-dashboard.md) — Build a security and SLO dashboard in Grafana
+- [Grafana security SLO dashboard config](../grafana/configs/security-slo-dashboard.json) — Grafana security and SLO dashboard definition
 - [Falco runtime security primer](../falco/notes/0000-primer-falco.md)
+- [Falco detect shell lesson](../learn/06-policy-secrets-runtime/07-falco-detect-shell.md) — Falco runtime shell detection, tuned by priority and filters
 - [Tetragon eBPF runtime primer](../tetragon/notes/0000-primer-tetragon.md)
 
 ### Triage findings and respond
