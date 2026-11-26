@@ -86,4 +86,4 @@ Counts reflect files inside each category subfolder. `Last verified` is the most
 Recently added Grafana security dashboards and Prometheus security alerts, plus signed-image admission and Falco shell-detection notes. tfsec, Nuclei, Prometheus, and SonarQube remain thin corners where first configs or scripts are still sparse.
 
 ---
-_Last updated: 2026-11-22_
+_Last updated: 2026-11-24_
