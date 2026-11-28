@@ -604,6 +604,7 @@
 - **Unbuffered output** — Writing each alert as it happens rather than in blocks, so the order of lines in the log matches the order of the events. Worth choosing when you are tailing output to follow a rule firing live.
 - **Log priority** — Syslog severity for the daemon's own messages, separate from the priority a rule attaches to an alert. Dropping it from `debug` to `notice` after rules are loading keeps the startup lines from being buried on a busy node.
 - **Node requirement (Falco)** — Falco watches syscalls on a real node, typically installed as a DaemonSet, so there is nothing to install or observe inside a plain container with no privileged driver. Without a node there is no event to log; the install stays mapped-out until a watchable host exists.
+- **Exceptions block (Falco)** — A rule-level `exceptions` list that names fields and values to drop from a rule's matches, used to silence trusted noise (for example a log-shipper sidecar spawning a shell) without weakening detection for everything else. The exception fields must match fields the rule's condition actually uses, or the exception silently does nothing.
 
 ## GitGuardian
 
